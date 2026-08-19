@@ -6,6 +6,7 @@
 
 :root {
   --color-pink: #ee1d78;
+  --color-red: #e53935;
   --color-navy: #001b66;
   --color-cyan: #4ec3e0;
   --color-green: #6fbf4a;
@@ -726,7 +727,7 @@ button {
 }
 
 .site-footer__heading--explore {
-  color: #e53935;
+  color: var(--color-red);
 }
 
 .site-footer__links {
