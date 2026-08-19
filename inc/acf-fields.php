@@ -647,3 +647,109 @@ acf_add_local_field_group(
 		'active'                => true,
 	)
 );
+
+acf_add_local_field_group(
+	array(
+		'key'                   => 'group_about_hero',
+		'title'                 => 'About — Hero / Banner',
+		'fields'                => array(
+			array(
+				'key'           => 'field_about_hero_eyebrow',
+				'label'         => 'Eyebrow label',
+				'name'          => 'about_hero_eyebrow',
+				'type'          => 'text',
+				'default_value' => 'ABOUT US',
+				'instructions'  => 'Small label above the main heading.',
+			),
+			array(
+				'key'           => 'field_about_hero_title_line_1',
+				'label'         => 'Heading line 1 (navy)',
+				'name'          => 'about_hero_title_line_1',
+				'type'          => 'text',
+				'default_value' => 'Every Child Has a Dream.',
+			),
+			array(
+				'key'           => 'field_about_hero_title_accent',
+				'label'         => 'Heading accent word (pink underline)',
+				'name'          => 'about_hero_title_accent',
+				'type'          => 'text',
+				'default_value' => 'We\'re',
+				'instructions'  => 'Word shown with the decorative pink underline.',
+			),
+			array(
+				'key'           => 'field_about_hero_title_underline',
+				'label'         => 'Heading underline image',
+				'name'          => 'about_hero_title_underline',
+				'type'          => 'image',
+				'return_format' => 'array',
+				'preview_size'  => 'thumbnail',
+				'library'       => 'all',
+				'instructions'  => 'Leave empty to keep the default underline graphic.',
+			),
+			array(
+				'key'           => 'field_about_hero_title_line_2',
+				'label'         => 'Heading line 2 (pink, after accent)',
+				'name'          => 'about_hero_title_line_2',
+				'type'          => 'text',
+				'default_value' => 'Here to Help It Grow.',
+			),
+			array(
+				'key'           => 'field_about_hero_text',
+				'label'         => 'Intro paragraph',
+				'name'          => 'about_hero_text',
+				'type'          => 'textarea',
+				'rows'          => 4,
+				'new_lines'     => '',
+				'default_value' => 'Bright Dreamers is a nonprofit community where children are encouraged to dream freely, explore their ideas, create with confidence, and make a positive difference in the world.',
+			),
+			array(
+				'key'           => 'field_about_hero_primary_cta',
+				'label'         => 'Primary button',
+				'name'          => 'about_hero_primary_cta',
+				'type'          => 'link',
+				'return_format' => 'array',
+				'instructions'  => 'Solid pink button (star icon stays in the design). Default: Apply to Become a Bright Dreamer.',
+			),
+			array(
+				'key'           => 'field_about_hero_secondary_cta',
+				'label'         => 'Secondary button',
+				'name'          => 'about_hero_secondary_cta',
+				'type'          => 'link',
+				'return_format' => 'array',
+				'instructions'  => 'Outline button (heart icon stays in the design). Default: See Our Vision.',
+			),
+			array(
+				'key'           => 'field_about_hero_banner',
+				'label'         => 'Banner image',
+				'name'          => 'about_hero_banner',
+				'type'          => 'image',
+				'return_format' => 'array',
+				'preview_size'  => 'medium',
+				'library'       => 'all',
+				'instructions'  => 'Leave empty to keep the current about banner photo.',
+			),
+			array(
+				'key'           => 'field_about_hero_banner_alt',
+				'label'         => 'Banner alt text',
+				'name'          => 'about_hero_banner_alt',
+				'type'          => 'text',
+				'default_value' => 'Children creating art together at Bright Dreamers Club',
+			),
+		),
+		'location'              => array(
+			array(
+				array(
+					'param'    => 'page_template',
+					'operator' => '==',
+					'value'    => 'page-about.php',
+				),
+			),
+		),
+		'menu_order'            => 0,
+		'position'              => 'normal',
+		'style'                 => 'default',
+		'label_placement'       => 'top',
+		'instruction_placement' => 'label',
+		'active'                => true,
+	)
+);

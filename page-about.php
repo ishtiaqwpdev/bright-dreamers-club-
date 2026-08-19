@@ -8,40 +8,112 @@
  */
 
 get_header();
+
+$about_page_id = get_queried_object_id();
+
+$about_hero_lazy_placeholder = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';
+
+$about_hero_eyebrow = bdc_get_acf_text(
+	'about_hero_eyebrow',
+	'ABOUT US',
+	$about_page_id
+);
+$about_hero_title_line_1 = bdc_get_acf_text(
+	'about_hero_title_line_1',
+	'Every Child Has a Dream.',
+	$about_page_id
+);
+$about_hero_title_accent = bdc_get_acf_text(
+	'about_hero_title_accent',
+	'We\'re',
+	$about_page_id
+);
+$about_hero_title_underline_url = bdc_get_acf_image_url(
+	'about_hero_title_underline',
+	bdc_theme_asset_url( 'assets/images/heading-underline.jpeg' ),
+	$about_page_id
+);
+$about_hero_title_line_2 = bdc_get_acf_text(
+	'about_hero_title_line_2',
+	'Here to Help It Grow.',
+	$about_page_id
+);
+$about_hero_text = bdc_get_acf_text(
+	'about_hero_text',
+	'Bright Dreamers is a nonprofit community where children are encouraged to dream freely, explore their ideas, create with confidence, and make a positive difference in the world.',
+	$about_page_id
+);
+$about_hero_primary_cta = bdc_get_acf_link(
+	'about_hero_primary_cta',
+	array(
+		'title'  => 'Apply to Become a Bright Dreamer',
+		'url'    => bdc_page_url( 'apply-to-become.html' ),
+		'target' => '',
+	),
+	$about_page_id
+);
+$about_hero_secondary_cta = bdc_get_acf_link(
+	'about_hero_secondary_cta',
+	array(
+		'title'  => 'See Our Vision',
+		'url'    => bdc_page_url( 'our-vision.html' ),
+		'target' => '',
+	),
+	$about_page_id
+);
+$about_hero_banner_url = bdc_get_acf_image_url(
+	'about_hero_banner',
+	bdc_theme_asset_url( 'assets/images/about-banner.png' ),
+	$about_page_id
+);
+$about_hero_banner_alt = bdc_get_acf_text(
+	'about_hero_banner_alt',
+	'Children creating art together at Bright Dreamers Club',
+	$about_page_id
+);
 ?>
     <main id="main-content">
       <section class="page-hero about-hero" aria-label="About Bright Dreamers">
         <div class="site-container page-hero__inner">
           <div class="page-hero__content">
-            <p class="about-hero__eyebrow">ABOUT US</p>
+            <p class="about-hero__eyebrow"><?php echo esc_html( $about_hero_eyebrow ); ?></p>
 
             <h1 class="about-hero__title">
+              <?php if ( '' !== trim( $about_hero_title_line_1 ) ) : ?>
               <span class="about-hero__title-line about-hero__title-line--navy">
-                Every Child Has a Dream.
+                <?php echo esc_html( $about_hero_title_line_1 ); ?>
               </span>
+              <?php endif; ?>
+              <?php if ( '' !== trim( $about_hero_title_accent ) || '' !== trim( $about_hero_title_line_2 ) ) : ?>
               <span class="about-hero__title-line about-hero__title-line--pink">
+                <?php if ( '' !== trim( $about_hero_title_accent ) ) : ?>
                 <span class="heading-underline">
-                  We're
+                  <?php echo esc_html( $about_hero_title_accent ); ?>
                   <img
                     class="heading-underline__img"
-                    src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/heading-underline.jpeg' ); ?>"
+                    src="<?php echo esc_url( $about_hero_title_underline_url ); ?>"
                     alt=""
                     width="120"
                     height="12"
                   />
                 </span>
-                Here to Help It Grow.
+                <?php endif; ?>
+                <?php if ( '' !== trim( $about_hero_title_line_2 ) ) : ?>
+                <?php echo ( '' !== trim( $about_hero_title_accent ) ) ? ' ' : ''; ?><?php echo esc_html( $about_hero_title_line_2 ); ?>
+                <?php endif; ?>
               </span>
+              <?php endif; ?>
             </h1>
 
+            <?php if ( '' !== trim( $about_hero_text ) ) : ?>
             <p class="page-hero__text">
-              Bright Dreamers is a nonprofit community where children are
-              encouraged to dream freely, explore their ideas, create with
-              confidence, and make a positive difference in the world.
+              <?php echo esc_html( $about_hero_text ); ?>
             </p>
+            <?php endif; ?>
 
             <div class="page-hero__actions">
-              <a class="btn btn--solid btn--lg btn-hover" href="<?php echo esc_url( bdc_page_url( 'apply-to-become.html' ) ); ?>">
+              <?php if ( ! empty( $about_hero_primary_cta['url'] ) ) : ?>
+              <a class="btn btn--solid btn--lg btn-hover" href="<?php echo esc_url( $about_hero_primary_cta['url'] ); ?>"<?php echo bdc_acf_link_target_attr( $about_hero_primary_cta ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
                 <svg
                   class="btn__icon btn__icon--star"
                   viewBox="0 0 24 24"
@@ -52,10 +124,12 @@ get_header();
                     d="M12 2l2.4 4.9 5.4.8-3.9 3.8.9 5.4L12 14.8 7.2 17l.9-5.4L4.2 7.7l5.4-.8L12 2z"
                   />
                 </svg>
-                Apply to Become a Bright Dreamer
+                <?php echo esc_html( $about_hero_primary_cta['title'] ); ?>
               </a>
-              <a class="btn btn--outline btn--lg btn-hover" href="<?php echo esc_url( bdc_page_url( 'our-vision.html' ) ); ?>">
-                See Our Vision
+              <?php endif; ?>
+              <?php if ( ! empty( $about_hero_secondary_cta['url'] ) ) : ?>
+              <a class="btn btn--outline btn--lg btn-hover" href="<?php echo esc_url( $about_hero_secondary_cta['url'] ); ?>"<?php echo bdc_acf_link_target_attr( $about_hero_secondary_cta ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
+                <?php echo esc_html( $about_hero_secondary_cta['title'] ); ?>
                 <svg
                   class="btn__icon"
                   viewBox="0 0 24 24"
@@ -71,6 +145,7 @@ get_header();
                   />
                 </svg>
               </a>
+              <?php endif; ?>
             </div>
           </div>
 
@@ -78,9 +153,9 @@ get_header();
             <div class="lazy-img-wrap">
               <img
                 class="about-hero__banner lazy-img"
-                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-                data-src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/about-banner.png' ); ?>"
-                alt="Children creating art together at Bright Dreamers Club"
+                src="<?php echo esc_attr( $about_hero_lazy_placeholder ); ?>"
+                data-src="<?php echo esc_url( $about_hero_banner_url ); ?>"
+                alt="<?php echo esc_attr( $about_hero_banner_alt ); ?>"
                 width="1200"
                 height="900"
                 decoding="async"
