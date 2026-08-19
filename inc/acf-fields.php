@@ -276,3 +276,374 @@ acf_add_local_field_group(
 		'active'                => true,
 	)
 );
+
+acf_add_local_field_group(
+	array(
+		'key'                   => 'group_home_different',
+		'title'                 => 'Home — What Makes Us Different',
+		'fields'                => array(
+			array(
+				'key'           => 'field_home_different_title',
+				'label'         => 'Section title',
+				'name'          => 'home_different_title',
+				'type'          => 'text',
+				'default_value' => 'What Makes Bright Dreamers Different?',
+			),
+			array(
+				'key'          => 'field_home_different_items',
+				'label'        => 'Items',
+				'name'         => 'home_different_items',
+				'type'         => 'repeater',
+				'layout'       => 'block',
+				'button_label' => 'Add item',
+				'min'          => 1,
+				'max'          => 8,
+				'instructions' => 'Leave empty to keep all six default items. Icon images are optional — defaults stay if not set.',
+				'sub_fields'   => array(
+					array(
+						'key'           => 'field_home_different_item_icon',
+						'label'         => 'Icon',
+						'name'          => 'icon',
+						'type'          => 'image',
+						'return_format' => 'array',
+						'preview_size'  => 'thumbnail',
+					),
+					array(
+						'key'   => 'field_home_different_item_name',
+						'label' => 'Name',
+						'name'  => 'name',
+						'type'  => 'text',
+					),
+					array(
+						'key'   => 'field_home_different_item_description',
+						'label' => 'Description',
+						'name'  => 'description',
+						'type'  => 'text',
+					),
+				),
+			),
+		),
+		'location'              => array(
+			array(
+				array(
+					'param'    => 'page_type',
+					'operator' => '==',
+					'value'    => 'front_page',
+				),
+			),
+		),
+		'menu_order'            => 2,
+		'position'              => 'normal',
+		'style'                 => 'default',
+		'label_placement'       => 'top',
+		'instruction_placement' => 'label',
+		'active'                => true,
+	)
+);
+
+acf_add_local_field_group(
+	array(
+		'key'                   => 'group_home_reality',
+		'title'                 => 'Home — How Ideas Become Reality',
+		'fields'                => array(
+			array(
+				'key'           => 'field_home_reality_title',
+				'label'         => 'Section title',
+				'name'          => 'home_reality_title',
+				'type'          => 'text',
+				'default_value' => 'How Ideas Become Reality',
+			),
+			array(
+				'key'          => 'field_home_reality_steps',
+				'label'        => 'Steps',
+				'name'         => 'home_reality_steps',
+				'type'         => 'repeater',
+				'layout'       => 'block',
+				'button_label' => 'Add step',
+				'min'          => 1,
+				'max'          => 8,
+				'instructions' => 'Leave the repeater empty to keep all six default steps. Color style keeps the theme default per row if not set.',
+				'sub_fields'   => array(
+					array(
+						'key'           => 'field_home_reality_step_icon',
+						'label'         => 'Icon',
+						'name'          => 'icon',
+						'type'          => 'image',
+						'return_format' => 'array',
+						'preview_size'  => 'thumbnail',
+					),
+					array(
+						'key'   => 'field_home_reality_step_title',
+						'label' => 'Step title',
+						'name'  => 'title',
+						'type'  => 'text',
+					),
+					array(
+						'key'   => 'field_home_reality_step_description',
+						'label' => 'Description',
+						'name'  => 'description',
+						'type'  => 'text',
+					),
+					array(
+						'key'           => 'field_home_reality_step_style',
+						'label'         => 'Color style',
+						'name'          => 'style_slug',
+						'type'          => 'select',
+						'choices'       => array(
+							''          => 'Default for this row',
+							'dream'     => 'Dream',
+							'imagine'   => 'Imagine',
+							'create'    => 'Create',
+							'share'     => 'Share',
+							'help'      => 'Help Others',
+							'celebrate' => 'Celebrate',
+						),
+						'default_value' => '',
+						'allow_null'  => 1,
+						'ui'          => 0,
+					),
+				),
+			),
+		),
+		'location'              => array(
+			array(
+				array(
+					'param'    => 'page_type',
+					'operator' => '==',
+					'value'    => 'front_page',
+				),
+			),
+		),
+		'menu_order'            => 3,
+		'position'              => 'normal',
+		'style'                 => 'default',
+		'label_placement'       => 'top',
+		'instruction_placement' => 'label',
+		'active'                => true,
+	)
+);
+
+acf_add_local_field_group(
+	array(
+		'key'                   => 'group_home_explore',
+		'title'                 => 'Home — Explore Experiences',
+		'fields'                => array(
+			array(
+				'key'           => 'field_home_explore_title',
+				'label'         => 'Section title',
+				'name'          => 'home_explore_title',
+				'type'          => 'text',
+				'default_value' => 'Explore Experiences',
+			),
+			array(
+				'key'          => 'field_home_explore_cards',
+				'label'        => 'Experience cards',
+				'name'         => 'home_explore_cards',
+				'type'         => 'repeater',
+				'layout'       => 'block',
+				'button_label' => 'Add card',
+				'min'          => 1,
+				'max'          => 6,
+				'instructions' => 'Leave empty to keep all four default program cards.',
+				'sub_fields'   => array(
+					array(
+						'key'           => 'field_home_explore_card_photo',
+						'label'         => 'Photo',
+						'name'          => 'photo',
+						'type'          => 'image',
+						'return_format' => 'array',
+						'preview_size'  => 'medium',
+					),
+					array(
+						'key'   => 'field_home_explore_card_photo_alt',
+						'label' => 'Photo alt text',
+						'name'  => 'photo_alt',
+						'type'  => 'text',
+					),
+					array(
+						'key'           => 'field_home_explore_card_icon',
+						'label'         => 'Card icon',
+						'name'          => 'icon',
+						'type'          => 'image',
+						'return_format' => 'array',
+						'preview_size'  => 'thumbnail',
+					),
+					array(
+						'key'   => 'field_home_explore_card_title',
+						'label' => 'Title',
+						'name'  => 'title',
+						'type'  => 'text',
+					),
+					array(
+						'key'   => 'field_home_explore_card_text',
+						'label' => 'Description',
+						'name'  => 'description',
+						'type'  => 'textarea',
+						'rows'  => 2,
+					),
+					array(
+						'key'           => 'field_home_explore_card_link',
+						'label'         => 'Learn More link',
+						'name'          => 'link',
+						'type'          => 'link',
+						'return_format' => 'array',
+					),
+				),
+			),
+		),
+		'location'              => array(
+			array(
+				array(
+					'param'    => 'page_type',
+					'operator' => '==',
+					'value'    => 'front_page',
+				),
+			),
+		),
+		'menu_order'            => 4,
+		'position'              => 'normal',
+		'style'                 => 'default',
+		'label_placement'       => 'top',
+		'instruction_placement' => 'label',
+		'active'                => true,
+	)
+);
+
+acf_add_local_field_group(
+	array(
+		'key'                   => 'group_home_spotlight',
+		'title'                 => 'Home — Spotlight',
+		'fields'                => array(
+			array(
+				'key'        => 'field_home_spotlight_ideas',
+				'label'      => 'Card 1 — Children\'s Ideas Matter',
+				'name'       => 'home_spotlight_ideas',
+				'type'       => 'group',
+				'layout'     => 'block',
+				'sub_fields' => array(
+					array(
+						'key'           => 'field_home_spotlight_ideas_title',
+						'label'         => 'Title',
+						'name'          => 'title',
+						'type'          => 'text',
+						'default_value' => 'Children\'s Ideas Matter',
+					),
+					array(
+						'key'           => 'field_home_spotlight_ideas_lead',
+						'label'         => 'Lead paragraph',
+						'name'          => 'lead',
+						'type'          => 'textarea',
+						'rows'          => 2,
+						'default_value' => 'Bright Dreamers is built with children—not just for children.',
+					),
+					array(
+						'key'           => 'field_home_spotlight_ideas_body',
+						'label'         => 'Body paragraph',
+						'name'          => 'body',
+						'type'          => 'textarea',
+						'rows'          => 4,
+						'default_value' => 'Many of our projects begin with children\'s own ideas. Children help imagine new activities, suggest community projects, and inspire future programs through our Young Dreamers Council.',
+					),
+					array(
+						'key'           => 'field_home_spotlight_ideas_highlight',
+						'label'         => 'Highlight text',
+						'name'          => 'highlight',
+						'type'          => 'textarea',
+						'rows'          => 2,
+						'new_lines'     => 'br',
+						'default_value' => "Because the best ideas sometimes\ncome from the smallest voices.",
+						'instructions'  => 'Use a line break for a second line.',
+					),
+					array(
+						'key'           => 'field_home_spotlight_ideas_photo',
+						'label'         => 'Photo',
+						'name'          => 'photo',
+						'type'          => 'image',
+						'return_format' => 'array',
+						'preview_size'  => 'medium',
+					),
+					array(
+						'key'           => 'field_home_spotlight_ideas_photo_alt',
+						'label'         => 'Photo alt text',
+						'name'          => 'photo_alt',
+						'type'          => 'text',
+						'default_value' => 'Children collaborating together at a table',
+					),
+				),
+			),
+			array(
+				'key'        => 'field_home_spotlight_council',
+				'label'      => 'Card 2 — Young Dreamers Council',
+				'name'       => 'home_spotlight_council',
+				'type'       => 'group',
+				'layout'     => 'block',
+				'sub_fields' => array(
+					array(
+						'key'           => 'field_home_spotlight_council_title',
+						'label'         => 'Title',
+						'name'          => 'title',
+						'type'          => 'text',
+						'default_value' => 'Young Dreamers Council',
+					),
+					array(
+						'key'          => 'field_home_spotlight_council_list',
+						'label'        => 'List items',
+						'name'         => 'list_items',
+						'type'         => 'repeater',
+						'layout'       => 'table',
+						'button_label' => 'Add item',
+						'min'          => 1,
+						'max'          => 8,
+						'sub_fields'   => array(
+							array(
+								'key'   => 'field_home_spotlight_council_list_text',
+								'label' => 'Item text',
+								'name'  => 'item_text',
+								'type'  => 'text',
+							),
+						),
+					),
+					array(
+						'key'           => 'field_home_spotlight_council_note',
+						'label'         => 'Note',
+						'name'          => 'note',
+						'type'          => 'textarea',
+						'rows'          => 2,
+						'default_value' => 'Adult mentors guide and support them every step of the way.',
+					),
+					array(
+						'key'           => 'field_home_spotlight_council_link',
+						'label'         => 'Button link',
+						'name'          => 'link',
+						'type'          => 'link',
+						'return_format' => 'array',
+					),
+					array(
+						'key'           => 'field_home_spotlight_council_illustration',
+						'label'         => 'Illustration',
+						'name'          => 'illustration',
+						'type'          => 'image',
+						'return_format' => 'array',
+						'preview_size'  => 'medium',
+						'instructions'  => 'Leave empty to keep the current council illustration.',
+					),
+				),
+			),
+		),
+		'location'              => array(
+			array(
+				array(
+					'param'    => 'page_type',
+					'operator' => '==',
+					'value'    => 'front_page',
+				),
+			),
+		),
+		'menu_order'            => 5,
+		'position'              => 'normal',
+		'style'                 => 'default',
+		'label_placement'       => 'top',
+		'instruction_placement' => 'label',
+		'active'                => true,
+	)
+);

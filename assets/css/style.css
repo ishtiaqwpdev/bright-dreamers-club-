@@ -1589,7 +1589,7 @@ img.lazy-img.loaded {
   font-size: clamp(1.35rem, 2.8vw, 2rem);
   line-height: 1.15;
   letter-spacing: -0.02em;
-  color: #dc2626;
+  color: var(--color-navy);
   text-align: center;
   margin: 0 0 clamp(0.85rem, 1.6vw, 1.25rem);
 }
