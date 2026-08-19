@@ -8,6 +8,368 @@
  */
 
 get_header();
+
+$creative_makers_page_id = get_queried_object_id();
+
+$creative_makers_hero_lazy_placeholder = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';
+
+$creative_makers_hero_breadcrumb_home_text = bdc_get_acf_text(
+	'creative_makers_hero_breadcrumb_home_text',
+	'Home',
+	$creative_makers_page_id
+);
+$creative_makers_hero_breadcrumb_home_link = bdc_get_acf_link(
+	'creative_makers_hero_breadcrumb_home_link',
+	array(
+		'title'  => 'Home',
+		'url'    => bdc_page_url( 'index.html' ),
+		'target' => '',
+	),
+	$creative_makers_page_id
+);
+$creative_makers_hero_breadcrumb_parent_text = bdc_get_acf_text(
+	'creative_makers_hero_breadcrumb_parent_text',
+	'Explore',
+	$creative_makers_page_id
+);
+$creative_makers_hero_breadcrumb_parent_link = bdc_get_acf_link(
+	'creative_makers_hero_breadcrumb_parent_link',
+	array(
+		'title'  => 'Explore',
+		'url'    => bdc_page_url( 'explore.html' ),
+		'target' => '',
+	),
+	$creative_makers_page_id
+);
+$creative_makers_hero_breadcrumb_current_text = bdc_get_acf_text(
+	'creative_makers_hero_breadcrumb_current_text',
+	'Creative Makers',
+	$creative_makers_page_id
+);
+$creative_makers_hero_title = bdc_get_acf_text(
+	'creative_makers_hero_title',
+	'Creative Makers',
+	$creative_makers_page_id
+);
+$creative_makers_hero_title_heart_url = bdc_get_acf_image_url(
+	'creative_makers_hero_title_heart',
+	bdc_theme_asset_url( 'assets/images/creative-makers-deco-heart.jpeg' ),
+	$creative_makers_page_id
+);
+$creative_makers_hero_tagline = bdc_get_acf_text(
+	'creative_makers_hero_tagline',
+	'Imagine it. Create it. Share it.',
+	$creative_makers_page_id
+);
+$creative_makers_hero_text = bdc_get_acf_text(
+	'creative_makers_hero_text',
+	'Creative Makers is where children explore their imagination through art, design, and hands-on crafts. From painting and DIY projects to decorating and upcycling, kids learn to express themselves, build confidence, and turn everyday materials into something meaningful.',
+	$creative_makers_page_id
+);
+$creative_makers_hero_primary_btn_text = bdc_get_acf_text(
+	'creative_makers_hero_primary_btn_text',
+	'Learn More About This Experience',
+	$creative_makers_page_id
+);
+$creative_makers_hero_primary_btn_link = bdc_get_acf_link(
+	'creative_makers_hero_primary_btn_link',
+	array(
+		'title'  => 'Learn More About This Experience',
+		'url'    => '#creative-makers-parents',
+		'target' => '',
+	),
+	$creative_makers_page_id
+);
+$creative_makers_hero_back_text = bdc_get_acf_text(
+	'creative_makers_hero_back_text',
+	'Back to All Experiences',
+	$creative_makers_page_id
+);
+$creative_makers_hero_back_link = bdc_get_acf_link(
+	'creative_makers_hero_back_link',
+	array(
+		'title'  => 'Back to All Experiences',
+		'url'    => bdc_page_url( 'explore.html' ),
+		'target' => '',
+	),
+	$creative_makers_page_id
+);
+$creative_makers_hero_banner_url = bdc_get_acf_image_url(
+	'creative_makers_hero_banner',
+	bdc_theme_asset_url( 'assets/images/creative-makers-hero-banner.jpeg' ),
+	$creative_makers_page_id
+);
+$creative_makers_hero_banner_alt = bdc_get_acf_text(
+	'creative_makers_hero_banner_alt',
+	'Three children smiling while painting together at a table',
+	$creative_makers_page_id
+);
+$creative_makers_hero_deco_star_url = bdc_get_acf_image_url(
+	'creative_makers_hero_deco_star',
+	bdc_theme_asset_url( 'assets/images/creative-makers-deco-star.jpeg' ),
+	$creative_makers_page_id
+);
+$creative_makers_hero_deco_plane_url = bdc_get_acf_image_url(
+	'creative_makers_hero_deco_plane',
+	bdc_theme_asset_url( 'assets/images/creative-makers-deco-plane.jpeg' ),
+	$creative_makers_page_id
+);
+
+$creative_makers_explore_title = bdc_get_acf_text(
+	'creative_makers_explore_title',
+	'Children Explore',
+	$creative_makers_page_id
+);
+$creative_makers_explore_activities_defaults = array(
+	array(
+		'icon'       => bdc_theme_asset_url( 'assets/images/creative-makers-icon-paint.jpeg' ),
+		'title'      => 'Painting & Drawing',
+		'color_slug' => 'paint',
+	),
+	array(
+		'icon'       => bdc_theme_asset_url( 'assets/images/creative-makers-icon-scissors.jpeg' ),
+		'title'      => 'Crafts & DIY',
+		'color_slug' => 'crafts',
+	),
+	array(
+		'icon'       => bdc_theme_asset_url( 'assets/images/creative-makers-icon-rocket-removebg-preview.png' ),
+		'title'      => 'Mixed Media Art',
+		'color_slug' => 'media',
+	),
+	array(
+		'icon'       => bdc_theme_asset_url( 'assets/images/creative-makers-icon-clip-removebg-preview.png' ),
+		'title'      => 'Design & Decorate',
+		'color_slug' => 'design',
+	),
+	array(
+		'icon'       => bdc_theme_asset_url( 'assets/images/creative-makers-icon-recycle-removebg-preview.png' ),
+		'title'      => 'Upcycle & Reuse',
+		'color_slug' => 'upcycle',
+	),
+);
+$creative_makers_explore_color_slugs_allowed = array( 'paint', 'crafts', 'media', 'design', 'upcycle' );
+$creative_makers_explore_activities_raw      = bdc_get_acf_repeater( 'creative_makers_explore_activities', $creative_makers_explore_activities_defaults, $creative_makers_page_id );
+$creative_makers_explore_activities          = array();
+
+foreach ( $creative_makers_explore_activities_raw as $index => $row ) {
+	$default = $creative_makers_explore_activities_defaults[ $index ] ?? array(
+		'icon'       => '',
+		'title'      => '',
+		'color_slug' => 'paint',
+	);
+
+	$title = isset( $row['title'] ) ? trim( (string) $row['title'] ) : '';
+
+	$color_slug = isset( $row['color_slug'] ) ? sanitize_key( (string) $row['color_slug'] ) : '';
+	if ( ! in_array( $color_slug, $creative_makers_explore_color_slugs_allowed, true ) ) {
+		$color_slug = (string) $default['color_slug'];
+	}
+
+	$resolved = array(
+		'icon'       => bdc_acf_image_value_to_url( $row['icon'] ?? null, (string) $default['icon'] ),
+		'title'      => '' !== $title ? $title : (string) $default['title'],
+		'color_slug' => $color_slug,
+	);
+
+	if ( '' === trim( $resolved['title'] ) ) {
+		continue;
+	}
+
+	$creative_makers_explore_activities[] = $resolved;
+}
+
+if ( empty( $creative_makers_explore_activities ) ) {
+	$creative_makers_explore_activities = $creative_makers_explore_activities_defaults;
+}
+
+$creative_makers_info_aria_label = bdc_get_acf_text(
+	'creative_makers_info_aria_label',
+	'Skills, growth, and impact',
+	$creative_makers_page_id
+);
+$creative_makers_info_skills_title = bdc_get_acf_text(
+	'creative_makers_info_skills_title',
+	'Skills Children Naturally Build',
+	$creative_makers_page_id
+);
+$creative_makers_info_skills_items_defaults = array(
+	array( 'item_text' => 'Creativity & Imagination' ),
+	array( 'item_text' => 'Self-expression' ),
+	array( 'item_text' => 'Focus & patience' ),
+	array( 'item_text' => 'Confidence' ),
+	array( 'item_text' => 'Problem solving' ),
+);
+$creative_makers_info_skills_items_raw = bdc_get_acf_repeater( 'creative_makers_info_skills_items', $creative_makers_info_skills_items_defaults, $creative_makers_page_id );
+$creative_makers_info_skills_items     = array();
+
+foreach ( $creative_makers_info_skills_items_raw as $index => $row ) {
+	$default   = $creative_makers_info_skills_items_defaults[ $index ] ?? array( 'item_text' => '' );
+	$item_text = isset( $row['item_text'] ) ? trim( (string) $row['item_text'] ) : '';
+	$resolved  = '' !== $item_text ? $item_text : (string) $default['item_text'];
+
+	if ( '' === trim( $resolved ) ) {
+		continue;
+	}
+
+	$creative_makers_info_skills_items[] = array( 'item_text' => $resolved );
+}
+
+if ( empty( $creative_makers_info_skills_items ) ) {
+	$creative_makers_info_skills_items = $creative_makers_info_skills_items_defaults;
+}
+$creative_makers_info_skills_deco_url = bdc_get_acf_image_url(
+	'creative_makers_info_skills_deco',
+	bdc_theme_asset_url( 'assets/images/creative-makers-info-heart-removebg-preview.png' ),
+	$creative_makers_page_id
+);
+$creative_makers_info_grow_title_underline_word = bdc_get_acf_text(
+	'creative_makers_info_grow_title_underline_word',
+	'Children Grow',
+	$creative_makers_page_id
+);
+$creative_makers_info_grow_title_underline_url = bdc_get_acf_image_url(
+	'creative_makers_info_grow_title_underline',
+	bdc_theme_asset_url( 'assets/images/heading-underline.jpeg' ),
+	$creative_makers_page_id
+);
+$creative_makers_info_grow_title_suffix = bdc_get_acf_text(
+	'creative_makers_info_grow_title_suffix',
+	'Shape the Experience',
+	$creative_makers_page_id
+);
+$creative_makers_info_grow_text = bdc_get_acf_text(
+	'creative_makers_info_grow_text',
+	'Children bring their own ideas, choose projects that excite them, and help shape what the group creates together. Every session leaves room for curiosity, collaboration, and proud moments of "I made this!"',
+	$creative_makers_page_id
+);
+$creative_makers_info_grow_deco_url = bdc_get_acf_image_url(
+	'creative_makers_info_grow_deco',
+	bdc_theme_asset_url( 'assets/images/creative-makers-deco-star-removebg-preview.png' ),
+	$creative_makers_page_id
+);
+$creative_makers_info_impact_title = bdc_get_acf_text(
+	'creative_makers_info_impact_title',
+	'Making an Impact',
+	$creative_makers_page_id
+);
+$creative_makers_info_impact_text = bdc_get_acf_text(
+	'creative_makers_info_impact_text',
+	'Creative work doesn\'t stay on the table — children share art with the community, gift handmade projects, and learn that small creations can brighten someone\'s day.',
+	$creative_makers_page_id
+);
+$creative_makers_info_impact_deco_url = bdc_get_acf_image_url(
+	'creative_makers_info_impact_deco',
+	bdc_theme_asset_url( 'assets/images/creative-makers-deco-plant-removebg-preview.png' ),
+	$creative_makers_page_id
+);
+
+$creative_makers_parents_section_id = bdc_get_acf_text(
+	'creative_makers_parents_section_id',
+	'creative-makers-parents',
+	$creative_makers_page_id
+);
+$creative_makers_parents_title = bdc_get_acf_text(
+	'creative_makers_parents_title',
+	'What Parents Should Know',
+	$creative_makers_page_id
+);
+$creative_makers_parents_tablist_aria_label = bdc_get_acf_text(
+	'creative_makers_parents_tablist_aria_label',
+	'Parent information topics',
+	$creative_makers_page_id
+);
+$creative_makers_parents_faq_items_defaults = array(
+	array(
+		'panel_slug' => 'expect',
+		'tab_label'  => 'What to Expect',
+		'panel_text' => 'Sessions blend guided projects with open creative time. Children explore different materials, work individually and in small groups, and share what they make at the end of each experience.',
+	),
+	array(
+		'panel_slug' => 'materials',
+		'tab_label'  => 'Materials',
+		'panel_text' => 'We provide paints, paper, craft supplies, and safe tools. Children are encouraged to bring found objects for upcycling projects. Aprons and workspace covers help keep messes manageable.',
+	),
+	array(
+		'panel_slug' => 'safety',
+		'tab_label'  => 'Safety & Supervision',
+		'panel_text' => 'All activities are age-appropriate with adult guidance. Scissors, glue, and paints are introduced with clear safety instructions. Small group sizes ensure every child gets attention and support.',
+	),
+	array(
+		'panel_slug' => 'program',
+		'tab_label'  => 'Program Details & Registration',
+		'panel_text' => 'Creative Makers runs as part of Bright Dreamers experiences throughout the year. Visit our Get Involved page or contact us to learn about upcoming sessions, age groups, and how to register your child.',
+	),
+);
+$creative_makers_parents_faq_slugs_allowed = array( 'expect', 'materials', 'safety', 'program' );
+$creative_makers_parents_faq_items_raw      = bdc_get_acf_repeater( 'creative_makers_parents_faq_items', $creative_makers_parents_faq_items_defaults, $creative_makers_page_id );
+$creative_makers_parents_faq_items          = array();
+
+foreach ( $creative_makers_parents_faq_items_raw as $index => $row ) {
+	$default = $creative_makers_parents_faq_items_defaults[ $index ] ?? array(
+		'panel_slug' => 'expect',
+		'tab_label'  => '',
+		'panel_text' => '',
+	);
+
+	$tab_label  = isset( $row['tab_label'] ) ? trim( (string) $row['tab_label'] ) : '';
+	$panel_text = isset( $row['panel_text'] ) ? trim( (string) $row['panel_text'] ) : '';
+	$panel_slug = isset( $row['panel_slug'] ) ? sanitize_key( (string) $row['panel_slug'] ) : '';
+
+	if ( ! in_array( $panel_slug, $creative_makers_parents_faq_slugs_allowed, true ) ) {
+		$panel_slug = (string) $default['panel_slug'];
+	}
+
+	$resolved = array(
+		'panel_slug' => $panel_slug,
+		'tab_label'  => '' !== $tab_label ? $tab_label : (string) $default['tab_label'],
+		'panel_text' => '' !== $panel_text ? $panel_text : (string) $default['panel_text'],
+	);
+
+	if ( '' === trim( $resolved['tab_label'] ) && '' === trim( $resolved['panel_text'] ) ) {
+		continue;
+	}
+
+	$creative_makers_parents_faq_items[] = $resolved;
+}
+
+if ( empty( $creative_makers_parents_faq_items ) ) {
+	$creative_makers_parents_faq_items = $creative_makers_parents_faq_items_defaults;
+}
+
+$creative_makers_cta_aria_label = bdc_get_acf_text(
+	'creative_makers_cta_aria_label',
+	'Join Creative Makers',
+	$creative_makers_page_id
+);
+$creative_makers_cta_heart_url = bdc_get_acf_image_url(
+	'creative_makers_cta_heart',
+	bdc_theme_asset_url( 'assets/images/creative-makers-deco-heart-sm.jpeg' ),
+	$creative_makers_page_id
+);
+$creative_makers_cta_text = bdc_get_acf_text(
+	'creative_makers_cta_text',
+	'Every child has a creative spark. We help them set it free.',
+	$creative_makers_page_id
+);
+$creative_makers_cta_plane_url = bdc_get_acf_image_url(
+	'creative_makers_cta_plane',
+	bdc_theme_asset_url( 'assets/images/creative-makers-deco-plane-removebg-preview.png' ),
+	$creative_makers_page_id
+);
+$creative_makers_cta_btn_text = bdc_get_acf_text(
+	'creative_makers_cta_btn_text',
+	'Learn More About This Experience',
+	$creative_makers_page_id
+);
+$creative_makers_cta_btn_link = bdc_get_acf_link(
+	'creative_makers_cta_btn_link',
+	array(
+		'title'  => 'Learn More About This Experience',
+		'url'    => bdc_page_url( 'get-involved.html' ),
+		'target' => '',
+	),
+	$creative_makers_page_id
+);
 ?>
     <main id="main-content">
       <section class="page-hero creative-makers-hero" aria-labelledby="creative-makers-title">
@@ -16,39 +378,51 @@ get_header();
             <div class="page-hero__content creative-makers-hero__content">
               <nav class="creative-makers-breadcrumbs" aria-label="Breadcrumb">
                 <ol class="creative-makers-breadcrumbs__list">
-                  <li><a href="<?php echo esc_url( bdc_page_url( 'index.html' ) ); ?>">Home</a></li>
-                  <li><a href="<?php echo esc_url( bdc_page_url( 'explore.html' ) ); ?>">Explore</a></li>
-                  <li aria-current="page">Creative Makers</li>
+                  <?php if ( ! empty( $creative_makers_hero_breadcrumb_home_link['url'] ) && '' !== trim( $creative_makers_hero_breadcrumb_home_text ) ) : ?>
+                  <li><a href="<?php echo esc_url( $creative_makers_hero_breadcrumb_home_link['url'] ); ?>"<?php echo bdc_acf_link_target_attr( $creative_makers_hero_breadcrumb_home_link ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>><?php echo esc_html( $creative_makers_hero_breadcrumb_home_text ); ?></a></li>
+                  <?php endif; ?>
+                  <?php if ( ! empty( $creative_makers_hero_breadcrumb_parent_link['url'] ) && '' !== trim( $creative_makers_hero_breadcrumb_parent_text ) ) : ?>
+                  <li><a href="<?php echo esc_url( $creative_makers_hero_breadcrumb_parent_link['url'] ); ?>"<?php echo bdc_acf_link_target_attr( $creative_makers_hero_breadcrumb_parent_link ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>><?php echo esc_html( $creative_makers_hero_breadcrumb_parent_text ); ?></a></li>
+                  <?php endif; ?>
+                  <?php if ( '' !== trim( $creative_makers_hero_breadcrumb_current_text ) ) : ?>
+                  <li aria-current="page"><?php echo esc_html( $creative_makers_hero_breadcrumb_current_text ); ?></li>
+                  <?php endif; ?>
                 </ol>
               </nav>
 
+              <?php if ( '' !== trim( $creative_makers_hero_title ) ) : ?>
               <h1 class="creative-makers-hero__title" id="creative-makers-title">
-                Creative Makers
+                <?php echo esc_html( $creative_makers_hero_title ); ?>
+                <?php if ( '' !== trim( $creative_makers_hero_title_heart_url ) ) : ?>
                 <img
                   class="creative-makers-hero__title-heart"
-                  src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/creative-makers-deco-heart.jpeg' ); ?>"
+                  src="<?php echo esc_url( $creative_makers_hero_title_heart_url ); ?>"
                   alt=""
                   width="28"
                   height="28"
                   decoding="async"
                   aria-hidden="true"
                 />
+                <?php endif; ?>
               </h1>
+              <?php endif; ?>
 
+              <?php if ( '' !== trim( $creative_makers_hero_tagline ) ) : ?>
               <p class="creative-makers-hero__tagline">
-                Imagine it. Create it. Share it.
+                <?php echo esc_html( $creative_makers_hero_tagline ); ?>
               </p>
+              <?php endif; ?>
 
+              <?php if ( '' !== trim( $creative_makers_hero_text ) ) : ?>
               <p class="creative-makers-hero__text">
-                Creative Makers is where children explore their imagination through
-                art, design, and hands-on crafts. From painting and DIY projects to
-                decorating and upcycling, kids learn to express themselves, build
-                confidence, and turn everyday materials into something meaningful.
+                <?php echo esc_html( $creative_makers_hero_text ); ?>
               </p>
+              <?php endif; ?>
 
               <div class="page-hero__actions creative-makers-hero__actions">
-                <a class="btn btn--solid btn--lg btn-hover" href="#creative-makers-parents">
-                  Learn More About This Experience
+                <?php if ( ! empty( $creative_makers_hero_primary_btn_link['url'] ) && '' !== trim( $creative_makers_hero_primary_btn_text ) ) : ?>
+                <a class="btn btn--solid btn--lg btn-hover" href="<?php echo esc_url( $creative_makers_hero_primary_btn_link['url'] ); ?>"<?php echo bdc_acf_link_target_attr( $creative_makers_hero_primary_btn_link ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
+                  <?php echo esc_html( $creative_makers_hero_primary_btn_text ); ?>
                   <svg
                     class="btn__icon"
                     viewBox="0 0 24 24"
@@ -64,7 +438,9 @@ get_header();
                     <path d="M5 12h14M13 6l6 6-6 6" />
                   </svg>
                 </a>
-                <a class="creative-makers-hero__back" href="<?php echo esc_url( bdc_page_url( 'explore.html' ) ); ?>">
+                <?php endif; ?>
+                <?php if ( ! empty( $creative_makers_hero_back_link['url'] ) && '' !== trim( $creative_makers_hero_back_text ) ) : ?>
+                <a class="creative-makers-hero__back" href="<?php echo esc_url( $creative_makers_hero_back_link['url'] ); ?>"<?php echo bdc_acf_link_target_attr( $creative_makers_hero_back_link ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
                   <svg
                     viewBox="0 0 24 24"
                     width="16"
@@ -78,8 +454,9 @@ get_header();
                   >
                     <path d="M19 12H5M11 6l-6 6 6 6" />
                   </svg>
-                  Back to All Experiences
+                  <?php echo esc_html( $creative_makers_hero_back_text ); ?>
                 </a>
+                <?php endif; ?>
               </div>
             </div>
 
@@ -87,9 +464,9 @@ get_header();
               <div class="lazy-img-wrap">
                 <img
                   class="creative-makers-hero__banner lazy-img"
-                  src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-                  data-src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/creative-makers-hero-banner.jpeg' ); ?>"
-                  alt="Three children smiling while painting together at a table"
+                  src="<?php echo esc_attr( $creative_makers_hero_lazy_placeholder ); ?>"
+                  data-src="<?php echo esc_url( $creative_makers_hero_banner_url ); ?>"
+                  alt="<?php echo esc_attr( $creative_makers_hero_banner_alt ); ?>"
                   width="1200"
                   height="720"
                   decoding="async"
@@ -98,316 +475,68 @@ get_header();
             </div>
           </div>
 
+          <?php if ( '' !== trim( $creative_makers_hero_deco_star_url ) ) : ?>
           <img
             class="creative-makers-hero__deco creative-makers-hero__deco--star"
-            src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/creative-makers-deco-star.jpeg' ); ?>"
+            src="<?php echo esc_url( $creative_makers_hero_deco_star_url ); ?>"
             alt=""
             width="34"
             height="34"
             decoding="async"
             aria-hidden="true"
           />
+          <?php endif; ?>
+          <?php if ( '' !== trim( $creative_makers_hero_deco_plane_url ) ) : ?>
           <img
             class="creative-makers-hero__deco creative-makers-hero__deco--plane"
-            src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/creative-makers-deco-plane.jpeg' ); ?>"
+            src="<?php echo esc_url( $creative_makers_hero_deco_plane_url ); ?>"
             alt=""
             width="120"
             height="60"
             decoding="async"
             aria-hidden="true"
           />
+          <?php endif; ?>
         </div>
       </section>
 
       <section class="creative-makers-explore" aria-labelledby="creative-makers-explore-title">
         <div class="site-container">
           <h2 class="creative-makers-explore__title" id="creative-makers-explore-title">
-            Children Explore
+            <?php echo esc_html( $creative_makers_explore_title ); ?>
           </h2>
 
-          <div class="creative-makers-explore__grid">
-            <article class="creative-makers-activity creative-makers-activity--paint">
-              <img
-                class="creative-makers-activity__icon"
-                src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/creative-makers-icon-paint.jpeg' ); ?>"
-                alt=""
-                width="68"
-                height="68"
-                loading="lazy"
-                decoding="async"
-              />
-              <h3 class="creative-makers-activity__title">Painting &amp; Drawing</h3>
-            </article>
-
-            <article class="creative-makers-activity creative-makers-activity--crafts">
-              <img
-                class="creative-makers-activity__icon"
-                src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/creative-makers-icon-scissors.jpeg' ); ?>"
-                alt=""
-                width="68"
-                height="68"
-                loading="lazy"
-                decoding="async"
-              />
-              <h3 class="creative-makers-activity__title">Crafts &amp; DIY</h3>
-            </article>
-
-            <article class="creative-makers-activity creative-makers-activity--media">
-              <img
-                class="creative-makers-activity__icon"
-                src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/creative-makers-icon-rocket-removebg-preview.png' ); ?>"
-                alt=""
-                width="68"
-                height="68"
-                loading="lazy"
-                decoding="async"
-              />
-              <h3 class="creative-makers-activity__title">Mixed Media Art</h3>
-            </article>
-
-            <article class="creative-makers-activity creative-makers-activity--design">
-              <img
-                class="creative-makers-activity__icon"
-                src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/creative-makers-icon-clip-removebg-preview.png' ); ?>"
-                alt=""
-                width="68"
-                height="68"
-                loading="lazy"
-                decoding="async"
-              />
-              <h3 class="creative-makers-activity__title">Design &amp; Decorate</h3>
-            </article>
-
-            <article class="creative-makers-activity creative-makers-activity--upcycle">
-              <img
-                class="creative-makers-activity__icon"
-                src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/creative-makers-icon-recycle-removebg-preview.png' ); ?>"
-                alt=""
-                width="68"
-                height="68"
-                loading="lazy"
-                decoding="async"
-              />
-              <h3 class="creative-makers-activity__title">Upcycle &amp; Reuse</h3>
-            </article>
-          </div>
+          <?php require get_template_directory() . '/template-parts/creative-makers-explore-grid.php'; ?>
         </div>
       </section>
 
-      <section class="creative-makers-info" aria-label="Skills, growth, and impact">
+      <section class="creative-makers-info" aria-label="<?php echo esc_attr( $creative_makers_info_aria_label ); ?>">
         <div class="site-container">
-          <div class="creative-makers-info__grid">
-            <article class="creative-makers-info-card creative-makers-info-card--skills">
-              <h2 class="creative-makers-info-card__title">Skills Children Naturally Build</h2>
-              <ul class="creative-makers-info-card__list">
-                <li>
-                  <span class="creative-makers-info-card__check" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7" /></svg>
-                  </span>
-                  Creativity &amp; Imagination
-                </li>
-                <li>
-                  <span class="creative-makers-info-card__check" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7" /></svg>
-                  </span>
-                  Self-expression
-                </li>
-                <li>
-                  <span class="creative-makers-info-card__check" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7" /></svg>
-                  </span>
-                  Focus &amp; patience
-                </li>
-                <li>
-                  <span class="creative-makers-info-card__check" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7" /></svg>
-                  </span>
-                  Confidence
-                </li>
-                <li>
-                  <span class="creative-makers-info-card__check" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7" /></svg>
-                  </span>
-                  Problem solving
-                </li>
-              </ul>
-              <img
-                class="creative-makers-info-card__deco creative-makers-info-card__deco--heart"
-                src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/creative-makers-info-heart-removebg-preview.png' ); ?>"
-                alt=""
-                width="26"
-                height="26"
-                loading="lazy"
-                decoding="async"
-                aria-hidden="true"
-              />
-            </article>
-
-            <article class="creative-makers-info-card creative-makers-info-card--grow">
-              <h2 class="creative-makers-info-card__title creative-makers-info-card__title--pink">
-                <span class="heading-underline heading-underline--pink">
-                  Children Grow
-                  <img
-                    class="heading-underline__img"
-                    src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/heading-underline.jpeg' ); ?>"
-                    alt=""
-                    width="120"
-                    height="12"
-                  />
-                </span>
-                Shape the Experience
-              </h2>
-              <p class="creative-makers-info-card__text">
-                Children bring their own ideas, choose projects that excite them, and
-                help shape what the group creates together. Every session leaves room
-                for curiosity, collaboration, and proud moments of &ldquo;I made
-                this!&rdquo;
-              </p>
-              <img
-                class="creative-makers-info-card__deco creative-makers-info-card__deco--star"
-                src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/creative-makers-deco-star-removebg-preview.png' ); ?>"
-                alt=""
-                width="26"
-                height="26"
-                loading="lazy"
-                decoding="async"
-                aria-hidden="true"
-              />
-            </article>
-
-            <article class="creative-makers-info-card creative-makers-info-card--impact">
-              <h2 class="creative-makers-info-card__title">Making an Impact</h2>
-              <p class="creative-makers-info-card__text">
-                Creative work doesn&rsquo;t stay on the table — children share art with
-                the community, gift handmade projects, and learn that small creations
-                can brighten someone&rsquo;s day.
-              </p>
-              <img
-                class="creative-makers-info-card__deco creative-makers-info-card__deco--plant"
-                src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/creative-makers-deco-plant-removebg-preview.png' ); ?>"
-                alt=""
-                width="36"
-                height="36"
-                loading="lazy"
-                decoding="async"
-                aria-hidden="true"
-              />
-            </article>
-          </div>
+          <?php require get_template_directory() . '/template-parts/creative-makers-info-grid.php'; ?>
         </div>
       </section>
 
       <section
         class="creative-makers-parents"
-        id="creative-makers-parents"
+        id="<?php echo esc_attr( $creative_makers_parents_section_id ); ?>"
         aria-labelledby="creative-makers-parents-title"
       >
         <div class="site-container">
           <h2 class="creative-makers-parents__title" id="creative-makers-parents-title">
-            What Parents Should Know
+            <?php echo esc_html( $creative_makers_parents_title ); ?>
           </h2>
 
-          <div class="creative-makers-parents__accordion">
-            <input
-              class="creative-makers-faq__input"
-              type="radio"
-              name="creative-makers-faq"
-              id="creative-makers-faq-expect"
-              checked
-            />
-            <input
-              class="creative-makers-faq__input"
-              type="radio"
-              name="creative-makers-faq"
-              id="creative-makers-faq-materials"
-            />
-            <input
-              class="creative-makers-faq__input"
-              type="radio"
-              name="creative-makers-faq"
-              id="creative-makers-faq-safety"
-            />
-            <input
-              class="creative-makers-faq__input"
-              type="radio"
-              name="creative-makers-faq"
-              id="creative-makers-faq-program"
-            />
-
-            <div class="creative-makers-parents__tablist" role="tablist" aria-label="Parent information topics">
-              <label class="creative-makers-faq__tab" for="creative-makers-faq-expect" role="tab">
-                What to Expect
-              </label>
-              <label class="creative-makers-faq__tab" for="creative-makers-faq-materials" role="tab">
-                Materials
-              </label>
-              <label class="creative-makers-faq__tab" for="creative-makers-faq-safety" role="tab">
-                Safety &amp; Supervision
-              </label>
-              <label class="creative-makers-faq__tab" for="creative-makers-faq-program" role="tab">
-                Program Details &amp; Registration
-              </label>
-            </div>
-
-            <div class="creative-makers-parents__panels">
-              <article
-                class="creative-makers-faq__panel creative-makers-faq__panel--expect"
-                role="tabpanel"
-                aria-labelledby="creative-makers-faq-expect"
-              >
-                <p>
-                  Sessions blend guided projects with open creative time. Children
-                  explore different materials, work individually and in small groups,
-                  and share what they make at the end of each experience.
-                </p>
-              </article>
-
-              <article
-                class="creative-makers-faq__panel creative-makers-faq__panel--materials"
-                role="tabpanel"
-                aria-labelledby="creative-makers-faq-materials"
-              >
-                <p>
-                  We provide paints, paper, craft supplies, and safe tools. Children
-                  are encouraged to bring found objects for upcycling projects. Aprons
-                  and workspace covers help keep messes manageable.
-                </p>
-              </article>
-
-              <article
-                class="creative-makers-faq__panel creative-makers-faq__panel--safety"
-                role="tabpanel"
-                aria-labelledby="creative-makers-faq-safety"
-              >
-                <p>
-                  All activities are age-appropriate with adult guidance. Scissors,
-                  glue, and paints are introduced with clear safety instructions.
-                  Small group sizes ensure every child gets attention and support.
-                </p>
-              </article>
-
-              <article
-                class="creative-makers-faq__panel creative-makers-faq__panel--program"
-                role="tabpanel"
-                aria-labelledby="creative-makers-faq-program"
-              >
-                <p>
-                  Creative Makers runs as part of Bright Dreamers experiences throughout
-                  the year. Visit our Get Involved page or contact us to learn about
-                  upcoming sessions, age groups, and how to register your child.
-                </p>
-              </article>
-            </div>
-          </div>
+          <?php require get_template_directory() . '/template-parts/creative-makers-parents-faq.php'; ?>
         </div>
       </section>
 
-      <section class="creative-makers-cta" aria-label="Join Creative Makers">
+      <section class="creative-makers-cta" aria-label="<?php echo esc_attr( $creative_makers_cta_aria_label ); ?>">
         <div class="site-container creative-makers-cta__inner">
           <div class="creative-makers-cta__card">
+            <?php if ( '' !== trim( $creative_makers_cta_heart_url ) ) : ?>
             <img
               class="creative-makers-cta__heart"
-              src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/creative-makers-deco-heart-sm.jpeg' ); ?>"
+              src="<?php echo esc_url( $creative_makers_cta_heart_url ); ?>"
               alt=""
               width="28"
               height="28"
@@ -415,12 +544,16 @@ get_header();
               decoding="async"
               aria-hidden="true"
             />
+            <?php endif; ?>
+            <?php if ( '' !== trim( $creative_makers_cta_text ) ) : ?>
             <p class="creative-makers-cta__text">
-              Every child has a creative spark. We help them set it free.
+              <?php echo esc_html( $creative_makers_cta_text ); ?>
             </p>
+            <?php endif; ?>
+            <?php if ( '' !== trim( $creative_makers_cta_plane_url ) ) : ?>
             <img
               class="creative-makers-cta__plane"
-              src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/creative-makers-deco-plane-removebg-preview.png' ); ?>"
+              src="<?php echo esc_url( $creative_makers_cta_plane_url ); ?>"
               alt=""
               width="90"
               height="45"
@@ -428,8 +561,10 @@ get_header();
               decoding="async"
               aria-hidden="true"
             />
-            <a class="btn btn--solid btn--lg btn-hover creative-makers-cta__btn" href="<?php echo esc_url( bdc_page_url( 'get-involved.html' ) ); ?>">
-              Learn More About This Experience
+            <?php endif; ?>
+            <?php if ( ! empty( $creative_makers_cta_btn_link['url'] ) && '' !== trim( $creative_makers_cta_btn_text ) ) : ?>
+            <a class="btn btn--solid btn--lg btn-hover creative-makers-cta__btn" href="<?php echo esc_url( $creative_makers_cta_btn_link['url'] ); ?>"<?php echo bdc_acf_link_target_attr( $creative_makers_cta_btn_link ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
+              <?php echo esc_html( $creative_makers_cta_btn_text ); ?>
               <svg
                 class="btn__icon"
                 viewBox="0 0 24 24"
@@ -445,6 +580,7 @@ get_header();
                 <path d="M5 12h14M13 6l6 6-6 6" />
               </svg>
             </a>
+            <?php endif; ?>
           </div>
         </div>
       </section>

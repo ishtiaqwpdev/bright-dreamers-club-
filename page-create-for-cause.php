@@ -8,6 +8,164 @@
  */
 
 get_header();
+
+$create_for_cause_page_id = get_queried_object_id();
+
+$create_for_cause_hero_lazy_placeholder = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';
+
+$create_for_cause_hero_breadcrumb_home_text = bdc_get_acf_text(
+	'create_for_cause_hero_breadcrumb_home_text',
+	'Home',
+	$create_for_cause_page_id
+);
+$create_for_cause_hero_breadcrumb_home_link = bdc_get_acf_link(
+	'create_for_cause_hero_breadcrumb_home_link',
+	array(
+		'title'  => 'Home',
+		'url'    => bdc_page_url( 'index.html' ),
+		'target' => '',
+	),
+	$create_for_cause_page_id
+);
+$create_for_cause_hero_breadcrumb_parent_text = bdc_get_acf_text(
+	'create_for_cause_hero_breadcrumb_parent_text',
+	'Explore',
+	$create_for_cause_page_id
+);
+$create_for_cause_hero_breadcrumb_parent_link = bdc_get_acf_link(
+	'create_for_cause_hero_breadcrumb_parent_link',
+	array(
+		'title'  => 'Explore',
+		'url'    => bdc_page_url( 'explore.html' ),
+		'target' => '',
+	),
+	$create_for_cause_page_id
+);
+$create_for_cause_hero_breadcrumb_current_text = bdc_get_acf_text(
+	'create_for_cause_hero_breadcrumb_current_text',
+	'Create for a Cause',
+	$create_for_cause_page_id
+);
+$create_for_cause_hero_title = bdc_get_acf_text(
+	'create_for_cause_hero_title',
+	'Create for a Cause',
+	$create_for_cause_page_id
+);
+$create_for_cause_hero_tagline = bdc_get_acf_text(
+	'create_for_cause_hero_tagline',
+	'Create with heart. Make a difference.',
+	$create_for_cause_page_id
+);
+$create_for_cause_hero_text = bdc_get_acf_text(
+	'create_for_cause_hero_text',
+	'In this experience, children use their creativity to support causes they care about. They plan projects, make items, raise awareness, and give back to the community through their own creations.',
+	$create_for_cause_page_id
+);
+$create_for_cause_hero_primary_btn_text = bdc_get_acf_text(
+	'create_for_cause_hero_primary_btn_text',
+	'Learn More About This Experience',
+	$create_for_cause_page_id
+);
+$create_for_cause_hero_primary_btn_link = bdc_get_acf_link(
+	'create_for_cause_hero_primary_btn_link',
+	array(
+		'title'  => 'Learn More About This Experience',
+		'url'    => '#create-for-cause-parents',
+		'target' => '',
+	),
+	$create_for_cause_page_id
+);
+$create_for_cause_hero_back_text = bdc_get_acf_text(
+	'create_for_cause_hero_back_text',
+	'Back to All Experiences',
+	$create_for_cause_page_id
+);
+$create_for_cause_hero_back_link = bdc_get_acf_link(
+	'create_for_cause_hero_back_link',
+	array(
+		'title'  => 'Back to All Experiences',
+		'url'    => bdc_page_url( 'explore.html' ),
+		'target' => '',
+	),
+	$create_for_cause_page_id
+);
+$create_for_cause_hero_banner_url = bdc_get_acf_image_url(
+	'create_for_cause_hero_banner',
+	bdc_theme_asset_url( 'assets/images/46fd4d76-4bf8-4376-aa4f-fa8a19c43d33.png' ),
+	$create_for_cause_page_id
+);
+$create_for_cause_hero_banner_alt = bdc_get_acf_text(
+	'create_for_cause_hero_banner_alt',
+	'Three children holding a colorful handmade thank-you sign',
+	$create_for_cause_page_id
+);
+
+$create_for_cause_explore_title = bdc_get_acf_text(
+	'create_for_cause_explore_title',
+	'Children Explore',
+	$create_for_cause_page_id
+);
+$create_for_cause_explore_activities_defaults = array(
+	array(
+		'icon'       => bdc_theme_asset_url( 'assets/images/create-for-cause-icon-kindness.png' ),
+		'title'      => 'Kindness Projects',
+		'color_slug' => 'paint',
+	),
+	array(
+		'icon'       => bdc_theme_asset_url( 'assets/images/create-for-cause-icon-donation.png' ),
+		'title'      => 'Donation Drives',
+		'color_slug' => 'crafts',
+	),
+	array(
+		'icon'       => bdc_theme_asset_url( 'assets/images/create-for-cause-icon-care.png' ),
+		'title'      => 'Care Packages',
+		'color_slug' => 'media',
+	),
+	array(
+		'icon'       => bdc_theme_asset_url( 'assets/images/create-for-cause-icon-awareness.png' ),
+		'title'      => 'Awareness Campaigns',
+		'color_slug' => 'design',
+	),
+	array(
+		'icon'       => bdc_theme_asset_url( 'assets/images/create-for-cause-icon-events.png' ),
+		'title'      => 'Helping Events',
+		'color_slug' => 'upcycle',
+	),
+);
+$create_for_cause_explore_color_slugs_allowed = array( 'paint', 'crafts', 'media', 'design', 'upcycle' );
+$create_for_cause_explore_activities_raw      = bdc_get_acf_repeater( 'create_for_cause_explore_activities', $create_for_cause_explore_activities_defaults, $create_for_cause_page_id );
+$create_for_cause_explore_activities          = array();
+
+foreach ( $create_for_cause_explore_activities_raw as $index => $row ) {
+	$default = $create_for_cause_explore_activities_defaults[ $index ] ?? array(
+		'icon'       => '',
+		'title'      => '',
+		'color_slug' => 'paint',
+	);
+
+	$title = isset( $row['title'] ) ? trim( (string) $row['title'] ) : '';
+
+	$color_slug = isset( $row['color_slug'] ) ? sanitize_key( (string) $row['color_slug'] ) : '';
+	if ( ! in_array( $color_slug, $create_for_cause_explore_color_slugs_allowed, true ) ) {
+		$color_slug = (string) $default['color_slug'];
+	}
+
+	$resolved = array(
+		'icon'       => bdc_acf_image_value_to_url( $row['icon'] ?? null, (string) $default['icon'] ),
+		'title'      => '' !== $title ? $title : (string) $default['title'],
+		'color_slug' => $color_slug,
+	);
+
+	if ( '' === trim( $resolved['title'] ) ) {
+		continue;
+	}
+
+	$create_for_cause_explore_activities[] = $resolved;
+}
+
+if ( empty( $create_for_cause_explore_activities ) ) {
+	$create_for_cause_explore_activities = $create_for_cause_explore_activities_defaults;
+}
 ?>
     <main id="main-content" class="create-for-cause-page">
       <section class="page-hero creative-makers-hero create-for-cause-hero" aria-labelledby="create-for-cause-title">
@@ -16,29 +174,40 @@ get_header();
             <div class="page-hero__content creative-makers-hero__content">
               <nav class="creative-makers-breadcrumbs" aria-label="Breadcrumb">
                 <ol class="creative-makers-breadcrumbs__list">
-                  <li><a href="<?php echo esc_url( bdc_page_url( 'index.html' ) ); ?>">Home</a></li>
-                  <li><a href="<?php echo esc_url( bdc_page_url( 'explore.html' ) ); ?>">Explore</a></li>
-                  <li aria-current="page">Create for a Cause</li>
+                  <?php if ( ! empty( $create_for_cause_hero_breadcrumb_home_link['url'] ) && '' !== trim( $create_for_cause_hero_breadcrumb_home_text ) ) : ?>
+                  <li><a href="<?php echo esc_url( $create_for_cause_hero_breadcrumb_home_link['url'] ); ?>"<?php echo bdc_acf_link_target_attr( $create_for_cause_hero_breadcrumb_home_link ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>><?php echo esc_html( $create_for_cause_hero_breadcrumb_home_text ); ?></a></li>
+                  <?php endif; ?>
+                  <?php if ( ! empty( $create_for_cause_hero_breadcrumb_parent_link['url'] ) && '' !== trim( $create_for_cause_hero_breadcrumb_parent_text ) ) : ?>
+                  <li><a href="<?php echo esc_url( $create_for_cause_hero_breadcrumb_parent_link['url'] ); ?>"<?php echo bdc_acf_link_target_attr( $create_for_cause_hero_breadcrumb_parent_link ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>><?php echo esc_html( $create_for_cause_hero_breadcrumb_parent_text ); ?></a></li>
+                  <?php endif; ?>
+                  <?php if ( '' !== trim( $create_for_cause_hero_breadcrumb_current_text ) ) : ?>
+                  <li aria-current="page"><?php echo esc_html( $create_for_cause_hero_breadcrumb_current_text ); ?></li>
+                  <?php endif; ?>
                 </ol>
               </nav>
 
+              <?php if ( '' !== trim( $create_for_cause_hero_title ) ) : ?>
               <h1 class="creative-makers-hero__title" id="create-for-cause-title">
-                Create for a Cause
+                <?php echo esc_html( $create_for_cause_hero_title ); ?>
               </h1>
+              <?php endif; ?>
 
+              <?php if ( '' !== trim( $create_for_cause_hero_tagline ) ) : ?>
               <p class="creative-makers-hero__tagline">
-                Create with heart. Make a difference.
+                <?php echo esc_html( $create_for_cause_hero_tagline ); ?>
               </p>
+              <?php endif; ?>
 
+              <?php if ( '' !== trim( $create_for_cause_hero_text ) ) : ?>
               <p class="creative-makers-hero__text">
-                In this experience, children use their creativity to support causes
-                they care about. They plan projects, make items, raise awareness,
-                and give back to the community through their own creations.
+                <?php echo esc_html( $create_for_cause_hero_text ); ?>
               </p>
+              <?php endif; ?>
 
               <div class="page-hero__actions creative-makers-hero__actions">
-                <a class="btn btn--solid btn--lg btn-hover" href="#create-for-cause-parents">
-                  Learn More About This Experience
+                <?php if ( ! empty( $create_for_cause_hero_primary_btn_link['url'] ) && '' !== trim( $create_for_cause_hero_primary_btn_text ) ) : ?>
+                <a class="btn btn--solid btn--lg btn-hover" href="<?php echo esc_url( $create_for_cause_hero_primary_btn_link['url'] ); ?>"<?php echo bdc_acf_link_target_attr( $create_for_cause_hero_primary_btn_link ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
+                  <?php echo esc_html( $create_for_cause_hero_primary_btn_text ); ?>
                   <svg
                     class="btn__icon"
                     viewBox="0 0 24 24"
@@ -54,7 +223,9 @@ get_header();
                     <path d="M5 12h14M13 6l6 6-6 6" />
                   </svg>
                 </a>
-                <a class="creative-makers-hero__back" href="<?php echo esc_url( bdc_page_url( 'explore.html' ) ); ?>">
+                <?php endif; ?>
+                <?php if ( ! empty( $create_for_cause_hero_back_link['url'] ) && '' !== trim( $create_for_cause_hero_back_text ) ) : ?>
+                <a class="creative-makers-hero__back" href="<?php echo esc_url( $create_for_cause_hero_back_link['url'] ); ?>"<?php echo bdc_acf_link_target_attr( $create_for_cause_hero_back_link ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
                   <svg
                     viewBox="0 0 24 24"
                     width="16"
@@ -68,8 +239,9 @@ get_header();
                   >
                     <path d="M19 12H5M11 6l-6 6 6 6" />
                   </svg>
-                  Back to All Experiences
+                  <?php echo esc_html( $create_for_cause_hero_back_text ); ?>
                 </a>
+                <?php endif; ?>
               </div>
             </div>
 
@@ -77,9 +249,9 @@ get_header();
               <div class="lazy-img-wrap">
                 <img
                   class="creative-makers-hero__banner lazy-img"
-                  src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-                  data-src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/46fd4d76-4bf8-4376-aa4f-fa8a19c43d33.png' ); ?>"
-                  alt="Three children holding a colorful handmade thank-you sign"
+                  src="<?php echo esc_attr( $create_for_cause_hero_lazy_placeholder ); ?>"
+                  data-src="<?php echo esc_url( $create_for_cause_hero_banner_url ); ?>"
+                  alt="<?php echo esc_attr( $create_for_cause_hero_banner_alt ); ?>"
                   width="1200"
                   height="720"
                   decoding="async"
@@ -93,75 +265,10 @@ get_header();
       <section class="creative-makers-explore" aria-labelledby="create-for-cause-explore-title">
         <div class="site-container">
           <h2 class="creative-makers-explore__title" id="create-for-cause-explore-title">
-            Children Explore
+            <?php echo esc_html( $create_for_cause_explore_title ); ?>
           </h2>
 
-          <div class="creative-makers-explore__grid">
-            <article class="creative-makers-activity creative-makers-activity--paint">
-              <span class="creative-makers-activity__icon-box">
-                <img
-                  class="creative-makers-activity__icon"
-                  src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/create-for-cause-icon-kindness.png' ); ?>"
-                  alt=""
-                  loading="lazy"
-                  decoding="async"
-                />
-              </span>
-              <h3 class="creative-makers-activity__title">Kindness Projects</h3>
-            </article>
-
-            <article class="creative-makers-activity creative-makers-activity--crafts">
-              <span class="creative-makers-activity__icon-box">
-                <img
-                  class="creative-makers-activity__icon"
-                  src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/create-for-cause-icon-donation.png' ); ?>"
-                  alt=""
-                  loading="lazy"
-                  decoding="async"
-                />
-              </span>
-              <h3 class="creative-makers-activity__title">Donation Drives</h3>
-            </article>
-
-            <article class="creative-makers-activity creative-makers-activity--media">
-              <span class="creative-makers-activity__icon-box">
-                <img
-                  class="creative-makers-activity__icon"
-                  src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/create-for-cause-icon-care.png' ); ?>"
-                  alt=""
-                  loading="lazy"
-                  decoding="async"
-                />
-              </span>
-              <h3 class="creative-makers-activity__title">Care Packages</h3>
-            </article>
-
-            <article class="creative-makers-activity creative-makers-activity--design">
-              <span class="creative-makers-activity__icon-box">
-                <img
-                  class="creative-makers-activity__icon"
-                  src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/create-for-cause-icon-awareness.png' ); ?>"
-                  alt=""
-                  loading="lazy"
-                  decoding="async"
-                />
-              </span>
-              <h3 class="creative-makers-activity__title">Awareness Campaigns</h3>
-            </article>
-
-            <article class="creative-makers-activity creative-makers-activity--upcycle">
-              <span class="creative-makers-activity__icon-box">
-                <img
-                  class="creative-makers-activity__icon"
-                  src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/create-for-cause-icon-events.png' ); ?>"
-                  alt=""
-                  loading="lazy"
-                  decoding="async"
-                />
-              </span>
-              <h3 class="creative-makers-activity__title">Helping Events</h3>
-            </article>
-          </div>
+          <?php require get_template_directory() . '/template-parts/create-for-cause-explore-grid.php'; ?>
         </div>
       </section>
 

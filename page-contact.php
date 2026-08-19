@@ -8,24 +8,179 @@
  */
 
 get_header();
+
+$contact_page_id = get_queried_object_id();
+
+$contact_hero_lazy_placeholder = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';
+
+$contact_hero_aria_label = bdc_get_acf_text(
+	'contact_hero_aria_label',
+	'Contact Bright Dreamers',
+	$contact_page_id
+);
+$contact_hero_title_underline_word = bdc_get_acf_text(
+	'contact_hero_title_underline_word',
+	'Contact',
+	$contact_page_id
+);
+$contact_hero_title_underline_url = bdc_get_acf_image_url(
+	'contact_hero_title_underline',
+	bdc_theme_asset_url( 'assets/images/heading-underline.jpeg' ),
+	$contact_page_id
+);
+$contact_hero_title_suffix = bdc_get_acf_text(
+	'contact_hero_title_suffix',
+	'Us',
+	$contact_page_id
+);
+$contact_hero_text_intro = bdc_get_acf_text(
+	'contact_hero_text_intro',
+	'We\'d love to hear from you. Whether you have a question, an idea, or want to learn more about Bright Dreamers, please reach out. Your message helps us build a ',
+	$contact_page_id
+);
+$contact_hero_text_accent_purple = bdc_get_acf_text(
+	'contact_hero_text_accent_purple',
+	'brighter',
+	$contact_page_id
+);
+$contact_hero_text_mid = bdc_get_acf_text(
+	'contact_hero_text_mid',
+	' future for kids with ',
+	$contact_page_id
+);
+$contact_hero_text_accent_pink = bdc_get_acf_text(
+	'contact_hero_text_accent_pink',
+	'ideas',
+	$contact_page_id
+);
+$contact_hero_text_outro = bdc_get_acf_text(
+	'contact_hero_text_outro',
+	'.',
+	$contact_page_id
+);
+$contact_hero_banner_url = bdc_get_acf_image_url(
+	'contact_hero_banner',
+	bdc_theme_asset_url( 'assets/images/contact-hero-banner.jpeg' ),
+	$contact_page_id
+);
+$contact_hero_banner_alt = bdc_get_acf_text(
+	'contact_hero_banner_alt',
+	'A Bright Dreamer writing a thank-you card',
+	$contact_page_id
+);
+
+$contact_form_aria_label = bdc_get_acf_text(
+	'contact_form_aria_label',
+	'Send us a message',
+	$contact_page_id
+);
+$contact_form_aside_aria_label = bdc_get_acf_text(
+	'contact_form_aside_aria_label',
+	'We\'re here to help',
+	$contact_page_id
+);
+$contact_form_aside_plane_url = bdc_get_acf_image_url(
+	'contact_form_aside_plane',
+	bdc_theme_asset_url( 'assets/images/contact-form-plane.jpeg' ),
+	$contact_page_id
+);
+$contact_form_aside_title_underline_word = bdc_get_acf_text(
+	'contact_form_aside_title_underline_word',
+	'We\'re',
+	$contact_page_id
+);
+$contact_form_aside_title_underline_url = bdc_get_acf_image_url(
+	'contact_form_aside_title_underline',
+	bdc_theme_asset_url( 'assets/images/heading-underline.jpeg' ),
+	$contact_page_id
+);
+$contact_form_aside_title_suffix = bdc_get_acf_text(
+	'contact_form_aside_title_suffix',
+	'Here to Help',
+	$contact_page_id
+);
+$contact_form_aside_text = bdc_get_acf_text(
+	'contact_form_aside_text',
+	'Use the form to send us a message. We read every message and will get back to you as soon as we can. Thank you for being part of the Bright Dreamers community.',
+	$contact_page_id
+);
+$contact_form_aside_plant_url = bdc_get_acf_image_url(
+	'contact_form_aside_plant',
+	bdc_theme_asset_url( 'assets/images/contact/WhatsApp_Image_2026-08-10_at_1.24.08_PM-removebg-preview.png' ),
+	$contact_page_id
+);
+$contact_form_title = bdc_get_acf_text(
+	'contact_form_title',
+	'Send Us a Message',
+	$contact_page_id
+);
+$contact_form_privacy_lead = bdc_get_acf_text(
+	'contact_form_privacy_lead',
+	'Your privacy matters to us.',
+	$contact_page_id
+);
+$contact_form_privacy_text = bdc_get_acf_text(
+	'contact_form_privacy_text',
+	'We will never share your information. Your message is safe with us.',
+	$contact_page_id
+);
+$contact_form_submit_text = bdc_get_acf_text(
+	'contact_form_submit_text',
+	'Send Message',
+	$contact_page_id
+);
+
+$contact_cta_aria_label = bdc_get_acf_text(
+	'contact_cta_aria_label',
+	'See our vision',
+	$contact_page_id
+);
+$contact_cta_door_url = bdc_get_acf_image_url(
+	'contact_cta_door',
+	bdc_theme_asset_url( 'assets/images/contact-cta-door.jpeg' ),
+	$contact_page_id
+);
+$contact_cta_text = bdc_get_acf_text(
+	'contact_cta_text',
+	'Together, we can open doors for young ideas and create lasting change.',
+	$contact_page_id
+);
+$contact_cta_btn_text = bdc_get_acf_text(
+	'contact_cta_btn_text',
+	'See Our Vision',
+	$contact_page_id
+);
+$contact_cta_btn_link = bdc_get_acf_link(
+	'contact_cta_btn_link',
+	array(
+		'title'  => 'See Our Vision',
+		'url'    => bdc_page_url( 'our-vision.html' ),
+		'target' => '',
+	),
+	$contact_page_id
+);
 ?>
     <main id="main-content">
-      <section class="page-hero contact-hero" aria-label="Contact Bright Dreamers">
+      <section class="page-hero contact-hero" aria-label="<?php echo esc_attr( $contact_hero_aria_label ); ?>">
         <div class="site-container page-hero__inner">
           <div class="page-hero__content">
             <h1 class="contact-hero__title">
               <span class="contact-hero__title-row">
+                <?php if ( '' !== trim( $contact_hero_title_underline_word ) ) : ?>
                 <span class="heading-underline contact-hero__contact-word">
-                  Contact
+                  <?php echo esc_html( $contact_hero_title_underline_word ); ?>
                   <img
                     class="heading-underline__img"
-                    src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/heading-underline.jpeg' ); ?>"
+                    src="<?php echo esc_url( $contact_hero_title_underline_url ); ?>"
                     alt=""
                     width="120"
                     height="12"
                   />
                 </span>
-                <span class="contact-hero__us-word">Us</span>
+                <?php endif; ?>
+                <?php if ( '' !== trim( $contact_hero_title_suffix ) ) : ?>
+                <span class="contact-hero__us-word"><?php echo esc_html( $contact_hero_title_suffix ); ?></span>
+                <?php endif; ?>
                 <svg
                   class="contact-hero__star"
                   viewBox="0 0 24 24"
@@ -45,18 +200,25 @@ get_header();
             </h1>
 
             <div class="contact-hero__body">
+              <?php if (
+                '' !== trim( $contact_hero_text_intro )
+                || '' !== trim( $contact_hero_text_accent_purple )
+                || '' !== trim( $contact_hero_text_mid )
+                || '' !== trim( $contact_hero_text_accent_pink )
+                || '' !== trim( $contact_hero_text_outro )
+              ) : ?>
               <p class="contact-hero__copy">
-                We'd love to hear from you. Whether you have a question, an
-                idea, or want to learn more about Bright Dreamers, please reach
-                out. Your message helps us build a
-                <span class="contact-hero__accent contact-hero__accent--purple"
-                  >brighter</span
-                >
-                future for kids with
-                <span class="contact-hero__accent contact-hero__accent--pink"
-                  >ideas</span
-                >.
+                <?php echo esc_html( $contact_hero_text_intro ); ?>
+                <?php if ( '' !== trim( $contact_hero_text_accent_purple ) ) : ?>
+                <span class="contact-hero__accent contact-hero__accent--purple"><?php echo esc_html( $contact_hero_text_accent_purple ); ?></span>
+                <?php endif; ?>
+                <?php echo esc_html( $contact_hero_text_mid ); ?>
+                <?php if ( '' !== trim( $contact_hero_text_accent_pink ) ) : ?>
+                <span class="contact-hero__accent contact-hero__accent--pink"><?php echo esc_html( $contact_hero_text_accent_pink ); ?></span>
+                <?php endif; ?>
+                <?php echo esc_html( $contact_hero_text_outro ); ?>
               </p>
+              <?php endif; ?>
 
               <svg
                 class="contact-hero__heart"
@@ -81,9 +243,9 @@ get_header();
             <div class="lazy-img-wrap">
               <img
                 class="about-hero__banner lazy-img"
-                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-                data-src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/contact-hero-banner.jpeg' ); ?>"
-                alt="A Bright Dreamer writing a thank-you card"
+                src="<?php echo esc_attr( $contact_hero_lazy_placeholder ); ?>"
+                data-src="<?php echo esc_url( $contact_hero_banner_url ); ?>"
+                alt="<?php echo esc_attr( $contact_hero_banner_alt ); ?>"
                 width="1200"
                 height="720"
                 decoding="async"
@@ -93,13 +255,14 @@ get_header();
         </div>
       </section>
 
-      <section class="contact-form" aria-label="Send us a message">
+      <section class="contact-form" aria-label="<?php echo esc_attr( $contact_form_aria_label ); ?>">
         <div class="site-container contact-form__inner">
           <div class="contact-form__wrap">
-            <aside class="contact-form__aside" aria-label="We're here to help">
+            <aside class="contact-form__aside" aria-label="<?php echo esc_attr( $contact_form_aside_aria_label ); ?>">
+              <?php if ( '' !== trim( $contact_form_aside_plane_url ) ) : ?>
               <img
                 class="contact-form__aside-plane"
-                src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/contact-form-plane.jpeg' ); ?>"
+                src="<?php echo esc_url( $contact_form_aside_plane_url ); ?>"
                 alt=""
                 width="200"
                 height="120"
@@ -107,32 +270,38 @@ get_header();
                 decoding="async"
                 aria-hidden="true"
               />
+              <?php endif; ?>
 
               <div class="contact-form__aside-copy">
                 <h2 class="contact-form__aside-title">
+                  <?php if ( '' !== trim( $contact_form_aside_title_underline_word ) ) : ?>
                   <span class="heading-underline">
-                    We're
+                    <?php echo esc_html( $contact_form_aside_title_underline_word ); ?>
                     <img
                       class="heading-underline__img"
-                      src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/heading-underline.jpeg' ); ?>"
+                      src="<?php echo esc_url( $contact_form_aside_title_underline_url ); ?>"
                       alt=""
                       width="120"
                       height="12"
                     />
                   </span>
-                  Here to Help
+                  <?php endif; ?>
+                  <?php if ( '' !== trim( $contact_form_aside_title_suffix ) ) : ?>
+                  <?php echo esc_html( $contact_form_aside_title_suffix ); ?>
+                  <?php endif; ?>
                 </h2>
 
+                <?php if ( '' !== trim( $contact_form_aside_text ) ) : ?>
                 <p class="contact-form__aside-text">
-                  Use the form to send us a message. We read every message and
-                  will get back to you as soon as we can. Thank you for being
-                  part of the Bright Dreamers community.
+                  <?php echo esc_html( $contact_form_aside_text ); ?>
                 </p>
+                <?php endif; ?>
               </div>
 
+              <?php if ( '' !== trim( $contact_form_aside_plant_url ) ) : ?>
               <img
                 class="contact-form__aside-plant"
-                src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/contact/WhatsApp_Image_2026-08-10_at_1.24.08_PM-removebg-preview.png' ); ?>"
+                src="<?php echo esc_url( $contact_form_aside_plant_url ); ?>"
                 alt=""
                 width="200"
                 height="180"
@@ -140,11 +309,13 @@ get_header();
                 decoding="async"
                 aria-hidden="true"
               />
+              <?php endif; ?>
             </aside>
 
             <div class="contact-form__main">
+              <?php if ( '' !== trim( $contact_form_title ) ) : ?>
               <h2 class="contact-form__title">
-                Send Us a Message
+                <?php echo esc_html( $contact_form_title ); ?>
                 <svg
                   class="contact-form__title-heart"
                   viewBox="0 0 24 24"
@@ -162,6 +333,7 @@ get_header();
                   />
                 </svg>
               </h2>
+              <?php endif; ?>
 
               <form class="contact-form__form" id="contact-form" action="#" method="post" data-form-id="contact">
                 <?php bdc_render_form_security_fields( 'contact' ); ?>
@@ -301,13 +473,17 @@ get_header();
                     />
                   </svg>
                   <p class="contact-form__privacy-text">
-                    <strong>Your privacy matters to us.</strong> We will never
-                    share your information. Your message is safe with us.
+                    <?php if ( '' !== trim( $contact_form_privacy_lead ) ) : ?>
+                    <strong><?php echo esc_html( $contact_form_privacy_lead ); ?></strong>
+                    <?php endif; ?>
+                    <?php if ( '' !== trim( $contact_form_privacy_text ) ) : ?>
+                    <?php echo ' ' . esc_html( $contact_form_privacy_text ); ?>
+                    <?php endif; ?>
                   </p>
                 </div>
 
                 <button class="btn btn--solid btn--lg btn-hover contact-form__submit" type="submit">
-                  Send Message
+                  <?php echo esc_html( $contact_form_submit_text ); ?>
                   <svg
                     class="btn__icon contact-form__submit-plane"
                     viewBox="0 0 24 24"
@@ -330,24 +506,27 @@ get_header();
         </div>
       </section>
 
-      <section class="contact-cta" aria-label="See our vision">
+      <section class="contact-cta" aria-label="<?php echo esc_attr( $contact_cta_aria_label ); ?>">
         <div class="site-container contact-cta__inner">
           <div class="contact-cta__card">
+            <?php if ( '' !== trim( $contact_cta_door_url ) ) : ?>
             <img
               class="contact-cta__door"
-              src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/contact-cta-door.jpeg' ); ?>"
+              src="<?php echo esc_url( $contact_cta_door_url ); ?>"
               alt=""
               width="167"
               height="107"
               loading="lazy"
               decoding="async"
             />
+            <?php endif; ?>
 
             <div class="contact-cta__content">
+              <?php if ( '' !== trim( $contact_cta_text ) ) : ?>
               <h2 class="contact-cta__text">
-                Together, we can open doors for young ideas and create lasting
-                change.
+                <?php echo esc_html( $contact_cta_text ); ?>
               </h2>
+              <?php endif; ?>
 
               <div class="contact-cta__deco" aria-hidden="true">
                 <svg
@@ -382,11 +561,13 @@ get_header();
               </div>
             </div>
 
+            <?php if ( ! empty( $contact_cta_btn_link['url'] ) && '' !== trim( $contact_cta_btn_text ) ) : ?>
             <a
               class="btn btn--outline btn--lg btn-hover contact-cta__btn"
-              href="<?php echo esc_url( bdc_page_url( 'our-vision.html' ) ); ?>"
+              href="<?php echo esc_url( $contact_cta_btn_link['url'] ); ?>"
+              <?php echo bdc_acf_link_target_attr( $contact_cta_btn_link ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
             >
-              See Our Vision
+              <?php echo esc_html( $contact_cta_btn_text ); ?>
               <svg
                 class="btn__icon"
                 viewBox="0 0 24 24"
@@ -402,6 +583,7 @@ get_header();
                 />
               </svg>
             </a>
+            <?php endif; ?>
           </div>
         </div>
       </section>

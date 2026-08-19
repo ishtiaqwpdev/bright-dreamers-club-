@@ -8,13 +8,344 @@
  */
 
 get_header();
+
+$get_involved_page_id = get_queried_object_id();
+
+$get_involved_hero_lazy_placeholder = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';
+
+$get_involved_hero_eyebrow = bdc_get_acf_text(
+	'get_involved_hero_eyebrow',
+	'GET INVOLVED',
+	$get_involved_page_id
+);
+$get_involved_hero_title_line_1 = bdc_get_acf_text(
+	'get_involved_hero_title_line_1',
+	'Get',
+	$get_involved_page_id
+);
+$get_involved_hero_title_line_2 = bdc_get_acf_text(
+	'get_involved_hero_title_line_2',
+	'Involved',
+	$get_involved_page_id
+);
+$get_involved_hero_text_intro = bdc_get_acf_text(
+	'get_involved_hero_text_intro',
+	'We\'re building a community where young ideas are heard,',
+	$get_involved_page_id
+);
+$get_involved_hero_text_accent_1 = bdc_get_acf_text(
+	'get_involved_hero_text_accent_1',
+	'supported',
+	$get_involved_page_id
+);
+$get_involved_hero_text_middle = bdc_get_acf_text(
+	'get_involved_hero_text_middle',
+	'and turned into',
+	$get_involved_page_id
+);
+$get_involved_hero_text_accent_2 = bdc_get_acf_text(
+	'get_involved_hero_text_accent_2',
+	'real projects',
+	$get_involved_page_id
+);
+$get_involved_hero_text_outro = bdc_get_acf_text(
+	'get_involved_hero_text_outro',
+	'that help others.',
+	$get_involved_page_id
+);
+$get_involved_hero_text_secondary = bdc_get_acf_text(
+	'get_involved_hero_text_secondary',
+	'Your time, skills, resources, and support help open doors for children with ideas and the desire to make a difference.',
+	$get_involved_page_id
+);
+$get_involved_hero_primary_btn_text = bdc_get_acf_text(
+	'get_involved_hero_primary_btn_text',
+	'Volunteer With Us',
+	$get_involved_page_id
+);
+$get_involved_hero_primary_btn_link = bdc_get_acf_link(
+	'get_involved_hero_primary_btn_link',
+	array(
+		'title'  => 'Volunteer With Us',
+		'url'    => bdc_page_url( 'volunteer-application.html' ),
+		'target' => '',
+	),
+	$get_involved_page_id
+);
+$get_involved_hero_secondary_btn_text = bdc_get_acf_text(
+	'get_involved_hero_secondary_btn_text',
+	'See Our Vision',
+	$get_involved_page_id
+);
+$get_involved_hero_secondary_btn_link = bdc_get_acf_link(
+	'get_involved_hero_secondary_btn_link',
+	array(
+		'title'  => 'See Our Vision',
+		'url'    => bdc_page_url( 'our-vision.html' ),
+		'target' => '',
+	),
+	$get_involved_page_id
+);
+$get_involved_hero_banner_url = bdc_get_acf_image_url(
+	'get_involved_hero_banner',
+	bdc_theme_asset_url( 'assets/images/get-involved-hero-banner.jpeg' ),
+	$get_involved_page_id
+);
+$get_involved_hero_banner_alt = bdc_get_acf_text(
+	'get_involved_hero_banner_alt',
+	'Children collaborating on a creative project together',
+	$get_involved_page_id
+);
+
+$get_involved_ways_title = bdc_get_acf_text(
+	'get_involved_ways_title',
+	'How You Can Get Involved',
+	$get_involved_page_id
+);
+$get_involved_ways_cards_defaults = array(
+	array(
+		'icon'       => bdc_theme_asset_url( 'assets/images/get-involved-icon-time.jpeg' ),
+		'title'      => 'Share Your Time',
+		'text'       => 'Volunteer your time and help children explore, create, and bring their ideas to life.',
+		'link_text'  => 'Learn More',
+		'link'       => array(
+			'title'  => 'Learn More',
+			'url'    => bdc_page_url( 'volunteer-application.html' ),
+			'target' => '',
+		),
+	),
+	array(
+		'icon'       => bdc_theme_asset_url( 'assets/images/get-involved-icon-skills.jpeg' ),
+		'title'      => 'Share Your Skills',
+		'text'       => 'Use your talents and experience to mentor, teach, or guide children on their projects.',
+		'link_text'  => 'Learn More',
+		'link'       => array(
+			'title'  => 'Learn More',
+			'url'    => '#skills',
+			'target' => '',
+		),
+	),
+	array(
+		'icon'       => bdc_theme_asset_url( 'assets/images/get-involved-icon-door.jpeg' ),
+		'title'      => 'Open a Door',
+		'text'       => 'Offer spaces, opportunities, connections, or real-world experiences that inspire young minds.',
+		'link_text'  => 'Learn More',
+		'link'       => array(
+			'title'  => 'Learn More',
+			'url'    => '#open-a-door',
+			'target' => '',
+		),
+	),
+	array(
+		'icon'       => bdc_theme_asset_url( 'assets/images/get-involved-icon-support.jpeg' ),
+		'title'      => 'Support a Project',
+		'text'       => 'Help fund materials, resources, and experiences that make child-led projects possible.',
+		'link_text'  => 'Learn More',
+		'link'       => array(
+			'title'  => 'Learn More',
+			'url'    => bdc_page_url( 'donation-interest.html' ),
+			'target' => '',
+		),
+	),
+	array(
+		'icon'       => bdc_theme_asset_url( 'assets/images/get-involved-icon-spread.jpeg' ),
+		'title'      => 'Spread the Word',
+		'text'       => 'Tell others about Bright Dreamers and help more children with ideas find us.',
+		'link_text'  => 'Learn More',
+		'link'       => array(
+			'title'  => 'Learn More',
+			'url'    => '#spread-the-word',
+			'target' => '',
+		),
+	),
+);
+$get_involved_ways_cards_raw = bdc_get_acf_repeater( 'get_involved_ways_cards', $get_involved_ways_cards_defaults, $get_involved_page_id );
+$get_involved_ways_cards     = array();
+
+foreach ( $get_involved_ways_cards_raw as $index => $row ) {
+	$default = $get_involved_ways_cards_defaults[ $index ] ?? array(
+		'icon'      => '',
+		'title'     => '',
+		'text'      => '',
+		'link_text' => 'Learn More',
+		'link'      => array(
+			'title'  => 'Learn More',
+			'url'    => '',
+			'target' => '',
+		),
+	);
+
+	$title     = isset( $row['title'] ) ? trim( (string) $row['title'] ) : '';
+	$text      = isset( $row['text'] ) ? trim( (string) $row['text'] ) : '';
+	$link_text = isset( $row['link_text'] ) ? trim( (string) $row['link_text'] ) : '';
+
+	$resolved = array(
+		'icon'      => bdc_acf_image_value_to_url( $row['icon'] ?? null, (string) $default['icon'] ),
+		'title'     => '' !== $title ? $title : (string) $default['title'],
+		'text'      => '' !== $text ? $text : (string) $default['text'],
+		'link_text' => '' !== $link_text ? $link_text : (string) $default['link_text'],
+		'link'      => bdc_resolve_acf_link_value( $row['link'] ?? null, $default['link'] ),
+	);
+
+	if ( '' === trim( $resolved['title'] ) && '' === trim( $resolved['text'] ) ) {
+		continue;
+	}
+
+	$get_involved_ways_cards[] = $resolved;
+}
+
+if ( empty( $get_involved_ways_cards ) ) {
+	$get_involved_ways_cards = $get_involved_ways_cards_defaults;
+}
+
+$get_involved_impact_title_line_1 = bdc_get_acf_text(
+	'get_involved_impact_title_line_1',
+	'Help Us Make',
+	$get_involved_page_id
+);
+$get_involved_impact_title_line_2 = bdc_get_acf_text(
+	'get_involved_impact_title_line_2',
+	'Young Ideas Possible',
+	$get_involved_page_id
+);
+$get_involved_impact_intro = bdc_get_acf_text(
+	'get_involved_impact_intro',
+	'Bright Dreamers is intentionally small and project-based. We welcome children who are curious, motivated, and excited to share their ideas and work together.',
+	$get_involved_page_id
+);
+$get_involved_impact_note_text = bdc_get_acf_text(
+	'get_involved_impact_note_text',
+	'We don\'t measure success by how many we reach—but by the impact we create together, one idea at a time.',
+	$get_involved_page_id
+);
+$get_involved_impact_timeline_defaults = array(
+	array(
+		'icon_mode'   => 'heart',
+		'icon'        => '',
+		'color_slug'  => 'pink',
+		'title'       => 'Children Lead the Way',
+		'text'        => 'We open our doors to children with ideas, creativity, and the desire to make a difference.',
+	),
+	array(
+		'icon_mode'   => 'image',
+		'icon'        => bdc_theme_asset_url( 'assets/images/get-involved-timeline-together-removebg-preview.png' ),
+		'color_slug'  => 'pink',
+		'title'       => 'We Build Together',
+		'text'        => 'Families, volunteers, and community partners bring their time, skills, and resources to bring ideas to life.',
+	),
+	array(
+		'icon_mode'   => 'image',
+		'icon'        => bdc_theme_asset_url( 'assets/images/get-involved-timeline-grow-removebg-preview.png' ),
+		'color_slug'  => 'green',
+		'title'       => 'Ideas Become Real',
+		'text'        => 'Through collaboration, children turn their ideas into projects that inspire and help others.',
+	),
+	array(
+		'icon_mode'   => 'image',
+		'icon'        => bdc_theme_asset_url( 'assets/images/get-involved-timeline-community-removebg-preview.png' ),
+		'color_slug'  => 'blue',
+		'title'       => 'A Stronger Community',
+		'text'        => 'Every project creates a ripple effect of kindness, learning, and positive change.',
+	),
+);
+$get_involved_impact_color_slugs_allowed = array( 'pink', 'green', 'blue' );
+$get_involved_impact_icon_modes_allowed  = array( 'heart', 'image' );
+$get_involved_impact_timeline_raw        = bdc_get_acf_repeater( 'get_involved_impact_timeline', $get_involved_impact_timeline_defaults, $get_involved_page_id );
+$get_involved_impact_timeline            = array();
+
+foreach ( $get_involved_impact_timeline_raw as $index => $row ) {
+	$default = $get_involved_impact_timeline_defaults[ $index ] ?? array(
+		'icon_mode'  => 'image',
+		'icon'       => '',
+		'color_slug' => 'pink',
+		'title'      => '',
+		'text'       => '',
+	);
+
+	$title      = isset( $row['title'] ) ? trim( (string) $row['title'] ) : '';
+	$text       = isset( $row['text'] ) ? trim( (string) $row['text'] ) : '';
+	$icon_mode  = isset( $row['icon_mode'] ) ? sanitize_key( (string) $row['icon_mode'] ) : '';
+	$color_slug = isset( $row['color_slug'] ) ? sanitize_key( (string) $row['color_slug'] ) : '';
+
+	if ( ! in_array( $icon_mode, $get_involved_impact_icon_modes_allowed, true ) ) {
+		$icon_mode = (string) $default['icon_mode'];
+	}
+
+	if ( ! in_array( $color_slug, $get_involved_impact_color_slugs_allowed, true ) ) {
+		$color_slug = (string) $default['color_slug'];
+	}
+
+	$resolved = array(
+		'icon_mode'  => $icon_mode,
+		'icon'       => bdc_acf_image_value_to_url( $row['icon'] ?? null, (string) $default['icon'] ),
+		'color_slug' => $color_slug,
+		'title'      => '' !== $title ? $title : (string) $default['title'],
+		'text'       => '' !== $text ? $text : (string) $default['text'],
+	);
+
+	if ( '' === trim( $resolved['title'] ) && '' === trim( $resolved['text'] ) ) {
+		continue;
+	}
+
+	$get_involved_impact_timeline[] = $resolved;
+}
+
+if ( empty( $get_involved_impact_timeline ) ) {
+	$get_involved_impact_timeline = $get_involved_impact_timeline_defaults;
+}
+
+$get_involved_impact_illustration_url = bdc_get_acf_image_url(
+	'get_involved_impact_illustration',
+	bdc_theme_asset_url( 'assets/images/get-involved-lightbulb-removebg-preview.png' ),
+	$get_involved_page_id
+);
+$get_involved_impact_illustration_alt = bdc_get_acf_text(
+	'get_involved_impact_illustration_alt',
+	'Children working together on a bright idea',
+	$get_involved_page_id
+);
+
+$get_involved_partner_cta_envelope_url = bdc_get_acf_image_url(
+	'get_involved_partner_cta_envelope',
+	bdc_theme_asset_url( 'assets/images/get-involved-cta-envelope-removebg-preview.png' ),
+	$get_involved_page_id
+);
+$get_involved_partner_cta_title = bdc_get_acf_text(
+	'get_involved_partner_cta_title',
+	'Have an idea for a partnership or want to support a child\'s project?',
+	$get_involved_page_id
+);
+$get_involved_partner_cta_sub = bdc_get_acf_text(
+	'get_involved_partner_cta_sub',
+	'We\'d love to hear from you.',
+	$get_involved_page_id
+);
+$get_involved_partner_cta_btn_text = bdc_get_acf_text(
+	'get_involved_partner_cta_btn_text',
+	'Contact Us',
+	$get_involved_page_id
+);
+$get_involved_partner_cta_btn_link = bdc_get_acf_link(
+	'get_involved_partner_cta_btn_link',
+	array(
+		'title'  => 'Contact Us',
+		'url'    => bdc_page_url( 'partner-inquiry.html' ),
+		'target' => '',
+	),
+	$get_involved_page_id
+);
+$get_involved_partner_cta_deco_url = bdc_get_acf_image_url(
+	'get_involved_partner_cta_deco',
+	bdc_theme_asset_url( 'assets/images/get-involved-cta-deco-removebg-preview.png' ),
+	$get_involved_page_id
+);
 ?>
     <main id="main-content">
       <section class="page-hero get-involved-hero about-hero" aria-label="Get Involved">
         <div class="site-container page-hero__inner">
           <div class="page-hero__content">
             <p class="get-involved-hero__eyebrow">
-              GET INVOLVED
+              <?php echo esc_html( $get_involved_hero_eyebrow ); ?>
               <svg
                 class="get-involved-hero__eyebrow-heart"
                 viewBox="0 0 24 24"
@@ -34,30 +365,44 @@ get_header();
             </p>
 
             <h1 class="get-involved-hero__title">
-              <span class="get-involved-hero__title-line get-involved-hero__title-line--pink">Get</span>
-              <span class="get-involved-hero__title-line get-involved-hero__title-line--navy"
-                >Involved</span
-              >
+              <?php if ( '' !== trim( $get_involved_hero_title_line_1 ) ) : ?>
+              <span class="get-involved-hero__title-line get-involved-hero__title-line--pink"><?php echo esc_html( $get_involved_hero_title_line_1 ); ?></span>
+              <?php endif; ?>
+              <?php if ( '' !== trim( $get_involved_hero_title_line_2 ) ) : ?>
+              <span class="get-involved-hero__title-line get-involved-hero__title-line--navy"><?php echo esc_html( $get_involved_hero_title_line_2 ); ?></span>
+              <?php endif; ?>
             </h1>
 
+            <?php if ( '' !== trim( $get_involved_hero_text_intro ) || '' !== trim( $get_involved_hero_text_accent_1 ) || '' !== trim( $get_involved_hero_text_middle ) || '' !== trim( $get_involved_hero_text_accent_2 ) || '' !== trim( $get_involved_hero_text_outro ) ) : ?>
             <p class="get-involved-hero__text">
-              We&rsquo;re building a community where young ideas are heard,
-              <span class="get-involved-hero__accent get-involved-hero__accent--pink">supported</span>,
-              and turned into
-              <span class="get-involved-hero__accent get-involved-hero__accent--pink"
-                >real projects</span
-              >
-              that help others.
+              <?php if ( '' !== trim( $get_involved_hero_text_intro ) ) : ?>
+              <?php echo esc_html( $get_involved_hero_text_intro ); ?>
+              <?php endif; ?>
+              <?php if ( '' !== trim( $get_involved_hero_text_accent_1 ) ) : ?>
+              <span class="get-involved-hero__accent get-involved-hero__accent--pink"><?php echo esc_html( $get_involved_hero_text_accent_1 ); ?></span><?php if ( '' !== trim( $get_involved_hero_text_middle ) ) : ?>,<?php endif; ?>
+              <?php endif; ?>
+              <?php if ( '' !== trim( $get_involved_hero_text_middle ) ) : ?>
+              <?php echo esc_html( $get_involved_hero_text_middle ); ?>
+              <?php endif; ?>
+              <?php if ( '' !== trim( $get_involved_hero_text_accent_2 ) ) : ?>
+              <span class="get-involved-hero__accent get-involved-hero__accent--pink"><?php echo esc_html( $get_involved_hero_text_accent_2 ); ?></span>
+              <?php endif; ?>
+              <?php if ( '' !== trim( $get_involved_hero_text_outro ) ) : ?>
+              <?php echo ' ' . esc_html( $get_involved_hero_text_outro ); ?>
+              <?php endif; ?>
             </p>
+            <?php endif; ?>
 
+            <?php if ( '' !== trim( $get_involved_hero_text_secondary ) ) : ?>
             <p class="get-involved-hero__text get-involved-hero__text--secondary">
-              Your time, skills, resources, and support help open doors for children with ideas and
-              the desire to make a difference.
+              <?php echo esc_html( $get_involved_hero_text_secondary ); ?>
             </p>
+            <?php endif; ?>
 
             <div class="page-hero__actions">
-              <a class="btn btn--solid btn--lg btn-hover" href="<?php echo esc_url( bdc_page_url( 'volunteer-application.html' ) ); ?>">
-                Volunteer With Us
+              <?php if ( ! empty( $get_involved_hero_primary_btn_link['url'] ) && '' !== trim( $get_involved_hero_primary_btn_text ) ) : ?>
+              <a class="btn btn--solid btn--lg btn-hover" href="<?php echo esc_url( $get_involved_hero_primary_btn_link['url'] ); ?>"<?php echo bdc_acf_link_target_attr( $get_involved_hero_primary_btn_link ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
+                <?php echo esc_html( $get_involved_hero_primary_btn_text ); ?>
                 <svg
                   class="btn__icon"
                   viewBox="0 0 24 24"
@@ -75,8 +420,10 @@ get_header();
                   <path d="M16 11v4M18 13h-4" />
                 </svg>
               </a>
-              <a class="btn btn--outline btn--lg btn-hover" href="<?php echo esc_url( bdc_page_url( 'our-vision.html' ) ); ?>">
-                See Our Vision
+              <?php endif; ?>
+              <?php if ( ! empty( $get_involved_hero_secondary_btn_link['url'] ) && '' !== trim( $get_involved_hero_secondary_btn_text ) ) : ?>
+              <a class="btn btn--outline btn--lg btn-hover" href="<?php echo esc_url( $get_involved_hero_secondary_btn_link['url'] ); ?>"<?php echo bdc_acf_link_target_attr( $get_involved_hero_secondary_btn_link ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
+                <?php echo esc_html( $get_involved_hero_secondary_btn_text ); ?>
                 <svg
                   class="btn__icon"
                   viewBox="0 0 24 24"
@@ -92,6 +439,7 @@ get_header();
                   />
                 </svg>
               </a>
+              <?php endif; ?>
             </div>
           </div>
 
@@ -99,9 +447,9 @@ get_header();
             <div class="lazy-img-wrap">
               <img
                 class="about-hero__banner lazy-img"
-                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-                data-src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/get-involved-hero-banner.jpeg' ); ?>"
-                alt="Children collaborating on a creative project together"
+                src="<?php echo esc_attr( $get_involved_hero_lazy_placeholder ); ?>"
+                data-src="<?php echo esc_url( $get_involved_hero_banner_url ); ?>"
+                alt="<?php echo esc_attr( $get_involved_hero_banner_alt ); ?>"
                 width="1200"
                 height="900"
                 decoding="async"
@@ -114,7 +462,7 @@ get_header();
       <section class="get-involved-ways section-padding" aria-labelledby="get-involved-ways-title">
         <div class="site-container">
             <h2 class="get-involved-ways__title" id="get-involved-ways-title">
-              How You Can Get Involved
+              <?php echo esc_html( $get_involved_ways_title ); ?>
               <svg
                 class="get-involved-ways__title-icon"
                 viewBox="0 0 24 24"
@@ -133,111 +481,7 @@ get_header();
               </svg>
             </h2>
 
-            <div class="get-involved-ways__grid">
-              <article class="get-involved-ways-card">
-                <img
-                  class="get-involved-ways-card__icon"
-                  src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/get-involved-icon-time.jpeg' ); ?>"
-                  alt=""
-                  width="84"
-                  height="84"
-                  loading="lazy"
-                  decoding="async"
-                />
-                <h3 class="get-involved-ways-card__title">Share Your Time</h3>
-                <p class="get-involved-ways-card__text">
-                  Volunteer your time and help children explore, create, and bring their ideas to
-                  life.
-                </p>
-                <a class="get-involved-ways-card__link" href="<?php echo esc_url( bdc_page_url( 'volunteer-application.html' ) ); ?>">
-                  Learn More
-                  <span aria-hidden="true">&rarr;</span>
-                </a>
-              </article>
-
-              <article class="get-involved-ways-card">
-                <img
-                  class="get-involved-ways-card__icon"
-                  src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/get-involved-icon-skills.jpeg' ); ?>"
-                  alt=""
-                  width="84"
-                  height="84"
-                  loading="lazy"
-                  decoding="async"
-                />
-                <h3 class="get-involved-ways-card__title">Share Your Skills</h3>
-                <p class="get-involved-ways-card__text">
-                  Use your talents and experience to mentor, teach, or guide children on their
-                  projects.
-                </p>
-                <a class="get-involved-ways-card__link" href="#skills">
-                  Learn More
-                  <span aria-hidden="true">&rarr;</span>
-                </a>
-              </article>
-
-              <article class="get-involved-ways-card">
-                <img
-                  class="get-involved-ways-card__icon"
-                  src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/get-involved-icon-door.jpeg' ); ?>"
-                  alt=""
-                  width="84"
-                  height="84"
-                  loading="lazy"
-                  decoding="async"
-                />
-                <h3 class="get-involved-ways-card__title">Open a Door</h3>
-                <p class="get-involved-ways-card__text">
-                  Offer spaces, opportunities, connections, or real-world experiences that inspire
-                  young minds.
-                </p>
-                <a class="get-involved-ways-card__link" href="#open-a-door">
-                  Learn More
-                  <span aria-hidden="true">&rarr;</span>
-                </a>
-              </article>
-
-              <article class="get-involved-ways-card">
-                <img
-                  class="get-involved-ways-card__icon"
-                  src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/get-involved-icon-support.jpeg' ); ?>"
-                  alt=""
-                  width="84"
-                  height="84"
-                  loading="lazy"
-                  decoding="async"
-                />
-                <h3 class="get-involved-ways-card__title">Support a Project</h3>
-                <p class="get-involved-ways-card__text">
-                  Help fund materials, resources, and experiences that make child-led projects
-                  possible.
-                </p>
-                <a class="get-involved-ways-card__link" href="<?php echo esc_url( bdc_page_url( 'donation-interest.html' ) ); ?>">
-                  Learn More
-                  <span aria-hidden="true">&rarr;</span>
-                </a>
-              </article>
-
-              <article class="get-involved-ways-card">
-                <img
-                  class="get-involved-ways-card__icon"
-                  src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/get-involved-icon-spread.jpeg' ); ?>"
-                  alt=""
-                  width="84"
-                  height="84"
-                  loading="lazy"
-                  decoding="async"
-                />
-                <h3 class="get-involved-ways-card__title">Spread the Word</h3>
-                <p class="get-involved-ways-card__text">
-                  Tell others about Bright Dreamers and help more children with ideas find us.
-                </p>
-                <a class="get-involved-ways-card__link" href="#spread-the-word">
-                  Learn More
-                  <span aria-hidden="true">&rarr;</span>
-                </a>
-              </article>
-            </div>
+            <?php require get_template_directory() . '/template-parts/get-involved-ways-grid.php'; ?>
         </div>
       </section>
 
@@ -247,17 +491,19 @@ get_header();
             <div class="get-involved-impact__inner">
               <div class="get-involved-impact__copy">
                 <h2 class="get-involved-impact__title" id="get-involved-impact-title">
-                  <span class="get-involved-impact__title-line get-involved-impact__title-line--navy"
-                    >Help Us Make</span
-                  >
-                  <span class="get-involved-impact__title-line get-involved-impact__title-line--pink"
-                    >Young Ideas Possible</span
-                  >
+                  <?php if ( '' !== trim( $get_involved_impact_title_line_1 ) ) : ?>
+                  <span class="get-involved-impact__title-line get-involved-impact__title-line--navy"><?php echo esc_html( $get_involved_impact_title_line_1 ); ?></span>
+                  <?php endif; ?>
+                  <?php if ( '' !== trim( $get_involved_impact_title_line_2 ) ) : ?>
+                  <span class="get-involved-impact__title-line get-involved-impact__title-line--pink"><?php echo esc_html( $get_involved_impact_title_line_2 ); ?></span>
+                  <?php endif; ?>
                 </h2>
+                <?php if ( '' !== trim( $get_involved_impact_intro ) ) : ?>
                 <p class="get-involved-impact__intro">
-                  Bright Dreamers is intentionally small and project-based. We welcome children who
-                  are curious, motivated, and excited to share their ideas and work together.
+                  <?php echo esc_html( $get_involved_impact_intro ); ?>
                 </p>
+                <?php endif; ?>
+                <?php if ( '' !== trim( $get_involved_impact_note_text ) ) : ?>
                 <aside class="get-involved-impact__note">
                   <svg
                     class="get-involved-impact__note-star"
@@ -275,132 +521,13 @@ get_header();
                     />
                   </svg>
                   <p class="get-involved-impact__note-text">
-                    We don&rsquo;t measure success by how many we reach&mdash;but by the impact we create
-                    together, one idea at a time.
+                    <?php echo esc_html( $get_involved_impact_note_text ); ?>
                   </p>
                 </aside>
+                <?php endif; ?>
               </div>
 
-              <div class="get-involved-impact__visual">
-                <div class="get-involved-timeline" role="list">
-                  <article class="get-involved-timeline__step" role="listitem">
-                    <div
-                      class="get-involved-timeline__icon-wrap get-involved-timeline__icon-wrap--pink"
-                      aria-hidden="true"
-                    >
-                      <svg
-                        class="get-involved-timeline__icon-svg"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="1.8"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      >
-                        <path
-                          d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
-                        />
-                      </svg>
-                    </div>
-                    <div class="get-involved-timeline__rail" aria-hidden="true">
-                      <span class="get-involved-timeline__dot get-involved-timeline__dot--pink"></span>
-                    </div>
-                    <div class="get-involved-timeline__content">
-                      <h3 class="get-involved-timeline__title get-involved-timeline__title--pink">
-                        Children Lead the Way
-                      </h3>
-                      <p class="get-involved-timeline__text">
-                        We open our doors to children with ideas, creativity, and the desire to make
-                        a difference.
-                      </p>
-                    </div>
-                  </article>
-
-                  <article class="get-involved-timeline__step" role="listitem">
-                    <img
-                      class="get-involved-timeline__icon"
-                      src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/get-involved-timeline-together-removebg-preview.png' ); ?>"
-                      alt=""
-                      width="56"
-                      height="56"
-                      loading="lazy"
-                      decoding="async"
-                    />
-                    <div class="get-involved-timeline__rail" aria-hidden="true">
-                      <span class="get-involved-timeline__dot get-involved-timeline__dot--pink"></span>
-                    </div>
-                    <div class="get-involved-timeline__content">
-                      <h3 class="get-involved-timeline__title get-involved-timeline__title--pink">
-                        We Build Together
-                      </h3>
-                      <p class="get-involved-timeline__text">
-                        Families, volunteers, and community partners bring their time, skills, and
-                        resources to bring ideas to life.
-                      </p>
-                    </div>
-                  </article>
-
-                  <article class="get-involved-timeline__step" role="listitem">
-                    <img
-                      class="get-involved-timeline__icon"
-                      src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/get-involved-timeline-grow-removebg-preview.png' ); ?>"
-                      alt=""
-                      width="56"
-                      height="56"
-                      loading="lazy"
-                      decoding="async"
-                    />
-                    <div class="get-involved-timeline__rail" aria-hidden="true">
-                      <span class="get-involved-timeline__dot get-involved-timeline__dot--green"></span>
-                    </div>
-                    <div class="get-involved-timeline__content">
-                      <h3 class="get-involved-timeline__title get-involved-timeline__title--green">
-                        Ideas Become Real
-                      </h3>
-                      <p class="get-involved-timeline__text">
-                        Through collaboration, children turn their ideas into projects that inspire
-                        and help others.
-                      </p>
-                    </div>
-                  </article>
-
-                  <article class="get-involved-timeline__step" role="listitem">
-                    <img
-                      class="get-involved-timeline__icon"
-                      src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/get-involved-timeline-community-removebg-preview.png' ); ?>"
-                      alt=""
-                      width="56"
-                      height="56"
-                      loading="lazy"
-                      decoding="async"
-                    />
-                    <div class="get-involved-timeline__rail" aria-hidden="true">
-                      <span class="get-involved-timeline__dot get-involved-timeline__dot--blue"></span>
-                    </div>
-                    <div class="get-involved-timeline__content">
-                      <h3 class="get-involved-timeline__title get-involved-timeline__title--blue">
-                        A Stronger Community
-                      </h3>
-                      <p class="get-involved-timeline__text">
-                        Every project creates a ripple effect of kindness, learning, and positive
-                        change.
-                      </p>
-                    </div>
-                  </article>
-                </div>
-
-                <div class="lazy-img-wrap">
-                  <img
-                    class="get-involved-impact__illustration lazy-img"
-                    src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-                    data-src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/get-involved-lightbulb-removebg-preview.png' ); ?>"
-                    alt="Children working together on a bright idea"
-                    width="560"
-                    height="520"
-                    decoding="async"
-                  />
-                </div>
-              </div>
+              <?php require get_template_directory() . '/template-parts/get-involved-impact-visual.php'; ?>
             </div>
           </div>
         </div>
@@ -411,7 +538,7 @@ get_header();
           <div class="get-involved-partner-cta__card">
             <img
               class="get-involved-partner-cta__envelope"
-              src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/get-involved-cta-envelope-removebg-preview.png' ); ?>"
+              src="<?php echo esc_url( $get_involved_partner_cta_envelope_url ); ?>"
               alt=""
               width="185"
               height="140"
@@ -421,14 +548,19 @@ get_header();
             />
 
             <div class="get-involved-partner-cta__copy">
+              <?php if ( '' !== trim( $get_involved_partner_cta_title ) ) : ?>
               <p class="get-involved-partner-cta__title">
-                Have an idea for a partnership or want to support a child&rsquo;s project?
+                <?php echo esc_html( $get_involved_partner_cta_title ); ?>
               </p>
-              <p class="get-involved-partner-cta__sub">We&rsquo;d love to hear from you.</p>
+              <?php endif; ?>
+              <?php if ( '' !== trim( $get_involved_partner_cta_sub ) ) : ?>
+              <p class="get-involved-partner-cta__sub"><?php echo esc_html( $get_involved_partner_cta_sub ); ?></p>
+              <?php endif; ?>
             </div>
 
-            <a class="btn btn--solid btn--lg btn-hover get-involved-partner-cta__btn" href="<?php echo esc_url( bdc_page_url( 'partner-inquiry.html' ) ); ?>">
-              Contact Us
+            <?php if ( ! empty( $get_involved_partner_cta_btn_link['url'] ) && '' !== trim( $get_involved_partner_cta_btn_text ) ) : ?>
+            <a class="btn btn--solid btn--lg btn-hover get-involved-partner-cta__btn" href="<?php echo esc_url( $get_involved_partner_cta_btn_link['url'] ); ?>"<?php echo bdc_acf_link_target_attr( $get_involved_partner_cta_btn_link ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
+              <?php echo esc_html( $get_involved_partner_cta_btn_text ); ?>
               <svg
                 class="btn__icon"
                 viewBox="0 0 24 24"
@@ -444,10 +576,11 @@ get_header();
                 <path d="M5 12h14M13 6l6 6-6 6" />
               </svg>
             </a>
+            <?php endif; ?>
 
             <img
               class="get-involved-partner-cta__deco"
-              src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/get-involved-cta-deco-removebg-preview.png' ); ?>"
+              src="<?php echo esc_url( $get_involved_partner_cta_deco_url ); ?>"
               alt=""
               width="120"
               height="80"

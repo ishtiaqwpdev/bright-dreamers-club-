@@ -1,6 +1,6 @@
-<?php
+﻿<?php
 /**
- * About page template — converted from about.html.
+ * About page template â€” converted from about.html.
  *
  * Template Name: About
  *
@@ -104,7 +104,7 @@ $about_story_paragraph_1 = bdc_get_acf_text(
 );
 $about_story_paragraph_2 = bdc_get_acf_text(
 	'about_story_paragraph_2',
-	'Watching them made us realize something important…',
+	'Watching them made us realize something importantâ€¦',
 	$about_page_id
 );
 $about_story_paragraph_highlight = bdc_get_acf_text(
@@ -127,6 +127,356 @@ $about_story_jar_alt = bdc_get_acf_text(
 	'',
 	$about_page_id
 );
+
+$about_believe_title = bdc_get_acf_text(
+	'about_believe_title',
+	'We Believe',
+	$about_page_id
+);
+$about_believe_deco_left_url = bdc_get_acf_image_url(
+	'about_believe_deco_left',
+	bdc_theme_asset_url( 'assets/images/believe-deco-dots-removebg-preview.png' ),
+	$about_page_id
+);
+$about_believe_deco_right_url = bdc_get_acf_image_url(
+	'about_believe_deco_right',
+	bdc_theme_asset_url( 'assets/images/believe-deco-dots-removebg-preview (1).png' ),
+	$about_page_id
+);
+$about_believe_cards_defaults = array(
+	array(
+		'icon'       => bdc_theme_asset_url( 'assets/images/believe-icon-star.png' ),
+		'text'       => 'Every child has unique talents.',
+		'style_slug' => 'pink',
+	),
+	array(
+		'icon'       => bdc_theme_asset_url( 'assets/images/believe-icon-heart.png' ),
+		'text'       => 'Every idea deserves to be heard.',
+		'style_slug' => 'purple',
+	),
+	array(
+		'icon'       => bdc_theme_asset_url( 'assets/images/believe-icon-palette-removebg-preview.png' ),
+		'text'       => 'Creativity builds confidence.',
+		'style_slug' => 'yellow',
+	),
+	array(
+		'icon'       => bdc_theme_asset_url( 'assets/images/believe-icon-people.png' ),
+		'text'       => 'Children learn by doing.',
+		'style_slug' => 'green',
+	),
+	array(
+		'icon'       => bdc_theme_asset_url( 'assets/images/believe-icon-leaf.png' ),
+		'text'       => 'Kindness changes communities.',
+		'style_slug' => 'peach',
+	),
+	array(
+		'icon'       => bdc_theme_asset_url( 'assets/images/believe-icon-sparkles.png' ),
+		'text'       => 'Dreams become real when we work together.',
+		'style_slug' => 'blue',
+	),
+);
+$about_believe_style_slugs_allowed = array( 'pink', 'purple', 'yellow', 'green', 'peach', 'blue' );
+$about_believe_cards_raw           = bdc_get_acf_repeater( 'about_believe_cards', $about_believe_cards_defaults, $about_page_id );
+$about_believe_cards               = array();
+
+foreach ( $about_believe_cards_raw as $index => $row ) {
+	$default = $about_believe_cards_defaults[ $index ] ?? array(
+		'icon'       => '',
+		'text'       => '',
+		'style_slug' => 'pink',
+	);
+
+	$text       = isset( $row['text'] ) ? trim( (string) $row['text'] ) : '';
+	$style_slug = isset( $row['style_slug'] ) ? sanitize_key( (string) $row['style_slug'] ) : '';
+
+	if ( ! in_array( $style_slug, $about_believe_style_slugs_allowed, true ) ) {
+		$style_slug = (string) $default['style_slug'];
+	}
+
+	$resolved_text = '' !== $text ? $text : (string) $default['text'];
+
+	if ( '' === trim( $resolved_text ) ) {
+		continue;
+	}
+
+	$about_believe_cards[] = array(
+		'icon'       => bdc_acf_image_value_to_url( $row['icon'] ?? null, (string) $default['icon'] ),
+		'text'       => $resolved_text,
+		'style_slug' => $style_slug,
+	);
+}
+
+if ( empty( $about_believe_cards ) ) {
+	$about_believe_cards = $about_believe_cards_defaults;
+}
+
+$about_panel_journey_defaults = array(
+	'aria_label'   => 'Children Lead the Journey â€” a Bright Dreamer holding a sign that reads My idea Can Help Others',
+	'title'        => 'Children Lead the Journey',
+	'paragraph_1'  => 'At Bright Dreamers, children are not just participants. They are creators. Dreamers. Problem solvers. Idea makers.',
+	'paragraph_2'  => 'Many of our projects begin with children\'s own ideas. Adults guide, encourage, and provide a safe environmentâ€”but we believe the best ideas often come from children themselves.',
+	'paragraph_3'  => 'Together we turn imagination into real projects that help others.',
+	'figure'       => bdc_theme_asset_url( 'assets/images/panel-journey-girl-removebg-preview.png' ),
+	'figure_alt'   => 'A Bright Dreamer holding a sign that says My idea Can Help Others',
+);
+$about_panel_journey        = bdc_get_acf_group( 'about_panel_journey', $about_panel_journey_defaults, $about_page_id );
+$about_panel_journey_figure = bdc_acf_image_value_to_url( $about_panel_journey['figure'] ?? null, $about_panel_journey_defaults['figure'] );
+
+$about_panel_council_defaults = array(
+	'title'      => 'Young Dreamers Council',
+	'lead'       => 'Bright Dreamers believes children\'s voices matter.',
+	'list_items' => array(
+		array( 'item_text' => 'Share ideas' ),
+		array( 'item_text' => 'Suggest projects' ),
+		array( 'item_text' => 'Identify causes they care about' ),
+		array( 'item_text' => 'Vote on activities' ),
+		array( 'item_text' => 'Help shape the future' ),
+	),
+	'note'       => 'Adult mentors guide and support them every step of the way.',
+	'figure'     => bdc_theme_asset_url( 'assets/images/panel-council-figures-removebg-preview.png' ),
+	'figure_alt' => '',
+);
+$about_panel_council        = bdc_get_acf_group( 'about_panel_council', $about_panel_council_defaults, $about_page_id );
+$about_panel_council_figure = bdc_acf_image_value_to_url( $about_panel_council['figure'] ?? null, $about_panel_council_defaults['figure'] );
+$about_panel_council_items_raw = ( is_array( $about_panel_council['list_items'] ?? null ) && ! empty( $about_panel_council['list_items'] ) )
+	? $about_panel_council['list_items']
+	: $about_panel_council_defaults['list_items'];
+$about_panel_council_items = array();
+
+foreach ( $about_panel_council_items_raw as $index => $row ) {
+	$default   = $about_panel_council_defaults['list_items'][ $index ] ?? array( 'item_text' => '' );
+	$item_text = isset( $row['item_text'] ) ? trim( (string) $row['item_text'] ) : '';
+	$item_text = '' !== $item_text ? $item_text : (string) $default['item_text'];
+
+	if ( '' === trim( $item_text ) ) {
+		continue;
+	}
+
+	$about_panel_council_items[] = $item_text;
+}
+
+if ( empty( $about_panel_council_items ) ) {
+	foreach ( $about_panel_council_defaults['list_items'] as $default_item ) {
+		$about_panel_council_items[] = (string) $default_item['item_text'];
+	}
+}
+
+$about_panel_role_defaults = array(
+	'title'          => 'Our Role',
+	'title_icon'     => bdc_theme_asset_url( 'assets/images/role-heart-outline.png' ),
+	'lead'           => 'We areâ€¦',
+	'role_items'     => array(
+		array(
+			'icon'  => bdc_theme_asset_url( 'assets/images/role-icon-heart.jpeg' ),
+			'label' => 'Encouragers',
+		),
+		array(
+			'icon'  => bdc_theme_asset_url( 'assets/images/role-icon-palette.jpeg' ),
+			'label' => 'Creators',
+		),
+		array(
+			'icon'  => bdc_theme_asset_url( 'assets/images/role-icon-leaf.jpeg' ),
+			'label' => 'Mentors',
+		),
+		array(
+			'icon'  => bdc_theme_asset_url( 'assets/images/role-icon-ear.jpeg' ),
+			'label' => 'Listeners',
+		),
+		array(
+			'icon'  => bdc_theme_asset_url( 'assets/images/role-icon-star.jpeg' ),
+			'label' => 'Supporters',
+		),
+	),
+	'callout_strong' => 'Not instructors. Not lecturers.',
+	'callout_text'   => 'We walk beside children on their journey.',
+);
+$about_panel_role           = bdc_get_acf_group( 'about_panel_role', $about_panel_role_defaults, $about_page_id );
+$about_panel_role_title_icon = bdc_acf_image_value_to_url( $about_panel_role['title_icon'] ?? null, $about_panel_role_defaults['title_icon'] );
+$about_panel_role_items_raw = ( is_array( $about_panel_role['role_items'] ?? null ) && ! empty( $about_panel_role['role_items'] ) )
+	? $about_panel_role['role_items']
+	: $about_panel_role_defaults['role_items'];
+$about_panel_role_items = array();
+
+foreach ( $about_panel_role_items_raw as $index => $row ) {
+	$default = $about_panel_role_defaults['role_items'][ $index ] ?? array(
+		'icon'  => '',
+		'label' => '',
+	);
+	$label = isset( $row['label'] ) ? trim( (string) $row['label'] ) : '';
+
+	$about_panel_role_items[] = array(
+		'icon'  => bdc_acf_image_value_to_url( $row['icon'] ?? null, (string) $default['icon'] ),
+		'label' => '' !== $label ? $label : (string) $default['label'],
+	);
+}
+
+if ( empty( $about_panel_role_items ) ) {
+	$about_panel_role_items = $about_panel_role_defaults['role_items'];
+}
+
+$about_panel_role_callout_icon  = bdc_theme_asset_url( 'assets/images/believe-icon-people.png' );
+$about_panel_role_callout_heart = bdc_theme_asset_url( 'assets/images/role-heart-outline.png' );
+
+$about_panel_approach_defaults = array(
+	'title'       => 'Our Approach',
+	'arrow_image' => bdc_theme_asset_url( 'assets/images/approach-arrow.jpeg' ),
+	'steps'       => array(
+		array(
+			'icon'        => bdc_theme_asset_url( 'assets/images/approach-dream.jpeg' ),
+			'title'       => 'Dream',
+			'description' => 'Imagine possibilities.',
+		),
+		array(
+			'icon'        => bdc_theme_asset_url( 'assets/images/approach-create.jpeg' ),
+			'title'       => 'Create',
+			'description' => 'Build something meaningful.',
+		),
+		array(
+			'icon'        => bdc_theme_asset_url( 'assets/images/approach-grow.jpeg' ),
+			'title'       => 'Grow',
+			'description' => 'Learn through experience.',
+		),
+		array(
+			'icon'        => bdc_theme_asset_url( 'assets/images/approach-share.jpeg' ),
+			'title'       => 'Share',
+			'description' => 'Present ideas confidently.',
+		),
+		array(
+			'icon'        => bdc_theme_asset_url( 'assets/images/approach-give.jpeg' ),
+			'title'       => 'Give',
+			'description' => 'Use creativity to help others.',
+		),
+	),
+);
+$about_panel_approach      = bdc_get_acf_group( 'about_panel_approach', $about_panel_approach_defaults, $about_page_id );
+$about_panel_approach_arrow = bdc_acf_image_value_to_url( $about_panel_approach['arrow_image'] ?? null, $about_panel_approach_defaults['arrow_image'] );
+$about_panel_approach_steps_raw = ( is_array( $about_panel_approach['steps'] ?? null ) && ! empty( $about_panel_approach['steps'] ) )
+	? $about_panel_approach['steps']
+	: $about_panel_approach_defaults['steps'];
+$about_panel_approach_steps = array();
+
+foreach ( $about_panel_approach_steps_raw as $index => $row ) {
+	$default = $about_panel_approach_defaults['steps'][ $index ] ?? array(
+		'icon'        => '',
+		'title'       => '',
+		'description' => '',
+	);
+
+	$step_title = isset( $row['title'] ) ? trim( (string) $row['title'] ) : '';
+	$step_text  = isset( $row['description'] ) ? trim( (string) $row['description'] ) : '';
+
+	$resolved = array(
+		'icon'        => bdc_acf_image_value_to_url( $row['icon'] ?? null, (string) $default['icon'] ),
+		'title'       => '' !== $step_title ? $step_title : (string) $default['title'],
+		'description' => '' !== $step_text ? $step_text : (string) $default['description'],
+	);
+
+	if ( '' === trim( $resolved['title'] ) && '' === trim( $resolved['description'] ) ) {
+		continue;
+	}
+
+	$about_panel_approach_steps[] = $resolved;
+}
+
+if ( empty( $about_panel_approach_steps ) ) {
+	$about_panel_approach_steps = $about_panel_approach_defaults['steps'];
+}
+
+$about_compare_title = bdc_get_acf_text(
+	'about_compare_title',
+	'What Makes Bright Dreamers Different?',
+	$about_page_id
+);
+$about_compare_title_heart_url = bdc_get_acf_image_url(
+	'about_compare_title_heart',
+	bdc_theme_asset_url( 'assets/images/role-heart-outline.png' ),
+	$about_page_id
+);
+
+$about_compare_left_defaults = array(
+	'photo'      => bdc_theme_asset_url( 'assets/images/compare-left-photo.jpeg' ),
+	'photo_alt'  => 'Children walking together in a field at sunset',
+	'label'      => 'Many programs focus on',
+	'mark_icon'  => bdc_theme_asset_url( 'assets/images/compare-icon-x.jpeg' ),
+	'list_items' => array(
+		array( 'item_text' => 'Following instructions' ),
+		array( 'item_text' => 'One right answer' ),
+		array( 'item_text' => 'Adult-led activities' ),
+		array( 'item_text' => 'Finished projects' ),
+	),
+);
+$about_compare_left       = bdc_get_acf_group( 'about_compare_left', $about_compare_left_defaults, $about_page_id );
+$about_compare_left_photo = bdc_acf_image_value_to_url( $about_compare_left['photo'] ?? null, $about_compare_left_defaults['photo'] );
+$about_compare_left_mark  = bdc_acf_image_value_to_url( $about_compare_left['mark_icon'] ?? null, $about_compare_left_defaults['mark_icon'] );
+$about_compare_left_items_raw = ( is_array( $about_compare_left['list_items'] ?? null ) && ! empty( $about_compare_left['list_items'] ) )
+	? $about_compare_left['list_items']
+	: $about_compare_left_defaults['list_items'];
+$about_compare_left_items = array();
+
+foreach ( $about_compare_left_items_raw as $index => $row ) {
+	$default   = $about_compare_left_defaults['list_items'][ $index ] ?? array( 'item_text' => '' );
+	$item_text = isset( $row['item_text'] ) ? trim( (string) $row['item_text'] ) : '';
+	$item_text = '' !== $item_text ? $item_text : (string) $default['item_text'];
+
+	if ( '' === trim( $item_text ) ) {
+		continue;
+	}
+
+	$about_compare_left_items[] = $item_text;
+}
+
+if ( empty( $about_compare_left_items ) ) {
+	foreach ( $about_compare_left_defaults['list_items'] as $default_item ) {
+		$about_compare_left_items[] = (string) $default_item['item_text'];
+	}
+}
+
+$about_compare_vs_badge_url = bdc_get_acf_image_url(
+	'about_compare_vs_badge',
+	bdc_theme_asset_url( 'assets/images/compare-vs-badge.jpeg' ),
+	$about_page_id
+);
+
+$about_compare_right_defaults = array(
+	'label'      => 'Bright Dreamers focuses on',
+	'mark_icon'  => bdc_theme_asset_url( 'assets/images/compare-icon-check.jpeg' ),
+	'list_items' => array(
+		array( 'item_text' => 'Children\'s ideas' ),
+		array( 'item_text' => 'Creativity' ),
+		array( 'item_text' => 'Exploration' ),
+		array( 'item_text' => 'Teamwork' ),
+		array( 'item_text' => 'Leadership' ),
+		array( 'item_text' => 'Community impact' ),
+		array( 'item_text' => 'Kindness' ),
+	),
+	'photo'      => bdc_theme_asset_url( 'assets/images/compare-right-photo.jpeg' ),
+	'photo_alt'  => 'Children planting together in a garden',
+);
+$about_compare_right       = bdc_get_acf_group( 'about_compare_right', $about_compare_right_defaults, $about_page_id );
+$about_compare_right_photo = bdc_acf_image_value_to_url( $about_compare_right['photo'] ?? null, $about_compare_right_defaults['photo'] );
+$about_compare_right_mark  = bdc_acf_image_value_to_url( $about_compare_right['mark_icon'] ?? null, $about_compare_right_defaults['mark_icon'] );
+$about_compare_right_items_raw = ( is_array( $about_compare_right['list_items'] ?? null ) && ! empty( $about_compare_right['list_items'] ) )
+	? $about_compare_right['list_items']
+	: $about_compare_right_defaults['list_items'];
+$about_compare_right_items = array();
+
+foreach ( $about_compare_right_items_raw as $index => $row ) {
+	$default   = $about_compare_right_defaults['list_items'][ $index ] ?? array( 'item_text' => '' );
+	$item_text = isset( $row['item_text'] ) ? trim( (string) $row['item_text'] ) : '';
+	$item_text = '' !== $item_text ? $item_text : (string) $default['item_text'];
+
+	if ( '' === trim( $item_text ) ) {
+		continue;
+	}
+
+	$about_compare_right_items[] = $item_text;
+}
+
+if ( empty( $about_compare_right_items ) ) {
+	foreach ( $about_compare_right_defaults['list_items'] as $default_item ) {
+		$about_compare_right_items[] = (string) $default_item['item_text'];
+	}
+}
 ?>
     <main id="main-content">
       <section class="page-hero about-hero" aria-label="About Bright Dreamers">
@@ -304,7 +654,7 @@ $about_story_jar_alt = bdc_get_acf_text(
       <section class="we-believe" aria-label="We Believe">
         <div class="site-container we-believe__inner">
           <h2 class="we-believe__title">
-            We Believe
+            <?php echo esc_html( $about_believe_title ); ?>
             <svg
               class="we-believe__title-icon"
               viewBox="0 0 24 24"
@@ -324,7 +674,7 @@ $about_story_jar_alt = bdc_get_acf_text(
           <div class="we-believe__row">
             <img
               class="we-believe__deco we-believe__deco--left"
-              src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/believe-deco-dots-removebg-preview.png' ); ?>"
+              src="<?php echo esc_url( $about_believe_deco_left_url ); ?>"
               alt=""
               loading="lazy"
               decoding="async"
@@ -332,84 +682,24 @@ $about_story_jar_alt = bdc_get_acf_text(
             />
 
             <div class="we-believe__slider" role="list">
-              <article class="believe-card believe-card--pink" role="listitem">
+              <?php foreach ( $about_believe_cards as $card ) : ?>
+              <article class="believe-card believe-card--<?php echo esc_attr( $card['style_slug'] ); ?>" role="listitem">
                 <img
                   class="believe-card__icon"
-                  src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/believe-icon-star.png' ); ?>"
+                  src="<?php echo esc_url( $card['icon'] ); ?>"
                   alt=""
                   width="64"
                   height="64"
                   loading="lazy"
                 />
-                <p class="believe-card__text">Every child has unique talents.</p>
+                <p class="believe-card__text"><?php echo esc_html( $card['text'] ); ?></p>
               </article>
-
-              <article class="believe-card believe-card--purple" role="listitem">
-                <img
-                  class="believe-card__icon"
-                  src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/believe-icon-heart.png' ); ?>"
-                  alt=""
-                  width="64"
-                  height="64"
-                  loading="lazy"
-                />
-                <p class="believe-card__text">Every idea deserves to be heard.</p>
-              </article>
-
-              <article class="believe-card believe-card--yellow" role="listitem">
-                <img
-                  class="believe-card__icon"
-                  src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/believe-icon-palette-removebg-preview.png' ); ?>"
-                  alt=""
-                  width="64"
-                  height="64"
-                  loading="lazy"
-                />
-                <p class="believe-card__text">Creativity builds confidence.</p>
-              </article>
-
-              <article class="believe-card believe-card--green" role="listitem">
-                <img
-                  class="believe-card__icon"
-                  src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/believe-icon-people.png' ); ?>"
-                  alt=""
-                  width="64"
-                  height="64"
-                  loading="lazy"
-                />
-                <p class="believe-card__text">Children learn by doing.</p>
-              </article>
-
-              <article class="believe-card believe-card--peach" role="listitem">
-                <img
-                  class="believe-card__icon"
-                  src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/believe-icon-leaf.png' ); ?>"
-                  alt=""
-                  width="64"
-                  height="64"
-                  loading="lazy"
-                />
-                <p class="believe-card__text">Kindness changes communities.</p>
-              </article>
-
-              <article class="believe-card believe-card--blue" role="listitem">
-                <img
-                  class="believe-card__icon"
-                  src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/believe-icon-sparkles.png' ); ?>"
-                  alt=""
-                  width="64"
-                  height="64"
-                  loading="lazy"
-                />
-                <p class="believe-card__text">
-                  Dreams become real when we work together.
-                </p>
-              </article>
+              <?php endforeach; ?>
             </div>
 
             <img
               class="we-believe__deco we-believe__deco--right"
-              src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/believe-deco-dots-removebg-preview (1).png' ); ?>"
+              src="<?php echo esc_url( $about_believe_deco_right_url ); ?>"
               alt=""
               loading="lazy"
               decoding="async"
@@ -422,360 +712,17 @@ $about_story_jar_alt = bdc_get_acf_text(
       <section class="about-panels" aria-label="How Bright Dreamers works">
         <div class="site-container about-panels__inner">
           <div class="about-panels__grid">
-            <article
-              class="panel-card panel-card--journey"
-              aria-label="Children Lead the Journey — a Bright Dreamer holding a sign that reads My idea Can Help Others"
-            >
-              <div class="panel-card__content">
-                <h3 class="panel-card__title">
-                  Children Lead the Journey
-                  <svg
-                    class="panel-card__title-icon panel-card__title-icon--crown"
-                    viewBox="0 0 24 24"
-                    width="22"
-                    height="22"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="1.7"
-                    aria-hidden="true"
-                  >
-                    <path
-                      d="M4 18h16M6 18l1.2-7.2 2.8 3.6 3-5.8 3 5.8 2.8-3.6L18 18M6 10l2-4 4 2 4-2 2 4"
-                    />
-                  </svg>
-                </h3>
-
-                <div class="panel-card__copy">
-                  <p>
-                    At Bright Dreamers, children are not just participants. They
-                    are creators. Dreamers. Problem solvers. Idea makers.
-                  </p>
-                  <p>
-                    Many of our projects begin with children's own ideas. Adults
-                    guide, encourage, and provide a safe environment—but we
-                    believe the best ideas often come from children themselves.
-                  </p>
-                  <p>
-                    Together we turn imagination into real projects that help
-                    others.
-                  </p>
-                </div>
-
-                <svg
-                  class="panel-card__deco-heart"
-                  viewBox="0 0 24 24"
-                  width="20"
-                  height="20"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="1.8"
-                  aria-hidden="true"
-                >
-                  <path
-                    d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
-                  />
-                </svg>
-              </div>
-
-              <div class="panel-card__figure">
-                <img
-                  class="panel-card__figure-img"
-                  src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/panel-journey-girl-removebg-preview.png' ); ?>"
-                  alt="A Bright Dreamer holding a sign that says My idea Can Help Others"
-                  width="400"
-                  height="400"
-                  loading="lazy"
-                  decoding="async"
-                />
-              </div>
-            </article>
-
-            <article class="panel-card panel-card--council">
-              <div class="panel-card__content">
-                <h3 class="panel-card__title">
-                  Young Dreamers Council
-                  <svg
-                    class="panel-card__title-icon panel-card__title-icon--star"
-                    viewBox="0 0 24 24"
-                    width="22"
-                    height="22"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="1.8"
-                    aria-hidden="true"
-                  >
-                    <path
-                      d="M12 2l2.4 4.9 5.4.8-3.9 3.8.9 5.4L12 14.8 7.2 17l.9-5.4L4.2 7.7l5.4-.8L12 2z"
-                    />
-                  </svg>
-                </h3>
-
-                <p class="panel-card__lead">
-                  Bright Dreamers believes children's voices matter.
-                </p>
-
-                <ul class="panel-card__list">
-                  <li>Share ideas</li>
-                  <li>Suggest projects</li>
-                  <li>Identify causes they care about</li>
-                  <li>Vote on activities</li>
-                  <li>Help shape the future</li>
-                </ul>
-
-                <p class="panel-card__note">
-                  Adult mentors guide and support them every step of the way.
-                </p>
-              </div>
-
-              <div class="panel-card__figure">
-                <div class="lazy-img-wrap">
-                  <img
-                    class="panel-card__figure-img lazy-img"
-                    src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-                    data-src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/panel-council-figures-removebg-preview.png' ); ?>"
-                    alt=""
-                    width="400"
-                    height="400"
-                    decoding="async"
-                  />
-                </div>
-              </div>
-            </article>
-
-            <article class="panel-card panel-card--role">
-              <div class="panel-card__content panel-card__content--full">
-                <h3 class="panel-card__title">
-                  Our Role
-                  <img
-                    class="panel-card__title-icon panel-card__title-icon--img"
-                    src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/role-heart-outline.png' ); ?>"
-                    alt=""
-                    width="24"
-                    height="24"
-                    loading="lazy"
-                  />
-                </h3>
-
-                <p class="panel-card__lead panel-card__lead--tight">We are&hellip;</p>
-
-                <div class="role-icons" role="list">
-                  <div class="role-icons__item" role="listitem">
-                    <img
-                      class="role-icons__img"
-                      src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/role-icon-heart.jpeg' ); ?>"
-                      alt=""
-                      width="64"
-                      height="64"
-                      loading="lazy"
-                    />
-                    <span class="role-icons__label">Encouragers</span>
-                  </div>
-                  <div class="role-icons__item" role="listitem">
-                    <img
-                      class="role-icons__img"
-                      src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/role-icon-palette.jpeg' ); ?>"
-                      alt=""
-                      width="64"
-                      height="64"
-                      loading="lazy"
-                    />
-                    <span class="role-icons__label">Creators</span>
-                  </div>
-                  <div class="role-icons__item" role="listitem">
-                    <img
-                      class="role-icons__img"
-                      src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/role-icon-leaf.jpeg' ); ?>"
-                      alt=""
-                      width="64"
-                      height="64"
-                      loading="lazy"
-                    />
-                    <span class="role-icons__label">Mentors</span>
-                  </div>
-                  <div class="role-icons__item" role="listitem">
-                    <img
-                      class="role-icons__img"
-                      src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/role-icon-ear.jpeg' ); ?>"
-                      alt=""
-                      width="64"
-                      height="64"
-                      loading="lazy"
-                    />
-                    <span class="role-icons__label">Listeners</span>
-                  </div>
-                  <div class="role-icons__item" role="listitem">
-                    <img
-                      class="role-icons__img"
-                      src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/role-icon-star.jpeg' ); ?>"
-                      alt=""
-                      width="64"
-                      height="64"
-                      loading="lazy"
-                    />
-                    <span class="role-icons__label">Supporters</span>
-                  </div>
-                </div>
-
-                <div class="role-callout">
-                  <img
-                    class="role-callout__icon"
-                    src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/believe-icon-people.png' ); ?>"
-                    alt=""
-                    width="48"
-                    height="48"
-                    loading="lazy"
-                  />
-                  <p class="role-callout__text">
-                    <strong>Not instructors. Not lecturers.</strong>
-                    We walk beside children on their journey.
-                  </p>
-                  <img
-                    class="role-callout__heart"
-                    src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/role-heart-outline.png' ); ?>"
-                    alt=""
-                    width="36"
-                    height="36"
-                    loading="lazy"
-                  />
-                </div>
-              </div>
-            </article>
-
-            <article class="panel-card panel-card--approach">
-              <div class="panel-card__content panel-card__content--full">
-                <h3 class="panel-card__title">
-                  Our Approach
-                  <svg
-                    class="panel-card__title-icon panel-card__title-icon--star"
-                    viewBox="0 0 24 24"
-                    width="22"
-                    height="22"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="1.8"
-                    aria-hidden="true"
-                  >
-                    <path
-                      d="M12 2l2.4 4.9 5.4.8-3.9 3.8.9 5.4L12 14.8 7.2 17l.9-5.4L4.2 7.7l5.4-.8L12 2z"
-                    />
-                  </svg>
-                </h3>
-
-                <div class="approach-steps" role="list">
-                  <div class="approach-step" role="listitem">
-                    <img
-                      class="approach-step__icon"
-                      src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/approach-dream.jpeg' ); ?>"
-                      alt=""
-                      width="72"
-                      height="72"
-                      loading="lazy"
-                    />
-                    <p class="approach-step__title">Dream</p>
-                    <p class="approach-step__text">Imagine possibilities.</p>
-                  </div>
-
-                  <img
-                    class="approach-step__arrow"
-                    src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/approach-arrow.jpeg' ); ?>"
-                    alt=""
-                    width="32"
-                    height="16"
-                    loading="lazy"
-                  />
-
-                  <div class="approach-step" role="listitem">
-                    <img
-                      class="approach-step__icon"
-                      src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/approach-create.jpeg' ); ?>"
-                      alt=""
-                      width="72"
-                      height="72"
-                      loading="lazy"
-                    />
-                    <p class="approach-step__title">Create</p>
-                    <p class="approach-step__text">Build something meaningful.</p>
-                  </div>
-
-                  <img
-                    class="approach-step__arrow"
-                    src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/approach-arrow.jpeg' ); ?>"
-                    alt=""
-                    width="32"
-                    height="16"
-                    loading="lazy"
-                  />
-
-                  <div class="approach-step" role="listitem">
-                    <img
-                      class="approach-step__icon"
-                      src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/approach-grow.jpeg' ); ?>"
-                      alt=""
-                      width="72"
-                      height="72"
-                      loading="lazy"
-                    />
-                    <p class="approach-step__title">Grow</p>
-                    <p class="approach-step__text">Learn through experience.</p>
-                  </div>
-
-                  <img
-                    class="approach-step__arrow"
-                    src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/approach-arrow.jpeg' ); ?>"
-                    alt=""
-                    width="32"
-                    height="16"
-                    loading="lazy"
-                  />
-
-                  <div class="approach-step" role="listitem">
-                    <img
-                      class="approach-step__icon"
-                      src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/approach-share.jpeg' ); ?>"
-                      alt=""
-                      width="72"
-                      height="72"
-                      loading="lazy"
-                    />
-                    <p class="approach-step__title">Share</p>
-                    <p class="approach-step__text">Present ideas confidently.</p>
-                  </div>
-
-                  <img
-                    class="approach-step__arrow"
-                    src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/approach-arrow.jpeg' ); ?>"
-                    alt=""
-                    width="32"
-                    height="16"
-                    loading="lazy"
-                  />
-
-                  <div class="approach-step" role="listitem">
-                    <img
-                      class="approach-step__icon"
-                      src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/approach-give.jpeg' ); ?>"
-                      alt=""
-                      width="72"
-                      height="72"
-                      loading="lazy"
-                    />
-                    <p class="approach-step__title">Give</p>
-                    <p class="approach-step__text">Use creativity to help others.</p>
-                  </div>
-                </div>
-              </div>
-            </article>
+            <?php require get_template_directory() . '/template-parts/about-panels-grid.php'; ?>
           </div>
         </div>
       </section>
-
       <section class="compare-different" aria-labelledby="compare-different-title">
         <div class="site-container compare-different__wrap">
           <h2 class="compare-different__title" id="compare-different-title">
-            What Makes Bright Dreamers Different?
+            <?php echo esc_html( $about_compare_title ); ?>
             <img
               class="compare-different__heart"
-              src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/role-heart-outline.png' ); ?>"
+              src="<?php echo esc_url( $about_compare_title_heart_url ); ?>"
               alt=""
               width="24"
               height="24"
@@ -788,69 +735,42 @@ $about_story_jar_alt = bdc_get_acf_text(
               <div class="lazy-img-wrap lazy-img-wrap--fill">
                 <img
                   class="compare-side__photo lazy-img"
-                  src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-                  data-src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/compare-left-photo.jpeg' ); ?>"
-                  alt="Children walking together in a field at sunset"
+                  src="<?php echo esc_attr( $about_hero_lazy_placeholder ); ?>"
+                  data-src="<?php echo esc_url( $about_compare_left_photo ); ?>"
+                  alt="<?php echo esc_attr( (string) $about_compare_left['photo_alt'] ); ?>"
                   width="600"
                   height="400"
                   decoding="async"
                 />
               </div>
               <div class="compare-side__text">
-                <p class="compare-side__label">Many programs focus on</p>
+                <?php if ( '' !== trim( (string) $about_compare_left['label'] ) ) : ?>
+                <p class="compare-side__label"><?php echo esc_html( (string) $about_compare_left['label'] ); ?></p>
+                <?php endif; ?>
+                <?php if ( ! empty( $about_compare_left_items ) ) : ?>
                 <ul class="compare-side__list">
+                  <?php foreach ( $about_compare_left_items as $left_item ) : ?>
                   <li>
                     <img
                       class="compare-side__mark"
-                      src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/compare-icon-x.jpeg' ); ?>"
+                      src="<?php echo esc_url( $about_compare_left_mark ); ?>"
                       alt=""
                       width="24"
                       height="24"
                       loading="lazy"
                     />
-                    Following instructions
+                    <?php echo esc_html( $left_item ); ?>
                   </li>
-                  <li>
-                    <img
-                      class="compare-side__mark"
-                      src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/compare-icon-x.jpeg' ); ?>"
-                      alt=""
-                      width="24"
-                      height="24"
-                      loading="lazy"
-                    />
-                    One right answer
-                  </li>
-                  <li>
-                    <img
-                      class="compare-side__mark"
-                      src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/compare-icon-x.jpeg' ); ?>"
-                      alt=""
-                      width="24"
-                      height="24"
-                      loading="lazy"
-                    />
-                    Adult-led activities
-                  </li>
-                  <li>
-                    <img
-                      class="compare-side__mark"
-                      src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/compare-icon-x.jpeg' ); ?>"
-                      alt=""
-                      width="24"
-                      height="24"
-                      loading="lazy"
-                    />
-                    Finished projects
-                  </li>
+                  <?php endforeach; ?>
                 </ul>
+                <?php endif; ?>
               </div>
             </div>
 
             <div class="compare-different__vs" aria-hidden="true">
               <img
                 class="compare-different__vs-badge"
-                src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/compare-vs-badge.jpeg' ); ?>"
+                src="<?php echo esc_url( $about_compare_vs_badge_url ); ?>"
                 alt=""
                 width="56"
                 height="56"
@@ -860,93 +780,33 @@ $about_story_jar_alt = bdc_get_acf_text(
 
             <div class="compare-side compare-side--right">
               <div class="compare-side__text">
-                <p class="compare-side__label">Bright Dreamers focuses on</p>
+                <?php if ( '' !== trim( (string) $about_compare_right['label'] ) ) : ?>
+                <p class="compare-side__label"><?php echo esc_html( (string) $about_compare_right['label'] ); ?></p>
+                <?php endif; ?>
+                <?php if ( ! empty( $about_compare_right_items ) ) : ?>
                 <ul class="compare-side__list compare-side__list--grid">
+                  <?php foreach ( $about_compare_right_items as $right_item ) : ?>
                   <li>
                     <img
                       class="compare-side__mark"
-                      src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/compare-icon-check.jpeg' ); ?>"
+                      src="<?php echo esc_url( $about_compare_right_mark ); ?>"
                       alt=""
                       width="24"
                       height="24"
                       loading="lazy"
                     />
-                    Children's ideas
+                    <?php echo esc_html( $right_item ); ?>
                   </li>
-                  <li>
-                    <img
-                      class="compare-side__mark"
-                      src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/compare-icon-check.jpeg' ); ?>"
-                      alt=""
-                      width="24"
-                      height="24"
-                      loading="lazy"
-                    />
-                    Creativity
-                  </li>
-                  <li>
-                    <img
-                      class="compare-side__mark"
-                      src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/compare-icon-check.jpeg' ); ?>"
-                      alt=""
-                      width="24"
-                      height="24"
-                      loading="lazy"
-                    />
-                    Exploration
-                  </li>
-                  <li>
-                    <img
-                      class="compare-side__mark"
-                      src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/compare-icon-check.jpeg' ); ?>"
-                      alt=""
-                      width="24"
-                      height="24"
-                      loading="lazy"
-                    />
-                    Teamwork
-                  </li>
-                  <li>
-                    <img
-                      class="compare-side__mark"
-                      src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/compare-icon-check.jpeg' ); ?>"
-                      alt=""
-                      width="24"
-                      height="24"
-                      loading="lazy"
-                    />
-                    Leadership
-                  </li>
-                  <li>
-                    <img
-                      class="compare-side__mark"
-                      src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/compare-icon-check.jpeg' ); ?>"
-                      alt=""
-                      width="24"
-                      height="24"
-                      loading="lazy"
-                    />
-                    Community impact
-                  </li>
-                  <li>
-                    <img
-                      class="compare-side__mark"
-                      src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/compare-icon-check.jpeg' ); ?>"
-                      alt=""
-                      width="24"
-                      height="24"
-                      loading="lazy"
-                    />
-                    Kindness
-                  </li>
+                  <?php endforeach; ?>
                 </ul>
+                <?php endif; ?>
               </div>
               <div class="lazy-img-wrap lazy-img-wrap--fill">
                 <img
                   class="compare-side__photo lazy-img"
-                  src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-                  data-src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/compare-right-photo.jpeg' ); ?>"
-                  alt="Children planting together in a garden"
+                  src="<?php echo esc_attr( $about_hero_lazy_placeholder ); ?>"
+                  data-src="<?php echo esc_url( $about_compare_right_photo ); ?>"
+                  alt="<?php echo esc_attr( (string) $about_compare_right['photo_alt'] ); ?>"
                   width="600"
                   height="400"
                   decoding="async"

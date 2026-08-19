@@ -8,13 +8,393 @@
  */
 
 get_header();
+
+$partners_page_id = get_queried_object_id();
+
+$partners_hero_lazy_placeholder = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';
+
+$partners_hero_eyebrow = bdc_get_acf_text(
+	'partners_hero_eyebrow',
+	'PARTNERS',
+	$partners_page_id
+);
+$partners_hero_title_line_1 = bdc_get_acf_text(
+	'partners_hero_title_line_1',
+	'Stronger Together.',
+	$partners_page_id
+);
+$partners_hero_title_underline_word = bdc_get_acf_text(
+	'partners_hero_title_underline_word',
+	'Brighter',
+	$partners_page_id
+);
+$partners_hero_title_underline_url = bdc_get_acf_image_url(
+	'partners_hero_title_underline',
+	bdc_theme_asset_url( 'assets/images/partners-heading-underline-removebg-preview.png' ),
+	$partners_page_id
+);
+$partners_hero_title_line_2_suffix = bdc_get_acf_text(
+	'partners_hero_title_line_2_suffix',
+	'Futures.',
+	$partners_page_id
+);
+$partners_hero_text_intro = bdc_get_acf_text(
+	'partners_hero_text_intro',
+	'Bright Dreamers partners with individuals, businesses, artists, and organizations who believe in the power of children\'s ideas. Together, we turn imagination into real opportunities that',
+	$partners_page_id
+);
+$partners_hero_text_accent = bdc_get_acf_text(
+	'partners_hero_text_accent',
+	'inspire kids',
+	$partners_page_id
+);
+$partners_hero_text_outro = bdc_get_acf_text(
+	'partners_hero_text_outro',
+	'and strengthen our community.',
+	$partners_page_id
+);
+$partners_hero_primary_btn_text = bdc_get_acf_text(
+	'partners_hero_primary_btn_text',
+	'Partner With Us',
+	$partners_page_id
+);
+$partners_hero_primary_btn_link = bdc_get_acf_link(
+	'partners_hero_primary_btn_link',
+	array(
+		'title'  => 'Partner With Us',
+		'url'    => bdc_page_url( 'partner-inquiry.html' ),
+		'target' => '',
+	),
+	$partners_page_id
+);
+$partners_hero_secondary_btn_text = bdc_get_acf_text(
+	'partners_hero_secondary_btn_text',
+	'Explore Our Vision',
+	$partners_page_id
+);
+$partners_hero_secondary_btn_link = bdc_get_acf_link(
+	'partners_hero_secondary_btn_link',
+	array(
+		'title'  => 'Explore Our Vision',
+		'url'    => bdc_page_url( 'our-vision.html' ),
+		'target' => '',
+	),
+	$partners_page_id
+);
+$partners_hero_banner_url = bdc_get_acf_image_url(
+	'partners_hero_banner',
+	bdc_theme_asset_url( 'assets/images/partners-hero-banner.jpeg' ),
+	$partners_page_id
+);
+$partners_hero_banner_alt = bdc_get_acf_text(
+	'partners_hero_banner_alt',
+	'Children collaborating on a model village with the words Big Ideas Kind Hearts Brighter Tomorrows',
+	$partners_page_id
+);
+
+$partners_ways_title = bdc_get_acf_text(
+	'partners_ways_title',
+	'Ways to Partner',
+	$partners_page_id
+);
+$partners_ways_intro = bdc_get_acf_text(
+	'partners_ways_intro',
+	'There are many ways to open doors for children\'s ideas. Choose the partnership that\'s right for you.',
+	$partners_page_id
+);
+$partners_ways_cards_defaults = array(
+	array(
+		'icon'        => bdc_theme_asset_url( 'assets/images/partners-way-icon-creative.jpeg' ),
+		'title'       => 'Creative Partners',
+		'text'        => 'Artists, designers, makers, photographers, and professionals who share skills, mentor, and inspire children\'s creativity.',
+		'color_slug'  => 'purple',
+	),
+	array(
+		'icon'        => bdc_theme_asset_url( 'assets/images/partners-way-icon-community.jpeg' ),
+		'title'       => 'Community Partners',
+		'text'        => 'Libraries, museums, schools, nonprofits, community centers, and local organizations working together to expand opportunities for kids.',
+		'color_slug'  => 'green',
+	),
+	array(
+		'icon'        => bdc_theme_asset_url( 'assets/images/partners-way-icon-business.jpeg' ),
+		'title'       => 'Business Partners',
+		'text'        => 'Businesses that host visits, provide expertise, open their doors, and help children see how ideas become real.',
+		'color_slug'  => 'blue',
+	),
+	array(
+		'icon'        => bdc_theme_asset_url( 'assets/images/partners-way-icon-sponsors.jpeg' ),
+		'title'       => 'Project Sponsors',
+		'text'        => 'Individuals or companies who fund specific child-led projects, events, markets, murals, gardens, and creative initiatives.',
+		'color_slug'  => 'pink',
+	),
+	array(
+		'icon'        => bdc_theme_asset_url( 'assets/images/partners-way-icon-inkind.jpeg' ),
+		'title'       => 'In-Kind Partners',
+		'text'        => 'Organizations and businesses that donate materials, supplies, spaces, services, food, tools, or other essential resources.',
+		'color_slug'  => 'orange',
+	),
+);
+$partners_ways_color_slugs_allowed = array( 'purple', 'green', 'blue', 'pink', 'orange' );
+$partners_ways_cards_raw           = bdc_get_acf_repeater( 'partners_ways_cards', $partners_ways_cards_defaults, $partners_page_id );
+$partners_ways_cards               = array();
+
+foreach ( $partners_ways_cards_raw as $index => $row ) {
+	$default = $partners_ways_cards_defaults[ $index ] ?? array(
+		'icon'       => '',
+		'title'      => '',
+		'text'       => '',
+		'color_slug' => 'purple',
+	);
+
+	$title = isset( $row['title'] ) ? trim( (string) $row['title'] ) : '';
+	$text  = isset( $row['text'] ) ? trim( (string) $row['text'] ) : '';
+
+	$color_slug = isset( $row['color_slug'] ) ? sanitize_key( (string) $row['color_slug'] ) : '';
+	if ( ! in_array( $color_slug, $partners_ways_color_slugs_allowed, true ) ) {
+		$color_slug = (string) $default['color_slug'];
+	}
+
+	$resolved = array(
+		'icon'       => bdc_acf_image_value_to_url( $row['icon'] ?? null, (string) $default['icon'] ),
+		'title'      => '' !== $title ? $title : (string) $default['title'],
+		'text'       => '' !== $text ? $text : (string) $default['text'],
+		'color_slug' => $color_slug,
+	);
+
+	if ( '' === trim( $resolved['title'] ) && '' === trim( $resolved['text'] ) ) {
+		continue;
+	}
+
+	$partners_ways_cards[] = $resolved;
+}
+
+if ( empty( $partners_ways_cards ) ) {
+	$partners_ways_cards = $partners_ways_cards_defaults;
+}
+
+$partners_impact_title = bdc_get_acf_text(
+	'partners_impact_title',
+	'Your Partnership Makes a Real Difference',
+	$partners_page_id
+);
+$partners_impact_intro = bdc_get_acf_text(
+	'partners_impact_intro',
+	'Every partnership helps children dream bigger, explore their interests, and make a positive impact.',
+	$partners_page_id
+);
+$partners_impact_cards_defaults = array(
+	array(
+		'photo'     => bdc_theme_asset_url( 'assets/images/partners-impact-photo-ideas.jpeg' ),
+		'photo_alt' => 'Children painting a colorful community mural together',
+		'title'     => 'Ideas Become Real',
+		'text'      => 'Children see their ideas come to life through projects and experiences.',
+		'deco'      => bdc_theme_asset_url( 'assets/images/partners-impact-deco-heart-purple.jpeg' ),
+	),
+	array(
+		'photo'     => bdc_theme_asset_url( 'assets/images/partners-impact-photo-skills.jpeg' ),
+		'photo_alt' => 'A boy focused on a hands-on woodworking project',
+		'title'     => 'Skills Grow',
+		'text'      => 'They build confidence, learn new skills, and discover their strengths.',
+		'deco'      => bdc_theme_asset_url( 'assets/images/partners-impact-deco-leaf.jpeg' ),
+	),
+	array(
+		'photo'     => bdc_theme_asset_url( 'assets/images/partners-impact-photo-communities.jpeg' ),
+		'photo_alt' => 'Children holding a Dream Market sign at a community market',
+		'title'     => 'Communities Thrive',
+		'text'      => 'Our community becomes stronger, kinder, and more connected.',
+		'deco'      => bdc_theme_asset_url( 'assets/images/partners-impact-deco-heart-pink.jpeg' ),
+	),
+	array(
+		'photo'     => bdc_theme_asset_url( 'assets/images/partners-impact-photo-opportunities.jpeg' ),
+		'photo_alt' => 'Children planting seedlings together in a garden',
+		'title'     => 'Opportunities Expand',
+		'text'      => 'Partners open doors to new places, people, and real-world learning.',
+		'deco'      => bdc_theme_asset_url( 'assets/images/partners-impact-deco-star-yellow.jpeg' ),
+	),
+	array(
+		'photo'     => bdc_theme_asset_url( 'assets/images/partners-impact-photo-kindness.jpeg' ),
+		'photo_alt' => 'A girl reading kind messages on a wall of colorful paper hearts',
+		'title'     => 'Kindness Multiplies',
+		'text'      => 'When we invest in children, we create a brighter, more hopeful future.',
+		'deco'      => bdc_theme_asset_url( 'assets/images/partners-impact-deco-star-purple.jpeg' ),
+	),
+);
+$partners_impact_cards_raw = bdc_get_acf_repeater( 'partners_impact_cards', $partners_impact_cards_defaults, $partners_page_id );
+$partners_impact_cards     = array();
+
+foreach ( $partners_impact_cards_raw as $index => $row ) {
+	$default = $partners_impact_cards_defaults[ $index ] ?? array(
+		'photo'     => '',
+		'photo_alt' => '',
+		'title'     => '',
+		'text'      => '',
+		'deco'      => '',
+	);
+
+	$title     = isset( $row['title'] ) ? trim( (string) $row['title'] ) : '';
+	$text      = isset( $row['text'] ) ? trim( (string) $row['text'] ) : '';
+	$photo_alt = isset( $row['photo_alt'] ) ? trim( (string) $row['photo_alt'] ) : '';
+
+	$resolved = array(
+		'photo'     => bdc_acf_image_value_to_url( $row['photo'] ?? null, (string) $default['photo'] ),
+		'photo_alt' => '' !== $photo_alt ? $photo_alt : (string) $default['photo_alt'],
+		'title'     => '' !== $title ? $title : (string) $default['title'],
+		'text'      => '' !== $text ? $text : (string) $default['text'],
+		'deco'      => bdc_acf_image_value_to_url( $row['deco'] ?? null, (string) $default['deco'] ),
+	);
+
+	if ( '' === trim( $resolved['title'] ) && '' === trim( $resolved['text'] ) ) {
+		continue;
+	}
+
+	$partners_impact_cards[] = $resolved;
+}
+
+if ( empty( $partners_impact_cards ) ) {
+	$partners_impact_cards = $partners_impact_cards_defaults;
+}
+
+$partners_opportunity_cta_aria_label = bdc_get_acf_text(
+	'partners_opportunity_cta_aria_label',
+	'Share an opportunity',
+	$partners_page_id
+);
+$partners_opportunity_cta_title_prefix = bdc_get_acf_text(
+	'partners_opportunity_cta_title_prefix',
+	'Have an Opportunity for',
+	$partners_page_id
+);
+$partners_opportunity_cta_title_underline_word = bdc_get_acf_text(
+	'partners_opportunity_cta_title_underline_word',
+	'Bright Dreamers',
+	$partners_page_id
+);
+$partners_opportunity_cta_title_underline_url = bdc_get_acf_image_url(
+	'partners_opportunity_cta_title_underline',
+	bdc_theme_asset_url( 'assets/images/partners-heading-underline-removebg-preview.png' ),
+	$partners_page_id
+);
+$partners_opportunity_cta_title_suffix = bdc_get_acf_text(
+	'partners_opportunity_cta_title_suffix',
+	'?',
+	$partners_page_id
+);
+$partners_opportunity_cta_bulb_url = bdc_get_acf_image_url(
+	'partners_opportunity_cta_bulb',
+	bdc_theme_asset_url( 'assets/images/partners-opportunity-bulb-removebg-preview.png' ),
+	$partners_page_id
+);
+$partners_opportunity_cta_text = bdc_get_acf_text(
+	'partners_opportunity_cta_text',
+	'Do you have a space, project, challenge, skill, or community need that children could help explore creatively? We\'d love to hear your idea.',
+	$partners_page_id
+);
+$partners_opportunity_cta_btn_text = bdc_get_acf_text(
+	'partners_opportunity_cta_btn_text',
+	'Share an Opportunity',
+	$partners_page_id
+);
+$partners_opportunity_cta_btn_link = bdc_get_acf_link(
+	'partners_opportunity_cta_btn_link',
+	array(
+		'title'  => 'Share an Opportunity',
+		'url'    => bdc_page_url( 'partner-inquiry.html' ),
+		'target' => '',
+	),
+	$partners_page_id
+);
+$partners_opportunity_cta_plane_url = bdc_get_acf_image_url(
+	'partners_opportunity_cta_plane',
+	bdc_theme_asset_url( 'assets/images/partners-opportunity-plane-removebg-preview.png' ),
+	$partners_page_id
+);
+
+$partners_founding_title = bdc_get_acf_text(
+	'partners_founding_title',
+	'Founding Partners Coming Soon',
+	$partners_page_id
+);
+$partners_founding_intro = bdc_get_acf_text(
+	'partners_founding_intro',
+	'We\'re building a community of changemakers. Will your organization be one of our founding partners?',
+	$partners_page_id
+);
+$partners_founding_cards_defaults = array(
+	array(
+		'icon'       => bdc_theme_asset_url( 'assets/images/partners-founding-icon-org.jpeg' ),
+		'title'      => 'Your Organization Here',
+		'text'       => 'This space could feature your logo.',
+		'color_slug' => 'purple',
+	),
+	array(
+		'icon'       => bdc_theme_asset_url( 'assets/images/partners-founding-icon-founding-green.jpeg' ),
+		'title'      => 'Founding Partner',
+		'text'       => 'Join us in shaping a brighter future for kids.',
+		'color_slug' => 'green',
+	),
+	array(
+		'icon'       => bdc_theme_asset_url( 'assets/images/partners-founding-icon-community.jpeg' ),
+		'title'      => 'Community Partner',
+		'text'       => 'Together, we can inspire dreams and create impact.',
+		'color_slug' => 'blue',
+	),
+	array(
+		'icon'       => bdc_theme_asset_url( 'assets/images/partners-founding-icon-megaphone.jpeg' ),
+		'title'      => 'Your Organization Here',
+		'text'       => 'This space could feature your logo.',
+		'color_slug' => 'pink',
+	),
+	array(
+		'icon'       => bdc_theme_asset_url( 'assets/images/partners-founding-icon-stars.jpeg' ),
+		'title'      => 'Founding Partner',
+		'text'       => 'Be part of something meaningful from the start.',
+		'color_slug' => 'gold',
+	),
+);
+$partners_founding_color_slugs_allowed = array( 'purple', 'green', 'blue', 'pink', 'gold' );
+$partners_founding_cards_raw           = bdc_get_acf_repeater( 'partners_founding_cards', $partners_founding_cards_defaults, $partners_page_id );
+$partners_founding_cards               = array();
+
+foreach ( $partners_founding_cards_raw as $index => $row ) {
+	$default = $partners_founding_cards_defaults[ $index ] ?? array(
+		'icon'       => '',
+		'title'      => '',
+		'text'       => '',
+		'color_slug' => 'purple',
+	);
+
+	$title = isset( $row['title'] ) ? trim( (string) $row['title'] ) : '';
+	$text  = isset( $row['text'] ) ? trim( (string) $row['text'] ) : '';
+
+	$color_slug = isset( $row['color_slug'] ) ? sanitize_key( (string) $row['color_slug'] ) : '';
+	if ( ! in_array( $color_slug, $partners_founding_color_slugs_allowed, true ) ) {
+		$color_slug = (string) $default['color_slug'];
+	}
+
+	$resolved = array(
+		'icon'       => bdc_acf_image_value_to_url( $row['icon'] ?? null, (string) $default['icon'] ),
+		'title'      => '' !== $title ? $title : (string) $default['title'],
+		'text'       => '' !== $text ? $text : (string) $default['text'],
+		'color_slug' => $color_slug,
+	);
+
+	if ( '' === trim( $resolved['title'] ) && '' === trim( $resolved['text'] ) ) {
+		continue;
+	}
+
+	$partners_founding_cards[] = $resolved;
+}
+
+if ( empty( $partners_founding_cards ) ) {
+	$partners_founding_cards = $partners_founding_cards_defaults;
+}
 ?>
 <main id="main-content">
       <section class="page-hero vision-hero about-hero partners-hero" aria-label="Partners">
         <div class="site-container page-hero__inner">
           <div class="page-hero__content vision-hero__content">
             <p class="vision-hero__eyebrow">
-              PARTNERS
+              <?php echo esc_html( $partners_hero_eyebrow ); ?>
               <svg
                 class="vision-hero__eyebrow-heart"
                 viewBox="0 0 24 24"
@@ -35,15 +415,17 @@ get_header();
 
             <div class="vision-hero__title-wrap">
               <h1 class="vision-hero__title">
-                <span class="vision-hero__title-line vision-hero__title-line--navy"
-                  >Stronger Together.</span
-                >
+                <?php if ( '' !== trim( $partners_hero_title_line_1 ) ) : ?>
+                <span class="vision-hero__title-line vision-hero__title-line--navy"><?php echo esc_html( $partners_hero_title_line_1 ); ?></span>
+                <?php endif; ?>
+                <?php if ( '' !== trim( $partners_hero_title_underline_word ) || '' !== trim( $partners_hero_title_line_2_suffix ) ) : ?>
                 <span class="vision-hero__title-line vision-hero__title-line--pink">
+                  <?php if ( '' !== trim( $partners_hero_title_underline_word ) ) : ?>
                   <span class="heading-underline heading-underline--partners">
-                    Brighter
+                    <?php echo esc_html( $partners_hero_title_underline_word ); ?>
                     <img
                       class="heading-underline__img"
-                      src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/partners-heading-underline-removebg-preview.png' ); ?>"
+                      src="<?php echo esc_url( $partners_hero_title_underline_url ); ?>"
                       alt=""
                       width="140"
                       height="12"
@@ -51,22 +433,33 @@ get_header();
                       aria-hidden="true"
                     />
                   </span>
-                  Futures.
+                  <?php endif; ?>
+                  <?php if ( '' !== trim( $partners_hero_title_line_2_suffix ) ) : ?>
+                  <?php echo esc_html( $partners_hero_title_line_2_suffix ); ?>
+                  <?php endif; ?>
                 </span>
+                <?php endif; ?>
               </h1>
             </div>
 
+            <?php if ( '' !== trim( $partners_hero_text_intro ) || '' !== trim( $partners_hero_text_accent ) || '' !== trim( $partners_hero_text_outro ) ) : ?>
             <p class="vision-hero__text">
-              Bright Dreamers partners with individuals, businesses, artists, and organizations who
-              believe in the power of children&rsquo;s ideas. Together, we turn imagination into
-              real opportunities that
-              <span class="vision-hero__accent vision-hero__accent--pink">inspire kids</span> and
-              strengthen our community.
+              <?php if ( '' !== trim( $partners_hero_text_intro ) ) : ?>
+              <?php echo esc_html( $partners_hero_text_intro ); ?>
+              <?php endif; ?>
+              <?php if ( '' !== trim( $partners_hero_text_accent ) ) : ?>
+              <span class="vision-hero__accent vision-hero__accent--pink"><?php echo esc_html( $partners_hero_text_accent ); ?></span>
+              <?php endif; ?>
+              <?php if ( '' !== trim( $partners_hero_text_outro ) ) : ?>
+              <?php echo ' ' . esc_html( $partners_hero_text_outro ); ?>
+              <?php endif; ?>
             </p>
+            <?php endif; ?>
 
             <div class="page-hero__actions">
-              <a class="btn btn--solid btn--lg btn-hover" href="<?php echo esc_url( bdc_page_url( 'partner-inquiry.html' ) ); ?>">
-                Partner With Us
+              <?php if ( ! empty( $partners_hero_primary_btn_link['url'] ) && '' !== trim( $partners_hero_primary_btn_text ) ) : ?>
+              <a class="btn btn--solid btn--lg btn-hover" href="<?php echo esc_url( $partners_hero_primary_btn_link['url'] ); ?>"<?php echo bdc_acf_link_target_attr( $partners_hero_primary_btn_link ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
+                <?php echo esc_html( $partners_hero_primary_btn_text ); ?>
                 <svg
                   class="btn__icon"
                   viewBox="0 0 24 24"
@@ -82,8 +475,10 @@ get_header();
                   <path d="M5 12h14M13 6l6 6-6 6" />
                 </svg>
               </a>
-              <a class="btn btn--outline btn--lg btn-hover" href="<?php echo esc_url( bdc_page_url( 'our-vision.html' ) ); ?>">
-                Explore Our Vision
+              <?php endif; ?>
+              <?php if ( ! empty( $partners_hero_secondary_btn_link['url'] ) && '' !== trim( $partners_hero_secondary_btn_text ) ) : ?>
+              <a class="btn btn--outline btn--lg btn-hover" href="<?php echo esc_url( $partners_hero_secondary_btn_link['url'] ); ?>"<?php echo bdc_acf_link_target_attr( $partners_hero_secondary_btn_link ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
+                <?php echo esc_html( $partners_hero_secondary_btn_text ); ?>
                 <svg
                   class="btn__icon"
                   viewBox="0 0 24 24"
@@ -99,6 +494,7 @@ get_header();
                   />
                 </svg>
               </a>
+              <?php endif; ?>
             </div>
           </div>
 
@@ -106,9 +502,9 @@ get_header();
             <div class="lazy-img-wrap">
               <img
                 class="about-hero__banner lazy-img"
-                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-                data-src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/partners-hero-banner.jpeg' ); ?>"
-                alt="Children collaborating on a model village with the words Big Ideas Kind Hearts Brighter Tomorrows"
+                src="<?php echo esc_attr( $partners_hero_lazy_placeholder ); ?>"
+                data-src="<?php echo esc_url( $partners_hero_banner_url ); ?>"
+                alt="<?php echo esc_attr( $partners_hero_banner_alt ); ?>"
                 width="1200"
                 height="900"
                 decoding="async"
@@ -121,7 +517,7 @@ get_header();
       <section class="partners-ways section-padding" aria-labelledby="partners-ways-title">
         <div class="site-container">
           <h2 class="partners-ways__title" id="partners-ways-title">
-            Ways to Partner
+            <?php echo esc_html( $partners_ways_title ); ?>
             <svg
               class="partners-ways__title-icon"
               viewBox="0 0 24 24"
@@ -141,96 +537,10 @@ get_header();
           </h2>
 
           <p class="partners-ways__intro">
-            There are many ways to open doors for children&rsquo;s ideas. Choose the partnership
-            that&rsquo;s right for you.
+            <?php echo esc_html( $partners_ways_intro ); ?>
           </p>
 
-          <div class="partners-ways__grid">
-            <article class="partners-ways-card partners-ways-card--purple">
-              <img
-                class="partners-ways-card__icon"
-                src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/partners-way-icon-creative.jpeg' ); ?>"
-                alt=""
-                width="84"
-                height="84"
-                loading="lazy"
-                decoding="async"
-              />
-              <h3 class="partners-ways-card__title">Creative Partners</h3>
-              <p class="partners-ways-card__text">
-                Artists, designers, makers, photographers, and professionals who share skills,
-                mentor, and inspire children&rsquo;s creativity.
-              </p>
-            </article>
-
-            <article class="partners-ways-card partners-ways-card--green">
-              <img
-                class="partners-ways-card__icon"
-                src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/partners-way-icon-community.jpeg' ); ?>"
-                alt=""
-                width="84"
-                height="84"
-                loading="lazy"
-                decoding="async"
-              />
-              <h3 class="partners-ways-card__title">Community Partners</h3>
-              <p class="partners-ways-card__text">
-                Libraries, museums, schools, nonprofits, community centers, and local organizations
-                working together to expand opportunities for kids.
-              </p>
-            </article>
-
-            <article class="partners-ways-card partners-ways-card--blue">
-              <img
-                class="partners-ways-card__icon"
-                src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/partners-way-icon-business.jpeg' ); ?>"
-                alt=""
-                width="84"
-                height="84"
-                loading="lazy"
-                decoding="async"
-              />
-              <h3 class="partners-ways-card__title">Business Partners</h3>
-              <p class="partners-ways-card__text">
-                Businesses that host visits, provide expertise, open their doors, and help children
-                see how ideas become real.
-              </p>
-            </article>
-
-            <article class="partners-ways-card partners-ways-card--pink">
-              <img
-                class="partners-ways-card__icon"
-                src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/partners-way-icon-sponsors.jpeg' ); ?>"
-                alt=""
-                width="84"
-                height="84"
-                loading="lazy"
-                decoding="async"
-              />
-              <h3 class="partners-ways-card__title">Project Sponsors</h3>
-              <p class="partners-ways-card__text">
-                Individuals or companies who fund specific child-led projects, events, markets,
-                murals, gardens, and creative initiatives.
-              </p>
-            </article>
-
-            <article class="partners-ways-card partners-ways-card--orange">
-              <img
-                class="partners-ways-card__icon"
-                src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/partners-way-icon-inkind.jpeg' ); ?>"
-                alt=""
-                width="84"
-                height="84"
-                loading="lazy"
-                decoding="async"
-              />
-              <h3 class="partners-ways-card__title">In-Kind Partners</h3>
-              <p class="partners-ways-card__text">
-                Organizations and businesses that donate materials, supplies, spaces, services,
-                food, tools, or other essential resources.
-              </p>
-            </article>
-          </div>
+          <?php require get_template_directory() . '/template-parts/partners-ways-grid.php'; ?>
         </div>
       </section>
 
@@ -238,7 +548,7 @@ get_header();
         <div class="site-container">
           <div class="partners-impact__box">
             <h2 class="partners-impact__title" id="partners-impact-title">
-              Your Partnership Makes a Real Difference
+              <?php echo esc_html( $partners_impact_title ); ?>
               <svg
                 class="partners-impact__title-star"
                 viewBox="0 0 24 24"
@@ -258,166 +568,28 @@ get_header();
             </h2>
 
             <p class="partners-impact__intro">
-              Every partnership helps children dream bigger, explore their interests, and make a
-              positive impact.
+              <?php echo esc_html( $partners_impact_intro ); ?>
             </p>
 
-            <div class="partners-impact__grid">
-              <article class="partners-impact-card">
-                <div class="lazy-img-wrap lazy-img-wrap--cover">
-                  <img
-                    class="partners-impact-card__photo lazy-img"
-                    src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-                    data-src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/partners-impact-photo-ideas.jpeg' ); ?>"
-                    alt="Children painting a colorful community mural together"
-                    width="400"
-                    height="300"
-                    decoding="async"
-                  />
-                </div>
-                <h3 class="partners-impact-card__title">Ideas Become Real</h3>
-                <p class="partners-impact-card__text">
-                  Children see their ideas come to life through projects and experiences.
-                </p>
-                <img
-                  class="partners-impact-card__deco"
-                  src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/partners-impact-deco-heart-purple.jpeg' ); ?>"
-                  alt=""
-                  width="26"
-                  height="26"
-                  loading="lazy"
-                  decoding="async"
-                  aria-hidden="true"
-                />
-              </article>
-
-              <article class="partners-impact-card">
-                <div class="lazy-img-wrap lazy-img-wrap--cover">
-                  <img
-                    class="partners-impact-card__photo lazy-img"
-                    src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-                    data-src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/partners-impact-photo-skills.jpeg' ); ?>"
-                    alt="A boy focused on a hands-on woodworking project"
-                    width="400"
-                    height="300"
-                    decoding="async"
-                  />
-                </div>
-                <h3 class="partners-impact-card__title">Skills Grow</h3>
-                <p class="partners-impact-card__text">
-                  They build confidence, learn new skills, and discover their strengths.
-                </p>
-                <img
-                  class="partners-impact-card__deco"
-                  src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/partners-impact-deco-leaf.jpeg' ); ?>"
-                  alt=""
-                  width="26"
-                  height="26"
-                  loading="lazy"
-                  decoding="async"
-                  aria-hidden="true"
-                />
-              </article>
-
-              <article class="partners-impact-card">
-                <div class="lazy-img-wrap lazy-img-wrap--cover">
-                  <img
-                    class="partners-impact-card__photo lazy-img"
-                    src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-                    data-src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/partners-impact-photo-communities.jpeg' ); ?>"
-                    alt="Children holding a Dream Market sign at a community market"
-                    width="400"
-                    height="300"
-                    decoding="async"
-                  />
-                </div>
-                <h3 class="partners-impact-card__title">Communities Thrive</h3>
-                <p class="partners-impact-card__text">
-                  Our community becomes stronger, kinder, and more connected.
-                </p>
-                <img
-                  class="partners-impact-card__deco"
-                  src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/partners-impact-deco-heart-pink.jpeg' ); ?>"
-                  alt=""
-                  width="26"
-                  height="26"
-                  loading="lazy"
-                  decoding="async"
-                  aria-hidden="true"
-                />
-              </article>
-
-              <article class="partners-impact-card">
-                <div class="lazy-img-wrap lazy-img-wrap--cover">
-                  <img
-                    class="partners-impact-card__photo lazy-img"
-                    src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-                    data-src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/partners-impact-photo-opportunities.jpeg' ); ?>"
-                    alt="Children planting seedlings together in a garden"
-                    width="400"
-                    height="300"
-                    decoding="async"
-                  />
-                </div>
-                <h3 class="partners-impact-card__title">Opportunities Expand</h3>
-                <p class="partners-impact-card__text">
-                  Partners open doors to new places, people, and real-world learning.
-                </p>
-                <img
-                  class="partners-impact-card__deco"
-                  src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/partners-impact-deco-star-yellow.jpeg' ); ?>"
-                  alt=""
-                  width="26"
-                  height="26"
-                  loading="lazy"
-                  decoding="async"
-                  aria-hidden="true"
-                />
-              </article>
-
-              <article class="partners-impact-card">
-                <div class="lazy-img-wrap lazy-img-wrap--cover">
-                  <img
-                    class="partners-impact-card__photo lazy-img"
-                    src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-                    data-src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/partners-impact-photo-kindness.jpeg' ); ?>"
-                    alt="A girl reading kind messages on a wall of colorful paper hearts"
-                    width="400"
-                    height="300"
-                    decoding="async"
-                  />
-                </div>
-                <h3 class="partners-impact-card__title">Kindness Multiplies</h3>
-                <p class="partners-impact-card__text">
-                  When we invest in children, we create a brighter, more hopeful future.
-                </p>
-                <img
-                  class="partners-impact-card__deco"
-                  src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/partners-impact-deco-star-purple.jpeg' ); ?>"
-                  alt=""
-                  width="26"
-                  height="26"
-                  loading="lazy"
-                  decoding="async"
-                  aria-hidden="true"
-                />
-              </article>
-            </div>
+            <?php require get_template_directory() . '/template-parts/partners-impact-grid.php'; ?>
           </div>
         </div>
       </section>
 
-      <section class="partners-opportunity-cta section-padding" aria-label="Share an opportunity">
+      <section class="partners-opportunity-cta section-padding" aria-label="<?php echo esc_attr( $partners_opportunity_cta_aria_label ); ?>">
         <div class="site-container partners-opportunity-cta__inner">
           <div class="partners-opportunity-cta__card">
             <div class="partners-opportunity-cta__lead">
               <h2 class="partners-opportunity-cta__title">
-                Have an Opportunity for
+                <?php if ( '' !== trim( $partners_opportunity_cta_title_prefix ) ) : ?>
+                <?php echo esc_html( $partners_opportunity_cta_title_prefix ); ?>
+                <?php endif; ?>
+                <?php if ( '' !== trim( $partners_opportunity_cta_title_underline_word ) ) : ?>
                 <span class="heading-underline heading-underline--partners-cta">
-                  Bright Dreamers
+                  <?php echo esc_html( $partners_opportunity_cta_title_underline_word ); ?>
                   <img
                     class="heading-underline__img"
-                    src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/partners-heading-underline-removebg-preview.png' ); ?>"
+                    src="<?php echo esc_url( $partners_opportunity_cta_title_underline_url ); ?>"
                     alt=""
                     width="180"
                     height="12"
@@ -425,11 +597,15 @@ get_header();
                     aria-hidden="true"
                   />
                 </span>
-                ?
+                <?php endif; ?>
+                <?php if ( '' !== trim( $partners_opportunity_cta_title_suffix ) ) : ?>
+                <?php echo esc_html( $partners_opportunity_cta_title_suffix ); ?>
+                <?php endif; ?>
               </h2>
+              <?php if ( '' !== trim( $partners_opportunity_cta_bulb_url ) ) : ?>
               <img
                 class="partners-opportunity-cta__bulb"
-                src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/partners-opportunity-bulb-removebg-preview.png' ); ?>"
+                src="<?php echo esc_url( $partners_opportunity_cta_bulb_url ); ?>"
                 alt=""
                 width="72"
                 height="72"
@@ -437,15 +613,18 @@ get_header();
                 decoding="async"
                 aria-hidden="true"
               />
+              <?php endif; ?>
             </div>
 
+            <?php if ( '' !== trim( $partners_opportunity_cta_text ) ) : ?>
             <p class="partners-opportunity-cta__text">
-              Do you have a space, project, challenge, skill, or community need that children could
-              help explore creatively? We&rsquo;d love to hear your idea.
+              <?php echo esc_html( $partners_opportunity_cta_text ); ?>
             </p>
+            <?php endif; ?>
 
-            <a class="btn btn--lg btn-hover partners-opportunity-cta__btn" href="<?php echo esc_url( bdc_page_url( 'partner-inquiry.html' ) ); ?>">
-              Share an Opportunity
+            <?php if ( ! empty( $partners_opportunity_cta_btn_link['url'] ) && '' !== trim( $partners_opportunity_cta_btn_text ) ) : ?>
+            <a class="btn btn--lg btn-hover partners-opportunity-cta__btn" href="<?php echo esc_url( $partners_opportunity_cta_btn_link['url'] ); ?>"<?php echo bdc_acf_link_target_attr( $partners_opportunity_cta_btn_link ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
+              <?php echo esc_html( $partners_opportunity_cta_btn_text ); ?>
               <svg
                 class="btn__icon"
                 viewBox="0 0 24 24"
@@ -461,10 +640,12 @@ get_header();
                 <path d="M5 12h14M13 6l6 6-6 6" />
               </svg>
             </a>
+            <?php endif; ?>
 
+            <?php if ( '' !== trim( $partners_opportunity_cta_plane_url ) ) : ?>
             <img
               class="partners-opportunity-cta__plane"
-              src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/partners-opportunity-plane-removebg-preview.png' ); ?>"
+              src="<?php echo esc_url( $partners_opportunity_cta_plane_url ); ?>"
               alt=""
               width="120"
               height="80"
@@ -472,6 +653,7 @@ get_header();
               decoding="async"
               aria-hidden="true"
             />
+            <?php endif; ?>
           </div>
         </div>
       </section>
@@ -479,7 +661,7 @@ get_header();
       <section class="partners-founding section-padding" aria-labelledby="partners-founding-title">
         <div class="site-container">
           <h2 class="partners-founding__title" id="partners-founding-title">
-            Founding Partners Coming Soon
+            <?php echo esc_html( $partners_founding_title ); ?>
             <svg
               class="partners-founding__title-icon"
               viewBox="0 0 24 24"
@@ -499,87 +681,10 @@ get_header();
           </h2>
 
           <p class="partners-founding__intro">
-            We&rsquo;re building a community of changemakers. Will your organization be one of our
-            founding partners?
+            <?php echo esc_html( $partners_founding_intro ); ?>
           </p>
 
-          <div class="partners-founding__grid">
-            <article class="partners-founding-card partners-founding-card--purple">
-              <img
-                class="partners-founding-card__icon"
-                src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/partners-founding-icon-org.jpeg' ); ?>"
-                alt=""
-                width="84"
-                height="84"
-                loading="lazy"
-                decoding="async"
-              />
-              <h3 class="partners-founding-card__title">Your Organization Here</h3>
-              <p class="partners-founding-card__text">This space could feature your logo.</p>
-            </article>
-
-            <article class="partners-founding-card partners-founding-card--green">
-              <img
-                class="partners-founding-card__icon"
-                src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/partners-founding-icon-founding-green.jpeg' ); ?>"
-                alt=""
-                width="84"
-                height="84"
-                loading="lazy"
-                decoding="async"
-              />
-              <h3 class="partners-founding-card__title">Founding Partner</h3>
-              <p class="partners-founding-card__text">
-                Join us in shaping a brighter future for kids.
-              </p>
-            </article>
-
-            <article class="partners-founding-card partners-founding-card--blue">
-              <img
-                class="partners-founding-card__icon"
-                src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/partners-founding-icon-community.jpeg' ); ?>"
-                alt=""
-                width="84"
-                height="84"
-                loading="lazy"
-                decoding="async"
-              />
-              <h3 class="partners-founding-card__title">Community Partner</h3>
-              <p class="partners-founding-card__text">
-                Together, we can inspire dreams and create impact.
-              </p>
-            </article>
-
-            <article class="partners-founding-card partners-founding-card--pink">
-              <img
-                class="partners-founding-card__icon"
-                src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/partners-founding-icon-megaphone.jpeg' ); ?>"
-                alt=""
-                width="84"
-                height="84"
-                loading="lazy"
-                decoding="async"
-              />
-              <h3 class="partners-founding-card__title">Your Organization Here</h3>
-              <p class="partners-founding-card__text">This space could feature your logo.</p>
-            </article>
-
-            <article class="partners-founding-card partners-founding-card--gold">
-              <img
-                class="partners-founding-card__icon"
-                src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/partners-founding-icon-stars.jpeg' ); ?>"
-                alt=""
-                width="84"
-                height="84"
-                loading="lazy"
-                decoding="async"
-              />
-              <h3 class="partners-founding-card__title">Founding Partner</h3>
-              <p class="partners-founding-card__text">
-                Be part of something meaningful from the start.
-              </p>
-            </article>
-          </div>
+          <?php require get_template_directory() . '/template-parts/partners-founding-grid.php'; ?>
         </div>
       </section>
 

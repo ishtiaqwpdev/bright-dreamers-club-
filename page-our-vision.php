@@ -1,6 +1,6 @@
-<?php
+﻿<?php
 /**
- * Our Vision page template — converted from our-vision.html.
+ * Our Vision page template â€” converted from our-vision.html.
  *
  * Template Name: Our Vision
  *
@@ -8,13 +8,564 @@
  */
 
 get_header();
+
+$vision_page_id = get_queried_object_id();
+
+$vision_hero_lazy_placeholder = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';
+
+$vision_hero_eyebrow = bdc_get_acf_text(
+	'vision_hero_eyebrow',
+	'OUR VISION',
+	$vision_page_id
+);
+$vision_hero_title_line_1 = bdc_get_acf_text(
+	'vision_hero_title_line_1',
+	'Building a',
+	$vision_page_id
+);
+$vision_hero_title_line_2 = bdc_get_acf_text(
+	'vision_hero_title_line_2',
+	'Brighter Future',
+	$vision_page_id
+);
+$vision_hero_title_line_3 = bdc_get_acf_text(
+	'vision_hero_title_line_3',
+	'Together',
+	$vision_page_id
+);
+$vision_hero_lead_intro = bdc_get_acf_text(
+	'vision_hero_lead_intro',
+	'Every meaningful change can begin with something very small',
+	$vision_page_id
+);
+$vision_hero_lead_accent = bdc_get_acf_text(
+	'vision_hero_lead_accent',
+	'a child saying, "I have an idea."',
+	$vision_page_id
+);
+$vision_hero_text = bdc_get_acf_text(
+	'vision_hero_text',
+	'Bright Dreamers creates a community where children are encouraged to explore what excites them, discover their talents, bring their ideas to life, and use their creativity to help others.',
+	$vision_page_id
+);
+$vision_hero_list_defaults = array(
+	array( 'item_text' => 'Adults provide the support, resources, safety, and encouragement.' ),
+	array( 'item_text' => 'Children help shape the journey.' ),
+);
+$vision_hero_list_raw = bdc_get_acf_repeater( 'vision_hero_list', $vision_hero_list_defaults, $vision_page_id );
+$vision_hero_list     = array();
+
+foreach ( $vision_hero_list_raw as $index => $row ) {
+	$default   = $vision_hero_list_defaults[ $index ] ?? array( 'item_text' => '' );
+	$item_text = isset( $row['item_text'] ) ? trim( (string) $row['item_text'] ) : '';
+	$item_text = '' !== $item_text ? $item_text : (string) $default['item_text'];
+
+	if ( '' === trim( $item_text ) ) {
+		continue;
+	}
+
+	$vision_hero_list[] = $item_text;
+}
+
+if ( empty( $vision_hero_list ) ) {
+	foreach ( $vision_hero_list_defaults as $default_item ) {
+		$vision_hero_list[] = (string) $default_item['item_text'];
+	}
+}
+
+$vision_hero_banner_url = bdc_get_acf_image_url(
+	'vision_hero_banner',
+	bdc_theme_asset_url( 'assets/images/our-vision-hero-banner.png' ),
+	$vision_page_id
+);
+$vision_hero_banner_alt = bdc_get_acf_text(
+	'vision_hero_banner_alt',
+	'Children painting a mural with the words Big Ideas Brighter Tomorrows',
+	$vision_page_id
+);
+
+$vision_pillars_title = bdc_get_acf_text(
+	'vision_pillars_title',
+	'Our Vision',
+	$vision_page_id
+);
+$vision_pillars_deco_heart = bdc_get_acf_image_url(
+	'vision_pillars_deco_heart',
+	bdc_theme_asset_url( 'assets/images/vision-pillar-deco-heart-removebg-preview.png' ),
+	$vision_page_id
+);
+$vision_pillars_deco_leaf = bdc_get_acf_image_url(
+	'vision_pillars_deco_leaf',
+	bdc_theme_asset_url( 'assets/images/vision-pillar-deco-leaf-removebg-preview.png' ),
+	$vision_page_id
+);
+$vision_pillars_cards_defaults = array(
+	array(
+		'icon'        => bdc_theme_asset_url( 'assets/images/vision-pillar-icon-dream.png' ),
+		'title'       => 'Let Children Dream',
+		'description' => 'Create safe spaces for children to imagine, ask questions, and discover what truly interests them.',
+		'style_slug'  => 'pink',
+	),
+	array(
+		'icon'        => bdc_theme_asset_url( 'assets/images/vision-pillar-icon-ideas.png' ),
+		'title'       => 'Turn Ideas Into Reality',
+		'description' => 'Help children transform their own ideas into art, inventions, projects, writings and solutionsâ€”and gain real-world experience.',
+		'style_slug'  => 'purple',
+	),
+	array(
+		'icon'        => bdc_theme_asset_url( 'assets/images/vision-pillar-icon-purpose.png' ),
+		'title'       => 'Create With Purpose',
+		'description' => 'Show children that what they create can bring joy, support others, and help make our community and world better.',
+		'style_slug'  => 'green',
+	),
+	array(
+		'icon'        => bdc_theme_asset_url( 'assets/images/vision-pillar-icon-grow.png' ),
+		'title'       => 'Grow Together',
+		'description' => 'Bring children, families, volunteers, businesses, artists, and community partners together to build young leaders and stronger communities.',
+		'style_slug'  => 'orange',
+	),
+);
+$vision_pillars_style_slugs_allowed = array( 'pink', 'purple', 'green', 'orange' );
+$vision_pillars_cards_raw           = bdc_get_acf_repeater( 'vision_pillars_cards', $vision_pillars_cards_defaults, $vision_page_id );
+$vision_pillars_cards               = array();
+
+foreach ( $vision_pillars_cards_raw as $index => $row ) {
+	$default = $vision_pillars_cards_defaults[ $index ] ?? array(
+		'icon'        => '',
+		'title'       => '',
+		'description' => '',
+		'style_slug'  => 'pink',
+	);
+
+	$title       = isset( $row['title'] ) ? trim( (string) $row['title'] ) : '';
+	$description = isset( $row['description'] ) ? trim( (string) $row['description'] ) : '';
+	$style_slug  = isset( $row['style_slug'] ) ? sanitize_key( (string) $row['style_slug'] ) : '';
+
+	if ( ! in_array( $style_slug, $vision_pillars_style_slugs_allowed, true ) ) {
+		$style_slug = (string) $default['style_slug'];
+	}
+
+	$resolved = array(
+		'icon'        => bdc_acf_image_value_to_url( $row['icon'] ?? null, (string) $default['icon'] ),
+		'title'       => '' !== $title ? $title : (string) $default['title'],
+		'description' => '' !== $description ? $description : (string) $default['description'],
+		'style_slug'  => $style_slug,
+	);
+
+	if ( '' === trim( $resolved['title'] ) && '' === trim( $resolved['description'] ) ) {
+		continue;
+	}
+
+	$vision_pillars_cards[] = $resolved;
+}
+
+if ( empty( $vision_pillars_cards ) ) {
+	$vision_pillars_cards = $vision_pillars_cards_defaults;
+}
+
+$vision_roadmap_goals_title = bdc_get_acf_text(
+	'vision_roadmap_goals_title',
+	'Our First Goals',
+	$vision_page_id
+);
+$vision_roadmap_goals_intro = bdc_get_acf_text(
+	'vision_roadmap_goals_intro',
+	'We are starting with a few simple goals:',
+	$vision_page_id
+);
+$vision_roadmap_goals_defaults = array(
+	array( 'item_text' => 'Welcome our first Bright Dreamers' ),
+	array( 'item_text' => 'Listen to children\'s ideas' ),
+	array( 'item_text' => 'Launch our Young Dreamers Council' ),
+	array( 'item_text' => 'Turn the first child-inspired idea into a real project' ),
+	array( 'item_text' => 'Create our first community art or kindness project' ),
+	array( 'item_text' => 'Hold our first Dream Market' ),
+	array( 'item_text' => 'Build relationships with local businesses and community partners' ),
+	array( 'item_text' => 'Create more opportunities for children to discover what they love' ),
+);
+$vision_roadmap_goals_raw = bdc_get_acf_repeater( 'vision_roadmap_goals', $vision_roadmap_goals_defaults, $vision_page_id );
+$vision_roadmap_goals     = array();
+
+foreach ( $vision_roadmap_goals_raw as $index => $row ) {
+	$default   = $vision_roadmap_goals_defaults[ $index ] ?? array( 'item_text' => '' );
+	$item_text = isset( $row['item_text'] ) ? trim( (string) $row['item_text'] ) : '';
+	$item_text = '' !== $item_text ? $item_text : (string) $default['item_text'];
+
+	if ( '' === trim( $item_text ) ) {
+		continue;
+	}
+
+	$vision_roadmap_goals[] = $item_text;
+}
+
+if ( empty( $vision_roadmap_goals ) ) {
+	foreach ( $vision_roadmap_goals_defaults as $default_item ) {
+		$vision_roadmap_goals[] = (string) $default_item['item_text'];
+	}
+}
+
+$vision_roadmap_journey_title = bdc_get_acf_text(
+	'vision_roadmap_journey_title',
+	'Our Journey Begins Here',
+	$vision_page_id
+);
+$vision_roadmap_arrow_url = bdc_get_acf_image_url(
+	'vision_roadmap_journey_arrow',
+	bdc_theme_asset_url( 'assets/images/approach-arrow.jpeg' ),
+	$vision_page_id
+);
+$vision_roadmap_journey_steps_defaults = array(
+	array(
+		'icon'       => bdc_theme_asset_url( 'assets/images/vision-journey-icon-idea.jpeg' ),
+		'title'      => 'The Idea',
+		'quote'      => '"What if...?"',
+		'text'       => 'A child shares an idea.',
+		'style_slug' => 'pink',
+	),
+	array(
+		'icon'       => bdc_theme_asset_url( 'assets/images/vision-journey-icon-community.jpeg' ),
+		'title'      => 'The Community',
+		'quote'      => '"Let\'s explore it."',
+		'text'       => 'Children and adults think about how it could become possible.',
+		'style_slug' => 'purple',
+	),
+	array(
+		'icon'       => bdc_theme_asset_url( 'assets/images/vision-journey-icon-project.jpeg' ),
+		'title'      => 'The Project',
+		'quote'      => '"Let\'s make it."',
+		'text'       => 'The idea becomes art, a product, an event, or a community project.',
+		'style_slug' => 'green',
+	),
+	array(
+		'icon'       => bdc_theme_asset_url( 'assets/images/vision-journey-icon-impact.jpeg' ),
+		'title'      => 'The Impact',
+		'quote'      => '"Who can this help?"',
+		'text'       => 'Children decide how their creation can make a difference.',
+		'style_slug' => 'orange',
+	),
+	array(
+		'icon'       => bdc_theme_asset_url( 'assets/images/vision-journey-icon-celebration.jpeg' ),
+		'title'      => 'The Celebration',
+		'quote'      => '"Look what we did together!"',
+		'text'       => 'Children share what they created and celebrate their progress.',
+		'style_slug' => 'blue',
+	),
+);
+$vision_roadmap_journey_style_slugs_allowed = array( 'pink', 'purple', 'green', 'orange', 'blue' );
+$vision_roadmap_journey_steps_raw           = bdc_get_acf_repeater( 'vision_roadmap_journey_steps', $vision_roadmap_journey_steps_defaults, $vision_page_id );
+$vision_roadmap_journey_steps               = array();
+
+foreach ( $vision_roadmap_journey_steps_raw as $index => $row ) {
+	$default = $vision_roadmap_journey_steps_defaults[ $index ] ?? array(
+		'icon'       => '',
+		'title'      => '',
+		'quote'      => '',
+		'text'       => '',
+		'style_slug' => 'pink',
+	);
+
+	$title      = isset( $row['title'] ) ? trim( (string) $row['title'] ) : '';
+	$quote      = isset( $row['quote'] ) ? trim( (string) $row['quote'] ) : '';
+	$text       = isset( $row['text'] ) ? trim( (string) $row['text'] ) : '';
+	$style_slug = isset( $row['style_slug'] ) ? sanitize_key( (string) $row['style_slug'] ) : '';
+
+	if ( ! in_array( $style_slug, $vision_roadmap_journey_style_slugs_allowed, true ) ) {
+		$style_slug = (string) $default['style_slug'];
+	}
+
+	$resolved = array(
+		'icon'       => bdc_acf_image_value_to_url( $row['icon'] ?? null, (string) $default['icon'] ),
+		'title'      => '' !== $title ? $title : (string) $default['title'],
+		'quote'      => '' !== $quote ? $quote : (string) $default['quote'],
+		'text'       => '' !== $text ? $text : (string) $default['text'],
+		'style_slug' => $style_slug,
+	);
+
+	if ( '' === trim( $resolved['title'] ) && '' === trim( $resolved['text'] ) && '' === trim( $resolved['quote'] ) ) {
+		continue;
+	}
+
+	$vision_roadmap_journey_steps[] = $resolved;
+}
+
+if ( empty( $vision_roadmap_journey_steps ) ) {
+	$vision_roadmap_journey_steps = $vision_roadmap_journey_steps_defaults;
+}
+
+$vision_moments_title = bdc_get_acf_text(
+	'vision_moments_title',
+	'Moments We\'ll Create Together',
+	$vision_page_id
+);
+$vision_moments_intro = bdc_get_acf_text(
+	'vision_moments_intro',
+	'Soon, this space will be filled with real moments created by Bright Dreamers.',
+	$vision_page_id
+);
+$vision_moments_list_defaults = array(
+	array( 'item_text' => 'Community murals', 'is_more' => false ),
+	array( 'item_text' => 'Gardens', 'is_more' => false ),
+	array( 'item_text' => 'Dream Market', 'is_more' => false ),
+	array( 'item_text' => 'Creative collaborators', 'is_more' => false ),
+	array( 'item_text' => 'Kindness projects', 'is_more' => false ),
+	array( 'item_text' => 'Donation drives', 'is_more' => false ),
+	array( 'item_text' => 'Presenting ideas', 'is_more' => false ),
+	array( 'item_text' => 'Children\'s events', 'is_more' => false ),
+	array( 'item_text' => 'And so much more!', 'is_more' => true ),
+);
+$vision_moments_list_raw = bdc_get_acf_repeater( 'vision_moments_list', $vision_moments_list_defaults, $vision_page_id );
+$vision_moments_list     = array();
+
+foreach ( $vision_moments_list_raw as $index => $row ) {
+	$default   = $vision_moments_list_defaults[ $index ] ?? array( 'item_text' => '', 'is_more' => false );
+	$item_text = isset( $row['item_text'] ) ? trim( (string) $row['item_text'] ) : '';
+	$item_text = '' !== $item_text ? $item_text : (string) $default['item_text'];
+	$is_more   = ! empty( $row['is_more'] );
+
+	if ( ! $is_more && isset( $default['is_more'] ) ) {
+		$is_more = (bool) $default['is_more'];
+	}
+
+	if ( '' === trim( $item_text ) ) {
+		continue;
+	}
+
+	$vision_moments_list[] = array(
+		'item_text' => $item_text,
+		'is_more'   => $is_more,
+	);
+}
+
+if ( empty( $vision_moments_list ) ) {
+	$vision_moments_list = $vision_moments_list_defaults;
+}
+
+$vision_moments_photo_art_url = bdc_get_acf_image_url(
+	'vision_moments_photo_art',
+	bdc_theme_asset_url( 'assets/images/vision-moments-photo-art.jpeg' ),
+	$vision_page_id
+);
+$vision_moments_photo_art_alt = bdc_get_acf_text(
+	'vision_moments_photo_art_alt',
+	'Children creating colorful art together',
+	$vision_page_id
+);
+$vision_moments_feature_banner_url = bdc_get_acf_image_url(
+	'vision_moments_feature_banner',
+	bdc_theme_asset_url( 'assets/images/vision-moments-banner.jpeg' ),
+	$vision_page_id
+);
+$vision_moments_feature_title = bdc_get_acf_text(
+	'vision_moments_feature_title',
+	'Our story is just beginning.',
+	$vision_page_id
+);
+$vision_moments_feature_text = bdc_get_acf_text(
+	'vision_moments_feature_text',
+	'We can\'t wait to fill this space with creativity, courage, friendship, and kindness.',
+	$vision_page_id
+);
+$vision_moments_photo_read_url = bdc_get_acf_image_url(
+	'vision_moments_photo_read',
+	bdc_theme_asset_url( 'assets/images/vision-moments-photo-read.jpeg' ),
+	$vision_page_id
+);
+$vision_moments_photo_read_alt = bdc_get_acf_text(
+	'vision_moments_photo_read_alt',
+	'Children reading and learning together',
+	$vision_page_id
+);
+$vision_moments_photo_give_url = bdc_get_acf_image_url(
+	'vision_moments_photo_give',
+	bdc_theme_asset_url( 'assets/images/vision-moments-photo-give.jpeg' ),
+	$vision_page_id
+);
+$vision_moments_photo_give_alt = bdc_get_acf_text(
+	'vision_moments_photo_give_alt',
+	'Children placing hearts in a kindness donation box',
+	$vision_page_id
+);
+
+$vision_partner_title = bdc_get_acf_text(
+	'vision_partner_title',
+	'Become a Founding Partner',
+	$vision_page_id
+);
+$vision_partner_intro = bdc_get_acf_text(
+	'vision_partner_intro',
+	'Help bring young ideas to life. We\'re looking for businesses, artists, mentors, volunteers, community organizations, and supporters who believe children deserve opportunities to explore their ideas.',
+	$vision_page_id
+);
+$vision_partner_icons_defaults = array(
+	array(
+		'icon'  => bdc_theme_asset_url( 'assets/images/vision-partner-icon-materials.jpeg' ),
+		'label' => 'Materials & Supplies',
+	),
+	array(
+		'icon'  => bdc_theme_asset_url( 'assets/images/vision-partner-icon-space.jpeg' ),
+		'label' => 'Creative Space',
+	),
+	array(
+		'icon'  => bdc_theme_asset_url( 'assets/images/vision-partner-icon-skills.jpeg' ),
+		'label' => 'Professional Skills',
+	),
+	array(
+		'icon'  => bdc_theme_asset_url( 'assets/images/vision-partner-icon-community.jpeg' ),
+		'label' => 'Community Opportunities',
+	),
+	array(
+		'icon'  => bdc_theme_asset_url( 'assets/images/vision-partner-icon-mentorship.png' ),
+		'label' => 'Mentorship',
+	),
+	array(
+		'icon'  => bdc_theme_asset_url( 'assets/images/vision-partner-icon-event.jpeg' ),
+		'label' => 'Event',
+	),
+	array(
+		'icon'  => bdc_theme_asset_url( 'assets/images/vision-partner-icon-funding.jpeg' ),
+		'label' => 'Project Funding',
+	),
+);
+$vision_partner_icons_raw = bdc_get_acf_repeater( 'vision_partner_icons', $vision_partner_icons_defaults, $vision_page_id );
+$vision_partner_icons     = array();
+
+foreach ( $vision_partner_icons_raw as $index => $row ) {
+	$default = $vision_partner_icons_defaults[ $index ] ?? array(
+		'icon'  => '',
+		'label' => '',
+	);
+
+	$label = isset( $row['label'] ) ? trim( (string) $row['label'] ) : '';
+	$label = '' !== $label ? $label : (string) $default['label'];
+
+	$resolved = array(
+		'icon'  => bdc_acf_image_value_to_url( $row['icon'] ?? null, (string) $default['icon'] ),
+		'label' => $label,
+	);
+
+	if ( '' === trim( $resolved['label'] ) && '' === trim( $resolved['icon'] ) ) {
+		continue;
+	}
+
+	$vision_partner_icons[] = $resolved;
+}
+
+if ( empty( $vision_partner_icons ) ) {
+	$vision_partner_icons = $vision_partner_icons_defaults;
+}
+
+$vision_partner_btn_text = bdc_get_acf_text(
+	'vision_partner_btn_text',
+	'Become a Founding Partner',
+	$vision_page_id
+);
+$vision_partner_btn_link = bdc_get_acf_link(
+	'vision_partner_btn_link',
+	array(
+		'title'  => 'Become a Founding Partner',
+		'url'    => bdc_page_url( 'get-involved.html' ),
+		'target' => '',
+	),
+	$vision_page_id
+);
+
+$vision_together_jar_url = bdc_get_acf_image_url(
+	'vision_together_jar',
+	bdc_theme_asset_url( 'assets/images/vision-together-jar.png' ),
+	$vision_page_id
+);
+$vision_together_stars_url = bdc_get_acf_image_url(
+	'vision_together_stars',
+	bdc_theme_asset_url( 'assets/images/for-parents-expect-stars.png' ),
+	$vision_page_id
+);
+$vision_together_title = bdc_get_acf_text(
+	'vision_together_title',
+	'Together, We Can Turn Little Ideas Into Something',
+	$vision_page_id
+);
+$vision_together_title_accent = bdc_get_acf_text(
+	'vision_together_title_accent',
+	'Big',
+	$vision_page_id
+);
+$vision_together_list_defaults = array(
+	array( 'item_text' => 'A mural can brighten a neighborhood.' ),
+	array( 'item_text' => 'A handmade creation can support a local cause.' ),
+	array( 'item_text' => 'A garden can bring people together.' ),
+	array( 'item_text' => 'A child\'s idea can become a project.' ),
+	array( 'item_text' => 'And a project can make a child discover "I can create something that matters."' ),
+);
+$vision_together_list_raw = bdc_get_acf_repeater( 'vision_together_list', $vision_together_list_defaults, $vision_page_id );
+$vision_together_list     = array();
+
+foreach ( $vision_together_list_raw as $index => $row ) {
+	$default   = $vision_together_list_defaults[ $index ] ?? array( 'item_text' => '' );
+	$item_text = isset( $row['item_text'] ) ? trim( (string) $row['item_text'] ) : '';
+	$item_text = '' !== $item_text ? $item_text : (string) $default['item_text'];
+
+	if ( '' === trim( $item_text ) ) {
+		continue;
+	}
+
+	$vision_together_list[] = $item_text;
+}
+
+if ( empty( $vision_together_list ) ) {
+	foreach ( $vision_together_list_defaults as $default_item ) {
+		$vision_together_list[] = (string) $default_item['item_text'];
+	}
+}
+
+$vision_together_apply_btn_text = bdc_get_acf_text(
+	'vision_together_apply_btn_text',
+	'Apply to Become a Bright Dreamer',
+	$vision_page_id
+);
+$vision_together_apply_btn_link = bdc_get_acf_link(
+	'vision_together_apply_btn_link',
+	array(
+		'title'  => 'Apply to Become a Bright Dreamer',
+		'url'    => bdc_page_url( 'apply-to-become.html' ),
+		'target' => '',
+	),
+	$vision_page_id
+);
+$vision_together_story_btn_text = bdc_get_acf_text(
+	'vision_together_story_btn_text',
+	'Explore Our Story',
+	$vision_page_id
+);
+$vision_together_story_btn_link = bdc_get_acf_link(
+	'vision_together_story_btn_link',
+	array(
+		'title'  => 'Explore Our Story',
+		'url'    => bdc_page_url( 'about.html' ),
+		'target' => '',
+	),
+	$vision_page_id
+);
+$vision_together_support_btn_text = bdc_get_acf_text(
+	'vision_together_support_btn_text',
+	'Support Our Vision',
+	$vision_page_id
+);
+$vision_together_support_btn_link = bdc_get_acf_link(
+	'vision_together_support_btn_link',
+	array(
+		'title'  => 'Support Our Vision',
+		'url'    => bdc_page_url( 'get-involved.html' ),
+		'target' => '',
+	),
+	$vision_page_id
+);
 ?>
     <main id="main-content">
       <section class="page-hero vision-hero about-hero" aria-label="Our Vision">
         <div class="site-container page-hero__inner">
           <div class="page-hero__content vision-hero__content">
             <p class="vision-hero__eyebrow">
-              OUR VISION
+              <?php echo esc_html( $vision_hero_eyebrow ); ?>
               <svg
                 class="vision-hero__eyebrow-heart"
                 viewBox="0 0 24 24"
@@ -35,28 +586,39 @@ get_header();
 
             <div class="vision-hero__title-wrap">
               <h1 class="vision-hero__title">
-                <span class="vision-hero__title-line vision-hero__title-line--navy">Building a</span>
-                <span class="vision-hero__title-line vision-hero__title-line--pink"
-                  >Brighter Future</span
-                >
-                <span class="vision-hero__title-line vision-hero__title-line--navy">Together</span>
+                <?php if ( '' !== trim( $vision_hero_title_line_1 ) ) : ?>
+                <span class="vision-hero__title-line vision-hero__title-line--navy"><?php echo esc_html( $vision_hero_title_line_1 ); ?></span>
+                <?php endif; ?>
+                <?php if ( '' !== trim( $vision_hero_title_line_2 ) ) : ?>
+                <span class="vision-hero__title-line vision-hero__title-line--pink"><?php echo esc_html( $vision_hero_title_line_2 ); ?></span>
+                <?php endif; ?>
+                <?php if ( '' !== trim( $vision_hero_title_line_3 ) ) : ?>
+                <span class="vision-hero__title-line vision-hero__title-line--navy"><?php echo esc_html( $vision_hero_title_line_3 ); ?></span>
+                <?php endif; ?>
               </h1>
             </div>
 
+            <?php if ( '' !== trim( $vision_hero_lead_intro ) || '' !== trim( $vision_hero_lead_accent ) ) : ?>
             <p class="vision-hero__lead">
-              Every meaningful change can begin with something very small<br />
-              <span class="vision-hero__accent vision-hero__accent--pink"
-                >a child saying, &ldquo;I have an idea.&rdquo;</span
-              >
+              <?php if ( '' !== trim( $vision_hero_lead_intro ) ) : ?>
+              <?php echo esc_html( $vision_hero_lead_intro ); ?>
+              <?php endif; ?>
+              <?php if ( '' !== trim( $vision_hero_lead_accent ) ) : ?>
+              <?php if ( '' !== trim( $vision_hero_lead_intro ) ) : ?><br /><?php endif; ?>
+              <span class="vision-hero__accent vision-hero__accent--pink"><?php echo esc_html( $vision_hero_lead_accent ); ?></span>
+              <?php endif; ?>
             </p>
+            <?php endif; ?>
 
+            <?php if ( '' !== trim( $vision_hero_text ) ) : ?>
             <p class="vision-hero__text">
-              Bright Dreamers creates a community where children are encouraged to explore what
-              excites them, discover their talents, bring their ideas to life, and use their
-              creativity to help others.
+              <?php echo esc_html( $vision_hero_text ); ?>
             </p>
+            <?php endif; ?>
 
+            <?php if ( ! empty( $vision_hero_list ) ) : ?>
             <ul class="vision-hero__list">
+              <?php foreach ( $vision_hero_list as $list_item ) : ?>
               <li>
                 <span class="vision-hero__check" aria-hidden="true">
                   <svg
@@ -72,35 +634,20 @@ get_header();
                     <path d="M5 13l4 4L19 7" />
                   </svg>
                 </span>
-                Adults provide the support, resources, safety, and encouragement.
+                <?php echo esc_html( $list_item ); ?>
               </li>
-              <li>
-                <span class="vision-hero__check" aria-hidden="true">
-                  <svg
-                    viewBox="0 0 24 24"
-                    width="11"
-                    height="11"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2.8"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  >
-                    <path d="M5 13l4 4L19 7" />
-                  </svg>
-                </span>
-                Children help shape the journey.
-              </li>
+              <?php endforeach; ?>
             </ul>
+            <?php endif; ?>
           </div>
 
           <div class="about-hero__media">
             <div class="lazy-img-wrap">
               <img
                 class="about-hero__banner lazy-img"
-                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-                data-src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/our-vision-hero-banner.png' ); ?>"
-                alt="Children painting a mural with the words Big Ideas Brighter Tomorrows"
+                src="<?php echo esc_attr( $vision_hero_lazy_placeholder ); ?>"
+                data-src="<?php echo esc_url( $vision_hero_banner_url ); ?>"
+                alt="<?php echo esc_attr( $vision_hero_banner_alt ); ?>"
                 width="1200"
                 height="900"
                 decoding="async"
@@ -113,7 +660,7 @@ get_header();
       <section class="vision-pillars section-padding" aria-labelledby="vision-pillars-title">
         <div class="site-container">
           <h2 class="vision-pillars__title" id="vision-pillars-title">
-            Our Vision
+            <?php echo esc_html( $vision_pillars_title ); ?>
             <svg
               class="vision-pillars__title-icon"
               viewBox="0 0 24 24"
@@ -133,159 +680,7 @@ get_header();
           </h2>
 
           <div class="vision-pillars__grid">
-            <article class="vision-pillar-card vision-pillar-card--pink">
-              <img
-                class="vision-pillar-card__icon"
-                src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/vision-pillar-icon-dream.png' ); ?>"
-                alt=""
-                width="72"
-                height="72"
-                loading="lazy"
-                decoding="async"
-              />
-              <h3 class="vision-pillar-card__title">Let Children Dream</h3>
-              <p class="vision-pillar-card__text">
-                Create safe spaces for children to imagine, ask questions, and discover what truly
-                interests them.
-              </p>
-              <img
-                class="vision-pillar-card__deco vision-pillar-card__deco--heart-bl"
-                src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/vision-pillar-deco-heart-removebg-preview.png' ); ?>"
-                alt=""
-                width="40"
-                height="40"
-                loading="lazy"
-                decoding="async"
-                aria-hidden="true"
-              />
-              <svg
-                class="vision-pillar-card__deco vision-pillar-card__deco--star-br"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.6"
-                stroke-linejoin="round"
-                aria-hidden="true"
-              >
-                <path
-                  d="M12 2.8l2.55 5.35 5.85.7-4.35 3.95 1.2 5.75L12 15.7l-5.25 2.85 1.2-5.75-4.35-3.95 5.85-.7L12 2.8z"
-                />
-              </svg>
-            </article>
-
-            <article class="vision-pillar-card vision-pillar-card--purple">
-              <img
-                class="vision-pillar-card__icon"
-                src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/vision-pillar-icon-ideas.png' ); ?>"
-                alt=""
-                width="72"
-                height="72"
-                loading="lazy"
-                decoding="async"
-              />
-              <h3 class="vision-pillar-card__title">Turn Ideas Into Reality</h3>
-              <p class="vision-pillar-card__text">
-                Help children transform their own ideas into art, inventions, projects, writings and
-                solutions&mdash;and gain real-world experience.
-              </p>
-              <img
-                class="vision-pillar-card__deco vision-pillar-card__deco--heart-br vision-pillar-card__deco--offset-up"
-                src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/vision-pillar-deco-heart-removebg-preview.png' ); ?>"
-                alt=""
-                width="40"
-                height="40"
-                loading="lazy"
-                decoding="async"
-                aria-hidden="true"
-              />
-              <img
-                class="vision-pillar-card__deco vision-pillar-card__deco--heart-br"
-                src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/vision-pillar-deco-heart-removebg-preview.png' ); ?>"
-                alt=""
-                width="40"
-                height="40"
-                loading="lazy"
-                decoding="async"
-                aria-hidden="true"
-              />
-            </article>
-
-            <article class="vision-pillar-card vision-pillar-card--green">
-              <img
-                class="vision-pillar-card__icon vision-pillar-card__icon--purpose"
-                src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/vision-pillar-icon-purpose.png' ); ?>"
-                alt=""
-                width="72"
-                height="72"
-                loading="lazy"
-                decoding="async"
-              />
-              <h3 class="vision-pillar-card__title">Create With Purpose</h3>
-              <p class="vision-pillar-card__text">
-                Show children that what they create can bring joy, support others, and help make our
-                community and world better.
-              </p>
-              <img
-                class="vision-pillar-card__deco vision-pillar-card__deco--leaf-br vision-pillar-card__deco--offset-up"
-                src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/vision-pillar-deco-leaf-removebg-preview.png' ); ?>"
-                alt=""
-                width="40"
-                height="40"
-                loading="lazy"
-                decoding="async"
-                aria-hidden="true"
-              />
-              <img
-                class="vision-pillar-card__deco vision-pillar-card__deco--leaf-br"
-                src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/vision-pillar-deco-leaf-removebg-preview.png' ); ?>"
-                alt=""
-                width="40"
-                height="40"
-                loading="lazy"
-                decoding="async"
-                aria-hidden="true"
-              />
-            </article>
-
-            <article class="vision-pillar-card vision-pillar-card--orange">
-              <img
-                class="vision-pillar-card__icon"
-                src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/vision-pillar-icon-grow.png' ); ?>"
-                alt=""
-                width="72"
-                height="72"
-                loading="lazy"
-                decoding="async"
-              />
-              <h3 class="vision-pillar-card__title">Grow Together</h3>
-              <p class="vision-pillar-card__text">
-                Bring children, families, volunteers, businesses, artists, and community partners
-                together to build young leaders and stronger communities.
-              </p>
-              <svg
-                class="vision-pillar-card__deco vision-pillar-card__deco--star-tr"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.6"
-                stroke-linejoin="round"
-                aria-hidden="true"
-              >
-                <path
-                  d="M12 2.8l2.55 5.35 5.85.7-4.35 3.95 1.2 5.75L12 15.7l-5.25 2.85 1.2-5.75-4.35-3.95 5.85-.7L12 2.8z"
-                />
-              </svg>
-              <img
-                class="vision-pillar-card__deco vision-pillar-card__deco--heart-br"
-                src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/vision-pillar-deco-heart-removebg-preview.png' ); ?>"
-                alt=""
-                width="40"
-                height="40"
-                loading="lazy"
-                decoding="async"
-                aria-hidden="true"
-              />
-            </article>
+            <?php require get_template_directory() . '/template-parts/vision-pillars-grid.php'; ?>
           </div>
         </div>
       </section>
@@ -294,7 +689,7 @@ get_header();
         <div class="site-container vision-roadmap__inner">
           <div class="vision-roadmap__goals">
             <h2 class="vision-roadmap__title" id="vision-roadmap-title">
-              Our First Goals
+              <?php echo esc_html( $vision_roadmap_goals_title ); ?>
               <svg
                 class="vision-roadmap__title-icon"
                 viewBox="0 0 24 24"
@@ -312,8 +707,9 @@ get_header();
                 />
               </svg>
             </h2>
-            <p class="vision-roadmap__intro">We are starting with a few simple goals:</p>
+            <p class="vision-roadmap__intro"><?php echo esc_html( $vision_roadmap_goals_intro ); ?></p>
             <ul class="vision-roadmap__list">
+              <?php foreach ( $vision_roadmap_goals as $goal_item ) : ?>
               <li>
                 <span class="vision-roadmap__check" aria-hidden="true">
                   <svg
@@ -329,133 +725,15 @@ get_header();
                     <path d="M5 13l4 4L19 7" />
                   </svg>
                 </span>
-                Welcome our first Bright Dreamers
+                <?php echo esc_html( $goal_item ); ?>
               </li>
-              <li>
-                <span class="vision-roadmap__check" aria-hidden="true">
-                  <svg
-                    viewBox="0 0 24 24"
-                    width="11"
-                    height="11"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2.8"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  >
-                    <path d="M5 13l4 4L19 7" />
-                  </svg>
-                </span>
-                Listen to children&rsquo;s ideas
-              </li>
-              <li>
-                <span class="vision-roadmap__check" aria-hidden="true">
-                  <svg
-                    viewBox="0 0 24 24"
-                    width="11"
-                    height="11"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2.8"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  >
-                    <path d="M5 13l4 4L19 7" />
-                  </svg>
-                </span>
-                Launch our Young Dreamers Council
-              </li>
-              <li>
-                <span class="vision-roadmap__check" aria-hidden="true">
-                  <svg
-                    viewBox="0 0 24 24"
-                    width="11"
-                    height="11"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2.8"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  >
-                    <path d="M5 13l4 4L19 7" />
-                  </svg>
-                </span>
-                Turn the first child-inspired idea into a real project
-              </li>
-              <li>
-                <span class="vision-roadmap__check" aria-hidden="true">
-                  <svg
-                    viewBox="0 0 24 24"
-                    width="11"
-                    height="11"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2.8"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  >
-                    <path d="M5 13l4 4L19 7" />
-                  </svg>
-                </span>
-                Create our first community art or kindness project
-              </li>
-              <li>
-                <span class="vision-roadmap__check" aria-hidden="true">
-                  <svg
-                    viewBox="0 0 24 24"
-                    width="11"
-                    height="11"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2.8"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  >
-                    <path d="M5 13l4 4L19 7" />
-                  </svg>
-                </span>
-                Hold our first Dream Market
-              </li>
-              <li>
-                <span class="vision-roadmap__check" aria-hidden="true">
-                  <svg
-                    viewBox="0 0 24 24"
-                    width="11"
-                    height="11"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2.8"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  >
-                    <path d="M5 13l4 4L19 7" />
-                  </svg>
-                </span>
-                Build relationships with local businesses and community partners
-              </li>
-              <li>
-                <span class="vision-roadmap__check" aria-hidden="true">
-                  <svg
-                    viewBox="0 0 24 24"
-                    width="11"
-                    height="11"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2.8"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  >
-                    <path d="M5 13l4 4L19 7" />
-                  </svg>
-                </span>
-                Create more opportunities for children to discover what they love
-              </li>
+              <?php endforeach; ?>
             </ul>
           </div>
 
           <div class="vision-roadmap__journey">
             <h2 class="vision-roadmap__title" id="vision-journey-title">
-              Our Journey Begins Here
+              <?php echo esc_html( $vision_roadmap_journey_title ); ?>
               <svg
                 class="vision-roadmap__title-icon"
                 viewBox="0 0 24 24"
@@ -474,145 +752,7 @@ get_header();
               </svg>
             </h2>
 
-            <div class="vision-journey-steps" role="list" aria-labelledby="vision-journey-title">
-              <div class="vision-journey-step vision-journey-step--pink" role="listitem">
-                <div class="vision-journey-step__icon-wrap">
-                  <img
-                    class="vision-journey-step__icon"
-                    src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/vision-journey-icon-idea.jpeg' ); ?>"
-                    alt=""
-                    width="68"
-                    height="68"
-                    loading="lazy"
-                    decoding="async"
-                  />
-                  <span class="vision-journey-step__num">1</span>
-                </div>
-                <p class="vision-journey-step__title">The Idea</p>
-                <p class="vision-journey-step__quote">&ldquo;What if...?&rdquo;</p>
-                <p class="vision-journey-step__text">A child shares an idea.</p>
-              </div>
-
-              <img
-                class="vision-journey-step__arrow"
-                src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/approach-arrow.jpeg' ); ?>"
-                alt=""
-                width="32"
-                height="16"
-                loading="lazy"
-                decoding="async"
-              />
-
-              <div class="vision-journey-step vision-journey-step--purple" role="listitem">
-                <div class="vision-journey-step__icon-wrap">
-                  <img
-                    class="vision-journey-step__icon"
-                    src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/vision-journey-icon-community.jpeg' ); ?>"
-                    alt=""
-                    width="68"
-                    height="68"
-                    loading="lazy"
-                    decoding="async"
-                  />
-                  <span class="vision-journey-step__num">2</span>
-                </div>
-                <p class="vision-journey-step__title">The Community</p>
-                <p class="vision-journey-step__quote">&ldquo;Let&rsquo;s explore it.&rdquo;</p>
-                <p class="vision-journey-step__text">
-                  Children and adults think about how it could become possible.
-                </p>
-              </div>
-
-              <img
-                class="vision-journey-step__arrow"
-                src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/approach-arrow.jpeg' ); ?>"
-                alt=""
-                width="32"
-                height="16"
-                loading="lazy"
-                decoding="async"
-              />
-
-              <div class="vision-journey-step vision-journey-step--green" role="listitem">
-                <div class="vision-journey-step__icon-wrap">
-                  <img
-                    class="vision-journey-step__icon"
-                    src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/vision-journey-icon-project.jpeg' ); ?>"
-                    alt=""
-                    width="68"
-                    height="68"
-                    loading="lazy"
-                    decoding="async"
-                  />
-                  <span class="vision-journey-step__num">3</span>
-                </div>
-                <p class="vision-journey-step__title">The Project</p>
-                <p class="vision-journey-step__quote">&ldquo;Let&rsquo;s make it.&rdquo;</p>
-                <p class="vision-journey-step__text">
-                  The idea becomes art, a product, an event, or a community project.
-                </p>
-              </div>
-
-              <img
-                class="vision-journey-step__arrow"
-                src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/approach-arrow.jpeg' ); ?>"
-                alt=""
-                width="32"
-                height="16"
-                loading="lazy"
-                decoding="async"
-              />
-
-              <div class="vision-journey-step vision-journey-step--orange" role="listitem">
-                <div class="vision-journey-step__icon-wrap">
-                  <img
-                    class="vision-journey-step__icon"
-                    src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/vision-journey-icon-impact.jpeg' ); ?>"
-                    alt=""
-                    width="68"
-                    height="68"
-                    loading="lazy"
-                    decoding="async"
-                  />
-                  <span class="vision-journey-step__num">4</span>
-                </div>
-                <p class="vision-journey-step__title">The Impact</p>
-                <p class="vision-journey-step__quote">&ldquo;Who can this help?&rdquo;</p>
-                <p class="vision-journey-step__text">
-                  Children decide how their creation can make a difference.
-                </p>
-              </div>
-
-              <img
-                class="vision-journey-step__arrow"
-                src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/approach-arrow.jpeg' ); ?>"
-                alt=""
-                width="32"
-                height="16"
-                loading="lazy"
-                decoding="async"
-              />
-
-              <div class="vision-journey-step vision-journey-step--blue" role="listitem">
-                <div class="vision-journey-step__icon-wrap">
-                  <img
-                    class="vision-journey-step__icon"
-                    src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/vision-journey-icon-celebration.jpeg' ); ?>"
-                    alt=""
-                    width="68"
-                    height="68"
-                    loading="lazy"
-                    decoding="async"
-                  />
-                  <span class="vision-journey-step__num">5</span>
-                </div>
-                <p class="vision-journey-step__title">The Celebration</p>
-                <p class="vision-journey-step__quote">&ldquo;Look what we did together!&rdquo;</p>
-                <p class="vision-journey-step__text">
-                  Children share what they created and celebrate their progress.
-                </p>
-              </div>
-            </div>
+            <?php require get_template_directory() . '/template-parts/vision-roadmap-journey.php'; ?>
           </div>
         </div>
       </section>
@@ -621,7 +761,7 @@ get_header();
         <div class="site-container vision-moments__inner">
           <article class="vision-moments__card">
             <h2 class="vision-section__title" id="vision-moments-title">
-              Moments We&rsquo;ll Create Together
+              <?php echo esc_html( $vision_moments_title ); ?>
               <svg
                 class="vision-section__title-icon"
                 viewBox="0 0 24 24"
@@ -640,63 +780,17 @@ get_header();
               </svg>
             </h2>
             <p class="vision-moments__intro">
-              Soon, this space will be filled with real moments created by Bright Dreamers.
+              <?php echo esc_html( $vision_moments_intro ); ?>
             </p>
             <ul class="vision-moments__list">
-              <li>
+              <?php foreach ( $vision_moments_list as $moment_item ) : ?>
+              <li<?php echo ! empty( $moment_item['is_more'] ) ? ' class="vision-moments__list-more"' : ''; ?>>
                 <span class="vision-moments__check" aria-hidden="true">
                   <svg viewBox="0 0 24 24" width="10" height="10" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7" /></svg>
                 </span>
-                Community murals
+                <?php echo esc_html( $moment_item['item_text'] ); ?>
               </li>
-              <li>
-                <span class="vision-moments__check" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" width="10" height="10" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7" /></svg>
-                </span>
-                Gardens
-              </li>
-              <li>
-                <span class="vision-moments__check" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" width="10" height="10" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7" /></svg>
-                </span>
-                Dream Market
-              </li>
-              <li>
-                <span class="vision-moments__check" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" width="10" height="10" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7" /></svg>
-                </span>
-                Creative collaborators
-              </li>
-              <li>
-                <span class="vision-moments__check" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" width="10" height="10" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7" /></svg>
-                </span>
-                Kindness projects
-              </li>
-              <li>
-                <span class="vision-moments__check" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" width="10" height="10" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7" /></svg>
-                </span>
-                Donation drives
-              </li>
-              <li>
-                <span class="vision-moments__check" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" width="10" height="10" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7" /></svg>
-                </span>
-                Presenting ideas
-              </li>
-              <li>
-                <span class="vision-moments__check" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" width="10" height="10" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7" /></svg>
-                </span>
-                Children&rsquo;s events
-              </li>
-              <li class="vision-moments__list-more">
-                <span class="vision-moments__check" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" width="10" height="10" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7" /></svg>
-                </span>
-                And so much more!
-              </li>
+              <?php endforeach; ?>
             </ul>
           </article>
 
@@ -705,9 +799,9 @@ get_header();
               <div class="lazy-img-wrap">
                 <img
                   class="vision-moments__photo lazy-img"
-                  src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-                  data-src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/vision-moments-photo-art.jpeg' ); ?>"
-                  alt="Children creating colorful art together"
+                  src="<?php echo esc_attr( $vision_hero_lazy_placeholder ); ?>"
+                  data-src="<?php echo esc_url( $vision_moments_photo_art_url ); ?>"
+                  alt="<?php echo esc_attr( $vision_moments_photo_art_alt ); ?>"
                   width="320"
                   height="400"
                   decoding="async"
@@ -720,8 +814,8 @@ get_header();
                 <div class="lazy-img-wrap">
                   <img
                     class="vision-moments__feature-img lazy-img"
-                    src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-                    data-src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/vision-moments-banner.jpeg' ); ?>"
+                    src="<?php echo esc_attr( $vision_hero_lazy_placeholder ); ?>"
+                    data-src="<?php echo esc_url( $vision_moments_feature_banner_url ); ?>"
                     alt=""
                     width="900"
                     height="400"
@@ -730,11 +824,14 @@ get_header();
                   />
                 </div>
                 <figcaption class="vision-moments__feature-copy">
-                  <p class="vision-moments__feature-title">Our story is just beginning.</p>
+                  <?php if ( '' !== trim( $vision_moments_feature_title ) ) : ?>
+                  <p class="vision-moments__feature-title"><?php echo esc_html( $vision_moments_feature_title ); ?></p>
+                  <?php endif; ?>
+                  <?php if ( '' !== trim( $vision_moments_feature_text ) ) : ?>
                   <p class="vision-moments__feature-text">
-                    We can&rsquo;t wait to fill this space with creativity, courage, friendship, and
-                    kindness.
+                    <?php echo esc_html( $vision_moments_feature_text ); ?>
                   </p>
+                  <?php endif; ?>
                 </figcaption>
               </div>
             </figure>
@@ -744,9 +841,9 @@ get_header();
                 <div class="lazy-img-wrap">
                   <img
                     class="vision-moments__photo lazy-img"
-                    src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-                    data-src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/vision-moments-photo-read.jpeg' ); ?>"
-                    alt="Children reading and learning together"
+                    src="<?php echo esc_attr( $vision_hero_lazy_placeholder ); ?>"
+                    data-src="<?php echo esc_url( $vision_moments_photo_read_url ); ?>"
+                    alt="<?php echo esc_attr( $vision_moments_photo_read_alt ); ?>"
                     width="320"
                     height="400"
                     decoding="async"
@@ -758,9 +855,9 @@ get_header();
                 <div class="lazy-img-wrap">
                   <img
                     class="vision-moments__photo lazy-img"
-                    src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-                    data-src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/vision-moments-photo-give.jpeg' ); ?>"
-                    alt="Children placing hearts in a kindness donation box"
+                    src="<?php echo esc_attr( $vision_hero_lazy_placeholder ); ?>"
+                    data-src="<?php echo esc_url( $vision_moments_photo_give_url ); ?>"
+                    alt="<?php echo esc_attr( $vision_moments_photo_give_alt ); ?>"
                     width="320"
                     height="400"
                     decoding="async"
@@ -778,7 +875,7 @@ get_header();
             <div class="vision-partner__inner">
               <div class="vision-partner__copy">
                 <h2 class="vision-section__title" id="vision-partner-title">
-                  Become a Founding Partner
+                  <?php echo esc_html( $vision_partner_title ); ?>
                   <svg
                     class="vision-section__title-icon"
                     viewBox="0 0 24 24"
@@ -797,104 +894,36 @@ get_header();
                   </svg>
                 </h2>
                 <p class="vision-partner__intro">
-                  Help bring young ideas to life. We&rsquo;re looking for businesses, artists, mentors,
-                  volunteers, community organizations, and supporters who believe children deserve
-                  opportunities to explore their ideas.
+                  <?php echo esc_html( $vision_partner_intro ); ?>
                 </p>
               </div>
 
               <div class="vision-partner__panel">
                 <div class="vision-partner__panel-inner">
                   <div class="vision-partner__icons" role="list">
+                    <?php foreach ( $vision_partner_icons as $partner_icon ) : ?>
+                    <?php if ( '' === trim( $partner_icon['label'] ) ) : ?>
+                      <?php continue; ?>
+                    <?php endif; ?>
                 <div class="vision-partner__icon-item" role="listitem">
                   <img
                     class="vision-partner__icon"
-                    src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/vision-partner-icon-materials.jpeg' ); ?>"
+                    src="<?php echo esc_url( $partner_icon['icon'] ); ?>"
                     alt=""
                     width="52"
                     height="52"
                     loading="lazy"
                     decoding="async"
                   />
-                  <p class="vision-partner__icon-label">Materials &amp; Supplies</p>
+                  <p class="vision-partner__icon-label"><?php echo esc_html( $partner_icon['label'] ); ?></p>
                 </div>
-                <div class="vision-partner__icon-item" role="listitem">
-                  <img
-                    class="vision-partner__icon"
-                    src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/vision-partner-icon-space.jpeg' ); ?>"
-                    alt=""
-                    width="52"
-                    height="52"
-                    loading="lazy"
-                    decoding="async"
-                  />
-                  <p class="vision-partner__icon-label">Creative Space</p>
-                </div>
-                <div class="vision-partner__icon-item" role="listitem">
-                  <img
-                    class="vision-partner__icon"
-                    src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/vision-partner-icon-skills.jpeg' ); ?>"
-                    alt=""
-                    width="52"
-                    height="52"
-                    loading="lazy"
-                    decoding="async"
-                  />
-                  <p class="vision-partner__icon-label">Professional Skills</p>
-                </div>
-                <div class="vision-partner__icon-item" role="listitem">
-                  <img
-                    class="vision-partner__icon"
-                    src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/vision-partner-icon-community.jpeg' ); ?>"
-                    alt=""
-                    width="52"
-                    height="52"
-                    loading="lazy"
-                    decoding="async"
-                  />
-                  <p class="vision-partner__icon-label">Community Opportunities</p>
-                </div>
-                <div class="vision-partner__icon-item" role="listitem">
-                  <img
-                    class="vision-partner__icon"
-                    src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/vision-partner-icon-mentorship.png' ); ?>"
-                    alt=""
-                    width="52"
-                    height="52"
-                    loading="lazy"
-                    decoding="async"
-                  />
-                  <p class="vision-partner__icon-label">Mentorship</p>
-                </div>
-                <div class="vision-partner__icon-item" role="listitem">
-                  <img
-                    class="vision-partner__icon"
-                    src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/vision-partner-icon-event.jpeg' ); ?>"
-                    alt=""
-                    width="52"
-                    height="52"
-                    loading="lazy"
-                    decoding="async"
-                  />
-                  <p class="vision-partner__icon-label">Event</p>
-                </div>
-                <div class="vision-partner__icon-item" role="listitem">
-                  <img
-                    class="vision-partner__icon"
-                    src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/vision-partner-icon-funding.jpeg' ); ?>"
-                    alt=""
-                    width="52"
-                    height="52"
-                    loading="lazy"
-                    decoding="async"
-                  />
-                  <p class="vision-partner__icon-label">Project Funding</p>
-                </div>
+                    <?php endforeach; ?>
               </div>
 
+                  <?php if ( ! empty( $vision_partner_btn_link['url'] ) && '' !== trim( $vision_partner_btn_text ) ) : ?>
                   <div class="vision-partner__cta-wrap">
-                    <a class="btn btn--purple btn--lg btn-hover vision-partner__btn" href="<?php echo esc_url( bdc_page_url( 'get-involved.html' ) ); ?>">
-                      Become a Founding Partner
+                    <a class="btn btn--purple btn--lg btn-hover vision-partner__btn" href="<?php echo esc_url( $vision_partner_btn_link['url'] ); ?>"<?php echo bdc_acf_link_target_attr( $vision_partner_btn_link ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
+                      <?php echo esc_html( $vision_partner_btn_text ); ?>
                       <svg
                         class="btn__icon"
                         viewBox="0 0 24 24"
@@ -925,6 +954,7 @@ get_header();
                       />
                     </svg>
                   </div>
+                  <?php endif; ?>
                 </div>
               </div>
             </div>
@@ -940,8 +970,8 @@ get_header();
                 <div class="lazy-img-wrap">
                   <img
                     class="vision-together__jar lazy-img"
-                    src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-                    data-src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/vision-together-jar.png' ); ?>"
+                    src="<?php echo esc_attr( $vision_hero_lazy_placeholder ); ?>"
+                    data-src="<?php echo esc_url( $vision_together_jar_url ); ?>"
                     alt=""
                     width="170"
                     height="200"
@@ -951,7 +981,7 @@ get_header();
                 </div>
                 <img
                   class="vision-together__stars"
-                  src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/for-parents-expect-stars.png' ); ?>"
+                  src="<?php echo esc_url( $vision_together_stars_url ); ?>"
                   alt=""
                   width="44"
                   height="44"
@@ -962,8 +992,12 @@ get_header();
               </div>
 
               <h2 class="vision-together__title" id="vision-together-title">
-                Together, We Can Turn Little Ideas Into Something
-                <span class="vision-together__accent">Big</span>
+                <?php if ( '' !== trim( $vision_together_title ) ) : ?>
+                <?php echo esc_html( $vision_together_title ); ?>
+                <?php endif; ?>
+                <?php if ( '' !== trim( $vision_together_title_accent ) ) : ?>
+                <span class="vision-together__accent"><?php echo esc_html( $vision_together_title_accent ); ?></span>
+                <?php endif; ?>
                 <svg
                   class="vision-together__title-icon"
                   viewBox="0 0 24 24"
@@ -981,6 +1015,7 @@ get_header();
               </h2>
 
               <ul class="vision-together__list">
+                <?php foreach ( $vision_together_list as $together_item ) : ?>
                 <li>
                   <span class="vision-together__check" aria-hidden="true">
                     <svg
@@ -996,82 +1031,15 @@ get_header();
                       <path d="M5 13l4 4L19 7" />
                     </svg>
                   </span>
-                  A mural can brighten a neighborhood.
+                  <?php echo esc_html( $together_item ); ?>
                 </li>
-                <li>
-                  <span class="vision-together__check" aria-hidden="true">
-                    <svg
-                      viewBox="0 0 24 24"
-                      width="11"
-                      height="11"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2.8"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    >
-                      <path d="M5 13l4 4L19 7" />
-                    </svg>
-                  </span>
-                  A handmade creation can support a local cause.
-                </li>
-                <li>
-                  <span class="vision-together__check" aria-hidden="true">
-                    <svg
-                      viewBox="0 0 24 24"
-                      width="11"
-                      height="11"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2.8"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    >
-                      <path d="M5 13l4 4L19 7" />
-                    </svg>
-                  </span>
-                  A garden can bring people together.
-                </li>
-                <li>
-                  <span class="vision-together__check" aria-hidden="true">
-                    <svg
-                      viewBox="0 0 24 24"
-                      width="11"
-                      height="11"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2.8"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    >
-                      <path d="M5 13l4 4L19 7" />
-                    </svg>
-                  </span>
-                  A child&rsquo;s idea can become a project.
-                </li>
-                <li>
-                  <span class="vision-together__check" aria-hidden="true">
-                    <svg
-                      viewBox="0 0 24 24"
-                      width="11"
-                      height="11"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2.8"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    >
-                      <path d="M5 13l4 4L19 7" />
-                    </svg>
-                  </span>
-                  And a project can make a child discover &ldquo;I can create something that
-                  matters.&rdquo;
-                </li>
+                <?php endforeach; ?>
               </ul>
 
               <div class="vision-together__actions">
-                <a class="btn btn--solid btn--lg btn-hover" href="<?php echo esc_url( bdc_page_url( 'apply-to-become.html' ) ); ?>">
-                  Apply to Become a Bright Dreamer
+                <?php if ( ! empty( $vision_together_apply_btn_link['url'] ) && '' !== trim( $vision_together_apply_btn_text ) ) : ?>
+                <a class="btn btn--solid btn--lg btn-hover" href="<?php echo esc_url( $vision_together_apply_btn_link['url'] ); ?>"<?php echo bdc_acf_link_target_attr( $vision_together_apply_btn_link ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
+                  <?php echo esc_html( $vision_together_apply_btn_text ); ?>
                   <svg
                     class="btn__icon"
                     viewBox="0 0 24 24"
@@ -1087,11 +1055,13 @@ get_header();
                     <path d="M5 12h14M13 6l6 6-6 6" />
                   </svg>
                 </a>
+                <?php endif; ?>
+                <?php if ( ! empty( $vision_together_story_btn_link['url'] ) && '' !== trim( $vision_together_story_btn_text ) ) : ?>
                 <a
                   class="btn btn--outline btn--lg btn-hover vision-together__btn-outline"
-                  href="<?php echo esc_url( bdc_page_url( 'about.html' ) ); ?>"
+                  href="<?php echo esc_url( $vision_together_story_btn_link['url'] ); ?>"<?php echo bdc_acf_link_target_attr( $vision_together_story_btn_link ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
                 >
-                  Explore Our Story
+                  <?php echo esc_html( $vision_together_story_btn_text ); ?>
                   <svg
                     class="btn__icon"
                     viewBox="0 0 24 24"
@@ -1106,8 +1076,10 @@ get_header();
                     <path d="M10 8.5v7l5.5-3.5L10 8.5z" fill="currentColor" stroke="none" />
                   </svg>
                 </a>
-                <a class="btn btn--orange btn--lg btn-hover" href="<?php echo esc_url( bdc_page_url( 'get-involved.html' ) ); ?>">
-                  Support Our Vision
+                <?php endif; ?>
+                <?php if ( ! empty( $vision_together_support_btn_link['url'] ) && '' !== trim( $vision_together_support_btn_text ) ) : ?>
+                <a class="btn btn--orange btn--lg btn-hover" href="<?php echo esc_url( $vision_together_support_btn_link['url'] ); ?>"<?php echo bdc_acf_link_target_attr( $vision_together_support_btn_link ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
+                  <?php echo esc_html( $vision_together_support_btn_text ); ?>
                   <svg
                     class="btn__icon"
                     viewBox="0 0 24 24"
@@ -1139,6 +1111,7 @@ get_header();
                     <path d="M5 12h14M13 6l6 6-6 6" />
                   </svg>
                 </a>
+                <?php endif; ?>
                 <div class="vision-together__deco-stars" aria-hidden="true">
                   <svg class="vision-together__deco-star" viewBox="0 0 24 24" fill="currentColor">
                     <path

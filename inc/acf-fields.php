@@ -872,3 +872,4501 @@ acf_add_local_field_group(
 		'active'                => true,
 	)
 );
+
+acf_add_local_field_group(
+	array(
+		'key'                   => 'group_about_believe',
+		'title'                 => 'About — We Believe',
+		'fields'                => array(
+			array(
+				'key'           => 'field_about_believe_title',
+				'label'         => 'Section title',
+				'name'          => 'about_believe_title',
+				'type'          => 'text',
+				'default_value' => 'We Believe',
+				'instructions'  => 'Star icon next to the title stays in the design.',
+			),
+			array(
+				'key'           => 'field_about_believe_deco_left',
+				'label'         => 'Left decoration image',
+				'name'          => 'about_believe_deco_left',
+				'type'          => 'image',
+				'return_format' => 'array',
+				'preview_size'  => 'thumbnail',
+				'library'       => 'all',
+				'instructions'  => 'Leave empty to keep the default dots graphic on the left.',
+			),
+			array(
+				'key'           => 'field_about_believe_deco_right',
+				'label'         => 'Right decoration image',
+				'name'          => 'about_believe_deco_right',
+				'type'          => 'image',
+				'return_format' => 'array',
+				'preview_size'  => 'thumbnail',
+				'library'       => 'all',
+				'instructions'  => 'Leave empty to keep the default dots graphic on the right.',
+			),
+			array(
+				'key'          => 'field_about_believe_cards',
+				'label'        => 'Belief cards',
+				'name'         => 'about_believe_cards',
+				'type'         => 'repeater',
+				'layout'       => 'block',
+				'button_label' => 'Add card',
+				'min'          => 1,
+				'max'          => 8,
+				'instructions' => 'Leave rows empty to keep all six default belief cards with icons and colors.',
+				'sub_fields'   => array(
+					array(
+						'key'           => 'field_about_believe_card_icon',
+						'label'         => 'Icon',
+						'name'          => 'icon',
+						'type'          => 'image',
+						'return_format' => 'array',
+						'preview_size'  => 'thumbnail',
+						'instructions'  => 'Optional — default icon is kept if empty.',
+					),
+					array(
+						'key'   => 'field_about_believe_card_text',
+						'label' => 'Text',
+						'name'  => 'text',
+						'type'  => 'text',
+					),
+					array(
+						'key'           => 'field_about_believe_card_style',
+						'label'         => 'Card color',
+						'name'          => 'style_slug',
+						'type'          => 'select',
+						'choices'       => array(
+							'pink'   => 'Pink',
+							'purple' => 'Purple',
+							'yellow' => 'Yellow',
+							'green'  => 'Green',
+							'peach'  => 'Peach',
+							'blue'   => 'Blue',
+						),
+						'default_value' => 'pink',
+						'allow_null'    => 1,
+					),
+				),
+			),
+		),
+		'location'              => array(
+			array(
+				array(
+					'param'    => 'page_template',
+					'operator' => '==',
+					'value'    => 'page-about.php',
+				),
+			),
+		),
+		'menu_order'            => 2,
+		'position'              => 'normal',
+		'style'                 => 'default',
+		'label_placement'       => 'top',
+		'instruction_placement' => 'label',
+		'active'                => true,
+	)
+);
+
+acf_add_local_field_group(
+	array(
+		'key'                   => 'group_about_panels',
+		'title'                 => 'About — Panels',
+		'fields'                => array(
+			array(
+				'key'          => 'field_about_panel_journey',
+				'label'        => 'Panel 1 — Children Lead the Journey',
+				'name'         => 'about_panel_journey',
+				'type'         => 'group',
+				'layout'       => 'block',
+				'instructions' => 'Crown and heart icons stay in the design.',
+				'sub_fields'   => array(
+					array(
+						'key'           => 'field_about_panel_journey_aria',
+						'label'         => 'Accessibility label',
+						'name'          => 'aria_label',
+						'type'          => 'text',
+						'default_value' => 'Children Lead the Journey — a Bright Dreamer holding a sign that reads My idea Can Help Others',
+					),
+					array(
+						'key'           => 'field_about_panel_journey_title',
+						'label'         => 'Title',
+						'name'          => 'title',
+						'type'          => 'text',
+						'default_value' => 'Children Lead the Journey',
+					),
+					array(
+						'key'           => 'field_about_panel_journey_p1',
+						'label'         => 'Paragraph 1',
+						'name'          => 'paragraph_1',
+						'type'          => 'textarea',
+						'rows'          => 3,
+						'new_lines'     => '',
+						'default_value' => 'At Bright Dreamers, children are not just participants. They are creators. Dreamers. Problem solvers. Idea makers.',
+					),
+					array(
+						'key'           => 'field_about_panel_journey_p2',
+						'label'         => 'Paragraph 2',
+						'name'          => 'paragraph_2',
+						'type'          => 'textarea',
+						'rows'          => 3,
+						'new_lines'     => '',
+						'default_value' => 'Many of our projects begin with children\'s own ideas. Adults guide, encourage, and provide a safe environment—but we believe the best ideas often come from children themselves.',
+					),
+					array(
+						'key'           => 'field_about_panel_journey_p3',
+						'label'         => 'Paragraph 3',
+						'name'          => 'paragraph_3',
+						'type'          => 'textarea',
+						'rows'          => 2,
+						'new_lines'     => '',
+						'default_value' => 'Together we turn imagination into real projects that help others.',
+					),
+					array(
+						'key'           => 'field_about_panel_journey_figure',
+						'label'         => 'Figure image',
+						'name'          => 'figure',
+						'type'          => 'image',
+						'return_format' => 'array',
+						'preview_size'  => 'medium',
+						'instructions'  => 'Leave empty to keep the default journey illustration.',
+					),
+					array(
+						'key'           => 'field_about_panel_journey_figure_alt',
+						'label'         => 'Figure alt text',
+						'name'          => 'figure_alt',
+						'type'          => 'text',
+						'default_value' => 'A Bright Dreamer holding a sign that says My idea Can Help Others',
+					),
+				),
+			),
+			array(
+				'key'          => 'field_about_panel_council',
+				'label'        => 'Panel 2 — Young Dreamers Council',
+				'name'         => 'about_panel_council',
+				'type'         => 'group',
+				'layout'       => 'block',
+				'instructions' => 'Star icon next to the title stays in the design.',
+				'sub_fields'   => array(
+					array(
+						'key'           => 'field_about_panel_council_title',
+						'label'         => 'Title',
+						'name'          => 'title',
+						'type'          => 'text',
+						'default_value' => 'Young Dreamers Council',
+					),
+					array(
+						'key'           => 'field_about_panel_council_lead',
+						'label'         => 'Lead text',
+						'name'          => 'lead',
+						'type'          => 'text',
+						'default_value' => 'Bright Dreamers believes children\'s voices matter.',
+					),
+					array(
+						'key'          => 'field_about_panel_council_list',
+						'label'        => 'List items',
+						'name'         => 'list_items',
+						'type'         => 'repeater',
+						'layout'       => 'table',
+						'button_label' => 'Add list item',
+						'min'          => 1,
+						'max'          => 8,
+						'instructions' => 'Leave empty to keep all five default list items.',
+						'sub_fields'   => array(
+							array(
+								'key'   => 'field_about_panel_council_list_text',
+								'label' => 'Item text',
+								'name'  => 'item_text',
+								'type'  => 'text',
+							),
+						),
+					),
+					array(
+						'key'           => 'field_about_panel_council_note',
+						'label'         => 'Note below list',
+						'name'          => 'note',
+						'type'          => 'text',
+						'default_value' => 'Adult mentors guide and support them every step of the way.',
+					),
+					array(
+						'key'           => 'field_about_panel_council_figure',
+						'label'         => 'Figure image',
+						'name'          => 'figure',
+						'type'          => 'image',
+						'return_format' => 'array',
+						'preview_size'  => 'medium',
+						'instructions'  => 'Leave empty to keep the default council illustration.',
+					),
+					array(
+						'key'   => 'field_about_panel_council_figure_alt',
+						'label' => 'Figure alt text',
+						'name'  => 'figure_alt',
+						'type'  => 'text',
+					),
+				),
+			),
+			array(
+				'key'        => 'field_about_panel_role',
+				'label'      => 'Panel 3 — Our Role',
+				'name'       => 'about_panel_role',
+				'type'       => 'group',
+				'layout'     => 'block',
+				'sub_fields' => array(
+					array(
+						'key'           => 'field_about_panel_role_title',
+						'label'         => 'Title',
+						'name'          => 'title',
+						'type'          => 'text',
+						'default_value' => 'Our Role',
+					),
+					array(
+						'key'           => 'field_about_panel_role_title_icon',
+						'label'         => 'Title icon',
+						'name'          => 'title_icon',
+						'type'          => 'image',
+						'return_format' => 'array',
+						'preview_size'  => 'thumbnail',
+						'instructions'  => 'Heart icon beside the title. Leave empty to keep the default.',
+					),
+					array(
+						'key'           => 'field_about_panel_role_lead',
+						'label'         => 'Lead text',
+						'name'          => 'lead',
+						'type'          => 'text',
+						'default_value' => 'We are…',
+					),
+					array(
+						'key'          => 'field_about_panel_role_items',
+						'label'        => 'Role icons',
+						'name'         => 'role_items',
+						'type'         => 'repeater',
+						'layout'       => 'block',
+						'button_label' => 'Add role',
+						'min'          => 1,
+						'max'          => 8,
+						'instructions' => 'Leave empty to keep all five default roles.',
+						'sub_fields'   => array(
+							array(
+								'key'           => 'field_about_panel_role_item_icon',
+								'label'         => 'Icon',
+								'name'          => 'icon',
+								'type'          => 'image',
+								'return_format' => 'array',
+								'preview_size'  => 'thumbnail',
+							),
+							array(
+								'key'   => 'field_about_panel_role_item_label',
+								'label' => 'Label',
+								'name'  => 'label',
+								'type'  => 'text',
+							),
+						),
+					),
+					array(
+						'key'           => 'field_about_panel_role_callout_strong',
+						'label'         => 'Callout — bold text',
+						'name'          => 'callout_strong',
+						'type'          => 'text',
+						'default_value' => 'Not instructors. Not lecturers.',
+					),
+					array(
+						'key'           => 'field_about_panel_role_callout_text',
+						'label'         => 'Callout — regular text',
+						'name'          => 'callout_text',
+						'type'          => 'text',
+						'default_value' => 'We walk beside children on their journey.',
+					),
+				),
+			),
+			array(
+				'key'          => 'field_about_panel_approach',
+				'label'        => 'Panel 4 — Our Approach',
+				'name'         => 'about_panel_approach',
+				'type'         => 'group',
+				'layout'       => 'block',
+				'instructions' => 'Star icon and arrows between steps stay in the design.',
+				'sub_fields'   => array(
+					array(
+						'key'           => 'field_about_panel_approach_title',
+						'label'         => 'Title',
+						'name'          => 'title',
+						'type'          => 'text',
+						'default_value' => 'Our Approach',
+					),
+					array(
+						'key'           => 'field_about_panel_approach_arrow',
+						'label'         => 'Arrow between steps',
+						'name'          => 'arrow_image',
+						'type'          => 'image',
+						'return_format' => 'array',
+						'preview_size'  => 'thumbnail',
+						'instructions'  => 'Leave empty to keep the default arrow graphic.',
+					),
+					array(
+						'key'          => 'field_about_panel_approach_steps',
+						'label'        => 'Approach steps',
+						'name'         => 'steps',
+						'type'         => 'repeater',
+						'layout'       => 'block',
+						'button_label' => 'Add step',
+						'min'          => 1,
+						'max'          => 8,
+						'instructions' => 'Leave empty to keep all five default steps (Dream → Give).',
+						'sub_fields'   => array(
+							array(
+								'key'           => 'field_about_panel_approach_step_icon',
+								'label'         => 'Icon',
+								'name'          => 'icon',
+								'type'          => 'image',
+								'return_format' => 'array',
+								'preview_size'  => 'thumbnail',
+							),
+							array(
+								'key'   => 'field_about_panel_approach_step_title',
+								'label' => 'Step title',
+								'name'  => 'title',
+								'type'  => 'text',
+							),
+							array(
+								'key'   => 'field_about_panel_approach_step_description',
+								'label' => 'Step description',
+								'name'  => 'description',
+								'type'  => 'text',
+							),
+						),
+					),
+				),
+			),
+		),
+		'location'              => array(
+			array(
+				array(
+					'param'    => 'page_template',
+					'operator' => '==',
+					'value'    => 'page-about.php',
+				),
+			),
+		),
+		'menu_order'            => 3,
+		'position'              => 'normal',
+		'style'                 => 'default',
+		'label_placement'       => 'top',
+		'instruction_placement' => 'label',
+		'active'                => true,
+	)
+);
+
+acf_add_local_field_group(
+	array(
+		'key'                   => 'group_about_compare',
+		'title'                 => 'About — What Makes Us Different',
+		'fields'                => array(
+			array(
+				'key'           => 'field_about_compare_title',
+				'label'         => 'Section title',
+				'name'          => 'about_compare_title',
+				'type'          => 'text',
+				'default_value' => 'What Makes Bright Dreamers Different?',
+			),
+			array(
+				'key'           => 'field_about_compare_title_heart',
+				'label'         => 'Title heart icon',
+				'name'          => 'about_compare_title_heart',
+				'type'          => 'image',
+				'return_format' => 'array',
+				'preview_size'  => 'thumbnail',
+				'instructions'  => 'Leave empty to keep the default heart outline icon.',
+			),
+			array(
+				'key'        => 'field_about_compare_left',
+				'label'      => 'Left side — Many programs focus on',
+				'name'       => 'about_compare_left',
+				'type'       => 'group',
+				'layout'     => 'block',
+				'sub_fields' => array(
+					array(
+						'key'           => 'field_about_compare_left_photo',
+						'label'         => 'Photo',
+						'name'          => 'photo',
+						'type'          => 'image',
+						'return_format' => 'array',
+						'preview_size'  => 'medium',
+						'instructions'  => 'Leave empty to keep the default left photo.',
+					),
+					array(
+						'key'           => 'field_about_compare_left_photo_alt',
+						'label'         => 'Photo alt text',
+						'name'          => 'photo_alt',
+						'type'          => 'text',
+						'default_value' => 'Children walking together in a field at sunset',
+					),
+					array(
+						'key'           => 'field_about_compare_left_label',
+						'label'         => 'Side label',
+						'name'          => 'label',
+						'type'          => 'text',
+						'default_value' => 'Many programs focus on',
+					),
+					array(
+						'key'           => 'field_about_compare_left_mark',
+						'label'         => 'List mark icon (X)',
+						'name'          => 'mark_icon',
+						'type'          => 'image',
+						'return_format' => 'array',
+						'preview_size'  => 'thumbnail',
+						'instructions'  => 'Icon shown beside each left-side list item.',
+					),
+					array(
+						'key'          => 'field_about_compare_left_list',
+						'label'        => 'List items',
+						'name'         => 'list_items',
+						'type'         => 'repeater',
+						'layout'       => 'table',
+						'button_label' => 'Add item',
+						'min'          => 1,
+						'max'          => 8,
+						'instructions' => 'Leave empty to keep all four default items.',
+						'sub_fields'   => array(
+							array(
+								'key'   => 'field_about_compare_left_list_text',
+								'label' => 'Item text',
+								'name'  => 'item_text',
+								'type'  => 'text',
+							),
+						),
+					),
+				),
+			),
+			array(
+				'key'           => 'field_about_compare_vs_badge',
+				'label'         => 'VS badge (center)',
+				'name'          => 'about_compare_vs_badge',
+				'type'          => 'image',
+				'return_format' => 'array',
+				'preview_size'  => 'thumbnail',
+				'instructions'  => 'Leave empty to keep the default VS badge.',
+			),
+			array(
+				'key'        => 'field_about_compare_right',
+				'label'      => 'Right side — Bright Dreamers focuses on',
+				'name'       => 'about_compare_right',
+				'type'       => 'group',
+				'layout'     => 'block',
+				'sub_fields' => array(
+					array(
+						'key'           => 'field_about_compare_right_label',
+						'label'         => 'Side label',
+						'name'          => 'label',
+						'type'          => 'text',
+						'default_value' => 'Bright Dreamers focuses on',
+					),
+					array(
+						'key'           => 'field_about_compare_right_mark',
+						'label'         => 'List mark icon (check)',
+						'name'          => 'mark_icon',
+						'type'          => 'image',
+						'return_format' => 'array',
+						'preview_size'  => 'thumbnail',
+						'instructions'  => 'Icon shown beside each right-side list item.',
+					),
+					array(
+						'key'          => 'field_about_compare_right_list',
+						'label'        => 'List items',
+						'name'         => 'list_items',
+						'type'         => 'repeater',
+						'layout'       => 'table',
+						'button_label' => 'Add item',
+						'min'          => 1,
+						'max'          => 10,
+						'instructions' => 'Leave empty to keep all seven default items.',
+						'sub_fields'   => array(
+							array(
+								'key'   => 'field_about_compare_right_list_text',
+								'label' => 'Item text',
+								'name'  => 'item_text',
+								'type'  => 'text',
+							),
+						),
+					),
+					array(
+						'key'           => 'field_about_compare_right_photo',
+						'label'         => 'Photo',
+						'name'          => 'photo',
+						'type'          => 'image',
+						'return_format' => 'array',
+						'preview_size'  => 'medium',
+						'instructions'  => 'Leave empty to keep the default right photo.',
+					),
+					array(
+						'key'           => 'field_about_compare_right_photo_alt',
+						'label'         => 'Photo alt text',
+						'name'          => 'photo_alt',
+						'type'          => 'text',
+						'default_value' => 'Children planting together in a garden',
+					),
+				),
+			),
+		),
+		'location'              => array(
+			array(
+				array(
+					'param'    => 'page_template',
+					'operator' => '==',
+					'value'    => 'page-about.php',
+				),
+			),
+		),
+		'menu_order'            => 4,
+		'position'              => 'normal',
+		'style'                 => 'default',
+		'label_placement'       => 'top',
+		'instruction_placement' => 'label',
+		'active'                => true,
+	)
+);
+
+acf_add_local_field_group(
+	array(
+		'key'                   => 'group_vision_hero',
+		'title'                 => 'Our Vision — Hero / Banner',
+		'fields'                => array(
+			array(
+				'key'           => 'field_vision_hero_eyebrow',
+				'label'         => 'Eyebrow label',
+				'name'          => 'vision_hero_eyebrow',
+				'type'          => 'text',
+				'default_value' => 'OUR VISION',
+				'instructions'  => 'Heart icon next to the eyebrow stays in the design.',
+			),
+			array(
+				'key'           => 'field_vision_hero_title_line_1',
+				'label'         => 'Heading line 1 (navy)',
+				'name'          => 'vision_hero_title_line_1',
+				'type'          => 'text',
+				'default_value' => 'Building a',
+			),
+			array(
+				'key'           => 'field_vision_hero_title_line_2',
+				'label'         => 'Heading line 2 (pink)',
+				'name'          => 'vision_hero_title_line_2',
+				'type'          => 'text',
+				'default_value' => 'Brighter Future',
+			),
+			array(
+				'key'           => 'field_vision_hero_title_line_3',
+				'label'         => 'Heading line 3 (navy)',
+				'name'          => 'vision_hero_title_line_3',
+				'type'          => 'text',
+				'default_value' => 'Together',
+			),
+			array(
+				'key'           => 'field_vision_hero_lead_intro',
+				'label'         => 'Lead line (before accent)',
+				'name'          => 'vision_hero_lead_intro',
+				'type'          => 'text',
+				'default_value' => 'Every meaningful change can begin with something very small',
+			),
+			array(
+				'key'           => 'field_vision_hero_lead_accent',
+				'label'         => 'Lead accent (pink)',
+				'name'          => 'vision_hero_lead_accent',
+				'type'          => 'text',
+				'default_value' => 'a child saying, "I have an idea."',
+				'instructions'  => 'Shown in pink on the second line of the lead text.',
+			),
+			array(
+				'key'           => 'field_vision_hero_text',
+				'label'         => 'Intro paragraph',
+				'name'          => 'vision_hero_text',
+				'type'          => 'textarea',
+				'rows'          => 4,
+				'new_lines'     => '',
+				'default_value' => 'Bright Dreamers creates a community where children are encouraged to explore what excites them, discover their talents, bring their ideas to life, and use their creativity to help others.',
+			),
+			array(
+				'key'          => 'field_vision_hero_list',
+				'label'        => 'Checklist items',
+				'name'         => 'vision_hero_list',
+				'type'         => 'repeater',
+				'layout'       => 'table',
+				'button_label' => 'Add item',
+				'min'          => 1,
+				'max'          => 6,
+				'instructions' => 'Leave empty to keep both default checklist items. Checkmark icons stay in the design.',
+				'sub_fields'   => array(
+					array(
+						'key'   => 'field_vision_hero_list_text',
+						'label' => 'Item text',
+						'name'  => 'item_text',
+						'type'  => 'text',
+					),
+				),
+			),
+			array(
+				'key'           => 'field_vision_hero_banner',
+				'label'         => 'Banner image',
+				'name'          => 'vision_hero_banner',
+				'type'          => 'image',
+				'return_format' => 'array',
+				'preview_size'  => 'medium',
+				'library'       => 'all',
+				'instructions'  => 'Leave empty to keep the current hero banner photo.',
+			),
+			array(
+				'key'           => 'field_vision_hero_banner_alt',
+				'label'         => 'Banner alt text',
+				'name'          => 'vision_hero_banner_alt',
+				'type'          => 'text',
+				'default_value' => 'Children painting a mural with the words Big Ideas Brighter Tomorrows',
+			),
+		),
+		'location'              => array(
+			array(
+				array(
+					'param'    => 'page_template',
+					'operator' => '==',
+					'value'    => 'page-our-vision.php',
+				),
+			),
+		),
+		'menu_order'            => 0,
+		'position'              => 'normal',
+		'style'                 => 'default',
+		'label_placement'       => 'top',
+		'instruction_placement' => 'label',
+		'active'                => true,
+	)
+);
+
+acf_add_local_field_group(
+	array(
+		'key'                   => 'group_vision_pillars',
+		'title'                 => 'Our Vision — Pillar Cards',
+		'fields'                => array(
+			array(
+				'key'           => 'field_vision_pillars_title',
+				'label'         => 'Section title',
+				'name'          => 'vision_pillars_title',
+				'type'          => 'text',
+				'default_value' => 'Our Vision',
+				'instructions'  => 'Heart icon next to the title stays in the design.',
+			),
+			array(
+				'key'           => 'field_vision_pillars_deco_heart',
+				'label'         => 'Heart decoration image',
+				'name'          => 'vision_pillars_deco_heart',
+				'type'          => 'image',
+				'return_format' => 'array',
+				'preview_size'  => 'thumbnail',
+				'instructions'  => 'Used on pink, purple, and orange cards. Leave empty to keep the default.',
+			),
+			array(
+				'key'           => 'field_vision_pillars_deco_leaf',
+				'label'         => 'Leaf decoration image',
+				'name'          => 'vision_pillars_deco_leaf',
+				'type'          => 'image',
+				'return_format' => 'array',
+				'preview_size'  => 'thumbnail',
+				'instructions'  => 'Used on the green card. Leave empty to keep the default.',
+			),
+			array(
+				'key'          => 'field_vision_pillars_cards',
+				'label'        => 'Pillar cards',
+				'name'         => 'vision_pillars_cards',
+				'type'         => 'repeater',
+				'layout'       => 'block',
+				'button_label' => 'Add card',
+				'min'          => 1,
+				'max'          => 6,
+				'instructions' => 'Leave empty to keep all four default pillar cards. Corner decorations stay in the design per card color.',
+				'sub_fields'   => array(
+					array(
+						'key'           => 'field_vision_pillars_card_icon',
+						'label'         => 'Icon',
+						'name'          => 'icon',
+						'type'          => 'image',
+						'return_format' => 'array',
+						'preview_size'  => 'thumbnail',
+					),
+					array(
+						'key'   => 'field_vision_pillars_card_title',
+						'label' => 'Title',
+						'name'  => 'title',
+						'type'  => 'text',
+					),
+					array(
+						'key'   => 'field_vision_pillars_card_description',
+						'label' => 'Description',
+						'name'  => 'description',
+						'type'  => 'textarea',
+						'rows'  => 3,
+					),
+					array(
+						'key'           => 'field_vision_pillars_card_style',
+						'label'         => 'Card color',
+						'name'          => 'style_slug',
+						'type'          => 'select',
+						'choices'       => array(
+							'pink'   => 'Pink',
+							'purple' => 'Purple',
+							'green'  => 'Green',
+							'orange' => 'Orange',
+						),
+						'default_value' => 'pink',
+						'allow_null'    => 1,
+					),
+				),
+			),
+		),
+		'location'              => array(
+			array(
+				array(
+					'param'    => 'page_template',
+					'operator' => '==',
+					'value'    => 'page-our-vision.php',
+				),
+			),
+		),
+		'menu_order'            => 1,
+		'position'              => 'normal',
+		'style'                 => 'default',
+		'label_placement'       => 'top',
+		'instruction_placement' => 'label',
+		'active'                => true,
+	)
+);
+
+acf_add_local_field_group(
+	array(
+		'key'                   => 'group_vision_roadmap',
+		'title'                 => 'Our Vision — Roadmap',
+		'fields'                => array(
+			array(
+				'key'   => 'field_vision_roadmap_goals_title',
+				'label' => 'Goals — title',
+				'name'  => 'vision_roadmap_goals_title',
+				'type'  => 'text',
+			),
+			array(
+				'key'   => 'field_vision_roadmap_goals_intro',
+				'label' => 'Goals — intro',
+				'name'  => 'vision_roadmap_goals_intro',
+				'type'  => 'text',
+			),
+			array(
+				'key'          => 'field_vision_roadmap_goals',
+				'label'        => 'Goals — checklist',
+				'name'         => 'vision_roadmap_goals',
+				'type'         => 'repeater',
+				'layout'       => 'table',
+				'button_label' => 'Add goal',
+				'min'          => 0,
+				'max'          => 12,
+				'instructions' => 'Leave empty to keep all eight default goals.',
+				'sub_fields'   => array(
+					array(
+						'key'   => 'field_vision_roadmap_goal_item',
+						'label' => 'Goal text',
+						'name'  => 'item_text',
+						'type'  => 'text',
+					),
+				),
+			),
+			array(
+				'key'   => 'field_vision_roadmap_journey_title',
+				'label' => 'Journey — title',
+				'name'  => 'vision_roadmap_journey_title',
+				'type'  => 'text',
+			),
+			array(
+				'key'           => 'field_vision_roadmap_journey_arrow',
+				'label'         => 'Journey — arrow image',
+				'name'          => 'vision_roadmap_journey_arrow',
+				'type'          => 'image',
+				'return_format' => 'array',
+				'preview_size'  => 'thumbnail',
+				'instructions'  => 'Arrow shown between journey steps. Leave empty for default.',
+			),
+			array(
+				'key'          => 'field_vision_roadmap_journey_steps',
+				'label'        => 'Journey steps',
+				'name'         => 'vision_roadmap_journey_steps',
+				'type'         => 'repeater',
+				'layout'       => 'block',
+				'button_label' => 'Add step',
+				'min'          => 0,
+				'max'          => 8,
+				'instructions' => 'Leave empty to keep all five default journey steps. Step numbers are automatic.',
+				'sub_fields'   => array(
+					array(
+						'key'           => 'field_vision_roadmap_journey_step_icon',
+						'label'         => 'Icon',
+						'name'          => 'icon',
+						'type'          => 'image',
+						'return_format' => 'array',
+						'preview_size'  => 'thumbnail',
+					),
+					array(
+						'key'   => 'field_vision_roadmap_journey_step_title',
+						'label' => 'Title',
+						'name'  => 'title',
+						'type'  => 'text',
+					),
+					array(
+						'key'   => 'field_vision_roadmap_journey_step_quote',
+						'label' => 'Quote',
+						'name'  => 'quote',
+						'type'  => 'text',
+					),
+					array(
+						'key'   => 'field_vision_roadmap_journey_step_text',
+						'label' => 'Description',
+						'name'  => 'text',
+						'type'  => 'textarea',
+						'rows'  => 2,
+					),
+					array(
+						'key'           => 'field_vision_roadmap_journey_step_style',
+						'label'         => 'Step color',
+						'name'          => 'style_slug',
+						'type'          => 'select',
+						'choices'       => array(
+							'pink'   => 'Pink',
+							'purple' => 'Purple',
+							'green'  => 'Green',
+							'orange' => 'Orange',
+							'blue'   => 'Blue',
+						),
+						'default_value' => 'pink',
+						'allow_null'    => 1,
+					),
+				),
+			),
+		),
+		'location'              => array(
+			array(
+				array(
+					'param'    => 'page_template',
+					'operator' => '==',
+					'value'    => 'page-our-vision.php',
+				),
+			),
+		),
+		'menu_order'            => 2,
+		'position'              => 'normal',
+		'style'                 => 'default',
+		'label_placement'       => 'top',
+		'instruction_placement' => 'label',
+		'active'                => true,
+	)
+);
+
+acf_add_local_field_group(
+	array(
+		'key'                   => 'group_vision_moments',
+		'title'                 => 'Our Vision — Moments',
+		'fields'                => array(
+			array(
+				'key'   => 'field_vision_moments_title',
+				'label' => 'Section title',
+				'name'  => 'vision_moments_title',
+				'type'  => 'text',
+			),
+			array(
+				'key'   => 'field_vision_moments_intro',
+				'label' => 'Intro text',
+				'name'  => 'vision_moments_intro',
+				'type'  => 'textarea',
+				'rows'  => 2,
+			),
+			array(
+				'key'          => 'field_vision_moments_list',
+				'label'        => 'Moments checklist',
+				'name'         => 'vision_moments_list',
+				'type'         => 'repeater',
+				'layout'       => 'table',
+				'button_label' => 'Add moment',
+				'min'          => 0,
+				'max'          => 12,
+				'instructions' => 'Leave empty to keep all nine default list items. Enable More item style for the closing line (e.g. And so much more!).',
+				'sub_fields'   => array(
+					array(
+						'key'   => 'field_vision_moments_list_item',
+						'label' => 'Text',
+						'name'  => 'item_text',
+						'type'  => 'text',
+					),
+					array(
+						'key'           => 'field_vision_moments_list_is_more',
+						'label'         => 'More item style',
+						'name'          => 'is_more',
+						'type'          => 'true_false',
+						'ui'            => 1,
+						'default_value' => 0,
+					),
+				),
+			),
+			array(
+				'key'           => 'field_vision_moments_photo_art',
+				'label'         => 'Gallery — left photo',
+				'name'          => 'vision_moments_photo_art',
+				'type'          => 'image',
+				'return_format' => 'array',
+				'preview_size'  => 'medium',
+			),
+			array(
+				'key'   => 'field_vision_moments_photo_art_alt',
+				'label' => 'Gallery — left photo alt text',
+				'name'  => 'vision_moments_photo_art_alt',
+				'type'  => 'text',
+			),
+			array(
+				'key'           => 'field_vision_moments_feature_banner',
+				'label'         => 'Gallery — feature banner',
+				'name'          => 'vision_moments_feature_banner',
+				'type'          => 'image',
+				'return_format' => 'array',
+				'preview_size'  => 'medium',
+			),
+			array(
+				'key'   => 'field_vision_moments_feature_title',
+				'label' => 'Gallery — feature title',
+				'name'  => 'vision_moments_feature_title',
+				'type'  => 'text',
+			),
+			array(
+				'key'   => 'field_vision_moments_feature_text',
+				'label' => 'Gallery — feature text',
+				'name'  => 'vision_moments_feature_text',
+				'type'  => 'textarea',
+				'rows'  => 3,
+			),
+			array(
+				'key'           => 'field_vision_moments_photo_read',
+				'label'         => 'Gallery — bottom-left photo',
+				'name'          => 'vision_moments_photo_read',
+				'type'          => 'image',
+				'return_format' => 'array',
+				'preview_size'  => 'medium',
+			),
+			array(
+				'key'   => 'field_vision_moments_photo_read_alt',
+				'label' => 'Gallery — bottom-left photo alt text',
+				'name'  => 'vision_moments_photo_read_alt',
+				'type'  => 'text',
+			),
+			array(
+				'key'           => 'field_vision_moments_photo_give',
+				'label'         => 'Gallery — bottom-right photo',
+				'name'          => 'vision_moments_photo_give',
+				'type'          => 'image',
+				'return_format' => 'array',
+				'preview_size'  => 'medium',
+			),
+			array(
+				'key'   => 'field_vision_moments_photo_give_alt',
+				'label' => 'Gallery — bottom-right photo alt text',
+				'name'  => 'vision_moments_photo_give_alt',
+				'type'  => 'text',
+			),
+		),
+		'location'              => array(
+			array(
+				array(
+					'param'    => 'page_template',
+					'operator' => '==',
+					'value'    => 'page-our-vision.php',
+				),
+			),
+		),
+		'menu_order'            => 3,
+		'position'              => 'normal',
+		'style'                 => 'default',
+		'label_placement'       => 'top',
+		'instruction_placement' => 'label',
+		'active'                => true,
+	)
+);
+
+acf_add_local_field_group(
+	array(
+		'key'                   => 'group_vision_partner',
+		'title'                 => 'Our Vision — Founding Partner',
+		'fields'                => array(
+			array(
+				'key'   => 'field_vision_partner_title',
+				'label' => 'Section title',
+				'name'  => 'vision_partner_title',
+				'type'  => 'text',
+			),
+			array(
+				'key'   => 'field_vision_partner_intro',
+				'label' => 'Intro text',
+				'name'  => 'vision_partner_intro',
+				'type'  => 'textarea',
+				'rows'  => 4,
+			),
+			array(
+				'key'          => 'field_vision_partner_icons',
+				'label'        => 'Partner support icons',
+				'name'         => 'vision_partner_icons',
+				'type'         => 'repeater',
+				'layout'       => 'block',
+				'button_label' => 'Add icon',
+				'min'          => 0,
+				'max'          => 10,
+				'instructions' => 'Leave empty to keep all seven default partner icons.',
+				'sub_fields'   => array(
+					array(
+						'key'           => 'field_vision_partner_icon_image',
+						'label'         => 'Icon',
+						'name'          => 'icon',
+						'type'          => 'image',
+						'return_format' => 'array',
+						'preview_size'  => 'thumbnail',
+					),
+					array(
+						'key'   => 'field_vision_partner_icon_label',
+						'label' => 'Label',
+						'name'  => 'label',
+						'type'  => 'text',
+					),
+				),
+			),
+			array(
+				'key'   => 'field_vision_partner_btn_text',
+				'label' => 'Button text',
+				'name'  => 'vision_partner_btn_text',
+				'type'  => 'text',
+			),
+			array(
+				'key'           => 'field_vision_partner_btn_link',
+				'label'         => 'Button link',
+				'name'          => 'vision_partner_btn_link',
+				'type'          => 'link',
+				'return_format' => 'array',
+			),
+		),
+		'location'              => array(
+			array(
+				array(
+					'param'    => 'page_template',
+					'operator' => '==',
+					'value'    => 'page-our-vision.php',
+				),
+			),
+		),
+		'menu_order'            => 4,
+		'position'              => 'normal',
+		'style'                 => 'default',
+		'label_placement'       => 'top',
+		'instruction_placement' => 'label',
+		'active'                => true,
+	)
+);
+
+acf_add_local_field_group(
+	array(
+		'key'                   => 'group_vision_together',
+		'title'                 => 'Our Vision — Together',
+		'fields'                => array(
+			array(
+				'key'           => 'field_vision_together_jar',
+				'label'         => 'Jar illustration',
+				'name'          => 'vision_together_jar',
+				'type'          => 'image',
+				'return_format' => 'array',
+				'preview_size'  => 'medium',
+			),
+			array(
+				'key'           => 'field_vision_together_stars',
+				'label'         => 'Stars decoration',
+				'name'          => 'vision_together_stars',
+				'type'          => 'image',
+				'return_format' => 'array',
+				'preview_size'  => 'thumbnail',
+			),
+			array(
+				'key'   => 'field_vision_together_title',
+				'label' => 'Title (before accent)',
+				'name'  => 'vision_together_title',
+				'type'  => 'text',
+			),
+			array(
+				'key'   => 'field_vision_together_title_accent',
+				'label' => 'Title accent word',
+				'name'  => 'vision_together_title_accent',
+				'type'  => 'text',
+			),
+			array(
+				'key'          => 'field_vision_together_list',
+				'label'        => 'Checklist',
+				'name'         => 'vision_together_list',
+				'type'         => 'repeater',
+				'layout'       => 'table',
+				'button_label' => 'Add item',
+				'min'          => 0,
+				'max'          => 8,
+				'instructions' => 'Leave empty to keep all five default list items.',
+				'sub_fields'   => array(
+					array(
+						'key'   => 'field_vision_together_list_item',
+						'label' => 'Text',
+						'name'  => 'item_text',
+						'type'  => 'text',
+					),
+				),
+			),
+			array(
+				'key'   => 'field_vision_together_apply_btn_text',
+				'label' => 'Apply button text',
+				'name'  => 'vision_together_apply_btn_text',
+				'type'  => 'text',
+			),
+			array(
+				'key'           => 'field_vision_together_apply_btn_link',
+				'label'         => 'Apply button link',
+				'name'          => 'vision_together_apply_btn_link',
+				'type'          => 'link',
+				'return_format' => 'array',
+			),
+			array(
+				'key'   => 'field_vision_together_story_btn_text',
+				'label' => 'Story button text',
+				'name'  => 'vision_together_story_btn_text',
+				'type'  => 'text',
+			),
+			array(
+				'key'           => 'field_vision_together_story_btn_link',
+				'label'         => 'Story button link',
+				'name'          => 'vision_together_story_btn_link',
+				'type'          => 'link',
+				'return_format' => 'array',
+			),
+			array(
+				'key'   => 'field_vision_together_support_btn_text',
+				'label' => 'Support button text',
+				'name'  => 'vision_together_support_btn_text',
+				'type'  => 'text',
+			),
+			array(
+				'key'           => 'field_vision_together_support_btn_link',
+				'label'         => 'Support button link',
+				'name'          => 'vision_together_support_btn_link',
+				'type'          => 'link',
+				'return_format' => 'array',
+			),
+		),
+		'location'              => array(
+			array(
+				array(
+					'param'    => 'page_template',
+					'operator' => '==',
+					'value'    => 'page-our-vision.php',
+				),
+			),
+		),
+		'menu_order'            => 5,
+		'position'              => 'normal',
+		'style'                 => 'default',
+		'label_placement'       => 'top',
+		'instruction_placement' => 'label',
+		'active'                => true,
+	)
+);
+
+acf_add_local_field_group(
+	array(
+		'key'                   => 'group_explore_hero',
+		'title'                 => 'Explore — Hero / Banner',
+		'fields'                => array(
+			array(
+				'key'   => 'field_explore_hero_eyebrow',
+				'label' => 'Eyebrow label',
+				'name'  => 'explore_hero_eyebrow',
+				'type'  => 'text',
+			),
+			array(
+				'key'   => 'field_explore_hero_title_line_1',
+				'label' => 'Heading line 1 (navy)',
+				'name'  => 'explore_hero_title_line_1',
+				'type'  => 'text',
+			),
+			array(
+				'key'   => 'field_explore_hero_title_line_2',
+				'label' => 'Heading line 2 (navy)',
+				'name'  => 'explore_hero_title_line_2',
+				'type'  => 'text',
+			),
+			array(
+				'key'   => 'field_explore_hero_title_line_3',
+				'label' => 'Heading line 3 (pink)',
+				'name'  => 'explore_hero_title_line_3',
+				'type'  => 'text',
+			),
+			array(
+				'key'           => 'field_explore_hero_deco',
+				'label'         => 'Heading decoration',
+				'name'          => 'explore_hero_deco',
+				'type'          => 'image',
+				'return_format' => 'array',
+				'preview_size'  => 'medium',
+			),
+			array(
+				'key'   => 'field_explore_hero_text',
+				'label' => 'Intro paragraph',
+				'name'  => 'explore_hero_text',
+				'type'  => 'textarea',
+				'rows'  => 2,
+			),
+			array(
+				'key'   => 'field_explore_hero_text_last',
+				'label' => 'Second paragraph',
+				'name'  => 'explore_hero_text_last',
+				'type'  => 'textarea',
+				'rows'  => 3,
+			),
+			array(
+				'key'   => 'field_explore_hero_primary_btn_text',
+				'label' => 'Primary button text',
+				'name'  => 'explore_hero_primary_btn_text',
+				'type'  => 'text',
+			),
+			array(
+				'key'           => 'field_explore_hero_primary_btn_link',
+				'label'         => 'Primary button link',
+				'name'          => 'explore_hero_primary_btn_link',
+				'type'          => 'link',
+				'return_format' => 'array',
+				'instructions'  => 'Default scrolls to #explore-content on this page.',
+			),
+			array(
+				'key'   => 'field_explore_hero_secondary_btn_text',
+				'label' => 'Secondary button text',
+				'name'  => 'explore_hero_secondary_btn_text',
+				'type'  => 'text',
+			),
+			array(
+				'key'           => 'field_explore_hero_secondary_btn_link',
+				'label'         => 'Secondary button link',
+				'name'          => 'explore_hero_secondary_btn_link',
+				'type'          => 'link',
+				'return_format' => 'array',
+			),
+			array(
+				'key'           => 'field_explore_hero_banner',
+				'label'         => 'Banner image',
+				'name'          => 'explore_hero_banner',
+				'type'          => 'image',
+				'return_format' => 'array',
+				'preview_size'  => 'medium',
+			),
+			array(
+				'key'   => 'field_explore_hero_banner_alt',
+				'label' => 'Banner alt text',
+				'name'  => 'explore_hero_banner_alt',
+				'type'  => 'text',
+			),
+			array(
+				'key'          => 'field_explore_hero_tags',
+				'label'        => 'Banner tags',
+				'name'         => 'explore_hero_tags',
+				'type'         => 'repeater',
+				'layout'       => 'table',
+				'button_label' => 'Add tag',
+				'min'          => 0,
+				'max'          => 8,
+				'instructions' => 'Leave empty to keep all five default tags on the banner.',
+				'sub_fields'   => array(
+					array(
+						'key'   => 'field_explore_hero_tag_item',
+						'label' => 'Tag text',
+						'name'  => 'item_text',
+						'type'  => 'text',
+					),
+				),
+			),
+		),
+		'location'              => array(
+			array(
+				array(
+					'param'    => 'page_template',
+					'operator' => '==',
+					'value'    => 'page-explore.php',
+				),
+			),
+		),
+		'menu_order'            => 0,
+		'position'              => 'normal',
+		'style'                 => 'default',
+		'label_placement'       => 'top',
+		'instruction_placement' => 'label',
+		'active'                => true,
+	)
+);
+
+acf_add_local_field_group(
+	array(
+		'key'                   => 'group_explore_ways',
+		'title'                 => 'Explore — Ways to Explore',
+		'fields'                => array(
+			array(
+				'key'   => 'field_explore_ways_title',
+				'label' => 'Section title',
+				'name'  => 'explore_ways_title',
+				'type'  => 'text',
+			),
+			array(
+				'key'          => 'field_explore_ways_cards',
+				'label'        => 'Way cards',
+				'name'         => 'explore_ways_cards',
+				'type'         => 'repeater',
+				'layout'       => 'block',
+				'button_label' => 'Add way card',
+				'min'          => 0,
+				'max'          => 8,
+				'instructions' => 'Leave empty to keep all six default way cards. Enable Icon boost style for the second card style (Imagine and Invent).',
+				'sub_fields'   => array(
+					array(
+						'key'           => 'field_explore_ways_card_icon',
+						'label'         => 'Icon',
+						'name'          => 'icon',
+						'type'          => 'image',
+						'return_format' => 'array',
+						'preview_size'  => 'thumbnail',
+					),
+					array(
+						'key'   => 'field_explore_ways_card_title',
+						'label' => 'Title',
+						'name'  => 'title',
+						'type'  => 'text',
+					),
+					array(
+						'key'           => 'field_explore_ways_card_icon_boost',
+						'label'         => 'Icon boost style',
+						'name'          => 'icon_boost',
+						'type'          => 'true_false',
+						'ui'            => 1,
+						'default_value' => 0,
+					),
+					array(
+						'key'           => 'field_explore_ways_card_photo',
+						'label'         => 'Photo',
+						'name'          => 'photo',
+						'type'          => 'image',
+						'return_format' => 'array',
+						'preview_size'  => 'medium',
+					),
+					array(
+						'key'   => 'field_explore_ways_card_photo_alt',
+						'label' => 'Photo alt text',
+						'name'  => 'photo_alt',
+						'type'  => 'text',
+					),
+					array(
+						'key'   => 'field_explore_ways_card_text',
+						'label' => 'Description',
+						'name'  => 'text',
+						'type'  => 'textarea',
+						'rows'  => 3,
+					),
+				),
+			),
+		),
+		'location'              => array(
+			array(
+				array(
+					'param'    => 'page_template',
+					'operator' => '==',
+					'value'    => 'page-explore.php',
+				),
+			),
+		),
+		'menu_order'            => 1,
+		'position'              => 'normal',
+		'style'                 => 'default',
+		'label_placement'       => 'top',
+		'instruction_placement' => 'label',
+		'active'                => true,
+	)
+);
+
+acf_add_local_field_group(
+	array(
+		'key'                   => 'group_explore_skills',
+		'title'                 => 'Explore — Skills',
+		'fields'                => array(
+			array(
+				'key'   => 'field_explore_skills_title',
+				'label' => 'Section title',
+				'name'  => 'explore_skills_title',
+				'type'  => 'text',
+			),
+			array(
+				'key'          => 'field_explore_skills_cards',
+				'label'        => 'Skill cards',
+				'name'         => 'explore_skills_cards',
+				'type'         => 'repeater',
+				'layout'       => 'block',
+				'button_label' => 'Add skill',
+				'min'          => 0,
+				'max'          => 12,
+				'instructions' => 'Leave empty to keep all nine default skill cards.',
+				'sub_fields'   => array(
+					array(
+						'key'           => 'field_explore_skills_card_icon',
+						'label'         => 'Icon',
+						'name'          => 'icon',
+						'type'          => 'image',
+						'return_format' => 'array',
+						'preview_size'  => 'thumbnail',
+					),
+					array(
+						'key'   => 'field_explore_skills_card_title',
+						'label' => 'Title',
+						'name'  => 'title',
+						'type'  => 'text',
+					),
+					array(
+						'key'   => 'field_explore_skills_card_text',
+						'label' => 'Description',
+						'name'  => 'text',
+						'type'  => 'textarea',
+						'rows'  => 2,
+					),
+				),
+			),
+		),
+		'location'              => array(
+			array(
+				array(
+					'param'    => 'page_template',
+					'operator' => '==',
+					'value'    => 'page-explore.php',
+				),
+			),
+		),
+		'menu_order'            => 2,
+		'position'              => 'normal',
+		'style'                 => 'default',
+		'label_placement'       => 'top',
+		'instruction_placement' => 'label',
+		'active'                => true,
+	)
+);
+
+acf_add_local_field_group(
+	array(
+		'key'                   => 'group_explore_grow',
+		'title'                 => 'Explore — Grow With Children',
+		'fields'                => array(
+			array(
+				'key'   => 'field_explore_grow_title',
+				'label' => 'Section title',
+				'name'  => 'explore_grow_title',
+				'type'  => 'text',
+			),
+			array(
+				'key'          => 'field_explore_grow_stages',
+				'label'        => 'Growth stages',
+				'name'         => 'explore_grow_stages',
+				'type'         => 'repeater',
+				'layout'       => 'block',
+				'button_label' => 'Add stage',
+				'min'          => 0,
+				'max'          => 8,
+				'instructions' => 'Leave empty to keep all five default stages. Arrow color adds the dashed arrow after each stage (leave empty on the last stage).',
+				'sub_fields'   => array(
+					array(
+						'key'           => 'field_explore_grow_stage_style',
+						'label'         => 'Stage color',
+						'name'          => 'style_slug',
+						'type'          => 'select',
+						'choices'       => array(
+							'wonder'   => 'Wonder',
+							'discover' => 'Discover',
+							'create'   => 'Create',
+							'share'    => 'Share',
+							'give'     => 'Give',
+						),
+						'default_value' => 'wonder',
+						'allow_null'    => 1,
+					),
+					array(
+						'key'           => 'field_explore_grow_stage_photo',
+						'label'         => 'Photo',
+						'name'          => 'photo',
+						'type'          => 'image',
+						'return_format' => 'array',
+						'preview_size'  => 'medium',
+					),
+					array(
+						'key'   => 'field_explore_grow_stage_photo_alt',
+						'label' => 'Photo alt text',
+						'name'  => 'photo_alt',
+						'type'  => 'text',
+					),
+					array(
+						'key'           => 'field_explore_grow_stage_icon',
+						'label'         => 'Icon',
+						'name'          => 'icon',
+						'type'          => 'image',
+						'return_format' => 'array',
+						'preview_size'  => 'thumbnail',
+					),
+					array(
+						'key'   => 'field_explore_grow_stage_label',
+						'label' => 'Label',
+						'name'  => 'label',
+						'type'  => 'text',
+					),
+					array(
+						'key'   => 'field_explore_grow_stage_quote',
+						'label' => 'Quote',
+						'name'  => 'quote',
+						'type'  => 'text',
+					),
+					array(
+						'key'   => 'field_explore_grow_stage_text',
+						'label' => 'Description',
+						'name'  => 'text',
+						'type'  => 'textarea',
+						'rows'  => 2,
+					),
+					array(
+						'key'           => 'field_explore_grow_stage_arrow_color',
+						'label'         => 'Arrow color (after stage)',
+						'name'          => 'arrow_color',
+						'type'          => 'select',
+						'choices'       => array(
+							'green'  => 'Green',
+							'orange' => 'Orange',
+							'pink'   => 'Pink',
+							'blue'   => 'Blue',
+						),
+						'allow_null'    => 1,
+						'instructions'  => 'Leave empty for the last stage.',
+					),
+				),
+			),
+		),
+		'location'              => array(
+			array(
+				array(
+					'param'    => 'page_template',
+					'operator' => '==',
+					'value'    => 'page-explore.php',
+				),
+			),
+		),
+		'menu_order'            => 3,
+		'position'              => 'normal',
+		'style'                 => 'default',
+		'label_placement'       => 'top',
+		'instruction_placement' => 'label',
+		'active'                => true,
+	)
+);
+
+acf_add_local_field_group(
+	array(
+		'key'                   => 'group_explore_impact',
+		'title'                 => 'Explore — Real Impact',
+		'fields'                => array(
+			array(
+				'key'   => 'field_explore_impact_title',
+				'label' => 'Section title',
+				'name'  => 'explore_impact_title',
+				'type'  => 'text',
+			),
+			array(
+				'key'          => 'field_explore_impact_cards',
+				'label'        => 'Impact cards',
+				'name'         => 'explore_impact_cards',
+				'type'         => 'repeater',
+				'layout'       => 'block',
+				'button_label' => 'Add card',
+				'min'          => 0,
+				'max'          => 8,
+				'instructions' => 'Leave empty to keep all five default impact cards.',
+				'sub_fields'   => array(
+					array(
+						'key'           => 'field_explore_impact_card_photo',
+						'label'         => 'Photo',
+						'name'          => 'photo',
+						'type'          => 'image',
+						'return_format' => 'array',
+						'preview_size'  => 'medium',
+					),
+					array(
+						'key'   => 'field_explore_impact_card_photo_alt',
+						'label' => 'Photo alt text',
+						'name'  => 'photo_alt',
+						'type'  => 'text',
+					),
+					array(
+						'key'   => 'field_explore_impact_card_title',
+						'label' => 'Title',
+						'name'  => 'title',
+						'type'  => 'text',
+					),
+					array(
+						'key'   => 'field_explore_impact_card_text',
+						'label' => 'Description',
+						'name'  => 'text',
+						'type'  => 'textarea',
+						'rows'  => 2,
+					),
+				),
+			),
+			array(
+				'key'           => 'field_explore_impact_quote_blob',
+				'label'         => 'Quote blob image',
+				'name'          => 'explore_impact_quote_blob',
+				'type'          => 'image',
+				'return_format' => 'array',
+				'preview_size'  => 'medium',
+			),
+			array(
+				'key'          => 'field_explore_impact_quote_stanzas',
+				'label'        => 'Quote stanzas',
+				'name'         => 'explore_impact_quote_stanzas',
+				'type'         => 'repeater',
+				'layout'       => 'table',
+				'button_label' => 'Add stanza',
+				'min'          => 0,
+				'max'          => 5,
+				'instructions' => 'Leave empty to keep all three default quote lines. Line 1 appears before the line break.',
+				'sub_fields'   => array(
+					array(
+						'key'   => 'field_explore_impact_quote_line_1',
+						'label' => 'Line 1 (before break)',
+						'name'  => 'line_1',
+						'type'  => 'text',
+					),
+					array(
+						'key'   => 'field_explore_impact_quote_line_2',
+						'label' => 'Line 2 (after break)',
+						'name'  => 'line_2',
+						'type'  => 'text',
+					),
+				),
+			),
+		),
+		'location'              => array(
+			array(
+				array(
+					'param'    => 'page_template',
+					'operator' => '==',
+					'value'    => 'page-explore.php',
+				),
+			),
+		),
+		'menu_order'            => 4,
+		'position'              => 'normal',
+		'style'                 => 'default',
+		'label_placement'       => 'top',
+		'instruction_placement' => 'label',
+		'active'                => true,
+	)
+);
+
+acf_add_local_field_group(
+	array(
+		'key'                   => 'group_explore_dream',
+		'title'                 => 'Explore — Dream CTA',
+		'fields'                => array(
+			array(
+				'key'   => 'field_explore_dream_title',
+				'label' => 'Title (before accent)',
+				'name'  => 'explore_dream_title',
+				'type'  => 'text',
+			),
+			array(
+				'key'   => 'field_explore_dream_title_accent',
+				'label' => 'Title accent word',
+				'name'  => 'explore_dream_title_accent',
+				'type'  => 'text',
+			),
+			array(
+				'key'   => 'field_explore_dream_title_suffix',
+				'label' => 'Title (after accent)',
+				'name'  => 'explore_dream_title_suffix',
+				'type'  => 'text',
+			),
+			array(
+				'key'           => 'field_explore_dream_photo',
+				'label'         => 'Photo',
+				'name'          => 'explore_dream_photo',
+				'type'          => 'image',
+				'return_format' => 'array',
+				'preview_size'  => 'medium',
+			),
+			array(
+				'key'   => 'field_explore_dream_photo_alt',
+				'label' => 'Photo alt text',
+				'name'  => 'explore_dream_photo_alt',
+				'type'  => 'text',
+			),
+			array(
+				'key'          => 'field_explore_dream_list',
+				'label'        => 'Checklist',
+				'name'         => 'explore_dream_list',
+				'type'         => 'repeater',
+				'layout'       => 'table',
+				'button_label' => 'Add item',
+				'min'          => 0,
+				'max'          => 8,
+				'instructions' => 'Leave empty to keep all five default checklist items.',
+				'sub_fields'   => array(
+					array(
+						'key'   => 'field_explore_dream_list_item',
+						'label' => 'Text',
+						'name'  => 'item_text',
+						'type'  => 'text',
+					),
+				),
+			),
+			array(
+				'key'           => 'field_explore_dream_jar',
+				'label'         => 'Jar illustration',
+				'name'          => 'explore_dream_jar',
+				'type'          => 'image',
+				'return_format' => 'array',
+				'preview_size'  => 'medium',
+			),
+			array(
+				'key'   => 'field_explore_dream_primary_btn_text',
+				'label' => 'Primary button text',
+				'name'  => 'explore_dream_primary_btn_text',
+				'type'  => 'text',
+			),
+			array(
+				'key'           => 'field_explore_dream_primary_btn_link',
+				'label'         => 'Primary button link',
+				'name'          => 'explore_dream_primary_btn_link',
+				'type'          => 'link',
+				'return_format' => 'array',
+			),
+			array(
+				'key'   => 'field_explore_dream_secondary_btn_text',
+				'label' => 'Secondary button text',
+				'name'  => 'explore_dream_secondary_btn_text',
+				'type'  => 'text',
+			),
+			array(
+				'key'           => 'field_explore_dream_secondary_btn_link',
+				'label'         => 'Secondary button link',
+				'name'          => 'explore_dream_secondary_btn_link',
+				'type'          => 'link',
+				'return_format' => 'array',
+			),
+		),
+		'location'              => array(
+			array(
+				array(
+					'param'    => 'page_template',
+					'operator' => '==',
+					'value'    => 'page-explore.php',
+				),
+			),
+		),
+		'menu_order'            => 5,
+		'position'              => 'normal',
+		'style'                 => 'default',
+		'label_placement'       => 'top',
+		'instruction_placement' => 'label',
+		'active'                => true,
+	)
+);
+
+acf_add_local_field_group(
+	array(
+		'key'                   => 'group_get_involved_hero',
+		'title'                 => 'Get Involved — Hero / Banner',
+		'fields'                => array(
+			array(
+				'key'   => 'field_get_involved_hero_eyebrow',
+				'label' => 'Eyebrow label',
+				'name'  => 'get_involved_hero_eyebrow',
+				'type'  => 'text',
+			),
+			array(
+				'key'   => 'field_get_involved_hero_title_line_1',
+				'label' => 'Heading line 1 (pink)',
+				'name'  => 'get_involved_hero_title_line_1',
+				'type'  => 'text',
+			),
+			array(
+				'key'   => 'field_get_involved_hero_title_line_2',
+				'label' => 'Heading line 2 (navy)',
+				'name'  => 'get_involved_hero_title_line_2',
+				'type'  => 'text',
+			),
+			array(
+				'key'   => 'field_get_involved_hero_text_intro',
+				'label' => 'Lead intro',
+				'name'  => 'get_involved_hero_text_intro',
+				'type'  => 'text',
+			),
+			array(
+				'key'   => 'field_get_involved_hero_text_accent_1',
+				'label' => 'Lead accent 1 (pink)',
+				'name'  => 'get_involved_hero_text_accent_1',
+				'type'  => 'text',
+			),
+			array(
+				'key'   => 'field_get_involved_hero_text_middle',
+				'label' => 'Lead middle text',
+				'name'  => 'get_involved_hero_text_middle',
+				'type'  => 'text',
+			),
+			array(
+				'key'   => 'field_get_involved_hero_text_accent_2',
+				'label' => 'Lead accent 2 (pink)',
+				'name'  => 'get_involved_hero_text_accent_2',
+				'type'  => 'text',
+			),
+			array(
+				'key'   => 'field_get_involved_hero_text_outro',
+				'label' => 'Lead outro',
+				'name'  => 'get_involved_hero_text_outro',
+				'type'  => 'text',
+			),
+			array(
+				'key'   => 'field_get_involved_hero_text_secondary',
+				'label' => 'Secondary paragraph',
+				'name'  => 'get_involved_hero_text_secondary',
+				'type'  => 'textarea',
+				'rows'  => 3,
+			),
+			array(
+				'key'   => 'field_get_involved_hero_primary_btn_text',
+				'label' => 'Primary button text',
+				'name'  => 'get_involved_hero_primary_btn_text',
+				'type'  => 'text',
+			),
+			array(
+				'key'           => 'field_get_involved_hero_primary_btn_link',
+				'label'         => 'Primary button link',
+				'name'          => 'get_involved_hero_primary_btn_link',
+				'type'          => 'link',
+				'return_format' => 'array',
+			),
+			array(
+				'key'   => 'field_get_involved_hero_secondary_btn_text',
+				'label' => 'Secondary button text',
+				'name'  => 'get_involved_hero_secondary_btn_text',
+				'type'  => 'text',
+			),
+			array(
+				'key'           => 'field_get_involved_hero_secondary_btn_link',
+				'label'         => 'Secondary button link',
+				'name'          => 'get_involved_hero_secondary_btn_link',
+				'type'          => 'link',
+				'return_format' => 'array',
+			),
+			array(
+				'key'           => 'field_get_involved_hero_banner',
+				'label'         => 'Banner image',
+				'name'          => 'get_involved_hero_banner',
+				'type'          => 'image',
+				'return_format' => 'array',
+				'preview_size'  => 'medium',
+			),
+			array(
+				'key'   => 'field_get_involved_hero_banner_alt',
+				'label' => 'Banner alt text',
+				'name'  => 'get_involved_hero_banner_alt',
+				'type'  => 'text',
+			),
+		),
+		'location'              => array(
+			array(
+				array(
+					'param'    => 'page_template',
+					'operator' => '==',
+					'value'    => 'page-get-involved.php',
+				),
+			),
+		),
+		'menu_order'            => 0,
+		'position'              => 'normal',
+		'style'                 => 'default',
+		'label_placement'       => 'top',
+		'instruction_placement' => 'label',
+		'active'                => true,
+	)
+);
+
+acf_add_local_field_group(
+	array(
+		'key'                   => 'group_get_involved_ways',
+		'title'                 => 'Get Involved — Ways to Help',
+		'fields'                => array(
+			array(
+				'key'   => 'field_get_involved_ways_title',
+				'label' => 'Section title',
+				'name'  => 'get_involved_ways_title',
+				'type'  => 'text',
+			),
+			array(
+				'key'          => 'field_get_involved_ways_cards',
+				'label'        => 'Way cards',
+				'name'         => 'get_involved_ways_cards',
+				'type'         => 'repeater',
+				'layout'       => 'block',
+				'button_label' => 'Add card',
+				'min'          => 0,
+				'max'          => 8,
+				'instructions' => 'Leave empty to keep all five default way cards.',
+				'sub_fields'   => array(
+					array(
+						'key'           => 'field_get_involved_ways_card_icon',
+						'label'         => 'Icon',
+						'name'          => 'icon',
+						'type'          => 'image',
+						'return_format' => 'array',
+						'preview_size'  => 'thumbnail',
+					),
+					array(
+						'key'   => 'field_get_involved_ways_card_title',
+						'label' => 'Title',
+						'name'  => 'title',
+						'type'  => 'text',
+					),
+					array(
+						'key'   => 'field_get_involved_ways_card_text',
+						'label' => 'Description',
+						'name'  => 'text',
+						'type'  => 'textarea',
+						'rows'  => 3,
+					),
+					array(
+						'key'   => 'field_get_involved_ways_card_link_text',
+						'label' => 'Link text',
+						'name'  => 'link_text',
+						'type'  => 'text',
+					),
+					array(
+						'key'           => 'field_get_involved_ways_card_link',
+						'label'         => 'Link URL',
+						'name'          => 'link',
+						'type'          => 'link',
+						'return_format' => 'array',
+					),
+				),
+			),
+		),
+		'location'              => array(
+			array(
+				array(
+					'param'    => 'page_template',
+					'operator' => '==',
+					'value'    => 'page-get-involved.php',
+				),
+			),
+		),
+		'menu_order'            => 1,
+		'position'              => 'normal',
+		'style'                 => 'default',
+		'label_placement'       => 'top',
+		'instruction_placement' => 'label',
+		'active'                => true,
+	)
+);
+
+acf_add_local_field_group(
+	array(
+		'key'                   => 'group_get_involved_impact',
+		'title'                 => 'Get Involved — Young Ideas Impact',
+		'fields'                => array(
+			array(
+				'key'   => 'field_get_involved_impact_title_line_1',
+				'label' => 'Title line 1 (navy)',
+				'name'  => 'get_involved_impact_title_line_1',
+				'type'  => 'text',
+			),
+			array(
+				'key'   => 'field_get_involved_impact_title_line_2',
+				'label' => 'Title line 2 (pink)',
+				'name'  => 'get_involved_impact_title_line_2',
+				'type'  => 'text',
+			),
+			array(
+				'key'   => 'field_get_involved_impact_intro',
+				'label' => 'Intro text',
+				'name'  => 'get_involved_impact_intro',
+				'type'  => 'textarea',
+				'rows'  => 3,
+			),
+			array(
+				'key'   => 'field_get_involved_impact_note_text',
+				'label' => 'Note text',
+				'name'  => 'get_involved_impact_note_text',
+				'type'  => 'textarea',
+				'rows'  => 2,
+			),
+			array(
+				'key'          => 'field_get_involved_impact_timeline',
+				'label'        => 'Timeline steps',
+				'name'         => 'get_involved_impact_timeline',
+				'type'         => 'repeater',
+				'layout'       => 'block',
+				'button_label' => 'Add step',
+				'min'          => 0,
+				'max'          => 6,
+				'instructions' => 'Leave empty to keep all four default timeline steps. Use Heart icon for the first step style.',
+				'sub_fields'   => array(
+					array(
+						'key'           => 'field_get_involved_impact_step_icon_mode',
+						'label'         => 'Icon type',
+						'name'          => 'icon_mode',
+						'type'          => 'select',
+						'choices'       => array(
+							'heart' => 'Heart icon (SVG)',
+							'image' => 'Custom image',
+						),
+						'default_value' => 'image',
+						'allow_null'    => 1,
+					),
+					array(
+						'key'           => 'field_get_involved_impact_step_icon',
+						'label'         => 'Icon image',
+						'name'          => 'icon',
+						'type'          => 'image',
+						'return_format' => 'array',
+						'preview_size'  => 'thumbnail',
+						'instructions'  => 'Used when icon type is Custom image.',
+					),
+					array(
+						'key'           => 'field_get_involved_impact_step_color',
+						'label'         => 'Step color',
+						'name'          => 'color_slug',
+						'type'          => 'select',
+						'choices'       => array(
+							'pink'  => 'Pink',
+							'green' => 'Green',
+							'blue'  => 'Blue',
+						),
+						'default_value' => 'pink',
+						'allow_null'    => 1,
+					),
+					array(
+						'key'   => 'field_get_involved_impact_step_title',
+						'label' => 'Title',
+						'name'  => 'title',
+						'type'  => 'text',
+					),
+					array(
+						'key'   => 'field_get_involved_impact_step_text',
+						'label' => 'Description',
+						'name'  => 'text',
+						'type'  => 'textarea',
+						'rows'  => 3,
+					),
+				),
+			),
+			array(
+				'key'           => 'field_get_involved_impact_illustration',
+				'label'         => 'Illustration image',
+				'name'          => 'get_involved_impact_illustration',
+				'type'          => 'image',
+				'return_format' => 'array',
+				'preview_size'  => 'medium',
+			),
+			array(
+				'key'   => 'field_get_involved_impact_illustration_alt',
+				'label' => 'Illustration alt text',
+				'name'  => 'get_involved_impact_illustration_alt',
+				'type'  => 'text',
+			),
+		),
+		'location'              => array(
+			array(
+				array(
+					'param'    => 'page_template',
+					'operator' => '==',
+					'value'    => 'page-get-involved.php',
+				),
+			),
+		),
+		'menu_order'            => 2,
+		'position'              => 'normal',
+		'style'                 => 'default',
+		'label_placement'       => 'top',
+		'instruction_placement' => 'label',
+		'active'                => true,
+	)
+);
+
+acf_add_local_field_group(
+	array(
+		'key'                   => 'group_get_involved_partner_cta',
+		'title'                 => 'Get Involved — Partner CTA',
+		'fields'                => array(
+			array(
+				'key'           => 'field_get_involved_partner_cta_envelope',
+				'label'         => 'Envelope image',
+				'name'          => 'get_involved_partner_cta_envelope',
+				'type'          => 'image',
+				'return_format' => 'array',
+				'preview_size'  => 'medium',
+			),
+			array(
+				'key'   => 'field_get_involved_partner_cta_title',
+				'label' => 'Title',
+				'name'  => 'get_involved_partner_cta_title',
+				'type'  => 'text',
+			),
+			array(
+				'key'   => 'field_get_involved_partner_cta_sub',
+				'label' => 'Subtitle',
+				'name'  => 'get_involved_partner_cta_sub',
+				'type'  => 'text',
+			),
+			array(
+				'key'   => 'field_get_involved_partner_cta_btn_text',
+				'label' => 'Button text',
+				'name'  => 'get_involved_partner_cta_btn_text',
+				'type'  => 'text',
+			),
+			array(
+				'key'           => 'field_get_involved_partner_cta_btn_link',
+				'label'         => 'Button link',
+				'name'          => 'get_involved_partner_cta_btn_link',
+				'type'          => 'link',
+				'return_format' => 'array',
+			),
+			array(
+				'key'           => 'field_get_involved_partner_cta_deco',
+				'label'         => 'Decoration image',
+				'name'          => 'get_involved_partner_cta_deco',
+				'type'          => 'image',
+				'return_format' => 'array',
+				'preview_size'  => 'thumbnail',
+			),
+		),
+		'location'              => array(
+			array(
+				array(
+					'param'    => 'page_template',
+					'operator' => '==',
+					'value'    => 'page-get-involved.php',
+				),
+			),
+		),
+		'menu_order'            => 3,
+		'position'              => 'normal',
+		'style'                 => 'default',
+		'label_placement'       => 'top',
+		'instruction_placement' => 'label',
+		'active'                => true,
+	)
+);
+
+acf_add_local_field_group(
+	array(
+		'key'                   => 'group_partners_hero',
+		'title'                 => 'Partners — Hero / Banner',
+		'fields'                => array(
+			array(
+				'key'   => 'field_partners_hero_eyebrow',
+				'label' => 'Eyebrow label',
+				'name'  => 'partners_hero_eyebrow',
+				'type'  => 'text',
+			),
+			array(
+				'key'   => 'field_partners_hero_title_line_1',
+				'label' => 'Heading line 1 (navy)',
+				'name'  => 'partners_hero_title_line_1',
+				'type'  => 'text',
+			),
+			array(
+				'key'   => 'field_partners_hero_title_underline_word',
+				'label' => 'Heading underlined word (pink)',
+				'name'  => 'partners_hero_title_underline_word',
+				'type'  => 'text',
+			),
+			array(
+				'key'           => 'field_partners_hero_title_underline',
+				'label'         => 'Heading underline image',
+				'name'          => 'partners_hero_title_underline',
+				'type'          => 'image',
+				'return_format' => 'array',
+				'preview_size'  => 'thumbnail',
+			),
+			array(
+				'key'   => 'field_partners_hero_title_line_2_suffix',
+				'label' => 'Heading line 2 suffix (after underline)',
+				'name'  => 'partners_hero_title_line_2_suffix',
+				'type'  => 'text',
+			),
+			array(
+				'key'   => 'field_partners_hero_text_intro',
+				'label' => 'Intro text (before accent)',
+				'name'  => 'partners_hero_text_intro',
+				'type'  => 'textarea',
+				'rows'  => 3,
+			),
+			array(
+				'key'   => 'field_partners_hero_text_accent',
+				'label' => 'Intro accent (pink)',
+				'name'  => 'partners_hero_text_accent',
+				'type'  => 'text',
+			),
+			array(
+				'key'   => 'field_partners_hero_text_outro',
+				'label' => 'Intro text (after accent)',
+				'name'  => 'partners_hero_text_outro',
+				'type'  => 'text',
+			),
+			array(
+				'key'   => 'field_partners_hero_primary_btn_text',
+				'label' => 'Primary button text',
+				'name'  => 'partners_hero_primary_btn_text',
+				'type'  => 'text',
+			),
+			array(
+				'key'           => 'field_partners_hero_primary_btn_link',
+				'label'         => 'Primary button link',
+				'name'          => 'partners_hero_primary_btn_link',
+				'type'          => 'link',
+				'return_format' => 'array',
+			),
+			array(
+				'key'   => 'field_partners_hero_secondary_btn_text',
+				'label' => 'Secondary button text',
+				'name'  => 'partners_hero_secondary_btn_text',
+				'type'  => 'text',
+			),
+			array(
+				'key'           => 'field_partners_hero_secondary_btn_link',
+				'label'         => 'Secondary button link',
+				'name'          => 'partners_hero_secondary_btn_link',
+				'type'          => 'link',
+				'return_format' => 'array',
+			),
+			array(
+				'key'           => 'field_partners_hero_banner',
+				'label'         => 'Banner image',
+				'name'          => 'partners_hero_banner',
+				'type'          => 'image',
+				'return_format' => 'array',
+				'preview_size'  => 'medium',
+			),
+			array(
+				'key'   => 'field_partners_hero_banner_alt',
+				'label' => 'Banner alt text',
+				'name'  => 'partners_hero_banner_alt',
+				'type'  => 'text',
+			),
+		),
+		'location'              => array(
+			array(
+				array(
+					'param'    => 'page_template',
+					'operator' => '==',
+					'value'    => 'page-partners.php',
+				),
+			),
+		),
+		'menu_order'            => 0,
+		'position'              => 'normal',
+		'style'                 => 'default',
+		'label_placement'       => 'top',
+		'instruction_placement' => 'label',
+		'active'                => true,
+	)
+);
+
+acf_add_local_field_group(
+	array(
+		'key'                   => 'group_partners_ways',
+		'title'                 => 'Partners — Ways to Partner',
+		'fields'                => array(
+			array(
+				'key'   => 'field_partners_ways_title',
+				'label' => 'Section title',
+				'name'  => 'partners_ways_title',
+				'type'  => 'text',
+			),
+			array(
+				'key'   => 'field_partners_ways_intro',
+				'label' => 'Intro text',
+				'name'  => 'partners_ways_intro',
+				'type'  => 'textarea',
+				'rows'  => 3,
+			),
+			array(
+				'key'          => 'field_partners_ways_cards',
+				'label'        => 'Partner type cards',
+				'name'         => 'partners_ways_cards',
+				'type'         => 'repeater',
+				'layout'       => 'block',
+				'button_label' => 'Add card',
+				'min'          => 0,
+				'max'          => 8,
+				'instructions' => 'Leave empty to keep all five default partner type cards.',
+				'sub_fields'   => array(
+					array(
+						'key'           => 'field_partners_ways_card_icon',
+						'label'         => 'Icon',
+						'name'          => 'icon',
+						'type'          => 'image',
+						'return_format' => 'array',
+						'preview_size'  => 'thumbnail',
+					),
+					array(
+						'key'   => 'field_partners_ways_card_title',
+						'label' => 'Title',
+						'name'  => 'title',
+						'type'  => 'text',
+					),
+					array(
+						'key'   => 'field_partners_ways_card_text',
+						'label' => 'Description',
+						'name'  => 'text',
+						'type'  => 'textarea',
+						'rows'  => 3,
+					),
+					array(
+						'key'           => 'field_partners_ways_card_color_slug',
+						'label'         => 'Card color',
+						'name'          => 'color_slug',
+						'type'          => 'select',
+						'choices'       => array(
+							'purple' => 'Purple',
+							'green'  => 'Green',
+							'blue'   => 'Blue',
+							'pink'   => 'Pink',
+							'orange' => 'Orange',
+						),
+						'default_value' => 'purple',
+						'return_format' => 'value',
+					),
+				),
+			),
+		),
+		'location'              => array(
+			array(
+				array(
+					'param'    => 'page_template',
+					'operator' => '==',
+					'value'    => 'page-partners.php',
+				),
+			),
+		),
+		'menu_order'            => 1,
+		'position'              => 'normal',
+		'style'                 => 'default',
+		'label_placement'       => 'top',
+		'instruction_placement' => 'label',
+		'active'                => true,
+	)
+);
+
+acf_add_local_field_group(
+	array(
+		'key'                   => 'group_partners_impact',
+		'title'                 => 'Partners — Partnership Impact',
+		'fields'                => array(
+			array(
+				'key'   => 'field_partners_impact_title',
+				'label' => 'Section title',
+				'name'  => 'partners_impact_title',
+				'type'  => 'text',
+			),
+			array(
+				'key'   => 'field_partners_impact_intro',
+				'label' => 'Intro text',
+				'name'  => 'partners_impact_intro',
+				'type'  => 'textarea',
+				'rows'  => 3,
+			),
+			array(
+				'key'          => 'field_partners_impact_cards',
+				'label'        => 'Impact cards',
+				'name'         => 'partners_impact_cards',
+				'type'         => 'repeater',
+				'layout'       => 'block',
+				'button_label' => 'Add card',
+				'min'          => 0,
+				'max'          => 8,
+				'instructions' => 'Leave empty to keep all five default impact cards.',
+				'sub_fields'   => array(
+					array(
+						'key'           => 'field_partners_impact_card_photo',
+						'label'         => 'Photo',
+						'name'          => 'photo',
+						'type'          => 'image',
+						'return_format' => 'array',
+						'preview_size'  => 'medium',
+					),
+					array(
+						'key'   => 'field_partners_impact_card_photo_alt',
+						'label' => 'Photo alt text',
+						'name'  => 'photo_alt',
+						'type'  => 'text',
+					),
+					array(
+						'key'   => 'field_partners_impact_card_title',
+						'label' => 'Title',
+						'name'  => 'title',
+						'type'  => 'text',
+					),
+					array(
+						'key'   => 'field_partners_impact_card_text',
+						'label' => 'Description',
+						'name'  => 'text',
+						'type'  => 'textarea',
+						'rows'  => 3,
+					),
+					array(
+						'key'           => 'field_partners_impact_card_deco',
+						'label'         => 'Decorative icon',
+						'name'          => 'deco',
+						'type'          => 'image',
+						'return_format' => 'array',
+						'preview_size'  => 'thumbnail',
+					),
+				),
+			),
+		),
+		'location'              => array(
+			array(
+				array(
+					'param'    => 'page_template',
+					'operator' => '==',
+					'value'    => 'page-partners.php',
+				),
+			),
+		),
+		'menu_order'            => 2,
+		'position'              => 'normal',
+		'style'                 => 'default',
+		'label_placement'       => 'top',
+		'instruction_placement' => 'label',
+		'active'                => true,
+	)
+);
+
+acf_add_local_field_group(
+	array(
+		'key'                   => 'group_partners_opportunity_cta',
+		'title'                 => 'Partners — Share an Opportunity CTA',
+		'fields'                => array(
+			array(
+				'key'   => 'field_partners_opportunity_cta_aria_label',
+				'label' => 'Section aria label',
+				'name'  => 'partners_opportunity_cta_aria_label',
+				'type'  => 'text',
+			),
+			array(
+				'key'   => 'field_partners_opportunity_cta_title_prefix',
+				'label' => 'Heading prefix (before underline)',
+				'name'  => 'partners_opportunity_cta_title_prefix',
+				'type'  => 'text',
+			),
+			array(
+				'key'   => 'field_partners_opportunity_cta_title_underline_word',
+				'label' => 'Heading underlined words',
+				'name'  => 'partners_opportunity_cta_title_underline_word',
+				'type'  => 'text',
+			),
+			array(
+				'key'           => 'field_partners_opportunity_cta_title_underline',
+				'label'         => 'Heading underline image',
+				'name'          => 'partners_opportunity_cta_title_underline',
+				'type'          => 'image',
+				'return_format' => 'array',
+				'preview_size'  => 'thumbnail',
+			),
+			array(
+				'key'   => 'field_partners_opportunity_cta_title_suffix',
+				'label' => 'Heading suffix (after underline)',
+				'name'  => 'partners_opportunity_cta_title_suffix',
+				'type'  => 'text',
+			),
+			array(
+				'key'           => 'field_partners_opportunity_cta_bulb',
+				'label'         => 'Light bulb decoration',
+				'name'          => 'partners_opportunity_cta_bulb',
+				'type'          => 'image',
+				'return_format' => 'array',
+				'preview_size'  => 'thumbnail',
+			),
+			array(
+				'key'   => 'field_partners_opportunity_cta_text',
+				'label' => 'Body text',
+				'name'  => 'partners_opportunity_cta_text',
+				'type'  => 'textarea',
+				'rows'  => 3,
+			),
+			array(
+				'key'   => 'field_partners_opportunity_cta_btn_text',
+				'label' => 'Button text',
+				'name'  => 'partners_opportunity_cta_btn_text',
+				'type'  => 'text',
+			),
+			array(
+				'key'           => 'field_partners_opportunity_cta_btn_link',
+				'label'         => 'Button link',
+				'name'          => 'partners_opportunity_cta_btn_link',
+				'type'          => 'link',
+				'return_format' => 'array',
+			),
+			array(
+				'key'           => 'field_partners_opportunity_cta_plane',
+				'label'         => 'Paper plane decoration',
+				'name'          => 'partners_opportunity_cta_plane',
+				'type'          => 'image',
+				'return_format' => 'array',
+				'preview_size'  => 'thumbnail',
+			),
+		),
+		'location'              => array(
+			array(
+				array(
+					'param'    => 'page_template',
+					'operator' => '==',
+					'value'    => 'page-partners.php',
+				),
+			),
+		),
+		'menu_order'            => 3,
+		'position'              => 'normal',
+		'style'                 => 'default',
+		'label_placement'       => 'top',
+		'instruction_placement' => 'label',
+		'active'                => true,
+	)
+);
+
+acf_add_local_field_group(
+	array(
+		'key'                   => 'group_partners_founding',
+		'title'                 => 'Partners — Founding Partners',
+		'fields'                => array(
+			array(
+				'key'   => 'field_partners_founding_title',
+				'label' => 'Section title',
+				'name'  => 'partners_founding_title',
+				'type'  => 'text',
+			),
+			array(
+				'key'   => 'field_partners_founding_intro',
+				'label' => 'Intro text',
+				'name'  => 'partners_founding_intro',
+				'type'  => 'textarea',
+				'rows'  => 3,
+			),
+			array(
+				'key'          => 'field_partners_founding_cards',
+				'label'        => 'Founding partner cards',
+				'name'         => 'partners_founding_cards',
+				'type'         => 'repeater',
+				'layout'       => 'block',
+				'button_label' => 'Add card',
+				'min'          => 0,
+				'max'          => 8,
+				'instructions' => 'Leave empty to keep all five default founding partner cards.',
+				'sub_fields'   => array(
+					array(
+						'key'           => 'field_partners_founding_card_icon',
+						'label'         => 'Icon',
+						'name'          => 'icon',
+						'type'          => 'image',
+						'return_format' => 'array',
+						'preview_size'  => 'thumbnail',
+					),
+					array(
+						'key'   => 'field_partners_founding_card_title',
+						'label' => 'Title',
+						'name'  => 'title',
+						'type'  => 'text',
+					),
+					array(
+						'key'   => 'field_partners_founding_card_text',
+						'label' => 'Description',
+						'name'  => 'text',
+						'type'  => 'textarea',
+						'rows'  => 3,
+					),
+					array(
+						'key'           => 'field_partners_founding_card_color_slug',
+						'label'         => 'Card color',
+						'name'          => 'color_slug',
+						'type'          => 'select',
+						'choices'       => array(
+							'purple' => 'Purple',
+							'green'  => 'Green',
+							'blue'   => 'Blue',
+							'pink'   => 'Pink',
+							'gold'   => 'Gold',
+						),
+						'default_value' => 'purple',
+						'return_format' => 'value',
+					),
+				),
+			),
+		),
+		'location'              => array(
+			array(
+				array(
+					'param'    => 'page_template',
+					'operator' => '==',
+					'value'    => 'page-partners.php',
+				),
+			),
+		),
+		'menu_order'            => 4,
+		'position'              => 'normal',
+		'style'                 => 'default',
+		'label_placement'       => 'top',
+		'instruction_placement' => 'label',
+		'active'                => true,
+	)
+);
+
+acf_add_local_field_group(
+	array(
+		'key'                   => 'group_contact_hero',
+		'title'                 => 'Contact — Hero / Banner',
+		'fields'                => array(
+			array(
+				'key'   => 'field_contact_hero_aria_label',
+				'label' => 'Section aria label',
+				'name'  => 'contact_hero_aria_label',
+				'type'  => 'text',
+			),
+			array(
+				'key'   => 'field_contact_hero_title_underline_word',
+				'label' => 'Heading underlined word',
+				'name'  => 'contact_hero_title_underline_word',
+				'type'  => 'text',
+			),
+			array(
+				'key'           => 'field_contact_hero_title_underline',
+				'label'         => 'Heading underline image',
+				'name'          => 'contact_hero_title_underline',
+				'type'          => 'image',
+				'return_format' => 'array',
+				'preview_size'  => 'thumbnail',
+			),
+			array(
+				'key'   => 'field_contact_hero_title_suffix',
+				'label' => 'Heading suffix (after underline)',
+				'name'  => 'contact_hero_title_suffix',
+				'type'  => 'text',
+			),
+			array(
+				'key'   => 'field_contact_hero_text_intro',
+				'label' => 'Intro text (before purple accent)',
+				'name'  => 'contact_hero_text_intro',
+				'type'  => 'textarea',
+				'rows'  => 3,
+			),
+			array(
+				'key'   => 'field_contact_hero_text_accent_purple',
+				'label' => 'Purple accent word',
+				'name'  => 'contact_hero_text_accent_purple',
+				'type'  => 'text',
+			),
+			array(
+				'key'   => 'field_contact_hero_text_mid',
+				'label' => 'Text between accents',
+				'name'  => 'contact_hero_text_mid',
+				'type'  => 'text',
+			),
+			array(
+				'key'   => 'field_contact_hero_text_accent_pink',
+				'label' => 'Pink accent word',
+				'name'  => 'contact_hero_text_accent_pink',
+				'type'  => 'text',
+			),
+			array(
+				'key'   => 'field_contact_hero_text_outro',
+				'label' => 'Text after pink accent',
+				'name'  => 'contact_hero_text_outro',
+				'type'  => 'text',
+			),
+			array(
+				'key'           => 'field_contact_hero_banner',
+				'label'         => 'Banner image',
+				'name'          => 'contact_hero_banner',
+				'type'          => 'image',
+				'return_format' => 'array',
+				'preview_size'  => 'medium',
+			),
+			array(
+				'key'   => 'field_contact_hero_banner_alt',
+				'label' => 'Banner alt text',
+				'name'  => 'contact_hero_banner_alt',
+				'type'  => 'text',
+			),
+		),
+		'location'              => array(
+			array(
+				array(
+					'param'    => 'page_template',
+					'operator' => '==',
+					'value'    => 'page-contact.php',
+				),
+			),
+		),
+		'menu_order'            => 0,
+		'position'              => 'normal',
+		'style'                 => 'default',
+		'label_placement'       => 'top',
+		'instruction_placement' => 'label',
+		'active'                => true,
+	)
+);
+
+acf_add_local_field_group(
+	array(
+		'key'                   => 'group_contact_form',
+		'title'                 => 'Contact — Form Section',
+		'fields'                => array(
+			array(
+				'key'   => 'field_contact_form_aria_label',
+				'label' => 'Section aria label',
+				'name'  => 'contact_form_aria_label',
+				'type'  => 'text',
+			),
+			array(
+				'key'   => 'field_contact_form_aside_aria_label',
+				'label' => 'Aside aria label',
+				'name'  => 'contact_form_aside_aria_label',
+				'type'  => 'text',
+			),
+			array(
+				'key'           => 'field_contact_form_aside_plane',
+				'label'         => 'Aside plane decoration',
+				'name'          => 'contact_form_aside_plane',
+				'type'          => 'image',
+				'return_format' => 'array',
+				'preview_size'  => 'thumbnail',
+			),
+			array(
+				'key'   => 'field_contact_form_aside_title_underline_word',
+				'label' => 'Aside heading underlined word',
+				'name'  => 'contact_form_aside_title_underline_word',
+				'type'  => 'text',
+			),
+			array(
+				'key'           => 'field_contact_form_aside_title_underline',
+				'label'         => 'Aside heading underline image',
+				'name'          => 'contact_form_aside_title_underline',
+				'type'          => 'image',
+				'return_format' => 'array',
+				'preview_size'  => 'thumbnail',
+			),
+			array(
+				'key'   => 'field_contact_form_aside_title_suffix',
+				'label' => 'Aside heading suffix',
+				'name'  => 'contact_form_aside_title_suffix',
+				'type'  => 'text',
+			),
+			array(
+				'key'   => 'field_contact_form_aside_text',
+				'label' => 'Aside text',
+				'name'  => 'contact_form_aside_text',
+				'type'  => 'textarea',
+				'rows'  => 4,
+			),
+			array(
+				'key'           => 'field_contact_form_aside_plant',
+				'label'         => 'Aside plant decoration',
+				'name'          => 'contact_form_aside_plant',
+				'type'          => 'image',
+				'return_format' => 'array',
+				'preview_size'  => 'thumbnail',
+			),
+			array(
+				'key'   => 'field_contact_form_title',
+				'label' => 'Form heading',
+				'name'  => 'contact_form_title',
+				'type'  => 'text',
+			),
+			array(
+				'key'   => 'field_contact_form_privacy_lead',
+				'label' => 'Privacy note (bold lead)',
+				'name'  => 'contact_form_privacy_lead',
+				'type'  => 'text',
+			),
+			array(
+				'key'   => 'field_contact_form_privacy_text',
+				'label' => 'Privacy note (body)',
+				'name'  => 'contact_form_privacy_text',
+				'type'  => 'textarea',
+				'rows'  => 2,
+			),
+			array(
+				'key'   => 'field_contact_form_submit_text',
+				'label' => 'Submit button text',
+				'name'  => 'contact_form_submit_text',
+				'type'  => 'text',
+			),
+		),
+		'location'              => array(
+			array(
+				array(
+					'param'    => 'page_template',
+					'operator' => '==',
+					'value'    => 'page-contact.php',
+				),
+			),
+		),
+		'menu_order'            => 1,
+		'position'              => 'normal',
+		'style'                 => 'default',
+		'label_placement'       => 'top',
+		'instruction_placement' => 'label',
+		'active'                => true,
+	)
+);
+
+acf_add_local_field_group(
+	array(
+		'key'                   => 'group_contact_cta',
+		'title'                 => 'Contact — See Our Vision CTA',
+		'fields'                => array(
+			array(
+				'key'   => 'field_contact_cta_aria_label',
+				'label' => 'Section aria label',
+				'name'  => 'contact_cta_aria_label',
+				'type'  => 'text',
+			),
+			array(
+				'key'           => 'field_contact_cta_door',
+				'label'         => 'Door illustration',
+				'name'          => 'contact_cta_door',
+				'type'          => 'image',
+				'return_format' => 'array',
+				'preview_size'  => 'thumbnail',
+			),
+			array(
+				'key'   => 'field_contact_cta_text',
+				'label' => 'Heading text',
+				'name'  => 'contact_cta_text',
+				'type'  => 'textarea',
+				'rows'  => 3,
+			),
+			array(
+				'key'   => 'field_contact_cta_btn_text',
+				'label' => 'Button text',
+				'name'  => 'contact_cta_btn_text',
+				'type'  => 'text',
+			),
+			array(
+				'key'           => 'field_contact_cta_btn_link',
+				'label'         => 'Button link',
+				'name'          => 'contact_cta_btn_link',
+				'type'          => 'link',
+				'return_format' => 'array',
+			),
+		),
+		'location'              => array(
+			array(
+				array(
+					'param'    => 'page_template',
+					'operator' => '==',
+					'value'    => 'page-contact.php',
+				),
+			),
+		),
+		'menu_order'            => 2,
+		'position'              => 'normal',
+		'style'                 => 'default',
+		'label_placement'       => 'top',
+		'instruction_placement' => 'label',
+		'active'                => true,
+	)
+);
+
+acf_add_local_field_group(
+	array(
+		'key'                   => 'group_creative_makers_hero',
+		'title'                 => 'Creative Makers — Hero / Banner',
+		'fields'                => array(
+			array(
+				'key'   => 'field_creative_makers_hero_breadcrumb_home_text',
+				'label' => 'Breadcrumb: Home label',
+				'name'  => 'creative_makers_hero_breadcrumb_home_text',
+				'type'  => 'text',
+			),
+			array(
+				'key'           => 'field_creative_makers_hero_breadcrumb_home_link',
+				'label'         => 'Breadcrumb: Home link',
+				'name'          => 'creative_makers_hero_breadcrumb_home_link',
+				'type'          => 'link',
+				'return_format' => 'array',
+			),
+			array(
+				'key'   => 'field_creative_makers_hero_breadcrumb_parent_text',
+				'label' => 'Breadcrumb: parent label',
+				'name'  => 'creative_makers_hero_breadcrumb_parent_text',
+				'type'  => 'text',
+			),
+			array(
+				'key'           => 'field_creative_makers_hero_breadcrumb_parent_link',
+				'label'         => 'Breadcrumb: parent link',
+				'name'          => 'creative_makers_hero_breadcrumb_parent_link',
+				'type'          => 'link',
+				'return_format' => 'array',
+			),
+			array(
+				'key'   => 'field_creative_makers_hero_breadcrumb_current_text',
+				'label' => 'Breadcrumb: current page label',
+				'name'  => 'creative_makers_hero_breadcrumb_current_text',
+				'type'  => 'text',
+			),
+			array(
+				'key'   => 'field_creative_makers_hero_title',
+				'label' => 'Page title',
+				'name'  => 'creative_makers_hero_title',
+				'type'  => 'text',
+			),
+			array(
+				'key'           => 'field_creative_makers_hero_title_heart',
+				'label'         => 'Title heart decoration',
+				'name'          => 'creative_makers_hero_title_heart',
+				'type'          => 'image',
+				'return_format' => 'array',
+				'preview_size'  => 'thumbnail',
+			),
+			array(
+				'key'   => 'field_creative_makers_hero_tagline',
+				'label' => 'Tagline',
+				'name'  => 'creative_makers_hero_tagline',
+				'type'  => 'text',
+			),
+			array(
+				'key'   => 'field_creative_makers_hero_text',
+				'label' => 'Intro text',
+				'name'  => 'creative_makers_hero_text',
+				'type'  => 'textarea',
+				'rows'  => 4,
+			),
+			array(
+				'key'   => 'field_creative_makers_hero_primary_btn_text',
+				'label' => 'Primary button text',
+				'name'  => 'creative_makers_hero_primary_btn_text',
+				'type'  => 'text',
+			),
+			array(
+				'key'           => 'field_creative_makers_hero_primary_btn_link',
+				'label'         => 'Primary button link',
+				'name'          => 'creative_makers_hero_primary_btn_link',
+				'type'          => 'link',
+				'return_format' => 'array',
+			),
+			array(
+				'key'   => 'field_creative_makers_hero_back_text',
+				'label' => 'Back link text',
+				'name'  => 'creative_makers_hero_back_text',
+				'type'  => 'text',
+			),
+			array(
+				'key'           => 'field_creative_makers_hero_back_link',
+				'label'         => 'Back link URL',
+				'name'          => 'creative_makers_hero_back_link',
+				'type'          => 'link',
+				'return_format' => 'array',
+			),
+			array(
+				'key'           => 'field_creative_makers_hero_banner',
+				'label'         => 'Banner image',
+				'name'          => 'creative_makers_hero_banner',
+				'type'          => 'image',
+				'return_format' => 'array',
+				'preview_size'  => 'medium',
+			),
+			array(
+				'key'   => 'field_creative_makers_hero_banner_alt',
+				'label' => 'Banner alt text',
+				'name'  => 'creative_makers_hero_banner_alt',
+				'type'  => 'text',
+			),
+			array(
+				'key'           => 'field_creative_makers_hero_deco_star',
+				'label'         => 'Star decoration',
+				'name'          => 'creative_makers_hero_deco_star',
+				'type'          => 'image',
+				'return_format' => 'array',
+				'preview_size'  => 'thumbnail',
+			),
+			array(
+				'key'           => 'field_creative_makers_hero_deco_plane',
+				'label'         => 'Plane decoration',
+				'name'          => 'creative_makers_hero_deco_plane',
+				'type'          => 'image',
+				'return_format' => 'array',
+				'preview_size'  => 'thumbnail',
+			),
+		),
+		'location'              => array(
+			array(
+				array(
+					'param'    => 'page_template',
+					'operator' => '==',
+					'value'    => 'page-creative-makers.php',
+				),
+			),
+		),
+		'menu_order'            => 0,
+		'position'              => 'normal',
+		'style'                 => 'default',
+		'label_placement'       => 'top',
+		'instruction_placement' => 'label',
+		'active'                => true,
+	)
+);
+
+acf_add_local_field_group(
+	array(
+		'key'                   => 'group_creative_makers_explore',
+		'title'                 => 'Creative Makers — Children Explore',
+		'fields'                => array(
+			array(
+				'key'   => 'field_creative_makers_explore_title',
+				'label' => 'Section title',
+				'name'  => 'creative_makers_explore_title',
+				'type'  => 'text',
+			),
+			array(
+				'key'          => 'field_creative_makers_explore_activities',
+				'label'        => 'Activity cards',
+				'name'         => 'creative_makers_explore_activities',
+				'type'         => 'repeater',
+				'layout'       => 'block',
+				'button_label' => 'Add activity',
+				'min'          => 0,
+				'max'          => 8,
+				'instructions' => 'Leave empty to keep all five default activity cards.',
+				'sub_fields'   => array(
+					array(
+						'key'           => 'field_creative_makers_explore_activity_icon',
+						'label'         => 'Icon',
+						'name'          => 'icon',
+						'type'          => 'image',
+						'return_format' => 'array',
+						'preview_size'  => 'thumbnail',
+					),
+					array(
+						'key'   => 'field_creative_makers_explore_activity_title',
+						'label' => 'Title',
+						'name'  => 'title',
+						'type'  => 'text',
+					),
+					array(
+						'key'           => 'field_creative_makers_explore_activity_color_slug',
+						'label'         => 'Card color',
+						'name'          => 'color_slug',
+						'type'          => 'select',
+						'choices'       => array(
+							'paint'   => 'Paint',
+							'crafts'  => 'Crafts',
+							'media'   => 'Media',
+							'design'  => 'Design',
+							'upcycle' => 'Upcycle',
+						),
+						'default_value' => 'paint',
+						'return_format' => 'value',
+					),
+				),
+			),
+		),
+		'location'              => array(
+			array(
+				array(
+					'param'    => 'page_template',
+					'operator' => '==',
+					'value'    => 'page-creative-makers.php',
+				),
+			),
+		),
+		'menu_order'            => 1,
+		'position'              => 'normal',
+		'style'                 => 'default',
+		'label_placement'       => 'top',
+		'instruction_placement' => 'label',
+		'active'                => true,
+	)
+);
+
+acf_add_local_field_group(
+	array(
+		'key'                   => 'group_creative_makers_info',
+		'title'                 => 'Creative Makers — Skills, Growth & Impact',
+		'fields'                => array(
+			array(
+				'key'   => 'field_creative_makers_info_aria_label',
+				'label' => 'Section aria label',
+				'name'  => 'creative_makers_info_aria_label',
+				'type'  => 'text',
+			),
+			array(
+				'key'   => 'field_creative_makers_info_skills_title',
+				'label' => 'Skills card title',
+				'name'  => 'creative_makers_info_skills_title',
+				'type'  => 'text',
+			),
+			array(
+				'key'          => 'field_creative_makers_info_skills_items',
+				'label'        => 'Skills list items',
+				'name'         => 'creative_makers_info_skills_items',
+				'type'         => 'repeater',
+				'layout'       => 'table',
+				'button_label' => 'Add skill',
+				'min'          => 0,
+				'max'          => 10,
+				'instructions' => 'Leave empty to keep all five default skills.',
+				'sub_fields'   => array(
+					array(
+						'key'   => 'field_creative_makers_info_skills_item_text',
+						'label' => 'Skill',
+						'name'  => 'item_text',
+						'type'  => 'text',
+					),
+				),
+			),
+			array(
+				'key'           => 'field_creative_makers_info_skills_deco',
+				'label'         => 'Skills card decoration',
+				'name'          => 'creative_makers_info_skills_deco',
+				'type'          => 'image',
+				'return_format' => 'array',
+				'preview_size'  => 'thumbnail',
+			),
+			array(
+				'key'   => 'field_creative_makers_info_grow_title_underline_word',
+				'label' => 'Growth card heading (underlined)',
+				'name'  => 'creative_makers_info_grow_title_underline_word',
+				'type'  => 'text',
+			),
+			array(
+				'key'           => 'field_creative_makers_info_grow_title_underline',
+				'label'         => 'Growth card underline image',
+				'name'          => 'creative_makers_info_grow_title_underline',
+				'type'          => 'image',
+				'return_format' => 'array',
+				'preview_size'  => 'thumbnail',
+			),
+			array(
+				'key'   => 'field_creative_makers_info_grow_title_suffix',
+				'label' => 'Growth card heading suffix',
+				'name'  => 'creative_makers_info_grow_title_suffix',
+				'type'  => 'text',
+			),
+			array(
+				'key'   => 'field_creative_makers_info_grow_text',
+				'label' => 'Growth card text',
+				'name'  => 'creative_makers_info_grow_text',
+				'type'  => 'textarea',
+				'rows'  => 4,
+			),
+			array(
+				'key'           => 'field_creative_makers_info_grow_deco',
+				'label'         => 'Growth card decoration',
+				'name'          => 'creative_makers_info_grow_deco',
+				'type'          => 'image',
+				'return_format' => 'array',
+				'preview_size'  => 'thumbnail',
+			),
+			array(
+				'key'   => 'field_creative_makers_info_impact_title',
+				'label' => 'Impact card title',
+				'name'  => 'creative_makers_info_impact_title',
+				'type'  => 'text',
+			),
+			array(
+				'key'   => 'field_creative_makers_info_impact_text',
+				'label' => 'Impact card text',
+				'name'  => 'creative_makers_info_impact_text',
+				'type'  => 'textarea',
+				'rows'  => 4,
+			),
+			array(
+				'key'           => 'field_creative_makers_info_impact_deco',
+				'label'         => 'Impact card decoration',
+				'name'          => 'creative_makers_info_impact_deco',
+				'type'          => 'image',
+				'return_format' => 'array',
+				'preview_size'  => 'thumbnail',
+			),
+		),
+		'location'              => array(
+			array(
+				array(
+					'param'    => 'page_template',
+					'operator' => '==',
+					'value'    => 'page-creative-makers.php',
+				),
+			),
+		),
+		'menu_order'            => 2,
+		'position'              => 'normal',
+		'style'                 => 'default',
+		'label_placement'       => 'top',
+		'instruction_placement' => 'label',
+		'active'                => true,
+	)
+);
+
+acf_add_local_field_group(
+	array(
+		'key'                   => 'group_creative_makers_parents',
+		'title'                 => 'Creative Makers — What Parents Should Know',
+		'fields'                => array(
+			array(
+				'key'   => 'field_creative_makers_parents_section_id',
+				'label' => 'Section anchor ID',
+				'name'  => 'creative_makers_parents_section_id',
+				'type'  => 'text',
+				'instructions' => 'Used for in-page links (e.g. hero button). Default: creative-makers-parents',
+			),
+			array(
+				'key'   => 'field_creative_makers_parents_title',
+				'label' => 'Section title',
+				'name'  => 'creative_makers_parents_title',
+				'type'  => 'text',
+			),
+			array(
+				'key'   => 'field_creative_makers_parents_tablist_aria_label',
+				'label' => 'Tab list aria label',
+				'name'  => 'creative_makers_parents_tablist_aria_label',
+				'type'  => 'text',
+			),
+			array(
+				'key'          => 'field_creative_makers_parents_faq_items',
+				'label'        => 'FAQ tabs',
+				'name'         => 'creative_makers_parents_faq_items',
+				'type'         => 'repeater',
+				'layout'       => 'block',
+				'button_label' => 'Add tab',
+				'min'          => 0,
+				'max'          => 6,
+				'instructions' => 'Leave empty to keep all four default FAQ tabs. Panel slug controls accordion styling — keep slugs as expect, materials, safety, or program.',
+				'sub_fields'   => array(
+					array(
+						'key'           => 'field_creative_makers_parents_faq_panel_slug',
+						'label'         => 'Panel slug',
+						'name'          => 'panel_slug',
+						'type'          => 'select',
+						'choices'       => array(
+							'expect'    => 'What to Expect',
+							'materials' => 'Materials',
+							'safety'    => 'Safety & Supervision',
+							'program'   => 'Program Details',
+						),
+						'default_value' => 'expect',
+						'return_format' => 'value',
+					),
+					array(
+						'key'   => 'field_creative_makers_parents_faq_tab_label',
+						'label' => 'Tab label',
+						'name'  => 'tab_label',
+						'type'  => 'text',
+					),
+					array(
+						'key'   => 'field_creative_makers_parents_faq_panel_text',
+						'label' => 'Panel text',
+						'name'  => 'panel_text',
+						'type'  => 'textarea',
+						'rows'  => 4,
+					),
+				),
+			),
+		),
+		'location'              => array(
+			array(
+				array(
+					'param'    => 'page_template',
+					'operator' => '==',
+					'value'    => 'page-creative-makers.php',
+				),
+			),
+		),
+		'menu_order'            => 3,
+		'position'              => 'normal',
+		'style'                 => 'default',
+		'label_placement'       => 'top',
+		'instruction_placement' => 'label',
+		'active'                => true,
+	)
+);
+
+acf_add_local_field_group(
+	array(
+		'key'                   => 'group_creative_makers_cta',
+		'title'                 => 'Creative Makers — Join CTA',
+		'fields'                => array(
+			array(
+				'key'   => 'field_creative_makers_cta_aria_label',
+				'label' => 'Section aria label',
+				'name'  => 'creative_makers_cta_aria_label',
+				'type'  => 'text',
+			),
+			array(
+				'key'           => 'field_creative_makers_cta_heart',
+				'label'         => 'Heart decoration',
+				'name'          => 'creative_makers_cta_heart',
+				'type'          => 'image',
+				'return_format' => 'array',
+				'preview_size'  => 'thumbnail',
+			),
+			array(
+				'key'   => 'field_creative_makers_cta_text',
+				'label' => 'CTA text',
+				'name'  => 'creative_makers_cta_text',
+				'type'  => 'textarea',
+				'rows'  => 3,
+			),
+			array(
+				'key'           => 'field_creative_makers_cta_plane',
+				'label'         => 'Plane decoration',
+				'name'          => 'creative_makers_cta_plane',
+				'type'          => 'image',
+				'return_format' => 'array',
+				'preview_size'  => 'thumbnail',
+			),
+			array(
+				'key'   => 'field_creative_makers_cta_btn_text',
+				'label' => 'Button text',
+				'name'  => 'creative_makers_cta_btn_text',
+				'type'  => 'text',
+			),
+			array(
+				'key'           => 'field_creative_makers_cta_btn_link',
+				'label'         => 'Button link',
+				'name'          => 'creative_makers_cta_btn_link',
+				'type'          => 'link',
+				'return_format' => 'array',
+			),
+		),
+		'location'              => array(
+			array(
+				array(
+					'param'    => 'page_template',
+					'operator' => '==',
+					'value'    => 'page-creative-makers.php',
+				),
+			),
+		),
+		'menu_order'            => 4,
+		'position'              => 'normal',
+		'style'                 => 'default',
+		'label_placement'       => 'top',
+		'instruction_placement' => 'label',
+		'active'                => true,
+	)
+);
+
+acf_add_local_field_group(
+	array(
+		'key'                   => 'group_young_ideas_lab_hero',
+		'title'                 => 'Young Ideas Lab — Hero / Banner',
+		'fields'                => array(
+			array(
+				'key'   => 'field_young_ideas_lab_hero_breadcrumb_home_text',
+				'label' => 'Breadcrumb: Home label',
+				'name'  => 'young_ideas_lab_hero_breadcrumb_home_text',
+				'type'  => 'text',
+			),
+			array(
+				'key'           => 'field_young_ideas_lab_hero_breadcrumb_home_link',
+				'label'         => 'Breadcrumb: Home link',
+				'name'          => 'young_ideas_lab_hero_breadcrumb_home_link',
+				'type'          => 'link',
+				'return_format' => 'array',
+			),
+			array(
+				'key'   => 'field_young_ideas_lab_hero_breadcrumb_parent_text',
+				'label' => 'Breadcrumb: parent label',
+				'name'  => 'young_ideas_lab_hero_breadcrumb_parent_text',
+				'type'  => 'text',
+			),
+			array(
+				'key'           => 'field_young_ideas_lab_hero_breadcrumb_parent_link',
+				'label'         => 'Breadcrumb: parent link',
+				'name'          => 'young_ideas_lab_hero_breadcrumb_parent_link',
+				'type'          => 'link',
+				'return_format' => 'array',
+			),
+			array(
+				'key'   => 'field_young_ideas_lab_hero_breadcrumb_current_text',
+				'label' => 'Breadcrumb: current page label',
+				'name'  => 'young_ideas_lab_hero_breadcrumb_current_text',
+				'type'  => 'text',
+			),
+			array(
+				'key'   => 'field_young_ideas_lab_hero_title',
+				'label' => 'Page title',
+				'name'  => 'young_ideas_lab_hero_title',
+				'type'  => 'text',
+			),
+			array(
+				'key'           => 'field_young_ideas_lab_hero_title_icon',
+				'label'         => 'Title lightbulb decoration',
+				'name'          => 'young_ideas_lab_hero_title_icon',
+				'type'          => 'image',
+				'return_format' => 'array',
+				'preview_size'  => 'thumbnail',
+			),
+			array(
+				'key'   => 'field_young_ideas_lab_hero_tagline',
+				'label' => 'Tagline',
+				'name'  => 'young_ideas_lab_hero_tagline',
+				'type'  => 'text',
+			),
+			array(
+				'key'   => 'field_young_ideas_lab_hero_text',
+				'label' => 'Intro text',
+				'name'  => 'young_ideas_lab_hero_text',
+				'type'  => 'textarea',
+				'rows'  => 4,
+			),
+			array(
+				'key'   => 'field_young_ideas_lab_hero_primary_btn_text',
+				'label' => 'Primary button text',
+				'name'  => 'young_ideas_lab_hero_primary_btn_text',
+				'type'  => 'text',
+			),
+			array(
+				'key'           => 'field_young_ideas_lab_hero_primary_btn_link',
+				'label'         => 'Primary button link',
+				'name'          => 'young_ideas_lab_hero_primary_btn_link',
+				'type'          => 'link',
+				'return_format' => 'array',
+			),
+			array(
+				'key'   => 'field_young_ideas_lab_hero_back_text',
+				'label' => 'Back link text',
+				'name'  => 'young_ideas_lab_hero_back_text',
+				'type'  => 'text',
+			),
+			array(
+				'key'           => 'field_young_ideas_lab_hero_back_link',
+				'label'         => 'Back link URL',
+				'name'          => 'young_ideas_lab_hero_back_link',
+				'type'          => 'link',
+				'return_format' => 'array',
+			),
+			array(
+				'key'           => 'field_young_ideas_lab_hero_banner',
+				'label'         => 'Banner image',
+				'name'          => 'young_ideas_lab_hero_banner',
+				'type'          => 'image',
+				'return_format' => 'array',
+				'preview_size'  => 'medium',
+			),
+			array(
+				'key'   => 'field_young_ideas_lab_hero_banner_alt',
+				'label' => 'Banner alt text',
+				'name'  => 'young_ideas_lab_hero_banner_alt',
+				'type'  => 'text',
+			),
+		),
+		'location'              => array(
+			array(
+				array(
+					'param'    => 'page_template',
+					'operator' => '==',
+					'value'    => 'page-young-ideas-lab.php',
+				),
+			),
+		),
+		'menu_order'            => 0,
+		'position'              => 'normal',
+		'style'                 => 'default',
+		'label_placement'       => 'top',
+		'instruction_placement' => 'label',
+		'active'                => true,
+	)
+);
+
+acf_add_local_field_group(
+	array(
+		'key'                   => 'group_young_ideas_lab_explore',
+		'title'                 => 'Young Ideas Lab — Children Explore',
+		'fields'                => array(
+			array(
+				'key'   => 'field_young_ideas_lab_explore_title',
+				'label' => 'Section title',
+				'name'  => 'young_ideas_lab_explore_title',
+				'type'  => 'text',
+			),
+			array(
+				'key'          => 'field_young_ideas_lab_explore_activities',
+				'label'        => 'Activity cards',
+				'name'         => 'young_ideas_lab_explore_activities',
+				'type'         => 'repeater',
+				'layout'       => 'block',
+				'button_label' => 'Add activity',
+				'min'          => 0,
+				'max'          => 8,
+				'instructions' => 'Leave empty to keep all five default activity cards.',
+				'sub_fields'   => array(
+					array(
+						'key'           => 'field_young_ideas_lab_explore_activity_icon',
+						'label'         => 'Icon',
+						'name'          => 'icon',
+						'type'          => 'image',
+						'return_format' => 'array',
+						'preview_size'  => 'thumbnail',
+					),
+					array(
+						'key'   => 'field_young_ideas_lab_explore_activity_title',
+						'label' => 'Title',
+						'name'  => 'title',
+						'type'  => 'text',
+					),
+					array(
+						'key'           => 'field_young_ideas_lab_explore_activity_color_slug',
+						'label'         => 'Card color',
+						'name'          => 'color_slug',
+						'type'          => 'select',
+						'choices'       => array(
+							'paint'   => 'Paint',
+							'crafts'  => 'Crafts',
+							'media'   => 'Media',
+							'design'  => 'Design',
+							'upcycle' => 'Upcycle',
+						),
+						'default_value' => 'paint',
+						'return_format' => 'value',
+					),
+				),
+			),
+		),
+		'location'              => array(
+			array(
+				array(
+					'param'    => 'page_template',
+					'operator' => '==',
+					'value'    => 'page-young-ideas-lab.php',
+				),
+			),
+		),
+		'menu_order'            => 1,
+		'position'              => 'normal',
+		'style'                 => 'default',
+		'label_placement'       => 'top',
+		'instruction_placement' => 'label',
+		'active'                => true,
+	)
+);
+
+acf_add_local_field_group(
+	array(
+		'key'                   => 'group_young_ideas_lab_info',
+		'title'                 => 'Young Ideas Lab — Skills, Growth & Impact',
+		'fields'                => array(
+			array(
+				'key'   => 'field_young_ideas_lab_info_aria_label',
+				'label' => 'Section aria label',
+				'name'  => 'young_ideas_lab_info_aria_label',
+				'type'  => 'text',
+			),
+			array(
+				'key'   => 'field_young_ideas_lab_info_skills_title',
+				'label' => 'Skills card title',
+				'name'  => 'young_ideas_lab_info_skills_title',
+				'type'  => 'text',
+			),
+			array(
+				'key'          => 'field_young_ideas_lab_info_skills_items',
+				'label'        => 'Skills list items',
+				'name'         => 'young_ideas_lab_info_skills_items',
+				'type'         => 'repeater',
+				'layout'       => 'table',
+				'button_label' => 'Add skill',
+				'min'          => 0,
+				'max'          => 10,
+				'instructions' => 'Leave empty to keep all five default skills.',
+				'sub_fields'   => array(
+					array(
+						'key'   => 'field_young_ideas_lab_info_skills_item_text',
+						'label' => 'Skill',
+						'name'  => 'item_text',
+						'type'  => 'text',
+					),
+				),
+			),
+			array(
+				'key'           => 'field_young_ideas_lab_info_skills_deco',
+				'label'         => 'Skills card decoration',
+				'name'          => 'young_ideas_lab_info_skills_deco',
+				'type'          => 'image',
+				'return_format' => 'array',
+				'preview_size'  => 'thumbnail',
+			),
+			array(
+				'key'   => 'field_young_ideas_lab_info_grow_title_underline_word',
+				'label' => 'Growth card heading (underlined)',
+				'name'  => 'young_ideas_lab_info_grow_title_underline_word',
+				'type'  => 'text',
+			),
+			array(
+				'key'           => 'field_young_ideas_lab_info_grow_title_underline',
+				'label'         => 'Growth card underline image',
+				'name'          => 'young_ideas_lab_info_grow_title_underline',
+				'type'          => 'image',
+				'return_format' => 'array',
+				'preview_size'  => 'thumbnail',
+			),
+			array(
+				'key'   => 'field_young_ideas_lab_info_grow_title_suffix',
+				'label' => 'Growth card heading suffix',
+				'name'  => 'young_ideas_lab_info_grow_title_suffix',
+				'type'  => 'text',
+			),
+			array(
+				'key'   => 'field_young_ideas_lab_info_grow_text',
+				'label' => 'Growth card text',
+				'name'  => 'young_ideas_lab_info_grow_text',
+				'type'  => 'textarea',
+				'rows'  => 4,
+			),
+			array(
+				'key'           => 'field_young_ideas_lab_info_grow_deco',
+				'label'         => 'Growth card decoration',
+				'name'          => 'young_ideas_lab_info_grow_deco',
+				'type'          => 'image',
+				'return_format' => 'array',
+				'preview_size'  => 'thumbnail',
+			),
+			array(
+				'key'   => 'field_young_ideas_lab_info_impact_title',
+				'label' => 'Impact card title',
+				'name'  => 'young_ideas_lab_info_impact_title',
+				'type'  => 'text',
+			),
+			array(
+				'key'   => 'field_young_ideas_lab_info_impact_text',
+				'label' => 'Impact card text',
+				'name'  => 'young_ideas_lab_info_impact_text',
+				'type'  => 'textarea',
+				'rows'  => 4,
+			),
+			array(
+				'key'           => 'field_young_ideas_lab_info_impact_deco',
+				'label'         => 'Impact card decoration',
+				'name'          => 'young_ideas_lab_info_impact_deco',
+				'type'          => 'image',
+				'return_format' => 'array',
+				'preview_size'  => 'thumbnail',
+			),
+		),
+		'location'              => array(
+			array(
+				array(
+					'param'    => 'page_template',
+					'operator' => '==',
+					'value'    => 'page-young-ideas-lab.php',
+				),
+			),
+		),
+		'menu_order'            => 2,
+		'position'              => 'normal',
+		'style'                 => 'default',
+		'label_placement'       => 'top',
+		'instruction_placement' => 'label',
+		'active'                => true,
+	)
+);
+
+acf_add_local_field_group(
+	array(
+		'key'                   => 'group_young_ideas_lab_parents',
+		'title'                 => 'Young Ideas Lab — What Parents Should Know',
+		'fields'                => array(
+			array(
+				'key'          => 'field_young_ideas_lab_parents_section_id',
+				'label'        => 'Section anchor ID',
+				'name'         => 'young_ideas_lab_parents_section_id',
+				'type'         => 'text',
+				'instructions' => 'Used for in-page links (e.g. hero button). Default: young-ideas-lab-parents',
+			),
+			array(
+				'key'   => 'field_young_ideas_lab_parents_title',
+				'label' => 'Section title',
+				'name'  => 'young_ideas_lab_parents_title',
+				'type'  => 'text',
+			),
+			array(
+				'key'   => 'field_young_ideas_lab_parents_tablist_aria_label',
+				'label' => 'Tab list aria label',
+				'name'  => 'young_ideas_lab_parents_tablist_aria_label',
+				'type'  => 'text',
+			),
+			array(
+				'key'          => 'field_young_ideas_lab_parents_faq_items',
+				'label'        => 'FAQ tabs',
+				'name'         => 'young_ideas_lab_parents_faq_items',
+				'type'         => 'repeater',
+				'layout'       => 'block',
+				'button_label' => 'Add tab',
+				'min'          => 0,
+				'max'          => 6,
+				'instructions' => 'Leave empty to keep all four default FAQ tabs. Panel slug controls accordion styling — keep slugs as expect, materials, safety, or program.',
+				'sub_fields'   => array(
+					array(
+						'key'           => 'field_young_ideas_lab_parents_faq_panel_slug',
+						'label'         => 'Panel slug',
+						'name'          => 'panel_slug',
+						'type'          => 'select',
+						'choices'       => array(
+							'expect'    => 'What to Expect',
+							'materials' => 'Materials',
+							'safety'    => 'Safety & Supervision',
+							'program'   => 'Program Details',
+						),
+						'default_value' => 'expect',
+						'return_format' => 'value',
+					),
+					array(
+						'key'   => 'field_young_ideas_lab_parents_faq_tab_label',
+						'label' => 'Tab label',
+						'name'  => 'tab_label',
+						'type'  => 'text',
+					),
+					array(
+						'key'   => 'field_young_ideas_lab_parents_faq_panel_text',
+						'label' => 'Panel text',
+						'name'  => 'panel_text',
+						'type'  => 'textarea',
+						'rows'  => 4,
+					),
+				),
+			),
+		),
+		'location'              => array(
+			array(
+				array(
+					'param'    => 'page_template',
+					'operator' => '==',
+					'value'    => 'page-young-ideas-lab.php',
+				),
+			),
+		),
+		'menu_order'            => 3,
+		'position'              => 'normal',
+		'style'                 => 'default',
+		'label_placement'       => 'top',
+		'instruction_placement' => 'label',
+		'active'                => true,
+	)
+);
+
+acf_add_local_field_group(
+	array(
+		'key'                   => 'group_young_ideas_lab_cta',
+		'title'                 => 'Young Ideas Lab — Join CTA',
+		'fields'                => array(
+			array(
+				'key'   => 'field_young_ideas_lab_cta_aria_label',
+				'label' => 'Section aria label',
+				'name'  => 'young_ideas_lab_cta_aria_label',
+				'type'  => 'text',
+			),
+			array(
+				'key'           => 'field_young_ideas_lab_cta_icon',
+				'label'         => 'Lightbulb decoration',
+				'name'          => 'young_ideas_lab_cta_icon',
+				'type'          => 'image',
+				'return_format' => 'array',
+				'preview_size'  => 'thumbnail',
+			),
+			array(
+				'key'   => 'field_young_ideas_lab_cta_text',
+				'label' => 'CTA text',
+				'name'  => 'young_ideas_lab_cta_text',
+				'type'  => 'textarea',
+				'rows'  => 3,
+			),
+			array(
+				'key'           => 'field_young_ideas_lab_cta_plane',
+				'label'         => 'Plane decoration',
+				'name'          => 'young_ideas_lab_cta_plane',
+				'type'          => 'image',
+				'return_format' => 'array',
+				'preview_size'  => 'thumbnail',
+			),
+			array(
+				'key'   => 'field_young_ideas_lab_cta_btn_text',
+				'label' => 'Button text',
+				'name'  => 'young_ideas_lab_cta_btn_text',
+				'type'  => 'text',
+			),
+			array(
+				'key'           => 'field_young_ideas_lab_cta_btn_link',
+				'label'         => 'Button link',
+				'name'          => 'young_ideas_lab_cta_btn_link',
+				'type'          => 'link',
+				'return_format' => 'array',
+			),
+		),
+		'location'              => array(
+			array(
+				array(
+					'param'    => 'page_template',
+					'operator' => '==',
+					'value'    => 'page-young-ideas-lab.php',
+				),
+			),
+		),
+		'menu_order'            => 4,
+		'position'              => 'normal',
+		'style'                 => 'default',
+		'label_placement'       => 'top',
+		'instruction_placement' => 'label',
+		'active'                => true,
+	)
+);
+
+acf_add_local_field_group(
+	array(
+		'key'                   => 'group_community_adventures_hero',
+		'title'                 => 'Community Adventures — Hero / Banner',
+		'fields'                => array(
+			array(
+				'key'   => 'field_community_adventures_hero_breadcrumb_home_text',
+				'label' => 'Breadcrumb: Home label',
+				'name'  => 'community_adventures_hero_breadcrumb_home_text',
+				'type'  => 'text',
+			),
+			array(
+				'key'           => 'field_community_adventures_hero_breadcrumb_home_link',
+				'label'         => 'Breadcrumb: Home link',
+				'name'          => 'community_adventures_hero_breadcrumb_home_link',
+				'type'          => 'link',
+				'return_format' => 'array',
+			),
+			array(
+				'key'   => 'field_community_adventures_hero_breadcrumb_parent_text',
+				'label' => 'Breadcrumb: parent label',
+				'name'  => 'community_adventures_hero_breadcrumb_parent_text',
+				'type'  => 'text',
+			),
+			array(
+				'key'           => 'field_community_adventures_hero_breadcrumb_parent_link',
+				'label'         => 'Breadcrumb: parent link',
+				'name'          => 'community_adventures_hero_breadcrumb_parent_link',
+				'type'          => 'link',
+				'return_format' => 'array',
+			),
+			array(
+				'key'   => 'field_community_adventures_hero_breadcrumb_current_text',
+				'label' => 'Breadcrumb: current page label',
+				'name'  => 'community_adventures_hero_breadcrumb_current_text',
+				'type'  => 'text',
+			),
+			array(
+				'key'   => 'field_community_adventures_hero_title',
+				'label' => 'Page title',
+				'name'  => 'community_adventures_hero_title',
+				'type'  => 'text',
+			),
+			array(
+				'key'   => 'field_community_adventures_hero_tagline',
+				'label' => 'Tagline',
+				'name'  => 'community_adventures_hero_tagline',
+				'type'  => 'text',
+			),
+			array(
+				'key'   => 'field_community_adventures_hero_text',
+				'label' => 'Intro text',
+				'name'  => 'community_adventures_hero_text',
+				'type'  => 'textarea',
+				'rows'  => 4,
+			),
+			array(
+				'key'   => 'field_community_adventures_hero_primary_btn_text',
+				'label' => 'Primary button text',
+				'name'  => 'community_adventures_hero_primary_btn_text',
+				'type'  => 'text',
+			),
+			array(
+				'key'           => 'field_community_adventures_hero_primary_btn_link',
+				'label'         => 'Primary button link',
+				'name'          => 'community_adventures_hero_primary_btn_link',
+				'type'          => 'link',
+				'return_format' => 'array',
+			),
+			array(
+				'key'   => 'field_community_adventures_hero_back_text',
+				'label' => 'Back link text',
+				'name'  => 'community_adventures_hero_back_text',
+				'type'  => 'text',
+			),
+			array(
+				'key'           => 'field_community_adventures_hero_back_link',
+				'label'         => 'Back link URL',
+				'name'          => 'community_adventures_hero_back_link',
+				'type'          => 'link',
+				'return_format' => 'array',
+			),
+			array(
+				'key'           => 'field_community_adventures_hero_banner',
+				'label'         => 'Banner image',
+				'name'          => 'community_adventures_hero_banner',
+				'type'          => 'image',
+				'return_format' => 'array',
+				'preview_size'  => 'medium',
+			),
+			array(
+				'key'   => 'field_community_adventures_hero_banner_alt',
+				'label' => 'Banner alt text',
+				'name'  => 'community_adventures_hero_banner_alt',
+				'type'  => 'text',
+			),
+		),
+		'location'              => array(
+			array(
+				array(
+					'param'    => 'page_template',
+					'operator' => '==',
+					'value'    => 'page-community-adventures.php',
+				),
+			),
+		),
+		'menu_order'            => 0,
+		'position'              => 'normal',
+		'style'                 => 'default',
+		'label_placement'       => 'top',
+		'instruction_placement' => 'label',
+		'active'                => true,
+	)
+);
+
+acf_add_local_field_group(
+	array(
+		'key'                   => 'group_community_adventures_explore',
+		'title'                 => 'Community Adventures — Children Explore',
+		'fields'                => array(
+			array(
+				'key'   => 'field_community_adventures_explore_title',
+				'label' => 'Section title',
+				'name'  => 'community_adventures_explore_title',
+				'type'  => 'text',
+			),
+			array(
+				'key'          => 'field_community_adventures_explore_activities',
+				'label'        => 'Activity cards',
+				'name'         => 'community_adventures_explore_activities',
+				'type'         => 'repeater',
+				'layout'       => 'block',
+				'button_label' => 'Add activity',
+				'min'          => 0,
+				'max'          => 8,
+				'instructions' => 'Leave empty to keep all five default activity cards.',
+				'sub_fields'   => array(
+					array(
+						'key'           => 'field_community_adventures_explore_activity_icon',
+						'label'         => 'Icon',
+						'name'          => 'icon',
+						'type'          => 'image',
+						'return_format' => 'array',
+						'preview_size'  => 'thumbnail',
+					),
+					array(
+						'key'   => 'field_community_adventures_explore_activity_title',
+						'label' => 'Title',
+						'name'  => 'title',
+						'type'  => 'text',
+					),
+					array(
+						'key'           => 'field_community_adventures_explore_activity_color_slug',
+						'label'         => 'Card color',
+						'name'          => 'color_slug',
+						'type'          => 'select',
+						'choices'       => array(
+							'paint'   => 'Paint',
+							'crafts'  => 'Crafts',
+							'media'   => 'Media',
+							'design'  => 'Design',
+							'upcycle' => 'Upcycle',
+						),
+						'default_value' => 'paint',
+						'return_format' => 'value',
+					),
+				),
+			),
+		),
+		'location'              => array(
+			array(
+				array(
+					'param'    => 'page_template',
+					'operator' => '==',
+					'value'    => 'page-community-adventures.php',
+				),
+			),
+		),
+		'menu_order'            => 1,
+		'position'              => 'normal',
+		'style'                 => 'default',
+		'label_placement'       => 'top',
+		'instruction_placement' => 'label',
+		'active'                => true,
+	)
+);
+
+acf_add_local_field_group(
+	array(
+		'key'                   => 'group_community_adventures_info',
+		'title'                 => 'Community Adventures — Skills, Growth & Impact',
+		'fields'                => array(
+			array(
+				'key'   => 'field_community_adventures_info_aria_label',
+				'label' => 'Section aria label',
+				'name'  => 'community_adventures_info_aria_label',
+				'type'  => 'text',
+			),
+			array(
+				'key'   => 'field_community_adventures_info_skills_title',
+				'label' => 'Skills card title',
+				'name'  => 'community_adventures_info_skills_title',
+				'type'  => 'text',
+			),
+			array(
+				'key'          => 'field_community_adventures_info_skills_items',
+				'label'        => 'Skills list items',
+				'name'         => 'community_adventures_info_skills_items',
+				'type'         => 'repeater',
+				'layout'       => 'table',
+				'button_label' => 'Add skill',
+				'min'          => 0,
+				'max'          => 10,
+				'instructions' => 'Leave empty to keep all five default skills.',
+				'sub_fields'   => array(
+					array(
+						'key'   => 'field_community_adventures_info_skills_item_text',
+						'label' => 'Skill',
+						'name'  => 'item_text',
+						'type'  => 'text',
+					),
+				),
+			),
+			array(
+				'key'           => 'field_community_adventures_info_skills_deco',
+				'label'         => 'Skills card star decoration',
+				'name'          => 'community_adventures_info_skills_deco',
+				'type'          => 'image',
+				'return_format' => 'array',
+				'preview_size'  => 'thumbnail',
+			),
+			array(
+				'key'   => 'field_community_adventures_info_grow_title_underline_word',
+				'label' => 'Growth card heading (underlined)',
+				'name'  => 'community_adventures_info_grow_title_underline_word',
+				'type'  => 'text',
+			),
+			array(
+				'key'           => 'field_community_adventures_info_grow_title_underline',
+				'label'         => 'Growth card underline image',
+				'name'          => 'community_adventures_info_grow_title_underline',
+				'type'          => 'image',
+				'return_format' => 'array',
+				'preview_size'  => 'thumbnail',
+			),
+			array(
+				'key'   => 'field_community_adventures_info_grow_title_suffix',
+				'label' => 'Growth card heading suffix',
+				'name'  => 'community_adventures_info_grow_title_suffix',
+				'type'  => 'text',
+			),
+			array(
+				'key'   => 'field_community_adventures_info_grow_text',
+				'label' => 'Growth card text',
+				'name'  => 'community_adventures_info_grow_text',
+				'type'  => 'textarea',
+				'rows'  => 4,
+			),
+			array(
+				'key'           => 'field_community_adventures_info_grow_deco',
+				'label'         => 'Growth card heart decoration',
+				'name'          => 'community_adventures_info_grow_deco',
+				'type'          => 'image',
+				'return_format' => 'array',
+				'preview_size'  => 'thumbnail',
+			),
+			array(
+				'key'   => 'field_community_adventures_info_impact_title',
+				'label' => 'Impact card title',
+				'name'  => 'community_adventures_info_impact_title',
+				'type'  => 'text',
+			),
+			array(
+				'key'   => 'field_community_adventures_info_impact_text',
+				'label' => 'Impact card text',
+				'name'  => 'community_adventures_info_impact_text',
+				'type'  => 'textarea',
+				'rows'  => 4,
+			),
+			array(
+				'key'           => 'field_community_adventures_info_impact_deco',
+				'label'         => 'Impact card plant decoration',
+				'name'          => 'community_adventures_info_impact_deco',
+				'type'          => 'image',
+				'return_format' => 'array',
+				'preview_size'  => 'thumbnail',
+			),
+		),
+		'location'              => array(
+			array(
+				array(
+					'param'    => 'page_template',
+					'operator' => '==',
+					'value'    => 'page-community-adventures.php',
+				),
+			),
+		),
+		'menu_order'            => 2,
+		'position'              => 'normal',
+		'style'                 => 'default',
+		'label_placement'       => 'top',
+		'instruction_placement' => 'label',
+		'active'                => true,
+	)
+);
+
+acf_add_local_field_group(
+	array(
+		'key'                   => 'group_community_adventures_parents',
+		'title'                 => 'Community Adventures — What Parents Should Know',
+		'fields'                => array(
+			array(
+				'key'          => 'field_community_adventures_parents_section_id',
+				'label'        => 'Section anchor ID',
+				'name'         => 'community_adventures_parents_section_id',
+				'type'         => 'text',
+				'instructions' => 'Used for in-page links (e.g. hero button). Default: community-adventures-parents',
+			),
+			array(
+				'key'   => 'field_community_adventures_parents_title',
+				'label' => 'Section title',
+				'name'  => 'community_adventures_parents_title',
+				'type'  => 'text',
+			),
+			array(
+				'key'   => 'field_community_adventures_parents_tablist_aria_label',
+				'label' => 'Tab list aria label',
+				'name'  => 'community_adventures_parents_tablist_aria_label',
+				'type'  => 'text',
+			),
+			array(
+				'key'          => 'field_community_adventures_parents_faq_items',
+				'label'        => 'FAQ tabs',
+				'name'         => 'community_adventures_parents_faq_items',
+				'type'         => 'repeater',
+				'layout'       => 'block',
+				'button_label' => 'Add tab',
+				'min'          => 0,
+				'max'          => 6,
+				'instructions' => 'Leave empty to keep all four default FAQ tabs. Panel slug controls accordion styling — keep slugs as expect, materials, safety, or program.',
+				'sub_fields'   => array(
+					array(
+						'key'           => 'field_community_adventures_parents_faq_panel_slug',
+						'label'         => 'Panel slug',
+						'name'          => 'panel_slug',
+						'type'          => 'select',
+						'choices'       => array(
+							'expect'    => 'What to Expect',
+							'materials' => 'Materials',
+							'safety'    => 'Safety & Supervision',
+							'program'   => 'Program Details',
+						),
+						'default_value' => 'expect',
+						'return_format' => 'value',
+					),
+					array(
+						'key'   => 'field_community_adventures_parents_faq_tab_label',
+						'label' => 'Tab label',
+						'name'  => 'tab_label',
+						'type'  => 'text',
+					),
+					array(
+						'key'   => 'field_community_adventures_parents_faq_panel_text',
+						'label' => 'Panel text',
+						'name'  => 'panel_text',
+						'type'  => 'textarea',
+						'rows'  => 4,
+					),
+				),
+			),
+		),
+		'location'              => array(
+			array(
+				array(
+					'param'    => 'page_template',
+					'operator' => '==',
+					'value'    => 'page-community-adventures.php',
+				),
+			),
+		),
+		'menu_order'            => 3,
+		'position'              => 'normal',
+		'style'                 => 'default',
+		'label_placement'       => 'top',
+		'instruction_placement' => 'label',
+		'active'                => true,
+	)
+);
+
+acf_add_local_field_group(
+	array(
+		'key'                   => 'group_community_adventures_cta',
+		'title'                 => 'Community Adventures — Join CTA',
+		'fields'                => array(
+			array(
+				'key'   => 'field_community_adventures_cta_aria_label',
+				'label' => 'Section aria label',
+				'name'  => 'community_adventures_cta_aria_label',
+				'type'  => 'text',
+			),
+			array(
+				'key'           => 'field_community_adventures_cta_heart',
+				'label'         => 'Heart decoration',
+				'name'          => 'community_adventures_cta_heart',
+				'type'          => 'image',
+				'return_format' => 'array',
+				'preview_size'  => 'thumbnail',
+			),
+			array(
+				'key'   => 'field_community_adventures_cta_text',
+				'label' => 'CTA text',
+				'name'  => 'community_adventures_cta_text',
+				'type'  => 'textarea',
+				'rows'  => 3,
+			),
+			array(
+				'key'           => 'field_community_adventures_cta_plane',
+				'label'         => 'Globe decoration',
+				'name'          => 'community_adventures_cta_plane',
+				'type'          => 'image',
+				'return_format' => 'array',
+				'preview_size'  => 'thumbnail',
+			),
+			array(
+				'key'   => 'field_community_adventures_cta_btn_text',
+				'label' => 'Button text',
+				'name'  => 'community_adventures_cta_btn_text',
+				'type'  => 'text',
+			),
+			array(
+				'key'           => 'field_community_adventures_cta_btn_link',
+				'label'         => 'Button link',
+				'name'          => 'community_adventures_cta_btn_link',
+				'type'          => 'link',
+				'return_format' => 'array',
+			),
+		),
+		'location'              => array(
+			array(
+				array(
+					'param'    => 'page_template',
+					'operator' => '==',
+					'value'    => 'page-community-adventures.php',
+				),
+			),
+		),
+		'menu_order'            => 4,
+		'position'              => 'normal',
+		'style'                 => 'default',
+		'label_placement'       => 'top',
+		'instruction_placement' => 'label',
+		'active'                => true,
+	)
+);
+
+acf_add_local_field_group(
+	array(
+		'key'                   => 'group_create_for_cause_hero',
+		'title'                 => 'Create for a Cause — Hero / Banner',
+		'fields'                => array(
+			array(
+				'key'   => 'field_create_for_cause_hero_breadcrumb_home_text',
+				'label' => 'Breadcrumb: Home label',
+				'name'  => 'create_for_cause_hero_breadcrumb_home_text',
+				'type'  => 'text',
+			),
+			array(
+				'key'           => 'field_create_for_cause_hero_breadcrumb_home_link',
+				'label'         => 'Breadcrumb: Home link',
+				'name'          => 'create_for_cause_hero_breadcrumb_home_link',
+				'type'          => 'link',
+				'return_format' => 'array',
+			),
+			array(
+				'key'   => 'field_create_for_cause_hero_breadcrumb_parent_text',
+				'label' => 'Breadcrumb: parent label',
+				'name'  => 'create_for_cause_hero_breadcrumb_parent_text',
+				'type'  => 'text',
+			),
+			array(
+				'key'           => 'field_create_for_cause_hero_breadcrumb_parent_link',
+				'label'         => 'Breadcrumb: parent link',
+				'name'          => 'create_for_cause_hero_breadcrumb_parent_link',
+				'type'          => 'link',
+				'return_format' => 'array',
+			),
+			array(
+				'key'   => 'field_create_for_cause_hero_breadcrumb_current_text',
+				'label' => 'Breadcrumb: current page label',
+				'name'  => 'create_for_cause_hero_breadcrumb_current_text',
+				'type'  => 'text',
+			),
+			array(
+				'key'   => 'field_create_for_cause_hero_title',
+				'label' => 'Page title',
+				'name'  => 'create_for_cause_hero_title',
+				'type'  => 'text',
+			),
+			array(
+				'key'   => 'field_create_for_cause_hero_tagline',
+				'label' => 'Tagline',
+				'name'  => 'create_for_cause_hero_tagline',
+				'type'  => 'text',
+			),
+			array(
+				'key'   => 'field_create_for_cause_hero_text',
+				'label' => 'Intro text',
+				'name'  => 'create_for_cause_hero_text',
+				'type'  => 'textarea',
+				'rows'  => 4,
+			),
+			array(
+				'key'   => 'field_create_for_cause_hero_primary_btn_text',
+				'label' => 'Primary button text',
+				'name'  => 'create_for_cause_hero_primary_btn_text',
+				'type'  => 'text',
+			),
+			array(
+				'key'           => 'field_create_for_cause_hero_primary_btn_link',
+				'label'         => 'Primary button link',
+				'name'          => 'create_for_cause_hero_primary_btn_link',
+				'type'          => 'link',
+				'return_format' => 'array',
+			),
+			array(
+				'key'   => 'field_create_for_cause_hero_back_text',
+				'label' => 'Back link text',
+				'name'  => 'create_for_cause_hero_back_text',
+				'type'  => 'text',
+			),
+			array(
+				'key'           => 'field_create_for_cause_hero_back_link',
+				'label'         => 'Back link URL',
+				'name'          => 'create_for_cause_hero_back_link',
+				'type'          => 'link',
+				'return_format' => 'array',
+			),
+			array(
+				'key'           => 'field_create_for_cause_hero_banner',
+				'label'         => 'Banner image',
+				'name'          => 'create_for_cause_hero_banner',
+				'type'          => 'image',
+				'return_format' => 'array',
+				'preview_size'  => 'medium',
+			),
+			array(
+				'key'   => 'field_create_for_cause_hero_banner_alt',
+				'label' => 'Banner alt text',
+				'name'  => 'create_for_cause_hero_banner_alt',
+				'type'  => 'text',
+			),
+		),
+		'location'              => array(
+			array(
+				array(
+					'param'    => 'page_template',
+					'operator' => '==',
+					'value'    => 'page-create-for-cause.php',
+				),
+			),
+		),
+		'menu_order'            => 0,
+		'position'              => 'normal',
+		'style'                 => 'default',
+		'label_placement'       => 'top',
+		'instruction_placement' => 'label',
+		'active'                => true,
+	)
+);
+
+acf_add_local_field_group(
+	array(
+		'key'                   => 'group_create_for_cause_explore',
+		'title'                 => 'Create for a Cause — Children Explore',
+		'fields'                => array(
+			array(
+				'key'   => 'field_create_for_cause_explore_title',
+				'label' => 'Section title',
+				'name'  => 'create_for_cause_explore_title',
+				'type'  => 'text',
+			),
+			array(
+				'key'          => 'field_create_for_cause_explore_activities',
+				'label'        => 'Activity cards',
+				'name'         => 'create_for_cause_explore_activities',
+				'type'         => 'repeater',
+				'layout'       => 'block',
+				'button_label' => 'Add activity',
+				'min'          => 0,
+				'max'          => 8,
+				'instructions' => 'Leave empty to keep all five default activity cards.',
+				'sub_fields'   => array(
+					array(
+						'key'           => 'field_create_for_cause_explore_activity_icon',
+						'label'         => 'Icon',
+						'name'          => 'icon',
+						'type'          => 'image',
+						'return_format' => 'array',
+						'preview_size'  => 'thumbnail',
+					),
+					array(
+						'key'   => 'field_create_for_cause_explore_activity_title',
+						'label' => 'Title',
+						'name'  => 'title',
+						'type'  => 'text',
+					),
+					array(
+						'key'           => 'field_create_for_cause_explore_activity_color_slug',
+						'label'         => 'Card color',
+						'name'          => 'color_slug',
+						'type'          => 'select',
+						'choices'       => array(
+							'paint'   => 'Paint',
+							'crafts'  => 'Crafts',
+							'media'   => 'Media',
+							'design'  => 'Design',
+							'upcycle' => 'Upcycle',
+						),
+						'default_value' => 'paint',
+						'return_format' => 'value',
+					),
+				),
+			),
+		),
+		'location'              => array(
+			array(
+				array(
+					'param'    => 'page_template',
+					'operator' => '==',
+					'value'    => 'page-create-for-cause.php',
+				),
+			),
+		),
+		'menu_order'            => 1,
+		'position'              => 'normal',
+		'style'                 => 'default',
+		'label_placement'       => 'top',
+		'instruction_placement' => 'label',
+		'active'                => true,
+	)
+);

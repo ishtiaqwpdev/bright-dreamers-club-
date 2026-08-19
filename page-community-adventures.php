@@ -8,6 +8,352 @@
  */
 
 get_header();
+
+$community_adventures_page_id = get_queried_object_id();
+
+$community_adventures_hero_lazy_placeholder = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';
+
+$community_adventures_hero_breadcrumb_home_text = bdc_get_acf_text(
+	'community_adventures_hero_breadcrumb_home_text',
+	'Home',
+	$community_adventures_page_id
+);
+$community_adventures_hero_breadcrumb_home_link = bdc_get_acf_link(
+	'community_adventures_hero_breadcrumb_home_link',
+	array(
+		'title'  => 'Home',
+		'url'    => bdc_page_url( 'index.html' ),
+		'target' => '',
+	),
+	$community_adventures_page_id
+);
+$community_adventures_hero_breadcrumb_parent_text = bdc_get_acf_text(
+	'community_adventures_hero_breadcrumb_parent_text',
+	'Explore',
+	$community_adventures_page_id
+);
+$community_adventures_hero_breadcrumb_parent_link = bdc_get_acf_link(
+	'community_adventures_hero_breadcrumb_parent_link',
+	array(
+		'title'  => 'Explore',
+		'url'    => bdc_page_url( 'explore.html' ),
+		'target' => '',
+	),
+	$community_adventures_page_id
+);
+$community_adventures_hero_breadcrumb_current_text = bdc_get_acf_text(
+	'community_adventures_hero_breadcrumb_current_text',
+	'Community Adventures',
+	$community_adventures_page_id
+);
+$community_adventures_hero_title = bdc_get_acf_text(
+	'community_adventures_hero_title',
+	'Community Adventures',
+	$community_adventures_page_id
+);
+$community_adventures_hero_tagline = bdc_get_acf_text(
+	'community_adventures_hero_tagline',
+	'Explore. Discover. Connect.',
+	$community_adventures_page_id
+);
+$community_adventures_hero_text = bdc_get_acf_text(
+	'community_adventures_hero_text',
+	'Children explore their community through real-life experiences. They visit places, meet inspiring people, learn new things, and discover ways we can all work together to make our community better.',
+	$community_adventures_page_id
+);
+$community_adventures_hero_primary_btn_text = bdc_get_acf_text(
+	'community_adventures_hero_primary_btn_text',
+	'Learn More About This Experience',
+	$community_adventures_page_id
+);
+$community_adventures_hero_primary_btn_link = bdc_get_acf_link(
+	'community_adventures_hero_primary_btn_link',
+	array(
+		'title'  => 'Learn More About This Experience',
+		'url'    => '#community-adventures-parents',
+		'target' => '',
+	),
+	$community_adventures_page_id
+);
+$community_adventures_hero_back_text = bdc_get_acf_text(
+	'community_adventures_hero_back_text',
+	'Back to All Experiences',
+	$community_adventures_page_id
+);
+$community_adventures_hero_back_link = bdc_get_acf_link(
+	'community_adventures_hero_back_link',
+	array(
+		'title'  => 'Back to All Experiences',
+		'url'    => bdc_page_url( 'explore.html' ),
+		'target' => '',
+	),
+	$community_adventures_page_id
+);
+$community_adventures_hero_banner_url = bdc_get_acf_image_url(
+	'community_adventures_hero_banner',
+	bdc_theme_asset_url( 'assets/images/community-adventures-hero-banner.png' ),
+	$community_adventures_page_id
+);
+$community_adventures_hero_banner_alt = bdc_get_acf_text(
+	'community_adventures_hero_banner_alt',
+	'Children exploring outdoors and discovering their community together',
+	$community_adventures_page_id
+);
+
+$community_adventures_explore_title = bdc_get_acf_text(
+	'community_adventures_explore_title',
+	'Children Explore',
+	$community_adventures_page_id
+);
+$community_adventures_explore_activities_defaults = array(
+	array(
+		'icon'       => bdc_theme_asset_url( 'assets/images/community-adventures-icon-places-removebg-preview.png' ),
+		'title'      => 'Local Places',
+		'color_slug' => 'paint',
+	),
+	array(
+		'icon'       => bdc_theme_asset_url( 'assets/images/community-adventures-icon-helpers-removebg-preview.png' ),
+		'title'      => 'Community Helpers',
+		'color_slug' => 'crafts',
+	),
+	array(
+		'icon'       => bdc_theme_asset_url( 'assets/images/community-adventures-icon-nature-removebg-preview.png' ),
+		'title'      => 'Nature & Outdoors',
+		'color_slug' => 'media',
+	),
+	array(
+		'icon'       => bdc_theme_asset_url( 'assets/images/community-adventures-icon-culture-removebg-preview.png' ),
+		'title'      => 'Culture & Arts',
+		'color_slug' => 'design',
+	),
+	array(
+		'icon'       => bdc_theme_asset_url( 'assets/images/community-adventures-icon-business-removebg-preview.png' ),
+		'title'      => 'Local Businesses',
+		'color_slug' => 'upcycle',
+	),
+);
+$community_adventures_explore_color_slugs_allowed = array( 'paint', 'crafts', 'media', 'design', 'upcycle' );
+$community_adventures_explore_activities_raw      = bdc_get_acf_repeater( 'community_adventures_explore_activities', $community_adventures_explore_activities_defaults, $community_adventures_page_id );
+$community_adventures_explore_activities          = array();
+
+foreach ( $community_adventures_explore_activities_raw as $index => $row ) {
+	$default = $community_adventures_explore_activities_defaults[ $index ] ?? array(
+		'icon'       => '',
+		'title'      => '',
+		'color_slug' => 'paint',
+	);
+
+	$title = isset( $row['title'] ) ? trim( (string) $row['title'] ) : '';
+
+	$color_slug = isset( $row['color_slug'] ) ? sanitize_key( (string) $row['color_slug'] ) : '';
+	if ( ! in_array( $color_slug, $community_adventures_explore_color_slugs_allowed, true ) ) {
+		$color_slug = (string) $default['color_slug'];
+	}
+
+	$resolved = array(
+		'icon'       => bdc_acf_image_value_to_url( $row['icon'] ?? null, (string) $default['icon'] ),
+		'title'      => '' !== $title ? $title : (string) $default['title'],
+		'color_slug' => $color_slug,
+	);
+
+	if ( '' === trim( $resolved['title'] ) ) {
+		continue;
+	}
+
+	$community_adventures_explore_activities[] = $resolved;
+}
+
+if ( empty( $community_adventures_explore_activities ) ) {
+	$community_adventures_explore_activities = $community_adventures_explore_activities_defaults;
+}
+
+$community_adventures_info_aria_label = bdc_get_acf_text(
+	'community_adventures_info_aria_label',
+	'Skills, growth, and impact',
+	$community_adventures_page_id
+);
+$community_adventures_info_skills_title = bdc_get_acf_text(
+	'community_adventures_info_skills_title',
+	'Skills Children Naturally Build',
+	$community_adventures_page_id
+);
+$community_adventures_info_skills_items_defaults = array(
+	array( 'item_text' => 'Curiosity' ),
+	array( 'item_text' => 'Communication' ),
+	array( 'item_text' => 'Adaptability' ),
+	array( 'item_text' => 'Social awareness' ),
+	array( 'item_text' => 'Appreciation' ),
+);
+$community_adventures_info_skills_items_raw = bdc_get_acf_repeater( 'community_adventures_info_skills_items', $community_adventures_info_skills_items_defaults, $community_adventures_page_id );
+$community_adventures_info_skills_items     = array();
+
+foreach ( $community_adventures_info_skills_items_raw as $index => $row ) {
+	$default   = $community_adventures_info_skills_items_defaults[ $index ] ?? array( 'item_text' => '' );
+	$item_text = isset( $row['item_text'] ) ? trim( (string) $row['item_text'] ) : '';
+	$resolved  = '' !== $item_text ? $item_text : (string) $default['item_text'];
+
+	if ( '' === trim( $resolved ) ) {
+		continue;
+	}
+
+	$community_adventures_info_skills_items[] = array( 'item_text' => $resolved );
+}
+
+if ( empty( $community_adventures_info_skills_items ) ) {
+	$community_adventures_info_skills_items = $community_adventures_info_skills_items_defaults;
+}
+$community_adventures_info_skills_deco_url = bdc_get_acf_image_url(
+	'community_adventures_info_skills_deco',
+	bdc_theme_asset_url( 'assets/images/community-adventures-deco-star-removebg-preview.png' ),
+	$community_adventures_page_id
+);
+$community_adventures_info_grow_title_underline_word = bdc_get_acf_text(
+	'community_adventures_info_grow_title_underline_word',
+	'Children Grow',
+	$community_adventures_page_id
+);
+$community_adventures_info_grow_title_underline_url = bdc_get_acf_image_url(
+	'community_adventures_info_grow_title_underline',
+	bdc_theme_asset_url( 'assets/images/heading-underline.jpeg' ),
+	$community_adventures_page_id
+);
+$community_adventures_info_grow_title_suffix = bdc_get_acf_text(
+	'community_adventures_info_grow_title_suffix',
+	'Shape the Experience',
+	$community_adventures_page_id
+);
+$community_adventures_info_grow_text = bdc_get_acf_text(
+	'community_adventures_info_grow_text',
+	'Children suggest places to visit, ask questions, and help plan our adventures.',
+	$community_adventures_page_id
+);
+$community_adventures_info_grow_deco_url = bdc_get_acf_image_url(
+	'community_adventures_info_grow_deco',
+	bdc_theme_asset_url( 'assets/images/community-adventures-deco-heart-removebg-preview.png' ),
+	$community_adventures_page_id
+);
+$community_adventures_info_impact_title = bdc_get_acf_text(
+	'community_adventures_info_impact_title',
+	'Making an Impact',
+	$community_adventures_page_id
+);
+$community_adventures_info_impact_text = bdc_get_acf_text(
+	'community_adventures_info_impact_text',
+	'Children understand their community better and discover ways to contribute, support others, and help it grow.',
+	$community_adventures_page_id
+);
+$community_adventures_info_impact_deco_url = bdc_get_acf_image_url(
+	'community_adventures_info_impact_deco',
+	bdc_theme_asset_url( 'assets/images/community-adventures-deco-plant-removebg-preview.png' ),
+	$community_adventures_page_id
+);
+$community_adventures_parents_section_id = bdc_get_acf_text(
+	'community_adventures_parents_section_id',
+	'community-adventures-parents',
+	$community_adventures_page_id
+);
+$community_adventures_parents_title = bdc_get_acf_text(
+	'community_adventures_parents_title',
+	'What Parents Should Know',
+	$community_adventures_page_id
+);
+$community_adventures_parents_tablist_aria_label = bdc_get_acf_text(
+	'community_adventures_parents_tablist_aria_label',
+	'Parent information topics',
+	$community_adventures_page_id
+);
+$community_adventures_parents_faq_items_defaults = array(
+	array(
+		'panel_slug' => 'expect',
+		'tab_label'  => 'What to Expect',
+		'panel_text' => 'Sessions include field visits, guest speakers, and hands-on activities in the community. Children observe, ask questions, and reflect on what they learn at each stop.',
+	),
+	array(
+		'panel_slug' => 'materials',
+		'tab_label'  => 'Materials',
+		'panel_text' => 'We provide journals, maps, and activity guides for each adventure. Children are encouraged to wear comfortable clothing and bring a water bottle. Any special items needed for a visit are shared in advance.',
+	),
+	array(
+		'panel_slug' => 'safety',
+		'tab_label'  => 'Safety & Supervision',
+		'panel_text' => 'All outings are fully supervised with clear safety guidelines. Permission forms, appropriate adult-to-child ratios, and route planning are in place for every adventure.',
+	),
+	array(
+		'panel_slug' => 'program',
+		'tab_label'  => 'Program Details & Registration',
+		'panel_text' => 'Community Adventures runs as part of Bright Dreamers experiences throughout the year. Visit our Get Involved page or contact us to learn about upcoming sessions, age groups, and how to register your child.',
+	),
+);
+$community_adventures_parents_faq_slugs_allowed = array( 'expect', 'materials', 'safety', 'program' );
+$community_adventures_parents_faq_items_raw      = bdc_get_acf_repeater( 'community_adventures_parents_faq_items', $community_adventures_parents_faq_items_defaults, $community_adventures_page_id );
+$community_adventures_parents_faq_items          = array();
+
+foreach ( $community_adventures_parents_faq_items_raw as $index => $row ) {
+	$default = $community_adventures_parents_faq_items_defaults[ $index ] ?? array(
+		'panel_slug' => 'expect',
+		'tab_label'  => '',
+		'panel_text' => '',
+	);
+
+	$tab_label  = isset( $row['tab_label'] ) ? trim( (string) $row['tab_label'] ) : '';
+	$panel_text = isset( $row['panel_text'] ) ? trim( (string) $row['panel_text'] ) : '';
+	$panel_slug = isset( $row['panel_slug'] ) ? sanitize_key( (string) $row['panel_slug'] ) : '';
+
+	if ( ! in_array( $panel_slug, $community_adventures_parents_faq_slugs_allowed, true ) ) {
+		$panel_slug = (string) $default['panel_slug'];
+	}
+
+	$resolved = array(
+		'panel_slug' => $panel_slug,
+		'tab_label'  => '' !== $tab_label ? $tab_label : (string) $default['tab_label'],
+		'panel_text' => '' !== $panel_text ? $panel_text : (string) $default['panel_text'],
+	);
+
+	if ( '' === trim( $resolved['tab_label'] ) && '' === trim( $resolved['panel_text'] ) ) {
+		continue;
+	}
+
+	$community_adventures_parents_faq_items[] = $resolved;
+}
+
+if ( empty( $community_adventures_parents_faq_items ) ) {
+	$community_adventures_parents_faq_items = $community_adventures_parents_faq_items_defaults;
+}
+
+$community_adventures_cta_aria_label = bdc_get_acf_text(
+	'community_adventures_cta_aria_label',
+	'Join Community Adventures',
+	$community_adventures_page_id
+);
+$community_adventures_cta_heart_url = bdc_get_acf_image_url(
+	'community_adventures_cta_heart',
+	bdc_theme_asset_url( 'assets/images/community-adventures-cta-heart.jpeg' ),
+	$community_adventures_page_id
+);
+$community_adventures_cta_text = bdc_get_acf_text(
+	'community_adventures_cta_text',
+	'Every adventure starts with a curious mind.',
+	$community_adventures_page_id
+);
+$community_adventures_cta_plane_url = bdc_get_acf_image_url(
+	'community_adventures_cta_plane',
+	bdc_theme_asset_url( 'assets/images/community-adventures-deco-globe-removebg-preview.png' ),
+	$community_adventures_page_id
+);
+$community_adventures_cta_btn_text = bdc_get_acf_text(
+	'community_adventures_cta_btn_text',
+	'Learn More About This Experience',
+	$community_adventures_page_id
+);
+$community_adventures_cta_btn_link = bdc_get_acf_link(
+	'community_adventures_cta_btn_link',
+	array(
+		'title'  => 'Learn More About This Experience',
+		'url'    => bdc_page_url( 'get-involved.html' ),
+		'target' => '',
+	),
+	$community_adventures_page_id
+);
 ?>
     <main id="main-content" class="community-adventures-page">
       <section class="page-hero creative-makers-hero community-adventures-hero" aria-labelledby="community-adventures-title">
@@ -16,29 +362,40 @@ get_header();
             <div class="page-hero__content creative-makers-hero__content">
               <nav class="creative-makers-breadcrumbs" aria-label="Breadcrumb">
                 <ol class="creative-makers-breadcrumbs__list">
-                  <li><a href="<?php echo esc_url( bdc_page_url( 'index.html' ) ); ?>">Home</a></li>
-                  <li><a href="<?php echo esc_url( bdc_page_url( 'explore.html' ) ); ?>">Explore</a></li>
-                  <li aria-current="page">Community Adventures</li>
+                  <?php if ( ! empty( $community_adventures_hero_breadcrumb_home_link['url'] ) && '' !== trim( $community_adventures_hero_breadcrumb_home_text ) ) : ?>
+                  <li><a href="<?php echo esc_url( $community_adventures_hero_breadcrumb_home_link['url'] ); ?>"<?php echo bdc_acf_link_target_attr( $community_adventures_hero_breadcrumb_home_link ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>><?php echo esc_html( $community_adventures_hero_breadcrumb_home_text ); ?></a></li>
+                  <?php endif; ?>
+                  <?php if ( ! empty( $community_adventures_hero_breadcrumb_parent_link['url'] ) && '' !== trim( $community_adventures_hero_breadcrumb_parent_text ) ) : ?>
+                  <li><a href="<?php echo esc_url( $community_adventures_hero_breadcrumb_parent_link['url'] ); ?>"<?php echo bdc_acf_link_target_attr( $community_adventures_hero_breadcrumb_parent_link ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>><?php echo esc_html( $community_adventures_hero_breadcrumb_parent_text ); ?></a></li>
+                  <?php endif; ?>
+                  <?php if ( '' !== trim( $community_adventures_hero_breadcrumb_current_text ) ) : ?>
+                  <li aria-current="page"><?php echo esc_html( $community_adventures_hero_breadcrumb_current_text ); ?></li>
+                  <?php endif; ?>
                 </ol>
               </nav>
 
+              <?php if ( '' !== trim( $community_adventures_hero_title ) ) : ?>
               <h1 class="creative-makers-hero__title" id="community-adventures-title">
-                Community Adventures
+                <?php echo esc_html( $community_adventures_hero_title ); ?>
               </h1>
+              <?php endif; ?>
 
+              <?php if ( '' !== trim( $community_adventures_hero_tagline ) ) : ?>
               <p class="creative-makers-hero__tagline">
-                Explore. Discover. Connect.
+                <?php echo esc_html( $community_adventures_hero_tagline ); ?>
               </p>
+              <?php endif; ?>
 
+              <?php if ( '' !== trim( $community_adventures_hero_text ) ) : ?>
               <p class="creative-makers-hero__text">
-                Children explore their community through real-life experiences. They
-                visit places, meet inspiring people, learn new things, and discover
-                ways we can all work together to make our community better.
+                <?php echo esc_html( $community_adventures_hero_text ); ?>
               </p>
+              <?php endif; ?>
 
               <div class="page-hero__actions creative-makers-hero__actions">
-                <a class="btn btn--solid btn--lg btn-hover" href="#community-adventures-parents">
-                  Learn More About This Experience
+                <?php if ( ! empty( $community_adventures_hero_primary_btn_link['url'] ) && '' !== trim( $community_adventures_hero_primary_btn_text ) ) : ?>
+                <a class="btn btn--solid btn--lg btn-hover" href="<?php echo esc_url( $community_adventures_hero_primary_btn_link['url'] ); ?>"<?php echo bdc_acf_link_target_attr( $community_adventures_hero_primary_btn_link ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
+                  <?php echo esc_html( $community_adventures_hero_primary_btn_text ); ?>
                   <svg
                     class="btn__icon"
                     viewBox="0 0 24 24"
@@ -54,7 +411,9 @@ get_header();
                     <path d="M5 12h14M13 6l6 6-6 6" />
                   </svg>
                 </a>
-                <a class="creative-makers-hero__back" href="<?php echo esc_url( bdc_page_url( 'explore.html' ) ); ?>">
+                <?php endif; ?>
+                <?php if ( ! empty( $community_adventures_hero_back_link['url'] ) && '' !== trim( $community_adventures_hero_back_text ) ) : ?>
+                <a class="creative-makers-hero__back" href="<?php echo esc_url( $community_adventures_hero_back_link['url'] ); ?>"<?php echo bdc_acf_link_target_attr( $community_adventures_hero_back_link ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
                   <svg
                     viewBox="0 0 24 24"
                     width="16"
@@ -68,8 +427,9 @@ get_header();
                   >
                     <path d="M19 12H5M11 6l-6 6 6 6" />
                   </svg>
-                  Back to All Experiences
+                  <?php echo esc_html( $community_adventures_hero_back_text ); ?>
                 </a>
+                <?php endif; ?>
               </div>
             </div>
 
@@ -77,9 +437,9 @@ get_header();
               <div class="lazy-img-wrap">
                 <img
                   class="creative-makers-hero__banner lazy-img"
-                  src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-                  data-src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/community-adventures-hero-banner.png' ); ?>"
-                  alt="Children exploring outdoors and discovering their community together"
+                  src="<?php echo esc_attr( $community_adventures_hero_lazy_placeholder ); ?>"
+                  data-src="<?php echo esc_url( $community_adventures_hero_banner_url ); ?>"
+                  alt="<?php echo esc_attr( $community_adventures_hero_banner_alt ); ?>"
                   width="1200"
                   height="720"
                   decoding="async"
@@ -93,291 +453,40 @@ get_header();
       <section class="creative-makers-explore" aria-labelledby="community-adventures-explore-title">
         <div class="site-container">
           <h2 class="creative-makers-explore__title" id="community-adventures-explore-title">
-            Children Explore
+            <?php echo esc_html( $community_adventures_explore_title ); ?>
           </h2>
 
-          <div class="creative-makers-explore__grid">
-            <article class="creative-makers-activity creative-makers-activity--paint">
-              <img
-                class="creative-makers-activity__icon"
-                src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/community-adventures-icon-places-removebg-preview.png' ); ?>"
-                alt=""
-                width="68"
-                height="68"
-                loading="lazy"
-                decoding="async"
-              />
-              <h3 class="creative-makers-activity__title">Local Places</h3>
-            </article>
-
-            <article class="creative-makers-activity creative-makers-activity--crafts">
-              <img
-                class="creative-makers-activity__icon"
-                src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/community-adventures-icon-helpers-removebg-preview.png' ); ?>"
-                alt=""
-                width="68"
-                height="68"
-                loading="lazy"
-                decoding="async"
-              />
-              <h3 class="creative-makers-activity__title">Community Helpers</h3>
-            </article>
-
-            <article class="creative-makers-activity creative-makers-activity--media">
-              <img
-                class="creative-makers-activity__icon"
-                src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/community-adventures-icon-nature-removebg-preview.png' ); ?>"
-                alt=""
-                width="68"
-                height="68"
-                loading="lazy"
-                decoding="async"
-              />
-              <h3 class="creative-makers-activity__title">Nature &amp; Outdoors</h3>
-            </article>
-
-            <article class="creative-makers-activity creative-makers-activity--design">
-              <img
-                class="creative-makers-activity__icon"
-                src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/community-adventures-icon-culture-removebg-preview.png' ); ?>"
-                alt=""
-                width="68"
-                height="68"
-                loading="lazy"
-                decoding="async"
-              />
-              <h3 class="creative-makers-activity__title">Culture &amp; Arts</h3>
-            </article>
-
-            <article class="creative-makers-activity creative-makers-activity--upcycle">
-              <img
-                class="creative-makers-activity__icon"
-                src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/community-adventures-icon-business-removebg-preview.png' ); ?>"
-                alt=""
-                width="68"
-                height="68"
-                loading="lazy"
-                decoding="async"
-              />
-              <h3 class="creative-makers-activity__title">Local Businesses</h3>
-            </article>
-          </div>
+          <?php require get_template_directory() . '/template-parts/community-adventures-explore-grid.php'; ?>
         </div>
       </section>
 
-      <section class="creative-makers-info" aria-label="Skills, growth, and impact">
+      <section class="creative-makers-info" aria-label="<?php echo esc_attr( $community_adventures_info_aria_label ); ?>">
         <div class="site-container">
-          <div class="creative-makers-info__grid">
-            <article class="creative-makers-info-card creative-makers-info-card--skills">
-              <h2 class="creative-makers-info-card__title">Skills Children Naturally Build</h2>
-              <ul class="creative-makers-info-card__list">
-                <li>
-                  <span class="creative-makers-info-card__check" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7" /></svg>
-                  </span>
-                  Curiosity
-                </li>
-                <li>
-                  <span class="creative-makers-info-card__check" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7" /></svg>
-                  </span>
-                  Communication
-                </li>
-                <li>
-                  <span class="creative-makers-info-card__check" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7" /></svg>
-                  </span>
-                  Adaptability
-                </li>
-                <li>
-                  <span class="creative-makers-info-card__check" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7" /></svg>
-                  </span>
-                  Social awareness
-                </li>
-                <li>
-                  <span class="creative-makers-info-card__check" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7" /></svg>
-                  </span>
-                  Appreciation
-                </li>
-              </ul>
-              <img
-                class="creative-makers-info-card__deco creative-makers-info-card__deco--star"
-                src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/community-adventures-deco-star-removebg-preview.png' ); ?>"
-                alt=""
-                width="26"
-                height="26"
-                loading="lazy"
-                decoding="async"
-                aria-hidden="true"
-              />
-            </article>
-
-            <article class="creative-makers-info-card creative-makers-info-card--grow">
-              <h2 class="creative-makers-info-card__title creative-makers-info-card__title--pink">
-                <span class="heading-underline heading-underline--pink">
-                  Children Grow
-                  <img
-                    class="heading-underline__img"
-                    src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/heading-underline.jpeg' ); ?>"
-                    alt=""
-                    width="120"
-                    height="12"
-                  />
-                </span>
-                Shape the Experience
-              </h2>
-              <p class="creative-makers-info-card__text">
-                Children suggest places to visit, ask questions, and help plan our
-                adventures.
-              </p>
-              <img
-                class="creative-makers-info-card__deco creative-makers-info-card__deco--heart"
-                src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/community-adventures-deco-heart-removebg-preview.png' ); ?>"
-                alt=""
-                width="26"
-                height="26"
-                loading="lazy"
-                decoding="async"
-                aria-hidden="true"
-              />
-            </article>
-
-            <article class="creative-makers-info-card creative-makers-info-card--impact">
-              <h2 class="creative-makers-info-card__title">Making an Impact</h2>
-              <p class="creative-makers-info-card__text">
-                Children understand their community better and discover ways to
-                contribute, support others, and help it grow.
-              </p>
-              <img
-                class="creative-makers-info-card__deco creative-makers-info-card__deco--plant"
-                src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/community-adventures-deco-plant-removebg-preview.png' ); ?>"
-                alt=""
-                width="36"
-                height="36"
-                loading="lazy"
-                decoding="async"
-                aria-hidden="true"
-              />
-            </article>
-          </div>
+          <?php require get_template_directory() . '/template-parts/community-adventures-info-grid.php'; ?>
         </div>
       </section>
 
       <section
         class="creative-makers-parents"
-        id="community-adventures-parents"
+        id="<?php echo esc_attr( $community_adventures_parents_section_id ); ?>"
         aria-labelledby="community-adventures-parents-title"
       >
         <div class="site-container">
           <h2 class="creative-makers-parents__title" id="community-adventures-parents-title">
-            What Parents Should Know
+            <?php echo esc_html( $community_adventures_parents_title ); ?>
           </h2>
 
-          <div class="creative-makers-parents__accordion">
-            <input
-              class="creative-makers-faq__input"
-              type="radio"
-              name="community-adventures-faq"
-              id="community-adventures-faq-expect"
-              checked
-            />
-            <input
-              class="creative-makers-faq__input"
-              type="radio"
-              name="community-adventures-faq"
-              id="community-adventures-faq-materials"
-            />
-            <input
-              class="creative-makers-faq__input"
-              type="radio"
-              name="community-adventures-faq"
-              id="community-adventures-faq-safety"
-            />
-            <input
-              class="creative-makers-faq__input"
-              type="radio"
-              name="community-adventures-faq"
-              id="community-adventures-faq-program"
-            />
-
-            <div class="creative-makers-parents__tablist" role="tablist" aria-label="Parent information topics">
-              <label class="creative-makers-faq__tab" for="community-adventures-faq-expect" role="tab">
-                What to Expect
-              </label>
-              <label class="creative-makers-faq__tab" for="community-adventures-faq-materials" role="tab">
-                Materials
-              </label>
-              <label class="creative-makers-faq__tab" for="community-adventures-faq-safety" role="tab">
-                Safety &amp; Supervision
-              </label>
-              <label class="creative-makers-faq__tab" for="community-adventures-faq-program" role="tab">
-                Program Details &amp; Registration
-              </label>
-            </div>
-
-            <div class="creative-makers-parents__panels">
-              <article
-                class="creative-makers-faq__panel creative-makers-faq__panel--expect"
-                role="tabpanel"
-                aria-labelledby="community-adventures-faq-expect"
-              >
-                <p>
-                  Sessions include field visits, guest speakers, and hands-on
-                  activities in the community. Children observe, ask questions, and
-                  reflect on what they learn at each stop.
-                </p>
-              </article>
-
-              <article
-                class="creative-makers-faq__panel creative-makers-faq__panel--materials"
-                role="tabpanel"
-                aria-labelledby="community-adventures-faq-materials"
-              >
-                <p>
-                  We provide journals, maps, and activity guides for each adventure.
-                  Children are encouraged to wear comfortable clothing and bring a
-                  water bottle. Any special items needed for a visit are shared in
-                  advance.
-                </p>
-              </article>
-
-              <article
-                class="creative-makers-faq__panel creative-makers-faq__panel--safety"
-                role="tabpanel"
-                aria-labelledby="community-adventures-faq-safety"
-              >
-                <p>
-                  All outings are fully supervised with clear safety guidelines.
-                  Permission forms, appropriate adult-to-child ratios, and route
-                  planning are in place for every adventure.
-                </p>
-              </article>
-
-              <article
-                class="creative-makers-faq__panel creative-makers-faq__panel--program"
-                role="tabpanel"
-                aria-labelledby="community-adventures-faq-program"
-              >
-                <p>
-                  Community Adventures runs as part of Bright Dreamers experiences
-                  throughout the year. Visit our Get Involved page or contact us to
-                  learn about upcoming sessions, age groups, and how to register
-                  your child.
-                </p>
-              </article>
-            </div>
-          </div>
+          <?php require get_template_directory() . '/template-parts/community-adventures-parents-faq.php'; ?>
         </div>
       </section>
 
-      <section class="creative-makers-cta" aria-label="Join Community Adventures">
+      <section class="creative-makers-cta" aria-label="<?php echo esc_attr( $community_adventures_cta_aria_label ); ?>">
         <div class="site-container creative-makers-cta__inner">
           <div class="creative-makers-cta__card">
+            <?php if ( '' !== trim( $community_adventures_cta_heart_url ) ) : ?>
             <img
               class="creative-makers-cta__heart"
-              src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/community-adventures-cta-heart.jpeg' ); ?>"
+              src="<?php echo esc_url( $community_adventures_cta_heart_url ); ?>"
               alt=""
               width="28"
               height="28"
@@ -385,12 +494,16 @@ get_header();
               decoding="async"
               aria-hidden="true"
             />
+            <?php endif; ?>
+            <?php if ( '' !== trim( $community_adventures_cta_text ) ) : ?>
             <p class="creative-makers-cta__text">
-              Every adventure starts with a curious mind.
+              <?php echo esc_html( $community_adventures_cta_text ); ?>
             </p>
+            <?php endif; ?>
+            <?php if ( '' !== trim( $community_adventures_cta_plane_url ) ) : ?>
             <img
               class="creative-makers-cta__plane"
-              src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/community-adventures-deco-globe-removebg-preview.png' ); ?>"
+              src="<?php echo esc_url( $community_adventures_cta_plane_url ); ?>"
               alt=""
               width="90"
               height="45"
@@ -398,8 +511,10 @@ get_header();
               decoding="async"
               aria-hidden="true"
             />
-            <a class="btn btn--solid btn--lg btn-hover creative-makers-cta__btn" href="<?php echo esc_url( bdc_page_url( 'get-involved.html' ) ); ?>">
-              Learn More About This Experience
+            <?php endif; ?>
+            <?php if ( ! empty( $community_adventures_cta_btn_link['url'] ) && '' !== trim( $community_adventures_cta_btn_text ) ) : ?>
+            <a class="btn btn--solid btn--lg btn-hover creative-makers-cta__btn" href="<?php echo esc_url( $community_adventures_cta_btn_link['url'] ); ?>"<?php echo bdc_acf_link_target_attr( $community_adventures_cta_btn_link ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
+              <?php echo esc_html( $community_adventures_cta_btn_text ); ?>
               <svg
                 class="btn__icon"
                 viewBox="0 0 24 24"
@@ -415,6 +530,7 @@ get_header();
                 <path d="M5 12h14M13 6l6 6-6 6" />
               </svg>
             </a>
+            <?php endif; ?>
           </div>
         </div>
       </section>
