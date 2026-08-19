@@ -320,6 +320,29 @@ function bdc_form_settings_redirect_with_tab( $location ) {
 add_filter( 'wp_redirect', 'bdc_form_settings_redirect_with_tab' );
 
 /**
+ * Show a success notice after settings are saved.
+ */
+function bdc_form_settings_saved_notice() {
+	// phpcs:ignore WordPress.Security.NonceVerification.Recommended
+	if ( ! isset( $_GET['page'] ) || 'bdc-theme-settings' !== $_GET['page'] ) {
+		return;
+	}
+
+	// phpcs:ignore WordPress.Security.NonceVerification.Recommended
+	if ( empty( $_GET['settings-updated'] ) ) {
+		return;
+	}
+
+	add_settings_error(
+		'bdc_form_settings_group',
+		'bdc_form_settings_saved',
+		__( 'Form settings saved successfully.', 'bright-dreamers-club' ),
+		'updated'
+	);
+}
+add_action( 'admin_init', 'bdc_form_settings_saved_notice' );
+
+/**
  * Admin styles for the settings screen.
  *
  * @param string $hook_suffix Current admin page hook.
@@ -420,9 +443,7 @@ function bdc_render_form_settings_page() {
 	<div class="wrap bdc-form-settings-wrap">
 		<h1><?php esc_html_e( 'Bright Dreamers — Form Notifications', 'bright-dreamers-club' ); ?></h1>
 
-		<p class="description bdc-form-settings-intro">
-			<?php esc_html_e( 'Manage admin notification emails, user confirmation emails, and on-page success messages for all full-page forms.', 'bright-dreamers-club' ); ?>
-		</p>
+		<?php settings_errors( 'bdc_form_settings_group' ); ?>
 
 		<nav class="nav-tab-wrapper bdc-form-settings-tabs" aria-label="<?php esc_attr_e( 'Form settings sections', 'bright-dreamers-club' ); ?>">
 			<?php foreach ( $tabs as $tab_id => $tab_label ) : ?>
@@ -479,24 +500,6 @@ function bdc_render_form_settings_page() {
 							</td>
 						</tr>
 					</table>
-
-					<div class="notice notice-info inline bdc-form-settings-notice">
-						<p>
-							<strong><?php esc_html_e( 'Email deliverability tip:', 'bright-dreamers-club' ); ?></strong>
-							<?php esc_html_e( 'For reliable delivery, install an SMTP plugin (e.g. WP Mail SMTP) on production hosting.', 'bright-dreamers-club' ); ?>
-						</p>
-					</div>
-
-					<h2><?php esc_html_e( 'Forms covered by this system', 'bright-dreamers-club' ); ?></h2>
-					<ul class="bdc-form-settings-list">
-						<?php foreach ( $base_config as $form_id => $form ) : ?>
-							<li>
-								<a href="<?php echo esc_url( add_query_arg( 'tab', $form_id, $page_url ) ); ?>">
-									<?php echo esc_html( $form['label'] ?? $form_id ); ?>
-								</a>
-							</li>
-						<?php endforeach; ?>
-					</ul>
 				<?php else : ?>
 					<h2><?php echo esc_html( $base_config[ $active_tab ]['label'] ?? $tabs[ $active_tab ] ); ?></h2>
 					<?php bdc_render_form_settings_fields( $active_tab, $settings ); ?>
