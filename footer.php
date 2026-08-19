@@ -96,7 +96,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			</div>
 
 			<div class="site-footer__col">
-				<h2 class="site-footer__heading site-footer__heading--explore">Explore</h2>
+				<h2 class="site-footer__heading">Explore</h2>
 				<ul class="site-footer__links">
 					<li><a class="site-footer__link" href="<?php echo esc_url( home_url( '/' ) ); ?>">Home</a></li>
 					<li><a class="site-footer__link" href="<?php echo esc_url( home_url( '/about/' ) ); ?>">About Us</a></li>

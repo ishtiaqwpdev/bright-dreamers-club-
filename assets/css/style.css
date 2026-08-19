@@ -6,7 +6,6 @@
 
 :root {
   --color-pink: #ee1d78;
-  --color-red: #e53935;
   --color-navy: #001b66;
   --color-cyan: #4ec3e0;
   --color-green: #6fbf4a;
@@ -724,10 +723,6 @@ button {
   line-height: 1.25;
   color: var(--color-navy);
   margin: 0 0 var(--footer-heading-gap);
-}
-
-.site-footer__heading--explore {
-  color: var(--color-red);
 }
 
 .site-footer__links {
