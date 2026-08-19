@@ -43,19 +43,29 @@ $about_hero_text = bdc_get_acf_text(
 	'Bright Dreamers is a nonprofit community where children are encouraged to dream freely, explore their ideas, create with confidence, and make a positive difference in the world.',
 	$about_page_id
 );
-$about_hero_primary_cta = bdc_get_acf_link(
-	'about_hero_primary_cta',
+$about_hero_primary_btn_text = bdc_get_acf_text(
+	'about_hero_primary_btn_text',
+	'Apply to Become a Bright Dreamer',
+	$about_page_id
+);
+$about_hero_primary_btn_link = bdc_get_acf_link(
+	'about_hero_primary_btn_link',
 	array(
-		'title'  => 'Apply to Become a Bright Dreamer',
+		'title'  => '',
 		'url'    => bdc_page_url( 'apply-to-become.html' ),
 		'target' => '',
 	),
 	$about_page_id
 );
-$about_hero_secondary_cta = bdc_get_acf_link(
-	'about_hero_secondary_cta',
+$about_hero_secondary_btn_text = bdc_get_acf_text(
+	'about_hero_secondary_btn_text',
+	'See Our Vision',
+	$about_page_id
+);
+$about_hero_secondary_btn_link = bdc_get_acf_link(
+	'about_hero_secondary_btn_link',
 	array(
-		'title'  => 'See Our Vision',
+		'title'  => '',
 		'url'    => bdc_page_url( 'our-vision.html' ),
 		'target' => '',
 	),
@@ -112,8 +122,8 @@ $about_hero_banner_alt = bdc_get_acf_text(
             <?php endif; ?>
 
             <div class="page-hero__actions">
-              <?php if ( ! empty( $about_hero_primary_cta['url'] ) ) : ?>
-              <a class="btn btn--solid btn--lg btn-hover" href="<?php echo esc_url( $about_hero_primary_cta['url'] ); ?>"<?php echo bdc_acf_link_target_attr( $about_hero_primary_cta ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
+              <?php if ( ! empty( $about_hero_primary_btn_link['url'] ) && '' !== trim( $about_hero_primary_btn_text ) ) : ?>
+              <a class="btn btn--solid btn--lg btn-hover" href="<?php echo esc_url( $about_hero_primary_btn_link['url'] ); ?>"<?php echo bdc_acf_link_target_attr( $about_hero_primary_btn_link ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
                 <svg
                   class="btn__icon btn__icon--star"
                   viewBox="0 0 24 24"
@@ -124,12 +134,12 @@ $about_hero_banner_alt = bdc_get_acf_text(
                     d="M12 2l2.4 4.9 5.4.8-3.9 3.8.9 5.4L12 14.8 7.2 17l.9-5.4L4.2 7.7l5.4-.8L12 2z"
                   />
                 </svg>
-                <?php echo esc_html( $about_hero_primary_cta['title'] ); ?>
+                <?php echo esc_html( $about_hero_primary_btn_text ); ?>
               </a>
               <?php endif; ?>
-              <?php if ( ! empty( $about_hero_secondary_cta['url'] ) ) : ?>
-              <a class="btn btn--outline btn--lg btn-hover" href="<?php echo esc_url( $about_hero_secondary_cta['url'] ); ?>"<?php echo bdc_acf_link_target_attr( $about_hero_secondary_cta ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
-                <?php echo esc_html( $about_hero_secondary_cta['title'] ); ?>
+              <?php if ( ! empty( $about_hero_secondary_btn_link['url'] ) && '' !== trim( $about_hero_secondary_btn_text ) ) : ?>
+              <a class="btn btn--outline btn--lg btn-hover" href="<?php echo esc_url( $about_hero_secondary_btn_link['url'] ); ?>"<?php echo bdc_acf_link_target_attr( $about_hero_secondary_btn_link ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
+                <?php echo esc_html( $about_hero_secondary_btn_text ); ?>
                 <svg
                   class="btn__icon"
                   viewBox="0 0 24 24"
