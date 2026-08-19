@@ -57,7 +57,8 @@ get_header();
       <section class="apply-form section-padding" aria-label="Volunteer application form">
         <div class="site-container apply-form__inner">
           <div class="apply-form__main">
-            <form class="apply-form__form" action="#" method="post">
+            <form class="apply-form__form" id="volunteer-application-form" action="#" method="post" data-form-id="volunteer_application">
+              <?php bdc_render_form_security_fields( 'volunteer_application' ); ?>
               <fieldset class="apply-section apply-section--parent" aria-label="Personal Information">
                 <div class="apply-section__head">
                   <img class="apply-section__icon" src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/volunteer-section-personal.png' ); ?>" alt="" width="28" height="28" decoding="async" aria-hidden="true" />

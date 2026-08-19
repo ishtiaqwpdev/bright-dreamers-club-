@@ -58,7 +58,8 @@ get_header();
       <section class="apply-form section-padding" aria-label="Donation interest form">
         <div class="site-container apply-form__inner">
           <div class="apply-form__main">
-            <form class="apply-form__form donation-form" id="donation-interest-form" action="#" method="post">
+            <form class="apply-form__form donation-form" id="donation-interest-form" action="#" method="post" data-form-id="donation_interest">
+              <?php bdc_render_form_security_fields( 'donation_interest' ); ?>
               <div class="donation-form-card">
                 <header class="donation-form-card__head">
                   <img

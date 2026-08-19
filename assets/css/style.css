@@ -10305,6 +10305,55 @@ img.lazy-img.loaded {
   gap: 0.45rem;
 }
 
+.apply-program-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.apply-check--program {
+  flex-shrink: 0;
+  margin-top: 0.15rem;
+}
+
+.apply-program-item__content {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.35rem 0.65rem;
+  min-width: 0;
+}
+
+.apply-program-item__name {
+  font-family: var(--font-body);
+  font-size: clamp(0.82rem, 0.9vw, 0.92rem);
+  line-height: 1.45;
+  font-weight: 600;
+  color: var(--color-navy);
+  text-decoration: none;
+}
+
+.apply-program-item__name:hover,
+.apply-program-item__name:focus-visible {
+  color: var(--color-pink);
+  text-decoration: underline;
+}
+
+.apply-program-item__learn-more {
+  font-family: var(--font-body);
+  font-size: clamp(0.75rem, 0.82vw, 0.84rem);
+  line-height: 1.45;
+  font-weight: 600;
+  color: var(--color-pink);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.apply-program-item__learn-more:hover,
+.apply-program-item__learn-more:focus-visible {
+  text-decoration: underline;
+}
+
 .apply-check,
 .apply-radio {
   display: inline-flex;
@@ -16382,4 +16431,50 @@ body.newsletter-success-open {
   .terms-sections-grid {
     grid-template-columns: 1fr;
   }
+}
+
+/* ——— Global theme form submission (bdc-forms) ——— */
+.bdc-form-honeypot {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.bdc-form-error {
+  margin: 0.35rem 0 0;
+  font-family: var(--font-body);
+  font-size: clamp(0.78rem, 0.86vw, 0.88rem);
+  line-height: 1.4;
+  color: #c62828;
+}
+
+.bdc-form-error--global {
+  margin: 0 0 1rem;
+  padding: 0.75rem 0.9rem;
+  border-radius: 10px;
+  background: #fff5f5;
+  border: 1px solid rgba(198, 40, 40, 0.18);
+}
+
+.contact-field.is-invalid .contact-field__box,
+.apply-select.is-invalid .apply-select__trigger,
+.media-consent-option.is-invalid .media-consent-option__inner {
+  border-color: #c62828;
+  box-shadow: 0 0 0 1px rgba(198, 40, 40, 0.12);
+}
+
+.bdc-form-success-wrap,
+.bdc-form-success {
+  width: 100%;
+}
+
+.apply-form__main .bdc-form-success,
+.contact-form__main .bdc-form-success,
+.newsletter-form-wrap .bdc-form-success,
+.media-policy-content .bdc-form-success {
+  margin-top: clamp(0.5rem, 1vw, 0.85rem);
 }

@@ -680,84 +680,6 @@
     });
   }
 
-  function initNewsletterSignupPage() {
-    var $page = $('.newsletter-signup-page');
-    if (!$page.length) return;
-
-    var $form = $('#newsletter-signup-form');
-    var modal = document.getElementById('newsletter-success-modal');
-    if (!$form.length || !modal) return;
-
-    function firstNameFrom(value) {
-      var trimmed = String(value || '').trim();
-      if (!trimmed) return 'Friend';
-      return trimmed.split(/\s+/)[0];
-    }
-
-    function buildWelcomeEmail(name) {
-      var template = document.getElementById('newsletter-welcome-email-template');
-      if (!template) return '';
-      return template.textContent.replace(/\{\{first_name\}\}/g, name);
-    }
-
-    function openSuccessModal() {
-      modal.hidden = false;
-      modal.setAttribute('aria-hidden', 'false');
-      modal.classList.remove('is-open');
-      $('body').addClass('newsletter-success-open');
-
-      window.requestAnimationFrame(function () {
-        window.requestAnimationFrame(function () {
-          modal.classList.add('is-open');
-        });
-      });
-
-      window.setTimeout(function () {
-        var btn = modal.querySelector('.newsletter-page-success__btn');
-        if (btn) btn.focus();
-      }, 420);
-    }
-
-    function closeSuccessModal() {
-      modal.classList.remove('is-open');
-      $('body').removeClass('newsletter-success-open');
-
-      window.setTimeout(function () {
-        modal.hidden = true;
-        modal.setAttribute('aria-hidden', 'true');
-      }, 280);
-    }
-
-    var params = new URLSearchParams(window.location.search);
-    var emailParam = params.get('email');
-    if (emailParam) {
-      $form.find('input[name="email"]').val(emailParam);
-    }
-
-    $form.on('submit', function (event) {
-      event.preventDefault();
-
-      if (!this.checkValidity()) {
-        this.reportValidity();
-        return;
-      }
-
-      var fullName = $form.find('input[name="full_name"]').val() || '';
-      buildWelcomeEmail(firstNameFrom(fullName));
-      openSuccessModal();
-    });
-
-    $(modal).on('click', '[data-newsletter-success-close]', function () {
-      closeSuccessModal();
-    });
-
-    $(document).on('keydown.newsletterSuccess', function (event) {
-      if (event.key === 'Escape' && !modal.hidden) {
-        closeSuccessModal();
-      }
-    });
-  }
-
   function init() {
     initMobileMenu();
     initNavActiveState();
@@ -766,7 +688,6 @@
     initMediaPolicyPage();
     initApplyFormSidebar();
     initMediaConsentDateFields();
-    initNewsletterSignupPage();
     initLazyImages();
     initScrollReveal();
   }

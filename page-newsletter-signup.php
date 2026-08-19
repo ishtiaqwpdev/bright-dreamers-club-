@@ -108,7 +108,8 @@ get_header();
             </div>
 
             <div class="newsletter-form-wrap">
-              <form class="newsletter-form" id="newsletter-signup-form" action="#" method="post">
+              <form class="newsletter-form" id="newsletter-signup-form" action="#" method="post" data-form-id="newsletter_signup">
+                <?php bdc_render_form_security_fields( 'newsletter_signup' ); ?>
                 <header class="newsletter-form__head">
                   <img
                     class="newsletter-form__head-icon"
@@ -213,8 +214,8 @@ get_header();
                   </ul>
                 </fieldset>
 
-                <fieldset class="newsletter-fieldset" aria-label="How can we include you">
-                  <legend class="apply-field__label">How can we include you?</legend>
+                <fieldset class="newsletter-fieldset" aria-label="What is your role">
+                  <legend class="apply-field__label">What is your role?</legend>
                   <div class="newsletter-role-grid">
                     <label class="newsletter-role-card newsletter-role-card--pink">
                       <input type="checkbox" name="role[]" value="parent" />

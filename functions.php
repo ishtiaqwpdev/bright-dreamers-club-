@@ -12,6 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 define( 'BDC_THEME_DIR', get_template_directory() );
 
 require_once BDC_THEME_DIR . '/inc/maintenance-mode.php';
+require_once BDC_THEME_DIR . '/inc/forms/form-handler.php';
 
 /**
  * Map static theme slugs to live WordPress page slugs when they differ.

@@ -130,7 +130,8 @@ get_header();
           </aside>
 
           <div class="media-policy-content">
-            <form class="media-consent-form" id="media-consent-form" action="#" method="post">
+            <form class="media-consent-form" id="media-consent-form" action="#" method="post" data-form-id="photo_media_consent">
+              <?php bdc_render_form_security_fields( 'photo_media_consent' ); ?>
               <article class="media-policy-section" id="consent-child" data-media-section>
                 <div class="media-policy-section__head">
                   <img class="media-policy-section__icon" src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/Photo & Media conoent form/3cf2faca-23f5-4f28-bad2-0b9cae7a26d8-removebg-preview.png' ); ?>" alt="" width="40" height="40" loading="lazy" decoding="async" aria-hidden="true" />

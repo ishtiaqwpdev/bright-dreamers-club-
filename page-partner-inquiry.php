@@ -42,7 +42,8 @@ get_header();
       <section class="apply-form section-padding" aria-label="Partner inquiry form">
         <div class="site-container apply-form__inner">
           <div class="apply-form__main">
-            <form class="apply-form__form" id="partner-inquiry-form" action="#" method="post" enctype="multipart/form-data">
+            <form class="apply-form__form" id="partner-inquiry-form" action="#" method="post" enctype="multipart/form-data" data-form-id="partner_inquiry">
+              <?php bdc_render_form_security_fields( 'partner_inquiry' ); ?>
               <div class="partner-form-intro">
                 <img
                   class="partner-form-intro__icon"

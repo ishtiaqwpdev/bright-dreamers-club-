@@ -60,7 +60,8 @@ get_header();
       <section class="apply-form section-padding" aria-label="Bright Dreamer application">
         <div class="site-container apply-form__inner">
           <div class="apply-form__main">
-            <form class="apply-form__form" action="#" method="post">
+            <form class="apply-form__form" id="apply-to-join-form" action="#" method="post" enctype="multipart/form-data" data-form-id="apply_to_join">
+              <?php bdc_render_form_security_fields( 'apply_to_join' ); ?>
               <fieldset class="apply-section apply-section--parent" aria-label="Parent or Guardian Information">
                 <div class="apply-section__head">
                   <img
@@ -244,6 +245,9 @@ get_header();
                         <option value="12">12</option>
                         <option value="13">13</option>
                         <option value="14">14</option>
+                        <option value="15">15</option>
+                        <option value="16">16</option>
+                        <option value="17">17</option>
                       </select>
                       <button
                         type="button"
@@ -295,6 +299,15 @@ get_header();
                         </li>
                         <li>
                           <button type="button" class="apply-select__option" role="option" data-value="14">14</button>
+                        </li>
+                        <li>
+                          <button type="button" class="apply-select__option" role="option" data-value="15">15</button>
+                        </li>
+                        <li>
+                          <button type="button" class="apply-select__option" role="option" data-value="16">16</button>
+                        </li>
+                        <li>
+                          <button type="button" class="apply-select__option" role="option" data-value="17">17</button>
                         </li>
                       </ul>
                     </div>
@@ -391,33 +404,45 @@ get_header();
                   <div class="apply-more__checks">
                     <p class="apply-more__label">Which experiences interest your child?</p>
                     <ul class="apply-checklist">
-                      <li>
-                        <label class="apply-check">
-                          <input type="checkbox" name="interest" value="creative-makers" />
-                          <span>Creative Makers</span>
+                      <li class="apply-program-item">
+                        <label class="apply-check apply-check--program">
+                          <input type="checkbox" name="interest[]" value="creative-makers" />
                         </label>
+                        <span class="apply-program-item__content">
+                          <a class="apply-program-item__name" href="<?php echo esc_url( bdc_page_url( 'creative-makers.html' ) ); ?>">Creative Makers</a>
+                          <a class="apply-program-item__learn-more" href="<?php echo esc_url( bdc_page_url( 'creative-makers.html' ) ); ?>">Learn More <span aria-hidden="true">&rarr;</span></a>
+                        </span>
+                      </li>
+                      <li class="apply-program-item">
+                        <label class="apply-check apply-check--program">
+                          <input type="checkbox" name="interest[]" value="young-ideas-lab" />
+                        </label>
+                        <span class="apply-program-item__content">
+                          <a class="apply-program-item__name" href="<?php echo esc_url( bdc_page_url( 'young-ideas-lab.html' ) ); ?>">Young Ideas Lab</a>
+                          <a class="apply-program-item__learn-more" href="<?php echo esc_url( bdc_page_url( 'young-ideas-lab.html' ) ); ?>">Learn More <span aria-hidden="true">&rarr;</span></a>
+                        </span>
+                      </li>
+                      <li class="apply-program-item">
+                        <label class="apply-check apply-check--program">
+                          <input type="checkbox" name="interest[]" value="create-for-cause" />
+                        </label>
+                        <span class="apply-program-item__content">
+                          <a class="apply-program-item__name" href="<?php echo esc_url( bdc_page_url( 'create-for-cause.html' ) ); ?>">Create for a Cause</a>
+                          <a class="apply-program-item__learn-more" href="<?php echo esc_url( bdc_page_url( 'create-for-cause.html' ) ); ?>">Learn More <span aria-hidden="true">&rarr;</span></a>
+                        </span>
+                      </li>
+                      <li class="apply-program-item">
+                        <label class="apply-check apply-check--program">
+                          <input type="checkbox" name="interest[]" value="community-adventures" />
+                        </label>
+                        <span class="apply-program-item__content">
+                          <a class="apply-program-item__name" href="<?php echo esc_url( bdc_page_url( 'community-adventures.html' ) ); ?>">Community Adventures</a>
+                          <a class="apply-program-item__learn-more" href="<?php echo esc_url( bdc_page_url( 'community-adventures.html' ) ); ?>">Learn More <span aria-hidden="true">&rarr;</span></a>
+                        </span>
                       </li>
                       <li>
                         <label class="apply-check">
-                          <input type="checkbox" name="interest" value="young-ideas-lab" />
-                          <span>Young Ideas Lab</span>
-                        </label>
-                      </li>
-                      <li>
-                        <label class="apply-check">
-                          <input type="checkbox" name="interest" value="create-for-cause" />
-                          <span>Create for a Cause</span>
-                        </label>
-                      </li>
-                      <li>
-                        <label class="apply-check">
-                          <input type="checkbox" name="interest" value="community-adventures" />
-                          <span>Community Adventures</span>
-                        </label>
-                      </li>
-                      <li>
-                        <label class="apply-check">
-                          <input type="checkbox" name="interest" value="not-sure" />
+                          <input type="checkbox" name="interest[]" value="not-sure" />
                           <span>Not sure yet</span>
                         </label>
                       </li>

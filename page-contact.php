@@ -163,7 +163,8 @@ get_header();
                 </svg>
               </h2>
 
-              <form class="contact-form__form" action="#" method="post">
+              <form class="contact-form__form" id="contact-form" action="#" method="post" data-form-id="contact">
+                <?php bdc_render_form_security_fields( 'contact' ); ?>
                 <div class="contact-form__row">
                   <label class="contact-field">
                     <span class="contact-field__box">

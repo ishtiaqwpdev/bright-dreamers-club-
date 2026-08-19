@@ -105,7 +105,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 					<li><a class="site-footer__link" href="<?php echo esc_url( home_url( '/our-vision/' ) ); ?>">Our Vision</a></li>
 					<li><a class="site-footer__link" href="<?php echo esc_url( home_url( '/get-involved/' ) ); ?>">Get Involved</a></li>
 					<li><a class="site-footer__link" href="<?php echo esc_url( home_url( '/partners/' ) ); ?>">Partners</a></li>
-					<li><a class="site-footer__link" href="<?php echo esc_url( home_url( '/contact/' ) ); ?>">Contact</a></li>
+					<li><a class="site-footer__link" href="<?php echo esc_url( home_url( '/contact/' ) ); ?>">Contact Us</a></li>
 				</ul>
 			</div>
 
