@@ -1,0 +1,18 @@
+/*
+Theme Name: Bright Dreamers Club
+Theme URI: https://bright-design-one.vercel.app/
+Author: Bright Dreamers Club
+Author URI: https://bright-design-one.vercel.app/
+Description: Classic WordPress theme for Bright Dreamers Club — converted from the static HTML/CSS/JS site. Page templates and content migration pending.
+Version: 1.0.0
+Requires at least: 6.0
+Tested up to: 6.7
+Requires PHP: 7.4
+License: GNU General Public License v2 or later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: bright-dreamers-club
+Tags: custom-menu, featured-images, translation-ready, one-column, two-columns
+
+Bright Dreamers Club WordPress Theme
+Main stylesheet lives in assets/css/style.css and is enqueued via functions.php.
+*/
