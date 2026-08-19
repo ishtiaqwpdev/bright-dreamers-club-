@@ -6,6 +6,111 @@
  */
 
 get_header();
+
+$front_page_id = bdc_get_front_page_id();
+
+$home_hero_logo_url = bdc_get_acf_image_url(
+	'home_hero_logo',
+	bdc_theme_asset_url( 'assets/images/bright-dreamers-logo.jpeg' ),
+	$front_page_id
+);
+$home_hero_logo_alt = bdc_get_acf_text(
+	'home_hero_logo_alt',
+	'Bright Dreamers — Dream, Create, Grow, Give',
+	$front_page_id
+);
+$home_hero_text = bdc_get_acf_text(
+	'home_hero_text',
+	'A nonprofit community where children\'s ideas become real projects that build confidence, creativity, kindness, and positive change.',
+	$front_page_id
+);
+$home_hero_primary_cta = bdc_get_acf_link(
+	'home_hero_primary_cta',
+	array(
+		'title'  => 'Apply to Become a Bright Dreamer',
+		'url'    => bdc_page_url( 'apply-to-become.html' ),
+		'target' => '',
+	),
+	$front_page_id
+);
+$home_hero_secondary_cta = bdc_get_acf_link(
+	'home_hero_secondary_cta',
+	array(
+		'title'  => 'See Our Vision',
+		'url'    => bdc_page_url( 'our-vision.html' ),
+		'target' => '',
+	),
+	$front_page_id
+);
+$home_hero_banner_url = bdc_get_acf_image_url(
+	'home_hero_banner',
+	bdc_theme_asset_url( 'assets/images/home-hero-banner.png' ),
+	$front_page_id
+);
+$home_hero_banner_alt = bdc_get_acf_text(
+	'home_hero_banner_alt',
+	'Three Bright Dreamers holding colorful heart flower drawings in a sunny park',
+	$front_page_id
+);
+
+$home_pillars_idea_defaults = array(
+	'image' => bdc_theme_asset_url( 'assets/images/home-pillar-books.jpeg' ),
+	'title' => 'It All Starts With One Idea',
+	'quote' => 'I have an idea.',
+	'text'  => 'At Bright Dreamers, children don\'t just imagine—they create. They lead. They discover their talents while making a positive difference in the world.',
+);
+$home_pillars_idea = bdc_get_acf_group( 'home_pillars_idea', $home_pillars_idea_defaults, $front_page_id );
+$home_pillars_idea_image = bdc_acf_image_value_to_url( $home_pillars_idea['image'] ?? null, $home_pillars_idea_defaults['image'] );
+$home_pillars_idea_title = (string) $home_pillars_idea['title'];
+$home_pillars_idea_quote = (string) $home_pillars_idea['quote'];
+$home_pillars_idea_text  = (string) $home_pillars_idea['text'];
+
+$home_pillars_mission_defaults = array(
+	'title'        => 'Our Mission',
+	'intro_text'   => 'We believe every child deserves the opportunity to:',
+	'list_items'   => array(
+		array( 'item_text' => 'Dream boldly.' ),
+		array( 'item_text' => 'Create confidently.' ),
+		array( 'item_text' => 'Grow through real experiences.' ),
+		array( 'item_text' => 'Give their talents to help others.' ),
+	),
+	'closing_text' => 'Our mission is to help children discover who they are, what they love, and the impact they can make.',
+	'link'         => array(
+		'title'  => 'Learn About Us',
+		'url'    => bdc_page_url( 'about.html' ),
+		'target' => '',
+	),
+);
+$home_pillars_mission       = bdc_get_acf_group( 'home_pillars_mission', $home_pillars_mission_defaults, $front_page_id );
+$home_pillars_mission_link  = bdc_resolve_acf_link_value( $home_pillars_mission['link'] ?? null, $home_pillars_mission_defaults['link'] );
+$home_pillars_mission_items = ( is_array( $home_pillars_mission['list_items'] ?? null ) && ! empty( $home_pillars_mission['list_items'] ) )
+	? $home_pillars_mission['list_items']
+	: $home_pillars_mission_defaults['list_items'];
+$home_pillars_mission_checks = array( 'pink', 'orange', 'green', 'purple' );
+
+$home_pillars_inspire_defaults = array(
+	'image'           => bdc_theme_asset_url( 'assets/images/home-pillar-jar.jpeg' ),
+	'line_1'          => 'Together, we can',
+	'line_2'          => 'inspire big',
+	'accent_1'        => 'dreams',
+	'line_3'          => 'and create lasting',
+	'accent_2'        => 'change.',
+	'underline_image' => bdc_theme_asset_url( 'assets/images/heading-underline.jpeg' ),
+);
+$home_pillars_inspire       = bdc_get_acf_group( 'home_pillars_inspire', $home_pillars_inspire_defaults, $front_page_id );
+$home_pillars_inspire_image = bdc_acf_image_value_to_url( $home_pillars_inspire['image'] ?? null, $home_pillars_inspire_defaults['image'] );
+$home_pillars_inspire_underline = bdc_acf_image_value_to_url(
+	$home_pillars_inspire['underline_image'] ?? null,
+	$home_pillars_inspire_defaults['underline_image']
+);
+$home_pillars_inspire_line_1   = (string) $home_pillars_inspire['line_1'];
+$home_pillars_inspire_line_2   = (string) $home_pillars_inspire['line_2'];
+$home_pillars_inspire_accent_1 = (string) $home_pillars_inspire['accent_1'];
+$home_pillars_inspire_line_3   = (string) $home_pillars_inspire['line_3'];
+$home_pillars_inspire_accent_2 = (string) $home_pillars_inspire['accent_2'];
+$home_pillars_mission_title    = (string) $home_pillars_mission['title'];
+$home_pillars_mission_intro    = (string) $home_pillars_mission['intro_text'];
+$home_pillars_mission_closing  = (string) $home_pillars_mission['closing_text'];
 ?>
     <main id="main-content">
       <section class="page-hero home-hero" aria-label="Welcome">
@@ -14,8 +119,8 @@ get_header();
             <div class="home-hero__brand">
               <img
                 class="home-hero__logo"
-                src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/bright-dreamers-logo.jpeg' ); ?>"
-                alt="Bright Dreamers — Dream, Create, Grow, Give"
+                src="<?php echo esc_url( $home_hero_logo_url ); ?>"
+                alt="<?php echo esc_attr( $home_hero_logo_alt ); ?>"
                 width="380"
                 height="110"
                 decoding="async"
@@ -23,13 +128,12 @@ get_header();
             </div>
 
             <p class="page-hero__text">
-              A nonprofit community where children's ideas become real projects
-              that build confidence, creativity, kindness, and positive change.
+              <?php echo esc_html( $home_hero_text ); ?>
             </p>
 
             <div class="page-hero__actions">
-              <a class="btn btn--solid btn--lg btn-hover" href="<?php echo esc_url( bdc_page_url( 'apply-to-become.html' ) ); ?>">
-                Apply to Become a Bright Dreamer
+              <a class="btn btn--solid btn--lg btn-hover" href="<?php echo esc_url( $home_hero_primary_cta['url'] ); ?>"<?php echo bdc_acf_link_target_attr( $home_hero_primary_cta ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
+                <?php echo esc_html( $home_hero_primary_cta['title'] ); ?>
                 <svg
                   class="btn__icon"
                   viewBox="0 0 24 24"
@@ -48,8 +152,8 @@ get_header();
                   <path d="M12.8 18.5c.5-1.8 1.8-2.8 3.2-2.8 1.2 0 2.2.7 2.8 2" />
                 </svg>
               </a>
-              <a class="btn btn--outline btn--lg btn-hover" href="<?php echo esc_url( bdc_page_url( 'our-vision.html' ) ); ?>">
-                See Our Vision
+              <a class="btn btn--outline btn--lg btn-hover" href="<?php echo esc_url( $home_hero_secondary_cta['url'] ); ?>"<?php echo bdc_acf_link_target_attr( $home_hero_secondary_cta ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
+                <?php echo esc_html( $home_hero_secondary_cta['title'] ); ?>
                 <svg
                   class="btn__icon"
                   viewBox="0 0 24 24"
@@ -73,8 +177,8 @@ get_header();
               <img
                 class="home-hero__banner lazy-img"
                 src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-                data-src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/home-hero-banner.png' ); ?>"
-                alt="Three Bright Dreamers holding colorful heart flower drawings in a sunny park"
+                data-src="<?php echo esc_url( $home_hero_banner_url ); ?>"
+                alt="<?php echo esc_attr( $home_hero_banner_alt ); ?>"
                 width="1200"
                 height="900"
                 decoding="async"
@@ -94,7 +198,7 @@ get_header();
                     <img
                       class="home-pillar__img lazy-img"
                       src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-                      data-src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/home-pillar-books.jpeg' ); ?>"
+                      data-src="<?php echo esc_url( $home_pillars_idea_image ); ?>"
                       alt=""
                       width="280"
                       height="320"
@@ -105,7 +209,7 @@ get_header();
 
                 <div class="home-pillar__content">
                   <h2 class="home-pillar__title">
-                    It All Starts With One Idea
+                    <?php echo esc_html( $home_pillars_idea_title ); ?>
                     <svg
                       class="home-pillar__title-icon home-pillar__title-icon--star"
                       viewBox="0 0 24 24"
@@ -122,12 +226,10 @@ get_header();
                     </svg>
                   </h2>
 
-                  <p class="home-pillar__quote">&ldquo;I have an idea.&rdquo;</p>
+                  <p class="home-pillar__quote">&ldquo;<?php echo esc_html( $home_pillars_idea_quote ); ?>&rdquo;</p>
 
                   <p class="home-pillar__text">
-                    At Bright Dreamers, children don&rsquo;t just imagine&mdash;they
-                    create. They lead. They discover their talents while making a
-                    positive difference in the world.
+                    <?php echo esc_html( $home_pillars_idea_text ); ?>
                   </p>
                 </div>
               </div>
@@ -136,7 +238,7 @@ get_header();
             <article class="home-pillar home-pillar--mission">
               <div class="home-pillar__content home-pillar__content--full">
                 <h2 class="home-pillar__title">
-                  Our Mission
+                  <?php echo esc_html( $home_pillars_mission_title ); ?>
                   <svg
                     class="home-pillar__title-icon home-pillar__title-icon--heart"
                     viewBox="0 0 24 24"
@@ -154,51 +256,36 @@ get_header();
                 </h2>
 
                 <p class="home-pillar__text">
-                  We believe every child deserves the opportunity to:
+                  <?php echo esc_html( $home_pillars_mission_intro ); ?>
                 </p>
 
                 <ul class="home-pillar__list">
+                  <?php foreach ( $home_pillars_mission_items as $index => $item ) : ?>
+                    <?php
+                    $item_text   = isset( $item['item_text'] ) ? trim( (string) $item['item_text'] ) : '';
+                    $check_class = $home_pillars_mission_checks[ $index ] ?? 'pink';
+
+                    if ( '' === $item_text ) {
+                      continue;
+                    }
+                    ?>
                   <li>
-                    <span class="home-pillar__check home-pillar__check--pink" aria-hidden="true">
+                    <span class="home-pillar__check home-pillar__check--<?php echo esc_attr( $check_class ); ?>" aria-hidden="true">
                       <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M5 13l4 4L19 7" />
                       </svg>
                     </span>
-                    Dream boldly.
+                    <?php echo esc_html( $item_text ); ?>
                   </li>
-                  <li>
-                    <span class="home-pillar__check home-pillar__check--orange" aria-hidden="true">
-                      <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M5 13l4 4L19 7" />
-                      </svg>
-                    </span>
-                    Create confidently.
-                  </li>
-                  <li>
-                    <span class="home-pillar__check home-pillar__check--green" aria-hidden="true">
-                      <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M5 13l4 4L19 7" />
-                      </svg>
-                    </span>
-                    Grow through real experiences.
-                  </li>
-                  <li>
-                    <span class="home-pillar__check home-pillar__check--purple" aria-hidden="true">
-                      <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M5 13l4 4L19 7" />
-                      </svg>
-                    </span>
-                    Give their talents to help others.
-                  </li>
+                  <?php endforeach; ?>
                 </ul>
 
                 <p class="home-pillar__text">
-                  Our mission is to help children discover who they are, what they
-                  love, and the impact they can make.
+                  <?php echo esc_html( $home_pillars_mission_closing ); ?>
                 </p>
 
-                <a class="home-pillar__link" href="<?php echo esc_url( bdc_page_url( 'about.html' ) ); ?>">
-                  Learn About Us
+                <a class="home-pillar__link" href="<?php echo esc_url( $home_pillars_mission_link['url'] ); ?>"<?php echo bdc_acf_link_target_attr( $home_pillars_mission_link ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
+                  <?php echo esc_html( $home_pillars_mission_link['title'] ); ?>
                   <span aria-hidden="true">&rarr;</span>
                 </a>
               </div>
@@ -211,7 +298,7 @@ get_header();
                     <img
                       class="home-pillar__img home-pillar__img--jar lazy-img"
                       src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-                      data-src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/home-pillar-jar.jpeg' ); ?>"
+                      data-src="<?php echo esc_url( $home_pillars_inspire_image ); ?>"
                       alt=""
                       width="280"
                       height="320"
@@ -222,17 +309,17 @@ get_header();
 
                 <div class="home-pillar__content">
                   <p class="home-pillar__inspire-text">
-                    Together, we can<br />
-                    inspire big
-                    <span class="home-pillar__accent home-pillar__accent--pink">dreams</span><br />
-                    and create lasting<br />
+                    <?php echo esc_html( $home_pillars_inspire_line_1 ); ?><br />
+                    <?php echo esc_html( $home_pillars_inspire_line_2 ); ?>
+                    <span class="home-pillar__accent home-pillar__accent--pink"><?php echo esc_html( $home_pillars_inspire_accent_1 ); ?></span><br />
+                    <?php echo esc_html( $home_pillars_inspire_line_3 ); ?><br />
                     <span class="heading-underline heading-underline--inspire">
                       <span class="home-pillar__accent home-pillar__accent--green"
-                        >change.</span
+                        ><?php echo esc_html( $home_pillars_inspire_accent_2 ); ?></span
                       >
                       <img
                         class="heading-underline__img"
-                        src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/heading-underline.jpeg' ); ?>"
+                        src="<?php echo esc_url( $home_pillars_inspire_underline ); ?>"
                         alt=""
                         width="120"
                         height="12"

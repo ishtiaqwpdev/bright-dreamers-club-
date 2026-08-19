@@ -16,6 +16,15 @@ require_once BDC_THEME_DIR . '/inc/forms/forms-config.php';
 require_once BDC_THEME_DIR . '/inc/forms/form-settings.php';
 require_once BDC_THEME_DIR . '/inc/theme-settings.php';
 require_once BDC_THEME_DIR . '/inc/forms/form-handler.php';
+require_once BDC_THEME_DIR . '/inc/acf-helpers.php';
+
+/**
+ * Register local ACF field groups when ACF is active.
+ */
+function bdc_load_acf_field_groups() {
+	require_once BDC_THEME_DIR . '/inc/acf-fields.php';
+}
+add_action( 'acf/init', 'bdc_load_acf_field_groups' );
 
 /**
  * Map static theme slugs to live WordPress page slugs when they differ.
