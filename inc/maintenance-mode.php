@@ -192,7 +192,8 @@ function bdc_sanitize_maintenance_settings( $input ) {
  * Add theme maintenance settings page.
  */
 function bdc_add_maintenance_settings_page() {
-	add_theme_page(
+	add_submenu_page(
+		'bdc-theme-settings',
 		__( 'Site Maintenance', 'bright-dreamers-club' ),
 		__( 'Site Maintenance', 'bright-dreamers-club' ),
 		'manage_options',
@@ -303,7 +304,7 @@ function bdc_maintenance_admin_notice() {
 		return;
 	}
 
-	$url = admin_url( 'themes.php?page=bdc-maintenance' );
+	$url = admin_url( 'admin.php?page=bdc-maintenance' );
 	?>
 	<div class="notice notice-warning">
 		<p>
@@ -330,7 +331,7 @@ function bdc_maintenance_admin_bar_notice( $admin_bar ) {
 		array(
 			'id'    => 'bdc-maintenance-mode',
 			'title' => esc_html__( 'Maintenance: ON', 'bright-dreamers-club' ),
-			'href'  => admin_url( 'themes.php?page=bdc-maintenance' ),
+			'href'  => admin_url( 'admin.php?page=bdc-maintenance' ),
 			'meta'  => array(
 				'class' => 'bdc-maintenance-admin-bar',
 			),

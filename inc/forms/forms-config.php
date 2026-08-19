@@ -18,17 +18,21 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @return string[]
  */
 function bdc_forms_default_admin_recipients() {
+	if ( function_exists( 'bdc_get_form_admin_recipients' ) ) {
+		return bdc_get_form_admin_recipients();
+	}
+
 	$email = apply_filters( 'bdc_forms_admin_email', get_option( 'admin_email' ) );
 
 	return array_filter( array( sanitize_email( $email ) ) );
 }
 
 /**
- * All form configurations keyed by form_id.
+ * Base form definitions (fields + default copy).
  *
  * @return array<string, array<string, mixed>>
  */
-function bdc_get_forms_config() {
+function bdc_get_forms_base_config() {
 	$admin_recipients = bdc_forms_default_admin_recipients();
 
 	return array(
@@ -560,6 +564,21 @@ function bdc_get_forms_config() {
 			),
 		),
 	);
+}
+
+/**
+ * Active form config merged with saved Bright Dreamers theme settings.
+ *
+ * @return array<string, array<string, mixed>>
+ */
+function bdc_get_forms_config() {
+	$config = bdc_get_forms_base_config();
+
+	if ( function_exists( 'bdc_apply_saved_form_settings' ) ) {
+		$config = bdc_apply_saved_form_settings( $config );
+	}
+
+	return $config;
 }
 
 /**
