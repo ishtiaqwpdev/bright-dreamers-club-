@@ -725,6 +725,10 @@ button {
   margin: 0 0 var(--footer-heading-gap);
 }
 
+.site-footer__heading--explore {
+  color: #e53935;
+}
+
 .site-footer__links {
   display: flex;
   flex-direction: column;
