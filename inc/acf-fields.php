@@ -769,3 +769,106 @@ acf_add_local_field_group(
 		'active'                => true,
 	)
 );
+
+acf_add_local_field_group(
+	array(
+		'key'                   => 'group_about_story',
+		'title'                 => 'About — Our Story',
+		'fields'                => array(
+			array(
+				'key'           => 'field_about_story_title',
+				'label'         => 'Section title',
+				'name'          => 'about_story_title',
+				'type'          => 'text',
+				'default_value' => 'Our Story',
+				'instructions'  => 'Heart icon next to the title stays in the design.',
+			),
+			array(
+				'key'           => 'field_about_story_photo',
+				'label'         => 'Main photo',
+				'name'          => 'about_story_photo',
+				'type'          => 'image',
+				'return_format' => 'array',
+				'preview_size'  => 'medium',
+				'library'       => 'all',
+				'instructions'  => 'Leave empty to keep the default Our Story photo.',
+			),
+			array(
+				'key'           => 'field_about_story_photo_alt',
+				'label'         => 'Main photo alt text',
+				'name'          => 'about_story_photo_alt',
+				'type'          => 'text',
+				'default_value' => 'Two Bright Dreamers holding a sign that reads Our Ideas Can Change The World',
+			),
+			array(
+				'key'           => 'field_about_story_paragraph_1',
+				'label'         => 'Paragraph 1',
+				'name'          => 'about_story_paragraph_1',
+				'type'          => 'textarea',
+				'rows'          => 4,
+				'new_lines'     => '',
+				'default_value' => 'It started at home. Bright Dreamers began with two little girls full of imagination. Every day they asked questions, invented ideas, designed projects, and dreamed about making the world a little brighter.',
+			),
+			array(
+				'key'           => 'field_about_story_paragraph_2',
+				'label'         => 'Paragraph 2',
+				'name'          => 'about_story_paragraph_2',
+				'type'          => 'textarea',
+				'rows'          => 2,
+				'new_lines'     => '',
+				'default_value' => 'Watching them made us realize something important…',
+			),
+			array(
+				'key'           => 'field_about_story_paragraph_highlight',
+				'label'         => 'Highlight paragraph (pink)',
+				'name'          => 'about_story_paragraph_highlight',
+				'type'          => 'textarea',
+				'rows'          => 3,
+				'new_lines'     => '',
+				'default_value' => 'Children don\'t need someone to tell them what to dream. They need someone who believes in their dreams.',
+				'instructions'  => 'Shown in bold pink in the design.',
+			),
+			array(
+				'key'           => 'field_about_story_paragraph_3',
+				'label'         => 'Closing paragraph',
+				'name'          => 'about_story_paragraph_3',
+				'type'          => 'textarea',
+				'rows'          => 4,
+				'new_lines'     => '',
+				'default_value' => 'Today, we\'re building a small, intentional nonprofit community where children have opportunities to discover their talents, explore their own ideas, and grow into confident, kind, and creative people.',
+			),
+			array(
+				'key'           => 'field_about_story_jar',
+				'label'         => 'Decorative jar image',
+				'name'          => 'about_story_jar',
+				'type'          => 'image',
+				'return_format' => 'array',
+				'preview_size'  => 'medium',
+				'library'       => 'all',
+				'instructions'  => 'Side illustration. Leave empty to keep the default jar image.',
+			),
+			array(
+				'key'           => 'field_about_story_jar_alt',
+				'label'         => 'Jar image alt text',
+				'name'          => 'about_story_jar_alt',
+				'type'          => 'text',
+				'instructions'  => 'Optional. Leave empty if decorative only.',
+			),
+		),
+		'location'              => array(
+			array(
+				array(
+					'param'    => 'page_template',
+					'operator' => '==',
+					'value'    => 'page-about.php',
+				),
+			),
+		),
+		'menu_order'            => 1,
+		'position'              => 'normal',
+		'style'                 => 'default',
+		'label_placement'       => 'top',
+		'instruction_placement' => 'label',
+		'active'                => true,
+	)
+);

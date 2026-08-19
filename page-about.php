@@ -81,6 +81,52 @@ $about_hero_banner_alt = bdc_get_acf_text(
 	'Children creating art together at Bright Dreamers Club',
 	$about_page_id
 );
+
+$about_story_title = bdc_get_acf_text(
+	'about_story_title',
+	'Our Story',
+	$about_page_id
+);
+$about_story_photo_url = bdc_get_acf_image_url(
+	'about_story_photo',
+	bdc_theme_asset_url( 'assets/images/our-story-photo.png' ),
+	$about_page_id
+);
+$about_story_photo_alt = bdc_get_acf_text(
+	'about_story_photo_alt',
+	'Two Bright Dreamers holding a sign that reads Our Ideas Can Change The World',
+	$about_page_id
+);
+$about_story_paragraph_1 = bdc_get_acf_text(
+	'about_story_paragraph_1',
+	'It started at home. Bright Dreamers began with two little girls full of imagination. Every day they asked questions, invented ideas, designed projects, and dreamed about making the world a little brighter.',
+	$about_page_id
+);
+$about_story_paragraph_2 = bdc_get_acf_text(
+	'about_story_paragraph_2',
+	'Watching them made us realize something important…',
+	$about_page_id
+);
+$about_story_paragraph_highlight = bdc_get_acf_text(
+	'about_story_paragraph_highlight',
+	'Children don\'t need someone to tell them what to dream. They need someone who believes in their dreams.',
+	$about_page_id
+);
+$about_story_paragraph_3 = bdc_get_acf_text(
+	'about_story_paragraph_3',
+	'Today, we\'re building a small, intentional nonprofit community where children have opportunities to discover their talents, explore their own ideas, and grow into confident, kind, and creative people.',
+	$about_page_id
+);
+$about_story_jar_url = bdc_get_acf_image_url(
+	'about_story_jar',
+	bdc_theme_asset_url( 'assets/images/our-story-jar.png' ),
+	$about_page_id
+);
+$about_story_jar_alt = bdc_get_acf_text(
+	'about_story_jar_alt',
+	'',
+	$about_page_id
+);
 ?>
     <main id="main-content">
       <section class="page-hero about-hero" aria-label="About Bright Dreamers">
@@ -183,9 +229,9 @@ $about_hero_banner_alt = bdc_get_acf_text(
                 <div class="lazy-img-wrap">
                   <img
                     class="our-story__photo lazy-img"
-                    src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-                    data-src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/our-story-photo.png' ); ?>"
-                    alt="Two Bright Dreamers holding a sign that reads Our Ideas Can Change The World"
+                    src="<?php echo esc_attr( $about_hero_lazy_placeholder ); ?>"
+                    data-src="<?php echo esc_url( $about_story_photo_url ); ?>"
+                    alt="<?php echo esc_attr( $about_story_photo_alt ); ?>"
                     width="900"
                     height="900"
                     decoding="async"
@@ -195,7 +241,7 @@ $about_hero_banner_alt = bdc_get_acf_text(
 
               <div class="our-story__content">
                 <h2 class="our-story__title">
-                  Our Story
+                  <?php echo esc_html( $about_story_title ); ?>
                   <svg
                     class="our-story__title-icon"
                     viewBox="0 0 24 24"
@@ -212,37 +258,38 @@ $about_hero_banner_alt = bdc_get_acf_text(
                   </svg>
                 </h2>
 
+                <?php if ( '' !== trim( $about_story_paragraph_1 ) ) : ?>
                 <p class="our-story__text">
-                  It started at home. Bright Dreamers began with two little girls
-                  full of imagination. Every day they asked questions, invented
-                  ideas, designed projects, and dreamed about making the world a
-                  little brighter.
+                  <?php echo esc_html( $about_story_paragraph_1 ); ?>
                 </p>
+                <?php endif; ?>
 
+                <?php if ( '' !== trim( $about_story_paragraph_2 ) ) : ?>
                 <p class="our-story__text">
-                  Watching them made us realize something important&hellip;
+                  <?php echo esc_html( $about_story_paragraph_2 ); ?>
                 </p>
+                <?php endif; ?>
 
+                <?php if ( '' !== trim( $about_story_paragraph_highlight ) ) : ?>
                 <p class="our-story__text our-story__text--highlight">
-                  Children don't need someone to tell them what to dream. They
-                  need someone who believes in their dreams.
+                  <?php echo esc_html( $about_story_paragraph_highlight ); ?>
                 </p>
+                <?php endif; ?>
 
+                <?php if ( '' !== trim( $about_story_paragraph_3 ) ) : ?>
                 <p class="our-story__text our-story__text--last">
-                  Today, we're building a small, intentional nonprofit community
-                  where children have opportunities to discover their talents,
-                  explore their own ideas, and grow into confident, kind, and
-                  creative people.
+                  <?php echo esc_html( $about_story_paragraph_3 ); ?>
                 </p>
+                <?php endif; ?>
               </div>
 
               <div class="our-story__aside">
                 <div class="lazy-img-wrap">
                   <img
                     class="our-story__jar lazy-img"
-                    src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-                    data-src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/our-story-jar.png' ); ?>"
-                    alt=""
+                    src="<?php echo esc_attr( $about_hero_lazy_placeholder ); ?>"
+                    data-src="<?php echo esc_url( $about_story_jar_url ); ?>"
+                    alt="<?php echo esc_attr( $about_story_jar_alt ); ?>"
                     width="400"
                     height="500"
                     decoding="async"
