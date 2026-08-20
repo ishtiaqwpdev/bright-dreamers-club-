@@ -296,9 +296,113 @@ function bdc_acf_repeater_value_is_empty( $value ) {
  * @return bool
  */
 function bdc_acf_repeater_meta_is_empty( $post_id, $field_name ) {
-	$count = get_post_meta( (int) $post_id, $field_name, true );
+	$post_id = (int) $post_id;
 
-	return '' === $count || false === $count || null === $count || '0' === (string) $count;
+	if ( $post_id <= 0 ) {
+		return true;
+	}
+
+	$count = get_post_meta( $post_id, $field_name, true );
+
+	if ( '' === $count || false === $count || null === $count ) {
+		return true;
+	}
+
+	if ( is_numeric( $count ) && (int) $count <= 0 ) {
+		return true;
+	}
+
+	return false;
+}
+
+/**
+ * Write repeater rows directly to post meta when update_field() fails.
+ *
+ * @param int                  $post_id    Post ID.
+ * @param string               $field_name Repeater field name.
+ * @param array<int, array<string, mixed>> $rows       Row data keyed by sub field name.
+ * @return void
+ */
+function bdc_write_acf_repeater_meta( $post_id, $field_name, array $rows ) {
+	$post_id    = (int) $post_id;
+	$field_name = (string) $field_name;
+	$row_count  = count( $rows );
+
+	update_post_meta( $post_id, $field_name, $row_count );
+
+	for ( $index = 0; $index < $row_count; $index++ ) {
+		$row = $rows[ $index ];
+
+		if ( ! is_array( $row ) ) {
+			continue;
+		}
+
+		foreach ( $row as $sub_name => $sub_value ) {
+			$meta_key = $field_name . '_' . $index . '_' . $sub_name;
+
+			if ( is_string( $sub_value ) && '' === $sub_value ) {
+				delete_post_meta( $post_id, $meta_key );
+				continue;
+			}
+
+			if ( empty( $sub_value ) && ! is_numeric( $sub_value ) ) {
+				delete_post_meta( $post_id, $meta_key );
+				continue;
+			}
+
+			update_post_meta( $post_id, $meta_key, $sub_value );
+		}
+	}
+}
+
+/**
+ * Seed Privacy Policy repeater fields for a page.
+ *
+ * @param int $post_id Post ID.
+ * @return bool True when one or both repeaters were seeded.
+ */
+function bdc_seed_privacy_policy_acf_repeaters( $post_id ) {
+	$post_id = (int) $post_id;
+
+	if ( $post_id <= 0 || ! bdc_is_privacy_policy_page( $post_id ) ) {
+		return false;
+	}
+
+	$seeded = false;
+
+	if ( bdc_acf_repeater_meta_is_empty( $post_id, 'privacy_policy_nav_items' ) ) {
+		$nav_rows = bdc_get_privacy_policy_nav_items_acf_defaults();
+
+		if ( function_exists( 'update_field' ) ) {
+			update_field( 'privacy_policy_nav_items', $nav_rows, $post_id );
+		}
+
+		if ( bdc_acf_repeater_meta_is_empty( $post_id, 'privacy_policy_nav_items' ) ) {
+			bdc_write_acf_repeater_meta( $post_id, 'privacy_policy_nav_items', $nav_rows );
+		}
+
+		$seeded = true;
+	}
+
+	if ( bdc_acf_repeater_meta_is_empty( $post_id, 'privacy_policy_sections' ) ) {
+		$section_rows = bdc_get_privacy_policy_sections_acf_defaults();
+
+		if ( function_exists( 'update_field' ) ) {
+			update_field( 'privacy_policy_sections', $section_rows, $post_id );
+		}
+
+		if ( bdc_acf_repeater_meta_is_empty( $post_id, 'privacy_policy_sections' ) ) {
+			bdc_write_acf_repeater_meta( $post_id, 'privacy_policy_sections', $section_rows );
+		}
+
+		$seeded = true;
+	}
+
+	if ( $seeded ) {
+		set_transient( 'bdc_privacy_policy_seeded_' . $post_id, 1, MINUTE_IN_SECONDS );
+	}
+
+	return $seeded;
 }
 
 /**
@@ -312,11 +416,17 @@ function bdc_acf_repeater_meta_is_empty( $post_id, $field_name ) {
 function bdc_acf_load_privacy_policy_nav_items( $value, $post_id, $field ) {
 	unset( $field );
 
-	if ( ! bdc_acf_repeater_value_is_empty( $value ) ) {
-		return $value;
+	$post_id = (int) $post_id;
+
+	if ( $post_id > 0 && bdc_is_privacy_policy_page( $post_id ) && bdc_acf_repeater_meta_is_empty( $post_id, 'privacy_policy_nav_items' ) ) {
+		return bdc_get_privacy_policy_nav_items_acf_defaults();
 	}
 
-	return bdc_get_privacy_policy_nav_items_acf_defaults();
+	if ( bdc_acf_repeater_value_is_empty( $value ) ) {
+		return bdc_get_privacy_policy_nav_items_acf_defaults();
+	}
+
+	return $value;
 }
 
 /**
@@ -330,11 +440,17 @@ function bdc_acf_load_privacy_policy_nav_items( $value, $post_id, $field ) {
 function bdc_acf_load_privacy_policy_sections( $value, $post_id, $field ) {
 	unset( $field );
 
-	if ( ! bdc_acf_repeater_value_is_empty( $value ) ) {
-		return $value;
+	$post_id = (int) $post_id;
+
+	if ( $post_id > 0 && bdc_is_privacy_policy_page( $post_id ) && bdc_acf_repeater_meta_is_empty( $post_id, 'privacy_policy_sections' ) ) {
+		return bdc_get_privacy_policy_sections_acf_defaults();
 	}
 
-	return bdc_get_privacy_policy_sections_acf_defaults();
+	if ( bdc_acf_repeater_value_is_empty( $value ) ) {
+		return bdc_get_privacy_policy_sections_acf_defaults();
+	}
+
+	return $value;
 }
 
 /**
@@ -370,28 +486,61 @@ function bdc_acf_pre_render_privacy_policy_repeater( $field ) {
 }
 
 /**
- * Save default Privacy Policy repeater rows the first time the page is edited.
+ * Seed Privacy Policy repeaters before the edit screen renders.
  *
  * @return void
  */
-function bdc_seed_privacy_policy_acf_repeaters_on_edit() {
-	if ( ! function_exists( 'update_field' ) || ! is_admin() ) {
+function bdc_seed_privacy_policy_acf_repeaters_on_admin_load() {
+	if ( ! is_admin() ) {
 		return;
 	}
 
-	global $post;
+	$post_id = 0;
 
-	if ( ! $post instanceof WP_Post || ! bdc_is_privacy_policy_page( $post->ID ) ) {
+	if ( isset( $_GET['post'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+		$post_id = (int) wp_unslash( $_GET['post'] ); // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+	}
+
+	if ( $post_id <= 0 ) {
+		global $post;
+
+		if ( $post instanceof WP_Post ) {
+			$post_id = (int) $post->ID;
+		}
+	}
+
+	if ( $post_id <= 0 ) {
 		return;
 	}
 
-	if ( bdc_acf_repeater_meta_is_empty( $post->ID, 'privacy_policy_nav_items' ) ) {
-		update_field( 'privacy_policy_nav_items', bdc_get_privacy_policy_nav_items_acf_defaults(), $post->ID );
+	bdc_seed_privacy_policy_acf_repeaters( $post_id );
+}
+
+/**
+ * Show a one-time notice after default Privacy Policy rows are seeded.
+ *
+ * @return void
+ */
+function bdc_privacy_policy_seed_admin_notice() {
+	if ( ! is_admin() || ! function_exists( 'get_current_screen' ) ) {
+		return;
 	}
 
-	if ( bdc_acf_repeater_meta_is_empty( $post->ID, 'privacy_policy_sections' ) ) {
-		update_field( 'privacy_policy_sections', bdc_get_privacy_policy_sections_acf_defaults(), $post->ID );
+	$screen = get_current_screen();
+
+	if ( ! $screen || 'page' !== $screen->id ) {
+		return;
 	}
+
+	$post_id = isset( $_GET['post'] ) ? (int) wp_unslash( $_GET['post'] ) : 0; // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+
+	if ( $post_id <= 0 || ! get_transient( 'bdc_privacy_policy_seeded_' . $post_id ) ) {
+		return;
+	}
+
+	delete_transient( 'bdc_privacy_policy_seeded_' . $post_id );
+
+	echo '<div class="notice notice-success is-dismissible"><p>Privacy Policy sidebar links and content sections were loaded with the default text. You can edit each row below, then click Update.</p></div>';
 }
 
 /**
@@ -403,7 +552,8 @@ function bdc_register_privacy_policy_acf_defaults() {
 	add_filter( 'acf/load_value/name=privacy_policy_nav_items', 'bdc_acf_load_privacy_policy_nav_items', 10, 3 );
 	add_filter( 'acf/load_value/name=privacy_policy_sections', 'bdc_acf_load_privacy_policy_sections', 10, 3 );
 	add_filter( 'acf/pre_render_field/type=repeater', 'bdc_acf_pre_render_privacy_policy_repeater', 10, 1 );
-	add_action( 'acf/input/admin_head', 'bdc_seed_privacy_policy_acf_repeaters_on_edit' );
 }
 
+add_action( 'load-post.php', 'bdc_seed_privacy_policy_acf_repeaters_on_admin_load' );
+add_action( 'admin_notices', 'bdc_privacy_policy_seed_admin_notice' );
 add_action( 'acf/init', 'bdc_register_privacy_policy_acf_defaults' );
