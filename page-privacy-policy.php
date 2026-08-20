@@ -75,79 +75,9 @@ $privacy_policy_sidebar_card_text = bdc_get_acf_text(
 	$privacy_policy_page_id
 );
 
-$privacy_policy_nav_items_defaults = bdc_get_privacy_policy_nav_items_defaults();
-
-$privacy_policy_sections_defaults = bdc_get_privacy_policy_sections_defaults();
-
-$privacy_policy_nav_items_raw = bdc_get_acf_repeater( 'privacy_policy_nav_items', $privacy_policy_nav_items_defaults, $privacy_policy_page_id );
-$privacy_policy_nav_items     = array();
-
-foreach ( $privacy_policy_nav_items_raw as $index => $row ) {
-	$default = $privacy_policy_nav_items_defaults[ $index ] ?? array(
-		'anchor_id' => '',
-		'icon'      => '',
-		'label'     => '',
-	);
-
-	$anchor_id = isset( $row['anchor_id'] ) ? sanitize_key( (string) $row['anchor_id'] ) : '';
-	$label     = isset( $row['label'] ) ? trim( (string) $row['label'] ) : '';
-
-	$resolved = array(
-		'anchor_id' => '' !== $anchor_id ? $anchor_id : (string) $default['anchor_id'],
-		'icon'      => bdc_acf_image_value_to_url( $row['icon'] ?? null, (string) $default['icon'] ),
-		'label'     => '' !== $label ? $label : (string) $default['label'],
-	);
-
-	if ( '' === trim( $resolved['label'] ) ) {
-		continue;
-	}
-
-	$privacy_policy_nav_items[] = $resolved;
-}
-
-if ( empty( $privacy_policy_nav_items ) ) {
-	$privacy_policy_nav_items = $privacy_policy_nav_items_defaults;
-}
-
-$privacy_policy_sections_raw = bdc_get_acf_repeater( 'privacy_policy_sections', $privacy_policy_sections_defaults, $privacy_policy_page_id );
-$privacy_policy_sections     = array();
-
-foreach ( $privacy_policy_sections_raw as $index => $row ) {
-	$default = $privacy_policy_sections_defaults[ $index ] ?? array(
-		'section_id'   => '',
-		'icon'         => '',
-		'icon_blend'   => false,
-		'title'        => '',
-		'section_body' => '',
-	);
-
-	$section_id   = isset( $row['section_id'] ) ? sanitize_key( (string) $row['section_id'] ) : '';
-	$title        = isset( $row['title'] ) ? trim( (string) $row['title'] ) : '';
-	$section_body = isset( $row['section_body'] ) ? trim( (string) $row['section_body'] ) : '';
-	$icon_blend   = ! empty( $row['icon_blend'] );
-
-	if ( ! $icon_blend && isset( $default['icon_blend'] ) ) {
-		$icon_blend = (bool) $default['icon_blend'];
-	}
-
-	$resolved = array(
-		'section_id'   => '' !== $section_id ? $section_id : (string) $default['section_id'],
-		'icon'         => bdc_acf_image_value_to_url( $row['icon'] ?? null, (string) $default['icon'] ),
-		'icon_blend'   => $icon_blend,
-		'title'        => '' !== $title ? $title : (string) $default['title'],
-		'section_body' => '' !== $section_body ? $section_body : (string) $default['section_body'],
-	);
-
-	if ( '' === trim( $resolved['title'] ) && '' === trim( $resolved['section_body'] ) ) {
-		continue;
-	}
-
-	$privacy_policy_sections[] = $resolved;
-}
-
-if ( empty( $privacy_policy_sections ) ) {
-	$privacy_policy_sections = $privacy_policy_sections_defaults;
-}
+$privacy_policy_resolved     = bdc_get_privacy_policy_resolved_content( $privacy_policy_page_id );
+$privacy_policy_nav_items    = $privacy_policy_resolved['nav_items'];
+$privacy_policy_sections     = $privacy_policy_resolved['sections'];
 
 $hero_section_class     = 'page-hero media-policy-hero privacy-hero';
 $hero_aria_label        = $privacy_policy_hero_aria_label;
