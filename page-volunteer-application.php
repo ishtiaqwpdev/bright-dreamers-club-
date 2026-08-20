@@ -8,24 +8,161 @@
  */
 
 get_header();
+
+$volunteer_page_id = get_queried_object_id();
+$volunteer_lazy_placeholder = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';
+
+$volunteer_hero_aria_label = bdc_get_acf_text( 'volunteer_hero_aria_label', 'Volunteer Application', $volunteer_page_id );
+$volunteer_hero_title_pink = bdc_get_acf_text( 'volunteer_hero_title_pink', 'Volunteer', $volunteer_page_id );
+$volunteer_hero_title_navy = bdc_get_acf_text( 'volunteer_hero_title_navy', ' Application', $volunteer_page_id );
+$volunteer_hero_text       = bdc_get_acf_text(
+	'volunteer_hero_text',
+	'Thank you for wanting to be part of Bright Dreamers. Together, we can inspire children to dream, create, learn, lead, and give.',
+	$volunteer_page_id
+);
+$volunteer_hero_note_icon_url = bdc_get_acf_image_url(
+	'volunteer_hero_note_icon',
+	bdc_theme_asset_url( 'assets/images/volunteer-hero-note-icon.png' ),
+	$volunteer_page_id
+);
+$volunteer_hero_note_text = bdc_get_acf_text(
+	'volunteer_hero_note_text',
+	'Every volunteer makes a meaningful difference in a child\'s journey.',
+	$volunteer_page_id
+);
+$volunteer_hero_banner_url = bdc_get_acf_image_url(
+	'volunteer_hero_banner',
+	bdc_theme_asset_url( 'assets/images/volunteer-hero-banner.png' ),
+	$volunteer_page_id
+);
+$volunteer_hero_banner_alt = bdc_get_acf_text(
+	'volunteer_hero_banner_alt',
+	'A volunteer smiling while helping children with a creative activity',
+	$volunteer_page_id
+);
+
+$volunteer_spotlight_heart_url = bdc_get_acf_image_url(
+	'volunteer_spotlight_heart',
+	bdc_theme_asset_url( 'assets/images/volunteer-sidebar-heart-deco.png' ),
+	$volunteer_page_id
+);
+$volunteer_spotlight_title_line1 = bdc_get_acf_text( 'volunteer_spotlight_title_line1', 'Be a Part of', $volunteer_page_id );
+$volunteer_spotlight_title_line2 = bdc_get_acf_text( 'volunteer_spotlight_title_line2', 'Something Big', $volunteer_page_id );
+$volunteer_spotlight_text        = bdc_get_acf_text(
+	'volunteer_spotlight_text',
+	'Your time and skills can help create brighter futures for children in our community.',
+	$volunteer_page_id
+);
+$volunteer_spotlight_image_url = bdc_get_acf_image_url(
+	'volunteer_spotlight_image',
+	bdc_theme_asset_url( 'assets/images/volunteer-sidebar-hands.png' ),
+	$volunteer_page_id
+);
+
+$volunteer_why_title_icon_url = bdc_get_acf_image_url(
+	'volunteer_why_title_icon',
+	bdc_theme_asset_url( 'assets/images/Volunteer Application/a13d88a7-3c1f-46c3-8e9c-dd62a73dbd9e-removebg-preview.png' ),
+	$volunteer_page_id
+);
+$volunteer_why_title_line1 = bdc_get_acf_text( 'volunteer_why_title_line1', 'Why Volunteer', $volunteer_page_id );
+$volunteer_why_title_line2 = bdc_get_acf_text( 'volunteer_why_title_line2', 'With Us?', $volunteer_page_id );
+$volunteer_why_items       = bdc_get_volunteer_resolved_why( $volunteer_page_id );
+
+$volunteer_commitment_icon_url = bdc_get_acf_image_url(
+	'volunteer_commitment_icon',
+	bdc_theme_asset_url( 'assets/images/Volunteer Application/ba5b6fdf-cdc5-4614-b9b1-9b709bc5af0a-removebg-preview.png' ),
+	$volunteer_page_id
+);
+$volunteer_commitment_title = bdc_get_acf_text( 'volunteer_commitment_title', 'Time Commitment', $volunteer_page_id );
+$volunteer_commitment_text  = bdc_get_acf_text(
+	'volunteer_commitment_text',
+	'We know life is busy. That\'s why we offer flexible volunteering opportunities that fit your schedule and availability.',
+	$volunteer_page_id
+);
+$volunteer_commitment_image_url = bdc_get_acf_image_url(
+	'volunteer_commitment_image',
+	bdc_theme_asset_url( 'assets/images/volunteer-sidebar-calendar.png' ),
+	$volunteer_page_id
+);
+
+$volunteer_note_icon_url = bdc_get_acf_image_url(
+	'volunteer_note_icon',
+	bdc_theme_asset_url( 'assets/images/Volunteer Application/be289ad1-97dd-461d-9dc9-77752bbeec9a-removebg-preview.png' ),
+	$volunteer_page_id
+);
+$volunteer_note_title  = bdc_get_acf_text( 'volunteer_note_title', 'Important Note', $volunteer_page_id );
+$volunteer_note_text_1 = bdc_get_acf_text(
+	'volunteer_note_text_1',
+	'All volunteers may be subject to a background check depending on their role and level of interaction with children.',
+	$volunteer_page_id
+);
+$volunteer_note_text_2 = bdc_get_acf_text(
+	'volunteer_note_text_2',
+	'We take confidentiality seriously and handle all personal information with care.',
+	$volunteer_page_id
+);
+$volunteer_note_lock_url = bdc_get_acf_image_url(
+	'volunteer_note_lock',
+	bdc_theme_asset_url( 'assets/images/Volunteer Application/345d6728-ceeb-471b-b3b0-c01f7a34edc1-removebg-preview.png' ),
+	$volunteer_page_id
+);
+
+$volunteer_questions_icon_url = bdc_get_acf_image_url(
+	'volunteer_questions_icon',
+	bdc_theme_asset_url( 'assets/images/Volunteer Application/9aa2e4eb-a1ca-471a-834e-b9962440cef6-removebg-preview (1).png' ),
+	$volunteer_page_id
+);
+$volunteer_questions_title = bdc_get_acf_text( 'volunteer_questions_title', 'Questions?', $volunteer_page_id );
+$volunteer_questions_text  = bdc_get_acf_text(
+	'volunteer_questions_text',
+	'We\'re happy to help! If you have questions, please use our <strong>Contact Form</strong>.',
+	$volunteer_page_id
+);
+$volunteer_questions_link = bdc_get_acf_link(
+	'volunteer_questions_link',
+	array(
+		'title'  => 'Go to Contact Form',
+		'url'    => bdc_page_url( 'contact.html' ),
+		'target' => '',
+	),
+	$volunteer_page_id
+);
+
+$volunteer_footer_aria_label = bdc_get_acf_text( 'volunteer_footer_aria_label', 'Thank you', $volunteer_page_id );
+$volunteer_footer_envelope_url = bdc_get_acf_image_url(
+	'volunteer_footer_envelope',
+	bdc_theme_asset_url( 'assets/images/Volunteer Application/a02a1588-2649-4a87-b502-7ca80459a5f5-removebg-preview.png' ),
+	$volunteer_page_id
+);
+$volunteer_footer_lead   = bdc_get_acf_text( 'volunteer_footer_lead', 'Every hour you give, a child\'s dream grows.', $volunteer_page_id );
+$volunteer_footer_thanks = bdc_get_acf_text( 'volunteer_footer_thanks', 'Thank you for being a Bright Dreamer!', $volunteer_page_id );
+$volunteer_footer_plane_url = bdc_get_acf_image_url(
+	'volunteer_footer_plane',
+	bdc_theme_asset_url( 'assets/images/Volunteer Application/ChatGPT_Image_Aug_11__2026__07_28_07_PM-removebg-preview.png' ),
+	$volunteer_page_id
+);
+$volunteer_footer_heart_url = bdc_get_acf_image_url(
+	'volunteer_footer_heart',
+	bdc_theme_asset_url( 'assets/images/Volunteer Application/492004b0-ad5f-44cd-9688-456964672edf-removebg-preview.png' ),
+	$volunteer_page_id
+);
 ?>
     <main id="main-content">
-      <section class="page-hero apply-hero volunteer-hero" aria-label="Volunteer Application">
+      <section class="page-hero apply-hero volunteer-hero" aria-label="<?php echo esc_attr( $volunteer_hero_aria_label ); ?>">
         <div class="site-container page-hero__inner">
           <div class="page-hero__content apply-hero__content">
             <h1 class="apply-hero__title volunteer-hero__title">
-              <span class="apply-hero__title-line apply-hero__title-line--pink">Volunteer</span><span class="apply-hero__title-line apply-hero__title-line--navy"> Application</span>
+              <span class="apply-hero__title-line apply-hero__title-line--pink"><?php echo esc_html( $volunteer_hero_title_pink ); ?></span><span class="apply-hero__title-line apply-hero__title-line--navy"><?php echo esc_html( $volunteer_hero_title_navy ); ?></span>
             </h1>
 
             <p class="apply-hero__text">
-              Thank you for wanting to be part of Bright Dreamers. Together, we can inspire
-              children to dream, create, learn, lead, and give.
+              <?php echo esc_html( $volunteer_hero_text ); ?>
             </p>
 
             <div class="apply-hero__note">
               <img
                 class="apply-hero__note-icon"
-                src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/volunteer-hero-note-icon.png' ); ?>"
+                src="<?php echo esc_url( $volunteer_hero_note_icon_url ); ?>"
                 alt=""
                 width="52"
                 height="52"
@@ -33,7 +170,7 @@ get_header();
                 aria-hidden="true"
               />
               <p class="apply-hero__note-text">
-                Every volunteer makes a meaningful difference in a child&rsquo;s journey.
+                <?php echo esc_html( $volunteer_hero_note_text ); ?>
               </p>
             </div>
           </div>
@@ -42,9 +179,9 @@ get_header();
             <div class="lazy-img-wrap">
               <img
                 class="about-hero__banner apply-hero__banner volunteer-hero__banner lazy-img"
-                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-                data-src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/volunteer-hero-banner.png' ); ?>"
-                alt="A volunteer smiling while helping children with a creative activity"
+                src="<?php echo esc_attr( $volunteer_lazy_placeholder ); ?>"
+                data-src="<?php echo esc_url( $volunteer_hero_banner_url ); ?>"
+                alt="<?php echo esc_attr( $volunteer_hero_banner_alt ); ?>"
                 width="1200"
                 height="900"
                 decoding="async"
@@ -241,68 +378,67 @@ get_header();
           <aside class="apply-form__sidebar" aria-label="Volunteer application help">
             <article class="apply-sidebar-card apply-sidebar-card--about volunteer-sidebar-card--spotlight">
               <h2 class="apply-sidebar-card__title volunteer-sidebar-card__title--hearts volunteer-sidebar-card__title--large">
-                <img class="volunteer-sidebar-title-heart" src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/volunteer-sidebar-heart-deco.png' ); ?>" alt="" width="32" height="32" decoding="async" aria-hidden="true" />
-                <span class="volunteer-sidebar-card__title-text">Be a Part of<br />Something Big</span>
-                <img class="volunteer-sidebar-title-heart" src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/volunteer-sidebar-heart-deco.png' ); ?>" alt="" width="32" height="32" decoding="async" aria-hidden="true" />
+                <img class="volunteer-sidebar-title-heart" src="<?php echo esc_url( $volunteer_spotlight_heart_url ); ?>" alt="" width="32" height="32" decoding="async" aria-hidden="true" />
+                <span class="volunteer-sidebar-card__title-text"><?php echo esc_html( $volunteer_spotlight_title_line1 ); ?><br /><?php echo esc_html( $volunteer_spotlight_title_line2 ); ?></span>
+                <img class="volunteer-sidebar-title-heart" src="<?php echo esc_url( $volunteer_spotlight_heart_url ); ?>" alt="" width="32" height="32" decoding="async" aria-hidden="true" />
               </h2>
-              <p class="apply-sidebar-card__text">Your time and skills can help create brighter futures for children in our community.</p>
-              <img class="volunteer-sidebar-spotlight" src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/volunteer-sidebar-hands.png' ); ?>" alt="" width="240" height="155" loading="lazy" decoding="async" aria-hidden="true" />
+              <p class="apply-sidebar-card__text"><?php echo esc_html( $volunteer_spotlight_text ); ?></p>
+              <img class="volunteer-sidebar-spotlight" src="<?php echo esc_url( $volunteer_spotlight_image_url ); ?>" alt="" width="240" height="155" loading="lazy" decoding="async" aria-hidden="true" />
             </article>
 
             <article class="apply-sidebar-card apply-sidebar-card--about volunteer-sidebar-card--why">
               <h2 class="apply-sidebar-card__title volunteer-sidebar-card__title--icon volunteer-sidebar-card__title--large">
-                <img class="volunteer-sidebar-title-icon" src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/Volunteer Application/a13d88a7-3c1f-46c3-8e9c-dd62a73dbd9e-removebg-preview.png' ); ?>" alt="" width="32" height="32" loading="lazy" decoding="async" aria-hidden="true" />
-                <span class="volunteer-sidebar-card__title-text">Why Volunteer<br />With Us?</span>
+                <img class="volunteer-sidebar-title-icon" src="<?php echo esc_url( $volunteer_why_title_icon_url ); ?>" alt="" width="32" height="32" loading="lazy" decoding="async" aria-hidden="true" />
+                <span class="volunteer-sidebar-card__title-text"><?php echo esc_html( $volunteer_why_title_line1 ); ?><br /><?php echo esc_html( $volunteer_why_title_line2 ); ?></span>
               </h2>
               <ul class="apply-sidebar-list volunteer-sidebar-list">
-                <li><img class="apply-sidebar-list__icon" src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/Volunteer Application/7ac788f3-2674-486b-a5c5-21fe489bb929-removebg-preview.png' ); ?>" alt="" width="22" height="22" loading="lazy" decoding="async" aria-hidden="true" /><span>Make a direct impact on children&rsquo;s lives</span></li>
-                <li><img class="apply-sidebar-list__icon" src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/Volunteer Application/7ac788f3-2674-486b-a5c5-21fe489bb929-removebg-preview.png' ); ?>" alt="" width="22" height="22" loading="lazy" decoding="async" aria-hidden="true" /><span>Join a supportive, creative community</span></li>
-                <li><img class="apply-sidebar-list__icon" src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/Volunteer Application/7ac788f3-2674-486b-a5c5-21fe489bb929-removebg-preview.png' ); ?>" alt="" width="22" height="22" loading="lazy" decoding="async" aria-hidden="true" /><span>Flexible opportunities that fit your schedule</span></li>
-                <li><img class="apply-sidebar-list__icon" src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/Volunteer Application/7ac788f3-2674-486b-a5c5-21fe489bb929-removebg-preview.png' ); ?>" alt="" width="22" height="22" loading="lazy" decoding="async" aria-hidden="true" /><span>Gain meaningful experience and connections</span></li>
+                <?php foreach ( $volunteer_why_items as $volunteer_why_item ) : ?>
+                <li><img class="apply-sidebar-list__icon" src="<?php echo esc_url( $volunteer_why_item['icon'] ); ?>" alt="" width="22" height="22" loading="lazy" decoding="async" aria-hidden="true" /><span><?php echo esc_html( $volunteer_why_item['text'] ); ?></span></li>
+                <?php endforeach; ?>
               </ul>
             </article>
 
             <article class="apply-sidebar-card apply-sidebar-card--timeline volunteer-sidebar-card--commitment">
               <h2 class="apply-sidebar-card__title volunteer-sidebar-card__title--icon">
-                <img class="volunteer-sidebar-title-icon" src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/Volunteer Application/ba5b6fdf-cdc5-4614-b9b1-9b709bc5af0a-removebg-preview.png' ); ?>" alt="" width="32" height="32" loading="lazy" decoding="async" aria-hidden="true" />
-                Time Commitment
+                <img class="volunteer-sidebar-title-icon" src="<?php echo esc_url( $volunteer_commitment_icon_url ); ?>" alt="" width="32" height="32" loading="lazy" decoding="async" aria-hidden="true" />
+                <?php echo esc_html( $volunteer_commitment_title ); ?>
               </h2>
-              <p class="apply-sidebar-card__text">We know life is busy. That&rsquo;s why we offer flexible volunteering opportunities that fit your schedule and availability.</p>
-              <img class="volunteer-sidebar-commitment" src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/volunteer-sidebar-calendar.png' ); ?>" alt="" width="180" height="130" loading="lazy" decoding="async" aria-hidden="true" />
+              <p class="apply-sidebar-card__text"><?php echo esc_html( $volunteer_commitment_text ); ?></p>
+              <img class="volunteer-sidebar-commitment" src="<?php echo esc_url( $volunteer_commitment_image_url ); ?>" alt="" width="180" height="130" loading="lazy" decoding="async" aria-hidden="true" />
             </article>
 
             <article class="apply-sidebar-card apply-sidebar-card--questions volunteer-sidebar-card--note">
               <h2 class="apply-sidebar-card__title volunteer-sidebar-card__title--icon">
-                <img class="volunteer-sidebar-title-icon" src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/Volunteer Application/be289ad1-97dd-461d-9dc9-77752bbeec9a-removebg-preview.png' ); ?>" alt="" width="32" height="32" loading="lazy" decoding="async" aria-hidden="true" />
-                Important Note
+                <img class="volunteer-sidebar-title-icon" src="<?php echo esc_url( $volunteer_note_icon_url ); ?>" alt="" width="32" height="32" loading="lazy" decoding="async" aria-hidden="true" />
+                <?php echo esc_html( $volunteer_note_title ); ?>
               </h2>
               <div class="volunteer-sidebar-note">
                 <div class="volunteer-sidebar-note__copy">
-                  <p class="apply-sidebar-card__text">All volunteers may be subject to a background check depending on their role and level of interaction with children.</p>
-                  <p class="apply-sidebar-card__text">We take confidentiality seriously and handle all personal information with care.</p>
+                  <p class="apply-sidebar-card__text"><?php echo esc_html( $volunteer_note_text_1 ); ?></p>
+                  <p class="apply-sidebar-card__text"><?php echo esc_html( $volunteer_note_text_2 ); ?></p>
                 </div>
-                <img class="volunteer-sidebar-note__lock" src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/Volunteer Application/345d6728-ceeb-471b-b3b0-c01f7a34edc1-removebg-preview.png' ); ?>" alt="" width="36" height="36" loading="lazy" decoding="async" aria-hidden="true" />
+                <img class="volunteer-sidebar-note__lock" src="<?php echo esc_url( $volunteer_note_lock_url ); ?>" alt="" width="36" height="36" loading="lazy" decoding="async" aria-hidden="true" />
               </div>
             </article>
 
             <article class="apply-sidebar-card volunteer-sidebar-card--questions">
               <h2 class="apply-sidebar-card__title volunteer-sidebar-card__title--icon">
-                <img class="volunteer-sidebar-title-icon" src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/Volunteer Application/9aa2e4eb-a1ca-471a-834e-b9962440cef6-removebg-preview (1).png' ); ?>" alt="" width="32" height="32" loading="lazy" decoding="async" aria-hidden="true" />
-                Questions?
+                <img class="volunteer-sidebar-title-icon" src="<?php echo esc_url( $volunteer_questions_icon_url ); ?>" alt="" width="32" height="32" loading="lazy" decoding="async" aria-hidden="true" />
+                <?php echo esc_html( $volunteer_questions_title ); ?>
               </h2>
-              <p class="apply-sidebar-card__text">We&rsquo;re happy to help! If you have questions, please use our <strong>Contact Form</strong>.</p>
-              <a class="btn btn--outline btn-hover apply-sidebar-card__btn volunteer-sidebar-questions-btn" href="<?php echo esc_url( bdc_page_url( 'contact.html' ) ); ?>">Go to Contact Form<svg class="btn__icon" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg></a>
+              <p class="apply-sidebar-card__text"><?php echo wp_kses_post( $volunteer_questions_text ); ?></p>
+              <a class="btn btn--outline btn-hover apply-sidebar-card__btn volunteer-sidebar-questions-btn" href="<?php echo esc_url( $volunteer_questions_link['url'] ); ?>"<?php echo bdc_acf_link_target_attr( $volunteer_questions_link ); ?>><?php echo esc_html( $volunteer_questions_link['title'] ); ?><svg class="btn__icon" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg></a>
             </article>
           </aside>
         </div>
       </section>
 
-      <section class="volunteer-footer-note section-padding" aria-label="Thank you">
+      <section class="volunteer-footer-note section-padding" aria-label="<?php echo esc_attr( $volunteer_footer_aria_label ); ?>">
         <div class="site-container volunteer-footer-note__inner">
           <div class="volunteer-footer-note__card">
             <img
               class="volunteer-footer-note__envelope"
-              src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/Volunteer Application/a02a1588-2649-4a87-b502-7ca80459a5f5-removebg-preview.png' ); ?>"
+              src="<?php echo esc_url( $volunteer_footer_envelope_url ); ?>"
               alt=""
               width="150"
               height="120"
@@ -312,14 +448,14 @@ get_header();
             />
 
             <div class="volunteer-footer-note__copy">
-              <p class="volunteer-footer-note__lead">Every hour you give, a child&rsquo;s dream grows.</p>
-              <p class="volunteer-footer-note__thanks">Thank you for being a Bright Dreamer!</p>
+              <p class="volunteer-footer-note__lead"><?php echo esc_html( $volunteer_footer_lead ); ?></p>
+              <p class="volunteer-footer-note__thanks"><?php echo esc_html( $volunteer_footer_thanks ); ?></p>
             </div>
 
             <div class="volunteer-footer-note__deco" aria-hidden="true">
               <img
                 class="volunteer-footer-note__plane"
-                src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/Volunteer Application/ChatGPT_Image_Aug_11__2026__07_28_07_PM-removebg-preview.png' ); ?>"
+                src="<?php echo esc_url( $volunteer_footer_plane_url ); ?>"
                 alt=""
                 width="430"
                 height="120"
@@ -328,7 +464,7 @@ get_header();
               />
               <img
                 class="volunteer-footer-note__heart"
-                src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/Volunteer Application/492004b0-ad5f-44cd-9688-456964672edf-removebg-preview.png' ); ?>"
+                src="<?php echo esc_url( $volunteer_footer_heart_url ); ?>"
                 alt=""
                 width="96"
                 height="96"

@@ -8,15 +8,71 @@
  */
 
 get_header();
+
+$newsletter_page_id = get_queried_object_id();
+$newsletter_asset_base = 'assets/images/Newsletter form/';
+$newsletter_lazy_placeholder = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';
+
+$newsletter_aria_label = bdc_get_acf_text( 'newsletter_aria_label', 'Newsletter sign up', $newsletter_page_id );
+$newsletter_heart_deco_url = bdc_get_acf_image_url(
+	'newsletter_heart_deco',
+	bdc_theme_asset_url( $newsletter_asset_base . 'dfcc4104-0e61-43f8-81e6-0126494125e6-removebg-preview.png' ),
+	$newsletter_page_id
+);
+$newsletter_title_navy = bdc_get_acf_text( 'newsletter_title_navy', 'Stay Connected.', $newsletter_page_id );
+$newsletter_title_pink = bdc_get_acf_text( 'newsletter_title_pink', 'Be a Bright Dreamer.', $newsletter_page_id );
+$newsletter_intro      = bdc_get_acf_text(
+	'newsletter_intro',
+	'Join our community and receive inspiring updates, stories, and ways to make a difference in children\'s lives.',
+	$newsletter_page_id
+);
+$newsletter_sparkle_url = bdc_get_acf_image_url(
+	'newsletter_sparkle',
+	bdc_theme_asset_url( $newsletter_asset_base . '5e8df45b-9bb3-42bf-9114-5557f3e13e6e-removebg-preview.png' ),
+	$newsletter_page_id
+);
+
+$newsletter_benefits_title = bdc_get_acf_text(
+	'newsletter_benefits_title',
+	'When you subscribe, you\'ll receive:',
+	$newsletter_page_id
+);
+$newsletter_benefits = bdc_get_newsletter_resolved_benefits( $newsletter_page_id );
+
+$newsletter_photo_url = bdc_get_acf_image_url(
+	'newsletter_photo',
+	bdc_theme_asset_url( $newsletter_asset_base . '58c6acb1-3b0a-4c9b-966f-0bac6c54ed91.png' ),
+	$newsletter_page_id
+);
+$newsletter_photo_alt = bdc_get_acf_text(
+	'newsletter_photo_alt',
+	'Children coloring together at a table',
+	$newsletter_page_id
+);
+$newsletter_privacy_icon_url = bdc_get_acf_image_url(
+	'newsletter_privacy_icon',
+	bdc_theme_asset_url( 'assets/images/Donation-form/0e4ea675-db2c-4e88-9443-f70ae8361d27-e1786258237229-258x300.png' ),
+	$newsletter_page_id
+);
+$newsletter_privacy_text = bdc_get_acf_text(
+	'newsletter_privacy_text',
+	'We respect your privacy. We will never share your information. You can unsubscribe at any time.',
+	$newsletter_page_id
+);
+$newsletter_privacy_deco_url = bdc_get_acf_image_url(
+	'newsletter_privacy_deco',
+	bdc_theme_asset_url( 'assets/images/Donation-form/d9d49a82-66ee-44a3-b040-279a56feb44d-removebg-preview.png' ),
+	$newsletter_page_id
+);
 ?>
     <main id="main-content">
-      <section class="newsletter-signup section-padding" aria-label="Newsletter sign up">
+      <section class="newsletter-signup section-padding" aria-label="<?php echo esc_attr( $newsletter_aria_label ); ?>">
         <div class="site-container">
           <div class="newsletter-layout">
             <div class="newsletter-info">
               <img
                 class="newsletter-info__heart-deco"
-                src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/Newsletter form/dfcc4104-0e61-43f8-81e6-0126494125e6-removebg-preview.png' ); ?>"
+                src="<?php echo esc_url( $newsletter_heart_deco_url ); ?>"
                 alt=""
                 width="36"
                 height="36"
@@ -25,16 +81,15 @@ get_header();
               />
 
               <h1 class="newsletter-info__title">
-                <span class="newsletter-info__title-line newsletter-info__title-line--navy">Stay Connected.</span>
-                <span class="newsletter-info__title-line newsletter-info__title-line--pink">Be a Bright Dreamer.</span>
+                <span class="newsletter-info__title-line newsletter-info__title-line--navy"><?php echo esc_html( $newsletter_title_navy ); ?></span>
+                <span class="newsletter-info__title-line newsletter-info__title-line--pink"><?php echo esc_html( $newsletter_title_pink ); ?></span>
               </h1>
 
               <p class="newsletter-info__intro">
-                Join our community and receive inspiring updates, stories, and ways to make a
-                difference in children&rsquo;s lives.
+                <?php echo esc_html( $newsletter_intro ); ?>
                 <img
                   class="newsletter-info__sparkle"
-                  src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/Newsletter form/5e8df45b-9bb3-42bf-9114-5557f3e13e6e-removebg-preview.png' ); ?>"
+                  src="<?php echo esc_url( $newsletter_sparkle_url ); ?>"
                   alt=""
                   width="28"
                   height="28"
@@ -44,24 +99,14 @@ get_header();
               </p>
 
               <div class="newsletter-info__benefits">
-                <h2 class="newsletter-info__benefits-title">When you subscribe, you&rsquo;ll receive:</h2>
+                <h2 class="newsletter-info__benefits-title"><?php echo esc_html( $newsletter_benefits_title ); ?></h2>
                 <ul class="newsletter-benefits-list">
+                  <?php foreach ( $newsletter_benefits as $newsletter_benefit ) : ?>
                   <li>
-                    <img class="newsletter-benefits-list__icon" src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/Newsletter form/2ddeafed-dd66-4ca3-8a5c-055efd2e7083-removebg-preview.png' ); ?>" alt="" width="36" height="36" loading="lazy" decoding="async" aria-hidden="true" />
-                    <span>Inspiring stories of our Bright Dreamers in action</span>
+                    <img class="newsletter-benefits-list__icon" src="<?php echo esc_url( $newsletter_benefit['icon'] ); ?>" alt="" width="36" height="36" loading="lazy" decoding="async" aria-hidden="true" />
+                    <span><?php echo esc_html( $newsletter_benefit['text'] ); ?></span>
                   </li>
-                  <li>
-                    <img class="newsletter-benefits-list__icon" src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/Newsletter form/6684836c-25c8-4147-bcea-ffbe697e500a-removebg-preview.png' ); ?>" alt="" width="36" height="36" loading="lazy" decoding="async" aria-hidden="true" />
-                    <span>Updates on new experiences, events, and projects</span>
-                  </li>
-                  <li>
-                    <img class="newsletter-benefits-list__icon" src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/Newsletter form/6fecbcf6-1650-406f-9442-bfed9906a5b8-removebg-preview.png' ); ?>" alt="" width="36" height="36" loading="lazy" decoding="async" aria-hidden="true" />
-                    <span>Volunteer opportunities and ways to get involved</span>
-                  </li>
-                  <li>
-                    <img class="newsletter-benefits-list__icon" src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/Newsletter form/ef22b805-101e-48c3-8bb0-e4b965825016-removebg-preview.png' ); ?>" alt="" width="36" height="36" loading="lazy" decoding="async" aria-hidden="true" />
-                    <span>News, resources, and community highlights</span>
-                  </li>
+                  <?php endforeach; ?>
                 </ul>
               </div>
 
@@ -69,9 +114,9 @@ get_header();
                 <div class="lazy-img-wrap">
                   <img
                     class="newsletter-info__photo-img lazy-img"
-                    src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-                    data-src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/Newsletter form/58c6acb1-3b0a-4c9b-966f-0bac6c54ed91.png' ); ?>"
-                    alt="Children coloring together at a table"
+                    src="<?php echo esc_attr( $newsletter_lazy_placeholder ); ?>"
+                    data-src="<?php echo esc_url( $newsletter_photo_url ); ?>"
+                    alt="<?php echo esc_attr( $newsletter_photo_alt ); ?>"
                     width="640"
                     height="420"
                     decoding="async"
@@ -82,7 +127,7 @@ get_header();
               <aside class="newsletter-privacy-box">
                 <img
                   class="newsletter-privacy-box__icon"
-                  src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/Donation-form/0e4ea675-db2c-4e88-9443-f70ae8361d27-e1786258237229-258x300.png' ); ?>"
+                  src="<?php echo esc_url( $newsletter_privacy_icon_url ); ?>"
                   alt=""
                   width="36"
                   height="36"
@@ -91,12 +136,11 @@ get_header();
                   aria-hidden="true"
                 />
                 <p class="newsletter-privacy-box__text">
-                  We respect your privacy. We will never share your information. You can
-                  unsubscribe at any time.
+                  <?php echo esc_html( $newsletter_privacy_text ); ?>
                 </p>
                 <img
                   class="newsletter-privacy-box__deco"
-                  src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/Donation-form/d9d49a82-66ee-44a3-b040-279a56feb44d-removebg-preview.png' ); ?>"
+                  src="<?php echo esc_url( $newsletter_privacy_deco_url ); ?>"
                   alt=""
                   width="120"
                   height="32"

@@ -20,6 +20,13 @@ require_once BDC_THEME_DIR . '/inc/acf-helpers.php';
 require_once BDC_THEME_DIR . '/inc/policy/privacy-policy-defaults.php';
 require_once BDC_THEME_DIR . '/inc/policy/terms-defaults.php';
 require_once BDC_THEME_DIR . '/inc/policy/photo-media-policy-defaults.php';
+require_once BDC_THEME_DIR . '/inc/policy/accessibility-defaults.php';
+require_once BDC_THEME_DIR . '/inc/policy/financial-transparency-defaults.php';
+require_once BDC_THEME_DIR . '/inc/policy/faq-defaults.php';
+require_once BDC_THEME_DIR . '/inc/policy/apply-to-become-defaults.php';
+require_once BDC_THEME_DIR . '/inc/policy/volunteer-application-defaults.php';
+require_once BDC_THEME_DIR . '/inc/policy/newsletter-signup-defaults.php';
+require_once BDC_THEME_DIR . '/inc/policy/donation-interest-defaults.php';
 
 /**
  * Register local ACF field groups when ACF is active.

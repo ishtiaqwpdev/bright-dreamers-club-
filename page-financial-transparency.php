@@ -57,64 +57,7 @@ $financial_transparency_commitment_deco_url = bdc_get_acf_image_url(
 
 $financial_transparency_support_aria_label = bdc_get_acf_text( 'financial_transparency_support_aria_label', 'Where your support goes', $financial_transparency_page_id );
 $financial_transparency_support_title      = bdc_get_acf_text( 'financial_transparency_support_title', 'Where Your Support Goes', $financial_transparency_page_id );
-
-$financial_transparency_support_items_defaults = array(
-	array(
-		'icon'  => bdc_theme_asset_url( $financial_transparency_asset_base . '02e680ce-5c67-478f-824f-d5e61399cecb-removebg-preview.png' ),
-		'title' => 'Programs for Children',
-		'text'  => 'Funding creative experiences, workshops, and learning opportunities that help children dream big.',
-	),
-	array(
-		'icon'  => bdc_theme_asset_url( $financial_transparency_asset_base . '7d4ac421-beee-4e5c-b89f-7c6103ebba57-removebg-preview.png' ),
-		'title' => 'Community & Outreach',
-		'text'  => 'Supporting local partnerships, events, and initiatives that connect children with their communities.',
-	),
-	array(
-		'icon'  => bdc_theme_asset_url( $financial_transparency_asset_base . 'b96e81a8-e66c-46e1-a99b-a005e10e8a78-removebg-preview.png' ),
-		'title' => 'Safe & Inclusive Environment',
-		'text'  => 'Ensuring every child feels welcome, protected, and valued in all our programs.',
-	),
-	array(
-		'icon'  => bdc_theme_asset_url( $financial_transparency_asset_base . '3add6096-920c-4e88-82e8-0fcb86394a86-removebg-preview.png' ),
-		'title' => 'Growth & Sustainability',
-		'text'  => 'Investing in the long-term health of our organization so we can serve generations of dreamers.',
-	),
-	array(
-		'icon'  => bdc_theme_asset_url( $financial_transparency_asset_base . 'd8ff79b1-91fc-4d24-94ad-80933d538505-removebg-preview.png' ),
-		'title' => 'Operations',
-		'text'  => 'Covering essential costs that keep our programs running smoothly and responsibly.',
-	),
-);
-
-$financial_transparency_support_items_raw = bdc_get_acf_repeater( 'financial_transparency_support_items', $financial_transparency_support_items_defaults, $financial_transparency_page_id );
-$financial_transparency_support_items     = array();
-
-foreach ( $financial_transparency_support_items_raw as $index => $row ) {
-	$default = $financial_transparency_support_items_defaults[ $index ] ?? array(
-		'icon'  => '',
-		'title' => '',
-		'text'  => '',
-	);
-
-	$title = isset( $row['title'] ) ? trim( (string) $row['title'] ) : '';
-	$text  = isset( $row['text'] ) ? trim( (string) $row['text'] ) : '';
-
-	$resolved = array(
-		'icon'  => bdc_acf_image_value_to_url( $row['icon'] ?? null, (string) $default['icon'] ),
-		'title' => '' !== $title ? $title : (string) $default['title'],
-		'text'  => '' !== $text ? $text : (string) $default['text'],
-	);
-
-	if ( '' === trim( $resolved['title'] ) && '' === trim( $resolved['text'] ) ) {
-		continue;
-	}
-
-	$financial_transparency_support_items[] = $resolved;
-}
-
-if ( empty( $financial_transparency_support_items ) ) {
-	$financial_transparency_support_items = $financial_transparency_support_items_defaults;
-}
+$financial_transparency_support_items      = bdc_get_financial_resolved_support( $financial_transparency_page_id );
 
 $financial_transparency_promise_aria_label = bdc_get_acf_text( 'financial_transparency_promise_aria_label', 'Our promise to you', $financial_transparency_page_id );
 $financial_transparency_promise_title      = bdc_get_acf_text( 'financial_transparency_promise_title', 'Our Promise to You', $financial_transparency_page_id );
@@ -128,59 +71,7 @@ $financial_transparency_promise_footer_heart_url = bdc_get_acf_image_url(
 	bdc_theme_asset_url( $financial_transparency_asset_base . 'd6e8c880-1c10-455d-8ec2-c9abb69107ab-removebg-preview.png' ),
 	$financial_transparency_page_id
 );
-
-$financial_transparency_promise_items_defaults = array(
-	array(
-		'icon'  => bdc_theme_asset_url( $financial_transparency_asset_base . '88926bd0-7c68-4298-8f5c-1f19ee03410b-removebg-preview.png' ),
-		'title' => 'Honesty',
-		'text'  => 'We communicate openly and truthfully.',
-	),
-	array(
-		'icon'  => bdc_theme_asset_url( $financial_transparency_asset_base . 'd26bdab9-ecde-42d1-9e97-c852a9b17560-removebg-preview.png' ),
-		'title' => 'Accountability',
-		'text'  => 'We take responsibility for our actions and decisions.',
-	),
-	array(
-		'icon'  => bdc_theme_asset_url( $financial_transparency_asset_base . 'f8b19465-3566-4f66-9e9e-447140dbfe92-removebg-preview.png' ),
-		'title' => 'Responsibility',
-		'text'  => 'We use resources wisely to maximize our impact.',
-	),
-	array(
-		'icon'  => bdc_theme_asset_url( $financial_transparency_asset_base . '68f3d95e-b891-4109-98dc-9709e057bea6-removebg-preview.png' ),
-		'title' => 'Respect',
-		'text'  => 'We honor the trust you place in our mission.',
-	),
-);
-
-$financial_transparency_promise_items_raw = bdc_get_acf_repeater( 'financial_transparency_promise_items', $financial_transparency_promise_items_defaults, $financial_transparency_page_id );
-$financial_transparency_promise_items     = array();
-
-foreach ( $financial_transparency_promise_items_raw as $index => $row ) {
-	$default = $financial_transparency_promise_items_defaults[ $index ] ?? array(
-		'icon'  => '',
-		'title' => '',
-		'text'  => '',
-	);
-
-	$title = isset( $row['title'] ) ? trim( (string) $row['title'] ) : '';
-	$text  = isset( $row['text'] ) ? trim( (string) $row['text'] ) : '';
-
-	$resolved = array(
-		'icon'  => bdc_acf_image_value_to_url( $row['icon'] ?? null, (string) $default['icon'] ),
-		'title' => '' !== $title ? $title : (string) $default['title'],
-		'text'  => '' !== $text ? $text : (string) $default['text'],
-	);
-
-	if ( '' === trim( $resolved['title'] ) && '' === trim( $resolved['text'] ) ) {
-		continue;
-	}
-
-	$financial_transparency_promise_items[] = $resolved;
-}
-
-if ( empty( $financial_transparency_promise_items ) ) {
-	$financial_transparency_promise_items = $financial_transparency_promise_items_defaults;
-}
+$financial_transparency_promise_items = bdc_get_financial_resolved_promise( $financial_transparency_page_id );
 
 $financial_transparency_questions_aria_label = bdc_get_acf_text( 'financial_transparency_questions_aria_label', 'Questions', $financial_transparency_page_id );
 $financial_transparency_questions_icon_url   = bdc_get_acf_image_url(

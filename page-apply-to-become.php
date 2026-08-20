@@ -8,26 +8,88 @@
  */
 
 get_header();
+
+$apply_page_id = get_queried_object_id();
+$apply_lazy_placeholder = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';
+
+$apply_hero_aria_label = bdc_get_acf_text( 'apply_hero_aria_label', 'Apply to Become a Bright Dreamer', $apply_page_id );
+$apply_hero_title_pink = bdc_get_acf_text( 'apply_hero_title_pink', 'Apply to Become a', $apply_page_id );
+$apply_hero_title_navy = bdc_get_acf_text( 'apply_hero_title_navy', 'Bright Dreamer', $apply_page_id );
+$apply_hero_text       = bdc_get_acf_text(
+	'apply_hero_text',
+	'Bright Dreamers welcomes children who are curious, creative, and excited to explore their ideas with others. This application helps us get to know your child and your family.',
+	$apply_page_id
+);
+$apply_hero_note_icon_url = bdc_get_acf_image_url(
+	'apply_hero_note_icon',
+	bdc_theme_asset_url( 'assets/images/apply-intro-heart-badge.png' ),
+	$apply_page_id
+);
+$apply_hero_note_text = bdc_get_acf_text(
+	'apply_hero_note_text',
+	'Participation in Bright Dreamers experiences is <strong>free</strong>. We never want cost to be a barrier for a child with an idea.',
+	$apply_page_id
+);
+$apply_hero_banner_url = bdc_get_acf_image_url(
+	'apply_hero_banner',
+	bdc_theme_asset_url( 'assets/images/apply-hero-banner.png' ),
+	$apply_page_id
+);
+$apply_hero_banner_alt = bdc_get_acf_text(
+	'apply_hero_banner_alt',
+	'A young girl smiling while drawing with colored pencils',
+	$apply_page_id
+);
+
+$apply_about_title = bdc_get_acf_text( 'apply_about_title', 'About the Application', $apply_page_id );
+$apply_about_items = bdc_get_apply_resolved_about( $apply_page_id );
+
+$apply_timeline_title = bdc_get_acf_text( 'apply_timeline_title', 'What Happens Next?', $apply_page_id );
+$apply_timeline_plane_url = bdc_get_acf_image_url(
+	'apply_timeline_plane',
+	bdc_theme_asset_url( 'assets/images/apply-timeline-plane-deco.png' ),
+	$apply_page_id
+);
+$apply_timeline_steps = bdc_get_apply_resolved_timeline( $apply_page_id );
+
+$apply_questions_title = bdc_get_acf_text( 'apply_questions_title', 'Questions?', $apply_page_id );
+$apply_questions_text  = bdc_get_acf_text(
+	'apply_questions_text',
+	'We\'re happy to answer questions before you apply. Send us a message anytime.',
+	$apply_page_id
+);
+$apply_questions_link = bdc_get_acf_link(
+	'apply_questions_link',
+	array(
+		'title'  => 'Go to Contact Us',
+		'url'    => bdc_page_url( 'contact.html' ),
+		'target' => '',
+	),
+	$apply_page_id
+);
+$apply_sidebar_door_url = bdc_get_acf_image_url(
+	'apply_sidebar_door',
+	bdc_theme_asset_url( 'assets/images/apply-door-path.png' ),
+	$apply_page_id
+);
 ?>
     <main id="main-content">
-      <section class="page-hero apply-hero" aria-label="Apply to Become a Bright Dreamer">
+      <section class="page-hero apply-hero" aria-label="<?php echo esc_attr( $apply_hero_aria_label ); ?>">
         <div class="site-container page-hero__inner">
           <div class="page-hero__content apply-hero__content">
             <h1 class="apply-hero__title">
-              <span class="apply-hero__title-line apply-hero__title-line--pink">Apply to Become a</span>
-              <span class="apply-hero__title-line apply-hero__title-line--navy">Bright Dreamer</span>
+              <span class="apply-hero__title-line apply-hero__title-line--pink"><?php echo esc_html( $apply_hero_title_pink ); ?></span>
+              <span class="apply-hero__title-line apply-hero__title-line--navy"><?php echo esc_html( $apply_hero_title_navy ); ?></span>
             </h1>
 
             <p class="apply-hero__text">
-              Bright Dreamers welcomes children who are curious, creative, and excited to explore
-              their ideas with others. This application helps us get to know your child and your
-              family.
+              <?php echo esc_html( $apply_hero_text ); ?>
             </p>
 
             <div class="apply-hero__note">
               <img
                 class="apply-hero__note-icon"
-                src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/apply-intro-heart-badge.png' ); ?>"
+                src="<?php echo esc_url( $apply_hero_note_icon_url ); ?>"
                 alt=""
                 width="52"
                 height="52"
@@ -35,8 +97,7 @@ get_header();
                 aria-hidden="true"
               />
               <p class="apply-hero__note-text">
-                Participation in Bright Dreamers experiences is <strong>free</strong>. We never
-                want cost to be a barrier for a child with an idea.
+                <?php echo wp_kses_post( $apply_hero_note_text ); ?>
               </p>
             </div>
           </div>
@@ -45,9 +106,9 @@ get_header();
             <div class="lazy-img-wrap">
               <img
                 class="about-hero__banner apply-hero__banner lazy-img"
-                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-                data-src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/apply-hero-banner.png' ); ?>"
-                alt="A young girl smiling while drawing with colored pencils"
+                src="<?php echo esc_attr( $apply_lazy_placeholder ); ?>"
+                data-src="<?php echo esc_url( $apply_hero_banner_url ); ?>"
+                alt="<?php echo esc_attr( $apply_hero_banner_alt ); ?>"
                 width="1200"
                 height="900"
                 decoding="async"
@@ -629,13 +690,15 @@ get_header();
 
           <aside class="apply-form__sidebar" aria-label="Application help">
             <article class="apply-sidebar-card apply-sidebar-card--about">
-              <h2 class="apply-sidebar-card__title">About the Application</h2>
+              <h2 class="apply-sidebar-card__title"><?php echo esc_html( $apply_about_title ); ?></h2>
               <ul class="apply-sidebar-list">
+                <?php foreach ( $apply_about_items as $apply_about_item ) : ?>
                 <li>
+                  <?php if ( ! empty( $apply_about_item['wrap_slot'] ) ) : ?>
                   <span class="apply-sidebar-list__icon-slot" aria-hidden="true">
                     <img
-                      class="apply-sidebar-list__icon apply-sidebar-list__icon--heart"
-                      src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/apply-sidebar-heart.png' ); ?>"
+                      class="<?php echo esc_attr( $apply_about_item['icon_class'] ); ?>"
+                      src="<?php echo esc_url( $apply_about_item['icon'] ); ?>"
                       alt=""
                       width="36"
                       height="36"
@@ -643,12 +706,10 @@ get_header();
                       decoding="async"
                     />
                   </span>
-                  <span>There are no wrong answers — we want to hear what makes your child unique.</span>
-                </li>
-                <li>
+                  <?php else : ?>
                   <img
-                    class="apply-sidebar-list__icon"
-                    src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/apply-sidebar-star.png' ); ?>"
+                    class="<?php echo esc_attr( $apply_about_item['icon_class'] ); ?>"
+                    src="<?php echo esc_url( $apply_about_item['icon'] ); ?>"
                     alt=""
                     width="30"
                     height="30"
@@ -656,56 +717,19 @@ get_header();
                     decoding="async"
                     aria-hidden="true"
                   />
-                  <span>We celebrate curiosity, creativity, and kind hearts.</span>
+                  <?php endif; ?>
+                  <span><?php echo esc_html( $apply_about_item['text'] ); ?></span>
                 </li>
-                <li>
-                  <img
-                    class="apply-sidebar-list__icon"
-                    src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/apply-sidebar-group.png' ); ?>"
-                    alt=""
-                    width="30"
-                    height="30"
-                    loading="lazy"
-                    decoding="async"
-                    aria-hidden="true"
-                  />
-                  <span>Bright Dreamers is a small, intentional community — not a large program.</span>
-                </li>
-                <li>
-                  <img
-                    class="apply-sidebar-list__icon"
-                    src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/apply-sidebar-clock.png' ); ?>"
-                    alt=""
-                    width="30"
-                    height="30"
-                    loading="lazy"
-                    decoding="async"
-                    aria-hidden="true"
-                  />
-                  <span>Plan for about 10–15 minutes to complete this form thoughtfully.</span>
-                </li>
-                <li>
-                  <img
-                    class="apply-sidebar-list__icon"
-                    src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/apply-sidebar-lock.png' ); ?>"
-                    alt=""
-                    width="30"
-                    height="30"
-                    loading="lazy"
-                    decoding="async"
-                    aria-hidden="true"
-                  />
-                  <span>Your information is kept private and read only by our team.</span>
-                </li>
+                <?php endforeach; ?>
               </ul>
             </article>
 
             <article class="apply-sidebar-card apply-sidebar-card--timeline">
               <div class="apply-sidebar-card__head">
-                <h2 class="apply-sidebar-card__title">What Happens Next?</h2>
+                <h2 class="apply-sidebar-card__title"><?php echo esc_html( $apply_timeline_title ); ?></h2>
                 <img
                   class="apply-sidebar-card__plane"
-                  src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/apply-timeline-plane-deco.png' ); ?>"
+                  src="<?php echo esc_url( $apply_timeline_plane_url ); ?>"
                   alt=""
                   width="88"
                   height="56"
@@ -716,49 +740,25 @@ get_header();
               </div>
 
               <div class="apply-timeline" role="list">
+                <?php foreach ( $apply_timeline_steps as $apply_timeline_step ) : ?>
                 <article class="apply-timeline__step" role="listitem">
                   <div class="apply-timeline__rail" aria-hidden="true">
                     <span class="apply-timeline__dot"></span>
                   </div>
                   <div class="apply-timeline__content">
-                    <h3 class="apply-timeline__title">We Review Your Application</h3>
+                    <h3 class="apply-timeline__title"><?php echo esc_html( $apply_timeline_step['title'] ); ?></h3>
                     <p class="apply-timeline__text">
-                      Within a few days, our team carefully reads every application we receive.
+                      <?php echo esc_html( $apply_timeline_step['text'] ); ?>
                     </p>
                   </div>
                 </article>
-
-                <article class="apply-timeline__step" role="listitem">
-                  <div class="apply-timeline__rail" aria-hidden="true">
-                    <span class="apply-timeline__dot"></span>
-                  </div>
-                  <div class="apply-timeline__content">
-                    <h3 class="apply-timeline__title">We Connect With Your Family</h3>
-                    <p class="apply-timeline__text">
-                      If it looks like a good fit, we reach out to learn more about your child and
-                      your hopes.
-                    </p>
-                  </div>
-                </article>
-
-                <article class="apply-timeline__step" role="listitem">
-                  <div class="apply-timeline__rail" aria-hidden="true">
-                    <span class="apply-timeline__dot"></span>
-                  </div>
-                  <div class="apply-timeline__content">
-                    <h3 class="apply-timeline__title">Your Child Joins Bright Dreamers</h3>
-                    <p class="apply-timeline__text">
-                      Welcome! Your child is invited into upcoming experiences with mentors, peers,
-                      and community partners.
-                    </p>
-                  </div>
-                </article>
+                <?php endforeach; ?>
               </div>
             </article>
 
             <article class="apply-sidebar-card apply-sidebar-card--questions">
               <h2 class="apply-sidebar-card__title">
-                Questions?
+                <?php echo esc_html( $apply_questions_title ); ?>
                 <svg
                   class="apply-sidebar-card__bubble"
                   viewBox="0 0 24 24"
@@ -775,10 +775,10 @@ get_header();
                 </svg>
               </h2>
               <p class="apply-sidebar-card__text">
-                We're happy to answer questions before you apply. Send us a message anytime.
+                <?php echo esc_html( $apply_questions_text ); ?>
               </p>
-              <a class="btn btn--outline btn-hover apply-sidebar-card__btn" href="<?php echo esc_url( bdc_page_url( 'contact.html' ) ); ?>">
-                Go to Contact Us
+              <a class="btn btn--outline btn-hover apply-sidebar-card__btn" href="<?php echo esc_url( $apply_questions_link['url'] ); ?>"<?php echo bdc_acf_link_target_attr( $apply_questions_link ); ?>>
+                <?php echo esc_html( $apply_questions_link['title'] ); ?>
                 <svg
                   class="btn__icon"
                   viewBox="0 0 24 24"
@@ -798,7 +798,7 @@ get_header();
 
             <img
               class="apply-sidebar__door"
-              src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/apply-door-path.png' ); ?>"
+              src="<?php echo esc_url( $apply_sidebar_door_url ); ?>"
               alt=""
               width="320"
               height="220"
