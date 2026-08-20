@@ -8,25 +8,145 @@
  */
 
 get_header();
+
+$photo_consent_page_id          = get_queried_object_id();
+$photo_consent_asset_base       = 'assets/images/Photo & Media conoent form/';
+$photo_consent_lazy_placeholder = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';
+
+$photo_consent_hero_aria_label = bdc_get_acf_text(
+	'photo_consent_hero_aria_label',
+	'Photo and Media Consent Form',
+	$photo_consent_page_id
+);
+$photo_consent_hero_breadcrumb_home_text = bdc_get_acf_text(
+	'photo_consent_hero_breadcrumb_home_text',
+	'Home',
+	$photo_consent_page_id
+);
+$photo_consent_hero_breadcrumb_home_link = bdc_get_acf_link(
+	'photo_consent_hero_breadcrumb_home_link',
+	array(
+		'title'  => 'Home',
+		'url'    => bdc_page_url( 'index.html' ),
+		'target' => '',
+	),
+	$photo_consent_page_id
+);
+$photo_consent_hero_breadcrumb_resources_text = bdc_get_acf_text(
+	'photo_consent_hero_breadcrumb_resources_text',
+	'Resources',
+	$photo_consent_page_id
+);
+$photo_consent_hero_breadcrumb_resources_link = bdc_get_acf_link(
+	'photo_consent_hero_breadcrumb_resources_link',
+	array(
+		'title'  => 'Resources',
+		'url'    => bdc_page_url( 'faq.html' ),
+		'target' => '',
+	),
+	$photo_consent_page_id
+);
+$photo_consent_hero_breadcrumb_policy_text = bdc_get_acf_text(
+	'photo_consent_hero_breadcrumb_policy_text',
+	'Photo & Media Policy',
+	$photo_consent_page_id
+);
+$photo_consent_hero_breadcrumb_policy_link = bdc_get_acf_link(
+	'photo_consent_hero_breadcrumb_policy_link',
+	array(
+		'title'  => 'Photo & Media Policy',
+		'url'    => bdc_page_url( 'photo-media-policy.html' ),
+		'target' => '',
+	),
+	$photo_consent_page_id
+);
+$photo_consent_hero_breadcrumb_current_text = bdc_get_acf_text(
+	'photo_consent_hero_breadcrumb_current_text',
+	'Consent Form',
+	$photo_consent_page_id
+);
+$photo_consent_hero_title = bdc_get_acf_text(
+	'photo_consent_hero_title',
+	'Photo & Media Consent Form',
+	$photo_consent_page_id
+);
+$photo_consent_hero_heart_url = bdc_get_acf_image_url(
+	'photo_consent_hero_heart',
+	bdc_theme_asset_url( $photo_consent_asset_base . '6b7c85b9-ee3e-48ed-9f05-2403fb816741-removebg-preview.png' ),
+	$photo_consent_page_id
+);
+$photo_consent_hero_text = bdc_get_acf_text(
+	'photo_consent_hero_text',
+	'Your consent helps us capture and share the magic of children\'s ideas and experiences in a safe, respectful, and responsible way.',
+	$photo_consent_page_id
+);
+$photo_consent_hero_banner_url = bdc_get_acf_image_url(
+	'photo_consent_hero_banner',
+	bdc_theme_asset_url( 'assets/images/Photo & Media Policy/77ada95f-2de9-4cb6-ab7a-01ffed9e2327.png' ),
+	$photo_consent_page_id
+);
+$photo_consent_hero_banner_alt = bdc_get_acf_text(
+	'photo_consent_hero_banner_alt',
+	'A young girl holding a camera',
+	$photo_consent_page_id
+);
+
+$photo_consent_main_aria_label = bdc_get_acf_text(
+	'photo_consent_main_aria_label',
+	'Photo and media consent form',
+	$photo_consent_page_id
+);
+$photo_consent_sidebar_aria_label = bdc_get_acf_text(
+	'photo_consent_sidebar_aria_label',
+	'On this page',
+	$photo_consent_page_id
+);
+$photo_consent_sidebar_title = bdc_get_acf_text(
+	'photo_consent_sidebar_title',
+	'On This Page',
+	$photo_consent_page_id
+);
+$photo_consent_nav_aria_label = bdc_get_acf_text(
+	'photo_consent_nav_aria_label',
+	'Form sections',
+	$photo_consent_page_id
+);
+$photo_consent_nav_items = bdc_get_photo_consent_resolved_nav( $photo_consent_page_id );
+
+$photo_consent_trust_icon_url = bdc_get_acf_image_url(
+	'photo_consent_trust_icon',
+	bdc_theme_asset_url( $photo_consent_asset_base . '0cd6e16c-e819-42e9-a75a-86895f2bc843-removebg-preview.png' ),
+	$photo_consent_page_id
+);
+$photo_consent_trust_heading = bdc_get_acf_text(
+	'photo_consent_trust_heading',
+	'Your Trust Matters',
+	$photo_consent_page_id
+);
+$photo_consent_trust_text = bdc_get_acf_text(
+	'photo_consent_trust_text',
+	'We respect your decisions and will always protect your child\'s privacy and dignity.',
+	$photo_consent_page_id
+);
 ?>
     <main id="main-content">
-      <section class="page-hero media-policy-hero" aria-label="Photo and Media Consent Form">
+      <section class="page-hero media-policy-hero" aria-label="<?php echo esc_attr( $photo_consent_hero_aria_label ); ?>">
         <div class="site-container media-policy-hero__inner page-hero__inner">
           <div class="page-hero__content media-policy-hero__content">
             <nav class="creative-makers-breadcrumbs media-policy-breadcrumbs" aria-label="Breadcrumb">
               <ol class="creative-makers-breadcrumbs__list">
-                <li><a href="<?php echo esc_url( bdc_page_url( 'index.html' ) ); ?>">Home</a></li>
-                <li><a href="<?php echo esc_url( bdc_page_url( 'faq.html' ) ); ?>">Resources</a></li>
-                <li><a href="<?php echo esc_url( bdc_page_url( 'photo-media-policy.html' ) ); ?>">Photo &amp; Media Policy</a></li>
-                <li aria-current="page">Consent Form</li>
+                <li><a href="<?php echo esc_url( $photo_consent_hero_breadcrumb_home_link['url'] ); ?>"<?php echo bdc_acf_link_target_attr( $photo_consent_hero_breadcrumb_home_link ); ?>><?php echo esc_html( $photo_consent_hero_breadcrumb_home_text ); ?></a></li>
+                <li><a href="<?php echo esc_url( $photo_consent_hero_breadcrumb_resources_link['url'] ); ?>"<?php echo bdc_acf_link_target_attr( $photo_consent_hero_breadcrumb_resources_link ); ?>><?php echo esc_html( $photo_consent_hero_breadcrumb_resources_text ); ?></a></li>
+                <li><a href="<?php echo esc_url( $photo_consent_hero_breadcrumb_policy_link['url'] ); ?>"<?php echo bdc_acf_link_target_attr( $photo_consent_hero_breadcrumb_policy_link ); ?>><?php echo esc_html( $photo_consent_hero_breadcrumb_policy_text ); ?></a></li>
+                <li aria-current="page"><?php echo esc_html( $photo_consent_hero_breadcrumb_current_text ); ?></li>
               </ol>
             </nav>
 
             <h1 class="media-policy-hero__title media-consent-hero__title">
-              <span class="media-consent-hero__title-text">Photo &amp; Media Consent Form</span>
+              <span class="media-consent-hero__title-text"><?php echo esc_html( $photo_consent_hero_title ); ?></span>
               <img
                 class="media-policy-hero__heart media-consent-hero__heart"
-                src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/Photo & Media conoent form/6b7c85b9-ee3e-48ed-9f05-2403fb816741-removebg-preview.png' ); ?>"
+                src="<?php echo esc_url( $photo_consent_hero_heart_url ); ?>"
                 alt=""
                 width="28"
                 height="28"
@@ -36,8 +156,7 @@ get_header();
             </h1>
 
             <p class="media-policy-hero__text">
-              Your consent helps us capture and share the magic of children&rsquo;s ideas and
-              experiences in a safe, respectful, and responsible way.
+              <?php echo esc_html( $photo_consent_hero_text ); ?>
             </p>
           </div>
 
@@ -45,9 +164,9 @@ get_header();
             <div class="lazy-img-wrap">
               <img
                 class="about-hero__banner media-policy-hero__banner lazy-img"
-                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-                data-src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/Photo & Media Policy/77ada95f-2de9-4cb6-ab7a-01ffed9e2327.png' ); ?>"
-                alt="A young girl holding a camera"
+                src="<?php echo esc_attr( $photo_consent_lazy_placeholder ); ?>"
+                data-src="<?php echo esc_url( $photo_consent_hero_banner_url ); ?>"
+                alt="<?php echo esc_attr( $photo_consent_hero_banner_alt ); ?>"
                 width="1200"
                 height="900"
                 decoding="async"
@@ -57,62 +176,28 @@ get_header();
         </div>
       </section>
 
-      <section class="media-policy-main section-padding" aria-label="Photo and media consent form">
+      <section class="media-policy-main section-padding" aria-label="<?php echo esc_attr( $photo_consent_main_aria_label ); ?>">
         <div class="site-container media-policy-main__inner">
-          <aside class="media-policy-sidebar" aria-label="On this page">
+          <aside class="media-policy-sidebar" aria-label="<?php echo esc_attr( $photo_consent_sidebar_aria_label ); ?>">
             <div class="media-policy-sidebar__sticky">
-              <h2 class="media-policy-sidebar__title">On This Page</h2>
-              <nav class="media-policy-nav" aria-label="Form sections">
+              <h2 class="media-policy-sidebar__title"><?php echo esc_html( $photo_consent_sidebar_title ); ?></h2>
+              <nav class="media-policy-nav" aria-label="<?php echo esc_attr( $photo_consent_nav_aria_label ); ?>">
                 <ul class="media-policy-nav__list">
+                  <?php foreach ( $photo_consent_nav_items as $photo_consent_nav_index => $photo_consent_nav_item ) : ?>
                   <li>
-                    <a class="media-policy-nav__link is-active" href="#consent-child">
-                      <img class="media-policy-nav__icon" src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/Photo & Media conoent form/3cf2faca-23f5-4f28-bad2-0b9cae7a26d8-removebg-preview.png' ); ?>" alt="" width="28" height="28" decoding="async" aria-hidden="true" />
-                      <span>Child Information</span>
+                    <a class="media-policy-nav__link<?php echo 0 === (int) $photo_consent_nav_index ? ' is-active' : ''; ?>" href="#<?php echo esc_attr( $photo_consent_nav_item['anchor_id'] ); ?>">
+                      <img class="media-policy-nav__icon" src="<?php echo esc_url( $photo_consent_nav_item['icon'] ); ?>" alt="" width="28" height="28" decoding="async" aria-hidden="true" />
+                      <span><?php echo esc_html( $photo_consent_nav_item['label'] ); ?></span>
                     </a>
                   </li>
-                  <li>
-                    <a class="media-policy-nav__link" href="#consent-options">
-                      <img class="media-policy-nav__icon" src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/Photo & Media conoent form/b374bddc-61e4-4aac-8f34-415f539153f3-removebg-preview.png' ); ?>" alt="" width="28" height="28" decoding="async" aria-hidden="true" />
-                      <span>Consent Options</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a class="media-policy-nav__link" href="#consent-usage">
-                      <img class="media-policy-nav__icon" src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/Photo & Media conoent form/23b70f0e-fa13-46ac-b61d-e237fe9be65d__1_-removebg-preview.png' ); ?>" alt="" width="28" height="28" decoding="async" aria-hidden="true" />
-                      <span>Usage &amp; Sharing</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a class="media-policy-nav__link" href="#consent-rights">
-                      <img class="media-policy-nav__icon" src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/Photo & Media conoent form/8dfaeb43-a271-4015-b1d9-07af7165566b-removebg-preview.png' ); ?>" alt="" width="28" height="28" decoding="async" aria-hidden="true" />
-                      <span>Your Rights</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a class="media-policy-nav__link" href="#consent-terms">
-                      <img class="media-policy-nav__icon" src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/Photo & Media conoent form/81e6b8ad-49f2-4714-a8e8-0133d3824dcd-removebg-preview.png' ); ?>" alt="" width="28" height="28" decoding="async" aria-hidden="true" />
-                      <span>Terms</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a class="media-policy-nav__link" href="#consent-signature">
-                      <img class="media-policy-nav__icon" src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/Photo & Media conoent form/504972f1-7c43-42ab-9310-b8d0690162a1-removebg-preview.png' ); ?>" alt="" width="28" height="28" decoding="async" aria-hidden="true" />
-                      <span>Signature</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a class="media-policy-nav__link" href="#consent-contact">
-                      <img class="media-policy-nav__icon" src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/Photo & Media conoent form/c8787907-a5fc-4a6d-bb5b-434cea33372a-removebg-preview.png' ); ?>" alt="" width="28" height="28" decoding="async" aria-hidden="true" />
-                      <span>Contact Us</span>
-                    </a>
-                  </li>
+                  <?php endforeach; ?>
                 </ul>
               </nav>
 
               <article class="media-policy-sidebar-card">
                 <img
                   class="media-policy-sidebar-card__icon"
-                  src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/Photo & Media conoent form/0cd6e16c-e819-42e9-a75a-86895f2bc843-removebg-preview.png' ); ?>"
+                  src="<?php echo esc_url( $photo_consent_trust_icon_url ); ?>"
                   alt=""
                   width="72"
                   height="72"
@@ -121,9 +206,8 @@ get_header();
                   aria-hidden="true"
                 />
                 <p class="media-policy-sidebar-card__text">
-                  <strong>Your Trust Matters</strong><br />
-                  We respect your decisions and will always protect your child&rsquo;s privacy and
-                  dignity.
+                  <strong><?php echo esc_html( $photo_consent_trust_heading ); ?></strong><br />
+                  <?php echo esc_html( $photo_consent_trust_text ); ?>
                 </p>
               </article>
             </div>

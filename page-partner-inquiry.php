@@ -8,18 +8,120 @@
  */
 
 get_header();
+
+$partner_page_id         = get_queried_object_id();
+$partner_asset_base      = 'assets/images/Partner inquery form/';
+$partner_lazy_placeholder = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';
+
+$partner_hero_aria_label = bdc_get_acf_text( 'partner_hero_aria_label', 'Partner Inquiry Form', $partner_page_id );
+$partner_hero_title_pink = bdc_get_acf_text( 'partner_hero_title_pink', 'Partner', $partner_page_id );
+$partner_hero_title_navy = bdc_get_acf_text( 'partner_hero_title_navy', ' Inquiry Form', $partner_page_id );
+$partner_hero_text       = bdc_get_acf_text(
+	'partner_hero_text',
+	'Bright Dreamers welcomes partnerships with organizations, businesses, and individuals who want to help children explore ideas, create, and make a difference.',
+	$partner_page_id
+);
+$partner_hero_banner_url = bdc_get_acf_image_url(
+	'partner_hero_banner',
+	bdc_theme_asset_url( $partner_asset_base . 'c6cd5763-32f5-4059-9418-034cb7100a9f.png' ),
+	$partner_page_id
+);
+$partner_hero_banner_alt = bdc_get_acf_text(
+	'partner_hero_banner_alt',
+	'An educator and children working together on a creative project',
+	$partner_page_id
+);
+
+$partner_about_heading_icon_url = bdc_get_acf_image_url(
+	'partner_about_heading_icon',
+	bdc_theme_asset_url( $partner_asset_base . 'ChatGPT_Image_Aug_9__2026__10_13_48_AM-removebg-preview-e1786252527358.png' ),
+	$partner_page_id
+);
+$partner_about_heading = bdc_get_acf_text( 'partner_about_heading', 'About Partnerships', $partner_page_id );
+$partner_about_intro   = bdc_get_acf_text(
+	'partner_about_intro',
+	'Bright Dreamers partners with organizations, businesses, and community members who share our vision.',
+	$partner_page_id
+);
+$partner_about_items = bdc_get_partner_resolved_about( $partner_page_id );
+
+$partner_next_plane_url = bdc_get_acf_image_url(
+	'partner_next_plane',
+	bdc_theme_asset_url( $partner_asset_base . 'WhatsApp Image 2026-08-10 at 2.27.50 PM.jpeg' ),
+	$partner_page_id
+);
+$partner_next_heading = bdc_get_acf_text( 'partner_next_heading', 'What Happens Next?', $partner_page_id );
+$partner_next_steps   = bdc_get_partner_resolved_next( $partner_page_id );
+
+$partner_questions_icon_url = bdc_get_acf_image_url(
+	'partner_questions_icon',
+	bdc_theme_asset_url( $partner_asset_base . '74393145-3039-498d-87cb-5427fa180064-removebg-preview.png' ),
+	$partner_page_id
+);
+$partner_questions_title = bdc_get_acf_text( 'partner_questions_title', 'Questions?', $partner_page_id );
+$partner_questions_text  = bdc_get_acf_text(
+	'partner_questions_text',
+	'We\'re here to help! Support is available through the Contact Us form only.',
+	$partner_page_id
+);
+$partner_questions_link = bdc_get_acf_link(
+	'partner_questions_link',
+	array(
+		'title'  => 'Go to Contact Us',
+		'url'    => bdc_page_url( 'contact.html' ),
+		'target' => '',
+	),
+	$partner_page_id
+);
+
+$partner_spotlight_image_url = bdc_get_acf_image_url(
+	'partner_spotlight_image',
+	bdc_theme_asset_url( $partner_asset_base . '7d109b7e-f3ba-4c7a-a1d2-d1bcc0c89f1c-removebg-preview.png' ),
+	$partner_page_id
+);
+$partner_spotlight_caption = bdc_get_acf_text(
+	'partner_spotlight_caption',
+	'Open doors. Bright futures. Stronger together.',
+	$partner_page_id
+);
+
+$partner_footer_aria_label = bdc_get_acf_text( 'partner_footer_aria_label', 'Submit partner inquiry', $partner_page_id );
+$partner_footer_envelope_url = bdc_get_acf_image_url(
+	'partner_footer_envelope',
+	bdc_theme_asset_url( $partner_asset_base . 'a02a1588-2649-4a87-b502-7ca80459a5f5-removebg-preview.png' ),
+	$partner_page_id
+);
+$partner_footer_text = bdc_get_acf_text(
+	'partner_footer_text',
+	'Thank you for helping create opportunities for young ideas to grow.',
+	$partner_page_id
+);
+$partner_footer_plane_url = bdc_get_acf_image_url(
+	'partner_footer_plane',
+	bdc_theme_asset_url( $partner_asset_base . 'ChatGPT Image Aug 11, 2026, 08_30_03 PM.png' ),
+	$partner_page_id
+);
+$partner_footer_heart_url = bdc_get_acf_image_url(
+	'partner_footer_heart',
+	bdc_theme_asset_url( $partner_asset_base . 'bb82fd16-57fa-467c-b022-eb4b24b91569-removebg-preview.png' ),
+	$partner_page_id
+);
+$partner_footer_star_url = bdc_get_acf_image_url(
+	'partner_footer_star',
+	bdc_theme_asset_url( $partner_asset_base . 'ChatGPT_Image_Aug_9__2026__10_13_48_AM-removebg-preview-e1786252527358.png' ),
+	$partner_page_id
+);
 ?>
     <main id="main-content">
-      <section class="page-hero apply-hero partner-inquiry-hero" aria-label="Partner Inquiry Form">
+      <section class="page-hero apply-hero partner-inquiry-hero" aria-label="<?php echo esc_attr( $partner_hero_aria_label ); ?>">
         <div class="site-container page-hero__inner">
           <div class="page-hero__content apply-hero__content">
             <h1 class="apply-hero__title partner-inquiry-hero__title">
-              <span class="apply-hero__title-line apply-hero__title-line--pink">Partner</span><span class="apply-hero__title-line apply-hero__title-line--navy"> Inquiry Form</span>
+              <span class="apply-hero__title-line apply-hero__title-line--pink"><?php echo esc_html( $partner_hero_title_pink ); ?></span><span class="apply-hero__title-line apply-hero__title-line--navy"><?php echo esc_html( $partner_hero_title_navy ); ?></span>
             </h1>
 
             <p class="apply-hero__text">
-              Bright Dreamers welcomes partnerships with organizations, businesses, and individuals
-              who want to help children explore ideas, create, and make a difference.
+              <?php echo esc_html( $partner_hero_text ); ?>
             </p>
           </div>
 
@@ -27,9 +129,9 @@ get_header();
             <div class="lazy-img-wrap">
               <img
                 class="about-hero__banner apply-hero__banner partner-inquiry-hero__banner lazy-img"
-                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-                data-src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/Partner inquery form/c6cd5763-32f5-4059-9418-034cb7100a9f.png' ); ?>"
-                alt="An educator and children working together on a creative project"
+                src="<?php echo esc_attr( $partner_lazy_placeholder ); ?>"
+                data-src="<?php echo esc_url( $partner_hero_banner_url ); ?>"
+                alt="<?php echo esc_attr( $partner_hero_banner_alt ); ?>"
                 width="1200"
                 height="900"
                 decoding="async"
@@ -257,21 +359,21 @@ get_header();
           <aside class="apply-form__sidebar" aria-label="Partner inquiry help">
             <article class="apply-sidebar-card apply-sidebar-card--about partner-sidebar-card--about">
               <h2 class="apply-sidebar-card__title partner-sidebar-card__title--icon">
-                <img class="partner-sidebar-title-icon" src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/Partner inquery form/ChatGPT_Image_Aug_9__2026__10_13_48_AM-removebg-preview-e1786252527358.png' ); ?>" alt="" width="32" height="32" loading="lazy" decoding="async" aria-hidden="true" />
-                About Partnerships
+                <img class="partner-sidebar-title-icon" src="<?php echo esc_url( $partner_about_heading_icon_url ); ?>" alt="" width="32" height="32" loading="lazy" decoding="async" aria-hidden="true" />
+                <?php echo esc_html( $partner_about_heading ); ?>
               </h2>
-              <p class="apply-sidebar-card__text">Bright Dreamers partners with organizations, businesses, and community members who share our vision.</p>
+              <p class="apply-sidebar-card__text"><?php echo esc_html( $partner_about_intro ); ?></p>
               <ul class="apply-sidebar-list partner-sidebar-list">
-                <li><img class="apply-sidebar-list__icon" src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/Partner inquery form/bb82fd16-57fa-467c-b022-eb4b24b91569-removebg-preview.png' ); ?>" alt="" width="28" height="28" loading="lazy" decoding="async" aria-hidden="true" /><span>We welcome creative, meaningful partnerships.</span></li>
-                <li><img class="apply-sidebar-list__icon" src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/Partner inquery form/fd83dcce-5e29-4f24-ba61-2a9addaf1e96-removebg-preview-e1786252180908.png' ); ?>" alt="" width="28" height="28" loading="lazy" decoding="async" aria-hidden="true" /><span>We prioritize child safety and thoughtful collaboration.</span></li>
-                <li><img class="apply-sidebar-list__icon" src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/Partner inquery form/97f4da01-f16f-4e98-9267-60d7e64423e6__1_-removebg-preview.png' ); ?>" alt="" width="28" height="28" loading="lazy" decoding="async" aria-hidden="true" /><span>We look for partners who align with our values.</span></li>
+                <?php foreach ( $partner_about_items as $partner_about_item ) : ?>
+                <li><img class="apply-sidebar-list__icon" src="<?php echo esc_url( $partner_about_item['icon'] ); ?>" alt="" width="28" height="28" loading="lazy" decoding="async" aria-hidden="true" /><span><?php echo esc_html( $partner_about_item['text'] ); ?></span></li>
+                <?php endforeach; ?>
               </ul>
             </article>
 
             <article class="apply-sidebar-card apply-sidebar-card--timeline partner-sidebar-card--next">
               <img
                 class="partner-sidebar-card__plane-deco"
-                src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/Partner inquery form/WhatsApp Image 2026-08-10 at 2.27.50 PM.jpeg' ); ?>"
+                src="<?php echo esc_url( $partner_next_plane_url ); ?>"
                 alt=""
                 width="128"
                 height="80"
@@ -280,39 +382,39 @@ get_header();
                 aria-hidden="true"
               />
               <div class="apply-sidebar-card__head">
-                <h2 class="apply-sidebar-card__title">What Happens Next?</h2>
+                <h2 class="apply-sidebar-card__title"><?php echo esc_html( $partner_next_heading ); ?></h2>
               </div>
               <ol class="partner-next-list">
-                <li><strong>We Review Your Inquiry</strong><span>Our team reads every submission carefully.</span></li>
-                <li><strong>We Schedule a Conversation</strong><span>If it looks like a good fit, we reach out to learn more.</span></li>
-                <li><strong>We Explore Partnership Opportunities</strong><span>Together, we discuss ways to support children and the community.</span></li>
+                <?php foreach ( $partner_next_steps as $partner_next_step ) : ?>
+                <li><strong><?php echo esc_html( $partner_next_step['title'] ); ?></strong><span><?php echo esc_html( $partner_next_step['text'] ); ?></span></li>
+                <?php endforeach; ?>
               </ol>
             </article>
 
             <article class="apply-sidebar-card apply-sidebar-card--questions partner-sidebar-card--questions">
               <h2 class="apply-sidebar-card__title partner-sidebar-card__title--icon">
-                <img class="partner-sidebar-title-icon" src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/Partner inquery form/74393145-3039-498d-87cb-5427fa180064-removebg-preview.png' ); ?>" alt="" width="32" height="32" loading="lazy" decoding="async" aria-hidden="true" />
-                Questions?
+                <img class="partner-sidebar-title-icon" src="<?php echo esc_url( $partner_questions_icon_url ); ?>" alt="" width="32" height="32" loading="lazy" decoding="async" aria-hidden="true" />
+                <?php echo esc_html( $partner_questions_title ); ?>
               </h2>
-              <p class="apply-sidebar-card__text">We&rsquo;re here to help! Support is available through the Contact Us form only.</p>
-              <a class="btn btn--outline btn-hover apply-sidebar-card__btn partner-sidebar-questions-btn" href="<?php echo esc_url( bdc_page_url( 'contact.html' ) ); ?>">Go to Contact Us<svg class="btn__icon" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg></a>
+              <p class="apply-sidebar-card__text"><?php echo esc_html( $partner_questions_text ); ?></p>
+              <a class="btn btn--outline btn-hover apply-sidebar-card__btn partner-sidebar-questions-btn" href="<?php echo esc_url( $partner_questions_link['url'] ); ?>"<?php echo bdc_acf_link_target_attr( $partner_questions_link ); ?>><?php echo esc_html( $partner_questions_link['title'] ); ?><svg class="btn__icon" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg></a>
             </article>
 
             <figure class="partner-sidebar-spotlight">
-              <img class="partner-sidebar-spotlight__img" src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/Partner inquery form/7d109b7e-f3ba-4c7a-a1d2-d1bcc0c89f1c-removebg-preview.png' ); ?>" alt="" width="320" height="220" loading="lazy" decoding="async" aria-hidden="true" />
-              <figcaption class="partner-sidebar-spotlight__caption">Open doors. Bright futures. Stronger together.</figcaption>
+              <img class="partner-sidebar-spotlight__img" src="<?php echo esc_url( $partner_spotlight_image_url ); ?>" alt="" width="320" height="220" loading="lazy" decoding="async" aria-hidden="true" />
+              <figcaption class="partner-sidebar-spotlight__caption"><?php echo esc_html( $partner_spotlight_caption ); ?></figcaption>
             </figure>
           </aside>
         </div>
       </section>
 
-      <section class="partner-footer-bar section-padding" aria-label="Submit partner inquiry">
+      <section class="partner-footer-bar section-padding" aria-label="<?php echo esc_attr( $partner_footer_aria_label ); ?>">
         <div class="site-container partner-footer-bar__inner">
           <div class="partner-footer-bar__card">
             <div class="partner-footer-bar__message">
               <img
                 class="partner-footer-bar__envelope"
-                src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/Partner inquery form/a02a1588-2649-4a87-b502-7ca80459a5f5-removebg-preview.png' ); ?>"
+                src="<?php echo esc_url( $partner_footer_envelope_url ); ?>"
                 alt=""
                 width="150"
                 height="120"
@@ -320,7 +422,7 @@ get_header();
                 decoding="async"
                 aria-hidden="true"
               />
-              <p class="partner-footer-bar__text">Thank you for helping create opportunities for young ideas to grow.</p>
+              <p class="partner-footer-bar__text"><?php echo esc_html( $partner_footer_text ); ?></p>
             </div>
 
             <div class="partner-footer-bar__divider" aria-hidden="true"></div>
@@ -329,7 +431,7 @@ get_header();
               <button class="btn btn--solid btn-hover partner-footer-bar__btn" type="submit" form="partner-inquiry-form">
                 <img
                   class="partner-footer-bar__plane"
-                  src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/Partner inquery form/ChatGPT Image Aug 11, 2026, 08_30_03 PM.png' ); ?>"
+                  src="<?php echo esc_url( $partner_footer_plane_url ); ?>"
                   alt=""
                   width="24"
                   height="24"
@@ -346,7 +448,7 @@ get_header();
                 </svg>
                 <img
                   class="partner-footer-bar__deco-heart"
-                  src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/Partner inquery form/bb82fd16-57fa-467c-b022-eb4b24b91569-removebg-preview.png' ); ?>"
+                  src="<?php echo esc_url( $partner_footer_heart_url ); ?>"
                   alt=""
                   width="34"
                   height="34"
@@ -355,7 +457,7 @@ get_header();
                 />
                 <img
                   class="partner-footer-bar__deco-star"
-                  src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/Partner inquery form/ChatGPT_Image_Aug_9__2026__10_13_48_AM-removebg-preview-e1786252527358.png' ); ?>"
+                  src="<?php echo esc_url( $partner_footer_star_url ); ?>"
                   alt=""
                   width="34"
                   height="34"

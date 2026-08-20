@@ -27,6 +27,8 @@ require_once BDC_THEME_DIR . '/inc/policy/apply-to-become-defaults.php';
 require_once BDC_THEME_DIR . '/inc/policy/volunteer-application-defaults.php';
 require_once BDC_THEME_DIR . '/inc/policy/newsletter-signup-defaults.php';
 require_once BDC_THEME_DIR . '/inc/policy/donation-interest-defaults.php';
+require_once BDC_THEME_DIR . '/inc/policy/partner-inquiry-defaults.php';
+require_once BDC_THEME_DIR . '/inc/policy/photo-media-consent-defaults.php';
 
 /**
  * Register local ACF field groups when ACF is active.

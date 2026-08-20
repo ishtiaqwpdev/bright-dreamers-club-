@@ -15,10 +15,101 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Set HTML content type for wp_mail during form sends.
  *
+ * Return the type only. WordPress/PHPMailer already appends charset.
+ *
  * @return string
  */
 function bdc_forms_mail_content_type() {
-	return 'text/html; charset=UTF-8';
+	return 'text/html';
+}
+
+/**
+ * Sender display name for form emails.
+ *
+ * @param string $name Current from name.
+ * @return string
+ */
+function bdc_forms_mail_from_name( $name ) {
+	unset( $name );
+
+	return 'Bright Dreamers';
+}
+
+/**
+ * Add a plain-text alternative so HTML form emails are less likely to hit spam.
+ *
+ * @param PHPMailer\PHPMailer\PHPMailer $phpmailer Mailer instance.
+ */
+function bdc_forms_phpmailer_init( $phpmailer ) {
+	if ( empty( $phpmailer->Body ) || 'text/html' !== $phpmailer->ContentType ) {
+		return;
+	}
+
+	if ( '' === trim( (string) $phpmailer->AltBody ) ) {
+		$phpmailer->AltBody = wp_strip_all_tags( $phpmailer->Body );
+	}
+}
+
+/**
+ * Log wp_mail failures for form notifications.
+ *
+ * @param WP_Error $error Mail error.
+ */
+function bdc_forms_log_mail_failure( $error ) {
+	if ( ! is_wp_error( $error ) ) {
+		return;
+	}
+
+	error_log( 'Bright Dreamers form mail failed: ' . $error->get_error_message() );
+}
+
+/**
+ * Strip characters that often send subjects to spam.
+ *
+ * @param string $subject Raw subject.
+ * @return string
+ */
+function bdc_forms_sanitize_subject( $subject ) {
+	$subject = wp_strip_all_tags( (string) $subject );
+	$subject = preg_replace( '/[\x{1F300}-\x{1FAFF}\x{2600}-\x{27BF}]/u', '', $subject );
+
+	return trim( preg_replace( '/\s+/', ' ', (string) $subject ) );
+}
+
+/**
+ * Send one form email with consistent headers and logging.
+ *
+ * @param string|string[] $to          Recipient(s).
+ * @param string          $subject     Subject line.
+ * @param string          $body        HTML body.
+ * @param string[]        $headers     Extra headers.
+ * @param string[]        $attachments Attachment paths.
+ * @return bool
+ */
+function bdc_forms_send_mail( $to, $subject, $body, array $headers = array(), array $attachments = array() ) {
+	if ( empty( $to ) || '' === $body ) {
+		return false;
+	}
+
+	add_filter( 'wp_mail_content_type', 'bdc_forms_mail_content_type' );
+	add_filter( 'wp_mail_from_name', 'bdc_forms_mail_from_name' );
+	add_action( 'phpmailer_init', 'bdc_forms_phpmailer_init' );
+	add_action( 'wp_mail_failed', 'bdc_forms_log_mail_failure' );
+
+	$sent = wp_mail(
+		$to,
+		bdc_forms_sanitize_subject( $subject ),
+		$body,
+		$headers,
+		$attachments
+	);
+
+	remove_filter( 'wp_mail_content_type', 'bdc_forms_mail_content_type' );
+	remove_filter( 'wp_mail_from_name', 'bdc_forms_mail_from_name' );
+	remove_action( 'phpmailer_init', 'bdc_forms_phpmailer_init' );
+	remove_action( 'wp_mail_failed', 'bdc_forms_log_mail_failure' );
+
+	return (bool) $sent;
 }
 
 /**
@@ -164,19 +255,13 @@ function bdc_forms_send_admin_notification( $form_id, array $data, array $attach
 		)
 	);
 
-	add_filter( 'wp_mail_content_type', 'bdc_forms_mail_content_type' );
-
-	$sent = wp_mail(
+	return bdc_forms_send_mail(
 		$form_config['admin_recipients'],
 		$form_config['admin_subject'],
 		$body,
 		array( 'Reply-To: ' . bdc_forms_get_reply_to( $form_config, $data ) ),
 		$attachments
 	);
-
-	remove_filter( 'wp_mail_content_type', 'bdc_forms_mail_content_type' );
-
-	return $sent;
 }
 
 /**
@@ -224,18 +309,12 @@ function bdc_forms_send_user_confirmation( $form_id, array $data ) {
 		)
 	);
 
-	add_filter( 'wp_mail_content_type', 'bdc_forms_mail_content_type' );
-
-	$sent = wp_mail(
+	return bdc_forms_send_mail(
 		$data[ $user_email_field ],
 		$form_config['user_subject'],
 		$body,
 		array( 'Reply-To: ' . bdc_forms_get_admin_from_address() )
 	);
-
-	remove_filter( 'wp_mail_content_type', 'bdc_forms_mail_content_type' );
-
-	return $sent;
 }
 
 /**
@@ -253,20 +332,32 @@ function bdc_forms_get_reply_to( array $form_config, array $data ) {
 		return bdc_forms_get_admin_from_address();
 	}
 
-	$name = sanitize_text_field( (string) ( $data[ $name_field ] ?? '' ) );
+	$email = sanitize_email( $data[ $email_field ] );
+	$name  = sanitize_text_field( (string) ( $data[ $name_field ] ?? '' ) );
+	$name  = str_replace( array( '"', '<', '>' ), '', $name );
 
 	if ( '' === $name ) {
-		return sanitize_email( $data[ $email_field ] );
+		return $email;
 	}
 
-	return sprintf( '%s <%s>', $name, sanitize_email( $data[ $email_field ] ) );
+	return sprintf( '"%s" <%s>', $name, $email );
 }
 
 /**
- * From/reply address based on site admin email.
+ * Reply address for user confirmation emails.
+ *
+ * Prefers the form admin inbox so Reply-To matches a real Bright Dreamers address.
  *
  * @return string
  */
 function bdc_forms_get_admin_from_address() {
+	if ( function_exists( 'bdc_get_form_admin_recipients' ) ) {
+		$recipients = bdc_get_form_admin_recipients();
+
+		if ( ! empty( $recipients[0] ) && is_email( $recipients[0] ) ) {
+			return $recipients[0];
+		}
+	}
+
 	return sanitize_email( get_option( 'admin_email' ) );
 }

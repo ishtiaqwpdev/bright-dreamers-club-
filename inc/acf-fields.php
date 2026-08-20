@@ -8400,4 +8400,425 @@ acf_add_local_field_group(
 	)
 );
 
+acf_add_local_field_group(
+	array(
+		'key'                   => 'group_partner_hero',
+		'title'                 => 'Partner Inquiry — Hero / Banner',
+		'fields'                => array(
+			array(
+				'key'           => 'field_partner_hero_aria_label',
+				'label'         => 'Section aria label',
+				'name'          => 'partner_hero_aria_label',
+				'type'          => 'text',
+				'default_value' => 'Partner Inquiry Form',
+			),
+			array(
+				'key'           => 'field_partner_hero_title_pink',
+				'label'         => 'Title line 1',
+				'name'          => 'partner_hero_title_pink',
+				'type'          => 'text',
+				'default_value' => 'Partner',
+			),
+			array(
+				'key'           => 'field_partner_hero_title_navy',
+				'label'         => 'Title line 2',
+				'name'          => 'partner_hero_title_navy',
+				'type'          => 'text',
+				'default_value' => ' Inquiry Form',
+			),
+			array(
+				'key'           => 'field_partner_hero_text',
+				'label'         => 'Intro paragraph',
+				'name'          => 'partner_hero_text',
+				'type'          => 'textarea',
+				'rows'          => 3,
+				'new_lines'     => '',
+				'default_value' => 'Bright Dreamers welcomes partnerships with organizations, businesses, and individuals who want to help children explore ideas, create, and make a difference.',
+			),
+			array(
+				'key'           => 'field_partner_hero_banner',
+				'label'         => 'Banner image',
+				'name'          => 'partner_hero_banner',
+				'type'          => 'image',
+				'return_format' => 'array',
+				'preview_size'  => 'medium',
+				'library'       => 'all',
+				'instructions'  => 'Leave empty to keep the current hero banner photo.',
+			),
+			array(
+				'key'           => 'field_partner_hero_banner_alt',
+				'label'         => 'Banner alt text',
+				'name'          => 'partner_hero_banner_alt',
+				'type'          => 'text',
+				'default_value' => 'An educator and children working together on a creative project',
+			),
+		),
+		'location'              => bdc_get_acf_page_locations( 'page-partner-inquiry.php', 'partner-inquiry-form' ),
+		'menu_order'            => 0,
+		'position'              => 'normal',
+		'style'                 => 'default',
+		'label_placement'       => 'top',
+		'instruction_placement' => 'label',
+		'active'                => true,
+	)
+);
+
+acf_add_local_field_group(
+	array(
+		'key'                   => 'group_partner_form_name',
+		'title'                 => 'Partner Inquiry — Form',
+		'fields'                => array(
+			array(
+				'key'     => 'field_partner_form_name_message',
+				'label'   => 'Form on this page',
+				'name'    => '',
+				'type'    => 'message',
+				'message' => '<strong>Partner Inquiry</strong><br>The partner inquiry form stays as it is. You can edit the hero, images, sidebar text, and links on this page — not the form fields.',
+			),
+		),
+		'location'              => bdc_get_acf_page_locations( 'page-partner-inquiry.php', 'partner-inquiry-form' ),
+		'menu_order'            => 1,
+		'position'              => 'normal',
+		'style'                 => 'default',
+		'label_placement'       => 'top',
+		'instruction_placement' => 'label',
+		'active'                => true,
+	)
+);
+
+acf_add_local_field_group(
+	array(
+		'key'                   => 'group_partner_about',
+		'title'                 => 'Partner Inquiry — About Partnerships',
+		'fields'                => bdc_get_partner_acf_about_fields(),
+		'location'              => bdc_get_acf_page_locations( 'page-partner-inquiry.php', 'partner-inquiry-form' ),
+		'menu_order'            => 2,
+		'position'              => 'normal',
+		'style'                 => 'default',
+		'label_placement'       => 'top',
+		'instruction_placement' => 'label',
+		'active'                => true,
+	)
+);
+
+acf_add_local_field_group(
+	array(
+		'key'                   => 'group_partner_next',
+		'title'                 => 'Partner Inquiry — What Happens Next',
+		'fields'                => bdc_get_partner_acf_next_fields(),
+		'location'              => bdc_get_acf_page_locations( 'page-partner-inquiry.php', 'partner-inquiry-form' ),
+		'menu_order'            => 3,
+		'position'              => 'normal',
+		'style'                 => 'default',
+		'label_placement'       => 'top',
+		'instruction_placement' => 'label',
+		'active'                => true,
+	)
+);
+
+acf_add_local_field_group(
+	array(
+		'key'                   => 'group_partner_sidebar',
+		'title'                 => 'Partner Inquiry — Questions & Spotlight',
+		'fields'                => array(
+			array(
+				'key'     => 'field_partner_questions_intro',
+				'label'   => 'Questions',
+				'name'    => '',
+				'type'    => 'message',
+				'message' => 'Questions card.',
+			),
+			array(
+				'key'           => 'field_partner_questions_icon',
+				'label'         => 'Questions heading icon',
+				'name'          => 'partner_questions_icon',
+				'type'          => 'image',
+				'return_format' => 'array',
+				'preview_size'  => 'thumbnail',
+				'library'       => 'all',
+				'instructions'  => 'Leave empty to keep the default icon.',
+			),
+			array(
+				'key'           => 'field_partner_questions_title',
+				'label'         => 'Questions heading',
+				'name'          => 'partner_questions_title',
+				'type'          => 'text',
+				'default_value' => 'Questions?',
+			),
+			array(
+				'key'           => 'field_partner_questions_text',
+				'label'         => 'Questions text',
+				'name'          => 'partner_questions_text',
+				'type'          => 'textarea',
+				'rows'          => 3,
+				'new_lines'     => '',
+				'default_value' => 'We\'re here to help! Support is available through the Contact Us form only.',
+			),
+			array(
+				'key'           => 'field_partner_questions_link',
+				'label'         => 'Button link',
+				'name'          => 'partner_questions_link',
+				'type'          => 'link',
+				'return_format' => 'array',
+			),
+			array(
+				'key'     => 'field_partner_spotlight_intro',
+				'label'   => 'Spotlight',
+				'name'    => '',
+				'type'    => 'message',
+				'message' => 'Sidebar spotlight image and caption.',
+			),
+			array(
+				'key'           => 'field_partner_spotlight_image',
+				'label'         => 'Spotlight image',
+				'name'          => 'partner_spotlight_image',
+				'type'          => 'image',
+				'return_format' => 'array',
+				'preview_size'  => 'medium',
+				'library'       => 'all',
+				'instructions'  => 'Leave empty to keep the default illustration.',
+			),
+			array(
+				'key'           => 'field_partner_spotlight_caption',
+				'label'         => 'Spotlight caption',
+				'name'          => 'partner_spotlight_caption',
+				'type'          => 'text',
+				'default_value' => 'Open doors. Bright futures. Stronger together.',
+			),
+		),
+		'location'              => bdc_get_acf_page_locations( 'page-partner-inquiry.php', 'partner-inquiry-form' ),
+		'menu_order'            => 4,
+		'position'              => 'normal',
+		'style'                 => 'default',
+		'label_placement'       => 'top',
+		'instruction_placement' => 'label',
+		'active'                => true,
+	)
+);
+
+acf_add_local_field_group(
+	array(
+		'key'                   => 'group_partner_footer',
+		'title'                 => 'Partner Inquiry — Footer Bar',
+		'fields'                => array(
+			array(
+				'key'           => 'field_partner_footer_aria_label',
+				'label'         => 'Section aria label',
+				'name'          => 'partner_footer_aria_label',
+				'type'          => 'text',
+				'default_value' => 'Submit partner inquiry',
+			),
+			array(
+				'key'           => 'field_partner_footer_envelope',
+				'label'         => 'Envelope image',
+				'name'          => 'partner_footer_envelope',
+				'type'          => 'image',
+				'return_format' => 'array',
+				'preview_size'  => 'medium',
+				'library'       => 'all',
+				'instructions'  => 'Leave empty to keep the default envelope.',
+			),
+			array(
+				'key'           => 'field_partner_footer_text',
+				'label'         => 'Thank-you sentence',
+				'name'          => 'partner_footer_text',
+				'type'          => 'textarea',
+				'rows'          => 2,
+				'new_lines'     => '',
+				'default_value' => 'Thank you for helping create opportunities for young ideas to grow.',
+			),
+			array(
+				'key'           => 'field_partner_footer_plane',
+				'label'         => 'Submit button plane icon',
+				'name'          => 'partner_footer_plane',
+				'type'          => 'image',
+				'return_format' => 'array',
+				'preview_size'  => 'thumbnail',
+				'library'       => 'all',
+				'instructions'  => 'Leave empty to keep the default plane icon. The Submit Inquiry button itself is not editable.',
+			),
+			array(
+				'key'           => 'field_partner_footer_heart',
+				'label'         => 'Heart decoration',
+				'name'          => 'partner_footer_heart',
+				'type'          => 'image',
+				'return_format' => 'array',
+				'preview_size'  => 'thumbnail',
+				'library'       => 'all',
+				'instructions'  => 'Leave empty to keep the default heart.',
+			),
+			array(
+				'key'           => 'field_partner_footer_star',
+				'label'         => 'Star decoration',
+				'name'          => 'partner_footer_star',
+				'type'          => 'image',
+				'return_format' => 'array',
+				'preview_size'  => 'thumbnail',
+				'library'       => 'all',
+				'instructions'  => 'Leave empty to keep the default star.',
+			),
+		),
+		'location'              => bdc_get_acf_page_locations( 'page-partner-inquiry.php', 'partner-inquiry-form' ),
+		'menu_order'            => 5,
+		'position'              => 'normal',
+		'style'                 => 'default',
+		'label_placement'       => 'top',
+		'instruction_placement' => 'label',
+		'active'                => true,
+	)
+);
+
+acf_add_local_field_group(
+	array(
+		'key'                   => 'group_photo_consent_hero',
+		'title'                 => 'Photo Media Consent — Hero / Banner',
+		'fields'                => array(
+			array(
+				'key'           => 'field_photo_consent_hero_aria_label',
+				'label'         => 'Section aria label',
+				'name'          => 'photo_consent_hero_aria_label',
+				'type'          => 'text',
+				'default_value' => 'Photo and Media Consent Form',
+			),
+			array(
+				'key'           => 'field_photo_consent_hero_breadcrumb_home_text',
+				'label'         => 'Breadcrumb — Home text',
+				'name'          => 'photo_consent_hero_breadcrumb_home_text',
+				'type'          => 'text',
+				'default_value' => 'Home',
+			),
+			array(
+				'key'           => 'field_photo_consent_hero_breadcrumb_home_link',
+				'label'         => 'Breadcrumb — Home link',
+				'name'          => 'photo_consent_hero_breadcrumb_home_link',
+				'type'          => 'link',
+				'return_format' => 'array',
+			),
+			array(
+				'key'           => 'field_photo_consent_hero_breadcrumb_resources_text',
+				'label'         => 'Breadcrumb — Resources text',
+				'name'          => 'photo_consent_hero_breadcrumb_resources_text',
+				'type'          => 'text',
+				'default_value' => 'Resources',
+			),
+			array(
+				'key'           => 'field_photo_consent_hero_breadcrumb_resources_link',
+				'label'         => 'Breadcrumb — Resources link',
+				'name'          => 'photo_consent_hero_breadcrumb_resources_link',
+				'type'          => 'link',
+				'return_format' => 'array',
+			),
+			array(
+				'key'           => 'field_photo_consent_hero_breadcrumb_policy_text',
+				'label'         => 'Breadcrumb — Policy text',
+				'name'          => 'photo_consent_hero_breadcrumb_policy_text',
+				'type'          => 'text',
+				'default_value' => 'Photo & Media Policy',
+			),
+			array(
+				'key'           => 'field_photo_consent_hero_breadcrumb_policy_link',
+				'label'         => 'Breadcrumb — Policy link',
+				'name'          => 'photo_consent_hero_breadcrumb_policy_link',
+				'type'          => 'link',
+				'return_format' => 'array',
+			),
+			array(
+				'key'           => 'field_photo_consent_hero_breadcrumb_current_text',
+				'label'         => 'Breadcrumb — Current page text',
+				'name'          => 'photo_consent_hero_breadcrumb_current_text',
+				'type'          => 'text',
+				'default_value' => 'Consent Form',
+			),
+			array(
+				'key'           => 'field_photo_consent_hero_title',
+				'label'         => 'Page title',
+				'name'          => 'photo_consent_hero_title',
+				'type'          => 'text',
+				'default_value' => 'Photo & Media Consent Form',
+			),
+			array(
+				'key'           => 'field_photo_consent_hero_heart',
+				'label'         => 'Heart icon',
+				'name'          => 'photo_consent_hero_heart',
+				'type'          => 'image',
+				'return_format' => 'array',
+				'preview_size'  => 'thumbnail',
+				'library'       => 'all',
+				'instructions'  => 'Leave empty to keep the default heart icon.',
+			),
+			array(
+				'key'           => 'field_photo_consent_hero_text',
+				'label'         => 'Intro paragraph',
+				'name'          => 'photo_consent_hero_text',
+				'type'          => 'textarea',
+				'rows'          => 3,
+				'new_lines'     => '',
+				'default_value' => 'Your consent helps us capture and share the magic of children\'s ideas and experiences in a safe, respectful, and responsible way.',
+			),
+			array(
+				'key'           => 'field_photo_consent_hero_banner',
+				'label'         => 'Banner image',
+				'name'          => 'photo_consent_hero_banner',
+				'type'          => 'image',
+				'return_format' => 'array',
+				'preview_size'  => 'medium',
+				'library'       => 'all',
+				'instructions'  => 'Leave empty to keep the current hero banner photo.',
+			),
+			array(
+				'key'           => 'field_photo_consent_hero_banner_alt',
+				'label'         => 'Banner alt text',
+				'name'          => 'photo_consent_hero_banner_alt',
+				'type'          => 'text',
+				'default_value' => 'A young girl holding a camera',
+			),
+		),
+		'location'              => bdc_get_acf_page_locations( 'page-photo-media-consent.php', 'photo-media-consent-form' ),
+		'menu_order'            => 0,
+		'position'              => 'normal',
+		'style'                 => 'default',
+		'label_placement'       => 'top',
+		'instruction_placement' => 'label',
+		'active'                => true,
+	)
+);
+
+acf_add_local_field_group(
+	array(
+		'key'                   => 'group_photo_consent_form_name',
+		'title'                 => 'Photo Media Consent — Form',
+		'fields'                => array(
+			array(
+				'key'     => 'field_photo_consent_form_name_message',
+				'label'   => 'Form on this page',
+				'name'    => '',
+				'type'    => 'message',
+				'message' => '<strong>Photo &amp; Media Consent</strong><br>The consent form stays as it is. You can edit the hero, breadcrumbs, sidebar links, and trust card on this page — not the form fields.',
+			),
+		),
+		'location'              => bdc_get_acf_page_locations( 'page-photo-media-consent.php', 'photo-media-consent-form' ),
+		'menu_order'            => 1,
+		'position'              => 'normal',
+		'style'                 => 'default',
+		'label_placement'       => 'top',
+		'instruction_placement' => 'label',
+		'active'                => true,
+	)
+);
+
+acf_add_local_field_group(
+	array(
+		'key'                   => 'group_photo_consent_sidebar',
+		'title'                 => 'Photo Media Consent — Sidebar',
+		'fields'                => bdc_get_photo_consent_acf_nav_fields(),
+		'location'              => bdc_get_acf_page_locations( 'page-photo-media-consent.php', 'photo-media-consent-form' ),
+		'menu_order'            => 2,
+		'position'              => 'normal',
+		'style'                 => 'default',
+		'label_placement'       => 'top',
+		'instruction_placement' => 'label',
+		'active'                => true,
+	)
+);
+
 require_once __DIR__ . '/acf-global-fields.php';
