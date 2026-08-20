@@ -22,6 +22,64 @@ function bdc_get_front_page_id() {
 }
 
 /**
+ * Resolve a published page ID from its slug/path.
+ *
+ * @param string $slug Page slug.
+ * @return int
+ */
+function bdc_get_page_id_by_slug( $slug ) {
+	$page = get_page_by_path( $slug );
+
+	return $page instanceof WP_Post ? (int) $page->ID : 0;
+}
+
+/**
+ * Build ACF location rules for a theme page template.
+ *
+ * Matches explicit template assignment and known page IDs so fields appear in the
+ * editor even when WordPress only uses slug-based template hierarchy on the front end.
+ *
+ * @param string $template_file Theme page template file, e.g. page-about.php.
+ * @param string $slug          Optional page slug to also match.
+ * @return array<int, array<int, array<string, string>>>
+ */
+function bdc_get_acf_page_locations( $template_file, $slug = '' ) {
+	$locations = array(
+		array(
+			array(
+				'param'    => 'page_template',
+				'operator' => '==',
+				'value'    => $template_file,
+			),
+		),
+	);
+
+	$page_ids = array();
+
+	if ( '' !== $slug ) {
+		$page_ids[] = bdc_get_page_id_by_slug( $slug );
+	}
+
+	if ( 'page-privacy-policy.php' === $template_file ) {
+		$page_ids[] = (int) get_option( 'wp_page_for_privacy_policy' );
+	}
+
+	$page_ids = array_values( array_unique( array_filter( $page_ids ) ) );
+
+	foreach ( $page_ids as $page_id ) {
+		$locations[] = array(
+			array(
+				'param'    => 'page',
+				'operator' => '==',
+				'value'    => (string) $page_id,
+			),
+		);
+	}
+
+	return $locations;
+}
+
+/**
  * Theme asset URL from a path relative to the theme root.
  *
  * @param string $relative_path e.g. assets/images/logo.jpeg.

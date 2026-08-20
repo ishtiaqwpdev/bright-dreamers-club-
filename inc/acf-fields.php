@@ -6190,15 +6190,7 @@ acf_add_local_field_group(
 				'default_value' => 'A young girl smiling while holding a shield with a lock icon',
 			),
 		),
-		'location'              => array(
-			array(
-				array(
-					'param'    => 'page_template',
-					'operator' => '==',
-					'value'    => 'page-privacy-policy.php',
-				),
-			),
-		),
+		'location'              => bdc_get_acf_page_locations( 'page-privacy-policy.php', 'privacy-policy' ),
 		'menu_order'            => 0,
 		'position'              => 'normal',
 		'style'                 => 'default',
@@ -6342,15 +6334,7 @@ acf_add_local_field_group(
 				),
 			),
 		),
-		'location'              => array(
-			array(
-				array(
-					'param'    => 'page_template',
-					'operator' => '==',
-					'value'    => 'page-privacy-policy.php',
-				),
-			),
-		),
+		'location'              => bdc_get_acf_page_locations( 'page-privacy-policy.php', 'privacy-policy' ),
 		'menu_order'            => 1,
 		'position'              => 'normal',
 		'style'                 => 'default',
