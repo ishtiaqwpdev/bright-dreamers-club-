@@ -166,6 +166,185 @@ foreach ( $create_for_cause_explore_activities_raw as $index => $row ) {
 if ( empty( $create_for_cause_explore_activities ) ) {
 	$create_for_cause_explore_activities = $create_for_cause_explore_activities_defaults;
 }
+
+$create_for_cause_info_aria_label = bdc_get_acf_text(
+	'create_for_cause_info_aria_label',
+	'Skills, growth, and impact',
+	$create_for_cause_page_id
+);
+$create_for_cause_info_skills_title = bdc_get_acf_text(
+	'create_for_cause_info_skills_title',
+	'Skills Children Naturally Build',
+	$create_for_cause_page_id
+);
+$create_for_cause_info_skills_items_defaults = array(
+	array( 'item_text' => 'Empathy' ),
+	array( 'item_text' => 'Responsibility' ),
+	array( 'item_text' => 'Teamwork' ),
+	array( 'item_text' => 'Leadership' ),
+	array( 'item_text' => 'Communication' ),
+);
+$create_for_cause_info_skills_items_raw = bdc_get_acf_repeater( 'create_for_cause_info_skills_items', $create_for_cause_info_skills_items_defaults, $create_for_cause_page_id );
+$create_for_cause_info_skills_items     = array();
+
+foreach ( $create_for_cause_info_skills_items_raw as $index => $row ) {
+	$default   = $create_for_cause_info_skills_items_defaults[ $index ] ?? array( 'item_text' => '' );
+	$item_text = isset( $row['item_text'] ) ? trim( (string) $row['item_text'] ) : '';
+	$resolved  = '' !== $item_text ? $item_text : (string) $default['item_text'];
+
+	if ( '' === trim( $resolved ) ) {
+		continue;
+	}
+
+	$create_for_cause_info_skills_items[] = array( 'item_text' => $resolved );
+}
+
+if ( empty( $create_for_cause_info_skills_items ) ) {
+	$create_for_cause_info_skills_items = $create_for_cause_info_skills_items_defaults;
+}
+$create_for_cause_info_skills_deco_url = bdc_get_acf_image_url(
+	'create_for_cause_info_skills_deco',
+	bdc_theme_asset_url( 'assets/images/create-for-cause-deco-star.png' ),
+	$create_for_cause_page_id
+);
+$create_for_cause_info_grow_title = bdc_get_acf_text(
+	'create_for_cause_info_grow_title',
+	'Children Grow Shape the Experience',
+	$create_for_cause_page_id
+);
+$create_for_cause_info_grow_text = bdc_get_acf_text(
+	'create_for_cause_info_grow_text',
+	'Children choose causes, plan projects, and decide how they want to help others.',
+	$create_for_cause_page_id
+);
+$create_for_cause_info_grow_deco_url = bdc_get_acf_image_url(
+	'create_for_cause_info_grow_deco',
+	bdc_theme_asset_url( 'assets/images/create-for-cause-deco-heart.png' ),
+	$create_for_cause_page_id
+);
+$create_for_cause_info_impact_title = bdc_get_acf_text(
+	'create_for_cause_info_impact_title',
+	'Making an Impact',
+	$create_for_cause_page_id
+);
+$create_for_cause_info_impact_text = bdc_get_acf_text(
+	'create_for_cause_info_impact_text',
+	'Children learn that their actions—big or small—can bring hope, support, and positive change to people and places in need.',
+	$create_for_cause_page_id
+);
+$create_for_cause_info_impact_deco_url = bdc_get_acf_image_url(
+	'create_for_cause_info_impact_deco',
+	bdc_theme_asset_url( 'assets/images/create-for-cause-deco-plant.png' ),
+	$create_for_cause_page_id
+);
+
+$create_for_cause_parents_section_id = bdc_get_acf_text(
+	'create_for_cause_parents_section_id',
+	'create-for-cause-parents',
+	$create_for_cause_page_id
+);
+$create_for_cause_parents_title = bdc_get_acf_text(
+	'create_for_cause_parents_title',
+	'What Parents Should Know',
+	$create_for_cause_page_id
+);
+$create_for_cause_parents_tablist_aria_label = bdc_get_acf_text(
+	'create_for_cause_parents_tablist_aria_label',
+	'Parent information topics',
+	$create_for_cause_page_id
+);
+$create_for_cause_parents_faq_items_defaults = array(
+	array(
+		'panel_slug' => 'expect',
+		'tab_label'  => 'What to Expect',
+		'panel_text' => 'Sessions blend creative projects with a community purpose. Children work individually and in teams to plan, create, and share projects that support causes they care about.',
+	),
+	array(
+		'panel_slug' => 'materials',
+		'tab_label'  => 'Materials',
+		'panel_text' => 'We provide craft supplies, packaging materials, and display items for awareness projects. Children may also bring items to donate or upcycle. All materials are age-appropriate and safe to use.',
+	),
+	array(
+		'panel_slug' => 'safety',
+		'tab_label'  => 'Safety & Supervision',
+		'panel_text' => 'All activities are age-appropriate with adult guidance. Scissors, glue, and tools are introduced with clear safety instructions. Small group sizes ensure every child gets attention and support.',
+	),
+	array(
+		'panel_slug' => 'program',
+		'tab_label'  => 'Program Details & Registration',
+		'panel_text' => 'Create for a Cause runs as part of Bright Dreamers experiences throughout the year. Visit our Get Involved page or contact us to learn about upcoming sessions, age groups, and how to register your child.',
+	),
+);
+$create_for_cause_parents_faq_slugs_allowed = array( 'expect', 'materials', 'safety', 'program' );
+$create_for_cause_parents_faq_items_raw      = bdc_get_acf_repeater( 'create_for_cause_parents_faq_items', $create_for_cause_parents_faq_items_defaults, $create_for_cause_page_id );
+$create_for_cause_parents_faq_items          = array();
+
+foreach ( $create_for_cause_parents_faq_items_raw as $index => $row ) {
+	$default = $create_for_cause_parents_faq_items_defaults[ $index ] ?? array(
+		'panel_slug' => 'expect',
+		'tab_label'  => '',
+		'panel_text' => '',
+	);
+
+	$tab_label  = isset( $row['tab_label'] ) ? trim( (string) $row['tab_label'] ) : '';
+	$panel_text = isset( $row['panel_text'] ) ? trim( (string) $row['panel_text'] ) : '';
+	$panel_slug = isset( $row['panel_slug'] ) ? sanitize_key( (string) $row['panel_slug'] ) : '';
+
+	if ( ! in_array( $panel_slug, $create_for_cause_parents_faq_slugs_allowed, true ) ) {
+		$panel_slug = (string) $default['panel_slug'];
+	}
+
+	$resolved = array(
+		'panel_slug' => $panel_slug,
+		'tab_label'  => '' !== $tab_label ? $tab_label : (string) $default['tab_label'],
+		'panel_text' => '' !== $panel_text ? $panel_text : (string) $default['panel_text'],
+	);
+
+	if ( '' === trim( $resolved['tab_label'] ) && '' === trim( $resolved['panel_text'] ) ) {
+		continue;
+	}
+
+	$create_for_cause_parents_faq_items[] = $resolved;
+}
+
+if ( empty( $create_for_cause_parents_faq_items ) ) {
+	$create_for_cause_parents_faq_items = $create_for_cause_parents_faq_items_defaults;
+}
+
+$create_for_cause_cta_aria_label = bdc_get_acf_text(
+	'create_for_cause_cta_aria_label',
+	'Join Create for a Cause',
+	$create_for_cause_page_id
+);
+$create_for_cause_cta_heart_url = bdc_get_acf_image_url(
+	'create_for_cause_cta_heart',
+	bdc_theme_asset_url( 'assets/images/adda1b2f-6762-4f43-a19f-91248315eaa2-removebg-preview.png' ),
+	$create_for_cause_page_id
+);
+$create_for_cause_cta_text = bdc_get_acf_text(
+	'create_for_cause_cta_text',
+	'Small acts of kindness can create big change.',
+	$create_for_cause_page_id
+);
+$create_for_cause_cta_plane_url = bdc_get_acf_image_url(
+	'create_for_cause_cta_plane',
+	bdc_theme_asset_url( 'assets/images/e1649e8e-1d0b-4c20-aba2-bfb8efc76209-removebg-preview.png' ),
+	$create_for_cause_page_id
+);
+$create_for_cause_cta_btn_text = bdc_get_acf_text(
+	'create_for_cause_cta_btn_text',
+	'Learn More About This Experience',
+	$create_for_cause_page_id
+);
+$create_for_cause_cta_btn_link = bdc_get_acf_link(
+	'create_for_cause_cta_btn_link',
+	array(
+		'title'  => 'Learn More About This Experience',
+		'url'    => bdc_page_url( 'get-involved.html' ),
+		'target' => '',
+	),
+	$create_for_cause_page_id
+);
 ?>
     <main id="main-content" class="create-for-cause-page">
       <section class="page-hero creative-makers-hero create-for-cause-hero" aria-labelledby="create-for-cause-title">
@@ -272,205 +451,33 @@ if ( empty( $create_for_cause_explore_activities ) ) {
         </div>
       </section>
 
-      <section class="creative-makers-info" aria-label="Skills, growth, and impact">
+      <section class="creative-makers-info" aria-label="<?php echo esc_attr( $create_for_cause_info_aria_label ); ?>">
         <div class="site-container">
-          <div class="creative-makers-info__grid">
-            <article class="creative-makers-info-card creative-makers-info-card--skills">
-              <h2 class="creative-makers-info-card__title">Skills Children Naturally Build</h2>
-              <ul class="creative-makers-info-card__list">
-                <li>
-                  <span class="creative-makers-info-card__check" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7" /></svg>
-                  </span>
-                  Empathy
-                </li>
-                <li>
-                  <span class="creative-makers-info-card__check" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7" /></svg>
-                  </span>
-                  Responsibility
-                </li>
-                <li>
-                  <span class="creative-makers-info-card__check" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7" /></svg>
-                  </span>
-                  Teamwork
-                </li>
-                <li>
-                  <span class="creative-makers-info-card__check" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7" /></svg>
-                  </span>
-                  Leadership
-                </li>
-                <li>
-                  <span class="creative-makers-info-card__check" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7" /></svg>
-                  </span>
-                  Communication
-                </li>
-              </ul>
-              <span class="creative-makers-info-card__deco-box creative-makers-info-card__deco-box--star" aria-hidden="true">
-                <img
-                  class="creative-makers-info-card__deco"
-                  src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/create-for-cause-deco-star.png' ); ?>"
-                  alt=""
-                  loading="lazy"
-                  decoding="async"
-                />
-              </span>
-            </article>
-
-            <article class="creative-makers-info-card creative-makers-info-card--grow">
-              <h2 class="creative-makers-info-card__title creative-makers-info-card__title--pink">
-                Children Grow Shape the Experience
-              </h2>
-              <p class="creative-makers-info-card__text">
-                Children choose causes, plan projects, and decide how they want to
-                help others.
-              </p>
-              <span class="creative-makers-info-card__deco-box creative-makers-info-card__deco-box--heart" aria-hidden="true">
-                <img
-                  class="creative-makers-info-card__deco"
-                  src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/create-for-cause-deco-heart.png' ); ?>"
-                  alt=""
-                  loading="lazy"
-                  decoding="async"
-                />
-              </span>
-            </article>
-
-            <article class="creative-makers-info-card creative-makers-info-card--impact">
-              <h2 class="creative-makers-info-card__title">Making an Impact</h2>
-              <p class="creative-makers-info-card__text">
-                Children learn that their actions&mdash;big or small&mdash;can bring
-                hope, support, and positive change to people and places in need.
-              </p>
-              <span class="creative-makers-info-card__deco-box creative-makers-info-card__deco-box--plant" aria-hidden="true">
-                <img
-                  class="creative-makers-info-card__deco"
-                  src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/create-for-cause-deco-plant.png' ); ?>"
-                  alt=""
-                  loading="lazy"
-                  decoding="async"
-                />
-              </span>
-            </article>
-          </div>
+          <?php require get_template_directory() . '/template-parts/create-for-cause-info-grid.php'; ?>
         </div>
       </section>
 
       <section
         class="creative-makers-parents"
-        id="create-for-cause-parents"
+        id="<?php echo esc_attr( $create_for_cause_parents_section_id ); ?>"
         aria-labelledby="create-for-cause-parents-title"
       >
         <div class="site-container">
           <h2 class="creative-makers-parents__title" id="create-for-cause-parents-title">
-            What Parents Should Know
+            <?php echo esc_html( $create_for_cause_parents_title ); ?>
           </h2>
 
-          <div class="creative-makers-parents__accordion">
-            <input
-              class="creative-makers-faq__input"
-              type="radio"
-              name="create-for-cause-faq"
-              id="create-for-cause-faq-expect"
-              checked
-            />
-            <input
-              class="creative-makers-faq__input"
-              type="radio"
-              name="create-for-cause-faq"
-              id="create-for-cause-faq-materials"
-            />
-            <input
-              class="creative-makers-faq__input"
-              type="radio"
-              name="create-for-cause-faq"
-              id="create-for-cause-faq-safety"
-            />
-            <input
-              class="creative-makers-faq__input"
-              type="radio"
-              name="create-for-cause-faq"
-              id="create-for-cause-faq-program"
-            />
-
-            <div class="creative-makers-parents__tablist" role="tablist" aria-label="Parent information topics">
-              <label class="creative-makers-faq__tab" for="create-for-cause-faq-expect" role="tab">
-                What to Expect
-              </label>
-              <label class="creative-makers-faq__tab" for="create-for-cause-faq-materials" role="tab">
-                Materials
-              </label>
-              <label class="creative-makers-faq__tab" for="create-for-cause-faq-safety" role="tab">
-                Safety &amp; Supervision
-              </label>
-              <label class="creative-makers-faq__tab" for="create-for-cause-faq-program" role="tab">
-                Program Details &amp; Registration
-              </label>
-            </div>
-
-            <div class="creative-makers-parents__panels">
-              <article
-                class="creative-makers-faq__panel creative-makers-faq__panel--expect"
-                role="tabpanel"
-                aria-labelledby="create-for-cause-faq-expect"
-              >
-                <p>
-                  Sessions blend creative projects with a community purpose. Children
-                  work individually and in teams to plan, create, and share projects
-                  that support causes they care about.
-                </p>
-              </article>
-
-              <article
-                class="creative-makers-faq__panel creative-makers-faq__panel--materials"
-                role="tabpanel"
-                aria-labelledby="create-for-cause-faq-materials"
-              >
-                <p>
-                  We provide craft supplies, packaging materials, and display items
-                  for awareness projects. Children may also bring items to donate or
-                  upcycle. All materials are age-appropriate and safe to use.
-                </p>
-              </article>
-
-              <article
-                class="creative-makers-faq__panel creative-makers-faq__panel--safety"
-                role="tabpanel"
-                aria-labelledby="create-for-cause-faq-safety"
-              >
-                <p>
-                  All activities are age-appropriate with adult guidance. Scissors,
-                  glue, and tools are introduced with clear safety instructions.
-                  Small group sizes ensure every child gets attention and support.
-                </p>
-              </article>
-
-              <article
-                class="creative-makers-faq__panel creative-makers-faq__panel--program"
-                role="tabpanel"
-                aria-labelledby="create-for-cause-faq-program"
-              >
-                <p>
-                  Create for a Cause runs as part of Bright Dreamers experiences
-                  throughout the year. Visit our Get Involved page or contact us to
-                  learn about upcoming sessions, age groups, and how to register
-                  your child.
-                </p>
-              </article>
-            </div>
-          </div>
+          <?php require get_template_directory() . '/template-parts/create-for-cause-parents-faq.php'; ?>
         </div>
       </section>
 
-      <section class="creative-makers-cta" aria-label="Join Create for a Cause">
+      <section class="creative-makers-cta" aria-label="<?php echo esc_attr( $create_for_cause_cta_aria_label ); ?>">
         <div class="site-container creative-makers-cta__inner">
           <div class="creative-makers-cta__card">
+            <?php if ( '' !== trim( $create_for_cause_cta_heart_url ) ) : ?>
             <img
               class="creative-makers-cta__heart"
-              src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/adda1b2f-6762-4f43-a19f-91248315eaa2-removebg-preview.png' ); ?>"
+              src="<?php echo esc_url( $create_for_cause_cta_heart_url ); ?>"
               alt=""
               width="28"
               height="28"
@@ -478,12 +485,16 @@ if ( empty( $create_for_cause_explore_activities ) ) {
               decoding="async"
               aria-hidden="true"
             />
+            <?php endif; ?>
+            <?php if ( '' !== trim( $create_for_cause_cta_text ) ) : ?>
             <p class="creative-makers-cta__text">
-              Small acts of kindness can create big change.
+              <?php echo esc_html( $create_for_cause_cta_text ); ?>
             </p>
+            <?php endif; ?>
+            <?php if ( '' !== trim( $create_for_cause_cta_plane_url ) ) : ?>
             <img
               class="creative-makers-cta__plane"
-              src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/e1649e8e-1d0b-4c20-aba2-bfb8efc76209-removebg-preview.png' ); ?>"
+              src="<?php echo esc_url( $create_for_cause_cta_plane_url ); ?>"
               alt=""
               width="150"
               height="75"
@@ -491,8 +502,10 @@ if ( empty( $create_for_cause_explore_activities ) ) {
               decoding="async"
               aria-hidden="true"
             />
-            <a class="btn btn--solid btn--lg btn-hover creative-makers-cta__btn" href="<?php echo esc_url( bdc_page_url( 'get-involved.html' ) ); ?>">
-              Learn More About This Experience
+            <?php endif; ?>
+            <?php if ( ! empty( $create_for_cause_cta_btn_link['url'] ) && '' !== trim( $create_for_cause_cta_btn_text ) ) : ?>
+            <a class="btn btn--solid btn--lg btn-hover creative-makers-cta__btn" href="<?php echo esc_url( $create_for_cause_cta_btn_link['url'] ); ?>"<?php echo bdc_acf_link_target_attr( $create_for_cause_cta_btn_link ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
+              <?php echo esc_html( $create_for_cause_cta_btn_text ); ?>
               <svg
                 class="btn__icon"
                 viewBox="0 0 24 24"
@@ -508,6 +521,7 @@ if ( empty( $create_for_cause_explore_activities ) ) {
                 <path d="M5 12h14M13 6l6 6-6 6" />
               </svg>
             </a>
+            <?php endif; ?>
           </div>
         </div>
       </section>

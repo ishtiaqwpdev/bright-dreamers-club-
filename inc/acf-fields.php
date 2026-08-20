@@ -5370,3 +5370,994 @@ acf_add_local_field_group(
 		'active'                => true,
 	)
 );
+
+acf_add_local_field_group(
+	array(
+		'key'                   => 'group_create_for_cause_info',
+		'title'                 => 'Create for a Cause — Skills, Growth & Impact',
+		'fields'                => array(
+			array(
+				'key'   => 'field_create_for_cause_info_aria_label',
+				'label' => 'Section aria label',
+				'name'  => 'create_for_cause_info_aria_label',
+				'type'  => 'text',
+			),
+			array(
+				'key'   => 'field_create_for_cause_info_skills_title',
+				'label' => 'Skills card title',
+				'name'  => 'create_for_cause_info_skills_title',
+				'type'  => 'text',
+			),
+			array(
+				'key'          => 'field_create_for_cause_info_skills_items',
+				'label'        => 'Skills list items',
+				'name'         => 'create_for_cause_info_skills_items',
+				'type'         => 'repeater',
+				'layout'       => 'table',
+				'button_label' => 'Add skill',
+				'min'          => 0,
+				'max'          => 10,
+				'instructions' => 'Leave empty to keep all five default skills.',
+				'sub_fields'   => array(
+					array(
+						'key'   => 'field_create_for_cause_info_skills_item_text',
+						'label' => 'Skill',
+						'name'  => 'item_text',
+						'type'  => 'text',
+					),
+				),
+			),
+			array(
+				'key'           => 'field_create_for_cause_info_skills_deco',
+				'label'         => 'Skills card star decoration',
+				'name'          => 'create_for_cause_info_skills_deco',
+				'type'          => 'image',
+				'return_format' => 'array',
+				'preview_size'  => 'thumbnail',
+			),
+			array(
+				'key'   => 'field_create_for_cause_info_grow_title',
+				'label' => 'Growth card title',
+				'name'  => 'create_for_cause_info_grow_title',
+				'type'  => 'text',
+			),
+			array(
+				'key'   => 'field_create_for_cause_info_grow_text',
+				'label' => 'Growth card text',
+				'name'  => 'create_for_cause_info_grow_text',
+				'type'  => 'textarea',
+				'rows'  => 4,
+			),
+			array(
+				'key'           => 'field_create_for_cause_info_grow_deco',
+				'label'         => 'Growth card heart decoration',
+				'name'          => 'create_for_cause_info_grow_deco',
+				'type'          => 'image',
+				'return_format' => 'array',
+				'preview_size'  => 'thumbnail',
+			),
+			array(
+				'key'   => 'field_create_for_cause_info_impact_title',
+				'label' => 'Impact card title',
+				'name'  => 'create_for_cause_info_impact_title',
+				'type'  => 'text',
+			),
+			array(
+				'key'   => 'field_create_for_cause_info_impact_text',
+				'label' => 'Impact card text',
+				'name'  => 'create_for_cause_info_impact_text',
+				'type'  => 'textarea',
+				'rows'  => 4,
+			),
+			array(
+				'key'           => 'field_create_for_cause_info_impact_deco',
+				'label'         => 'Impact card plant decoration',
+				'name'          => 'create_for_cause_info_impact_deco',
+				'type'          => 'image',
+				'return_format' => 'array',
+				'preview_size'  => 'thumbnail',
+			),
+		),
+		'location'              => array(
+			array(
+				array(
+					'param'    => 'page_template',
+					'operator' => '==',
+					'value'    => 'page-create-for-cause.php',
+				),
+			),
+		),
+		'menu_order'            => 2,
+		'position'              => 'normal',
+		'style'                 => 'default',
+		'label_placement'       => 'top',
+		'instruction_placement' => 'label',
+		'active'                => true,
+	)
+);
+
+acf_add_local_field_group(
+	array(
+		'key'                   => 'group_create_for_cause_parents',
+		'title'                 => 'Create for a Cause — What Parents Should Know',
+		'fields'                => array(
+			array(
+				'key'          => 'field_create_for_cause_parents_section_id',
+				'label'        => 'Section anchor ID',
+				'name'         => 'create_for_cause_parents_section_id',
+				'type'         => 'text',
+				'instructions' => 'Used for in-page links (e.g. hero button). Default: create-for-cause-parents',
+			),
+			array(
+				'key'   => 'field_create_for_cause_parents_title',
+				'label' => 'Section title',
+				'name'  => 'create_for_cause_parents_title',
+				'type'  => 'text',
+			),
+			array(
+				'key'   => 'field_create_for_cause_parents_tablist_aria_label',
+				'label' => 'Tab list aria label',
+				'name'  => 'create_for_cause_parents_tablist_aria_label',
+				'type'  => 'text',
+			),
+			array(
+				'key'          => 'field_create_for_cause_parents_faq_items',
+				'label'        => 'FAQ tabs',
+				'name'         => 'create_for_cause_parents_faq_items',
+				'type'         => 'repeater',
+				'layout'       => 'block',
+				'button_label' => 'Add tab',
+				'min'          => 0,
+				'max'          => 6,
+				'instructions' => 'Leave empty to keep all four default FAQ tabs. Panel slug controls accordion styling — keep slugs as expect, materials, safety, or program.',
+				'sub_fields'   => array(
+					array(
+						'key'           => 'field_create_for_cause_parents_faq_panel_slug',
+						'label'         => 'Panel slug',
+						'name'          => 'panel_slug',
+						'type'          => 'select',
+						'choices'       => array(
+							'expect'    => 'What to Expect',
+							'materials' => 'Materials',
+							'safety'    => 'Safety & Supervision',
+							'program'   => 'Program Details',
+						),
+						'default_value' => 'expect',
+						'return_format' => 'value',
+					),
+					array(
+						'key'   => 'field_create_for_cause_parents_faq_tab_label',
+						'label' => 'Tab label',
+						'name'  => 'tab_label',
+						'type'  => 'text',
+					),
+					array(
+						'key'   => 'field_create_for_cause_parents_faq_panel_text',
+						'label' => 'Panel text',
+						'name'  => 'panel_text',
+						'type'  => 'textarea',
+						'rows'  => 4,
+					),
+				),
+			),
+		),
+		'location'              => array(
+			array(
+				array(
+					'param'    => 'page_template',
+					'operator' => '==',
+					'value'    => 'page-create-for-cause.php',
+				),
+			),
+		),
+		'menu_order'            => 3,
+		'position'              => 'normal',
+		'style'                 => 'default',
+		'label_placement'       => 'top',
+		'instruction_placement' => 'label',
+		'active'                => true,
+	)
+);
+
+acf_add_local_field_group(
+	array(
+		'key'                   => 'group_create_for_cause_cta',
+		'title'                 => 'Create for a Cause — Join CTA',
+		'fields'                => array(
+			array(
+				'key'   => 'field_create_for_cause_cta_aria_label',
+				'label' => 'Section aria label',
+				'name'  => 'create_for_cause_cta_aria_label',
+				'type'  => 'text',
+			),
+			array(
+				'key'           => 'field_create_for_cause_cta_heart',
+				'label'         => 'Heart decoration',
+				'name'          => 'create_for_cause_cta_heart',
+				'type'          => 'image',
+				'return_format' => 'array',
+				'preview_size'  => 'thumbnail',
+			),
+			array(
+				'key'   => 'field_create_for_cause_cta_text',
+				'label' => 'CTA text',
+				'name'  => 'create_for_cause_cta_text',
+				'type'  => 'textarea',
+				'rows'  => 3,
+			),
+			array(
+				'key'           => 'field_create_for_cause_cta_plane',
+				'label'         => 'Plane decoration',
+				'name'          => 'create_for_cause_cta_plane',
+				'type'          => 'image',
+				'return_format' => 'array',
+				'preview_size'  => 'thumbnail',
+			),
+			array(
+				'key'   => 'field_create_for_cause_cta_btn_text',
+				'label' => 'Button text',
+				'name'  => 'create_for_cause_cta_btn_text',
+				'type'  => 'text',
+			),
+			array(
+				'key'           => 'field_create_for_cause_cta_btn_link',
+				'label'         => 'Button link',
+				'name'          => 'create_for_cause_cta_btn_link',
+				'type'          => 'link',
+				'return_format' => 'array',
+			),
+		),
+		'location'              => array(
+			array(
+				array(
+					'param'    => 'page_template',
+					'operator' => '==',
+					'value'    => 'page-create-for-cause.php',
+				),
+			),
+		),
+		'menu_order'            => 4,
+		'position'              => 'normal',
+		'style'                 => 'default',
+		'label_placement'       => 'top',
+		'instruction_placement' => 'label',
+		'active'                => true,
+	)
+);
+
+acf_add_local_field_group(
+	array(
+		'key'                   => 'group_for_parents_hero',
+		'title'                 => 'For Parents — Hero / Banner',
+		'fields'                => array(
+			array(
+				'key'   => 'field_for_parents_hero_aria_label',
+				'label' => 'Section aria label',
+				'name'  => 'for_parents_hero_aria_label',
+				'type'  => 'text',
+			),
+			array(
+				'key'   => 'field_for_parents_hero_title_line_1',
+				'label' => 'Heading line 1 (pink, with heart SVG)',
+				'name'  => 'for_parents_hero_title_line_1',
+				'type'  => 'text',
+			),
+			array(
+				'key'   => 'field_for_parents_hero_title_line_2',
+				'label' => 'Heading line 2 (navy)',
+				'name'  => 'for_parents_hero_title_line_2',
+				'type'  => 'text',
+			),
+			array(
+				'key'   => 'field_for_parents_hero_subhead_intro',
+				'label' => 'Subhead intro',
+				'name'  => 'for_parents_hero_subhead_intro',
+				'type'  => 'text',
+			),
+			array(
+				'key'   => 'field_for_parents_hero_subhead_accent_pink',
+				'label' => 'Subhead accent (pink)',
+				'name'  => 'for_parents_hero_subhead_accent_pink',
+				'type'  => 'text',
+			),
+			array(
+				'key'   => 'field_for_parents_hero_subhead_accent_green',
+				'label' => 'Subhead accent (green)',
+				'name'  => 'for_parents_hero_subhead_accent_green',
+				'type'  => 'text',
+			),
+			array(
+				'key'   => 'field_for_parents_hero_text_intro',
+				'label' => 'Body intro',
+				'name'  => 'for_parents_hero_text_intro',
+				'type'  => 'textarea',
+				'rows'  => 3,
+			),
+			array(
+				'key'   => 'field_for_parents_hero_text_accent_cyan',
+				'label' => 'Body accent (cyan)',
+				'name'  => 'for_parents_hero_text_accent_cyan',
+				'type'  => 'text',
+			),
+			array(
+				'key'   => 'field_for_parents_hero_primary_btn_text',
+				'label' => 'Primary button text',
+				'name'  => 'for_parents_hero_primary_btn_text',
+				'type'  => 'text',
+			),
+			array(
+				'key'           => 'field_for_parents_hero_primary_btn_link',
+				'label'         => 'Primary button link',
+				'name'          => 'for_parents_hero_primary_btn_link',
+				'type'          => 'link',
+				'return_format' => 'array',
+			),
+			array(
+				'key'   => 'field_for_parents_hero_secondary_btn_text',
+				'label' => 'Secondary button text',
+				'name'  => 'for_parents_hero_secondary_btn_text',
+				'type'  => 'text',
+			),
+			array(
+				'key'           => 'field_for_parents_hero_secondary_btn_link',
+				'label'         => 'Secondary button link',
+				'name'          => 'for_parents_hero_secondary_btn_link',
+				'type'          => 'link',
+				'return_format' => 'array',
+			),
+			array(
+				'key'           => 'field_for_parents_hero_banner',
+				'label'         => 'Banner image',
+				'name'          => 'for_parents_hero_banner',
+				'type'          => 'image',
+				'return_format' => 'array',
+				'preview_size'  => 'medium',
+			),
+			array(
+				'key'   => 'field_for_parents_hero_banner_alt',
+				'label' => 'Banner alt text',
+				'name'  => 'for_parents_hero_banner_alt',
+				'type'  => 'text',
+			),
+		),
+		'location'              => array(
+			array(
+				array(
+					'param'    => 'page_template',
+					'operator' => '==',
+					'value'    => 'page-for-parents.php',
+				),
+			),
+		),
+		'menu_order'            => 0,
+		'position'              => 'normal',
+		'style'                 => 'default',
+		'label_placement'       => 'top',
+		'instruction_placement' => 'label',
+		'active'                => true,
+	)
+);
+
+acf_add_local_field_group(
+	array(
+		'key'                   => 'group_for_parents_expect',
+		'title'                 => 'For Parents — What Parents Can Expect',
+		'fields'                => array(
+			array(
+				'key'   => 'field_for_parents_expect_title',
+				'label' => 'Section title',
+				'name'  => 'for_parents_expect_title',
+				'type'  => 'text',
+			),
+			array(
+				'key'           => 'field_for_parents_expect_deco_left',
+				'label'         => 'Left decoration image',
+				'name'          => 'for_parents_expect_deco_left',
+				'type'          => 'image',
+				'return_format' => 'array',
+				'preview_size'  => 'thumbnail',
+			),
+			array(
+				'key'           => 'field_for_parents_expect_deco_right',
+				'label'         => 'Right decoration image',
+				'name'          => 'for_parents_expect_deco_right',
+				'type'          => 'image',
+				'return_format' => 'array',
+				'preview_size'  => 'thumbnail',
+			),
+			array(
+				'key'          => 'field_for_parents_expect_cards',
+				'label'        => 'Expect cards',
+				'name'         => 'for_parents_expect_cards',
+				'type'         => 'repeater',
+				'layout'       => 'block',
+				'button_label' => 'Add card',
+				'min'          => 0,
+				'max'          => 8,
+				'instructions' => 'Leave empty to keep all five default expect cards.',
+				'sub_fields'   => array(
+					array(
+						'key'           => 'field_for_parents_expect_card_icon',
+						'label'         => 'Icon',
+						'name'          => 'icon',
+						'type'          => 'image',
+						'return_format' => 'array',
+						'preview_size'  => 'thumbnail',
+					),
+					array(
+						'key'   => 'field_for_parents_expect_card_title',
+						'label' => 'Title',
+						'name'  => 'title',
+						'type'  => 'text',
+					),
+					array(
+						'key'   => 'field_for_parents_expect_card_text',
+						'label' => 'Text',
+						'name'  => 'text',
+						'type'  => 'textarea',
+						'rows'  => 3,
+					),
+				),
+			),
+		),
+		'location'              => array(
+			array(
+				array(
+					'param'    => 'page_template',
+					'operator' => '==',
+					'value'    => 'page-for-parents.php',
+				),
+			),
+		),
+		'menu_order'            => 1,
+		'position'              => 'normal',
+		'style'                 => 'default',
+		'label_placement'       => 'top',
+		'instruction_placement' => 'label',
+		'active'                => true,
+	)
+);
+
+acf_add_local_field_group(
+	array(
+		'key'                   => 'group_for_parents_fit',
+		'title'                 => 'For Parents — Is Bright Dreamers Right',
+		'fields'                => array(
+			array(
+				'key'   => 'field_for_parents_fit_aria_label',
+				'label' => 'Section aria label',
+				'name'  => 'for_parents_fit_aria_label',
+				'type'  => 'text',
+			),
+			array(
+				'key'   => 'field_for_parents_fit_pink_title',
+				'label' => 'Pink card title',
+				'name'  => 'for_parents_fit_pink_title',
+				'type'  => 'text',
+			),
+			array(
+				'key'   => 'field_for_parents_fit_pink_intro',
+				'label' => 'Pink card intro',
+				'name'  => 'for_parents_fit_pink_intro',
+				'type'  => 'text',
+			),
+			array(
+				'key'          => 'field_for_parents_fit_list_items',
+				'label'        => 'Pink card list items',
+				'name'         => 'for_parents_fit_list_items',
+				'type'         => 'repeater',
+				'layout'       => 'table',
+				'button_label' => 'Add item',
+				'min'          => 0,
+				'max'          => 12,
+				'instructions' => 'Leave empty to keep all six default checklist items. Check SVG markup is preserved in the template.',
+				'sub_fields'   => array(
+					array(
+						'key'   => 'field_for_parents_fit_list_item_text',
+						'label' => 'Item text',
+						'name'  => 'item_text',
+						'type'  => 'text',
+					),
+				),
+			),
+			array(
+				'key'           => 'field_for_parents_fit_jar',
+				'label'         => 'Lavender card jar image',
+				'name'          => 'for_parents_fit_jar',
+				'type'          => 'image',
+				'return_format' => 'array',
+				'preview_size'  => 'thumbnail',
+			),
+			array(
+				'key'   => 'field_for_parents_fit_quote_text',
+				'label' => 'Lavender card quote',
+				'name'  => 'for_parents_fit_quote_text',
+				'type'  => 'textarea',
+				'rows'  => 4,
+			),
+		),
+		'location'              => array(
+			array(
+				array(
+					'param'    => 'page_template',
+					'operator' => '==',
+					'value'    => 'page-for-parents.php',
+				),
+			),
+		),
+		'menu_order'            => 2,
+		'position'              => 'normal',
+		'style'                 => 'default',
+		'label_placement'       => 'top',
+		'instruction_placement' => 'label',
+		'active'                => true,
+	)
+);
+
+acf_add_local_field_group(
+	array(
+		'key'                   => 'group_for_parents_info',
+		'title'                 => 'For Parents — Experience Information',
+		'fields'                => array(
+			array(
+				'key'   => 'field_for_parents_info_experience_title_underline',
+				'label' => 'Experience card underlined title',
+				'name'  => 'for_parents_info_experience_title_underline',
+				'type'  => 'text',
+			),
+			array(
+				'key'   => 'field_for_parents_info_experience_title_suffix',
+				'label' => 'Experience card title suffix',
+				'name'  => 'for_parents_info_experience_title_suffix',
+				'type'  => 'text',
+			),
+			array(
+				'key'          => 'field_for_parents_info_features',
+				'label'        => 'Experience features',
+				'name'         => 'for_parents_info_features',
+				'type'         => 'repeater',
+				'layout'       => 'block',
+				'button_label' => 'Add feature',
+				'min'          => 0,
+				'max'          => 8,
+				'instructions' => 'Leave empty to keep all four default experience features.',
+				'sub_fields'   => array(
+					array(
+						'key'           => 'field_for_parents_info_feature_icon',
+						'label'         => 'Icon',
+						'name'          => 'icon',
+						'type'          => 'image',
+						'return_format' => 'array',
+						'preview_size'  => 'thumbnail',
+					),
+					array(
+						'key'   => 'field_for_parents_info_feature_title',
+						'label' => 'Title',
+						'name'  => 'title',
+						'type'  => 'text',
+					),
+					array(
+						'key'   => 'field_for_parents_info_feature_text',
+						'label' => 'Text',
+						'name'  => 'text',
+						'type'  => 'textarea',
+						'rows'  => 3,
+					),
+				),
+			),
+			array(
+				'key'   => 'field_for_parents_info_experience_footer_line_1',
+				'label' => 'Experience footer line 1',
+				'name'  => 'for_parents_info_experience_footer_line_1',
+				'type'  => 'text',
+			),
+			array(
+				'key'   => 'field_for_parents_info_experience_footer_line_2',
+				'label' => 'Experience footer line 2',
+				'name'  => 'for_parents_info_experience_footer_line_2',
+				'type'  => 'text',
+			),
+			array(
+				'key'           => 'field_for_parents_info_experience_heart',
+				'label'         => 'Experience card heart decoration',
+				'name'          => 'for_parents_info_experience_heart',
+				'type'          => 'image',
+				'return_format' => 'array',
+				'preview_size'  => 'thumbnail',
+			),
+			array(
+				'key'   => 'field_for_parents_info_start_title_prefix',
+				'label' => 'Get started title prefix',
+				'name'  => 'for_parents_info_start_title_prefix',
+				'type'  => 'text',
+			),
+			array(
+				'key'   => 'field_for_parents_info_start_title_underline',
+				'label' => 'Get started underlined word',
+				'name'  => 'for_parents_info_start_title_underline',
+				'type'  => 'text',
+			),
+			array(
+				'key'   => 'field_for_parents_info_start_title_suffix',
+				'label' => 'Get started title suffix',
+				'name'  => 'for_parents_info_start_title_suffix',
+				'type'  => 'text',
+			),
+			array(
+				'key'          => 'field_for_parents_info_steps',
+				'label'        => 'Get started steps',
+				'name'         => 'for_parents_info_steps',
+				'type'         => 'repeater',
+				'layout'       => 'block',
+				'button_label' => 'Add step',
+				'min'          => 0,
+				'max'          => 6,
+				'instructions' => 'Leave empty to keep all three default steps. Number slug controls step badge color — pink, purple, or green.',
+				'sub_fields'   => array(
+					array(
+						'key'           => 'field_for_parents_info_step_num_slug',
+						'label'         => 'Number color slug',
+						'name'          => 'num_slug',
+						'type'          => 'select',
+						'choices'       => array(
+							'pink'   => 'Pink',
+							'purple' => 'Purple',
+							'green'  => 'Green',
+						),
+						'default_value' => 'pink',
+						'return_format' => 'value',
+					),
+					array(
+						'key'   => 'field_for_parents_info_step_title',
+						'label' => 'Step title',
+						'name'  => 'title',
+						'type'  => 'text',
+					),
+					array(
+						'key'   => 'field_for_parents_info_step_text',
+						'label' => 'Step text',
+						'name'  => 'text',
+						'type'  => 'textarea',
+						'rows'  => 3,
+					),
+				),
+			),
+			array(
+				'key'           => 'field_for_parents_info_plane',
+				'label'         => 'Get started plane decoration',
+				'name'          => 'for_parents_info_plane',
+				'type'          => 'image',
+				'return_format' => 'array',
+				'preview_size'  => 'thumbnail',
+			),
+			array(
+				'key'   => 'field_for_parents_info_start_btn_text',
+				'label' => 'Get started button text',
+				'name'  => 'for_parents_info_start_btn_text',
+				'type'  => 'text',
+			),
+			array(
+				'key'           => 'field_for_parents_info_start_btn_link',
+				'label'         => 'Get started button link',
+				'name'          => 'for_parents_info_start_btn_link',
+				'type'          => 'link',
+				'return_format' => 'array',
+			),
+		),
+		'location'              => array(
+			array(
+				array(
+					'param'    => 'page_template',
+					'operator' => '==',
+					'value'    => 'page-for-parents.php',
+				),
+			),
+		),
+		'menu_order'            => 3,
+		'position'              => 'normal',
+		'style'                 => 'default',
+		'label_placement'       => 'top',
+		'instruction_placement' => 'label',
+		'active'                => true,
+	)
+);
+
+acf_add_local_field_group(
+	array(
+		'key'                   => 'group_for_parents_cta',
+		'title'                 => 'For Parents — Contact CTA',
+		'fields'                => array(
+			array(
+				'key'   => 'field_for_parents_cta_aria_label',
+				'label' => 'Section aria label',
+				'name'  => 'for_parents_cta_aria_label',
+				'type'  => 'text',
+			),
+			array(
+				'key'           => 'field_for_parents_cta_envelope',
+				'label'         => 'Envelope image',
+				'name'          => 'for_parents_cta_envelope',
+				'type'          => 'image',
+				'return_format' => 'array',
+				'preview_size'  => 'thumbnail',
+			),
+			array(
+				'key'   => 'field_for_parents_cta_title',
+				'label' => 'CTA title',
+				'name'  => 'for_parents_cta_title',
+				'type'  => 'text',
+			),
+			array(
+				'key'   => 'field_for_parents_cta_text',
+				'label' => 'CTA text',
+				'name'  => 'for_parents_cta_text',
+				'type'  => 'text',
+			),
+			array(
+				'key'   => 'field_for_parents_cta_btn_text',
+				'label' => 'Contact button text',
+				'name'  => 'for_parents_cta_btn_text',
+				'type'  => 'text',
+			),
+			array(
+				'key'           => 'field_for_parents_cta_btn_link',
+				'label'         => 'Contact button link',
+				'name'          => 'for_parents_cta_btn_link',
+				'type'          => 'link',
+				'return_format' => 'array',
+			),
+		),
+		'location'              => array(
+			array(
+				array(
+					'param'    => 'page_template',
+					'operator' => '==',
+					'value'    => 'page-for-parents.php',
+				),
+			),
+		),
+		'menu_order'            => 4,
+		'position'              => 'normal',
+		'style'                 => 'default',
+		'label_placement'       => 'top',
+		'instruction_placement' => 'label',
+		'active'                => true,
+	)
+);
+
+acf_add_local_field_group(
+	array(
+		'key'                   => 'group_privacy_policy_hero',
+		'title'                 => 'Privacy Policy — Hero / Banner',
+		'fields'                => array(
+			array(
+				'key'           => 'field_privacy_policy_hero_aria_label',
+				'label'         => 'Section aria label',
+				'name'          => 'privacy_policy_hero_aria_label',
+				'type'          => 'text',
+				'default_value' => 'Privacy Policy',
+			),
+			array(
+				'key'           => 'field_privacy_policy_hero_title',
+				'label'         => 'Page title',
+				'name'          => 'privacy_policy_hero_title',
+				'type'          => 'text',
+				'default_value' => 'Privacy Policy',
+			),
+			array(
+				'key'           => 'field_privacy_policy_hero_heart',
+				'label'         => 'Heart icon',
+				'name'          => 'privacy_policy_hero_heart',
+				'type'          => 'image',
+				'return_format' => 'array',
+				'preview_size'  => 'thumbnail',
+				'library'       => 'all',
+				'instructions'  => 'Leave empty to keep the default heart icon.',
+			),
+			array(
+				'key'           => 'field_privacy_policy_hero_text',
+				'label'         => 'Intro paragraph',
+				'name'          => 'privacy_policy_hero_text',
+				'type'          => 'textarea',
+				'rows'          => 3,
+				'new_lines'     => '',
+				'default_value' => 'At Bright Dreamers Club, we respect your privacy and are committed to protecting the personal information of children, families, volunteers, and supporters.',
+			),
+			array(
+				'key'           => 'field_privacy_policy_hero_text_second',
+				'label'         => 'Second intro paragraph',
+				'name'          => 'privacy_policy_hero_text_second',
+				'type'          => 'textarea',
+				'rows'          => 2,
+				'new_lines'     => '',
+				'default_value' => 'This Privacy Policy explains what information we collect, how we use it, and the choices you have.',
+			),
+			array(
+				'key'           => 'field_privacy_policy_hero_banner',
+				'label'         => 'Banner image',
+				'name'          => 'privacy_policy_hero_banner',
+				'type'          => 'image',
+				'return_format' => 'array',
+				'preview_size'  => 'medium',
+				'library'       => 'all',
+				'instructions'  => 'Leave empty to keep the current hero banner photo.',
+			),
+			array(
+				'key'           => 'field_privacy_policy_hero_banner_alt',
+				'label'         => 'Banner alt text',
+				'name'          => 'privacy_policy_hero_banner_alt',
+				'type'          => 'text',
+				'default_value' => 'A young girl smiling while holding a shield with a lock icon',
+			),
+		),
+		'location'              => array(
+			array(
+				array(
+					'param'    => 'page_template',
+					'operator' => '==',
+					'value'    => 'page-privacy-policy.php',
+				),
+			),
+		),
+		'menu_order'            => 0,
+		'position'              => 'normal',
+		'style'                 => 'default',
+		'label_placement'       => 'top',
+		'instruction_placement' => 'label',
+		'active'                => true,
+	)
+);
+
+acf_add_local_field_group(
+	array(
+		'key'                   => 'group_privacy_policy_main',
+		'title'                 => 'Privacy Policy — Main Content',
+		'fields'                => array(
+			array(
+				'key'           => 'field_privacy_policy_main_aria_label',
+				'label'         => 'Main section aria label',
+				'name'          => 'privacy_policy_main_aria_label',
+				'type'          => 'text',
+				'default_value' => 'Privacy policy content',
+			),
+			array(
+				'key'           => 'field_privacy_policy_sidebar_title',
+				'label'         => 'Sidebar heading',
+				'name'          => 'privacy_policy_sidebar_title',
+				'type'          => 'text',
+				'default_value' => 'On This Page',
+			),
+			array(
+				'key'           => 'field_privacy_policy_nav_aria_label',
+				'label'         => 'Navigation aria label',
+				'name'          => 'privacy_policy_nav_aria_label',
+				'type'          => 'text',
+				'default_value' => 'Privacy policy sections',
+			),
+			array(
+				'key'           => 'field_privacy_policy_sidebar_card_icon',
+				'label'         => 'Sidebar card icon',
+				'name'          => 'privacy_policy_sidebar_card_icon',
+				'type'          => 'image',
+				'return_format' => 'array',
+				'preview_size'  => 'thumbnail',
+				'library'       => 'all',
+				'instructions'  => 'Leave empty to keep the default sidebar illustration.',
+			),
+			array(
+				'key'           => 'field_privacy_policy_sidebar_card_text',
+				'label'         => 'Sidebar card text',
+				'name'          => 'privacy_policy_sidebar_card_text',
+				'type'          => 'textarea',
+				'rows'          => 3,
+				'new_lines'     => '',
+				'default_value' => 'We care deeply about protecting children\'s privacy, dignity, and trust.',
+			),
+			array(
+				'key'          => 'field_privacy_policy_nav_items',
+				'label'        => 'Sidebar navigation links',
+				'name'         => 'privacy_policy_nav_items',
+				'type'         => 'repeater',
+				'layout'       => 'block',
+				'button_label' => 'Add nav link',
+				'min'          => 0,
+				'max'          => 20,
+				'instructions' => 'Leave empty to keep all eleven default navigation links. Anchor ID must match the matching policy section below.',
+				'sub_fields'   => array(
+					array(
+						'key'         => 'field_privacy_policy_nav_item_anchor_id',
+						'label'       => 'Anchor ID',
+						'name'        => 'anchor_id',
+						'type'        => 'text',
+						'instructions' => 'Used for in-page links, e.g. privacy-commitment',
+					),
+					array(
+						'key'           => 'field_privacy_policy_nav_item_icon',
+						'label'         => 'Nav icon',
+						'name'          => 'icon',
+						'type'          => 'image',
+						'return_format' => 'array',
+						'preview_size'  => 'thumbnail',
+						'library'       => 'all',
+					),
+					array(
+						'key'   => 'field_privacy_policy_nav_item_label',
+						'label' => 'Link label',
+						'name'  => 'label',
+						'type'  => 'text',
+					),
+				),
+			),
+			array(
+				'key'          => 'field_privacy_policy_sections',
+				'label'        => 'Policy sections',
+				'name'         => 'privacy_policy_sections',
+				'type'         => 'repeater',
+				'layout'       => 'block',
+				'button_label' => 'Add section',
+				'min'          => 0,
+				'max'          => 20,
+				'instructions' => 'Leave empty to keep all eleven default policy sections. Section body accepts basic HTML (paragraphs, lists, links).',
+				'sub_fields'   => array(
+					array(
+						'key'          => 'field_privacy_policy_section_id',
+						'label'        => 'Section anchor ID',
+						'name'         => 'section_id',
+						'type'         => 'text',
+						'instructions' => 'Must match the nav link anchor ID, e.g. privacy-commitment',
+					),
+					array(
+						'key'           => 'field_privacy_policy_section_icon',
+						'label'         => 'Section icon',
+						'name'          => 'icon',
+						'type'          => 'image',
+						'return_format' => 'array',
+						'preview_size'  => 'thumbnail',
+						'library'       => 'all',
+					),
+					array(
+						'key'           => 'field_privacy_policy_section_icon_blend',
+						'label'         => 'Blend icon with background',
+						'name'          => 'icon_blend',
+						'type'          => 'true_false',
+						'ui'            => 1,
+						'default_value' => 0,
+						'instructions'  => 'Enable for icons that should use the blend style (first section uses this by default).',
+					),
+					array(
+						'key'   => 'field_privacy_policy_section_title',
+						'label' => 'Section title',
+						'name'  => 'title',
+						'type'  => 'text',
+					),
+					array(
+						'key'          => 'field_privacy_policy_section_body',
+						'label'        => 'Section body',
+						'name'         => 'section_body',
+						'type'         => 'textarea',
+						'rows'         => 6,
+						'new_lines'    => '',
+						'instructions' => 'HTML allowed: paragraphs, lists, and links.',
+					),
+				),
+			),
+		),
+		'location'              => array(
+			array(
+				array(
+					'param'    => 'page_template',
+					'operator' => '==',
+					'value'    => 'page-privacy-policy.php',
+				),
+			),
+		),
+		'menu_order'            => 1,
+		'position'              => 'normal',
+		'style'                 => 'default',
+		'label_placement'       => 'top',
+		'instruction_placement' => 'label',
+		'active'                => true,
+	)
+);
+
+require_once __DIR__ . '/acf-global-fields.php';

@@ -8,6 +8,237 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
+
+$footer_logo_url = bdc_get_acf_option_image_url(
+	'global_footer_logo',
+	bdc_theme_asset_url( 'assets/images/bright-dreamers-logo-removebg-preview.png' )
+);
+$footer_logo_alt = bdc_get_acf_option_text(
+	'global_footer_logo_alt',
+	'Bright Dreamers — Dream, Create, Grow, Give'
+);
+$footer_mission_text = bdc_get_acf_option_text(
+	'global_footer_mission_text',
+	'Empowering children to dream, create, grow, learn, and give.'
+);
+$footer_social_links = bdc_get_acf_option_repeater( 'global_footer_social', bdc_get_default_social_links() );
+$footer_explore_heading = bdc_get_acf_option_text( 'global_footer_explore_heading', 'Explore' );
+$footer_explore_links   = bdc_get_acf_option_repeater(
+	'global_footer_explore_links',
+	array(
+		array(
+			'text' => 'Home',
+			'link' => array(
+				'title'  => 'Home',
+				'url'    => home_url( '/' ),
+				'target' => '',
+			),
+		),
+		array(
+			'text' => 'About Us',
+			'link' => array(
+				'title'  => 'About Us',
+				'url'    => home_url( '/about/' ),
+				'target' => '',
+			),
+		),
+		array(
+			'text' => 'Explore',
+			'link' => array(
+				'title'  => 'Explore',
+				'url'    => home_url( '/explore/' ),
+				'target' => '',
+			),
+		),
+		array(
+			'text' => 'For Parents',
+			'link' => array(
+				'title'  => 'For Parents',
+				'url'    => home_url( '/for-parents/' ),
+				'target' => '',
+			),
+		),
+		array(
+			'text' => 'Our Vision',
+			'link' => array(
+				'title'  => 'Our Vision',
+				'url'    => home_url( '/our-vision/' ),
+				'target' => '',
+			),
+		),
+		array(
+			'text' => 'Get Involved',
+			'link' => array(
+				'title'  => 'Get Involved',
+				'url'    => home_url( '/get-involved/' ),
+				'target' => '',
+			),
+		),
+		array(
+			'text' => 'Partners',
+			'link' => array(
+				'title'  => 'Partners',
+				'url'    => home_url( '/partners/' ),
+				'target' => '',
+			),
+		),
+		array(
+			'text' => 'Contact Us',
+			'link' => array(
+				'title'  => 'Contact Us',
+				'url'    => home_url( '/contact/' ),
+				'target' => '',
+			),
+		),
+	)
+);
+$footer_get_involved_heading = bdc_get_acf_option_text( 'global_footer_get_involved_heading', 'Get Involved' );
+$footer_get_involved_links   = bdc_get_acf_option_repeater(
+	'global_footer_get_involved_links',
+	array(
+		array(
+			'text' => 'Volunteer',
+			'link' => array(
+				'title'  => 'Volunteer',
+				'url'    => bdc_page_url( 'volunteer-application.html' ),
+				'target' => '',
+			),
+		),
+		array(
+			'text' => 'Partner With Us',
+			'link' => array(
+				'title'  => 'Partner With Us',
+				'url'    => bdc_page_url( 'partner-inquiry.html' ),
+				'target' => '',
+			),
+		),
+		array(
+			'text' => 'Donate',
+			'link' => array(
+				'title'  => 'Donate',
+				'url'    => home_url( '/donation-interest/' ),
+				'target' => '',
+			),
+		),
+		array(
+			'text' => 'Share Our Mission',
+			'link' => array(
+				'title'  => 'Share Our Mission',
+				'url'    => home_url( '/our-vision/' ),
+				'target' => '',
+			),
+		),
+	)
+);
+$footer_resources_heading = bdc_get_acf_option_text( 'global_footer_resources_heading', 'Resources' );
+$footer_resources_links   = bdc_get_acf_option_repeater(
+	'global_footer_resources_links',
+	array(
+		array(
+			'text' => 'FAQ',
+			'link' => array(
+				'title'  => 'FAQ',
+				'url'    => home_url( '/faq/' ),
+				'target' => '',
+			),
+		),
+		array(
+			'text' => 'Child Safety & Safeguarding',
+			'link' => array(
+				'title'  => 'Child Safety & Safeguarding',
+				'url'    => home_url( '/faq/' ),
+				'target' => '',
+			),
+		),
+		array(
+			'text' => 'Photo & Media Policy',
+			'link' => array(
+				'title'  => 'Photo & Media Policy',
+				'url'    => home_url( '/photo-media-policy/' ),
+				'target' => '',
+			),
+		),
+		array(
+			'text' => 'Photo & Media Consent Form',
+			'link' => array(
+				'title'  => 'Photo & Media Consent Form',
+				'url'    => bdc_page_url( 'photo-media-consent.html' ),
+				'target' => '',
+			),
+		),
+		array(
+			'text' => 'Financial Transparency',
+			'link' => array(
+				'title'  => 'Financial Transparency',
+				'url'    => home_url( '/financial-transparency/' ),
+				'target' => '',
+			),
+		),
+	)
+);
+$footer_art_url = bdc_get_acf_option_image_url(
+	'global_footer_art_image',
+	bdc_theme_asset_url( 'assets/images/a78c0669-c149-4611-891f-86ce471532b4-removebg-preview.png' )
+);
+$footer_art_alt = bdc_get_acf_option_text(
+	'global_footer_art_alt',
+	'Bright Dreamers children gathered around a heart'
+);
+$footer_newsletter_heading_link = bdc_get_acf_option_link(
+	'global_footer_newsletter_heading_link',
+	array(
+		'title'  => 'Stay Connected',
+		'url'    => home_url( '/newsletter-signup/' ),
+		'target' => '',
+	)
+);
+$footer_newsletter_text = bdc_get_acf_option_text(
+	'global_footer_newsletter_text',
+	'Subscribe for updates, inspiring stories, new experiences, and ways to make a difference.'
+);
+$footer_newsletter_placeholder = bdc_get_acf_option_text( 'global_footer_newsletter_placeholder', 'Your email' );
+$footer_newsletter_button_text = bdc_get_acf_option_text( 'global_footer_newsletter_button_text', 'Subscribe' );
+$footer_newsletter_form_action = bdc_get_acf_option_text(
+	'global_footer_newsletter_form_action',
+	home_url( '/newsletter-signup/' )
+);
+$footer_plant_url = bdc_get_acf_option_image_url(
+	'global_footer_plant_deco_image',
+	bdc_theme_asset_url( 'assets/images/footer-plant-deco.png' )
+);
+$footer_copyright_prefix = bdc_get_acf_option_text(
+	'global_footer_copyright_prefix',
+	'Bright Dreamers. All rights reserved.'
+);
+$footer_legal_links = bdc_get_acf_option_repeater(
+	'global_footer_legal_links',
+	array(
+		array(
+			'text' => 'Privacy Policy',
+			'link' => array(
+				'title'  => 'Privacy Policy',
+				'url'    => home_url( '/privacy-policy/' ),
+				'target' => '',
+			),
+		),
+		array(
+			'text' => 'Terms of Use',
+			'link' => array(
+				'title'  => 'Terms of Use',
+				'url'    => home_url( '/terms/' ),
+				'target' => '',
+			),
+		),
+		array(
+			'text' => 'Accessibility',
+			'link' => array(
+				'title'  => 'Accessibility',
+				'url'    => home_url( '/accessibility/' ),
+				'target' => '',
+			),
+		),
+	)
+);
 ?>
 <!-- Shared site footer -->
 <footer class="site-footer">
@@ -18,8 +249,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 			<div class="site-footer__col site-footer__col--brand">
 				<a class="site-footer__logo" href="<?php echo esc_url( home_url( '/' ) ); ?>" aria-label="Bright Dreamers Club home">
 					<img
-						src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/bright-dreamers-logo-removebg-preview.png' ); ?>"
-						alt="Bright Dreamers — Dream, Create, Grow, Give"
+						src="<?php echo esc_url( $footer_logo_url ); ?>"
+						alt="<?php echo esc_attr( $footer_logo_alt ); ?>"
 						width="240"
 						height="72"
 						loading="lazy"
@@ -28,102 +259,93 @@ if ( ! defined( 'ABSPATH' ) ) {
 				</a>
 
 				<p class="site-footer__mission">
-					Empowering children to dream, create, grow, learn, and give.
+					<?php echo esc_html( $footer_mission_text ); ?>
 				</p>
 
 				<ul class="site-footer__social" aria-label="Social media">
-					<li>
-						<a
-							class="social-icon"
-							href="https://www.facebook.com/"
-							target="_blank"
-							rel="noopener noreferrer"
-							aria-label="Facebook"
-						>
-							<svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true">
-								<path
-									d="M14 13.5h2.5l1-4H14v-2c0-1.03 0-2 2-2h1.5V2.14C17.17 2.09 15.79 2 14.61 2 11.91 2 10 3.66 10 6.7V9.5H7v4h3V22h4v-8.5z"
-								/>
-							</svg>
-						</a>
-					</li>
-					<li>
-						<a
-							class="social-icon"
-							href="https://www.instagram.com/"
-							target="_blank"
-							rel="noopener noreferrer"
-							aria-label="Instagram"
-						>
-							<svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true">
-								<path
-									d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm5 3.5A4.5 4.5 0 1 1 7.5 12 4.5 4.5 0 0 1 12 7.5zm0 2A2.5 2.5 0 1 0 14.5 12 2.5 2.5 0 0 0 12 9.5zM17.5 6a1 1 0 1 1-1 1 1 1 0 0 1 1-1z"
-								/>
-							</svg>
-						</a>
-					</li>
-					<li>
-						<a
-							class="social-icon"
-							href="https://www.pinterest.com/"
-							target="_blank"
-							rel="noopener noreferrer"
-							aria-label="Pinterest"
-						>
-							<svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true">
-								<path
-									d="M12 2C6.48 2 2 6.48 2 12c0 4.17 2.55 7.74 6.17 9.23-.08-.7-.16-1.78.03-2.55.18-.72 1.14-4.84 1.14-4.84s-.29-.58-.29-1.44c0-1.35.78-2.35 1.76-2.35.83 0 1.23.62 1.23 1.37 0 .83-.53 2.08-.8 3.23-.23.97.48 1.76 1.43 1.76 1.72 0 2.88-2.21 2.88-4.83 0-2-1.35-3.49-3.81-3.49-2.77 0-4.5 2.05-4.5 4.34 0 .79.23 1.35.6 1.78.07.08.08.15.06.23l-.22.9c-.04.14-.12.17-.27.1-1-.47-1.47-1.72-1.47-3.12 0-2.32 1.96-5.1 5.86-5.1 3.13 0 5.2 2.26 5.2 4.69 0 3.21-1.79 5.61-4.43 5.61-.89 0-1.72-.48-2-.99l-.55 2.08c-.2.76-.59 1.71-.88 2.29A10 10 0 0 0 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2z"
-								/>
-							</svg>
-						</a>
-					</li>
-					<li>
-						<a
-							class="social-icon"
-							href="https://www.youtube.com/"
-							target="_blank"
-							rel="noopener noreferrer"
-							aria-label="YouTube"
-						>
-							<svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true">
-								<path
-									d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31.5 31.5 0 0 0 0 12a31.5 31.5 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31.5 31.5 0 0 0 24 12a31.5 31.5 0 0 0-.5-5.8zM9.75 15.5v-7l6.5 3.5-6.5 3.5z"
-								/>
-							</svg>
-						</a>
-					</li>
+					<?php foreach ( $footer_social_links as $social ) : ?>
+						<?php
+						$social_slug = isset( $social['slug'] ) ? (string) $social['slug'] : '';
+						$social_url  = ! empty( $social['url'] ) ? (string) $social['url'] : '';
+
+						if ( '' === $social_slug || '' === $social_url ) {
+							continue;
+						}
+						?>
+						<li>
+							<a
+								class="social-icon"
+								href="<?php echo esc_url( $social_url ); ?>"
+								target="_blank"
+								rel="noopener noreferrer"
+								aria-label="<?php echo esc_attr( bdc_get_social_aria_label( $social_slug ) ); ?>"
+							>
+								<?php bdc_render_social_icon_svg( $social_slug ); ?>
+							</a>
+						</li>
+					<?php endforeach; ?>
 				</ul>
 			</div>
 
 			<div class="site-footer__col">
-				<h2 class="site-footer__heading">Explore</h2>
+				<h2 class="site-footer__heading"><?php echo esc_html( $footer_explore_heading ); ?></h2>
 				<ul class="site-footer__links">
-					<li><a class="site-footer__link" href="<?php echo esc_url( home_url( '/' ) ); ?>">Home</a></li>
-					<li><a class="site-footer__link" href="<?php echo esc_url( home_url( '/about/' ) ); ?>">About Us</a></li>
-					<li><a class="site-footer__link" href="<?php echo esc_url( home_url( '/explore/' ) ); ?>">Explore</a></li>
-					<li><a class="site-footer__link" href="<?php echo esc_url( home_url( '/for-parents/' ) ); ?>">For Parents</a></li>
-					<li><a class="site-footer__link" href="<?php echo esc_url( home_url( '/our-vision/' ) ); ?>">Our Vision</a></li>
-					<li><a class="site-footer__link" href="<?php echo esc_url( home_url( '/get-involved/' ) ); ?>">Get Involved</a></li>
-					<li><a class="site-footer__link" href="<?php echo esc_url( home_url( '/partners/' ) ); ?>">Partners</a></li>
-					<li><a class="site-footer__link" href="<?php echo esc_url( home_url( '/contact/' ) ); ?>">Contact Us</a></li>
+					<?php foreach ( $footer_explore_links as $row ) : ?>
+						<?php
+						$link = bdc_resolve_acf_link_value(
+							$row['link'] ?? null,
+							array(
+								'title'  => '',
+								'url'    => '#',
+								'target' => '',
+							)
+						);
+
+						if ( ! empty( $row['text'] ) && is_string( $row['text'] ) ) {
+							$link['title'] = $row['text'];
+						}
+
+						if ( '' === trim( $link['title'] ) || '' === trim( $link['url'] ) ) {
+							continue;
+						}
+						?>
+						<li><a class="site-footer__link" href="<?php echo esc_url( $link['url'] ); ?>"<?php echo bdc_acf_link_target_attr( $link ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>><?php echo esc_html( $link['title'] ); ?></a></li>
+					<?php endforeach; ?>
 				</ul>
 			</div>
 
 			<div class="site-footer__col">
-				<h2 class="site-footer__heading">Get Involved</h2>
+				<h2 class="site-footer__heading"><?php echo esc_html( $footer_get_involved_heading ); ?></h2>
 				<ul class="site-footer__links">
-					<li><a class="site-footer__link" href="<?php echo esc_url( bdc_page_url( 'volunteer-application.html' ) ); ?>">Volunteer</a></li>
-					<li><a class="site-footer__link" href="<?php echo esc_url( bdc_page_url( 'partner-inquiry.html' ) ); ?>">Partner With Us</a></li>
-					<li><a class="site-footer__link" href="<?php echo esc_url( home_url( '/donation-interest/' ) ); ?>">Donate</a></li>
-					<li><a class="site-footer__link" href="<?php echo esc_url( home_url( '/our-vision/' ) ); ?>">Share Our Mission</a></li>
+					<?php foreach ( $footer_get_involved_links as $row ) : ?>
+						<?php
+						$link = bdc_resolve_acf_link_value(
+							$row['link'] ?? null,
+							array(
+								'title'  => '',
+								'url'    => '#',
+								'target' => '',
+							)
+						);
+
+						if ( ! empty( $row['text'] ) && is_string( $row['text'] ) ) {
+							$link['title'] = $row['text'];
+						}
+
+						if ( '' === trim( $link['title'] ) || '' === trim( $link['url'] ) ) {
+							continue;
+						}
+						?>
+						<li><a class="site-footer__link" href="<?php echo esc_url( $link['url'] ); ?>"<?php echo bdc_acf_link_target_attr( $link ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>><?php echo esc_html( $link['title'] ); ?></a></li>
+					<?php endforeach; ?>
 				</ul>
 			</div>
 
 			<div class="site-footer__col site-footer__col--art">
 				<img
 					class="site-footer__art"
-					src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/a78c0669-c149-4611-891f-86ce471532b4-removebg-preview.png' ); ?>"
-					alt="Bright Dreamers children gathered around a heart"
+					src="<?php echo esc_url( $footer_art_url ); ?>"
+					alt="<?php echo esc_attr( $footer_art_alt ); ?>"
 					width="250"
 					height="250"
 					loading="lazy"
@@ -132,29 +354,44 @@ if ( ! defined( 'ABSPATH' ) ) {
 			</div>
 
 			<div class="site-footer__col">
-				<h2 class="site-footer__heading">Resources</h2>
+				<h2 class="site-footer__heading"><?php echo esc_html( $footer_resources_heading ); ?></h2>
 				<ul class="site-footer__links">
-					<li><a class="site-footer__link" href="<?php echo esc_url( home_url( '/faq/' ) ); ?>">FAQ</a></li>
-					<li><a class="site-footer__link" href="<?php echo esc_url( home_url( '/faq/' ) ); ?>">Child Safety &amp; Safeguarding</a></li>
-					<li><a class="site-footer__link" href="<?php echo esc_url( home_url( '/photo-media-policy/' ) ); ?>">Photo &amp; Media Policy</a></li>
-					<li><a class="site-footer__link" href="<?php echo esc_url( bdc_page_url( 'photo-media-consent.html' ) ); ?>">Photo &amp; Media Consent Form</a></li>
-					<li><a class="site-footer__link" href="<?php echo esc_url( home_url( '/financial-transparency/' ) ); ?>">Financial Transparency</a></li>
+					<?php foreach ( $footer_resources_links as $row ) : ?>
+						<?php
+						$link = bdc_resolve_acf_link_value(
+							$row['link'] ?? null,
+							array(
+								'title'  => '',
+								'url'    => '#',
+								'target' => '',
+							)
+						);
+
+						if ( ! empty( $row['text'] ) && is_string( $row['text'] ) ) {
+							$link['title'] = $row['text'];
+						}
+
+						if ( '' === trim( $link['title'] ) || '' === trim( $link['url'] ) ) {
+							continue;
+						}
+						?>
+						<li><a class="site-footer__link" href="<?php echo esc_url( $link['url'] ); ?>"<?php echo bdc_acf_link_target_attr( $link ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>><?php echo esc_html( $link['title'] ); ?></a></li>
+					<?php endforeach; ?>
 				</ul>
 			</div>
 
 			<div class="site-footer__col site-footer__col--newsletter">
 				<div class="site-footer__newsletter-layout">
 					<div class="site-footer__newsletter-content">
-						<a class="site-footer__heading-link" href="<?php echo esc_url( home_url( '/newsletter-signup/' ) ); ?>">
-							<h2 class="site-footer__heading site-footer__heading--newsletter">Stay Connected</h2>
+						<a class="site-footer__heading-link" href="<?php echo esc_url( $footer_newsletter_heading_link['url'] ); ?>"<?php echo bdc_acf_link_target_attr( $footer_newsletter_heading_link ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
+							<h2 class="site-footer__heading site-footer__heading--newsletter"><?php echo esc_html( $footer_newsletter_heading_link['title'] ); ?></h2>
 						</a>
 
 						<p class="site-footer__newsletter-text">
-							Subscribe for updates, inspiring stories, new experiences, and ways to make a
-							difference.
+							<?php echo esc_html( $footer_newsletter_text ); ?>
 						</p>
 
-						<form class="footer-newsletter" action="<?php echo esc_url( home_url( '/newsletter-signup/' ) ); ?>" method="get">
+						<form class="footer-newsletter" action="<?php echo esc_url( $footer_newsletter_form_action ); ?>" method="get">
 							<div class="footer-newsletter__field">
 								<label class="visually-hidden" for="footer-newsletter-email">Your email</label>
 								<input
@@ -162,13 +399,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 									id="footer-newsletter-email"
 									name="email"
 									type="email"
-									placeholder="Your email"
+									placeholder="<?php echo esc_attr( $footer_newsletter_placeholder ); ?>"
 									autocomplete="email"
 									required
 								>
 							</div>
 							<button class="footer-newsletter__btn" type="submit">
-								Subscribe
+								<?php echo esc_html( $footer_newsletter_button_text ); ?>
 								<svg
 									class="footer-newsletter__heart"
 									viewBox="0 0 24 24"
@@ -191,7 +428,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 					<img
 						class="site-footer__plant"
-						src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/footer-plant-deco.png' ); ?>"
+						src="<?php echo esc_url( $footer_plant_url ); ?>"
 						alt=""
 						width="120"
 						height="160"
@@ -206,15 +443,41 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<div class="site-footer__legal">
 		<div class="site-container site-footer__legal-inner">
 			<p class="site-footer__copyright">
-				&copy; <?php echo esc_html( gmdate( 'Y' ) ); ?> Bright Dreamers. All rights reserved.
+				&copy; <?php echo esc_html( gmdate( 'Y' ) ); ?> <?php echo esc_html( $footer_copyright_prefix ); ?>
 			</p>
 			<span class="site-footer__legal-sep" aria-hidden="true">|</span>
 			<nav class="site-footer__legal-nav" aria-label="Legal">
-				<a class="site-footer__legal-link" href="<?php echo esc_url( home_url( '/privacy-policy/' ) ); ?>">Privacy Policy</a>
-				<span class="site-footer__legal-sep" aria-hidden="true">|</span>
-				<a class="site-footer__legal-link" href="<?php echo esc_url( home_url( '/terms/' ) ); ?>">Terms of Use</a>
-				<span class="site-footer__legal-sep" aria-hidden="true">|</span>
-				<a class="site-footer__legal-link" href="<?php echo esc_url( home_url( '/accessibility/' ) ); ?>">Accessibility</a>
+				<?php
+				$legal_index = 0;
+				foreach ( $footer_legal_links as $row ) :
+					$link = bdc_resolve_acf_link_value(
+						$row['link'] ?? null,
+						array(
+							'title'  => '',
+							'url'    => '#',
+							'target' => '',
+						)
+					);
+
+					if ( ! empty( $row['text'] ) && is_string( $row['text'] ) ) {
+						$link['title'] = $row['text'];
+					}
+
+					if ( '' === trim( $link['title'] ) || '' === trim( $link['url'] ) ) {
+						continue;
+					}
+
+					if ( $legal_index > 0 ) :
+						?>
+						<span class="site-footer__legal-sep" aria-hidden="true">|</span>
+						<?php
+					endif;
+					?>
+					<a class="site-footer__legal-link" href="<?php echo esc_url( $link['url'] ); ?>"<?php echo bdc_acf_link_target_attr( $link ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>><?php echo esc_html( $link['title'] ); ?></a>
+					<?php
+					++$legal_index;
+				endforeach;
+				?>
 			</nav>
 		</div>
 	</div>
