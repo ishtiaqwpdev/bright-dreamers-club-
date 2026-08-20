@@ -13,15 +13,8 @@ if ( ! function_exists( 'acf_add_options_sub_page' ) || ! function_exists( 'acf_
 	return;
 }
 
-acf_add_options_sub_page(
-	array(
-		'page_title'  => __( 'Site Header & Footer', 'bright-dreamers-club' ),
-		'menu_title'  => __( 'Site Header & Footer', 'bright-dreamers-club' ),
-		'menu_slug'   => 'bdc-site-globals',
-		'parent_slug' => 'bdc-theme-settings',
-		'capability'  => 'manage_options',
-	)
-);
+// Header & Footer editing now lives at Bright Dreamers → Header & Footer.
+// ACF option fields below still work as fallbacks if those settings were never saved.
 
 acf_add_local_field_group(
 	array(

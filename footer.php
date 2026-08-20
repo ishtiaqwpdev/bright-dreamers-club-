@@ -9,236 +9,27 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-$footer_logo_url = bdc_get_acf_option_image_url(
-	'global_footer_logo',
-	bdc_theme_asset_url( 'assets/images/bright-dreamers-logo-removebg-preview.png' )
-);
-$footer_logo_alt = bdc_get_acf_option_text(
-	'global_footer_logo_alt',
-	'Bright Dreamers — Dream, Create, Grow, Give'
-);
-$footer_mission_text = bdc_get_acf_option_text(
-	'global_footer_mission_text',
-	'Empowering children to dream, create, grow, learn, and give.'
-);
-$footer_social_links = bdc_get_acf_option_repeater( 'global_footer_social', bdc_get_default_social_links() );
-$footer_explore_heading = bdc_get_acf_option_text( 'global_footer_explore_heading', 'Explore' );
-$footer_explore_links   = bdc_get_acf_option_repeater(
-	'global_footer_explore_links',
-	array(
-		array(
-			'text' => 'Home',
-			'link' => array(
-				'title'  => 'Home',
-				'url'    => home_url( '/' ),
-				'target' => '',
-			),
-		),
-		array(
-			'text' => 'About Us',
-			'link' => array(
-				'title'  => 'About Us',
-				'url'    => home_url( '/about/' ),
-				'target' => '',
-			),
-		),
-		array(
-			'text' => 'Explore',
-			'link' => array(
-				'title'  => 'Explore',
-				'url'    => home_url( '/explore/' ),
-				'target' => '',
-			),
-		),
-		array(
-			'text' => 'For Parents',
-			'link' => array(
-				'title'  => 'For Parents',
-				'url'    => home_url( '/for-parents/' ),
-				'target' => '',
-			),
-		),
-		array(
-			'text' => 'Our Vision',
-			'link' => array(
-				'title'  => 'Our Vision',
-				'url'    => home_url( '/our-vision/' ),
-				'target' => '',
-			),
-		),
-		array(
-			'text' => 'Get Involved',
-			'link' => array(
-				'title'  => 'Get Involved',
-				'url'    => home_url( '/get-involved/' ),
-				'target' => '',
-			),
-		),
-		array(
-			'text' => 'Partners',
-			'link' => array(
-				'title'  => 'Partners',
-				'url'    => home_url( '/partners/' ),
-				'target' => '',
-			),
-		),
-		array(
-			'text' => 'Contact Us',
-			'link' => array(
-				'title'  => 'Contact Us',
-				'url'    => home_url( '/contact/' ),
-				'target' => '',
-			),
-		),
-	)
-);
-$footer_get_involved_heading = bdc_get_acf_option_text( 'global_footer_get_involved_heading', 'Get Involved' );
-$footer_get_involved_links   = bdc_get_acf_option_repeater(
-	'global_footer_get_involved_links',
-	array(
-		array(
-			'text' => 'Volunteer',
-			'link' => array(
-				'title'  => 'Volunteer',
-				'url'    => bdc_page_url( 'volunteer-application.html' ),
-				'target' => '',
-			),
-		),
-		array(
-			'text' => 'Partner With Us',
-			'link' => array(
-				'title'  => 'Partner With Us',
-				'url'    => bdc_page_url( 'partner-inquiry.html' ),
-				'target' => '',
-			),
-		),
-		array(
-			'text' => 'Donate',
-			'link' => array(
-				'title'  => 'Donate',
-				'url'    => home_url( '/donation-interest/' ),
-				'target' => '',
-			),
-		),
-		array(
-			'text' => 'Share Our Mission',
-			'link' => array(
-				'title'  => 'Share Our Mission',
-				'url'    => home_url( '/our-vision/' ),
-				'target' => '',
-			),
-		),
-	)
-);
-$footer_resources_heading = bdc_get_acf_option_text( 'global_footer_resources_heading', 'Resources' );
-$footer_resources_links   = bdc_get_acf_option_repeater(
-	'global_footer_resources_links',
-	array(
-		array(
-			'text' => 'FAQ',
-			'link' => array(
-				'title'  => 'FAQ',
-				'url'    => home_url( '/faq/' ),
-				'target' => '',
-			),
-		),
-		array(
-			'text' => 'Child Safety & Safeguarding',
-			'link' => array(
-				'title'  => 'Child Safety & Safeguarding',
-				'url'    => home_url( '/faq/' ),
-				'target' => '',
-			),
-		),
-		array(
-			'text' => 'Photo & Media Policy',
-			'link' => array(
-				'title'  => 'Photo & Media Policy',
-				'url'    => home_url( '/photo-media-policy/' ),
-				'target' => '',
-			),
-		),
-		array(
-			'text' => 'Photo & Media Consent Form',
-			'link' => array(
-				'title'  => 'Photo & Media Consent Form',
-				'url'    => bdc_page_url( 'photo-media-consent.html' ),
-				'target' => '',
-			),
-		),
-		array(
-			'text' => 'Financial Transparency',
-			'link' => array(
-				'title'  => 'Financial Transparency',
-				'url'    => home_url( '/financial-transparency/' ),
-				'target' => '',
-			),
-		),
-	)
-);
-$footer_art_url = bdc_get_acf_option_image_url(
-	'global_footer_art_image',
-	bdc_theme_asset_url( 'assets/images/a78c0669-c149-4611-891f-86ce471532b4-removebg-preview.png' )
-);
-$footer_art_alt = bdc_get_acf_option_text(
-	'global_footer_art_alt',
-	'Bright Dreamers children gathered around a heart'
-);
-$footer_newsletter_heading_link = bdc_get_acf_option_link(
-	'global_footer_newsletter_heading_link',
-	array(
-		'title'  => 'Stay Connected',
-		'url'    => home_url( '/newsletter-signup/' ),
-		'target' => '',
-	)
-);
-$footer_newsletter_text = bdc_get_acf_option_text(
-	'global_footer_newsletter_text',
-	'Subscribe for updates, inspiring stories, new experiences, and ways to make a difference.'
-);
-$footer_newsletter_placeholder = bdc_get_acf_option_text( 'global_footer_newsletter_placeholder', 'Your email' );
-$footer_newsletter_button_text = bdc_get_acf_option_text( 'global_footer_newsletter_button_text', 'Subscribe' );
-$footer_newsletter_form_action = bdc_get_acf_option_text(
-	'global_footer_newsletter_form_action',
-	home_url( '/newsletter-signup/' )
-);
-$footer_plant_url = bdc_get_acf_option_image_url(
-	'global_footer_plant_deco_image',
-	bdc_theme_asset_url( 'assets/images/footer-plant-deco.png' )
-);
-$footer_copyright_prefix = bdc_get_acf_option_text(
-	'global_footer_copyright_prefix',
-	'Bright Dreamers. All rights reserved.'
-);
-$footer_legal_links = bdc_get_acf_option_repeater(
-	'global_footer_legal_links',
-	array(
-		array(
-			'text' => 'Privacy Policy',
-			'link' => array(
-				'title'  => 'Privacy Policy',
-				'url'    => home_url( '/privacy-policy/' ),
-				'target' => '',
-			),
-		),
-		array(
-			'text' => 'Terms of Use',
-			'link' => array(
-				'title'  => 'Terms of Use',
-				'url'    => home_url( '/terms/' ),
-				'target' => '',
-			),
-		),
-		array(
-			'text' => 'Accessibility',
-			'link' => array(
-				'title'  => 'Accessibility',
-				'url'    => home_url( '/accessibility/' ),
-				'target' => '',
-			),
-		),
-	)
-);
+$footer                        = bdc_get_site_footer_context();
+$footer_logo_url               = $footer['logo_url'];
+$footer_logo_alt               = $footer['logo_alt'];
+$footer_mission_text           = $footer['mission_text'];
+$footer_social_links           = $footer['social_links'];
+$footer_explore_heading        = $footer['explore_heading'];
+$footer_explore_links          = $footer['explore_links'];
+$footer_get_involved_heading   = $footer['get_involved_heading'];
+$footer_get_involved_links     = $footer['get_involved_links'];
+$footer_resources_heading      = $footer['resources_heading'];
+$footer_resources_links        = $footer['resources_links'];
+$footer_art_url                = $footer['art_url'];
+$footer_art_alt                = $footer['art_alt'];
+$footer_newsletter_heading_link = $footer['newsletter_heading_link'];
+$footer_newsletter_text        = $footer['newsletter_text'];
+$footer_newsletter_placeholder = $footer['newsletter_placeholder'];
+$footer_newsletter_button_text = $footer['newsletter_button_text'];
+$footer_newsletter_form_action = $footer['newsletter_form_action'];
+$footer_plant_url              = $footer['plant_url'];
+$footer_copyright_prefix       = $footer['copyright'];
+$footer_legal_links            = $footer['legal_links'];
 ?>
 <!-- Shared site footer -->
 <footer class="site-footer">

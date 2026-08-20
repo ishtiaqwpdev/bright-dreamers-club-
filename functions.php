@@ -17,6 +17,7 @@ require_once BDC_THEME_DIR . '/inc/forms/form-settings.php';
 require_once BDC_THEME_DIR . '/inc/theme-settings.php';
 require_once BDC_THEME_DIR . '/inc/forms/form-handler.php';
 require_once BDC_THEME_DIR . '/inc/acf-helpers.php';
+require_once BDC_THEME_DIR . '/inc/header-footer-settings.php';
 require_once BDC_THEME_DIR . '/inc/policy/privacy-policy-defaults.php';
 require_once BDC_THEME_DIR . '/inc/policy/terms-defaults.php';
 require_once BDC_THEME_DIR . '/inc/policy/photo-media-policy-defaults.php';
@@ -379,25 +380,7 @@ add_filter( 'nav_menu_link_attributes', 'bdc_nav_menu_link_attributes', 10, 4 );
  * @return array<int, array<string, mixed>>
  */
 function bdc_get_primary_menu_links() {
-	return array(
-		array( 'url' => home_url( '/' ), 'label' => 'Home' ),
-		array( 'url' => home_url( '/about/' ), 'label' => 'About Us' ),
-		array(
-			'url'      => home_url( '/explore/' ),
-			'label'    => 'Explore',
-			'children' => array(
-				array( 'url' => home_url( '/creative-makers/' ), 'label' => 'Creative Makers' ),
-				array( 'url' => home_url( '/young-ideas-lab/' ), 'label' => 'Young Ideas Lab' ),
-				array( 'url' => home_url( '/create-for-cause/' ), 'label' => 'Create for a Cause' ),
-				array( 'url' => home_url( '/community-adventures/' ), 'label' => 'Community Adventures' ),
-			),
-		),
-		array( 'url' => home_url( '/for-parents/' ), 'label' => 'For Parents' ),
-		array( 'url' => home_url( '/our-vision/' ), 'label' => 'Our Vision' ),
-		array( 'url' => home_url( '/get-involved/' ), 'label' => 'Get Involved' ),
-		array( 'url' => home_url( '/partners/' ), 'label' => 'Partners' ),
-		array( 'url' => home_url( '/contact/' ), 'label' => 'Contact' ),
-	);
+	return bdc_get_header_menu_links();
 }
 
 /**

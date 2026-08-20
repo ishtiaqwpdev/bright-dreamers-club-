@@ -9,37 +9,15 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-$header_announce_text = bdc_get_acf_option_text(
-	'global_header_announce_text',
-	'A nonprofit community inspiring children to dream, create, learn, lead, and give.'
-);
-$header_social_links  = bdc_get_acf_option_repeater( 'global_header_social', bdc_get_default_social_links() );
-$header_logo_url      = bdc_get_acf_option_image_url(
-	'global_header_logo',
-	bdc_theme_asset_url( 'assets/images/bright-dreamers-logo-removebg-preview.png' )
-);
-$header_logo_alt      = bdc_get_acf_option_text(
-	'global_header_logo_alt',
-	'Bright Dreamers Club — Dream, Create, Grow, Give'
-);
-$header_donate_text   = bdc_get_acf_option_text( 'global_header_donate_text', 'Donate' );
-$header_donate_link   = bdc_get_acf_option_link(
-	'global_header_donate_link',
-	array(
-		'title'  => 'Donate',
-		'url'    => home_url( '/donation-interest/' ),
-		'target' => '',
-	)
-);
-$header_apply_text    = bdc_get_acf_option_text( 'global_header_apply_text', 'Apply to Join' );
-$header_apply_link    = bdc_get_acf_option_link(
-	'global_header_apply_link',
-	array(
-		'title'  => 'Apply to Join',
-		'url'    => bdc_page_url( 'apply-to-become.html' ),
-		'target' => '',
-	)
-);
+$header = bdc_get_site_header_context();
+$header_announce_text = $header['announce_text'];
+$header_social_links  = $header['social_links'];
+$header_logo_url      = $header['logo_url'];
+$header_logo_alt      = $header['logo_alt'];
+$header_donate_text   = $header['donate_text'];
+$header_donate_link   = $header['donate_link'];
+$header_apply_text    = $header['apply_text'];
+$header_apply_link    = $header['apply_link'];
 ?><!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 <head>
@@ -103,16 +81,24 @@ $header_apply_link    = bdc_get_acf_option_link(
 
 		<nav class="site-nav" aria-label="Primary">
 			<?php
-			wp_nav_menu(
-				array(
-					'theme_location'  => 'primary',
-					'container'       => false,
-					'menu_class'      => 'site-nav__list',
-					'fallback_cb'     => 'bdc_primary_menu_fallback',
-					'depth'             => 2,
-					'bdc_menu_context'  => 'desktop',
-				)
-			);
+			if ( bdc_hf_has_saved_settings() ) {
+				bdc_primary_menu_fallback(
+					array(
+						'bdc_menu_context' => 'desktop',
+					)
+				);
+			} else {
+				wp_nav_menu(
+					array(
+						'theme_location'   => 'primary',
+						'container'        => false,
+						'menu_class'       => 'site-nav__list',
+						'fallback_cb'      => 'bdc_primary_menu_fallback',
+						'depth'            => 2,
+						'bdc_menu_context' => 'desktop',
+					)
+				);
+			}
 			?>
 		</nav>
 
@@ -150,16 +136,24 @@ $header_apply_link    = bdc_get_acf_option_link(
 	>
 		<div class="site-container">
 			<?php
-			wp_nav_menu(
-				array(
-					'theme_location'  => 'primary',
-					'container'       => false,
-					'menu_class'      => 'mobile-menu__list',
-					'fallback_cb'     => 'bdc_primary_menu_fallback',
-					'depth'             => 2,
-					'bdc_menu_context'  => 'mobile',
-				)
-			);
+			if ( bdc_hf_has_saved_settings() ) {
+				bdc_primary_menu_fallback(
+					array(
+						'bdc_menu_context' => 'mobile',
+					)
+				);
+			} else {
+				wp_nav_menu(
+					array(
+						'theme_location'   => 'primary',
+						'container'        => false,
+						'menu_class'       => 'mobile-menu__list',
+						'fallback_cb'      => 'bdc_primary_menu_fallback',
+						'depth'            => 2,
+						'bdc_menu_context' => 'mobile',
+					)
+				);
+			}
 			?>
 			<div class="mobile-menu__actions">
 				<a class="btn btn--outline btn-hover" href="<?php echo esc_url( $header_donate_link['url'] ); ?>"<?php echo bdc_acf_link_target_attr( $header_donate_link ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>><?php echo esc_html( $header_donate_text ); ?></a>

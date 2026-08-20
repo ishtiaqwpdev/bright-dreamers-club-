@@ -41,8 +41,17 @@
   text-decoration: none;
 }
 
-.bdc-form-settings-table textarea.code {
-  font-family: Consolas, Monaco, monospace;
+.bdc-hf-media__preview {
+  display: block;
+  max-width: 220px;
+  height: auto;
+  margin: 0 0 8px;
+  border: 1px solid #c3c4c7;
+  background: #fff;
+}
+
+.bdc-hf-media__preview[hidden] {
+  display: none;
 }
 
 @media (max-width: 782px) {
