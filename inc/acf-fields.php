@@ -6506,4 +6506,164 @@ acf_add_local_field_group(
 	)
 );
 
+acf_add_local_field_group(
+	array(
+		'key'                   => 'group_photo_media_policy_hero',
+		'title'                 => 'Photo Media Policy — Hero / Banner',
+		'fields'                => array(
+			array(
+				'key'           => 'field_photo_media_policy_hero_aria_label',
+				'label'         => 'Section aria label',
+				'name'          => 'photo_media_policy_hero_aria_label',
+				'type'          => 'text',
+				'default_value' => 'Photo and Media Policy',
+			),
+			array(
+				'key'           => 'field_photo_media_policy_hero_breadcrumb_home_text',
+				'label'         => 'Breadcrumb — Home text',
+				'name'          => 'photo_media_policy_hero_breadcrumb_home_text',
+				'type'          => 'text',
+				'default_value' => 'Home',
+			),
+			array(
+				'key'           => 'field_photo_media_policy_hero_breadcrumb_home_link',
+				'label'         => 'Breadcrumb — Home link',
+				'name'          => 'photo_media_policy_hero_breadcrumb_home_link',
+				'type'          => 'link',
+				'return_format' => 'array',
+			),
+			array(
+				'key'           => 'field_photo_media_policy_hero_breadcrumb_parent_text',
+				'label'         => 'Breadcrumb — Parent text',
+				'name'          => 'photo_media_policy_hero_breadcrumb_parent_text',
+				'type'          => 'text',
+				'default_value' => 'Resources',
+			),
+			array(
+				'key'           => 'field_photo_media_policy_hero_breadcrumb_parent_link',
+				'label'         => 'Breadcrumb — Parent link',
+				'name'          => 'photo_media_policy_hero_breadcrumb_parent_link',
+				'type'          => 'link',
+				'return_format' => 'array',
+			),
+			array(
+				'key'           => 'field_photo_media_policy_hero_breadcrumb_current_text',
+				'label'         => 'Breadcrumb — Current page text',
+				'name'          => 'photo_media_policy_hero_breadcrumb_current_text',
+				'type'          => 'text',
+				'default_value' => 'Photo & Media Policy',
+			),
+			array(
+				'key'           => 'field_photo_media_policy_hero_title',
+				'label'         => 'Page title',
+				'name'          => 'photo_media_policy_hero_title',
+				'type'          => 'text',
+				'default_value' => 'Photo & Media Policy',
+			),
+			array(
+				'key'           => 'field_photo_media_policy_hero_heart',
+				'label'         => 'Heart icon',
+				'name'          => 'photo_media_policy_hero_heart',
+				'type'          => 'image',
+				'return_format' => 'array',
+				'preview_size'  => 'thumbnail',
+				'library'       => 'all',
+				'instructions'  => 'Leave empty to keep the default heart icon.',
+			),
+			array(
+				'key'           => 'field_photo_media_policy_hero_text',
+				'label'         => 'Intro paragraph',
+				'name'          => 'photo_media_policy_hero_text',
+				'type'          => 'textarea',
+				'rows'          => 3,
+				'new_lines'     => '',
+				'default_value' => 'At Bright Dreamers, we believe in celebrating children\'s creativity while protecting their privacy and dignity. This policy explains how we take, use, and safeguard photos and videos.',
+			),
+			array(
+				'key'           => 'field_photo_media_policy_hero_banner',
+				'label'         => 'Banner image',
+				'name'          => 'photo_media_policy_hero_banner',
+				'type'          => 'image',
+				'return_format' => 'array',
+				'preview_size'  => 'medium',
+				'library'       => 'all',
+				'instructions'  => 'Leave empty to keep the current hero banner photo.',
+			),
+			array(
+				'key'           => 'field_photo_media_policy_hero_banner_alt',
+				'label'         => 'Banner alt text',
+				'name'          => 'photo_media_policy_hero_banner_alt',
+				'type'          => 'text',
+				'default_value' => 'A young girl holding a camera',
+			),
+		),
+		'location'              => bdc_get_acf_page_locations( 'page-photo-media-policy.php', 'photo-media-policy' ),
+		'menu_order'            => 0,
+		'position'              => 'normal',
+		'style'                 => 'default',
+		'label_placement'       => 'top',
+		'instruction_placement' => 'label',
+		'active'                => true,
+	)
+);
+
+acf_add_local_field_group(
+	array(
+		'key'                   => 'group_photo_media_policy_main',
+		'title'                 => 'Photo Media Policy — Main Content',
+		'fields'                => array_merge(
+			array(
+				array(
+					'key'           => 'field_photo_media_policy_main_aria_label',
+					'label'         => 'Main section aria label',
+					'name'          => 'photo_media_policy_main_aria_label',
+					'type'          => 'text',
+					'default_value' => 'Photo and media policy content',
+				),
+				array(
+					'key'           => 'field_photo_media_policy_sidebar_title',
+					'label'         => 'Sidebar heading',
+					'name'          => 'photo_media_policy_sidebar_title',
+					'type'          => 'text',
+					'default_value' => 'On This Page',
+				),
+				array(
+					'key'           => 'field_photo_media_policy_nav_aria_label',
+					'label'         => 'Navigation aria label',
+					'name'          => 'photo_media_policy_nav_aria_label',
+					'type'          => 'text',
+					'default_value' => 'Policy sections',
+				),
+				array(
+					'key'           => 'field_photo_media_policy_sidebar_card_icon',
+					'label'         => 'Sidebar card icon',
+					'name'          => 'photo_media_policy_sidebar_card_icon',
+					'type'          => 'image',
+					'return_format' => 'array',
+					'preview_size'  => 'thumbnail',
+					'library'       => 'all',
+					'instructions'  => 'Leave empty to keep the default sidebar illustration.',
+				),
+				array(
+					'key'           => 'field_photo_media_policy_sidebar_card_text',
+					'label'         => 'Sidebar card text',
+					'name'          => 'photo_media_policy_sidebar_card_text',
+					'type'          => 'textarea',
+					'rows'          => 3,
+					'new_lines'     => '',
+					'default_value' => 'Protecting children is our priority. This policy helps us create a safe and respectful environment for all.',
+				),
+			),
+			bdc_get_photo_media_policy_acf_section_fields()
+		),
+		'location'              => bdc_get_acf_page_locations( 'page-photo-media-policy.php', 'photo-media-policy' ),
+		'menu_order'            => 1,
+		'position'              => 'normal',
+		'style'                 => 'default',
+		'label_placement'       => 'top',
+		'instruction_placement' => 'label',
+		'active'                => true,
+	)
+);
+
 require_once __DIR__ . '/acf-global-fields.php';
