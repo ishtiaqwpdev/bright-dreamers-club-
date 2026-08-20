@@ -217,7 +217,92 @@ function bdc_get_privacy_policy_sections_acf_defaults() {
 }
 
 /**
- * Pre-fill Privacy Policy sidebar nav rows in the block editor.
+ * Whether a post uses the Privacy Policy template or slug.
+ *
+ * @param int $post_id Post ID.
+ * @return bool
+ */
+function bdc_is_privacy_policy_page( $post_id ) {
+	$post_id = (int) $post_id;
+
+	if ( $post_id <= 0 ) {
+		return false;
+	}
+
+	$post = get_post( $post_id );
+
+	if ( ! $post || 'page' !== $post->post_type ) {
+		return false;
+	}
+
+	if ( 'page-privacy-policy.php' === get_page_template_slug( $post_id ) ) {
+		return true;
+	}
+
+	if ( 'privacy-policy' === $post->post_name ) {
+		return true;
+	}
+
+	return $post_id === (int) get_option( 'wp_page_for_privacy_policy' );
+}
+
+/**
+ * Whether an ACF repeater value is empty or has no meaningful rows.
+ *
+ * @param mixed $value Repeater value.
+ * @return bool
+ */
+function bdc_acf_repeater_value_is_empty( $value ) {
+	if ( null === $value || false === $value || '' === $value ) {
+		return true;
+	}
+
+	if ( ! is_array( $value ) ) {
+		return true;
+	}
+
+	if ( array() === $value ) {
+		return true;
+	}
+
+	foreach ( $value as $row ) {
+		if ( ! is_array( $row ) ) {
+			continue;
+		}
+
+		foreach ( $row as $cell ) {
+			if ( is_array( $cell ) && ! empty( $cell ) ) {
+				return false;
+			}
+
+			if ( is_string( $cell ) && '' !== trim( $cell ) ) {
+				return false;
+			}
+
+			if ( ! empty( $cell ) ) {
+				return false;
+			}
+		}
+	}
+
+	return true;
+}
+
+/**
+ * Whether saved ACF repeater row-count meta is empty.
+ *
+ * @param int    $post_id    Post ID.
+ * @param string $field_name Repeater field name.
+ * @return bool
+ */
+function bdc_acf_repeater_meta_is_empty( $post_id, $field_name ) {
+	$count = get_post_meta( (int) $post_id, $field_name, true );
+
+	return '' === $count || false === $count || null === $count || '0' === (string) $count;
+}
+
+/**
+ * Pre-fill Privacy Policy sidebar nav rows when nothing has been saved yet.
  *
  * @param mixed $value   Stored value.
  * @param mixed $post_id Post ID.
@@ -227,7 +312,7 @@ function bdc_get_privacy_policy_sections_acf_defaults() {
 function bdc_acf_load_privacy_policy_nav_items( $value, $post_id, $field ) {
 	unset( $field );
 
-	if ( ! empty( $value ) || ! is_admin() ) {
+	if ( ! bdc_acf_repeater_value_is_empty( $value ) ) {
 		return $value;
 	}
 
@@ -235,7 +320,7 @@ function bdc_acf_load_privacy_policy_nav_items( $value, $post_id, $field ) {
 }
 
 /**
- * Pre-fill Privacy Policy main content rows in the block editor.
+ * Pre-fill Privacy Policy main content rows when nothing has been saved yet.
  *
  * @param mixed $value   Stored value.
  * @param mixed $post_id Post ID.
@@ -245,14 +330,80 @@ function bdc_acf_load_privacy_policy_nav_items( $value, $post_id, $field ) {
 function bdc_acf_load_privacy_policy_sections( $value, $post_id, $field ) {
 	unset( $field );
 
-	if ( ! empty( $value ) || ! is_admin() ) {
+	if ( ! bdc_acf_repeater_value_is_empty( $value ) ) {
 		return $value;
 	}
 
 	return bdc_get_privacy_policy_sections_acf_defaults();
 }
 
-if ( function_exists( 'add_filter' ) ) {
+/**
+ * Ensure Privacy Policy repeaters render with default rows in the editor.
+ *
+ * @param array $field ACF field settings.
+ * @return array
+ */
+function bdc_acf_pre_render_privacy_policy_repeater( $field ) {
+	if ( ! is_admin() || empty( $field['name'] ) || 'repeater' !== ( $field['type'] ?? '' ) ) {
+		return $field;
+	}
+
+	if ( ! in_array( $field['name'], array( 'privacy_policy_nav_items', 'privacy_policy_sections' ), true ) ) {
+		return $field;
+	}
+
+	global $post;
+
+	if ( ! $post instanceof WP_Post || ! bdc_is_privacy_policy_page( $post->ID ) ) {
+		return $field;
+	}
+
+	if ( bdc_acf_repeater_value_is_empty( $field['value'] ?? null ) ) {
+		if ( 'privacy_policy_nav_items' === $field['name'] ) {
+			$field['value'] = bdc_get_privacy_policy_nav_items_acf_defaults();
+		} else {
+			$field['value'] = bdc_get_privacy_policy_sections_acf_defaults();
+		}
+	}
+
+	return $field;
+}
+
+/**
+ * Save default Privacy Policy repeater rows the first time the page is edited.
+ *
+ * @return void
+ */
+function bdc_seed_privacy_policy_acf_repeaters_on_edit() {
+	if ( ! function_exists( 'update_field' ) || ! is_admin() ) {
+		return;
+	}
+
+	global $post;
+
+	if ( ! $post instanceof WP_Post || ! bdc_is_privacy_policy_page( $post->ID ) ) {
+		return;
+	}
+
+	if ( bdc_acf_repeater_meta_is_empty( $post->ID, 'privacy_policy_nav_items' ) ) {
+		update_field( 'privacy_policy_nav_items', bdc_get_privacy_policy_nav_items_acf_defaults(), $post->ID );
+	}
+
+	if ( bdc_acf_repeater_meta_is_empty( $post->ID, 'privacy_policy_sections' ) ) {
+		update_field( 'privacy_policy_sections', bdc_get_privacy_policy_sections_acf_defaults(), $post->ID );
+	}
+}
+
+/**
+ * Register Privacy Policy ACF default hooks.
+ *
+ * @return void
+ */
+function bdc_register_privacy_policy_acf_defaults() {
 	add_filter( 'acf/load_value/name=privacy_policy_nav_items', 'bdc_acf_load_privacy_policy_nav_items', 10, 3 );
 	add_filter( 'acf/load_value/name=privacy_policy_sections', 'bdc_acf_load_privacy_policy_sections', 10, 3 );
+	add_filter( 'acf/pre_render_field/type=repeater', 'bdc_acf_pre_render_privacy_policy_repeater', 10, 1 );
+	add_action( 'acf/input/admin_head', 'bdc_seed_privacy_policy_acf_repeaters_on_edit' );
 }
+
+add_action( 'acf/init', 'bdc_register_privacy_policy_acf_defaults' );
