@@ -6259,4 +6259,251 @@ acf_add_local_field_group(
 	)
 );
 
+acf_add_local_field_group(
+	array(
+		'key'                   => 'group_terms_hero',
+		'title'                 => 'Terms — Hero / Banner',
+		'fields'                => array(
+			array(
+				'key'           => 'field_terms_hero_aria_label',
+				'label'         => 'Section aria label',
+				'name'          => 'terms_hero_aria_label',
+				'type'          => 'text',
+				'default_value' => 'Terms of Use',
+			),
+			array(
+				'key'           => 'field_terms_hero_title',
+				'label'         => 'Page title',
+				'name'          => 'terms_hero_title',
+				'type'          => 'text',
+				'default_value' => 'Terms of Use',
+			),
+			array(
+				'key'           => 'field_terms_hero_heart',
+				'label'         => 'Heart icon',
+				'name'          => 'terms_hero_heart',
+				'type'          => 'image',
+				'return_format' => 'array',
+				'preview_size'  => 'thumbnail',
+				'library'       => 'all',
+				'instructions'  => 'Leave empty to keep the default heart icon.',
+			),
+			array(
+				'key'           => 'field_terms_hero_text',
+				'label'         => 'Intro paragraph',
+				'name'          => 'terms_hero_text',
+				'type'          => 'textarea',
+				'rows'          => 3,
+				'new_lines'     => '',
+				'default_value' => 'Welcome to Bright Dreamers Club. By accessing or using our website, you agree to these Terms of Use. Please read them carefully.',
+			),
+			array(
+				'key'           => 'field_terms_hero_updated_icon',
+				'label'         => 'Last-updated icon',
+				'name'          => 'terms_hero_updated_icon',
+				'type'          => 'image',
+				'return_format' => 'array',
+				'preview_size'  => 'thumbnail',
+				'library'       => 'all',
+				'instructions'  => 'Leave empty to keep the default calendar icon.',
+			),
+			array(
+				'key'           => 'field_terms_hero_updated_text',
+				'label'         => 'Last-updated text',
+				'name'          => 'terms_hero_updated_text',
+				'type'          => 'text',
+				'default_value' => 'Last updated: September 1st, 2026',
+			),
+			array(
+				'key'           => 'field_terms_hero_banner',
+				'label'         => 'Banner image',
+				'name'          => 'terms_hero_banner',
+				'type'          => 'image',
+				'return_format' => 'array',
+				'preview_size'  => 'medium',
+				'library'       => 'all',
+				'instructions'  => 'Leave empty to keep the current hero banner photo.',
+			),
+			array(
+				'key'           => 'field_terms_hero_banner_alt',
+				'label'         => 'Banner alt text',
+				'name'          => 'terms_hero_banner_alt',
+				'type'          => 'text',
+				'default_value' => 'Three children looking at a laptop together',
+			),
+		),
+		'location'              => bdc_get_acf_page_locations( 'page-terms.php', 'terms' ),
+		'menu_order'            => 0,
+		'position'              => 'normal',
+		'style'                 => 'default',
+		'label_placement'       => 'top',
+		'instruction_placement' => 'label',
+		'active'                => true,
+	)
+);
+
+acf_add_local_field_group(
+	array(
+		'key'                   => 'group_terms_commitment',
+		'title'                 => 'Terms — Our Commitment',
+		'fields'                => array(
+			array(
+				'key'           => 'field_terms_commitment_aria_label',
+				'label'         => 'Section aria label',
+				'name'          => 'terms_commitment_aria_label',
+				'type'          => 'text',
+				'default_value' => 'Our commitment',
+			),
+			array(
+				'key'           => 'field_terms_commitment_icon',
+				'label'         => 'Card icon',
+				'name'          => 'terms_commitment_icon',
+				'type'          => 'image',
+				'return_format' => 'array',
+				'preview_size'  => 'thumbnail',
+				'library'       => 'all',
+				'instructions'  => 'Leave empty to keep the default icon.',
+			),
+			array(
+				'key'           => 'field_terms_commitment_title',
+				'label'         => 'Heading',
+				'name'          => 'terms_commitment_title',
+				'type'          => 'text',
+				'default_value' => 'Our Commitment',
+			),
+			array(
+				'key'           => 'field_terms_commitment_text',
+				'label'         => 'Paragraph',
+				'name'          => 'terms_commitment_text',
+				'type'          => 'textarea',
+				'rows'          => 4,
+				'new_lines'     => '',
+				'default_value' => 'These Terms of Use govern your access to brightdreamersclub.org. We created them to protect our community, clarify expectations, and ensure a safe, positive experience for everyone who visits our site.',
+			),
+			array(
+				'key'           => 'field_terms_commitment_deco',
+				'label'         => 'Decorative image',
+				'name'          => 'terms_commitment_deco',
+				'type'          => 'image',
+				'return_format' => 'array',
+				'preview_size'  => 'thumbnail',
+				'library'       => 'all',
+				'instructions'  => 'Leave empty to keep the default decoration.',
+			),
+		),
+		'location'              => bdc_get_acf_page_locations( 'page-terms.php', 'terms' ),
+		'menu_order'            => 1,
+		'position'              => 'normal',
+		'style'                 => 'default',
+		'label_placement'       => 'top',
+		'instruction_placement' => 'label',
+		'active'                => true,
+	)
+);
+
+acf_add_local_field_group(
+	array(
+		'key'                   => 'group_terms_sections',
+		'title'                 => 'Terms — Policy Cards',
+		'fields'                => bdc_get_terms_acf_section_fields(),
+		'location'              => bdc_get_acf_page_locations( 'page-terms.php', 'terms' ),
+		'menu_order'            => 2,
+		'position'              => 'normal',
+		'style'                 => 'default',
+		'label_placement'       => 'top',
+		'instruction_placement' => 'label',
+		'active'                => true,
+	)
+);
+
+acf_add_local_field_group(
+	array(
+		'key'                   => 'group_terms_bottom',
+		'title'                 => 'Terms — Questions Banner',
+		'fields'                => array(
+			array(
+				'key'           => 'field_terms_bottom_aria_label',
+				'label'         => 'Section aria label',
+				'name'          => 'terms_bottom_aria_label',
+				'type'          => 'text',
+				'default_value' => 'Questions and contact',
+			),
+			array(
+				'key'           => 'field_terms_bottom_questions_icon',
+				'label'         => 'Questions icon',
+				'name'          => 'terms_bottom_questions_icon',
+				'type'          => 'image',
+				'return_format' => 'array',
+				'preview_size'  => 'thumbnail',
+				'library'       => 'all',
+				'instructions'  => 'Leave empty to keep the default questions icon.',
+			),
+			array(
+				'key'           => 'field_terms_bottom_title',
+				'label'         => 'Heading',
+				'name'          => 'terms_bottom_title',
+				'type'          => 'text',
+				'default_value' => 'Questions?',
+			),
+			array(
+				'key'           => 'field_terms_bottom_text',
+				'label'         => 'Paragraph',
+				'name'          => 'terms_bottom_text',
+				'type'          => 'textarea',
+				'rows'          => 2,
+				'new_lines'     => '',
+				'default_value' => 'If you have any questions about these Terms of Use, we\'re here to help.',
+			),
+			array(
+				'key'           => 'field_terms_bottom_cta_link',
+				'label'         => 'CTA link',
+				'name'          => 'terms_bottom_cta_link',
+				'type'          => 'link',
+				'return_format' => 'array',
+			),
+			array(
+				'key'           => 'field_terms_bottom_cta_icon',
+				'label'         => 'CTA icon',
+				'name'          => 'terms_bottom_cta_icon',
+				'type'          => 'image',
+				'return_format' => 'array',
+				'preview_size'  => 'thumbnail',
+				'library'       => 'all',
+				'instructions'  => 'Leave empty to keep the default CTA icon.',
+			),
+			array(
+				'key'           => 'field_terms_bottom_cta_title',
+				'label'         => 'CTA title',
+				'name'          => 'terms_bottom_cta_title',
+				'type'          => 'text',
+				'default_value' => 'Contact Us Form',
+			),
+			array(
+				'key'           => 'field_terms_bottom_cta_text',
+				'label'         => 'CTA description',
+				'name'          => 'terms_bottom_cta_text',
+				'type'          => 'text',
+				'default_value' => 'Send us a message through our contact form.',
+			),
+			array(
+				'key'           => 'field_terms_bottom_deco',
+				'label'         => 'Decorative image',
+				'name'          => 'terms_bottom_deco',
+				'type'          => 'image',
+				'return_format' => 'array',
+				'preview_size'  => 'thumbnail',
+				'library'       => 'all',
+				'instructions'  => 'Leave empty to keep the default decoration.',
+			),
+		),
+		'location'              => bdc_get_acf_page_locations( 'page-terms.php', 'terms' ),
+		'menu_order'            => 3,
+		'position'              => 'normal',
+		'style'                 => 'default',
+		'label_placement'       => 'top',
+		'instruction_placement' => 'label',
+		'active'                => true,
+	)
+);
+
 require_once __DIR__ . '/acf-global-fields.php';

@@ -18,6 +18,7 @@ require_once BDC_THEME_DIR . '/inc/theme-settings.php';
 require_once BDC_THEME_DIR . '/inc/forms/form-handler.php';
 require_once BDC_THEME_DIR . '/inc/acf-helpers.php';
 require_once BDC_THEME_DIR . '/inc/policy/privacy-policy-defaults.php';
+require_once BDC_THEME_DIR . '/inc/policy/terms-defaults.php';
 
 /**
  * Register local ACF field groups when ACF is active.
