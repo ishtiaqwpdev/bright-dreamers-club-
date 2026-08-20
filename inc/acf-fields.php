@@ -6247,14 +6247,14 @@ acf_add_local_field_group(
 			),
 			array(
 				'key'          => 'field_privacy_policy_nav_items',
-				'label'        => 'Sidebar navigation links',
+				'label'        => 'Left sidebar — section links',
 				'name'         => 'privacy_policy_nav_items',
 				'type'         => 'repeater',
 				'layout'       => 'block',
 				'button_label' => 'Add nav link',
 				'min'          => 0,
 				'max'          => 20,
-				'instructions' => 'Leave empty to keep all eleven default navigation links. Anchor ID must match the matching policy section below.',
+				'instructions' => 'Edit the jump links in the left sidebar. Each row is one link. Change Link label to update the text. Icons are optional — leave blank to keep the default icon. Keep Anchor ID in sync with the matching main content section below.',
 				'sub_fields'   => array(
 					array(
 						'key'         => 'field_privacy_policy_nav_item_anchor_id',
@@ -6282,14 +6282,14 @@ acf_add_local_field_group(
 			),
 			array(
 				'key'          => 'field_privacy_policy_sections',
-				'label'        => 'Policy sections',
+				'label'        => 'Main content — policy sections',
 				'name'         => 'privacy_policy_sections',
 				'type'         => 'repeater',
 				'layout'       => 'block',
 				'button_label' => 'Add section',
 				'min'          => 0,
 				'max'          => 20,
-				'instructions' => 'Leave empty to keep all eleven default policy sections. Section body accepts basic HTML (paragraphs, lists, links).',
+				'instructions' => 'Edit the policy sections shown on the right side of the page. Each row matches one sidebar link by Section anchor ID. Section body accepts basic HTML (paragraphs, lists, links).',
 				'sub_fields'   => array(
 					array(
 						'key'          => 'field_privacy_policy_section_id',
