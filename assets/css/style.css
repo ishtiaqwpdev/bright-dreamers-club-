@@ -9933,7 +9933,7 @@ img.lazy-img.loaded {
 
   .site-header__logo img {
     width: auto;
-    --header-logo-height: 52px;
+    --header-logo-height: 57px;
   }
 
   .home-hero__logo {
@@ -16842,6 +16842,10 @@ body.newsletter-success-open {
   .site-header__logo {
     flex: 0 0 auto;
     margin-right: auto;
+  }
+
+  .site-header__logo img {
+    --header-logo-height: 61px;
   }
 
   .menu-toggle {
