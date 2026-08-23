@@ -683,32 +683,118 @@
   function initMobileCarousels() {
     var media = window.matchMedia('(max-width: 767px)');
     var instances = [];
-    var configs = [];
 
-    if (document.body.classList.contains('home-page')) {
-      configs = [
-        { track: '.home-pillars__row', item: '.home-pillar' },
-        { track: '.home-different__grid', item: '.home-different__item' },
-        { track: '.home-reality__steps', item: '.home-reality-step' },
-        { track: '.home-explore__grid', item: '.experience-card' },
-      ];
-    } else if (document.body.classList.contains('about-page')) {
-      configs = [
-        { track: '.we-believe__slider', item: '.believe-card' },
-        { track: '.role-icons', item: '.role-icons__item' },
-        { track: '.approach-steps', item: '.approach-step' },
-      ];
-    } else if (document.body.classList.contains('explore-page')) {
-      configs = [
-        { track: '.explore-ways__grid', item: '.explore-way' },
-        { track: '.explore-skills__grid', item: '.explore-skill' },
-        { track: '.explore-grow__track', item: '.explore-grow-stage' },
-        { track: '.explore-impact__track', item: '.explore-impact-card, .explore-impact-quote' },
-      ];
+    var knownConfigs = [
+      { track: '.home-pillars__row', item: '.home-pillar' },
+      { track: '.home-different__grid', item: '.home-different__item' },
+      { track: '.home-reality__steps', item: '.home-reality-step' },
+      { track: '.home-explore__grid', item: '.experience-card' },
+      { track: '.we-believe__slider', item: '.believe-card' },
+      { track: '.role-icons', item: '.role-icons__item' },
+      { track: '.approach-steps', item: '.approach-step' },
+      { track: '.explore-ways__grid', item: '.explore-way' },
+      { track: '.explore-skills__grid', item: '.explore-skill' },
+      { track: '.explore-grow__track', item: '.explore-grow-stage' },
+      { track: '.explore-impact__track', item: '.explore-impact-card, .explore-impact-quote' },
+      { track: '.for-parents-expect__grid', item: '.for-parents-expect-card' },
+      { track: '.vision-pillars__grid', item: '.vision-pillar-card' },
+      { track: '.vision-journey-steps', item: '.vision-journey-step' },
+      { track: '.vision-partner__icons', item: '.vision-partner__icon-item' },
+      { track: '.get-involved-ways__grid', item: '.get-involved-ways-card' },
+      { track: '.partners-ways__grid', item: '.partners-ways-card' },
+      { track: '.partners-impact__grid', item: '.partners-impact-card' },
+      { track: '.partners-founding__grid', item: '.partners-founding-card' },
+      { track: '.creative-makers-explore__grid', item: '.creative-makers-activity' },
+      { track: '.creative-makers-parents__tablist', item: '.creative-makers-faq__tab' },
+      { track: '.faq-topic-list', item: 'li' },
+      { track: '.accessibility-provide-grid', item: '.accessibility-provide-card' },
+      { track: '.financial-support-grid', item: '.financial-support-card' },
+      { track: '.financial-promise-grid', item: '.financial-promise-item' },
+      { track: '.newsletter-role-grid', item: '.newsletter-role-card' },
+      { track: '.media-consent-usage-grid', item: '.media-consent-usage-card' },
+      { track: '.donation-support-grid', item: '.donation-support-card' },
+    ];
+
+    var skipTrackSelector = [
+      '.media-policy-nav__list',
+      '.home-spotlight__grid',
+      '.vision-moments__gallery',
+    ].join(',');
+
+    function isSkipped(track) {
+      return skipTrackSelector && track.matches(skipTrackSelector);
     }
 
-    if (!configs.length) {
-      return;
+    function isInset(track) {
+      return !!(
+        track.matches(
+          '.role-icons, .approach-steps, .vision-partner__icons, .partners-impact__grid, .financial-promise-grid, .newsletter-role-grid, .media-consent-usage-grid, .donation-support-grid'
+        ) ||
+        track.closest(
+          '.panel-card, .partners-impact__box, .newsletter-form-wrap, .apply-form__main, .donation-form-card, .media-consent-card, .media-policy-content'
+        )
+      );
+    }
+
+    function itemSelectorFor(track) {
+      var match = knownConfigs.find(function (config) {
+        return track.matches(config.track);
+      });
+      return match ? match.item : null;
+    }
+
+    function getItems(track) {
+      var selector = itemSelectorFor(track);
+      var items;
+
+      if (selector) {
+        items = Array.prototype.slice.call(track.querySelectorAll(selector));
+      } else {
+        items = Array.prototype.filter.call(track.children, function (child) {
+          return child.nodeType === 1;
+        });
+      }
+
+      return items.filter(function (item) {
+        var className = String(item.className || '');
+        return className.indexOf('arrow') === -1 && className.indexOf('deco') === -1;
+      });
+    }
+
+    function collectTracks() {
+      var root = document.getElementById('main-content') || document.body;
+      var tracks = [];
+      var seen = [];
+
+      function addTrack(track) {
+        if (!track || seen.indexOf(track) !== -1 || isSkipped(track)) {
+          return;
+        }
+        if (getItems(track).length < 2) {
+          return;
+        }
+        seen.push(track);
+        tracks.push(track);
+      }
+
+      knownConfigs.forEach(function (config) {
+        root.querySelectorAll(config.track).forEach(addTrack);
+      });
+
+      root.querySelectorAll('div, ul, ol').forEach(function (el) {
+        if (seen.indexOf(el) !== -1 || isSkipped(el)) {
+          return;
+        }
+        var style = window.getComputedStyle(el);
+        var overflowX = style.overflowX;
+        var snap = style.scrollSnapType || '';
+        if ((overflowX !== 'auto' && overflowX !== 'scroll') || snap === 'none' || snap.indexOf('x') === -1) {
+          return;
+        }
+        addTrack(el);
+      });
+
+      return tracks;
     }
 
     function closestIndex(track, items) {
@@ -736,11 +822,24 @@
       });
     }
 
-    function bindCarousel(track, itemSelector) {
-      var items = Array.prototype.slice.call(track.querySelectorAll(itemSelector));
+    function bindCarousel(track) {
+      var items = getItems(track);
       if (items.length < 2) {
         return null;
       }
+
+      track.classList.add('bdc-mobile-carousel');
+      track.classList.toggle('bdc-mobile-carousel--inset', isInset(track));
+      if (track.parentNode && track.parentNode.classList) {
+        track.parentNode.classList.add('bdc-mobile-carousel-parent');
+      }
+      var host = track.closest('.site-container');
+      if (host) {
+        host.classList.add('bdc-mobile-carousel-host');
+      }
+      items.forEach(function (item) {
+        item.classList.add('bdc-mobile-carousel__item');
+      });
 
       var existing = track.parentNode.querySelector(':scope > .bdc-carousel-dots');
       if (existing) {
@@ -784,6 +883,17 @@
       return {
         destroy: function () {
           track.removeEventListener('scroll', onScroll);
+          track.classList.remove('bdc-mobile-carousel', 'bdc-mobile-carousel--inset');
+          if (track.parentNode && track.parentNode.classList) {
+            track.parentNode.classList.remove('bdc-mobile-carousel-parent');
+          }
+          var host = track.closest('.site-container');
+          if (host && !host.querySelector('.bdc-mobile-carousel')) {
+            host.classList.remove('bdc-mobile-carousel-host');
+          }
+          items.forEach(function (item) {
+            item.classList.remove('bdc-mobile-carousel__item');
+          });
           if (dotsWrap.parentNode) {
             dotsWrap.parentNode.removeChild(dotsWrap);
           }
@@ -806,13 +916,11 @@
         return;
       }
 
-      configs.forEach(function (config) {
-        document.querySelectorAll(config.track).forEach(function (track) {
-          var instance = bindCarousel(track, config.item);
-          if (instance) {
-            instances.push(instance);
-          }
-        });
+      collectTracks().forEach(function (track) {
+        var instance = bindCarousel(track);
+        if (instance) {
+          instances.push(instance);
+        }
       });
     }
 
