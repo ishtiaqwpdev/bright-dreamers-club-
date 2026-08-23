@@ -248,8 +248,8 @@ $home_explore_title = bdc_get_acf_text(
 );
 $home_explore_cards_defaults = array(
 	array(
-		'photo'       => bdc_theme_asset_url( 'assets/images/explore-makers-photo.jpeg' ),
-		'photo_alt'   => 'A young girl painting with watercolors',
+		'photo'       => bdc_theme_asset_url( 'assets/images/home-explore-makers-photo.png' ),
+		'photo_alt'   => 'A young girl smiling while holding up a colorful drawing',
 		'icon'        => bdc_theme_asset_url( 'assets/images/explore-makers-icon.jpeg' ),
 		'title'       => 'Creative Makers',
 		'description' => 'Art, design, crafts, and creative projects that bring ideas to life.',
@@ -318,10 +318,10 @@ foreach ( $home_explore_cards_raw as $index => $row ) {
 	$photo_alt   = isset( $row['photo_alt'] ) ? trim( (string) $row['photo_alt'] ) : '';
 
 	$home_explore_cards[] = array(
-		'photo'       => in_array( (int) $index, array( 1, 2, 3 ), true )
+		'photo'       => in_array( (int) $index, array( 0, 1, 2, 3 ), true )
 			? (string) $default['photo']
 			: bdc_acf_image_value_to_url( $row['photo'] ?? null, (string) $default['photo'] ),
-		'photo_alt'   => in_array( (int) $index, array( 1, 2, 3 ), true )
+		'photo_alt'   => in_array( (int) $index, array( 0, 1, 2, 3 ), true )
 			? (string) $default['photo_alt']
 			: ( '' !== $photo_alt ? $photo_alt : (string) $default['photo_alt'] ),
 		'icon'        => bdc_acf_image_value_to_url( $row['icon'] ?? null, (string) $default['icon'] ),
