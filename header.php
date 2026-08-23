@@ -132,33 +132,12 @@ $header_apply_link    = $header['apply_link'];
 		class="mobile-menu"
 		id="mobile-menu"
 		data-mobile-menu
+		role="dialog"
+		aria-modal="true"
+		aria-label="<?php esc_attr_e( 'Site menu', 'bright-dreamers-club' ); ?>"
 		aria-hidden="true"
+		inert
 	>
-		<div class="site-container">
-			<?php
-			if ( bdc_hf_has_saved_settings() ) {
-				bdc_primary_menu_fallback(
-					array(
-						'bdc_menu_context' => 'mobile',
-					)
-				);
-			} else {
-				wp_nav_menu(
-					array(
-						'theme_location'   => 'primary',
-						'container'        => false,
-						'menu_class'       => 'mobile-menu__list',
-						'fallback_cb'      => 'bdc_primary_menu_fallback',
-						'depth'            => 2,
-						'bdc_menu_context' => 'mobile',
-					)
-				);
-			}
-			?>
-			<div class="mobile-menu__actions">
-				<a class="btn btn--outline btn-hover" href="<?php echo esc_url( $header_donate_link['url'] ); ?>"<?php echo bdc_acf_link_target_attr( $header_donate_link ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>><?php echo esc_html( $header_donate_text ); ?></a>
-				<a class="btn btn--solid btn-hover" href="<?php echo esc_url( $header_apply_link['url'] ); ?>"<?php echo bdc_acf_link_target_attr( $header_apply_link ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>><?php echo esc_html( $header_apply_text ); ?></a>
-			</div>
-		</div>
+		<?php get_template_part( 'template-parts/mobile-nav-menu' ); ?>
 	</div>
 </header>

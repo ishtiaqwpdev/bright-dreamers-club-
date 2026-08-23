@@ -18,6 +18,7 @@ require_once BDC_THEME_DIR . '/inc/theme-settings.php';
 require_once BDC_THEME_DIR . '/inc/forms/form-handler.php';
 require_once BDC_THEME_DIR . '/inc/acf-helpers.php';
 require_once BDC_THEME_DIR . '/inc/header-footer-settings.php';
+require_once BDC_THEME_DIR . '/inc/mobile-nav.php';
 require_once BDC_THEME_DIR . '/inc/policy/privacy-policy-defaults.php';
 require_once BDC_THEME_DIR . '/inc/policy/terms-defaults.php';
 require_once BDC_THEME_DIR . '/inc/policy/photo-media-policy-defaults.php';

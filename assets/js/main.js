@@ -14,13 +14,55 @@
 
     if (!$toggle.length || !$menu.length) return;
 
-    $toggle.on('click', function () {
-      var isOpen = $menu.attr('aria-hidden') === 'false';
-      var nextOpen = !isOpen;
+    function setMenuOpen(nextOpen) {
       $menu.attr('aria-hidden', nextOpen ? 'false' : 'true');
       $toggle.attr('aria-expanded', nextOpen ? 'true' : 'false');
       $toggle.attr('aria-label', nextOpen ? 'Close menu' : 'Open menu');
       $('body').toggleClass('menu-open', nextOpen);
+
+      if (nextOpen) {
+        $menu.removeAttr('inert');
+        $menu.find('[data-menu-close]').first().trigger('focus');
+      } else {
+        $menu.attr('inert', '');
+        $toggle.trigger('focus');
+      }
+    }
+
+    $toggle.on('click', function () {
+      setMenuOpen($menu.attr('aria-hidden') !== 'false');
+    });
+
+    $menu.on('click', '[data-menu-close]', function () {
+      setMenuOpen(false);
+    });
+
+    $menu.on('click', '[data-mobile-accordion]', function () {
+      var $button = $(this);
+      var $item = $button.closest('.mobile-nav__item');
+      var $panel = $item.find('.mobile-nav__sublist').first();
+      var nextOpen = !$item.hasClass('is-open');
+
+      $item.toggleClass('is-open', nextOpen);
+      $button.attr('aria-expanded', nextOpen ? 'true' : 'false');
+
+      if (nextOpen) {
+        $panel.removeAttr('inert');
+      } else {
+        $panel.attr('inert', '');
+      }
+    });
+
+    $(document).on('keydown', function (event) {
+      if (event.key === 'Escape' && $menu.attr('aria-hidden') === 'false') {
+        setMenuOpen(false);
+      }
+    });
+
+    $(window).on('resize', function () {
+      if (window.innerWidth >= 1024 && $menu.attr('aria-hidden') === 'false') {
+        setMenuOpen(false);
+      }
     });
   }
 
@@ -66,9 +108,10 @@
   function initNavActiveState() {
     var current = pageSlug(window.location.pathname);
     var exploreSubpages = ['creative-makers', 'young-ideas-lab', 'create-for-cause', 'community-adventures'];
-    var $navLinks = $('.site-nav a[href], .mobile-menu a[href]');
+    var $navLinks = $('.site-nav a[href], .mobile-nav__list a[href]');
 
     $navLinks.removeClass('is-active').removeAttr('aria-current');
+    $('.mobile-nav__subitem').removeClass('is-active');
 
     $navLinks.each(function () {
       var $link = $(this);
@@ -76,6 +119,8 @@
 
       if (linkSlug(href) === current) {
         $link.addClass('is-active').attr('aria-current', 'page');
+        $link.closest('.mobile-nav__item:not(.mobile-nav__item--accordion)').addClass('is-active');
+        $link.closest('.mobile-nav__subitem').addClass('is-active');
       }
     });
 
@@ -83,6 +128,14 @@
       $navLinks.filter(function () {
         return linkSlug($(this).attr('href')) === 'explore';
       }).addClass('is-active');
+
+      $('.mobile-nav__item--accordion').each(function () {
+        var $item = $(this);
+        if ($item.find('.mobile-nav__subitem.is-active').length) {
+          $item.addClass('is-open');
+          $item.find('[data-mobile-accordion]').attr('aria-expanded', 'true');
+        }
+      });
     }
   }
 
