@@ -9589,18 +9589,19 @@ img.lazy-img.loaded {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 0.55rem;
+    justify-content: center;
+    gap: 0;
   }
 
   .announce-bar__text {
     grid-column: auto;
+    width: 100%;
+    justify-content: center;
     font-size: 0.8rem;
   }
 
   .announce-bar__social {
-    grid-column: auto;
-    justify-self: auto;
-    align-self: center;
+    display: none;
   }
 
   .site-footer__grid {
@@ -16489,6 +16490,22 @@ body.newsletter-success-open {
 .newsletter-form-wrap .bdc-form-success,
 .media-policy-content .bdc-form-success {
   margin-top: clamp(0.5rem, 1vw, 0.85rem);
+}
+
+/* Hide announcement-bar social icons on phones; keep them on tablet/desktop. */
+@media (max-width: 767px) {
+  .announce-bar__social {
+    display: none;
+  }
+
+  .announce-bar__inner {
+    grid-template-columns: 1fr;
+    justify-items: center;
+  }
+
+  .announce-bar__text {
+    grid-column: 1;
+  }
 }
 
 /* ——— Site-wide mobile carousels: 1 full card, swipe, pink dots ——— */
