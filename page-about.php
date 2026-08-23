@@ -394,8 +394,8 @@ $about_compare_title_heart_url = bdc_get_acf_image_url(
 );
 
 $about_compare_left_defaults = array(
-	'photo'      => bdc_theme_asset_url( 'assets/images/compare-left-photo.jpeg' ),
-	'photo_alt'  => 'Children walking together in a field at sunset',
+	'photo'      => bdc_theme_asset_url( 'assets/images/compare-left-photo.png' ),
+	'photo_alt'  => 'Children jumping together in a school hallway',
 	'label'      => 'Many programs focus on',
 	'mark_icon'  => bdc_theme_asset_url( 'assets/images/compare-icon-x.jpeg' ),
 	'list_items' => array(
@@ -406,7 +406,7 @@ $about_compare_left_defaults = array(
 	),
 );
 $about_compare_left       = bdc_get_acf_group( 'about_compare_left', $about_compare_left_defaults, $about_page_id );
-$about_compare_left_photo = bdc_acf_image_value_to_url( $about_compare_left['photo'] ?? null, $about_compare_left_defaults['photo'] );
+$about_compare_left_photo = $about_compare_left_defaults['photo'];
 $about_compare_left_mark  = bdc_acf_image_value_to_url( $about_compare_left['mark_icon'] ?? null, $about_compare_left_defaults['mark_icon'] );
 $about_compare_left_items_raw = ( is_array( $about_compare_left['list_items'] ?? null ) && ! empty( $about_compare_left['list_items'] ) )
 	? $about_compare_left['list_items']
