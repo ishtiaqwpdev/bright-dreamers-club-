@@ -698,6 +698,13 @@
         { track: '.role-icons', item: '.role-icons__item' },
         { track: '.approach-steps', item: '.approach-step' },
       ];
+    } else if (document.body.classList.contains('explore-page')) {
+      configs = [
+        { track: '.explore-ways__grid', item: '.explore-way' },
+        { track: '.explore-skills__grid', item: '.explore-skill' },
+        { track: '.explore-grow__track', item: '.explore-grow-stage' },
+        { track: '.explore-impact__track', item: '.explore-impact-card, .explore-impact-quote' },
+      ];
     }
 
     if (!configs.length) {
