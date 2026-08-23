@@ -680,20 +680,29 @@
     });
   }
 
-  function initHomeMobileCarousels() {
-    if (!document.body.classList.contains('home-page')) {
-      return;
-    }
-
+  function initMobileCarousels() {
     var media = window.matchMedia('(max-width: 767px)');
     var instances = [];
+    var configs = [];
 
-    var configs = [
-      { track: '.home-pillars__row', item: '.home-pillar' },
-      { track: '.home-different__grid', item: '.home-different__item' },
-      { track: '.home-reality__steps', item: '.home-reality-step' },
-      { track: '.home-explore__grid', item: '.experience-card' },
-    ];
+    if (document.body.classList.contains('home-page')) {
+      configs = [
+        { track: '.home-pillars__row', item: '.home-pillar' },
+        { track: '.home-different__grid', item: '.home-different__item' },
+        { track: '.home-reality__steps', item: '.home-reality-step' },
+        { track: '.home-explore__grid', item: '.experience-card' },
+      ];
+    } else if (document.body.classList.contains('about-page')) {
+      configs = [
+        { track: '.we-believe__slider', item: '.believe-card' },
+        { track: '.role-icons', item: '.role-icons__item' },
+        { track: '.approach-steps', item: '.approach-step' },
+      ];
+    }
+
+    if (!configs.length) {
+      return;
+    }
 
     function closestIndex(track, items) {
       var center = track.scrollLeft + track.clientWidth / 2;
@@ -819,7 +828,7 @@
     initMediaConsentDateFields();
     initLazyImages();
     initScrollReveal();
-    initHomeMobileCarousels();
+    initMobileCarousels();
   }
 
   function initLazyImages() {

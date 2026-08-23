@@ -16629,7 +16629,156 @@ body.newsletter-success-open {
 }
 
 @media (min-width: 768px) {
-  .home-page .bdc-carousel-dots {
+  .home-page .bdc-carousel-dots,
+  .about-page .bdc-carousel-dots {
     display: none;
+  }
+}
+
+/* ——— About page mobile carousels: 1 full card, swipe, pink dots ——— */
+@media (max-width: 767px) {
+  .about-page {
+    --container-padding: 20px;
+    overflow-x: clip;
+  }
+
+  .about-page #main-content {
+    overflow-x: clip;
+    max-width: 100%;
+  }
+
+  .about-page .we-believe .site-container,
+  .about-page .about-panels .site-container {
+    overflow: visible;
+    max-width: 100%;
+  }
+
+  .about-page .we-believe__row {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+    max-width: 100%;
+    gap: 0;
+  }
+
+  .about-page .we-believe__slider {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: stretch;
+    justify-content: flex-start;
+    gap: 28px;
+    width: calc(100% + (var(--container-padding) * 2));
+    max-width: none;
+    margin-inline: calc(-1 * var(--container-padding));
+    padding: 18px var(--container-padding) 28px;
+    overflow-x: auto;
+    overflow-y: visible;
+    overscroll-behavior-x: contain;
+    touch-action: pan-x pan-y;
+    scroll-snap-type: x mandatory;
+    scroll-snap-stop: always;
+    scroll-padding-inline: var(--container-padding);
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    box-sizing: border-box;
+  }
+
+  .about-page .we-believe__slider::-webkit-scrollbar {
+    display: none;
+  }
+
+  .about-page .we-believe__slider .believe-card {
+    flex: 0 0 calc(100vw - (var(--container-padding) * 2));
+    width: calc(100vw - (var(--container-padding) * 2));
+    max-width: calc(100vw - (var(--container-padding) * 2));
+    min-width: 0;
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
+    box-sizing: border-box;
+    overflow: visible;
+    box-shadow: 0 10px 28px rgba(32, 42, 86, 0.12);
+  }
+
+  .about-page .believe-card__text {
+    max-width: none;
+    --believe-text-max-width: none;
+  }
+
+  .about-page .role-icons,
+  .about-page .approach-steps {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: stretch;
+    justify-content: flex-start;
+    gap: 20px;
+    width: 100%;
+    max-width: 100%;
+    margin-inline: 0;
+    padding: 8px 0 18px;
+    overflow-x: auto;
+    overflow-y: visible;
+    overscroll-behavior-x: contain;
+    touch-action: pan-x pan-y;
+    scroll-snap-type: x mandatory;
+    scroll-snap-stop: always;
+    scroll-padding-inline: 0;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    box-sizing: border-box;
+  }
+
+  .about-page .role-icons::-webkit-scrollbar,
+  .about-page .approach-steps::-webkit-scrollbar {
+    display: none;
+  }
+
+  .about-page .role-icons__item,
+  .about-page .approach-step {
+    flex: 0 0 100%;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
+    box-sizing: border-box;
+    overflow: visible;
+    border-left: none;
+    padding-left: 0;
+  }
+
+  .about-page .role-icons__item:not(:first-child) {
+    border-left: none;
+    padding-left: 0;
+  }
+
+  .about-page .approach-step__arrow {
+    display: none;
+  }
+
+  .about-page .bdc-carousel-dots {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.45rem;
+    margin-top: 0.9rem;
+    padding: 0;
+    list-style: none;
+  }
+
+  .about-page .bdc-carousel-dots__dot {
+    width: 8px;
+    height: 8px;
+    padding: 0;
+    border: 0;
+    border-radius: 999px;
+    background: rgba(238, 29, 120, 0.28);
+    cursor: pointer;
+    appearance: none;
+    transition: width 0.2s ease, background-color 0.2s ease;
+  }
+
+  .about-page .bdc-carousel-dots__dot.is-active {
+    width: 22px;
+    background: var(--color-pink);
   }
 }

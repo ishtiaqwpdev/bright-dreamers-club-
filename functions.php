@@ -192,6 +192,7 @@ function bdc_page_template_body_classes( $classes ) {
 	}
 
 	$template_classes = array(
+		'page-about.php'                    => array( 'about-page' ),
 		'page-apply-to-become.php'          => array( 'apply-to-become-page' ),
 		'page-donation-interest.php'        => array( 'donation-interest-page', 'apply-to-become-page' ),
 		'page-volunteer-application.php'    => array( 'volunteer-application-page', 'apply-to-become-page' ),
@@ -216,6 +217,7 @@ function bdc_page_template_body_classes( $classes ) {
 	$page = get_queried_object();
 	if ( $page instanceof WP_Post ) {
 		$page_slug_classes = array(
+			'about'                       => array( 'about-page' ),
 			'apply-to-join'               => array( 'apply-to-become-page' ),
 			'apply-to-become'             => array( 'apply-to-become-page' ),
 			'donation-interest'           => array( 'donation-interest-page', 'apply-to-become-page' ),
