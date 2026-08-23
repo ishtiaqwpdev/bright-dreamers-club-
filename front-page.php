@@ -340,7 +340,7 @@ $home_spotlight_ideas_photo = $home_spotlight_ideas_defaults['photo'];
 $home_spotlight_ideas_title = (string) $home_spotlight_ideas['title'];
 $home_spotlight_ideas_lead  = (string) $home_spotlight_ideas['lead'];
 $home_spotlight_ideas_body  = (string) $home_spotlight_ideas['body'];
-$home_spotlight_ideas_highlight = (string) $home_spotlight_ideas['highlight'];
+$home_spotlight_ideas_highlight = preg_replace( '/<br\s*\/?>/i', "\n", (string) $home_spotlight_ideas['highlight'] );
 $home_spotlight_ideas_photo_alt = (string) $home_spotlight_ideas_defaults['photo_alt'];
 
 $home_spotlight_council_defaults = array(
