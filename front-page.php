@@ -260,8 +260,8 @@ $home_explore_cards_defaults = array(
 		),
 	),
 	array(
-		'photo'       => bdc_theme_asset_url( 'assets/images/explore-ideas-photo.jpeg' ),
-		'photo_alt'   => 'Two boys working on a creative science project',
+		'photo'       => bdc_theme_asset_url( 'assets/images/home-explore-ideas-photo.png' ),
+		'photo_alt'   => 'A young girl in a lab coat with fresh ideas on a chalkboard',
 		'icon'        => bdc_theme_asset_url( 'assets/images/explore-ideas-icon.jpeg' ),
 		'title'       => 'Young Ideas Lab',
 		'description' => 'Science, innovation, coding, and invention for curious minds.',
@@ -318,10 +318,10 @@ foreach ( $home_explore_cards_raw as $index => $row ) {
 	$photo_alt   = isset( $row['photo_alt'] ) ? trim( (string) $row['photo_alt'] ) : '';
 
 	$home_explore_cards[] = array(
-		'photo'       => in_array( (int) $index, array( 2, 3 ), true )
+		'photo'       => in_array( (int) $index, array( 1, 2, 3 ), true )
 			? (string) $default['photo']
 			: bdc_acf_image_value_to_url( $row['photo'] ?? null, (string) $default['photo'] ),
-		'photo_alt'   => in_array( (int) $index, array( 2, 3 ), true )
+		'photo_alt'   => in_array( (int) $index, array( 1, 2, 3 ), true )
 			? (string) $default['photo_alt']
 			: ( '' !== $photo_alt ? $photo_alt : (string) $default['photo_alt'] ),
 		'icon'        => bdc_acf_image_value_to_url( $row['icon'] ?? null, (string) $default['icon'] ),
