@@ -7639,7 +7639,8 @@ img.lazy-img.loaded {
 
 .compare-side--right {
   background-color: var(--compare-right-bg);
-  border-radius: var(--compare-bar-radius) 0 0 var(--compare-bar-radius);
+  border-radius: var(--compare-bar-radius);
+  overflow: hidden;
 }
 
 .compare-side__photo {
@@ -7680,7 +7681,14 @@ img.lazy-img.loaded {
 }
 
 .compare-side--right .compare-side__photo {
-  object-position: right center;
+  object-position: center center;
+}
+
+.compare-side--right > .lazy-img-wrap {
+  border-radius: 0 var(--compare-bar-radius) var(--compare-bar-radius) 0;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 26%);
+  mask-image: linear-gradient(to right, transparent 0%, #000 26%);
 }
 
 .compare-side__text {

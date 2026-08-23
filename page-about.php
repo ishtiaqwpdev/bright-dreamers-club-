@@ -449,11 +449,11 @@ $about_compare_right_defaults = array(
 		array( 'item_text' => 'Community impact' ),
 		array( 'item_text' => 'Kindness' ),
 	),
-	'photo'      => bdc_theme_asset_url( 'assets/images/compare-right-photo.jpeg' ),
-	'photo_alt'  => 'Children planting together in a garden',
+	'photo'      => bdc_theme_asset_url( 'assets/images/compare-right-photo.png' ),
+	'photo_alt'  => 'A teacher and children exploring a flower model in class',
 );
 $about_compare_right       = bdc_get_acf_group( 'about_compare_right', $about_compare_right_defaults, $about_page_id );
-$about_compare_right_photo = bdc_acf_image_value_to_url( $about_compare_right['photo'] ?? null, $about_compare_right_defaults['photo'] );
+$about_compare_right_photo = $about_compare_right_defaults['photo'];
 $about_compare_right_mark  = bdc_acf_image_value_to_url( $about_compare_right['mark_icon'] ?? null, $about_compare_right_defaults['mark_icon'] );
 $about_compare_right_items_raw = ( is_array( $about_compare_right['list_items'] ?? null ) && ! empty( $about_compare_right['list_items'] ) )
 	? $about_compare_right['list_items']
