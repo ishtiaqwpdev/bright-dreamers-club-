@@ -1626,6 +1626,73 @@ button {
   justify-content: flex-end;
 }
 
+.home-hero__frame {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+}
+
+.home-hero__frame .lazy-img-wrap {
+  overflow: visible;
+}
+
+.home-hero__deco {
+  position: absolute;
+  pointer-events: none;
+  user-select: none;
+  z-index: 2;
+}
+
+.home-hero__deco--heart-tl,
+.home-hero__deco--star-tl,
+.home-hero__deco--star-tr,
+.home-hero__deco--heart-tr,
+.home-hero__deco--star-br {
+  mix-blend-mode: multiply;
+}
+
+.home-hero__deco--heart-tl {
+  left: 2%;
+  top: 8%;
+  width: clamp(28px, 4vw, 42px);
+  height: auto;
+}
+
+.home-hero__deco--star-tl {
+  left: 10%;
+  top: 2%;
+  width: clamp(18px, 2.6vw, 28px);
+  height: auto;
+}
+
+.home-hero__deco--star-tr {
+  right: 14%;
+  top: 4%;
+  width: clamp(16px, 2.4vw, 26px);
+  height: auto;
+}
+
+.home-hero__deco--heart-tr {
+  right: 1%;
+  top: 28%;
+  width: clamp(26px, 3.8vw, 40px);
+  height: auto;
+}
+
+.home-hero__deco--star-br {
+  right: 8%;
+  bottom: 6%;
+  width: clamp(14px, 2vw, 22px);
+  height: auto;
+}
+
+.home-hero__deco--arrow {
+  left: 0;
+  bottom: 4%;
+  width: clamp(72px, 11vw, 120px);
+  height: auto;
+}
+
 /* ——— Lazy blur-up content images ——— */
 .lazy-img-wrap {
   display: block;

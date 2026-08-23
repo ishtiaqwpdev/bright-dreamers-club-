@@ -45,9 +45,11 @@ $home_hero_secondary_cta = bdc_get_acf_link(
 $home_hero_banner_url = bdc_theme_asset_url( 'assets/images/home-hero-banner.png' );
 $home_hero_banner_alt = bdc_get_acf_text(
 	'home_hero_banner_alt',
-	'Three Bright Dreamers holding colorful heart flower drawings in a sunny park',
+	'Three Bright Dreamers holding colorful heart flower drawings',
 	$front_page_id
 );
+$home_hero_deco_heart = bdc_theme_asset_url( 'assets/images/partners-impact-deco-heart-pink.jpeg' );
+$home_hero_deco_star  = bdc_theme_asset_url( 'assets/images/partners-impact-deco-star-yellow.jpeg' );
 
 $home_pillars_idea_defaults = array(
 	'image' => bdc_theme_asset_url( 'assets/images/home-pillar-books.jpeg' ),
@@ -433,16 +435,27 @@ $home_spotlight_council_items = ( is_array( $home_spotlight_council['list_items'
           </div>
 
           <div class="home-hero__media">
-            <div class="lazy-img-wrap">
-              <img
-                class="home-hero__banner lazy-img"
-                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-                data-src="<?php echo esc_url( $home_hero_banner_url ); ?>"
-                alt="<?php echo esc_attr( $home_hero_banner_alt ); ?>"
-                width="1200"
-                height="900"
-                decoding="async"
-              />
+            <div class="home-hero__frame">
+              <div class="lazy-img-wrap">
+                <img
+                  class="home-hero__banner lazy-img"
+                  src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+                  data-src="<?php echo esc_url( $home_hero_banner_url ); ?>"
+                  alt="<?php echo esc_attr( $home_hero_banner_alt ); ?>"
+                  width="1024"
+                  height="576"
+                  decoding="async"
+                />
+              </div>
+              <img class="home-hero__deco home-hero__deco--heart-tl" src="<?php echo esc_url( $home_hero_deco_heart ); ?>" alt="" width="42" height="42" decoding="async" aria-hidden="true" />
+              <img class="home-hero__deco home-hero__deco--star-tl" src="<?php echo esc_url( $home_hero_deco_star ); ?>" alt="" width="28" height="28" decoding="async" aria-hidden="true" />
+              <img class="home-hero__deco home-hero__deco--star-tr" src="<?php echo esc_url( $home_hero_deco_star ); ?>" alt="" width="26" height="26" decoding="async" aria-hidden="true" />
+              <img class="home-hero__deco home-hero__deco--heart-tr" src="<?php echo esc_url( $home_hero_deco_heart ); ?>" alt="" width="40" height="40" decoding="async" aria-hidden="true" />
+              <img class="home-hero__deco home-hero__deco--star-br" src="<?php echo esc_url( $home_hero_deco_star ); ?>" alt="" width="22" height="22" decoding="async" aria-hidden="true" />
+              <svg class="home-hero__deco home-hero__deco--arrow" viewBox="0 0 120 70" width="120" height="70" fill="none" aria-hidden="true">
+                <path d="M8 52c18-4 38-28 62-30 16-1 28 8 36 20" stroke="#9b59d0" stroke-width="2.2" stroke-linecap="round" stroke-dasharray="5 6" />
+                <path d="M98 34l12 10-14 2" stroke="#9b59d0" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
             </div>
           </div>
         </div>
