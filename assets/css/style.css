@@ -16478,6 +16478,9 @@ body.newsletter-success-open {
   :root {
     --announce-pad-y: 6px;
     --header-pad-y: 8px;
+    --hero-pad-y: 14px;
+    --about-hero-pad-top: 14px;
+    --contact-hero-pad-top: 14px;
   }
 
   .announce-bar__social {
@@ -16524,6 +16527,41 @@ body.newsletter-success-open {
   .menu-toggle {
     flex: 0 0 auto;
     margin-left: 0;
+  }
+
+  .site-header {
+    margin-bottom: 0;
+  }
+
+  #main-content {
+    margin-top: 0;
+    padding-top: 0;
+  }
+
+  #main-content > section.page-hero,
+  #main-content > section.about-hero,
+  #main-content > section.home-hero,
+  #main-content > section.for-parents-hero,
+  #main-content > section.get-involved-hero,
+  #main-content > section.vision-hero,
+  #main-content > section.explore-hero,
+  #main-content > section.creative-makers-hero,
+  #main-content > section.young-ideas-lab-hero,
+  #main-content > section.create-for-cause-hero,
+  #main-content > section.community-adventures-hero,
+  #main-content > section.faq-hero,
+  .page-hero {
+    margin-top: 0;
+    padding-top: 14px;
+    min-height: 0;
+  }
+
+  .page-hero__content {
+    padding-top: 0;
+  }
+
+  .faq-hero .page-hero__inner {
+    padding-top: 12px;
   }
 }
 
