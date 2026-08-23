@@ -123,47 +123,28 @@ $faq_cta_heart_url = bdc_get_acf_image_url(
 );
 ?>
     <main id="main-content">
-      <section class="page-hero faq-hero" aria-label="<?php echo esc_attr( $faq_hero_aria_label ); ?>">
-        <div class="site-container page-hero__inner">
-          <div class="page-hero__content faq-hero__content">
-            <p class="faq-hero__eyebrow">
-              <?php echo esc_html( $faq_hero_eyebrow ); ?>
-              <img
-                class="faq-hero__eyebrow-heart"
-                src="<?php echo esc_url( $faq_hero_heart_url ); ?>"
-                alt=""
-                width="22"
-                height="22"
-                decoding="async"
-                aria-hidden="true"
-              />
-            </p>
-
-            <h1 class="faq-hero__title">
-              <span class="faq-hero__title-line faq-hero__title-line--navy"><?php echo esc_html( $faq_hero_title_navy ); ?></span>
-              <span class="faq-hero__title-line faq-hero__title-line--pink"><?php echo esc_html( $faq_hero_title_pink ); ?></span>
-            </h1>
-
-            <p class="faq-hero__text">
-              <?php echo esc_html( $faq_hero_text ); ?>
-            </p>
-          </div>
-
-          <div class="about-hero__media faq-hero__media">
-            <div class="lazy-img-wrap">
-              <img
-                class="about-hero__banner faq-hero__banner lazy-img"
-                src="<?php echo esc_attr( $faq_lazy_placeholder ); ?>"
-                data-src="<?php echo esc_url( $faq_hero_banner_url ); ?>"
-                alt="<?php echo esc_attr( $faq_hero_banner_alt ); ?>"
-                width="1200"
-                height="900"
-                decoding="async"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
+      <?php
+      get_template_part(
+        'template-parts/page-hero',
+        null,
+        array(
+          'section_class'   => 'faq-hero',
+          'aria_label'      => $faq_hero_aria_label,
+          'section_label'   => $faq_hero_eyebrow,
+          'headline_html'   => bdc_hero_lines_html(
+            array(
+              array( 'text' => $faq_hero_title_navy, 'class' => 'faq-hero__title-line faq-hero__title-line--navy' ),
+              array( 'text' => $faq_hero_title_pink, 'class' => 'faq-hero__title-line faq-hero__title-line--pink' ),
+            )
+          ),
+          'supporting_copy' => $faq_hero_text,
+          'hero_image'      => $faq_hero_banner_url,
+          'hero_image_alt'  => $faq_hero_banner_alt,
+          'media_class'     => 'about-hero__media faq-hero__media',
+          'image_class'     => 'about-hero__banner faq-hero__banner',
+        )
+      );
+      ?>
 
       <section class="faq-search section-padding" aria-label="<?php echo esc_attr( $faq_search_aria_label ); ?>">
         <div class="site-container faq-search__inner">

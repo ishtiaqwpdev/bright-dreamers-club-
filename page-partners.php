@@ -390,129 +390,51 @@ if ( empty( $partners_founding_cards ) ) {
 }
 ?>
 <main id="main-content">
-      <section class="page-hero vision-hero about-hero partners-hero" aria-label="Partners">
-        <div class="site-container page-hero__inner">
-          <div class="page-hero__content vision-hero__content">
-            <p class="vision-hero__eyebrow">
-              <?php echo esc_html( $partners_hero_eyebrow ); ?>
-              <svg
-                class="vision-hero__eyebrow-heart"
-                viewBox="0 0 24 24"
-                width="18"
-                height="18"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.8"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                aria-hidden="true"
-              >
-                <path
-                  d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
-                />
-              </svg>
-            </p>
+      <?php
+      $partners_headline_html = bdc_hero_lines_html(
+        array(
+          array( 'text' => $partners_hero_title_line_1, 'class' => 'vision-hero__title-line vision-hero__title-line--navy' ),
+        )
+      );
+      if ( '' !== trim( $partners_hero_title_underline_word ) || '' !== trim( $partners_hero_title_line_2_suffix ) ) {
+        $partners_headline_html .= '<span class="vision-hero__title-line vision-hero__title-line--pink">';
+        if ( '' !== trim( $partners_hero_title_underline_word ) ) {
+          $partners_headline_html .= '<span class="heading-underline heading-underline--partners">' . esc_html( $partners_hero_title_underline_word ) . '<img class="heading-underline__img" src="' . esc_url( $partners_hero_title_underline_url ) . '" alt="" width="140" height="12" decoding="async" aria-hidden="true" /></span>';
+        }
+        if ( '' !== trim( $partners_hero_title_line_2_suffix ) ) {
+          $partners_headline_html .= esc_html( $partners_hero_title_line_2_suffix );
+        }
+        $partners_headline_html .= '</span>';
+      }
 
-            <div class="vision-hero__title-wrap">
-              <h1 class="vision-hero__title">
-                <?php if ( '' !== trim( $partners_hero_title_line_1 ) ) : ?>
-                <span class="vision-hero__title-line vision-hero__title-line--navy"><?php echo esc_html( $partners_hero_title_line_1 ); ?></span>
-                <?php endif; ?>
-                <?php if ( '' !== trim( $partners_hero_title_underline_word ) || '' !== trim( $partners_hero_title_line_2_suffix ) ) : ?>
-                <span class="vision-hero__title-line vision-hero__title-line--pink">
-                  <?php if ( '' !== trim( $partners_hero_title_underline_word ) ) : ?>
-                  <span class="heading-underline heading-underline--partners">
-                    <?php echo esc_html( $partners_hero_title_underline_word ); ?>
-                    <img
-                      class="heading-underline__img"
-                      src="<?php echo esc_url( $partners_hero_title_underline_url ); ?>"
-                      alt=""
-                      width="140"
-                      height="12"
-                      decoding="async"
-                      aria-hidden="true"
-                    />
-                  </span>
-                  <?php endif; ?>
-                  <?php if ( '' !== trim( $partners_hero_title_line_2_suffix ) ) : ?>
-                  <?php echo esc_html( $partners_hero_title_line_2_suffix ); ?>
-                  <?php endif; ?>
-                </span>
-                <?php endif; ?>
-              </h1>
-            </div>
+      $partners_copy_html  = esc_html( $partners_hero_text_intro );
+      if ( '' !== trim( $partners_hero_text_accent ) ) {
+        $partners_copy_html .= ' <span class="vision-hero__accent vision-hero__accent--pink">' . esc_html( $partners_hero_text_accent ) . '</span>';
+      }
+      if ( '' !== trim( $partners_hero_text_outro ) ) {
+        $partners_copy_html .= ' ' . esc_html( $partners_hero_text_outro );
+      }
 
-            <?php if ( '' !== trim( $partners_hero_text_intro ) || '' !== trim( $partners_hero_text_accent ) || '' !== trim( $partners_hero_text_outro ) ) : ?>
-            <p class="vision-hero__text">
-              <?php if ( '' !== trim( $partners_hero_text_intro ) ) : ?>
-              <?php echo esc_html( $partners_hero_text_intro ); ?>
-              <?php endif; ?>
-              <?php if ( '' !== trim( $partners_hero_text_accent ) ) : ?>
-              <span class="vision-hero__accent vision-hero__accent--pink"><?php echo esc_html( $partners_hero_text_accent ); ?></span>
-              <?php endif; ?>
-              <?php if ( '' !== trim( $partners_hero_text_outro ) ) : ?>
-              <?php echo ' ' . esc_html( $partners_hero_text_outro ); ?>
-              <?php endif; ?>
-            </p>
-            <?php endif; ?>
-
-            <div class="page-hero__actions">
-              <?php if ( ! empty( $partners_hero_primary_btn_link['url'] ) && '' !== trim( $partners_hero_primary_btn_text ) ) : ?>
-              <a class="btn btn--solid btn--lg btn-hover" href="<?php echo esc_url( $partners_hero_primary_btn_link['url'] ); ?>"<?php echo bdc_acf_link_target_attr( $partners_hero_primary_btn_link ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
-                <?php echo esc_html( $partners_hero_primary_btn_text ); ?>
-                <svg
-                  class="btn__icon"
-                  viewBox="0 0 24 24"
-                  width="18"
-                  height="18"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  aria-hidden="true"
-                >
-                  <path d="M5 12h14M13 6l6 6-6 6" />
-                </svg>
-              </a>
-              <?php endif; ?>
-              <?php if ( ! empty( $partners_hero_secondary_btn_link['url'] ) && '' !== trim( $partners_hero_secondary_btn_text ) ) : ?>
-              <a class="btn btn--outline btn--lg btn-hover" href="<?php echo esc_url( $partners_hero_secondary_btn_link['url'] ); ?>"<?php echo bdc_acf_link_target_attr( $partners_hero_secondary_btn_link ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
-                <?php echo esc_html( $partners_hero_secondary_btn_text ); ?>
-                <svg
-                  class="btn__icon"
-                  viewBox="0 0 24 24"
-                  width="18"
-                  height="18"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="1.8"
-                  aria-hidden="true"
-                >
-                  <path
-                    d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
-                  />
-                </svg>
-              </a>
-              <?php endif; ?>
-            </div>
-          </div>
-
-          <div class="about-hero__media">
-            <div class="lazy-img-wrap">
-              <img
-                class="about-hero__banner lazy-img"
-                src="<?php echo esc_attr( $partners_hero_lazy_placeholder ); ?>"
-                data-src="<?php echo esc_url( $partners_hero_banner_url ); ?>"
-                alt="<?php echo esc_attr( $partners_hero_banner_alt ); ?>"
-                width="1200"
-                height="900"
-                decoding="async"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
+      get_template_part(
+        'template-parts/page-hero',
+        null,
+        array(
+          'section_class'        => 'vision-hero about-hero partners-hero',
+          'aria_label'           => 'Partners',
+          'section_label'        => $partners_hero_eyebrow,
+          'headline_html'        => $partners_headline_html,
+          'supporting_copy_html' => $partners_copy_html,
+          'primary_cta_text'     => $partners_hero_primary_btn_text,
+          'primary_cta_link'     => $partners_hero_primary_btn_link,
+          'secondary_cta_text'   => $partners_hero_secondary_btn_text,
+          'secondary_cta_link'   => $partners_hero_secondary_btn_link,
+          'hero_image'           => $partners_hero_banner_url,
+          'hero_image_alt'       => $partners_hero_banner_alt,
+          'media_class'          => 'about-hero__media',
+          'image_class'          => 'about-hero__banner',
+        )
+      );
+      ?>
 
       <section class="partners-ways section-padding" aria-labelledby="partners-ways-title">
         <div class="site-container">

@@ -428,3 +428,55 @@ function bdc_render_social_icon_svg( $slug ) {
 			break;
 	}
 }
+
+/**
+ * Render the shared page hero partial.
+ *
+ * @param array<string, mixed> $args Hero arguments. See template-parts/page-hero.php.
+ * @return void
+ */
+function bdc_render_page_hero( array $args ) {
+	get_template_part( 'template-parts/page-hero', null, $args );
+}
+
+/**
+ * Join non-empty copy fragments into one supporting paragraph.
+ *
+ * @param string ...$parts Copy fragments.
+ * @return string
+ */
+function bdc_hero_join_copy( ...$parts ) {
+	$clean = array();
+
+	foreach ( $parts as $part ) {
+		$part = trim( (string) $part );
+		if ( '' !== $part ) {
+			$clean[] = $part;
+		}
+	}
+
+	return implode( ' ', $clean );
+}
+
+/**
+ * Build escaped headline spans for colored title lines.
+ *
+ * @param array<int, array{text?:string,class?:string}> $lines Title lines.
+ * @return string
+ */
+function bdc_hero_lines_html( array $lines ) {
+	$html = '';
+
+	foreach ( $lines as $line ) {
+		$text  = trim( (string) ( $line['text'] ?? '' ) );
+		$class = trim( (string) ( $line['class'] ?? '' ) );
+
+		if ( '' === $text ) {
+			continue;
+		}
+
+		$html .= '<span class="' . esc_attr( $class ) . '">' . esc_html( $text ) . '</span>';
+	}
+
+	return $html;
+}

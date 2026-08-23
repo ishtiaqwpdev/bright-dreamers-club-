@@ -479,97 +479,43 @@ if ( empty( $about_compare_right_items ) ) {
 }
 ?>
     <main id="main-content">
-      <section class="page-hero about-hero" aria-label="About Bright Dreamers">
-        <div class="site-container page-hero__inner">
-          <div class="page-hero__content">
-            <p class="about-hero__eyebrow"><?php echo esc_html( $about_hero_eyebrow ); ?></p>
+      <?php
+      $about_headline_html = bdc_hero_lines_html(
+        array(
+          array( 'text' => $about_hero_title_line_1, 'class' => 'about-hero__title-line about-hero__title-line--navy' ),
+        )
+      );
+      if ( '' !== trim( $about_hero_title_accent ) || '' !== trim( $about_hero_title_line_2 ) ) {
+        $about_headline_html .= '<span class="about-hero__title-line about-hero__title-line--pink">';
+        if ( '' !== trim( $about_hero_title_accent ) ) {
+          $about_headline_html .= '<span class="heading-underline">' . esc_html( $about_hero_title_accent ) . '<img class="heading-underline__img" src="' . esc_url( $about_hero_title_underline_url ) . '" alt="" width="120" height="12" /></span>';
+        }
+        if ( '' !== trim( $about_hero_title_line_2 ) ) {
+          $about_headline_html .= ( '' !== trim( $about_hero_title_accent ) ? ' ' : '' ) . esc_html( $about_hero_title_line_2 );
+        }
+        $about_headline_html .= '</span>';
+      }
 
-            <h1 class="about-hero__title">
-              <?php if ( '' !== trim( $about_hero_title_line_1 ) ) : ?>
-              <span class="about-hero__title-line about-hero__title-line--navy">
-                <?php echo esc_html( $about_hero_title_line_1 ); ?>
-              </span>
-              <?php endif; ?>
-              <?php if ( '' !== trim( $about_hero_title_accent ) || '' !== trim( $about_hero_title_line_2 ) ) : ?>
-              <span class="about-hero__title-line about-hero__title-line--pink">
-                <?php if ( '' !== trim( $about_hero_title_accent ) ) : ?>
-                <span class="heading-underline">
-                  <?php echo esc_html( $about_hero_title_accent ); ?>
-                  <img
-                    class="heading-underline__img"
-                    src="<?php echo esc_url( $about_hero_title_underline_url ); ?>"
-                    alt=""
-                    width="120"
-                    height="12"
-                  />
-                </span>
-                <?php endif; ?>
-                <?php if ( '' !== trim( $about_hero_title_line_2 ) ) : ?>
-                <?php echo ( '' !== trim( $about_hero_title_accent ) ) ? ' ' : ''; ?><?php echo esc_html( $about_hero_title_line_2 ); ?>
-                <?php endif; ?>
-              </span>
-              <?php endif; ?>
-            </h1>
-
-            <?php if ( '' !== trim( $about_hero_text ) ) : ?>
-            <p class="page-hero__text">
-              <?php echo esc_html( $about_hero_text ); ?>
-            </p>
-            <?php endif; ?>
-
-            <div class="page-hero__actions">
-              <?php if ( ! empty( $about_hero_primary_btn_link['url'] ) && '' !== trim( $about_hero_primary_btn_text ) ) : ?>
-              <a class="btn btn--solid btn--lg btn-hover" href="<?php echo esc_url( $about_hero_primary_btn_link['url'] ); ?>"<?php echo bdc_acf_link_target_attr( $about_hero_primary_btn_link ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
-                <svg
-                  class="btn__icon btn__icon--star"
-                  viewBox="0 0 24 24"
-                  fill="var(--color-yellow)"
-                  aria-hidden="true"
-                >
-                  <path
-                    d="M12 2l2.4 4.9 5.4.8-3.9 3.8.9 5.4L12 14.8 7.2 17l.9-5.4L4.2 7.7l5.4-.8L12 2z"
-                  />
-                </svg>
-                <?php echo esc_html( $about_hero_primary_btn_text ); ?>
-              </a>
-              <?php endif; ?>
-              <?php if ( ! empty( $about_hero_secondary_btn_link['url'] ) && '' !== trim( $about_hero_secondary_btn_text ) ) : ?>
-              <a class="btn btn--outline btn--lg btn-hover" href="<?php echo esc_url( $about_hero_secondary_btn_link['url'] ); ?>"<?php echo bdc_acf_link_target_attr( $about_hero_secondary_btn_link ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
-                <?php echo esc_html( $about_hero_secondary_btn_text ); ?>
-                <svg
-                  class="btn__icon"
-                  viewBox="0 0 24 24"
-                  width="18"
-                  height="18"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="1.8"
-                  aria-hidden="true"
-                >
-                  <path
-                    d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
-                  />
-                </svg>
-              </a>
-              <?php endif; ?>
-            </div>
-          </div>
-
-          <div class="about-hero__media">
-            <div class="lazy-img-wrap">
-              <img
-                class="about-hero__banner lazy-img"
-                src="<?php echo esc_attr( $about_hero_lazy_placeholder ); ?>"
-                data-src="<?php echo esc_url( $about_hero_banner_url ); ?>"
-                alt="<?php echo esc_attr( $about_hero_banner_alt ); ?>"
-                width="1200"
-                height="900"
-                decoding="async"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
+      get_template_part(
+        'template-parts/page-hero',
+        null,
+        array(
+          'section_class'      => 'about-hero',
+          'aria_label'         => 'About Bright Dreamers',
+          'section_label'      => $about_hero_eyebrow,
+          'headline_html'      => $about_headline_html,
+          'supporting_copy'    => $about_hero_text,
+          'primary_cta_text'   => $about_hero_primary_btn_text,
+          'primary_cta_link'   => $about_hero_primary_btn_link,
+          'secondary_cta_text' => $about_hero_secondary_btn_text,
+          'secondary_cta_link' => $about_hero_secondary_btn_link,
+          'hero_image'         => $about_hero_banner_url,
+          'hero_image_alt'     => $about_hero_banner_alt,
+          'media_class'        => 'about-hero__media',
+          'image_class'        => 'about-hero__banner',
+        )
+      );
+      ?>
 
       <section class="our-story" aria-label="Our Story">
         <div class="site-container">

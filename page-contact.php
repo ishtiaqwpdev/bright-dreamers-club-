@@ -161,99 +161,40 @@ $contact_cta_btn_link = bdc_get_acf_link(
 );
 ?>
     <main id="main-content">
-      <section class="page-hero contact-hero" aria-label="<?php echo esc_attr( $contact_hero_aria_label ); ?>">
-        <div class="site-container page-hero__inner">
-          <div class="page-hero__content">
-            <h1 class="contact-hero__title">
-              <span class="contact-hero__title-row">
-                <?php if ( '' !== trim( $contact_hero_title_underline_word ) ) : ?>
-                <span class="heading-underline contact-hero__contact-word">
-                  <?php echo esc_html( $contact_hero_title_underline_word ); ?>
-                  <img
-                    class="heading-underline__img"
-                    src="<?php echo esc_url( $contact_hero_title_underline_url ); ?>"
-                    alt=""
-                    width="120"
-                    height="12"
-                  />
-                </span>
-                <?php endif; ?>
-                <?php if ( '' !== trim( $contact_hero_title_suffix ) ) : ?>
-                <span class="contact-hero__us-word"><?php echo esc_html( $contact_hero_title_suffix ); ?></span>
-                <?php endif; ?>
-                <svg
-                  class="contact-hero__star"
-                  viewBox="0 0 24 24"
-                  width="28"
-                  height="28"
-                  fill="none"
-                  stroke="var(--color-yellow)"
-                  stroke-width="1.8"
-                  stroke-linejoin="round"
-                  aria-hidden="true"
-                >
-                  <path
-                    d="M12 2.8l2.55 5.35 5.85.7-4.35 3.95 1.2 5.75L12 15.7l-5.25 2.85 1.2-5.75-4.35-3.95 5.85-.7L12 2.8z"
-                  />
-                </svg>
-              </span>
-            </h1>
+      <?php
+      $contact_headline_html = '';
+      if ( '' !== trim( $contact_hero_title_underline_word ) ) {
+        $contact_headline_html .= '<span class="heading-underline contact-hero__contact-word">' . esc_html( $contact_hero_title_underline_word ) . '<img class="heading-underline__img" src="' . esc_url( $contact_hero_title_underline_url ) . '" alt="" width="120" height="12" /></span>';
+      }
+      if ( '' !== trim( $contact_hero_title_suffix ) ) {
+        $contact_headline_html .= ' <span class="contact-hero__us-word">' . esc_html( $contact_hero_title_suffix ) . '</span>';
+      }
 
-            <div class="contact-hero__body">
-              <?php if (
-                '' !== trim( $contact_hero_text_intro )
-                || '' !== trim( $contact_hero_text_accent_purple )
-                || '' !== trim( $contact_hero_text_mid )
-                || '' !== trim( $contact_hero_text_accent_pink )
-                || '' !== trim( $contact_hero_text_outro )
-              ) : ?>
-              <p class="contact-hero__copy">
-                <?php echo esc_html( $contact_hero_text_intro ); ?>
-                <?php if ( '' !== trim( $contact_hero_text_accent_purple ) ) : ?>
-                <span class="contact-hero__accent contact-hero__accent--purple"><?php echo esc_html( $contact_hero_text_accent_purple ); ?></span>
-                <?php endif; ?>
-                <?php echo esc_html( $contact_hero_text_mid ); ?>
-                <?php if ( '' !== trim( $contact_hero_text_accent_pink ) ) : ?>
-                <span class="contact-hero__accent contact-hero__accent--pink"><?php echo esc_html( $contact_hero_text_accent_pink ); ?></span>
-                <?php endif; ?>
-                <?php echo esc_html( $contact_hero_text_outro ); ?>
-              </p>
-              <?php endif; ?>
+      $contact_copy_html  = esc_html( $contact_hero_text_intro );
+      if ( '' !== trim( $contact_hero_text_accent_purple ) ) {
+        $contact_copy_html .= ' <span class="contact-hero__accent contact-hero__accent--purple">' . esc_html( $contact_hero_text_accent_purple ) . '</span>';
+      }
+      $contact_copy_html .= esc_html( $contact_hero_text_mid );
+      if ( '' !== trim( $contact_hero_text_accent_pink ) ) {
+        $contact_copy_html .= ' <span class="contact-hero__accent contact-hero__accent--pink">' . esc_html( $contact_hero_text_accent_pink ) . '</span>';
+      }
+      $contact_copy_html .= esc_html( $contact_hero_text_outro );
 
-              <svg
-                class="contact-hero__heart"
-                viewBox="0 0 24 24"
-                width="26"
-                height="26"
-                fill="none"
-                stroke="var(--color-plane)"
-                stroke-width="1.8"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                aria-hidden="true"
-              >
-                <path
-                  d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
-                />
-              </svg>
-            </div>
-          </div>
-
-          <div class="about-hero__media">
-            <div class="lazy-img-wrap">
-              <img
-                class="about-hero__banner lazy-img"
-                src="<?php echo esc_attr( $contact_hero_lazy_placeholder ); ?>"
-                data-src="<?php echo esc_url( $contact_hero_banner_url ); ?>"
-                alt="<?php echo esc_attr( $contact_hero_banner_alt ); ?>"
-                width="1200"
-                height="720"
-                decoding="async"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
+      get_template_part(
+        'template-parts/page-hero',
+        null,
+        array(
+          'section_class'        => 'contact-hero',
+          'aria_label'           => $contact_hero_aria_label,
+          'headline_html'        => $contact_headline_html,
+          'supporting_copy_html' => $contact_copy_html,
+          'hero_image'           => $contact_hero_banner_url,
+          'hero_image_alt'       => $contact_hero_banner_alt,
+          'media_class'          => 'about-hero__media',
+          'image_class'          => 'about-hero__banner',
+        )
+      );
+      ?>
 
       <section class="contact-form" aria-label="<?php echo esc_attr( $contact_form_aria_label ); ?>">
         <div class="site-container contact-form__inner">

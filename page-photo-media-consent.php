@@ -130,51 +130,22 @@ $photo_consent_trust_text = bdc_get_acf_text(
 );
 ?>
     <main id="main-content">
-      <section class="page-hero media-policy-hero" aria-label="<?php echo esc_attr( $photo_consent_hero_aria_label ); ?>">
-        <div class="site-container media-policy-hero__inner page-hero__inner">
-          <div class="page-hero__content media-policy-hero__content">
-            <nav class="creative-makers-breadcrumbs media-policy-breadcrumbs" aria-label="Breadcrumb">
-              <ol class="creative-makers-breadcrumbs__list">
-                <li><a href="<?php echo esc_url( $photo_consent_hero_breadcrumb_home_link['url'] ); ?>"<?php echo bdc_acf_link_target_attr( $photo_consent_hero_breadcrumb_home_link ); ?>><?php echo esc_html( $photo_consent_hero_breadcrumb_home_text ); ?></a></li>
-                <li><a href="<?php echo esc_url( $photo_consent_hero_breadcrumb_resources_link['url'] ); ?>"<?php echo bdc_acf_link_target_attr( $photo_consent_hero_breadcrumb_resources_link ); ?>><?php echo esc_html( $photo_consent_hero_breadcrumb_resources_text ); ?></a></li>
-                <li><a href="<?php echo esc_url( $photo_consent_hero_breadcrumb_policy_link['url'] ); ?>"<?php echo bdc_acf_link_target_attr( $photo_consent_hero_breadcrumb_policy_link ); ?>><?php echo esc_html( $photo_consent_hero_breadcrumb_policy_text ); ?></a></li>
-                <li aria-current="page"><?php echo esc_html( $photo_consent_hero_breadcrumb_current_text ); ?></li>
-              </ol>
-            </nav>
-
-            <h1 class="media-policy-hero__title media-consent-hero__title">
-              <span class="media-consent-hero__title-text"><?php echo esc_html( $photo_consent_hero_title ); ?></span>
-              <img
-                class="media-policy-hero__heart media-consent-hero__heart"
-                src="<?php echo esc_url( $photo_consent_hero_heart_url ); ?>"
-                alt=""
-                width="28"
-                height="28"
-                decoding="async"
-                aria-hidden="true"
-              />
-            </h1>
-
-            <p class="media-policy-hero__text">
-              <?php echo esc_html( $photo_consent_hero_text ); ?>
-            </p>
-          </div>
-
-          <div class="about-hero__media media-policy-hero__media">
-            <div class="lazy-img-wrap">
-              <img
-                class="about-hero__banner media-policy-hero__banner lazy-img"
-                src="<?php echo esc_attr( $photo_consent_lazy_placeholder ); ?>"
-                data-src="<?php echo esc_url( $photo_consent_hero_banner_url ); ?>"
-                alt="<?php echo esc_attr( $photo_consent_hero_banner_alt ); ?>"
-                width="1200"
-                height="900"
-                decoding="async"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
+      <?php
+      get_template_part(
+        'template-parts/page-hero',
+        null,
+        array(
+          'section_class'   => 'media-policy-hero',
+          'aria_label'      => $photo_consent_hero_aria_label,
+          'headline'        => $photo_consent_hero_title,
+          'supporting_copy' => $photo_consent_hero_text,
+          'hero_image'      => $photo_consent_hero_banner_url,
+          'hero_image_alt'  => $photo_consent_hero_banner_alt,
+          'media_class'     => 'about-hero__media media-policy-hero__media',
+          'image_class'     => 'about-hero__banner media-policy-hero__banner',
+        )
+      );
+      ?>
 
       <section class="media-policy-main section-padding" aria-label="<?php echo esc_attr( $photo_consent_main_aria_label ); ?>">
         <div class="site-container media-policy-main__inner">

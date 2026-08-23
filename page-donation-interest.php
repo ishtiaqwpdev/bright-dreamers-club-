@@ -122,49 +122,27 @@ $donation_footer_deco_url = bdc_get_acf_image_url(
 );
 ?>
     <main id="main-content">
-      <section class="page-hero apply-hero donation-hero" aria-label="<?php echo esc_attr( $donation_hero_aria_label ); ?>">
-        <div class="site-container page-hero__inner">
-          <div class="page-hero__content apply-hero__content">
-            <h1 class="apply-hero__title donation-hero__title">
-              <span class="apply-hero__title-line apply-hero__title-line--pink"><?php echo esc_html( $donation_hero_title_pink ); ?></span>
-              <span class="apply-hero__title-line apply-hero__title-line--navy"><?php echo esc_html( $donation_hero_title_navy ); ?></span>
-            </h1>
-
-            <p class="apply-hero__text">
-              <?php echo esc_html( $donation_hero_text ); ?>
-            </p>
-
-            <div class="apply-hero__note donation-hero__note">
-              <p class="apply-hero__note-text donation-hero__note-text">
-                <?php echo esc_html( $donation_hero_note_text ); ?>
-              </p>
-              <img
-                class="apply-hero__note-icon donation-hero__note-icon"
-                src="<?php echo esc_url( $donation_hero_note_icon_url ); ?>"
-                alt=""
-                width="24"
-                height="24"
-                decoding="async"
-                aria-hidden="true"
-              />
-            </div>
-          </div>
-
-          <div class="about-hero__media donation-hero__media">
-            <div class="lazy-img-wrap">
-              <img
-                class="about-hero__banner apply-hero__banner donation-hero__banner lazy-img"
-                src="<?php echo esc_attr( $donation_lazy_placeholder ); ?>"
-                data-src="<?php echo esc_url( $donation_hero_banner_url ); ?>"
-                alt="<?php echo esc_attr( $donation_hero_banner_alt ); ?>"
-                width="1200"
-                height="900"
-                decoding="async"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
+      <?php
+      get_template_part(
+        'template-parts/page-hero',
+        null,
+        array(
+          'section_class'   => 'apply-hero donation-hero',
+          'aria_label'      => $donation_hero_aria_label,
+          'headline_html'   => bdc_hero_lines_html(
+            array(
+              array( 'text' => $donation_hero_title_pink, 'class' => 'apply-hero__title-line apply-hero__title-line--pink' ),
+              array( 'text' => $donation_hero_title_navy, 'class' => 'apply-hero__title-line apply-hero__title-line--navy' ),
+            )
+          ),
+          'supporting_copy' => $donation_hero_text,
+          'hero_image'      => $donation_hero_banner_url,
+          'hero_image_alt'  => $donation_hero_banner_alt,
+          'media_class'     => 'about-hero__media',
+          'image_class'     => 'about-hero__banner apply-hero__banner',
+        )
+      );
+      ?>
 
       <section class="apply-form section-padding" aria-label="Donation interest form">
         <div class="site-container apply-form__inner">

@@ -613,139 +613,33 @@ $explore_dream_secondary_btn_link = bdc_get_acf_link(
 );
 ?>
     <main id="main-content">
-      <section class="page-hero explore-hero" aria-label="Explore Bright Dreamers">
-        <div class="site-container page-hero__inner">
-          <div class="page-hero__content">
-            <p class="explore-hero__eyebrow">
-              <?php echo esc_html( $explore_hero_eyebrow ); ?>
-              <svg
-                class="explore-hero__eyebrow-icon"
-                viewBox="0 0 24 24"
-                width="16"
-                height="16"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.8"
-                aria-hidden="true"
-              >
-                <path
-                  d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
-                />
-              </svg>
-            </p>
-
-            <div class="explore-hero__heading-block">
-              <div class="explore-hero__title-wrap">
-                <h1 class="explore-hero__title">
-                  <?php if ( '' !== trim( $explore_hero_title_line_1 ) ) : ?>
-                  <span class="explore-hero__title-line explore-hero__title-line--navy">
-                    <?php echo esc_html( $explore_hero_title_line_1 ); ?>
-                  </span>
-                  <?php endif; ?>
-                  <?php if ( '' !== trim( $explore_hero_title_line_2 ) ) : ?>
-                  <span class="explore-hero__title-line explore-hero__title-line--navy">
-                    <?php echo esc_html( $explore_hero_title_line_2 ); ?>
-                  </span>
-                  <?php endif; ?>
-                  <?php if ( '' !== trim( $explore_hero_title_line_3 ) ) : ?>
-                  <span class="explore-hero__title-line explore-hero__title-line--pink">
-                    <?php echo esc_html( $explore_hero_title_line_3 ); ?>
-                  </span>
-                  <?php endif; ?>
-                </h1>
-              </div>
-              <img
-                class="explore-hero__deco"
-                src="<?php echo esc_url( $explore_hero_deco_url ); ?>"
-                alt=""
-                width="142"
-                height="180"
-                decoding="async"
-                aria-hidden="true"
-              />
-            </div>
-
-            <?php if ( '' !== trim( $explore_hero_text ) ) : ?>
-            <p class="explore-hero__text">
-              <?php echo esc_html( $explore_hero_text ); ?>
-            </p>
-            <?php endif; ?>
-
-            <?php if ( '' !== trim( $explore_hero_text_last ) ) : ?>
-            <p class="explore-hero__text explore-hero__text--last">
-              <?php echo esc_html( $explore_hero_text_last ); ?>
-            </p>
-            <?php endif; ?>
-
-            <div class="page-hero__actions">
-              <?php if ( ! empty( $explore_hero_primary_btn_link['url'] ) && '' !== trim( $explore_hero_primary_btn_text ) ) : ?>
-              <a class="btn btn--solid btn--lg btn-hover" href="<?php echo esc_url( $explore_hero_primary_btn_link['url'] ); ?>"<?php echo bdc_acf_link_target_attr( $explore_hero_primary_btn_link ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
-                <?php echo esc_html( $explore_hero_primary_btn_text ); ?>
-                <svg
-                  class="btn__icon"
-                  viewBox="0 0 24 24"
-                  width="18"
-                  height="18"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  aria-hidden="true"
-                >
-                  <path d="M5 12h14M13 6l6 6-6 6" />
-                </svg>
-              </a>
-              <?php endif; ?>
-              <?php if ( ! empty( $explore_hero_secondary_btn_link['url'] ) && '' !== trim( $explore_hero_secondary_btn_text ) ) : ?>
-              <a class="btn btn--outline btn--lg btn-hover" href="<?php echo esc_url( $explore_hero_secondary_btn_link['url'] ); ?>"<?php echo bdc_acf_link_target_attr( $explore_hero_secondary_btn_link ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
-                <?php echo esc_html( $explore_hero_secondary_btn_text ); ?>
-                <svg
-                  class="btn__icon"
-                  viewBox="0 0 24 24"
-                  width="18"
-                  height="18"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="1.8"
-                  aria-hidden="true"
-                >
-                  <circle cx="12" cy="12" r="9" />
-                  <path d="M10 8.5v7l5.5-3.5L10 8.5z" fill="currentColor" stroke="none" />
-                </svg>
-              </a>
-              <?php endif; ?>
-            </div>
-          </div>
-
-          <div class="explore-hero__media">
-            <div class="lazy-img-wrap">
-              <img
-                class="explore-hero__banner lazy-img"
-                src="<?php echo esc_attr( $explore_hero_lazy_placeholder ); ?>"
-                data-src="<?php echo esc_url( $explore_hero_banner_url ); ?>"
-                alt="<?php echo esc_attr( $explore_hero_banner_alt ); ?>"
-                width="1200"
-                height="900"
-                decoding="async"
-              />
-            </div>
-
-            <?php if ( ! empty( $explore_hero_tags ) ) : ?>
-            <div
-              class="explore-hero__tags-wrap"
-              aria-hidden="true"
-            >
-              <ul class="explore-hero__tags">
-                <?php foreach ( $explore_hero_tags as $explore_tag ) : ?>
-                <li><?php echo esc_html( $explore_tag ); ?></li>
-                <?php endforeach; ?>
-              </ul>
-            </div>
-            <?php endif; ?>
-          </div>
-        </div>
-      </section>
+      <?php
+      get_template_part(
+        'template-parts/page-hero',
+        null,
+        array(
+          'section_class'    => 'explore-hero',
+          'aria_label'       => 'Explore Bright Dreamers',
+          'section_label'    => $explore_hero_eyebrow,
+          'headline_html'    => bdc_hero_lines_html(
+            array(
+              array( 'text' => $explore_hero_title_line_1, 'class' => 'explore-hero__title-line explore-hero__title-line--navy' ),
+              array( 'text' => $explore_hero_title_line_2, 'class' => 'explore-hero__title-line explore-hero__title-line--navy' ),
+              array( 'text' => $explore_hero_title_line_3, 'class' => 'explore-hero__title-line explore-hero__title-line--pink' ),
+            )
+          ),
+          'supporting_copy'  => bdc_hero_join_copy( $explore_hero_text, $explore_hero_text_last ),
+          'primary_cta_text' => $explore_hero_primary_btn_text,
+          'primary_cta_link' => $explore_hero_primary_btn_link,
+          'secondary_cta_text' => $explore_hero_secondary_btn_text,
+          'secondary_cta_link' => $explore_hero_secondary_btn_link,
+          'hero_image'       => $explore_hero_banner_url,
+          'hero_image_alt'   => $explore_hero_banner_alt,
+          'media_class'      => 'explore-hero__media',
+          'image_class'      => 'explore-hero__banner',
+        )
+      );
+      ?>
 
       <div id="explore-content">
         <section class="explore-ways section-padding" aria-labelledby="explore-ways-title">

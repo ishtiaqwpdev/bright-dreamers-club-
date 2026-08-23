@@ -561,101 +561,54 @@ $vision_together_support_btn_link = bdc_get_acf_link(
 );
 ?>
     <main id="main-content">
-      <section class="page-hero vision-hero about-hero" aria-label="Our Vision">
-        <div class="site-container page-hero__inner">
-          <div class="page-hero__content vision-hero__content">
-            <p class="vision-hero__eyebrow">
-              <?php echo esc_html( $vision_hero_eyebrow ); ?>
-              <svg
-                class="vision-hero__eyebrow-heart"
-                viewBox="0 0 24 24"
-                width="18"
-                height="18"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.8"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                aria-hidden="true"
-              >
-                <path
-                  d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
-                />
-              </svg>
-            </p>
+      <?php
+      $vision_copy_html = esc_html( $vision_hero_lead_intro );
+      if ( '' !== trim( $vision_hero_lead_accent ) ) {
+        $vision_copy_html .= ( '' !== trim( $vision_hero_lead_intro ) ? ' ' : '' );
+        $vision_copy_html .= '<span class="vision-hero__accent vision-hero__accent--pink">' . esc_html( $vision_hero_lead_accent ) . '</span>';
+      }
+      if ( '' !== trim( $vision_hero_text ) ) {
+        $vision_copy_html .= ( '' !== trim( wp_strip_all_tags( $vision_copy_html ) ) ? ' ' : '' ) . esc_html( $vision_hero_text );
+      }
 
-            <div class="vision-hero__title-wrap">
-              <h1 class="vision-hero__title">
-                <?php if ( '' !== trim( $vision_hero_title_line_1 ) ) : ?>
-                <span class="vision-hero__title-line vision-hero__title-line--navy"><?php echo esc_html( $vision_hero_title_line_1 ); ?></span>
-                <?php endif; ?>
-                <?php if ( '' !== trim( $vision_hero_title_line_2 ) ) : ?>
-                <span class="vision-hero__title-line vision-hero__title-line--pink"><?php echo esc_html( $vision_hero_title_line_2 ); ?></span>
-                <?php endif; ?>
-                <?php if ( '' !== trim( $vision_hero_title_line_3 ) ) : ?>
-                <span class="vision-hero__title-line vision-hero__title-line--navy"><?php echo esc_html( $vision_hero_title_line_3 ); ?></span>
-                <?php endif; ?>
-              </h1>
-            </div>
-
-            <?php if ( '' !== trim( $vision_hero_lead_intro ) || '' !== trim( $vision_hero_lead_accent ) ) : ?>
-            <p class="vision-hero__lead">
-              <?php if ( '' !== trim( $vision_hero_lead_intro ) ) : ?>
-              <?php echo esc_html( $vision_hero_lead_intro ); ?>
-              <?php endif; ?>
-              <?php if ( '' !== trim( $vision_hero_lead_accent ) ) : ?>
-              <?php if ( '' !== trim( $vision_hero_lead_intro ) ) : ?><br /><?php endif; ?>
-              <span class="vision-hero__accent vision-hero__accent--pink"><?php echo esc_html( $vision_hero_lead_accent ); ?></span>
-              <?php endif; ?>
-            </p>
-            <?php endif; ?>
-
-            <?php if ( '' !== trim( $vision_hero_text ) ) : ?>
-            <p class="vision-hero__text">
-              <?php echo esc_html( $vision_hero_text ); ?>
-            </p>
-            <?php endif; ?>
-
-            <?php if ( ! empty( $vision_hero_list ) ) : ?>
-            <ul class="vision-hero__list">
-              <?php foreach ( $vision_hero_list as $list_item ) : ?>
-              <li>
-                <span class="vision-hero__check" aria-hidden="true">
-                  <svg
-                    viewBox="0 0 24 24"
-                    width="11"
-                    height="11"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2.8"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  >
-                    <path d="M5 13l4 4L19 7" />
-                  </svg>
-                </span>
-                <?php echo esc_html( $list_item ); ?>
-              </li>
-              <?php endforeach; ?>
-            </ul>
-            <?php endif; ?>
-          </div>
-
-          <div class="about-hero__media">
-            <div class="lazy-img-wrap">
-              <img
-                class="about-hero__banner lazy-img"
-                src="<?php echo esc_attr( $vision_hero_lazy_placeholder ); ?>"
-                data-src="<?php echo esc_url( $vision_hero_banner_url ); ?>"
-                alt="<?php echo esc_attr( $vision_hero_banner_alt ); ?>"
-                width="1200"
-                height="900"
-                decoding="async"
-              />
-            </div>
-          </div>
+      get_template_part(
+        'template-parts/page-hero',
+        null,
+        array(
+          'section_class'        => 'vision-hero about-hero',
+          'aria_label'           => 'Our Vision',
+          'section_label'        => $vision_hero_eyebrow,
+          'headline_html'        => bdc_hero_lines_html(
+            array(
+              array( 'text' => $vision_hero_title_line_1, 'class' => 'vision-hero__title-line vision-hero__title-line--navy' ),
+              array( 'text' => $vision_hero_title_line_2, 'class' => 'vision-hero__title-line vision-hero__title-line--pink' ),
+              array( 'text' => $vision_hero_title_line_3, 'class' => 'vision-hero__title-line vision-hero__title-line--navy' ),
+            )
+          ),
+          'supporting_copy_html' => $vision_copy_html,
+          'hero_image'           => $vision_hero_banner_url,
+          'hero_image_alt'       => $vision_hero_banner_alt,
+          'media_class'          => 'about-hero__media',
+          'image_class'          => 'about-hero__banner',
+        )
+      );
+      ?>
+      <?php if ( ! empty( $vision_hero_list ) ) : ?>
+      <section class="vision-hero-checklist" aria-label="Vision highlights">
+        <div class="site-container">
+          <ul class="vision-hero__list">
+            <?php foreach ( $vision_hero_list as $list_item ) : ?>
+            <li>
+              <span class="vision-hero__check" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7" /></svg>
+              </span>
+              <?php echo esc_html( $list_item ); ?>
+            </li>
+            <?php endforeach; ?>
+          </ul>
         </div>
       </section>
+      <?php endif; ?>
 
       <section class="vision-pillars section-padding" aria-labelledby="vision-pillars-title">
         <div class="site-container">

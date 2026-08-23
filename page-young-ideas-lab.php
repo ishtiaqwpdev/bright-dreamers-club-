@@ -362,110 +362,27 @@ $young_ideas_lab_cta_btn_link = bdc_get_acf_link(
 );
 ?>
     <main id="main-content" class="young-ideas-lab-page">
-      <section class="page-hero creative-makers-hero young-ideas-lab-hero" aria-labelledby="young-ideas-lab-title">
-        <div class="site-container creative-makers-hero__wrap">
-          <div class="creative-makers-hero__inner page-hero__inner">
-            <div class="page-hero__content creative-makers-hero__content">
-              <nav class="creative-makers-breadcrumbs" aria-label="Breadcrumb">
-                <ol class="creative-makers-breadcrumbs__list">
-                  <?php if ( ! empty( $young_ideas_lab_hero_breadcrumb_home_link['url'] ) && '' !== trim( $young_ideas_lab_hero_breadcrumb_home_text ) ) : ?>
-                  <li><a href="<?php echo esc_url( $young_ideas_lab_hero_breadcrumb_home_link['url'] ); ?>"<?php echo bdc_acf_link_target_attr( $young_ideas_lab_hero_breadcrumb_home_link ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>><?php echo esc_html( $young_ideas_lab_hero_breadcrumb_home_text ); ?></a></li>
-                  <?php endif; ?>
-                  <?php if ( ! empty( $young_ideas_lab_hero_breadcrumb_parent_link['url'] ) && '' !== trim( $young_ideas_lab_hero_breadcrumb_parent_text ) ) : ?>
-                  <li><a href="<?php echo esc_url( $young_ideas_lab_hero_breadcrumb_parent_link['url'] ); ?>"<?php echo bdc_acf_link_target_attr( $young_ideas_lab_hero_breadcrumb_parent_link ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>><?php echo esc_html( $young_ideas_lab_hero_breadcrumb_parent_text ); ?></a></li>
-                  <?php endif; ?>
-                  <?php if ( '' !== trim( $young_ideas_lab_hero_breadcrumb_current_text ) ) : ?>
-                  <li aria-current="page"><?php echo esc_html( $young_ideas_lab_hero_breadcrumb_current_text ); ?></li>
-                  <?php endif; ?>
-                </ol>
-              </nav>
-
-              <?php if ( '' !== trim( $young_ideas_lab_hero_title ) ) : ?>
-              <h1 class="creative-makers-hero__title" id="young-ideas-lab-title">
-                <?php echo esc_html( $young_ideas_lab_hero_title ); ?>
-                <?php if ( '' !== trim( $young_ideas_lab_hero_title_icon_url ) ) : ?>
-                <img
-                  class="creative-makers-hero__title-heart"
-                  src="<?php echo esc_url( $young_ideas_lab_hero_title_icon_url ); ?>"
-                  alt=""
-                  width="28"
-                  height="28"
-                  decoding="async"
-                  aria-hidden="true"
-                />
-                <?php endif; ?>
-              </h1>
-              <?php endif; ?>
-
-              <?php if ( '' !== trim( $young_ideas_lab_hero_tagline ) ) : ?>
-              <p class="creative-makers-hero__tagline">
-                <?php echo esc_html( $young_ideas_lab_hero_tagline ); ?>
-              </p>
-              <?php endif; ?>
-
-              <?php if ( '' !== trim( $young_ideas_lab_hero_text ) ) : ?>
-              <p class="creative-makers-hero__text">
-                <?php echo esc_html( $young_ideas_lab_hero_text ); ?>
-              </p>
-              <?php endif; ?>
-
-              <div class="page-hero__actions creative-makers-hero__actions">
-                <?php if ( ! empty( $young_ideas_lab_hero_primary_btn_link['url'] ) && '' !== trim( $young_ideas_lab_hero_primary_btn_text ) ) : ?>
-                <a class="btn btn--solid btn--lg btn-hover" href="<?php echo esc_url( $young_ideas_lab_hero_primary_btn_link['url'] ); ?>"<?php echo bdc_acf_link_target_attr( $young_ideas_lab_hero_primary_btn_link ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
-                  <?php echo esc_html( $young_ideas_lab_hero_primary_btn_text ); ?>
-                  <svg
-                    class="btn__icon"
-                    viewBox="0 0 24 24"
-                    width="18"
-                    height="18"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    aria-hidden="true"
-                  >
-                    <path d="M5 12h14M13 6l6 6-6 6" />
-                  </svg>
-                </a>
-                <?php endif; ?>
-                <?php if ( ! empty( $young_ideas_lab_hero_back_link['url'] ) && '' !== trim( $young_ideas_lab_hero_back_text ) ) : ?>
-                <a class="creative-makers-hero__back" href="<?php echo esc_url( $young_ideas_lab_hero_back_link['url'] ); ?>"<?php echo bdc_acf_link_target_attr( $young_ideas_lab_hero_back_link ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
-                  <svg
-                    viewBox="0 0 24 24"
-                    width="16"
-                    height="16"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    aria-hidden="true"
-                  >
-                    <path d="M19 12H5M11 6l-6 6 6 6" />
-                  </svg>
-                  <?php echo esc_html( $young_ideas_lab_hero_back_text ); ?>
-                </a>
-                <?php endif; ?>
-              </div>
-            </div>
-
-            <div class="creative-makers-hero__media">
-              <div class="lazy-img-wrap">
-                <img
-                  class="creative-makers-hero__banner lazy-img"
-                  src="<?php echo esc_attr( $young_ideas_lab_hero_lazy_placeholder ); ?>"
-                  data-src="<?php echo esc_url( $young_ideas_lab_hero_banner_url ); ?>"
-                  alt="<?php echo esc_attr( $young_ideas_lab_hero_banner_alt ); ?>"
-                  width="1200"
-                  height="720"
-                  decoding="async"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <?php
+      get_template_part(
+        'template-parts/page-hero',
+        null,
+        array(
+          'section_class'      => 'creative-makers-hero young-ideas-lab-hero',
+          'labelledby'         => 'young-ideas-lab-title',
+          'headline'           => $young_ideas_lab_hero_title,
+          'headline_id'        => 'young-ideas-lab-title',
+          'supporting_copy'    => bdc_hero_join_copy( $young_ideas_lab_hero_tagline, $young_ideas_lab_hero_text ),
+          'primary_cta_text'   => $young_ideas_lab_hero_primary_btn_text,
+          'primary_cta_link'   => $young_ideas_lab_hero_primary_btn_link,
+          'secondary_cta_text' => $young_ideas_lab_hero_back_text,
+          'secondary_cta_link' => $young_ideas_lab_hero_back_link,
+          'hero_image'         => $young_ideas_lab_hero_banner_url,
+          'hero_image_alt'     => $young_ideas_lab_hero_banner_alt,
+          'media_class'        => 'creative-makers-hero__media',
+          'image_class'        => 'creative-makers-hero__banner',
+        )
+      );
+      ?>
 
       <section class="creative-makers-explore" aria-labelledby="creative-makers-explore-title">
         <div class="site-container">

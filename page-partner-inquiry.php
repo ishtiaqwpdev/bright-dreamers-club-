@@ -113,33 +113,27 @@ $partner_footer_star_url = bdc_get_acf_image_url(
 );
 ?>
     <main id="main-content">
-      <section class="page-hero apply-hero partner-inquiry-hero" aria-label="<?php echo esc_attr( $partner_hero_aria_label ); ?>">
-        <div class="site-container page-hero__inner">
-          <div class="page-hero__content apply-hero__content">
-            <h1 class="apply-hero__title partner-inquiry-hero__title">
-              <span class="apply-hero__title-line apply-hero__title-line--pink"><?php echo esc_html( $partner_hero_title_pink ); ?></span><span class="apply-hero__title-line apply-hero__title-line--navy"><?php echo esc_html( $partner_hero_title_navy ); ?></span>
-            </h1>
-
-            <p class="apply-hero__text">
-              <?php echo esc_html( $partner_hero_text ); ?>
-            </p>
-          </div>
-
-          <div class="about-hero__media">
-            <div class="lazy-img-wrap">
-              <img
-                class="about-hero__banner apply-hero__banner partner-inquiry-hero__banner lazy-img"
-                src="<?php echo esc_attr( $partner_lazy_placeholder ); ?>"
-                data-src="<?php echo esc_url( $partner_hero_banner_url ); ?>"
-                alt="<?php echo esc_attr( $partner_hero_banner_alt ); ?>"
-                width="1200"
-                height="900"
-                decoding="async"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
+      <?php
+      get_template_part(
+        'template-parts/page-hero',
+        null,
+        array(
+          'section_class'   => 'apply-hero partner-inquiry-hero',
+          'aria_label'      => $partner_hero_aria_label,
+          'headline_html'   => bdc_hero_lines_html(
+            array(
+              array( 'text' => $partner_hero_title_pink, 'class' => 'apply-hero__title-line apply-hero__title-line--pink' ),
+              array( 'text' => $partner_hero_title_navy, 'class' => 'apply-hero__title-line apply-hero__title-line--navy' ),
+            )
+          ),
+          'supporting_copy' => $partner_hero_text,
+          'hero_image'      => $partner_hero_banner_url,
+          'hero_image_alt'  => $partner_hero_banner_alt,
+          'media_class'     => 'about-hero__media',
+          'image_class'     => 'about-hero__banner apply-hero__banner',
+        )
+      );
+      ?>
 
       <section class="apply-form section-padding" aria-label="Partner inquiry form">
         <div class="site-container apply-form__inner">

@@ -341,123 +341,41 @@ $get_involved_partner_cta_deco_url = bdc_get_acf_image_url(
 );
 ?>
     <main id="main-content">
-      <section class="page-hero get-involved-hero about-hero" aria-label="Get Involved">
-        <div class="site-container page-hero__inner">
-          <div class="page-hero__content">
-            <p class="get-involved-hero__eyebrow">
-              <?php echo esc_html( $get_involved_hero_eyebrow ); ?>
-              <svg
-                class="get-involved-hero__eyebrow-heart"
-                viewBox="0 0 24 24"
-                width="18"
-                height="18"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.8"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                aria-hidden="true"
-              >
-                <path
-                  d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
-                />
-              </svg>
-            </p>
+      <?php
+      $get_involved_copy = bdc_hero_join_copy(
+        $get_involved_hero_text_intro,
+        $get_involved_hero_text_accent_1,
+        $get_involved_hero_text_middle,
+        $get_involved_hero_text_accent_2,
+        $get_involved_hero_text_outro,
+        $get_involved_hero_text_secondary
+      );
 
-            <h1 class="get-involved-hero__title">
-              <?php if ( '' !== trim( $get_involved_hero_title_line_1 ) ) : ?>
-              <span class="get-involved-hero__title-line get-involved-hero__title-line--pink"><?php echo esc_html( $get_involved_hero_title_line_1 ); ?></span>
-              <?php endif; ?>
-              <?php if ( '' !== trim( $get_involved_hero_title_line_2 ) ) : ?>
-              <span class="get-involved-hero__title-line get-involved-hero__title-line--navy"><?php echo esc_html( $get_involved_hero_title_line_2 ); ?></span>
-              <?php endif; ?>
-            </h1>
-
-            <?php if ( '' !== trim( $get_involved_hero_text_intro ) || '' !== trim( $get_involved_hero_text_accent_1 ) || '' !== trim( $get_involved_hero_text_middle ) || '' !== trim( $get_involved_hero_text_accent_2 ) || '' !== trim( $get_involved_hero_text_outro ) ) : ?>
-            <p class="get-involved-hero__text">
-              <?php if ( '' !== trim( $get_involved_hero_text_intro ) ) : ?>
-              <?php echo esc_html( $get_involved_hero_text_intro ); ?>
-              <?php endif; ?>
-              <?php if ( '' !== trim( $get_involved_hero_text_accent_1 ) ) : ?>
-              <span class="get-involved-hero__accent get-involved-hero__accent--pink"><?php echo esc_html( $get_involved_hero_text_accent_1 ); ?></span><?php if ( '' !== trim( $get_involved_hero_text_middle ) ) : ?>,<?php endif; ?>
-              <?php endif; ?>
-              <?php if ( '' !== trim( $get_involved_hero_text_middle ) ) : ?>
-              <?php echo esc_html( $get_involved_hero_text_middle ); ?>
-              <?php endif; ?>
-              <?php if ( '' !== trim( $get_involved_hero_text_accent_2 ) ) : ?>
-              <span class="get-involved-hero__accent get-involved-hero__accent--pink"><?php echo esc_html( $get_involved_hero_text_accent_2 ); ?></span>
-              <?php endif; ?>
-              <?php if ( '' !== trim( $get_involved_hero_text_outro ) ) : ?>
-              <?php echo ' ' . esc_html( $get_involved_hero_text_outro ); ?>
-              <?php endif; ?>
-            </p>
-            <?php endif; ?>
-
-            <?php if ( '' !== trim( $get_involved_hero_text_secondary ) ) : ?>
-            <p class="get-involved-hero__text get-involved-hero__text--secondary">
-              <?php echo esc_html( $get_involved_hero_text_secondary ); ?>
-            </p>
-            <?php endif; ?>
-
-            <div class="page-hero__actions">
-              <?php if ( ! empty( $get_involved_hero_primary_btn_link['url'] ) && '' !== trim( $get_involved_hero_primary_btn_text ) ) : ?>
-              <a class="btn btn--solid btn--lg btn-hover" href="<?php echo esc_url( $get_involved_hero_primary_btn_link['url'] ); ?>"<?php echo bdc_acf_link_target_attr( $get_involved_hero_primary_btn_link ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
-                <?php echo esc_html( $get_involved_hero_primary_btn_text ); ?>
-                <svg
-                  class="btn__icon"
-                  viewBox="0 0 24 24"
-                  width="18"
-                  height="18"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="1.7"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  aria-hidden="true"
-                >
-                  <circle cx="9" cy="8" r="2.8" />
-                  <path d="M4.5 18c.65-2.4 2.4-3.8 4.5-3.8s3.85 1.4 4.5 3.8" />
-                  <path d="M16 11v4M18 13h-4" />
-                </svg>
-              </a>
-              <?php endif; ?>
-              <?php if ( ! empty( $get_involved_hero_secondary_btn_link['url'] ) && '' !== trim( $get_involved_hero_secondary_btn_text ) ) : ?>
-              <a class="btn btn--outline btn--lg btn-hover" href="<?php echo esc_url( $get_involved_hero_secondary_btn_link['url'] ); ?>"<?php echo bdc_acf_link_target_attr( $get_involved_hero_secondary_btn_link ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
-                <?php echo esc_html( $get_involved_hero_secondary_btn_text ); ?>
-                <svg
-                  class="btn__icon"
-                  viewBox="0 0 24 24"
-                  width="18"
-                  height="18"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="1.8"
-                  aria-hidden="true"
-                >
-                  <path
-                    d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
-                  />
-                </svg>
-              </a>
-              <?php endif; ?>
-            </div>
-          </div>
-
-          <div class="about-hero__media">
-            <div class="lazy-img-wrap">
-              <img
-                class="about-hero__banner lazy-img"
-                src="<?php echo esc_attr( $get_involved_hero_lazy_placeholder ); ?>"
-                data-src="<?php echo esc_url( $get_involved_hero_banner_url ); ?>"
-                alt="<?php echo esc_attr( $get_involved_hero_banner_alt ); ?>"
-                width="1200"
-                height="900"
-                decoding="async"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
+      get_template_part(
+        'template-parts/page-hero',
+        null,
+        array(
+          'section_class'      => 'get-involved-hero about-hero',
+          'aria_label'         => 'Get Involved',
+          'section_label'      => $get_involved_hero_eyebrow,
+          'headline_html'      => bdc_hero_lines_html(
+            array(
+              array( 'text' => $get_involved_hero_title_line_1, 'class' => 'get-involved-hero__title-line get-involved-hero__title-line--pink' ),
+              array( 'text' => $get_involved_hero_title_line_2, 'class' => 'get-involved-hero__title-line get-involved-hero__title-line--navy' ),
+            )
+          ),
+          'supporting_copy'    => $get_involved_copy,
+          'primary_cta_text'   => $get_involved_hero_primary_btn_text,
+          'primary_cta_link'   => $get_involved_hero_primary_btn_link,
+          'secondary_cta_text' => $get_involved_hero_secondary_btn_text,
+          'secondary_cta_link' => $get_involved_hero_secondary_btn_link,
+          'hero_image'         => $get_involved_hero_banner_url,
+          'hero_image_alt'     => $get_involved_hero_banner_alt,
+          'media_class'        => 'about-hero__media',
+          'image_class'        => 'about-hero__banner',
+        )
+      );
+      ?>
 
       <section class="get-involved-ways section-padding" aria-labelledby="get-involved-ways-title">
         <div class="site-container">

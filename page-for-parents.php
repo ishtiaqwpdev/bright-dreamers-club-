@@ -421,145 +421,47 @@ $for_parents_cta_btn_link = bdc_get_acf_link(
 );
 ?>
     <main id="main-content">
-      <section class="page-hero for-parents-hero" aria-label="<?php echo esc_attr( $for_parents_hero_aria_label ); ?>">
-        <div class="site-container page-hero__inner">
-          <div class="page-hero__content">
-            <div class="for-parents-hero__title-wrap">
-              <h1 class="for-parents-hero__title">
-                <span class="for-parents-hero__title-row">
-                  <?php if ( '' !== trim( $for_parents_hero_title_line_1 ) ) : ?>
-                  <span class="for-parents-hero__title-line for-parents-hero__title-line--pink"
-                    ><?php echo esc_html( $for_parents_hero_title_line_1 ); ?></span
-                  >
-                  <?php endif; ?>
-                  <svg
-                    class="for-parents-hero__heart"
-                    viewBox="0 0 24 24"
-                    width="26"
-                    height="26"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="1.8"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    aria-hidden="true"
-                  >
-                    <path
-                      d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
-                    />
-                  </svg>
-                </span>
-                <?php if ( '' !== trim( $for_parents_hero_title_line_2 ) ) : ?>
-                <span class="for-parents-hero__title-line for-parents-hero__title-line--navy"
-                  ><?php echo esc_html( $for_parents_hero_title_line_2 ); ?></span
-                >
-                <?php endif; ?>
-              </h1>
-              <svg
-                class="for-parents-hero__star"
-                viewBox="0 0 24 24"
-                width="28"
-                height="28"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.8"
-                stroke-linejoin="round"
-                aria-hidden="true"
-              >
-                <path
-                  d="M12 2.8l2.55 5.35 5.85.7-4.35 3.95 1.2 5.75L12 15.7l-5.25 2.85 1.2-5.75-4.35-3.95 5.85-.7L12 2.8z"
-                />
-              </svg>
-            </div>
+      <?php
+      $for_parents_copy_html  = '';
+      $for_parents_copy_html .= esc_html( $for_parents_hero_subhead_intro );
+      if ( '' !== trim( $for_parents_hero_subhead_accent_pink ) ) {
+        $for_parents_copy_html .= ' <span class="for-parents-hero__accent for-parents-hero__accent--pink">' . esc_html( $for_parents_hero_subhead_accent_pink ) . '</span>';
+      }
+      if ( '' !== trim( $for_parents_hero_subhead_accent_green ) ) {
+        $for_parents_copy_html .= ' <span class="for-parents-hero__accent for-parents-hero__accent--green">' . esc_html( $for_parents_hero_subhead_accent_green ) . '</span>';
+      }
+      $for_parents_body = trim( $for_parents_hero_text_intro );
+      if ( '' !== $for_parents_body || '' !== trim( $for_parents_hero_text_accent_cyan ) ) {
+        $for_parents_copy_html .= ( '' !== trim( wp_strip_all_tags( $for_parents_copy_html ) ) ? ' ' : '' ) . esc_html( $for_parents_hero_text_intro );
+        if ( '' !== trim( $for_parents_hero_text_accent_cyan ) ) {
+          $for_parents_copy_html .= ' <span class="for-parents-hero__accent for-parents-hero__accent--cyan">' . esc_html( $for_parents_hero_text_accent_cyan ) . '</span>';
+        }
+      }
 
-            <?php if ( '' !== trim( $for_parents_hero_subhead_intro ) || '' !== trim( $for_parents_hero_subhead_accent_pink ) || '' !== trim( $for_parents_hero_subhead_accent_green ) ) : ?>
-            <p class="for-parents-hero__subhead">
-              <?php if ( '' !== trim( $for_parents_hero_subhead_intro ) ) : ?>
-              <?php echo esc_html( $for_parents_hero_subhead_intro ); ?>
-              <?php endif; ?>
-              <?php if ( '' !== trim( $for_parents_hero_subhead_accent_pink ) ) : ?>
-              <span class="for-parents-hero__accent for-parents-hero__accent--pink"><?php echo esc_html( $for_parents_hero_subhead_accent_pink ); ?></span>
-              <?php endif; ?>
-              <?php if ( '' !== trim( $for_parents_hero_subhead_accent_green ) ) : ?>
-              <span class="for-parents-hero__accent for-parents-hero__accent--green"><?php echo esc_html( $for_parents_hero_subhead_accent_green ); ?></span>
-              <?php endif; ?>
-            </p>
-            <?php endif; ?>
-
-            <?php if ( '' !== trim( $for_parents_hero_text_intro ) || '' !== trim( $for_parents_hero_text_accent_cyan ) ) : ?>
-            <p class="for-parents-hero__text">
-              <?php if ( '' !== trim( $for_parents_hero_text_intro ) ) : ?>
-              <?php echo esc_html( $for_parents_hero_text_intro ); ?>
-              <?php endif; ?>
-              <?php if ( '' !== trim( $for_parents_hero_text_accent_cyan ) ) : ?>
-              <span class="for-parents-hero__accent for-parents-hero__accent--cyan"
-                ><?php echo esc_html( $for_parents_hero_text_accent_cyan ); ?></span
-              >
-              <?php endif; ?>
-            </p>
-            <?php endif; ?>
-
-            <div class="page-hero__actions">
-              <?php if ( ! empty( $for_parents_hero_primary_btn_link['url'] ) && '' !== trim( $for_parents_hero_primary_btn_text ) ) : ?>
-              <a class="btn btn--solid btn--lg btn-hover" href="<?php echo esc_url( $for_parents_hero_primary_btn_link['url'] ); ?>"<?php echo bdc_acf_link_target_attr( $for_parents_hero_primary_btn_link ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
-                <?php echo esc_html( $for_parents_hero_primary_btn_text ); ?>
-                <svg
-                  class="btn__icon"
-                  viewBox="0 0 24 24"
-                  width="18"
-                  height="18"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="1.7"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  aria-hidden="true"
-                >
-                  <circle cx="9" cy="9" r="2.6" />
-                  <circle cx="15.5" cy="9.5" r="2.2" />
-                  <path d="M4.5 19c.7-2.6 2.6-4 4.5-4s3.8 1.4 4.5 4" />
-                  <path d="M12.8 18.5c.5-1.8 1.8-2.8 3.2-2.8 1.2 0 2.2.7 2.8 2" />
-                </svg>
-              </a>
-              <?php endif; ?>
-              <?php if ( ! empty( $for_parents_hero_secondary_btn_link['url'] ) && '' !== trim( $for_parents_hero_secondary_btn_text ) ) : ?>
-              <a class="btn btn--outline btn--lg btn-hover" href="<?php echo esc_url( $for_parents_hero_secondary_btn_link['url'] ); ?>"<?php echo bdc_acf_link_target_attr( $for_parents_hero_secondary_btn_link ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
-                <?php echo esc_html( $for_parents_hero_secondary_btn_text ); ?>
-                <svg
-                  class="btn__icon"
-                  viewBox="0 0 24 24"
-                  width="18"
-                  height="18"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="1.8"
-                  aria-hidden="true"
-                >
-                  <path
-                    d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
-                  />
-                </svg>
-              </a>
-              <?php endif; ?>
-            </div>
-          </div>
-
-          <div class="about-hero__media">
-            <div class="lazy-img-wrap">
-              <img
-                class="about-hero__banner lazy-img"
-                src="<?php echo esc_attr( $for_parents_hero_lazy_placeholder ); ?>"
-                data-src="<?php echo esc_url( $for_parents_hero_banner_url ); ?>"
-                alt="<?php echo esc_attr( $for_parents_hero_banner_alt ); ?>"
-                width="1200"
-                height="900"
-                decoding="async"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-
+      get_template_part(
+        'template-parts/page-hero',
+        null,
+        array(
+          'section_class'      => 'for-parents-hero',
+          'aria_label'         => $for_parents_hero_aria_label,
+          'headline_html'      => bdc_hero_lines_html(
+            array(
+              array( 'text' => $for_parents_hero_title_line_1, 'class' => 'for-parents-hero__title-line for-parents-hero__title-line--pink' ),
+              array( 'text' => $for_parents_hero_title_line_2, 'class' => 'for-parents-hero__title-line for-parents-hero__title-line--navy' ),
+            )
+          ),
+          'supporting_copy_html' => $for_parents_copy_html,
+          'primary_cta_text'   => $for_parents_hero_primary_btn_text,
+          'primary_cta_link'   => $for_parents_hero_primary_btn_link,
+          'secondary_cta_text' => $for_parents_hero_secondary_btn_text,
+          'secondary_cta_link' => $for_parents_hero_secondary_btn_link,
+          'hero_image'         => $for_parents_hero_banner_url,
+          'hero_image_alt'     => $for_parents_hero_banner_alt,
+          'media_class'        => 'about-hero__media',
+          'image_class'        => 'about-hero__banner',
+        )
+      );
+      ?>
       <section class="for-parents-expect section-padding" aria-labelledby="for-parents-expect-title">
         <div class="for-parents-expect__wrap">
           <img
