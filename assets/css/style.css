@@ -16478,3 +16478,147 @@ body.newsletter-success-open {
 .media-policy-content .bdc-form-success {
   margin-top: clamp(0.5rem, 1vw, 0.85rem);
 }
+
+/* ——— Home page mobile carousels: 1 full card, swipe, pink dots ——— */
+@media (max-width: 767px) {
+  .home-page {
+    --container-padding: 20px;
+    overflow-x: clip;
+  }
+
+  .home-page #main-content {
+    overflow-x: clip;
+    max-width: 100%;
+  }
+
+  .home-page .home-pillars .site-container,
+  .home-page .home-different .site-container,
+  .home-page .home-explore .site-container,
+  .home-page .home-reality .site-container {
+    overflow: hidden;
+    max-width: 100%;
+  }
+
+  .home-page .home-pillars__row,
+  .home-page .home-different__grid,
+  .home-page .home-explore__grid,
+  .home-page .home-reality__steps {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: stretch;
+    justify-content: flex-start;
+    gap: 0;
+    width: 100%;
+    max-width: 100%;
+    margin-inline: 0;
+    padding-inline: 0;
+    padding-bottom: 0;
+    overflow-x: auto;
+    overflow-y: hidden;
+    overscroll-behavior-x: contain;
+    touch-action: pan-x pan-y;
+    scroll-snap-type: x mandatory;
+    scroll-snap-stop: always;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    box-sizing: border-box;
+  }
+
+  .home-page .home-pillars__row::-webkit-scrollbar,
+  .home-page .home-different__grid::-webkit-scrollbar,
+  .home-page .home-explore__grid::-webkit-scrollbar,
+  .home-page .home-reality__steps::-webkit-scrollbar {
+    display: none;
+  }
+
+  .home-page .home-pillar,
+  .home-page .home-different__item,
+  .home-page .home-explore__grid .experience-card,
+  .home-page .home-reality-step {
+    flex: 0 0 100%;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+
+  .home-page .home-pillar,
+  .home-page .home-explore__grid .experience-card {
+    min-height: 100%;
+  }
+
+  .home-page .home-pillar__inner,
+  .home-page .home-pillar__content,
+  .home-page .experience-card__media,
+  .home-page .experience-card__photo,
+  .home-page .home-different__text,
+  .home-page .home-reality-step__text {
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  .home-page .home-pillar img,
+  .home-page .experience-card img,
+  .home-page .home-different__icon {
+    max-width: 100%;
+  }
+
+  .home-page .home-different__item {
+    border-left: none;
+    padding: 0.85rem 0.35rem 0.35rem;
+  }
+
+  .home-page .home-different__item + .home-different__item {
+    border-left: none;
+  }
+
+  .home-page .home-reality-step__arrow {
+    display: none;
+  }
+
+  .home-page .home-reality__inner,
+  .home-page .home-reality__title {
+    padding-inline: 0;
+  }
+
+  .home-page .home-reality__steps {
+    margin-inline: 0;
+    padding-inline: 0;
+  }
+
+  .home-page .bdc-carousel-dots {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.45rem;
+    margin-top: 0.9rem;
+    padding: 0;
+    list-style: none;
+  }
+
+  .home-page .bdc-carousel-dots__dot {
+    width: 8px;
+    height: 8px;
+    padding: 0;
+    border: 0;
+    border-radius: 999px;
+    background: rgba(238, 29, 120, 0.28);
+    cursor: pointer;
+    appearance: none;
+    transition: width 0.2s ease, background-color 0.2s ease;
+  }
+
+  .home-page .bdc-carousel-dots__dot.is-active {
+    width: 22px;
+    background: var(--color-pink);
+  }
+}
+
+@media (min-width: 768px) {
+  .home-page .bdc-carousel-dots {
+    display: none;
+  }
+}

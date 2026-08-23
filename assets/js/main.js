@@ -680,6 +680,135 @@
     });
   }
 
+  function initHomeMobileCarousels() {
+    if (!document.body.classList.contains('home-page')) {
+      return;
+    }
+
+    var media = window.matchMedia('(max-width: 767px)');
+    var instances = [];
+
+    var configs = [
+      { track: '.home-pillars__row', item: '.home-pillar' },
+      { track: '.home-different__grid', item: '.home-different__item' },
+      { track: '.home-reality__steps', item: '.home-reality-step' },
+      { track: '.home-explore__grid', item: '.experience-card' },
+    ];
+
+    function closestIndex(track, items) {
+      var center = track.scrollLeft + track.clientWidth / 2;
+      var best = 0;
+      var bestDist = Infinity;
+
+      items.forEach(function (item, index) {
+        var itemCenter = item.offsetLeft + item.offsetWidth / 2;
+        var dist = Math.abs(itemCenter - center);
+        if (dist < bestDist) {
+          bestDist = dist;
+          best = index;
+        }
+      });
+
+      return best;
+    }
+
+    function setActiveDot(dots, activeIndex) {
+      dots.forEach(function (dot, index) {
+        var isActive = index === activeIndex;
+        dot.classList.toggle('is-active', isActive);
+        dot.setAttribute('aria-current', isActive ? 'true' : 'false');
+      });
+    }
+
+    function bindCarousel(track, itemSelector) {
+      var items = Array.prototype.slice.call(track.querySelectorAll(itemSelector));
+      if (items.length < 2) {
+        return null;
+      }
+
+      var existing = track.parentNode.querySelector(':scope > .bdc-carousel-dots');
+      if (existing) {
+        existing.remove();
+      }
+
+      var dotsWrap = document.createElement('div');
+      dotsWrap.className = 'bdc-carousel-dots';
+      dotsWrap.setAttribute('role', 'tablist');
+      dotsWrap.setAttribute('aria-label', 'Carousel pagination');
+
+      var dots = items.map(function (item, index) {
+        var button = document.createElement('button');
+        button.type = 'button';
+        button.className = 'bdc-carousel-dots__dot';
+        button.setAttribute('aria-label', 'Go to slide ' + (index + 1));
+        button.addEventListener('click', function () {
+          item.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+        });
+        dotsWrap.appendChild(button);
+        return button;
+      });
+
+      track.insertAdjacentElement('afterend', dotsWrap);
+      setActiveDot(dots, closestIndex(track, items));
+
+      var ticking = false;
+      function onScroll() {
+        if (ticking) {
+          return;
+        }
+        ticking = true;
+        window.requestAnimationFrame(function () {
+          setActiveDot(dots, closestIndex(track, items));
+          ticking = false;
+        });
+      }
+
+      track.addEventListener('scroll', onScroll, { passive: true });
+
+      return {
+        destroy: function () {
+          track.removeEventListener('scroll', onScroll);
+          if (dotsWrap.parentNode) {
+            dotsWrap.parentNode.removeChild(dotsWrap);
+          }
+        },
+      };
+    }
+
+    function teardown() {
+      instances.forEach(function (instance) {
+        if (instance && typeof instance.destroy === 'function') {
+          instance.destroy();
+        }
+      });
+      instances = [];
+    }
+
+    function setup() {
+      teardown();
+      if (!media.matches) {
+        return;
+      }
+
+      configs.forEach(function (config) {
+        document.querySelectorAll(config.track).forEach(function (track) {
+          var instance = bindCarousel(track, config.item);
+          if (instance) {
+            instances.push(instance);
+          }
+        });
+      });
+    }
+
+    setup();
+
+    if (typeof media.addEventListener === 'function') {
+      media.addEventListener('change', setup);
+    } else if (typeof media.addListener === 'function') {
+      media.addListener(setup);
+    }
+  }
+
   function init() {
     initMobileMenu();
     initNavActiveState();
@@ -690,6 +819,7 @@
     initMediaConsentDateFields();
     initLazyImages();
     initScrollReveal();
+    initHomeMobileCarousels();
   }
 
   function initLazyImages() {
