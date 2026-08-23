@@ -7633,7 +7633,8 @@ img.lazy-img.loaded {
 
 .compare-side--left {
   background-color: var(--compare-left-bg);
-  border-radius: 0 var(--compare-bar-radius) var(--compare-bar-radius) 0;
+  border-radius: var(--compare-bar-radius);
+  overflow: hidden;
 }
 
 .compare-side--right {
@@ -7671,6 +7672,11 @@ img.lazy-img.loaded {
 
 .compare-side--left .compare-side__photo {
   object-position: left center;
+}
+
+.compare-side--left > .lazy-img-wrap {
+  border-radius: var(--compare-bar-radius) 0 0 var(--compare-bar-radius);
+  overflow: hidden;
 }
 
 .compare-side--right .compare-side__photo {
