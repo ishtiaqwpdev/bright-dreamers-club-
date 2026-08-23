@@ -2133,8 +2133,6 @@ img.lazy-img.loaded {
   height: 100%;
   object-fit: contain;
   object-position: center right;
-  filter: var(--home-section-icon-filter);
-  mix-blend-mode: multiply;
 }
 
 .spotlight-card--council .spotlight-card__figure-wrap {
