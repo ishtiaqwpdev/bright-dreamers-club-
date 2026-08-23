@@ -284,8 +284,8 @@ $home_explore_cards_defaults = array(
 		),
 	),
 	array(
-		'photo'       => bdc_theme_asset_url( 'assets/images/explore-adventures-photo.jpeg' ),
-		'photo_alt'   => 'Children exploring outdoors with binoculars',
+		'photo'       => bdc_theme_asset_url( 'assets/images/home-explore-adventures-photo.png' ),
+		'photo_alt'   => 'Two people painting a colorful floral mural on an outdoor wall',
 		'icon'        => bdc_theme_asset_url( 'assets/images/explore-adventures-icon.jpeg' ),
 		'title'       => 'Community Adventures',
 		'description' => 'Explore, discover, and learn through real-world adventures.',
@@ -318,8 +318,12 @@ foreach ( $home_explore_cards_raw as $index => $row ) {
 	$photo_alt   = isset( $row['photo_alt'] ) ? trim( (string) $row['photo_alt'] ) : '';
 
 	$home_explore_cards[] = array(
-		'photo'       => bdc_acf_image_value_to_url( $row['photo'] ?? null, (string) $default['photo'] ),
-		'photo_alt'   => '' !== $photo_alt ? $photo_alt : (string) $default['photo_alt'],
+		'photo'       => 3 === (int) $index
+			? (string) $default['photo']
+			: bdc_acf_image_value_to_url( $row['photo'] ?? null, (string) $default['photo'] ),
+		'photo_alt'   => 3 === (int) $index
+			? (string) $default['photo_alt']
+			: ( '' !== $photo_alt ? $photo_alt : (string) $default['photo_alt'] ),
 		'icon'        => bdc_acf_image_value_to_url( $row['icon'] ?? null, (string) $default['icon'] ),
 		'title'       => '' !== $title ? $title : (string) $default['title'],
 		'description' => '' !== $description ? $description : (string) $default['description'],
