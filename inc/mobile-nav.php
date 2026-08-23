@@ -186,31 +186,31 @@ function bdc_render_mobile_nav_icon( $key ) {
 
 	switch ( $key ) {
 		case 'home':
-			$svg = '<svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M12 3.4 3.2 10.8c-.28.24-.1.75.24.75H6.1v8.1c0 .36.3.65.66.65h3.5v-5.2h3.48v5.2h3.5c.36 0 .66-.29.66-.65v-8.1h2.66c.34 0 .52-.51.24-.75L12 3.4z"/></svg>';
+			$svg = '<svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>';
 			break;
 		case 'about':
-			$svg = '<svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><circle cx="9" cy="8" r="2.45"/><path d="M3.9 17.35c.28-2.7 2.5-4.15 5.1-4.15s4.82 1.45 5.1 4.15c.04.38-.26.75-.67.75H4.57c-.41 0-.71-.37-.67-.75z"/><circle cx="16.35" cy="8.35" r="2.15"/><path d="M13.55 17.35c.18-1.55 1.15-2.7 2.8-3.2 1.55.5 2.7 1.65 2.95 3.2.05.38-.26.75-.67.75h-4.4c-.42 0-.73-.37-.68-.75z"/></svg>';
+			$svg = '<svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>';
 			break;
 		case 'explore':
-			$svg = '<svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M12 2.2A9.8 9.8 0 1 0 21.8 12 9.81 9.81 0 0 0 12 2.2zm3.55 6.05-1.55 5.05-5.05 1.55 1.55-5.05 5.05-1.55z"/><circle cx="12" cy="12" r="1.15" fill="#fff"/></svg>';
+			$svg = '<svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm2.19 12.19L6 18l3.81-8.19L18 6l-3.81 8.19z"/></svg>';
 			break;
 		case 'parents':
-			$svg = '<svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M12 20.6 10.4 19.15C6.15 15.3 3.4 12.8 3.4 9.55 3.4 7.1 5.3 5.2 7.75 5.2c1.4 0 2.75.66 3.6 1.7.85-1.04 2.2-1.7 3.6-1.7 2.45 0 4.35 1.9 4.35 4.35 0 3.25-2.75 5.75-7 9.6L12 20.6z"/></svg>';
+			$svg = '<svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>';
 			break;
 		case 'vision':
-			$svg = '<svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="m12 3.1 2.15 5.85 6.25.2-4.9 3.85 1.75 6-5.25-3.7-5.25 3.7 1.75-6-4.9-3.85 6.25-.2L12 3.1z"/></svg>';
+			$svg = '<svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>';
 			break;
 		case 'involved':
-			$svg = '<svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M12 14.85 10.95 13.9c-2.55-2.3-4.15-3.75-4.15-5.6 0-1.25.95-2.2 2.2-2.2.7 0 1.4.32 1.85.85.45-.53 1.15-.85 1.85-.85 1.25 0 2.2.95 2.2 2.2 0 1.85-1.6 3.3-4.15 5.6L12 14.85z"/><path d="M4.4 16.4c.85-1.15 2.15-1.85 3.55-2.05.35.4.75.78 1.2 1.15L8.4 16.2c-.35.32-.9.3-1.22-.05l-2.3-2.5c-.2-.22-.15-.58.1-.75.22-.16.54-.12.72.1l.7.7zm15.2 0-2.78-2.4c.22-.22.54-.26.76-.1.25.17.3.53.1.75l-2.3 2.5c-.32.35-.87.37-1.22.05l-.75-.7c.45-.37.85-.75 1.2-1.15 1.4.2 2.7.9 3.55 2.05.2.26.58.3.8.1.25-.18.3-.52.14-.75l-.5-.35z"/></svg>';
+			$svg = '<svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/><circle cx="18.4" cy="4.4" r="1.35"/><circle cx="21.15" cy="7.05" r="1"/></svg>';
 			break;
 		case 'partners':
-			$svg = '<svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M8.35 13.55 5.2 10.4a1.55 1.55 0 0 1 2.2-2.2l2.15 2.15.95-.95 3.55 3.55c.5.5.5 1.3 0 1.8l-.45.45c-.5.5-1.3.5-1.8 0l-1.35-1.35-2.1.7zm7.3-2.2 2.95-2.95a1.55 1.55 0 1 0-2.2-2.2l-2.15 2.15-1-.95-1.15 1.15 3.55 3.55.9-.85c.55-.5.55-1.35.1-1.9z"/></svg>';
+			$svg = '<svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M11.11 12.16 9.7 10.74a2.12 2.12 0 0 0-3 0L4.5 12.94l2.12 2.12 1.5-1.5 1.41 1.41-1.5 1.5 2.12 2.12 2.2-2.2c.83-.83.83-2.17 0-3zM19.5 11.06l-2.2-2.2-1.41 1.41 1.5 1.5-1.41 1.41-1.5-1.5-2.12 2.12 1.41 1.41 2.2-2.2c.83-.83.83-2.17 0-3zM8.11 6.53 6.7 5.11 4.58 7.23 6.7 9.35 8.11 7.94l.7.7 1.42-1.41-.7-.7 1.42-1.41-1.42-1.42-1.42 1.42zm7.78 0-1.42-1.42-1.41 1.42.7.7-1.41 1.41 1.41 1.42.71-.71 1.41 1.41 2.12-2.12-2.12-2.12z"/></svg>';
 			break;
 		case 'contact':
-			$svg = '<svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M4.4 6.2A2.2 2.2 0 0 1 6.6 4h10.8a2.2 2.2 0 0 1 2.2 2.2v11.1a2.2 2.2 0 0 1-2.2 2.2H6.6a2.2 2.2 0 0 1-2.2-2.2V6.2zm1.45.55 6.15 4.2 6.15-4.2H5.85z"/></svg>';
+			$svg = '<svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>';
 			break;
 		default:
-			$svg = '<svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/></svg>';
+			$svg = '<svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/></svg>';
 			break;
 	}
 

@@ -1223,6 +1223,12 @@ button {
     border-radius: 50%;
   }
 
+  .mobile-nav__icon svg {
+    display: block;
+    width: 20px;
+    height: 20px;
+  }
+
   .mobile-nav__icon--home,
   .mobile-nav__icon--involved {
     background: #ffe4ef;
