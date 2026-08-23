@@ -42,11 +42,7 @@ $home_hero_secondary_cta = bdc_get_acf_link(
 	),
 	$front_page_id
 );
-$home_hero_banner_url = bdc_get_acf_image_url(
-	'home_hero_banner',
-	bdc_theme_asset_url( 'assets/images/home-hero-banner.png' ),
-	$front_page_id
-);
+$home_hero_banner_url = bdc_theme_asset_url( 'assets/images/home-hero-banner.png' );
 $home_hero_banner_alt = bdc_get_acf_text(
 	'home_hero_banner_alt',
 	'Three Bright Dreamers holding colorful heart flower drawings in a sunny park',
