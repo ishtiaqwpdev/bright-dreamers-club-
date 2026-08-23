@@ -336,16 +336,16 @@ $home_spotlight_ideas_defaults = array(
 	'lead'       => 'Bright Dreamers is built with children—not just for children.',
 	'body'       => 'Many of our projects begin with children\'s own ideas. Children help imagine new activities, suggest community projects, and inspire future programs through our Young Dreamers Council.',
 	'highlight'  => "Because the best ideas sometimes\ncome from the smallest voices.",
-	'photo'      => bdc_theme_asset_url( 'assets/images/home-ideas-photo.jpeg' ),
-	'photo_alt'  => 'Children collaborating together at a table',
+	'photo'      => bdc_theme_asset_url( 'assets/images/home-ideas-photo.png' ),
+	'photo_alt'  => 'Children lying in a circle looking up and smiling',
 );
 $home_spotlight_ideas       = bdc_get_acf_group( 'home_spotlight_ideas', $home_spotlight_ideas_defaults, $front_page_id );
-$home_spotlight_ideas_photo = bdc_acf_image_value_to_url( $home_spotlight_ideas['photo'] ?? null, $home_spotlight_ideas_defaults['photo'] );
+$home_spotlight_ideas_photo = $home_spotlight_ideas_defaults['photo'];
 $home_spotlight_ideas_title = (string) $home_spotlight_ideas['title'];
 $home_spotlight_ideas_lead  = (string) $home_spotlight_ideas['lead'];
 $home_spotlight_ideas_body  = (string) $home_spotlight_ideas['body'];
 $home_spotlight_ideas_highlight = (string) $home_spotlight_ideas['highlight'];
-$home_spotlight_ideas_photo_alt = (string) $home_spotlight_ideas['photo_alt'];
+$home_spotlight_ideas_photo_alt = (string) $home_spotlight_ideas_defaults['photo_alt'];
 
 $home_spotlight_council_defaults = array(
 	'title'      => 'Young Dreamers Council',
