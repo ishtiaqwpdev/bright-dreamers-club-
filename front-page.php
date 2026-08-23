@@ -341,6 +341,10 @@ $home_spotlight_ideas_defaults = array(
 );
 $home_spotlight_ideas       = bdc_get_acf_group( 'home_spotlight_ideas', $home_spotlight_ideas_defaults, $front_page_id );
 $home_spotlight_ideas_photo = $home_spotlight_ideas_defaults['photo'];
+$home_ideas_photo_ver       = bdc_asset_version( 'assets/images/home-ideas-photo.png' );
+if ( $home_ideas_photo_ver ) {
+	$home_spotlight_ideas_photo = add_query_arg( 'v', $home_ideas_photo_ver, $home_spotlight_ideas_photo );
+}
 $home_spotlight_ideas_title = (string) $home_spotlight_ideas['title'];
 $home_spotlight_ideas_lead  = (string) $home_spotlight_ideas['lead'];
 $home_spotlight_ideas_body  = (string) $home_spotlight_ideas['body'];
@@ -845,8 +849,8 @@ $home_spotlight_council_items = ( is_array( $home_spotlight_council['list_items'
                     src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
                     data-src="<?php echo esc_url( $home_spotlight_ideas_photo ); ?>"
                     alt="<?php echo esc_attr( $home_spotlight_ideas_photo_alt ); ?>"
-                    width="520"
-                    height="360"
+                    width="612"
+                    height="408"
                     decoding="async"
                   />
                 </div>
