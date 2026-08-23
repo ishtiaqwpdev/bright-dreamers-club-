@@ -997,6 +997,28 @@
     initLazyImages();
     initScrollReveal();
     initMobileCarousels();
+    initFooterAccordion();
+  }
+
+  function initFooterAccordion() {
+    var $root = $('[data-footer-acc]');
+    if (!$root.length) return;
+
+    $root.on('click', '[data-footer-accordion]', function () {
+      var $button = $(this);
+      var $item = $button.closest('.footer-acc__item');
+      var $panel = $item.find('.footer-acc__panel').first();
+      var nextOpen = !$item.hasClass('is-open');
+
+      $item.toggleClass('is-open', nextOpen);
+      $button.attr('aria-expanded', nextOpen ? 'true' : 'false');
+
+      if (nextOpen) {
+        $panel.removeAttr('inert');
+      } else {
+        $panel.attr('inert', '');
+      }
+    });
   }
 
   function initLazyImages() {

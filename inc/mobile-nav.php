@@ -216,3 +216,67 @@ function bdc_render_mobile_nav_icon( $key ) {
 
 	echo $svg; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 }
+
+/**
+ * Output the inline SVG for a mobile footer accordion group.
+ *
+ * @param string $key explore|involved|resources|connected.
+ * @return void
+ */
+function bdc_render_footer_acc_icon( $key ) {
+	$svg = '';
+
+	switch ( $key ) {
+		case 'explore':
+			$svg = '<svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm2.19 12.19L6 18l3.81-8.19L18 6l-3.81 8.19z"/></svg>';
+			break;
+		case 'involved':
+			$svg = '<svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M12.6 8.2 11.5 7.2c-1.85-1.7-3-2.75-3-4.15 0-.95.75-1.7 1.7-1.7.55 0 1.05.25 1.4.65.35-.4.85-.65 1.4-.65.95 0 1.7.75 1.7 1.7 0 1.4-1.15 2.45-3 4.15l-1.1 1z"/><path d="M4 14.2c0-1 .8-1.8 1.8-1.8H10l1.7-2.55c.32-.48.95-.62 1.48-.35.5.26.68.86.45 1.36L12.95 13H20c1 0 1.8.8 1.8 1.8v1.1c0 2.05-1.65 3.7-3.7 3.7H8.2C5.9 19.6 4 17.7 4 15.4v-1.2z"/></svg>';
+			break;
+		case 'resources':
+			$svg = '<svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M10 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2h-8l-2-2z"/></svg>';
+			break;
+		case 'connected':
+			$svg = '<svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>';
+			break;
+		default:
+			$svg = '<svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/></svg>';
+			break;
+	}
+
+	echo $svg; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+}
+
+/**
+ * Render a footer link list from theme/ACF rows.
+ *
+ * @param array<int|string, array<string, mixed>> $rows       Link rows.
+ * @param string                                  $list_class UL class name.
+ * @return void
+ */
+function bdc_render_footer_link_list( $rows, $list_class = 'site-footer__links' ) {
+	echo '<ul class="' . esc_attr( $list_class ) . '">';
+
+	foreach ( (array) $rows as $row ) {
+		$link = bdc_resolve_acf_link_value(
+			$row['link'] ?? null,
+			array(
+				'title'  => '',
+				'url'    => '#',
+				'target' => '',
+			)
+		);
+
+		if ( ! empty( $row['text'] ) && is_string( $row['text'] ) ) {
+			$link['title'] = $row['text'];
+		}
+
+		if ( '' === trim( (string) $link['title'] ) || '' === trim( (string) $link['url'] ) ) {
+			continue;
+		}
+
+		echo '<li><a class="site-footer__link" href="' . esc_url( $link['url'] ) . '"' . bdc_acf_link_target_attr( $link ) . '>' . esc_html( $link['title'] ) . '</a></li>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+	}
+
+	echo '</ul>';
+}
