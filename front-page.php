@@ -43,9 +43,13 @@ $home_hero_secondary_cta = bdc_get_acf_link(
 	$front_page_id
 );
 $home_hero_banner_url = bdc_theme_asset_url( 'assets/images/home-hero-banner.png' );
+$home_hero_banner_ver = bdc_asset_version( 'assets/images/home-hero-banner.png' );
+if ( $home_hero_banner_ver ) {
+	$home_hero_banner_url = add_query_arg( 'v', $home_hero_banner_ver, $home_hero_banner_url );
+}
 $home_hero_banner_alt = bdc_get_acf_text(
 	'home_hero_banner_alt',
-	'Three Bright Dreamers holding colorful heart flower drawings in a sunny park',
+	'Three Bright Dreamers holding colorful heart flower drawings',
 	$front_page_id
 );
 
@@ -439,8 +443,8 @@ $home_spotlight_council_items = ( is_array( $home_spotlight_council['list_items'
                 src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
                 data-src="<?php echo esc_url( $home_hero_banner_url ); ?>"
                 alt="<?php echo esc_attr( $home_hero_banner_alt ); ?>"
-                width="1200"
-                height="900"
+                width="1024"
+                height="584"
                 decoding="async"
               />
             </div>
