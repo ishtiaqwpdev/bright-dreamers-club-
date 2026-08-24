@@ -786,7 +786,7 @@
       { track: '.vision-pillars__grid', item: '.vision-pillar-card', mode: 'peek' },
       { track: '.vision-journey-steps', item: '.vision-journey-step', mode: 'peek' },
       { track: '.vision-partner__icons', item: '.vision-partner__icon-item', mode: 'peek' },
-      { track: '.get-involved-ways__grid', item: '.get-involved-ways-card', mode: 'peek' },
+      { track: '.get-involved-ways__grid', item: '.get-involved-ways-card', mode: 'full' },
       { track: '.partners-ways__grid', item: '.partners-ways-card', mode: 'peek' },
       { track: '.partners-impact__grid', item: '.partners-impact-card', mode: 'full' },
       { track: '.partners-founding__grid', item: '.partners-founding-card', mode: 'peek' },
@@ -866,7 +866,7 @@
           return true;
         }
       }
-      if (document.querySelector('.for-parents-hero, .for-parents-expect, .contact-hero, .accessibility-provide-grid, .financial-support-grid, .faq-hero, .newsletter-role-grid, .donation-support-grid, .media-consent-usage-grid')) {
+      if (document.querySelector('.for-parents-hero, .for-parents-expect, .get-involved-ways, .contact-hero, .accessibility-provide-grid, .financial-support-grid, .faq-hero, .newsletter-role-grid, .donation-support-grid, .media-consent-usage-grid')) {
         return true;
       }
       return phasePages.indexOf(pageSlug(window.location.pathname)) !== -1;
@@ -1029,7 +1029,10 @@
 
       var perView = mode === 'peek' ? peekPerView() : 1;
       var pageCount = Math.max(1, Math.ceil(items.length / perView));
-      var isSolo = mode === 'full' && track.classList.contains('for-parents-expect__grid');
+      var isSolo =
+        mode === 'full' &&
+        (track.classList.contains('for-parents-expect__grid') ||
+          track.classList.contains('get-involved-ways__grid'));
       var snapInline = isSolo || mode === 'peek' ? 'start' : 'center';
 
       track.classList.add('bdc-mobile-carousel');
