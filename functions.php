@@ -168,6 +168,28 @@ function bdc_theme_setup() {
 add_action( 'after_setup_theme', 'bdc_theme_setup' );
 
 /**
+ * Output favicon tags from the theme logo when no Customizer Site Icon is set.
+ */
+function bdc_output_favicon() {
+	if ( function_exists( 'has_site_icon' ) && has_site_icon() ) {
+		return;
+	}
+
+	$base = get_template_directory_uri() . '/assets/images';
+	$ver  = bdc_asset_version( 'assets/images/favicon.ico' );
+
+	echo '<link rel="icon" href="' . esc_url( $base . '/favicon.ico?v=' . rawurlencode( $ver ) ) . '" sizes="any">' . "\n";
+	echo '<link rel="icon" type="image/png" href="' . esc_url( $base . '/favicon-32x32.png?v=' . rawurlencode( $ver ) ) . '" sizes="32x32">' . "\n";
+	echo '<link rel="icon" type="image/png" href="' . esc_url( $base . '/favicon-16x16.png?v=' . rawurlencode( $ver ) ) . '" sizes="16x16">' . "\n";
+	echo '<link rel="apple-touch-icon" href="' . esc_url( $base . '/favicon-180x180.png?v=' . rawurlencode( $ver ) ) . '" sizes="180x180">' . "\n";
+	echo '<link rel="manifest" href="' . esc_url( $base . '/site.webmanifest?v=' . rawurlencode( $ver ) ) . '">' . "\n";
+}
+add_action( 'wp_head', 'bdc_output_favicon', 1 );
+add_action( 'admin_head', 'bdc_output_favicon', 1 );
+add_action( 'login_head', 'bdc_output_favicon', 1 );
+
+
+/**
  * Match static index.html body class on the front page.
  *
  * @param string[] $classes Body classes.
