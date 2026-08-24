@@ -17712,6 +17712,8 @@ body.newsletter-success-open {
     min-width: 0;
     box-sizing: border-box;
     padding: 1.1rem 1rem;
+    box-shadow: none;
+    filter: none;
   }
 
   .for-parents-expect__grid.bdc-mobile-carousel .for-parents-expect-card__text {
@@ -17745,7 +17747,6 @@ body.newsletter-success-open {
   .bdc-mobile-carousel .partners-ways-card,
   .bdc-mobile-carousel .partners-founding-card,
   .bdc-mobile-carousel .creative-makers-activity,
-  .bdc-mobile-carousel .for-parents-expect-card,
   .bdc-mobile-carousel .accessibility-provide-card,
   .bdc-mobile-carousel .financial-support-card {
     box-shadow: 0 10px 28px rgba(32, 42, 86, 0.12);
