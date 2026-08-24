@@ -9669,9 +9669,9 @@ img.lazy-img.loaded {
   }
 
   .vision-partner__icon-item {
-    flex: 0 0 calc((100% - 10px) / 2);
-    width: calc((100% - 10px) / 2);
-    max-width: calc((100% - 10px) / 2);
+    flex: 0 0 calc((100% - 16px) / 3);
+    width: calc((100% - 16px) / 3);
+    max-width: calc((100% - 16px) / 3);
     scroll-snap-align: start;
     box-sizing: border-box;
     overflow: hidden;
@@ -17783,13 +17783,13 @@ body.newsletter-success-open {
     min-width: 0 !important;
   }
 
-  /* Our Vision founding partner icons: always 2 per view on mobile */
+  /* Our Vision founding partner icons: always 3 per view on mobile */
   .vision-partner__icons.bdc-mobile-carousel--peek .vision-partner__icon-item.bdc-mobile-carousel__item,
   .vision-partner__icons.bdc-mobile-carousel--peek-2 .vision-partner__icon-item.bdc-mobile-carousel__item,
   .vision-partner__icons.bdc-mobile-carousel--inset .vision-partner__icon-item.bdc-mobile-carousel__item {
-    flex: 0 0 calc((100% - var(--bdc-peek-gap)) / 2) !important;
-    width: calc((100% - var(--bdc-peek-gap)) / 2) !important;
-    max-width: calc((100% - var(--bdc-peek-gap)) / 2) !important;
+    flex: 0 0 calc((100% - (var(--bdc-peek-gap) * 2)) / 3) !important;
+    width: calc((100% - (var(--bdc-peek-gap) * 2)) / 3) !important;
+    max-width: calc((100% - (var(--bdc-peek-gap) * 2)) / 3) !important;
     min-width: 0 !important;
   }
 

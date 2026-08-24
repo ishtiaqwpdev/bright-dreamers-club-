@@ -905,7 +905,7 @@
 
     function peekPerView(track) {
       if (track && track.classList && track.classList.contains('vision-partner__icons')) {
-        return 2;
+        return 3;
       }
       return twoColPeekMedia.matches ? 2 : 3;
     }
