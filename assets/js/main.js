@@ -1029,13 +1029,15 @@
 
       var perView = mode === 'peek' ? peekPerView() : 1;
       var pageCount = Math.max(1, Math.ceil(items.length / perView));
-      var snapInline = mode === 'peek' ? 'start' : 'center';
+      var isSolo = mode === 'full' && track.classList.contains('for-parents-expect__grid');
+      var snapInline = isSolo || mode === 'peek' ? 'start' : 'center';
 
       track.classList.add('bdc-mobile-carousel');
       track.classList.toggle('bdc-mobile-carousel--full', mode === 'full');
       track.classList.toggle('bdc-mobile-carousel--peek', mode === 'peek');
       track.classList.toggle('bdc-mobile-carousel--peek-2', mode === 'peek' && perView === 2);
       track.classList.toggle('bdc-mobile-carousel--inset', isInset(track));
+      track.classList.toggle('bdc-mobile-carousel--solo', isSolo);
       if (track.parentNode && track.parentNode.classList) {
         track.parentNode.classList.add('bdc-mobile-carousel-parent');
       }
@@ -1107,7 +1109,8 @@
             'bdc-mobile-carousel--full',
             'bdc-mobile-carousel--peek',
             'bdc-mobile-carousel--peek-2',
-            'bdc-mobile-carousel--inset'
+            'bdc-mobile-carousel--inset',
+            'bdc-mobile-carousel--solo'
           );
           if (track.parentNode && track.parentNode.classList) {
             track.parentNode.classList.remove('bdc-mobile-carousel-parent');
