@@ -17564,7 +17564,7 @@ body.newsletter-success-open {
   }
 
   .for-parents-expect__wrap.bdc-mobile-carousel-parent {
-    padding-inline: 16px;
+    padding-inline: 20px;
     overflow: visible;
   }
 
@@ -17616,9 +17616,70 @@ body.newsletter-success-open {
     scroll-padding-inline: 0;
   }
 
+  /* Solo = 1 card per view: NEVER bleed / NEVER negative margin */
+  .bdc-mobile-carousel--solo,
+  .bdc-mobile-carousel.bdc-mobile-carousel--solo,
+  .bdc-mobile-carousel--solo.bdc-mobile-carousel--full,
+  .bdc-mobile-carousel--solo.bdc-mobile-carousel--inset,
+  .bdc-mobile-carousel--solo.bdc-mobile-carousel--peek,
+  .bdc-mobile-carousel--solo.bdc-mobile-carousel--peek-2 {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    margin-inline: 0 !important;
+    padding: 0 0 12px !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    padding-inline: 0 !important;
+    gap: 0 !important;
+    scroll-padding: 0 !important;
+    scroll-padding-inline: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  .bdc-mobile-carousel--solo > .bdc-mobile-carousel__item,
+  .bdc-mobile-carousel--solo .bdc-mobile-carousel__item {
+    flex: 0 0 100% !important;
+    flex-grow: 0 !important;
+    flex-shrink: 0 !important;
+    flex-basis: 100% !important;
+    width: 100% !important;
+    min-width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    box-sizing: border-box !important;
+    scroll-snap-align: start !important;
+    scroll-snap-stop: always !important;
+    box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+  }
+
+  .site-container.bdc-mobile-carousel-host:has(> .bdc-mobile-carousel--solo),
+  .site-container.bdc-mobile-carousel-parent:has(> .bdc-mobile-carousel--solo),
+  .site-container.bdc-mobile-carousel-host:has(.bdc-mobile-carousel--solo),
+  .for-parents-expect__wrap:has(.bdc-mobile-carousel--solo),
+  .for-parents-expect__inner:has(.bdc-mobile-carousel--solo) {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+    overflow-x: visible !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .for-parents-expect__wrap:has(.bdc-mobile-carousel--solo) .for-parents-expect__inner,
+  .for-parents-expect__inner:has(.bdc-mobile-carousel--solo) {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
   .role-icons.bdc-mobile-carousel,
   .approach-steps.bdc-mobile-carousel,
-  .partners-founding__grid.bdc-mobile-carousel {
+  .partners-founding__grid.bdc-mobile-carousel,
+  .financial-support-grid.bdc-mobile-carousel,
+  .get-involved-ways__grid.bdc-mobile-carousel,
+  .for-parents-expect__grid.bdc-mobile-carousel {
     margin-inline: 0;
     width: 100%;
     max-width: 100%;
