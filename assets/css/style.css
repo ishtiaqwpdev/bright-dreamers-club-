@@ -8896,10 +8896,21 @@ img.lazy-img.loaded {
   }
 
   .explore-skill {
-    flex: 0 0 min(148px, 44vw);
+    flex: 0 0 calc((100% - 16px) / 3);
+    width: calc((100% - 16px) / 3);
+    max-width: calc((100% - 16px) / 3);
     scroll-snap-align: start;
     border-left: none;
-    padding-inline: 0.35rem;
+    padding-inline: 0.2rem;
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+
+  .explore-skill__title,
+  .explore-skill__text {
+    max-width: 100%;
+    overflow-wrap: anywhere;
+    word-break: break-word;
   }
 
   .explore-skill:not(:first-child) {
@@ -8927,20 +8938,56 @@ img.lazy-img.loaded {
   }
 
   .explore-grow-stage {
-    flex: 0 0 min(300px, 84vw);
+    flex: 0 0 100%;
+    width: 100%;
+    max-width: 100%;
     scroll-snap-align: start;
     height: auto;
     min-height: auto;
+    overflow: hidden;
+    box-sizing: border-box;
   }
 
   .explore-grow-stage__card {
-    height: var(--explore-grow-card-h);
+    height: auto;
     min-height: var(--explore-grow-card-h);
+    overflow: hidden;
+    padding: 0.85rem 0.9rem;
   }
 
   .explore-grow-stage__card::before {
-    background-size: contain;
+    inset: 0;
+    background-size: 100% 100%;
     background-position: center center;
+  }
+
+  .explore-grow-stage__layout {
+    grid-template-columns: minmax(0, 36%) minmax(0, 1fr);
+    gap: 0.45rem;
+    min-height: 0;
+  }
+
+  .explore-grow-stage__layout > .lazy-img-wrap {
+    overflow: visible;
+    max-width: 100%;
+  }
+
+  .explore-grow-stage__photo,
+  .explore-grow-stage__layout > .lazy-img-wrap .explore-grow-stage__photo {
+    max-width: 100%;
+    width: 100%;
+    height: auto;
+    max-height: 150px;
+    object-fit: contain;
+    object-position: center;
+  }
+
+  .explore-grow-stage__quote,
+  .explore-grow-stage__text,
+  .explore-grow-stage__label {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+    max-width: 100%;
   }
 
   .explore-grow__arrow {
@@ -17306,8 +17353,23 @@ body.newsletter-success-open {
     width: calc((100% - (var(--bdc-peek-gap) * 2)) / 3);
     max-width: calc((100% - (var(--bdc-peek-gap) * 2)) / 3);
     min-height: 0;
+    min-width: 0;
+    overflow: hidden;
     scroll-snap-align: start;
     scroll-snap-stop: normal;
+  }
+
+  .bdc-mobile-carousel--peek .explore-skill.bdc-mobile-carousel__item {
+    flex: 0 0 calc((100% - (var(--bdc-peek-gap) * 2)) / 3);
+    width: calc((100% - (var(--bdc-peek-gap) * 2)) / 3);
+    max-width: calc((100% - (var(--bdc-peek-gap) * 2)) / 3);
+  }
+
+  .bdc-mobile-carousel--peek .explore-skill__title,
+  .bdc-mobile-carousel--peek .explore-skill__text {
+    max-width: 100%;
+    overflow-wrap: anywhere;
+    word-break: break-word;
   }
 
   .bdc-mobile-carousel--peek-2 .bdc-mobile-carousel__item {
@@ -17387,8 +17449,12 @@ body.newsletter-success-open {
   }
 
   .bdc-mobile-carousel__item [class*='__text'],
-  .bdc-mobile-carousel__item [class*='__quote'] {
-    max-width: none;
+  .bdc-mobile-carousel__item [class*='__quote'],
+  .bdc-mobile-carousel__item [class*='__title'],
+  .bdc-mobile-carousel__item [class*='__label'] {
+    max-width: 100%;
+    overflow-wrap: anywhere;
+    word-break: break-word;
   }
 
   .bdc-mobile-carousel__item img {
@@ -17401,19 +17467,47 @@ body.newsletter-success-open {
   }
 
   .bdc-mobile-carousel .explore-grow-stage {
-    overflow: visible;
+    overflow: hidden;
+    max-width: 100%;
   }
 
   .bdc-mobile-carousel .explore-grow-stage__card {
     height: auto;
     min-height: var(--explore-grow-card-h);
-    overflow: visible;
+    overflow: hidden;
+    padding: 0.85rem 0.9rem;
   }
 
   .bdc-mobile-carousel .explore-grow-stage__card::before {
-    inset: -6% -10px;
-    background-size: contain;
+    inset: 0;
+    background-size: 100% 100%;
     background-position: center center;
+  }
+
+  .bdc-mobile-carousel .explore-grow-stage__layout {
+    grid-template-columns: minmax(0, 36%) minmax(0, 1fr);
+    gap: 0.45rem;
+  }
+
+  .bdc-mobile-carousel .explore-grow-stage__layout > .lazy-img-wrap {
+    overflow: visible;
+    max-width: 100%;
+  }
+
+  .bdc-mobile-carousel .explore-grow-stage__photo,
+  .bdc-mobile-carousel .explore-grow-stage__layout > .lazy-img-wrap .explore-grow-stage__photo {
+    max-width: 100%;
+    width: 100%;
+    max-height: 150px;
+    object-fit: contain;
+  }
+
+  .bdc-mobile-carousel .explore-grow-stage__quote,
+  .bdc-mobile-carousel .explore-grow-stage__text,
+  .bdc-mobile-carousel .explore-grow-stage__label {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+    max-width: 100%;
   }
 
   .bdc-carousel-dots {
