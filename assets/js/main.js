@@ -738,7 +738,14 @@
     var tabletMedia = window.matchMedia('(max-width: 991px)');
     var twoColPeekMedia = window.matchMedia('(max-width: 375px)');
     var instances = [];
-    var phaseOnePages = ['index', 'about', 'explore'];
+    var phasePages = [
+      'index',
+      'about',
+      'explore',
+      'creative-makers',
+      'young-ideas-lab',
+      'create-for-cause',
+    ];
 
     var knownConfigs = [
       { track: '.home-pillars__row', item: '.home-pillar', mode: 'full' },
@@ -752,15 +759,15 @@
       { track: '.explore-skills__grid', item: '.explore-skill', mode: 'peek' },
       { track: '.explore-grow__track', item: '.explore-grow-stage', mode: 'full' },
       { track: '.explore-impact__track', item: '.explore-impact-card, .explore-impact-quote', mode: 'full' },
-      { track: '.for-parents-expect__grid', item: '.for-parents-expect-card' },
-      { track: '.vision-pillars__grid', item: '.vision-pillar-card' },
-      { track: '.vision-journey-steps', item: '.vision-journey-step' },
-      { track: '.vision-partner__icons', item: '.vision-partner__icon-item' },
-      { track: '.get-involved-ways__grid', item: '.get-involved-ways-card' },
+      { track: '.creative-makers-explore__grid', item: '.creative-makers-activity', mode: 'peek' },
+      { track: '.for-parents-expect__grid', item: '.for-parents-expect-card', mode: 'peek' },
+      { track: '.vision-pillars__grid', item: '.vision-pillar-card', mode: 'peek' },
+      { track: '.vision-journey-steps', item: '.vision-journey-step', mode: 'full' },
+      { track: '.vision-partner__icons', item: '.vision-partner__icon-item', mode: 'peek' },
+      { track: '.get-involved-ways__grid', item: '.get-involved-ways-card', mode: 'peek' },
       { track: '.partners-ways__grid', item: '.partners-ways-card' },
       { track: '.partners-impact__grid', item: '.partners-impact-card' },
       { track: '.partners-founding__grid', item: '.partners-founding-card' },
-      { track: '.creative-makers-explore__grid', item: '.creative-makers-activity' },
       { track: '.accessibility-provide-grid', item: '.accessibility-provide-card' },
       { track: '.financial-support-grid', item: '.financial-support-card' },
       { track: '.financial-promise-grid', item: '.financial-promise-item' },
@@ -775,27 +782,46 @@
       '.vision-moments__gallery',
       '.creative-makers-parents__tablist',
       '.creative-makers-parents__accordion',
+      '.creative-makers-parents__panels',
+      '.creative-makers-info__grid',
       '.faq-topic-list',
       '.faq-accordion',
       '.about-panels__grid',
       '.compare-different__bar',
+      '.footer-acc',
     ].join(',');
 
-    function isPhaseOnePage() {
+    function isPhasePage() {
       var body = document.body;
-      if (
-        body &&
-        (body.classList.contains('home-page') ||
+      if (body) {
+        if (
+          body.classList.contains('home-page') ||
           body.classList.contains('about-page') ||
-          body.classList.contains('explore-page'))
-      ) {
-        return true;
+          body.classList.contains('explore-page') ||
+          body.classList.contains('creative-makers-page') ||
+          body.classList.contains('young-ideas-lab-page') ||
+          body.classList.contains('create-for-cause-page')
+        ) {
+          return true;
+        }
       }
-      return phaseOnePages.indexOf(pageSlug(window.location.pathname)) !== -1;
+      return phasePages.indexOf(pageSlug(window.location.pathname)) !== -1;
     }
 
     function isSkipped(track) {
-      return skipTrackSelector && track.matches(skipTrackSelector);
+      if (!track) {
+        return true;
+      }
+      if (skipTrackSelector && (track.matches(skipTrackSelector) || track.closest(skipTrackSelector))) {
+        return true;
+      }
+      var className = String(track.className || '');
+      return (
+        className.indexOf('faq') !== -1 ||
+        className.indexOf('accordion') !== -1 ||
+        className.indexOf('tablist') !== -1 ||
+        className.indexOf('parents__') !== -1
+      );
     }
 
     function isInset(track) {
@@ -816,7 +842,7 @@
     }
 
     function modeFor(track) {
-      if (!isPhaseOnePage()) {
+      if (!isPhasePage()) {
         return 'full';
       }
       var match = configFor(track);
@@ -1047,7 +1073,7 @@
 
     function setup() {
       teardown();
-      var phaseOne = isPhaseOnePage();
+      var phaseOne = isPhasePage();
       if (phaseOne ? !tabletMedia.matches : !phoneMedia.matches) {
         return;
       }

@@ -98,8 +98,40 @@ $acc_groups = array(
 		<?php foreach ( $acc_groups as $group ) : ?>
 			<?php
 			$panel_id = 'footer-acc-' . sanitize_html_class( $group['key'] );
+			$heading_url = '';
+			if ( 'explore' === $group['key'] ) {
+				$heading_url = home_url( '/explore/' );
+			} elseif ( 'involved' === $group['key'] ) {
+				$heading_url = home_url( '/get-involved/' );
+			} elseif ( 'connected' === $group['key'] ) {
+				$heading_url = home_url( '/contact/' );
+			}
 			?>
 			<div class="footer-acc__item footer-acc__item--<?php echo esc_attr( $group['key'] ); ?>">
+				<?php if ( '' !== $heading_url ) : ?>
+				<div class="footer-acc__trigger footer-acc__trigger--split">
+					<a class="footer-acc__link" href="<?php echo esc_url( $heading_url ); ?>">
+						<span class="footer-acc__icon footer-acc__icon--<?php echo esc_attr( $group['key'] ); ?>">
+							<?php bdc_render_footer_acc_icon( $group['key'] ); ?>
+						</span>
+						<span class="footer-acc__label"><?php echo esc_html( $group['label'] ); ?></span>
+					</a>
+					<button
+						class="footer-acc__chevron-btn"
+						type="button"
+						data-footer-accordion
+						aria-expanded="false"
+						aria-controls="<?php echo esc_attr( $panel_id ); ?>"
+						aria-label="<?php echo esc_attr( sprintf( __( 'Show %s links', 'bright-dreamers-club' ), $group['label'] ) ); ?>"
+					>
+						<span class="footer-acc__chevron" aria-hidden="true">
+							<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+								<path d="M6 9l6 6 6-6" />
+							</svg>
+						</span>
+					</button>
+				</div>
+				<?php else : ?>
 				<button
 					class="footer-acc__trigger"
 					type="button"
@@ -117,6 +149,7 @@ $acc_groups = array(
 						</svg>
 					</span>
 				</button>
+				<?php endif; ?>
 				<div class="footer-acc__panel" id="<?php echo esc_attr( $panel_id ); ?>" inert>
 					<?php bdc_render_footer_link_list( $group['links'], 'footer-acc__links' ); ?>
 				</div>
