@@ -16147,6 +16147,10 @@ body.newsletter-success-open {
   overflow-x: hidden;
 }
 
+.financial-transparency-page #main-content {
+  overflow-x: hidden;
+}
+
 .financial-hero {
   background-color: #fff;
   min-height: 0;
@@ -16575,19 +16579,22 @@ body.newsletter-success-open {
     display: flex;
     flex-wrap: nowrap;
     overflow-x: auto;
+    overflow-y: hidden;
     overscroll-behavior-x: contain;
     overscroll-behavior-y: auto;
     touch-action: pan-x pan-y;
     scroll-snap-type: x mandatory;
+    scroll-padding-inline: 0;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
     gap: 0;
     padding-bottom: 0.35rem;
     margin-inline: 0;
-    padding-inline: 0;
+    padding-inline: 2px;
     width: 100%;
     min-width: 0;
     max-width: 100%;
+    box-sizing: border-box;
   }
 
   .financial-support-grid::-webkit-scrollbar {
@@ -16597,9 +16604,10 @@ body.newsletter-success-open {
   .financial-support-card {
     flex: 0 0 100%;
     width: 100%;
-    min-width: 100%;
+    min-width: 0;
     max-width: 100%;
     scroll-snap-align: start;
+    scroll-snap-stop: always;
     box-sizing: border-box;
     overflow: visible;
     box-shadow: none;
@@ -16622,8 +16630,8 @@ body.newsletter-success-open {
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
     padding-bottom: 0.35rem;
-    margin-inline: calc(-1 * clamp(1.25rem, 2vw, 1.75rem));
-    padding-inline: clamp(1.25rem, 2vw, 1.75rem);
+    margin-inline: 0;
+    padding-inline: 0;
   }
 
   .financial-promise-grid::-webkit-scrollbar {
@@ -16714,7 +16722,7 @@ body.newsletter-success-open {
   .financial-support-card {
     flex: 0 0 100%;
     width: 100%;
-    min-width: 100%;
+    min-width: 0;
     max-width: 100%;
   }
 
@@ -17641,10 +17649,10 @@ body.newsletter-success-open {
     margin-left: 0 !important;
     margin-right: 0 !important;
     margin-inline: 0 !important;
-    padding: 0 0 12px !important;
-    padding-left: 0 !important;
-    padding-right: 0 !important;
-    padding-inline: 0 !important;
+    padding: 2px 2px 12px !important;
+    padding-left: 2px !important;
+    padding-right: 2px !important;
+    padding-inline: 2px !important;
     gap: 0 !important;
     scroll-padding: 0 !important;
     scroll-padding-inline: 0 !important;
@@ -17658,7 +17666,7 @@ body.newsletter-success-open {
     flex-shrink: 0 !important;
     flex-basis: 100% !important;
     width: 100% !important;
-    min-width: 100% !important;
+    min-width: 0 !important;
     max-width: 100% !important;
     margin: 0 !important;
     box-sizing: border-box !important;
@@ -17699,9 +17707,13 @@ body.newsletter-success-open {
     margin-inline: 0 !important;
     width: 100% !important;
     max-width: 100% !important;
-    padding-inline: 0 !important;
     left: auto !important;
     transform: none !important;
+  }
+
+  .financial-support-grid.bdc-mobile-carousel {
+    padding-inline: 2px !important;
+    scroll-padding-inline: 0 !important;
   }
 
   .panel-card--role,
@@ -17742,14 +17754,14 @@ body.newsletter-success-open {
     flex: 0 0 100% !important;
     width: 100% !important;
     max-width: 100% !important;
-    min-width: 100% !important;
+    min-width: 0 !important;
   }
 
   .bdc-mobile-carousel--full .bdc-mobile-carousel__item {
     flex: 0 0 100% !important;
     width: 100% !important;
     max-width: 100% !important;
-    min-width: 100% !important;
+    min-width: 0 !important;
     scroll-snap-align: start;
     scroll-snap-stop: always;
   }
@@ -18586,10 +18598,10 @@ body.newsletter-success-open {
     margin-left: 0 !important;
     margin-right: 0 !important;
     margin-inline: 0 !important;
-    padding: 0 0 16px !important;
-    padding-left: 0 !important;
-    padding-right: 0 !important;
-    padding-inline: 0 !important;
+    padding: 2px 2px 16px !important;
+    padding-left: 2px !important;
+    padding-right: 2px !important;
+    padding-inline: 2px !important;
     gap: 0 !important;
     left: auto !important;
     transform: none !important;
@@ -18599,7 +18611,7 @@ body.newsletter-success-open {
     background: transparent !important;
     box-shadow: none !important;
     overflow-x: auto !important;
-    overflow-y: visible !important;
+    overflow-y: hidden !important;
     -webkit-overflow-scrolling: touch;
     scroll-snap-type: x mandatory;
   }
@@ -18619,7 +18631,7 @@ body.newsletter-success-open {
     flex-shrink: 0 !important;
     flex-basis: 100% !important;
     width: 100% !important;
-    min-width: 100% !important;
+    min-width: 0 !important;
     max-width: 100% !important;
     margin: 0 !important;
     box-sizing: border-box !important;
@@ -18648,6 +18660,59 @@ body.newsletter-success-open {
     border: 1px solid rgba(0, 27, 102, 0.1) !important;
     border-left: 1px solid rgba(0, 27, 102, 0.1) !important;
     border-right: 1px solid rgba(0, 27, 102, 0.1) !important;
+  }
+}
+
+@media (max-width: 1023px) {
+  .financial-transparency-page #main-content {
+    overflow-x: hidden;
+  }
+
+  .financial-transparency-page .financial-commitment .site-container,
+  .financial-transparency-page .financial-support .site-container,
+  .financial-transparency-page .financial-promise .site-container,
+  .financial-transparency-page .financial-questions .site-container {
+    padding-left: var(--container-padding) !important;
+    padding-right: var(--container-padding) !important;
+    box-sizing: border-box;
+    overflow: visible;
+  }
+
+  .financial-transparency-page .financial-commitment__card,
+  .financial-transparency-page .financial-promise__card,
+  .financial-transparency-page .financial-questions__card {
+    box-sizing: border-box;
+    max-width: 100%;
+  }
+
+  .financial-transparency-page .financial-support-grid,
+  .financial-transparency-page .financial-support-grid.bdc-mobile-carousel,
+  .financial-transparency-page .financial-support-grid.bdc-mobile-carousel--solo {
+    margin-inline: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    padding-inline: 2px !important;
+    scroll-padding-inline: 0 !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    box-sizing: border-box !important;
+  }
+
+  .financial-transparency-page .financial-support-card,
+  .financial-transparency-page .financial-support-card.bdc-mobile-carousel__item {
+    flex: 0 0 100% !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    border: 1px solid rgba(0, 27, 102, 0.1) !important;
+  }
+
+  .financial-transparency-page .financial-promise-grid,
+  .financial-transparency-page .financial-promise-grid.bdc-mobile-carousel {
+    margin-inline: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
   }
 }
 

@@ -1052,10 +1052,10 @@
         track.style.setProperty('margin-left', '0', 'important');
         track.style.setProperty('margin-right', '0', 'important');
         track.style.setProperty('margin-inline', '0', 'important');
-        track.style.setProperty('padding', '0 0 16px', 'important');
-        track.style.setProperty('padding-left', '0', 'important');
-        track.style.setProperty('padding-right', '0', 'important');
-        track.style.setProperty('padding-inline', '0', 'important');
+        track.style.setProperty('padding', '2px 2px 16px', 'important');
+        track.style.setProperty('padding-left', '2px', 'important');
+        track.style.setProperty('padding-right', '2px', 'important');
+        track.style.setProperty('padding-inline', '2px', 'important');
         track.style.setProperty('gap', '0', 'important');
         track.style.setProperty('scroll-padding-inline', '0', 'important');
         track.style.setProperty('left', 'auto', 'important');
@@ -1064,7 +1064,7 @@
         items.forEach(function (item) {
           item.style.setProperty('flex', '0 0 100%', 'important');
           item.style.setProperty('width', '100%', 'important');
-          item.style.setProperty('min-width', '100%', 'important');
+          item.style.setProperty('min-width', '0', 'important');
           item.style.setProperty('max-width', '100%', 'important');
           item.style.setProperty('margin', '0', 'important');
           item.style.setProperty('box-sizing', 'border-box', 'important');
