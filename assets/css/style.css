@@ -461,7 +461,11 @@ button {
   #main-content > section.explore-hero.page-hero,
   #main-content > section.creative-makers-hero.page-hero,
   #main-content > section.young-ideas-lab-hero.page-hero,
-  #main-content > section.create-for-cause-hero.page-hero {
+  #main-content > section.create-for-cause-hero.page-hero,
+  #main-content > section.community-adventures-hero.page-hero,
+  #main-content > section.for-parents-hero,
+  #main-content > section.vision-hero,
+  #main-content > section.get-involved-hero {
     padding-bottom: 2.25rem;
   }
 
@@ -9077,8 +9081,20 @@ img.lazy-img.loaded {
   }
 
   .get-involved-ways-card {
-    flex: 0 0 min(240px, 74vw);
+    flex: 0 0 calc((100% - 16px) / 3);
+    width: calc((100% - 16px) / 3);
+    max-width: calc((100% - 16px) / 3);
     scroll-snap-align: start;
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+
+  .get-involved-ways-card__title,
+  .get-involved-ways-card__text,
+  .get-involved-ways-card__link {
+    max-width: 100%;
+    overflow-wrap: anywhere;
+    word-break: break-word;
   }
 
   .partners-ways__grid {
@@ -9230,6 +9246,15 @@ img.lazy-img.loaded {
     grid-template-columns: 1fr;
   }
 
+  .creative-makers-info-card__title,
+  .creative-makers-info-card__text,
+  .creative-makers-info-card__list li,
+  .creative-makers-parents__title {
+    max-width: 100%;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+
   .creative-makers-parents__tablist {
     display: flex;
     flex-direction: column;
@@ -9314,8 +9339,19 @@ img.lazy-img.loaded {
   }
 
   .for-parents-expect-card {
-    flex: 0 0 min(220px, 72vw);
+    flex: 0 0 calc((100% - 16px) / 3);
+    width: calc((100% - 16px) / 3);
+    max-width: calc((100% - 16px) / 3);
     scroll-snap-align: start;
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+
+  .for-parents-expect-card__title,
+  .for-parents-expect-card__text {
+    max-width: 100%;
+    overflow-wrap: anywhere;
+    word-break: break-word;
   }
 
   .vision-pillars__grid {
@@ -9337,13 +9373,20 @@ img.lazy-img.loaded {
   }
 
   .vision-pillar-card {
-    flex: 0 0 min(240px, 72vw);
+    flex: 0 0 calc((100% - 16px) / 3);
+    width: calc((100% - 16px) / 3);
+    max-width: calc((100% - 16px) / 3);
     scroll-snap-align: start;
+    box-sizing: border-box;
+    overflow: hidden;
   }
 
+  .vision-pillar-card__title,
   .vision-pillar-card__text {
     --vision-pillar-text-lines: 4;
-    max-width: 13.5rem;
+    max-width: 100%;
+    overflow-wrap: anywhere;
+    word-break: break-word;
   }
 
   .vision-roadmap__inner {
@@ -9393,17 +9436,24 @@ img.lazy-img.loaded {
   }
 
   .vision-journey-step {
-    flex: 0 0 min(158px, 68vw);
+    flex: 0 0 calc((100% - 16px) / 3);
+    width: calc((100% - 16px) / 3);
+    max-width: calc((100% - 16px) / 3);
     scroll-snap-align: start;
+    box-sizing: border-box;
+    overflow: hidden;
   }
 
+  .vision-journey-step__title,
+  .vision-journey-step__quote,
   .vision-journey-step__text {
-    max-width: none;
+    max-width: 100%;
+    overflow-wrap: anywhere;
+    word-break: break-word;
   }
 
   .vision-journey-step__arrow {
-    flex-shrink: 0;
-    scroll-snap-align: center;
+    display: none;
   }
 
   .vision-moments__inner {
@@ -9539,8 +9589,18 @@ img.lazy-img.loaded {
   }
 
   .vision-partner__icon-item {
-    flex: 0 0 min(88px, 28vw);
+    flex: 0 0 calc((100% - 16px) / 3);
+    width: calc((100% - 16px) / 3);
+    max-width: calc((100% - 16px) / 3);
     scroll-snap-align: start;
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+
+  .vision-partner__icon-label {
+    max-width: 100%;
+    overflow-wrap: anywhere;
+    word-break: break-word;
   }
 
   .vision-partner__cta-wrap {
@@ -9589,6 +9649,23 @@ img.lazy-img.loaded {
   .for-parents-info__grid {
     grid-template-columns: 1fr;
     gap: clamp(0.85rem, 2vw, 1.1rem);
+  }
+
+  .for-parents-info-card__title,
+  .for-parents-info-feature__title,
+  .for-parents-info-feature__text,
+  .for-parents-info-card__footer,
+  .for-parents-fit-card__title,
+  .for-parents-fit-card__intro,
+  .vision-together__title,
+  .vision-together__list li,
+  .get-involved-impact__title,
+  .get-involved-impact__intro,
+  .get-involved-timeline__title,
+  .get-involved-timeline__text {
+    max-width: 100%;
+    overflow-wrap: anywhere;
+    word-break: break-word;
   }
 
   .for-parents-info-card__features {
@@ -17048,7 +17125,11 @@ body.newsletter-success-open {
   #main-content > section.explore-hero.page-hero,
   #main-content > section.creative-makers-hero.page-hero,
   #main-content > section.young-ideas-lab-hero.page-hero,
-  #main-content > section.create-for-cause-hero.page-hero {
+  #main-content > section.create-for-cause-hero.page-hero,
+  #main-content > section.community-adventures-hero.page-hero,
+  #main-content > section.for-parents-hero.page-hero,
+  #main-content > section.vision-hero.page-hero,
+  #main-content > section.get-involved-hero.page-hero {
     padding-bottom: 2.25rem;
   }
 
@@ -17373,10 +17454,29 @@ body.newsletter-success-open {
     scroll-snap-stop: normal;
   }
 
-  .bdc-mobile-carousel--peek .explore-skill.bdc-mobile-carousel__item {
+  .bdc-mobile-carousel--peek .explore-skill.bdc-mobile-carousel__item,
+  .bdc-mobile-carousel--peek .creative-makers-activity.bdc-mobile-carousel__item,
+  .bdc-mobile-carousel--peek .for-parents-expect-card.bdc-mobile-carousel__item,
+  .bdc-mobile-carousel--peek .vision-pillar-card.bdc-mobile-carousel__item,
+  .bdc-mobile-carousel--peek .vision-journey-step.bdc-mobile-carousel__item,
+  .bdc-mobile-carousel--peek .get-involved-ways-card.bdc-mobile-carousel__item,
+  .bdc-mobile-carousel--peek .vision-partner__icon-item.bdc-mobile-carousel__item {
     flex: 0 0 calc((100% - (var(--bdc-peek-gap) * 2)) / 3);
     width: calc((100% - (var(--bdc-peek-gap) * 2)) / 3);
     max-width: calc((100% - (var(--bdc-peek-gap) * 2)) / 3);
+  }
+
+  .bdc-mobile-carousel--peek-2 .bdc-mobile-carousel__item,
+  .bdc-mobile-carousel--peek-2 .explore-skill.bdc-mobile-carousel__item,
+  .bdc-mobile-carousel--peek-2 .creative-makers-activity.bdc-mobile-carousel__item,
+  .bdc-mobile-carousel--peek-2 .for-parents-expect-card.bdc-mobile-carousel__item,
+  .bdc-mobile-carousel--peek-2 .vision-pillar-card.bdc-mobile-carousel__item,
+  .bdc-mobile-carousel--peek-2 .vision-journey-step.bdc-mobile-carousel__item,
+  .bdc-mobile-carousel--peek-2 .get-involved-ways-card.bdc-mobile-carousel__item,
+  .bdc-mobile-carousel--peek-2 .vision-partner__icon-item.bdc-mobile-carousel__item {
+    flex: 0 0 calc((100% - var(--bdc-peek-gap)) / 2);
+    width: calc((100% - var(--bdc-peek-gap)) / 2);
+    max-width: calc((100% - var(--bdc-peek-gap)) / 2);
   }
 
   .bdc-mobile-carousel--peek .explore-skill__title,
@@ -17384,12 +17484,6 @@ body.newsletter-success-open {
     max-width: 100%;
     overflow-wrap: anywhere;
     word-break: break-word;
-  }
-
-  .bdc-mobile-carousel--peek-2 .bdc-mobile-carousel__item {
-    flex: 0 0 calc((100% - var(--bdc-peek-gap)) / 2);
-    width: calc((100% - var(--bdc-peek-gap)) / 2);
-    max-width: calc((100% - var(--bdc-peek-gap)) / 2);
   }
 
   .bdc-mobile-carousel__item + .bdc-mobile-carousel__item {
@@ -17423,7 +17517,12 @@ body.newsletter-success-open {
   .bdc-mobile-carousel--peek .home-different__item,
   .bdc-mobile-carousel--peek .home-reality-step,
   .bdc-mobile-carousel--peek .role-icons__item,
-  .bdc-mobile-carousel--peek .approach-step {
+  .bdc-mobile-carousel--peek .approach-step,
+  .bdc-mobile-carousel--peek .for-parents-expect-card,
+  .bdc-mobile-carousel--peek .vision-pillar-card,
+  .bdc-mobile-carousel--peek .vision-journey-step,
+  .bdc-mobile-carousel--peek .get-involved-ways-card,
+  .bdc-mobile-carousel--peek .vision-partner__icon-item {
     box-shadow: none;
     padding-inline: 0.2rem;
   }
@@ -17469,6 +17568,44 @@ body.newsletter-success-open {
     line-height: 1.25;
     overflow-wrap: anywhere;
     word-break: break-word;
+  }
+
+  .bdc-mobile-carousel--peek .for-parents-expect-card,
+  .bdc-mobile-carousel--peek .vision-pillar-card,
+  .bdc-mobile-carousel--peek .get-involved-ways-card,
+  .bdc-mobile-carousel--peek .vision-journey-step {
+    padding: 0.55rem 0.3rem;
+    text-align: center;
+  }
+
+  .bdc-mobile-carousel--peek .for-parents-expect-card__icon,
+  .bdc-mobile-carousel--peek .vision-pillar-card__icon,
+  .bdc-mobile-carousel--peek .get-involved-ways-card__icon,
+  .bdc-mobile-carousel--peek .vision-journey-step__icon {
+    width: clamp(36px, 10vw, 52px);
+    height: clamp(36px, 10vw, 52px);
+  }
+
+  .bdc-mobile-carousel--peek .for-parents-expect-card__title,
+  .bdc-mobile-carousel--peek .vision-pillar-card__title,
+  .bdc-mobile-carousel--peek .get-involved-ways-card__title,
+  .bdc-mobile-carousel--peek .vision-journey-step__title {
+    font-size: clamp(0.7rem, 2.5vw, 0.82rem);
+    line-height: 1.25;
+  }
+
+  .bdc-mobile-carousel--peek .for-parents-expect-card__text,
+  .bdc-mobile-carousel--peek .vision-pillar-card__text,
+  .bdc-mobile-carousel--peek .get-involved-ways-card__text,
+  .bdc-mobile-carousel--peek .vision-journey-step__quote,
+  .bdc-mobile-carousel--peek .vision-journey-step__text {
+    font-size: clamp(0.62rem, 2.3vw, 0.72rem);
+    line-height: 1.35;
+    min-height: 0;
+  }
+
+  .bdc-mobile-carousel--peek .get-involved-ways-card__link {
+    font-size: clamp(0.62rem, 2.3vw, 0.72rem);
   }
 
   .bdc-mobile-carousel--peek .believe-card__text {

@@ -745,6 +745,10 @@
       'creative-makers',
       'young-ideas-lab',
       'create-for-cause',
+      'community-adventures',
+      'for-parents',
+      'our-vision',
+      'get-involved',
     ];
 
     var knownConfigs = [
@@ -762,7 +766,7 @@
       { track: '.creative-makers-explore__grid', item: '.creative-makers-activity', mode: 'peek' },
       { track: '.for-parents-expect__grid', item: '.for-parents-expect-card', mode: 'peek' },
       { track: '.vision-pillars__grid', item: '.vision-pillar-card', mode: 'peek' },
-      { track: '.vision-journey-steps', item: '.vision-journey-step', mode: 'full' },
+      { track: '.vision-journey-steps', item: '.vision-journey-step', mode: 'peek' },
       { track: '.vision-partner__icons', item: '.vision-partner__icon-item', mode: 'peek' },
       { track: '.get-involved-ways__grid', item: '.get-involved-ways-card', mode: 'peek' },
       { track: '.partners-ways__grid', item: '.partners-ways-card' },
@@ -780,10 +784,17 @@
       '.media-policy-nav__list',
       '.home-spotlight__grid',
       '.vision-moments__gallery',
+      '.vision-together__grid',
+      '.vision-roadmap__list',
+      '.vision-hero-checklist',
       '.creative-makers-parents__tablist',
       '.creative-makers-parents__accordion',
       '.creative-makers-parents__panels',
       '.creative-makers-info__grid',
+      '.for-parents-info__grid',
+      '.for-parents-fit__grid',
+      '.get-involved-impact__inner',
+      '.get-involved-timeline',
       '.faq-topic-list',
       '.faq-accordion',
       '.about-panels__grid',
@@ -800,7 +811,11 @@
           body.classList.contains('explore-page') ||
           body.classList.contains('creative-makers-page') ||
           body.classList.contains('young-ideas-lab-page') ||
-          body.classList.contains('create-for-cause-page')
+          body.classList.contains('create-for-cause-page') ||
+          body.classList.contains('community-adventures-page') ||
+          body.classList.contains('for-parents-page') ||
+          body.classList.contains('our-vision-page') ||
+          body.classList.contains('get-involved-page')
         ) {
           return true;
         }
