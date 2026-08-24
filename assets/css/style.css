@@ -8939,7 +8939,8 @@ img.lazy-img.loaded {
   }
 
   .explore-grow-stage__card::before {
-    background-size: 112% 100%;
+    background-size: contain;
+    background-position: center center;
   }
 
   .explore-grow__arrow {
@@ -17399,9 +17400,20 @@ body.newsletter-success-open {
     overflow: hidden;
   }
 
+  .bdc-mobile-carousel .explore-grow-stage {
+    overflow: visible;
+  }
+
   .bdc-mobile-carousel .explore-grow-stage__card {
     height: auto;
     min-height: var(--explore-grow-card-h);
+    overflow: visible;
+  }
+
+  .bdc-mobile-carousel .explore-grow-stage__card::before {
+    inset: -6% -10px;
+    background-size: contain;
+    background-position: center center;
   }
 
   .bdc-carousel-dots {
