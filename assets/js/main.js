@@ -795,7 +795,6 @@
       { track: '.financial-promise-grid', item: '.financial-promise-item', mode: 'peek' },
       { track: '.newsletter-role-grid', item: '.newsletter-role-card', mode: 'peek' },
       { track: '.media-consent-usage-grid', item: '.media-consent-usage-card', mode: 'peek' },
-      { track: '.donation-support-grid', item: '.donation-support-card', mode: 'peek' },
     ];
 
     var skipTrackSelector = [
@@ -826,6 +825,8 @@
       '.faq-search',
       '.faq-contact-cta',
       '.apply-form',
+      '.donation-support-grid',
+      '.donation-support-fieldset',
       '.volunteer-interest-grid',
       '.terms-sections-grid',
       '.terms-commitment',
@@ -891,7 +892,7 @@
     function isInset(track) {
       return !!(
         track.matches(
-          '.role-icons, .approach-steps, .vision-partner__icons, .partners-impact__grid, .for-parents-expect__grid, .for-parents-info-card__features, .financial-promise-grid, .newsletter-role-grid, .media-consent-usage-grid, .donation-support-grid'
+          '.role-icons, .approach-steps, .vision-partner__icons, .partners-impact__grid, .for-parents-expect__grid, .for-parents-info-card__features, .financial-promise-grid, .newsletter-role-grid, .media-consent-usage-grid'
         ) ||
         track.closest(
           '.panel-card, .partners-impact__box, .for-parents-info-card, .newsletter-form-wrap, .apply-form__main, .donation-form-card, .media-consent-card, .media-policy-content'
