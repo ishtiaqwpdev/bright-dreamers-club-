@@ -17582,20 +17582,29 @@ body.newsletter-success-open {
     align-items: stretch;
     justify-content: flex-start;
     gap: 28px;
-    width: calc(100% + (var(--container-padding) * 2));
-    max-width: none;
-    margin-inline: calc(-1 * var(--container-padding));
-    padding: 18px var(--container-padding) 28px;
+    width: 100%;
+    max-width: 100%;
+    margin-inline: 0;
+    padding: 18px 0 28px;
     overflow-x: auto;
     overflow-y: visible;
     overscroll-behavior-x: contain;
     touch-action: pan-x pan-y;
     scroll-snap-type: x mandatory;
     scroll-snap-stop: always;
-    scroll-padding-inline: var(--container-padding);
+    scroll-padding-inline: 0;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
     box-sizing: border-box;
+  }
+
+  /* Only photo/peek tracks that are meant to bleed to the screen edge */
+  .bdc-mobile-carousel--peek:not(.bdc-mobile-carousel--inset):not(.bdc-mobile-carousel--solo) {
+    width: calc(100% + (var(--container-padding) * 2));
+    max-width: none;
+    margin-inline: calc(-1 * var(--container-padding));
+    padding: 18px var(--container-padding) 28px;
+    scroll-padding-inline: var(--container-padding);
   }
 
   .bdc-mobile-carousel--peek {
@@ -17717,17 +17726,16 @@ body.newsletter-success-open {
   }
 
   .bdc-mobile-carousel__item {
-    flex: 0 0 calc(100vw - (var(--container-padding) * 2));
-    width: calc(100vw - (var(--container-padding) * 2));
-    max-width: calc(100vw - (var(--container-padding) * 2));
+    flex: 0 0 100%;
+    width: 100%;
+    max-width: 100%;
     min-width: 0;
     min-height: 100%;
     height: auto;
-    scroll-snap-align: center;
+    scroll-snap-align: start;
     scroll-snap-stop: always;
     box-sizing: border-box;
     overflow: visible;
-    border-left: none;
   }
 
   .bdc-mobile-carousel--inset .bdc-mobile-carousel__item {
@@ -17832,7 +17840,7 @@ body.newsletter-success-open {
     word-break: break-word;
   }
 
-  .bdc-mobile-carousel__item + .bdc-mobile-carousel__item {
+  .bdc-mobile-carousel--peek .bdc-mobile-carousel__item + .bdc-mobile-carousel__item {
     border-left: none;
   }
 
@@ -18632,6 +18640,14 @@ body.newsletter-success-open {
   .for-parents-expect-card.bdc-mobile-carousel__item,
   .get-involved-ways-card.bdc-mobile-carousel__item {
     border: 1px solid var(--for-parents-expect-card-border) !important;
+    border-left: 1px solid var(--for-parents-expect-card-border) !important;
+    border-right: 1px solid var(--for-parents-expect-card-border) !important;
+  }
+
+  .financial-support-card.bdc-mobile-carousel__item {
+    border: 1px solid rgba(0, 27, 102, 0.1) !important;
+    border-left: 1px solid rgba(0, 27, 102, 0.1) !important;
+    border-right: 1px solid rgba(0, 27, 102, 0.1) !important;
   }
 }
 
