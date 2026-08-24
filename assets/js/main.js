@@ -891,7 +891,7 @@
     function isInset(track) {
       return !!(
         track.matches(
-          '.role-icons, .approach-steps, .vision-partner__icons, .partners-impact__grid, .for-parents-info-card__features, .financial-promise-grid, .newsletter-role-grid, .media-consent-usage-grid, .donation-support-grid'
+          '.role-icons, .approach-steps, .vision-partner__icons, .partners-impact__grid, .for-parents-expect__grid, .for-parents-info-card__features, .financial-promise-grid, .newsletter-role-grid, .media-consent-usage-grid, .donation-support-grid'
         ) ||
         track.closest(
           '.panel-card, .partners-impact__box, .for-parents-info-card, .newsletter-form-wrap, .apply-form__main, .donation-form-card, .media-consent-card, .media-policy-content'
