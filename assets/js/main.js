@@ -789,7 +789,7 @@
       { track: '.get-involved-ways__grid', item: '.get-involved-ways-card', mode: 'full' },
       { track: '.partners-ways__grid', item: '.partners-ways-card', mode: 'peek' },
       { track: '.partners-impact__grid', item: '.partners-impact-card', mode: 'full' },
-      { track: '.partners-founding__grid', item: '.partners-founding-card', mode: 'peek' },
+      { track: '.partners-founding__grid', item: '.partners-founding-card', mode: 'full' },
       { track: '.accessibility-provide-grid', item: '.accessibility-provide-card', mode: 'peek' },
       { track: '.financial-support-grid', item: '.financial-support-card', mode: 'peek' },
       { track: '.financial-promise-grid', item: '.financial-promise-item', mode: 'peek' },
@@ -866,7 +866,7 @@
           return true;
         }
       }
-      if (document.querySelector('.for-parents-hero, .for-parents-expect, .get-involved-ways, .contact-hero, .accessibility-provide-grid, .financial-support-grid, .faq-hero, .newsletter-role-grid, .donation-support-grid, .media-consent-usage-grid')) {
+      if (document.querySelector('.for-parents-hero, .for-parents-expect, .get-involved-ways, .partners-founding, .contact-hero, .accessibility-provide-grid, .financial-support-grid, .faq-hero, .newsletter-role-grid, .donation-support-grid, .media-consent-usage-grid')) {
         return true;
       }
       return phasePages.indexOf(pageSlug(window.location.pathname)) !== -1;
@@ -1032,7 +1032,8 @@
       var isSolo =
         mode === 'full' &&
         (track.classList.contains('for-parents-expect__grid') ||
-          track.classList.contains('get-involved-ways__grid'));
+          track.classList.contains('get-involved-ways__grid') ||
+          track.classList.contains('partners-founding__grid'));
       var snapInline = isSolo || mode === 'peek' ? 'start' : 'center';
 
       track.classList.add('bdc-mobile-carousel');

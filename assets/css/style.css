@@ -9233,8 +9233,9 @@ img.lazy-img.loaded {
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
     padding-bottom: 0.35rem;
-    margin-inline: calc(-1 * var(--container-padding));
-    padding-inline: var(--container-padding);
+    margin-inline: 0;
+    padding-inline: 0;
+    gap: 0;
   }
 
   .partners-founding__grid::-webkit-scrollbar {
@@ -9242,12 +9243,14 @@ img.lazy-img.loaded {
   }
 
   .partners-founding-card {
-    flex: 0 0 calc((100% - 16px) / 3);
-    width: calc((100% - 16px) / 3);
-    max-width: calc((100% - 16px) / 3);
+    flex: 0 0 100%;
+    width: 100%;
+    min-width: 100%;
+    max-width: 100%;
     scroll-snap-align: start;
     box-sizing: border-box;
     overflow: hidden;
+    box-shadow: none;
   }
 
   .partners-founding-card__title,
@@ -17666,7 +17669,6 @@ body.newsletter-success-open {
   .bdc-mobile-carousel--peek .vision-pillar-card.bdc-mobile-carousel__item,
   .bdc-mobile-carousel--peek .vision-journey-step.bdc-mobile-carousel__item,
   .bdc-mobile-carousel--peek .partners-ways-card.bdc-mobile-carousel__item,
-  .bdc-mobile-carousel--peek .partners-founding-card.bdc-mobile-carousel__item,
   .bdc-mobile-carousel--peek .accessibility-provide-card.bdc-mobile-carousel__item,
   .bdc-mobile-carousel--peek .financial-support-card.bdc-mobile-carousel__item,
   .bdc-mobile-carousel--peek .financial-promise-item.bdc-mobile-carousel__item,
@@ -17685,7 +17687,6 @@ body.newsletter-success-open {
   .bdc-mobile-carousel--peek-2 .vision-pillar-card.bdc-mobile-carousel__item,
   .bdc-mobile-carousel--peek-2 .vision-journey-step.bdc-mobile-carousel__item,
   .bdc-mobile-carousel--peek-2 .partners-ways-card.bdc-mobile-carousel__item,
-  .bdc-mobile-carousel--peek-2 .partners-founding-card.bdc-mobile-carousel__item,
   .bdc-mobile-carousel--peek-2 .accessibility-provide-card.bdc-mobile-carousel__item,
   .bdc-mobile-carousel--peek-2 .financial-support-card.bdc-mobile-carousel__item,
   .bdc-mobile-carousel--peek-2 .financial-promise-item.bdc-mobile-carousel__item,
@@ -17758,7 +17759,6 @@ body.newsletter-success-open {
   .bdc-mobile-carousel .believe-card,
   .bdc-mobile-carousel .vision-pillar-card,
   .bdc-mobile-carousel .partners-ways-card,
-  .bdc-mobile-carousel .partners-founding-card,
   .bdc-mobile-carousel .creative-makers-activity,
   .bdc-mobile-carousel .accessibility-provide-card,
   .bdc-mobile-carousel .financial-support-card {
@@ -18017,7 +18017,11 @@ body.newsletter-success-open {
   .get-involved-ways__grid,
   .get-involved-ways__grid.bdc-mobile-carousel,
   .get-involved-ways__grid.bdc-mobile-carousel--full,
-  .get-involved-ways__grid.bdc-mobile-carousel--inset {
+  .get-involved-ways__grid.bdc-mobile-carousel--inset,
+  .partners-founding__grid,
+  .partners-founding__grid.bdc-mobile-carousel,
+  .partners-founding__grid.bdc-mobile-carousel--full,
+  .partners-founding__grid.bdc-mobile-carousel--inset {
     width: 100% !important;
     max-width: 100% !important;
     margin: 0 !important;
@@ -18032,7 +18036,9 @@ body.newsletter-success-open {
   .for-parents-expect-card,
   .for-parents-expect-card.bdc-mobile-carousel__item,
   .get-involved-ways-card,
-  .get-involved-ways-card.bdc-mobile-carousel__item {
+  .get-involved-ways-card.bdc-mobile-carousel__item,
+  .partners-founding-card,
+  .partners-founding-card.bdc-mobile-carousel__item {
     flex: 0 0 100% !important;
     width: 100% !important;
     min-width: 100% !important;
@@ -18041,9 +18047,15 @@ body.newsletter-success-open {
     -webkit-box-shadow: none !important;
     filter: none !important;
     overflow: visible !important;
+    scroll-snap-align: start !important;
+  }
+
+  .for-parents-expect-card,
+  .for-parents-expect-card.bdc-mobile-carousel__item,
+  .get-involved-ways-card,
+  .get-involved-ways-card.bdc-mobile-carousel__item {
     background-color: #fff !important;
     border: 1px solid var(--for-parents-expect-card-border) !important;
-    scroll-snap-align: start !important;
   }
 }
 
@@ -18464,9 +18476,10 @@ body.newsletter-success-open {
   }
 }
 
-/* One full card per view: For Parents expect + Get Involved ways */
+/* One full card per view: For Parents expect + Get Involved ways + Partners founding */
 @media (max-width: 991px) {
-  .get-involved-ways {
+  .get-involved-ways,
+  .partners-founding {
     overflow: hidden;
   }
 
@@ -18476,7 +18489,8 @@ body.newsletter-success-open {
   }
 
   .for-parents-expect__inner.site-container,
-  .get-involved-ways > .site-container {
+  .get-involved-ways > .site-container,
+  .partners-founding > .site-container {
     padding-left: 16px !important;
     padding-right: 16px !important;
     overflow: hidden;
@@ -18492,7 +18506,16 @@ body.newsletter-success-open {
   .get-involved-ways__grid.bdc-mobile-carousel,
   .get-involved-ways__grid.bdc-mobile-carousel--solo,
   .get-involved-ways__grid.bdc-mobile-carousel--full,
-  .get-involved-ways__grid.bdc-mobile-carousel--inset {
+  .get-involved-ways__grid.bdc-mobile-carousel--inset,
+  .get-involved-ways__grid.bdc-mobile-carousel--peek,
+  .get-involved-ways__grid.bdc-mobile-carousel--peek-2,
+  .partners-founding__grid,
+  .partners-founding__grid.bdc-mobile-carousel,
+  .partners-founding__grid.bdc-mobile-carousel--solo,
+  .partners-founding__grid.bdc-mobile-carousel--full,
+  .partners-founding__grid.bdc-mobile-carousel--inset,
+  .partners-founding__grid.bdc-mobile-carousel--peek,
+  .partners-founding__grid.bdc-mobile-carousel--peek-2 {
     display: flex !important;
     flex-wrap: nowrap !important;
     width: 100% !important;
@@ -18515,6 +18538,17 @@ body.newsletter-success-open {
   .get-involved-ways .get-involved-ways-card,
   .get-involved-ways .get-involved-ways-card.bdc-mobile-carousel__item,
   .get-involved-ways__grid > .get-involved-ways-card,
+  .get-involved-ways__grid.bdc-mobile-carousel--peek > .get-involved-ways-card,
+  .get-involved-ways__grid.bdc-mobile-carousel--peek-2 > .get-involved-ways-card,
+  .get-involved-ways__grid.bdc-mobile-carousel--peek .get-involved-ways-card.bdc-mobile-carousel__item,
+  .get-involved-ways__grid.bdc-mobile-carousel--peek-2 .get-involved-ways-card.bdc-mobile-carousel__item,
+  .partners-founding .partners-founding-card,
+  .partners-founding .partners-founding-card.bdc-mobile-carousel__item,
+  .partners-founding__grid > .partners-founding-card,
+  .partners-founding__grid.bdc-mobile-carousel--peek > .partners-founding-card,
+  .partners-founding__grid.bdc-mobile-carousel--peek-2 > .partners-founding-card,
+  .partners-founding__grid.bdc-mobile-carousel--peek .partners-founding-card.bdc-mobile-carousel__item,
+  .partners-founding__grid.bdc-mobile-carousel--peek-2 .partners-founding-card.bdc-mobile-carousel__item,
   .bdc-mobile-carousel--solo .bdc-mobile-carousel__item {
     flex: 0 0 100% !important;
     flex-grow: 0 !important;
@@ -18528,10 +18562,17 @@ body.newsletter-success-open {
     box-shadow: none !important;
     -webkit-box-shadow: none !important;
     filter: none !important;
-    background-color: #fff !important;
-    border: 1px solid var(--for-parents-expect-card-border) !important;
     scroll-snap-align: start !important;
     scroll-snap-stop: always !important;
+  }
+
+  .for-parents-expect .for-parents-expect-card,
+  .for-parents-expect .for-parents-expect-card.bdc-mobile-carousel__item,
+  .get-involved-ways .get-involved-ways-card,
+  .get-involved-ways .get-involved-ways-card.bdc-mobile-carousel__item,
+  .get-involved-ways__grid > .get-involved-ways-card {
+    background-color: #fff !important;
+    border: 1px solid var(--for-parents-expect-card-border) !important;
   }
 }
 
