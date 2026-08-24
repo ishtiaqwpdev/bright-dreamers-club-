@@ -13,7 +13,7 @@ get_template_part(
 	'template-parts/page-hero',
 	null,
 	array(
-		'section_class'   => 'terms-hero',
+		'section_class'   => 'terms-hero about-hero',
 		'aria_label'      => $terms_hero_aria_label,
 		'headline'        => $terms_hero_title,
 		'supporting_copy' => $terms_hero_text,

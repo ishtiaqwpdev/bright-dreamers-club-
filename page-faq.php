@@ -128,7 +128,7 @@ $faq_cta_heart_url = bdc_get_acf_image_url(
         'template-parts/page-hero',
         null,
         array(
-          'section_class'   => 'faq-hero',
+          'section_class'   => 'faq-hero about-hero',
           'aria_label'      => $faq_hero_aria_label,
           'section_label'   => $faq_hero_eyebrow,
           'headline_html'   => bdc_hero_lines_html(

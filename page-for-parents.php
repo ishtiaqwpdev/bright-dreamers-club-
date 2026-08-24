@@ -442,7 +442,7 @@ $for_parents_cta_btn_link = bdc_get_acf_link(
         'template-parts/page-hero',
         null,
         array(
-          'section_class'      => 'for-parents-hero',
+          'section_class'      => 'for-parents-hero about-hero',
           'aria_label'         => $for_parents_hero_aria_label,
           'headline_html'      => bdc_hero_lines_html(
             array(

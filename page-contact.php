@@ -184,7 +184,7 @@ $contact_cta_btn_link = bdc_get_acf_link(
         'template-parts/page-hero',
         null,
         array(
-          'section_class'        => 'contact-hero',
+          'section_class'        => 'contact-hero about-hero',
           'aria_label'           => $contact_hero_aria_label,
           'headline_html'        => $contact_headline_html,
           'supporting_copy_html' => $contact_copy_html,

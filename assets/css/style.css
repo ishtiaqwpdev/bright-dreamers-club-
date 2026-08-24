@@ -465,7 +465,15 @@ button {
   #main-content > section.community-adventures-hero.page-hero,
   #main-content > section.for-parents-hero,
   #main-content > section.vision-hero,
-  #main-content > section.get-involved-hero {
+  #main-content > section.get-involved-hero,
+  #main-content > section.partners-hero,
+  #main-content > section.contact-hero,
+  #main-content > section.accessibility-hero,
+  #main-content > section.financial-hero,
+  #main-content > section.faq-hero,
+  #main-content > section.apply-hero,
+  #main-content > section.terms-hero,
+  #main-content > section.media-policy-hero {
     padding-bottom: 2.25rem;
   }
 
@@ -8473,6 +8481,16 @@ img.lazy-img.loaded {
     grid-template-columns: 1fr;
   }
 
+  .contact-form__aside-title,
+  .contact-form__aside-text,
+  .contact-form__title,
+  .contact-cta__title,
+  .contact-cta__text {
+    max-width: 100%;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+
   .contact-form__aside {
     min-height: clamp(380px, 72vw, 520px);
   }
@@ -9060,6 +9078,12 @@ img.lazy-img.loaded {
 
   .for-parents-expect__wrap {
     padding-inline: 0;
+    overflow: visible;
+  }
+
+  .for-parents-expect__inner {
+    overflow: visible;
+    max-width: 100%;
   }
 
   .get-involved-ways__grid {
@@ -9116,8 +9140,19 @@ img.lazy-img.loaded {
   }
 
   .partners-ways-card {
-    flex: 0 0 min(240px, 74vw);
+    flex: 0 0 calc((100% - 16px) / 3);
+    width: calc((100% - 16px) / 3);
+    max-width: calc((100% - 16px) / 3);
     scroll-snap-align: start;
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+
+  .partners-ways-card__title,
+  .partners-ways-card__text {
+    max-width: 100%;
+    overflow-wrap: anywhere;
+    word-break: break-word;
   }
 
   .partners-impact__grid {
@@ -9139,8 +9174,19 @@ img.lazy-img.loaded {
   }
 
   .partners-impact-card {
-    flex: 0 0 min(240px, 74vw);
+    flex: 0 0 100%;
+    width: 100%;
+    max-width: 100%;
     scroll-snap-align: start;
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+
+  .partners-impact-card__title,
+  .partners-impact-card__text {
+    max-width: 100%;
+    overflow-wrap: anywhere;
+    word-break: break-word;
   }
 
   .partners-opportunity-cta__card {
@@ -9155,6 +9201,12 @@ img.lazy-img.loaded {
 
   .partners-opportunity-cta__text {
     max-width: none;
+  }
+
+  .partners-opportunity-cta__title,
+  .partners-opportunity-cta__text {
+    overflow-wrap: anywhere;
+    word-break: break-word;
   }
 
   .partners-opportunity-cta__btn {
@@ -9187,8 +9239,19 @@ img.lazy-img.loaded {
   }
 
   .partners-founding-card {
-    flex: 0 0 min(240px, 74vw);
+    flex: 0 0 calc((100% - 16px) / 3);
+    width: calc((100% - 16px) / 3);
+    max-width: calc((100% - 16px) / 3);
     scroll-snap-align: start;
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+
+  .partners-founding-card__title,
+  .partners-founding-card__text {
+    max-width: 100%;
+    overflow-wrap: anywhere;
+    word-break: break-word;
   }
 
   .creative-makers-hero__inner {
@@ -9350,6 +9413,11 @@ img.lazy-img.loaded {
   .for-parents-expect-card__title,
   .for-parents-expect-card__text {
     max-width: 100%;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+
+  .for-parents-expect__title {
     overflow-wrap: anywhere;
     word-break: break-word;
   }
@@ -9669,7 +9737,46 @@ img.lazy-img.loaded {
   }
 
   .for-parents-info-card__features {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    overscroll-behavior-y: auto;
+    touch-action: pan-x pan-y;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding-bottom: 0.35rem;
+    gap: 10px;
+  }
+
+  .for-parents-info-card__features::-webkit-scrollbar {
+    display: none;
+  }
+
+  .for-parents-info-feature {
+    flex: 0 0 calc((100% - 16px) / 3);
+    width: calc((100% - 16px) / 3);
+    max-width: calc((100% - 16px) / 3);
+    scroll-snap-align: start;
+    box-sizing: border-box;
+    overflow: hidden;
     grid-template-columns: 1fr;
+    justify-items: center;
+    text-align: center;
+    gap: 0.35rem;
+  }
+
+  .for-parents-info-feature__title,
+  .for-parents-info-feature__text {
+    max-width: 100%;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+
+  .for-parents-info-feature > div {
+    min-width: 0;
+    max-width: 100%;
   }
 
   .for-parents-info-start {
@@ -12818,9 +12925,13 @@ img.lazy-img.loaded {
   }
 
   .donation-support-card {
-    flex: 0 0 min(78vw, 15rem);
+    flex: 0 0 calc((100% - 16px) / 3);
+    width: calc((100% - 16px) / 3);
+    max-width: calc((100% - 16px) / 3);
     scroll-snap-align: start;
     min-width: 0;
+    box-sizing: border-box;
+    overflow: hidden;
   }
 
   .donation-submit-btn {
@@ -13503,13 +13614,19 @@ img.lazy-img.loaded {
   }
 
   .newsletter-role-card {
-    flex: 0 0 min(68vw, 13rem);
+    flex: 0 0 calc((100% - 16px) / 3);
+    width: calc((100% - 16px) / 3);
+    max-width: calc((100% - 16px) / 3);
     scroll-snap-align: start;
     min-width: 0;
+    box-sizing: border-box;
+    overflow: hidden;
   }
 
   .newsletter-role-card--wide {
-    flex-basis: min(68vw, 13rem);
+    flex: 0 0 calc((100% - 16px) / 3);
+    width: calc((100% - 16px) / 3);
+    max-width: calc((100% - 16px) / 3);
     grid-column: auto;
   }
 }
@@ -14355,19 +14472,32 @@ body.newsletter-success-open {
 
   .faq-topic-list {
     display: flex;
+    flex-direction: column;
     flex-wrap: nowrap;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-    gap: clamp(0.55rem, 2vw, 0.7rem);
-    padding-bottom: 0.35rem;
-    margin-inline: calc(-1 * var(--container-padding));
-    padding-inline: var(--container-padding);
+    overflow: visible;
+    overscroll-behavior: auto;
+    touch-action: auto;
+    scroll-snap-type: none;
+    gap: clamp(0.45rem, 0.75vw, 0.6rem);
+    padding-bottom: 0;
+    margin-inline: 0;
+    padding-inline: 0;
+    width: 100%;
   }
 
   .faq-topic-list li {
-    flex: 0 0 min(78vw, 16rem);
-    scroll-snap-align: start;
+    flex: 0 0 auto;
+    width: 100%;
+    max-width: 100%;
+    scroll-snap-align: none;
+  }
+
+  .faq-topic,
+  .faq-item__question,
+  .faq-item__answer {
+    max-width: 100%;
+    overflow-wrap: anywhere;
+    word-break: break-word;
   }
 }
 
@@ -15426,9 +15556,13 @@ body.newsletter-success-open {
   }
 
   .media-consent-usage-card {
-    flex: 0 0 min(7.25rem, 34vw);
+    flex: 0 0 calc((100% - 16px) / 3);
+    width: calc((100% - 16px) / 3);
+    max-width: calc((100% - 16px) / 3);
     scroll-snap-align: start;
     min-width: 0;
+    box-sizing: border-box;
+    overflow: hidden;
   }
 
   .media-consent-options__grid {
@@ -15896,8 +16030,19 @@ body.newsletter-success-open {
   }
 
   .accessibility-provide-card {
-    flex: 0 0 min(42vw, 11rem);
+    flex: 0 0 calc((100% - 16px) / 3);
+    width: calc((100% - 16px) / 3);
+    max-width: calc((100% - 16px) / 3);
     scroll-snap-align: start;
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+
+  .accessibility-provide-card__title,
+  .accessibility-provide-card__text {
+    max-width: 100%;
+    overflow-wrap: anywhere;
+    word-break: break-word;
   }
 }
 
@@ -15937,7 +16082,9 @@ body.newsletter-success-open {
   }
 
   .accessibility-provide-card {
-    flex-basis: min(72vw, 13rem);
+    flex: 0 0 calc((100% - 16px) / 3);
+    width: calc((100% - 16px) / 3);
+    max-width: calc((100% - 16px) / 3);
   }
 
   .accessibility-panel {
@@ -16418,8 +16565,19 @@ body.newsletter-success-open {
   }
 
   .financial-support-card {
-    flex: 0 0 min(42vw, 11rem);
+    flex: 0 0 calc((100% - 16px) / 3);
+    width: calc((100% - 16px) / 3);
+    max-width: calc((100% - 16px) / 3);
     scroll-snap-align: start;
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+
+  .financial-support-card__title,
+  .financial-support-card__text {
+    max-width: 100%;
+    overflow-wrap: anywhere;
+    word-break: break-word;
   }
 
   .financial-promise-grid {
@@ -16441,10 +16599,21 @@ body.newsletter-success-open {
   }
 
   .financial-promise-item {
-    flex: 0 0 min(42vw, 11rem);
+    flex: 0 0 calc((100% - 16px) / 3);
+    width: calc((100% - 16px) / 3);
+    max-width: calc((100% - 16px) / 3);
     scroll-snap-align: start;
+    box-sizing: border-box;
+    overflow: hidden;
     border-left: none;
     padding: 0 clamp(0.65rem, 2vw, 0.85rem);
+  }
+
+  .financial-promise-item__title,
+  .financial-promise-item__text {
+    max-width: 100%;
+    overflow-wrap: anywhere;
+    word-break: break-word;
   }
 
   .financial-promise-item + .financial-promise-item {
@@ -16511,11 +16680,15 @@ body.newsletter-success-open {
   }
 
   .financial-support-card {
-    flex-basis: min(72vw, 13rem);
+    flex: 0 0 calc((100% - 16px) / 3);
+    width: calc((100% - 16px) / 3);
+    max-width: calc((100% - 16px) / 3);
   }
 
   .financial-promise-item {
-    flex-basis: min(68vw, 13rem);
+    flex: 0 0 calc((100% - 16px) / 3);
+    width: calc((100% - 16px) / 3);
+    max-width: calc((100% - 16px) / 3);
   }
 
   .financial-questions__card {
@@ -16968,6 +17141,16 @@ body.newsletter-success-open {
   .terms-sections-grid {
     grid-template-columns: 1fr;
   }
+
+  .terms-section-card,
+  .terms-section-card__title,
+  .terms-section-card__text,
+  .media-policy-content,
+  .privacy-hero__text--second {
+    max-width: 100%;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
 }
 
 /* ——— Global theme form submission (bdc-forms) ——— */
@@ -17129,7 +17312,15 @@ body.newsletter-success-open {
   #main-content > section.community-adventures-hero.page-hero,
   #main-content > section.for-parents-hero.page-hero,
   #main-content > section.vision-hero.page-hero,
-  #main-content > section.get-involved-hero.page-hero {
+  #main-content > section.get-involved-hero.page-hero,
+  #main-content > section.partners-hero.page-hero,
+  #main-content > section.contact-hero.page-hero,
+  #main-content > section.accessibility-hero.page-hero,
+  #main-content > section.financial-hero.page-hero,
+  #main-content > section.faq-hero.page-hero,
+  #main-content > section.apply-hero.page-hero,
+  #main-content > section.terms-hero.page-hero,
+  #main-content > section.media-policy-hero.page-hero {
     padding-bottom: 2.25rem;
   }
 
@@ -17457,9 +17648,18 @@ body.newsletter-success-open {
   .bdc-mobile-carousel--peek .explore-skill.bdc-mobile-carousel__item,
   .bdc-mobile-carousel--peek .creative-makers-activity.bdc-mobile-carousel__item,
   .bdc-mobile-carousel--peek .for-parents-expect-card.bdc-mobile-carousel__item,
+  .bdc-mobile-carousel--peek .for-parents-info-feature.bdc-mobile-carousel__item,
   .bdc-mobile-carousel--peek .vision-pillar-card.bdc-mobile-carousel__item,
   .bdc-mobile-carousel--peek .vision-journey-step.bdc-mobile-carousel__item,
   .bdc-mobile-carousel--peek .get-involved-ways-card.bdc-mobile-carousel__item,
+  .bdc-mobile-carousel--peek .partners-ways-card.bdc-mobile-carousel__item,
+  .bdc-mobile-carousel--peek .partners-founding-card.bdc-mobile-carousel__item,
+  .bdc-mobile-carousel--peek .accessibility-provide-card.bdc-mobile-carousel__item,
+  .bdc-mobile-carousel--peek .financial-support-card.bdc-mobile-carousel__item,
+  .bdc-mobile-carousel--peek .financial-promise-item.bdc-mobile-carousel__item,
+  .bdc-mobile-carousel--peek .newsletter-role-card.bdc-mobile-carousel__item,
+  .bdc-mobile-carousel--peek .donation-support-card.bdc-mobile-carousel__item,
+  .bdc-mobile-carousel--peek .media-consent-usage-card.bdc-mobile-carousel__item,
   .bdc-mobile-carousel--peek .vision-partner__icon-item.bdc-mobile-carousel__item {
     flex: 0 0 calc((100% - (var(--bdc-peek-gap) * 2)) / 3);
     width: calc((100% - (var(--bdc-peek-gap) * 2)) / 3);
@@ -17473,10 +17673,31 @@ body.newsletter-success-open {
   .bdc-mobile-carousel--peek-2 .vision-pillar-card.bdc-mobile-carousel__item,
   .bdc-mobile-carousel--peek-2 .vision-journey-step.bdc-mobile-carousel__item,
   .bdc-mobile-carousel--peek-2 .get-involved-ways-card.bdc-mobile-carousel__item,
+  .bdc-mobile-carousel--peek-2 .partners-ways-card.bdc-mobile-carousel__item,
+  .bdc-mobile-carousel--peek-2 .partners-founding-card.bdc-mobile-carousel__item,
+  .bdc-mobile-carousel--peek-2 .accessibility-provide-card.bdc-mobile-carousel__item,
+  .bdc-mobile-carousel--peek-2 .financial-support-card.bdc-mobile-carousel__item,
+  .bdc-mobile-carousel--peek-2 .financial-promise-item.bdc-mobile-carousel__item,
+  .bdc-mobile-carousel--peek-2 .newsletter-role-card.bdc-mobile-carousel__item,
+  .bdc-mobile-carousel--peek-2 .donation-support-card.bdc-mobile-carousel__item,
+  .bdc-mobile-carousel--peek-2 .media-consent-usage-card.bdc-mobile-carousel__item,
+  .bdc-mobile-carousel--peek-2 .for-parents-info-feature.bdc-mobile-carousel__item,
   .bdc-mobile-carousel--peek-2 .vision-partner__icon-item.bdc-mobile-carousel__item {
     flex: 0 0 calc((100% - var(--bdc-peek-gap)) / 2);
     width: calc((100% - var(--bdc-peek-gap)) / 2);
     max-width: calc((100% - var(--bdc-peek-gap)) / 2);
+  }
+
+  .for-parents-expect__grid.bdc-mobile-carousel .for-parents-expect-card {
+    flex: 0 0 calc((100% - (var(--bdc-peek-gap, 10px) * 2)) / 3);
+    width: calc((100% - (var(--bdc-peek-gap, 10px) * 2)) / 3);
+    max-width: calc((100% - (var(--bdc-peek-gap, 10px) * 2)) / 3);
+  }
+
+  .for-parents-expect__grid.bdc-mobile-carousel--peek-2 .for-parents-expect-card {
+    flex: 0 0 calc((100% - var(--bdc-peek-gap, 10px)) / 2);
+    width: calc((100% - var(--bdc-peek-gap, 10px)) / 2);
+    max-width: calc((100% - var(--bdc-peek-gap, 10px)) / 2);
   }
 
   .bdc-mobile-carousel--peek .explore-skill__title,
@@ -17522,6 +17743,12 @@ body.newsletter-success-open {
   .bdc-mobile-carousel--peek .vision-pillar-card,
   .bdc-mobile-carousel--peek .vision-journey-step,
   .bdc-mobile-carousel--peek .get-involved-ways-card,
+  .bdc-mobile-carousel--peek .partners-ways-card,
+  .bdc-mobile-carousel--peek .partners-founding-card,
+  .bdc-mobile-carousel--peek .accessibility-provide-card,
+  .bdc-mobile-carousel--peek .financial-support-card,
+  .bdc-mobile-carousel--peek .financial-promise-item,
+  .bdc-mobile-carousel--peek .for-parents-info-feature,
   .bdc-mobile-carousel--peek .vision-partner__icon-item {
     box-shadow: none;
     padding-inline: 0.2rem;
@@ -17573,30 +17800,57 @@ body.newsletter-success-open {
   .bdc-mobile-carousel--peek .for-parents-expect-card,
   .bdc-mobile-carousel--peek .vision-pillar-card,
   .bdc-mobile-carousel--peek .get-involved-ways-card,
+  .bdc-mobile-carousel--peek .partners-ways-card,
+  .bdc-mobile-carousel--peek .partners-founding-card,
+  .bdc-mobile-carousel--peek .accessibility-provide-card,
+  .bdc-mobile-carousel--peek .financial-support-card,
+  .bdc-mobile-carousel--peek .financial-promise-item,
+  .bdc-mobile-carousel--peek .newsletter-role-card,
+  .bdc-mobile-carousel--peek .donation-support-card,
+  .bdc-mobile-carousel--peek .media-consent-usage-card,
+  .bdc-mobile-carousel--peek .for-parents-info-feature,
   .bdc-mobile-carousel--peek .vision-journey-step {
     padding: 0.55rem 0.3rem;
     text-align: center;
   }
 
   .bdc-mobile-carousel--peek .for-parents-expect-card__icon,
+  .bdc-mobile-carousel--peek .for-parents-info-feature__icon,
   .bdc-mobile-carousel--peek .vision-pillar-card__icon,
   .bdc-mobile-carousel--peek .get-involved-ways-card__icon,
+  .bdc-mobile-carousel--peek .partners-ways-card__icon,
+  .bdc-mobile-carousel--peek .partners-founding-card__icon,
+  .bdc-mobile-carousel--peek .accessibility-provide-card__icon,
+  .bdc-mobile-carousel--peek .financial-support-card__icon,
+  .bdc-mobile-carousel--peek .financial-promise-item__icon,
   .bdc-mobile-carousel--peek .vision-journey-step__icon {
     width: clamp(36px, 10vw, 52px);
     height: clamp(36px, 10vw, 52px);
   }
 
   .bdc-mobile-carousel--peek .for-parents-expect-card__title,
+  .bdc-mobile-carousel--peek .for-parents-info-feature__title,
   .bdc-mobile-carousel--peek .vision-pillar-card__title,
   .bdc-mobile-carousel--peek .get-involved-ways-card__title,
+  .bdc-mobile-carousel--peek .partners-ways-card__title,
+  .bdc-mobile-carousel--peek .partners-founding-card__title,
+  .bdc-mobile-carousel--peek .accessibility-provide-card__title,
+  .bdc-mobile-carousel--peek .financial-support-card__title,
+  .bdc-mobile-carousel--peek .financial-promise-item__title,
   .bdc-mobile-carousel--peek .vision-journey-step__title {
     font-size: clamp(0.7rem, 2.5vw, 0.82rem);
     line-height: 1.25;
   }
 
   .bdc-mobile-carousel--peek .for-parents-expect-card__text,
+  .bdc-mobile-carousel--peek .for-parents-info-feature__text,
   .bdc-mobile-carousel--peek .vision-pillar-card__text,
   .bdc-mobile-carousel--peek .get-involved-ways-card__text,
+  .bdc-mobile-carousel--peek .partners-ways-card__text,
+  .bdc-mobile-carousel--peek .partners-founding-card__text,
+  .bdc-mobile-carousel--peek .accessibility-provide-card__text,
+  .bdc-mobile-carousel--peek .financial-support-card__text,
+  .bdc-mobile-carousel--peek .financial-promise-item__text,
   .bdc-mobile-carousel--peek .vision-journey-step__quote,
   .bdc-mobile-carousel--peek .vision-journey-step__text {
     font-size: clamp(0.62rem, 2.3vw, 0.72rem);
@@ -17626,7 +17880,8 @@ body.newsletter-success-open {
   }
 
   .bdc-mobile-carousel .experience-card__media,
-  .bdc-mobile-carousel .home-pillar__figure {
+  .bdc-mobile-carousel .home-pillar__figure,
+  .bdc-mobile-carousel .partners-impact-card > .lazy-img-wrap {
     overflow: hidden;
   }
 

@@ -79,7 +79,7 @@ $apply_sidebar_door_url = bdc_get_acf_image_url(
         'template-parts/page-hero',
         null,
         array(
-          'section_class'   => 'apply-hero',
+          'section_class'   => 'apply-hero about-hero',
           'aria_label'      => $apply_hero_aria_label,
           'headline_html'   => bdc_hero_lines_html(
             array(

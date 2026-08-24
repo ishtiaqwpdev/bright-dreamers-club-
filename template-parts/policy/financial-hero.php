@@ -13,7 +13,7 @@ get_template_part(
 	'template-parts/page-hero',
 	null,
 	array(
-		'section_class'   => 'financial-hero',
+		'section_class'   => 'financial-hero about-hero',
 		'aria_label'      => $financial_transparency_hero_aria_label,
 		'headline'        => $financial_transparency_hero_title,
 		'supporting_copy' => $financial_transparency_hero_text,

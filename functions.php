@@ -50,6 +50,9 @@ function bdc_get_slug_aliases() {
 		'apply-to-become'     => 'apply-to-join',
 		'photo-media-consent' => 'photo-media-consent-form',
 		'partner-inquiry'     => 'partner-inquiry-form',
+		'parents'             => 'for-parents',
+		'for_parents'         => 'for-parents',
+		'contact-us'          => 'contact',
 	);
 }
 
@@ -199,6 +202,7 @@ function bdc_page_template_body_classes( $classes ) {
 		'page-our-vision.php'               => array( 'our-vision-page' ),
 		'page-get-involved.php'             => array( 'get-involved-page' ),
 		'page-partners.php'                 => array( 'partners-page' ),
+		'page-contact.php'                  => array( 'contact-page' ),
 		'page-creative-makers.php'          => array( 'creative-makers-page', 'program-detail-page' ),
 		'page-young-ideas-lab.php'          => array( 'young-ideas-lab-page', 'program-detail-page' ),
 		'page-create-for-cause.php'         => array( 'create-for-cause-page', 'program-detail-page' ),
@@ -230,9 +234,13 @@ function bdc_page_template_body_classes( $classes ) {
 			'about'                       => array( 'about-page' ),
 			'explore'                     => array( 'explore-page' ),
 			'for-parents'                 => array( 'for-parents-page' ),
+			'parents'                     => array( 'for-parents-page' ),
+			'for_parents'                 => array( 'for-parents-page' ),
 			'our-vision'                  => array( 'our-vision-page' ),
 			'get-involved'                => array( 'get-involved-page' ),
 			'partners'                    => array( 'partners-page' ),
+			'contact'                     => array( 'contact-page' ),
+			'contact-us'                  => array( 'contact-page' ),
 			'creative-makers'             => array( 'creative-makers-page', 'program-detail-page' ),
 			'young-ideas-lab'             => array( 'young-ideas-lab-page', 'program-detail-page' ),
 			'create-for-cause'            => array( 'create-for-cause-page', 'program-detail-page' ),

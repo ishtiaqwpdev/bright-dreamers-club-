@@ -69,7 +69,10 @@
   function normalizePageSlug(slug) {
     var aliases = {
       'apply-to-become': 'apply-to-join',
-      'photo-media-consent': 'photo-media-consent-form'
+      'photo-media-consent': 'photo-media-consent-form',
+      'parents': 'for-parents',
+      'for_parents': 'for-parents',
+      'contact-us': 'contact'
     };
 
     return aliases[slug] || slug;
@@ -749,6 +752,20 @@
       'for-parents',
       'our-vision',
       'get-involved',
+      'partners',
+      'contact',
+      'accessibility',
+      'financial-transparency',
+      'faq',
+      'privacy-policy',
+      'terms',
+      'photo-media-policy',
+      'photo-media-consent-form',
+      'newsletter-signup',
+      'donation-interest',
+      'apply-to-join',
+      'volunteer-application',
+      'partner-inquiry-form',
     ];
 
     var knownConfigs = [
@@ -765,19 +782,20 @@
       { track: '.explore-impact__track', item: '.explore-impact-card, .explore-impact-quote', mode: 'full' },
       { track: '.creative-makers-explore__grid', item: '.creative-makers-activity', mode: 'peek' },
       { track: '.for-parents-expect__grid', item: '.for-parents-expect-card', mode: 'peek' },
+      { track: '.for-parents-info-card__features', item: '.for-parents-info-feature', mode: 'peek' },
       { track: '.vision-pillars__grid', item: '.vision-pillar-card', mode: 'peek' },
       { track: '.vision-journey-steps', item: '.vision-journey-step', mode: 'peek' },
       { track: '.vision-partner__icons', item: '.vision-partner__icon-item', mode: 'peek' },
       { track: '.get-involved-ways__grid', item: '.get-involved-ways-card', mode: 'peek' },
-      { track: '.partners-ways__grid', item: '.partners-ways-card' },
-      { track: '.partners-impact__grid', item: '.partners-impact-card' },
-      { track: '.partners-founding__grid', item: '.partners-founding-card' },
-      { track: '.accessibility-provide-grid', item: '.accessibility-provide-card' },
-      { track: '.financial-support-grid', item: '.financial-support-card' },
-      { track: '.financial-promise-grid', item: '.financial-promise-item' },
-      { track: '.newsletter-role-grid', item: '.newsletter-role-card' },
-      { track: '.media-consent-usage-grid', item: '.media-consent-usage-card' },
-      { track: '.donation-support-grid', item: '.donation-support-card' },
+      { track: '.partners-ways__grid', item: '.partners-ways-card', mode: 'peek' },
+      { track: '.partners-impact__grid', item: '.partners-impact-card', mode: 'full' },
+      { track: '.partners-founding__grid', item: '.partners-founding-card', mode: 'peek' },
+      { track: '.accessibility-provide-grid', item: '.accessibility-provide-card', mode: 'peek' },
+      { track: '.financial-support-grid', item: '.financial-support-card', mode: 'peek' },
+      { track: '.financial-promise-grid', item: '.financial-promise-item', mode: 'peek' },
+      { track: '.newsletter-role-grid', item: '.newsletter-role-card', mode: 'peek' },
+      { track: '.media-consent-usage-grid', item: '.media-consent-usage-card', mode: 'peek' },
+      { track: '.donation-support-grid', item: '.donation-support-card', mode: 'peek' },
     ];
 
     var skipTrackSelector = [
@@ -791,12 +809,28 @@
       '.creative-makers-parents__accordion',
       '.creative-makers-parents__panels',
       '.creative-makers-info__grid',
-      '.for-parents-info__grid',
       '.for-parents-fit__grid',
+      '.for-parents-info-steps',
+      '.for-parents-cta',
       '.get-involved-impact__inner',
       '.get-involved-timeline',
+      '.partners-opportunity-cta__card',
+      '.contact-form',
+      '.contact-cta',
+      '.accessibility-panels',
+      '.accessibility-commitment',
+      '.financial-commitment',
+      '.financial-questions',
       '.faq-topic-list',
       '.faq-accordion',
+      '.faq-search',
+      '.faq-contact-cta',
+      '.apply-form',
+      '.volunteer-interest-grid',
+      '.terms-sections-grid',
+      '.terms-commitment',
+      '.newsletter-receive-list',
+      '.media-policy-content',
       '.about-panels__grid',
       '.compare-different__bar',
       '.footer-acc',
@@ -815,10 +849,25 @@
           body.classList.contains('community-adventures-page') ||
           body.classList.contains('for-parents-page') ||
           body.classList.contains('our-vision-page') ||
-          body.classList.contains('get-involved-page')
+          body.classList.contains('get-involved-page') ||
+          body.classList.contains('partners-page') ||
+          body.classList.contains('contact-page') ||
+          body.classList.contains('accessibility-page') ||
+          body.classList.contains('financial-transparency-page') ||
+          body.classList.contains('faq-page') ||
+          body.classList.contains('privacy-policy-page') ||
+          body.classList.contains('terms-page') ||
+          body.classList.contains('media-policy-page') ||
+          body.classList.contains('media-consent-page') ||
+          body.classList.contains('newsletter-signup-page') ||
+          body.classList.contains('donation-interest-page') ||
+          body.classList.contains('apply-to-become-page')
         ) {
           return true;
         }
+      }
+      if (document.querySelector('.for-parents-hero, .for-parents-expect, .contact-hero, .accessibility-provide-grid, .financial-support-grid, .faq-hero, .newsletter-role-grid, .donation-support-grid, .media-consent-usage-grid')) {
+        return true;
       }
       return phasePages.indexOf(pageSlug(window.location.pathname)) !== -1;
     }
@@ -835,17 +884,17 @@
         className.indexOf('faq') !== -1 ||
         className.indexOf('accordion') !== -1 ||
         className.indexOf('tablist') !== -1 ||
-        className.indexOf('parents__') !== -1
+        className.indexOf('creative-makers-parents') !== -1
       );
     }
 
     function isInset(track) {
       return !!(
         track.matches(
-          '.role-icons, .approach-steps, .vision-partner__icons, .partners-impact__grid, .financial-promise-grid, .newsletter-role-grid, .media-consent-usage-grid, .donation-support-grid'
+          '.role-icons, .approach-steps, .vision-partner__icons, .partners-impact__grid, .for-parents-info-card__features, .financial-promise-grid, .newsletter-role-grid, .media-consent-usage-grid, .donation-support-grid'
         ) ||
         track.closest(
-          '.panel-card, .partners-impact__box, .newsletter-form-wrap, .apply-form__main, .donation-form-card, .media-consent-card, .media-policy-content'
+          '.panel-card, .partners-impact__box, .for-parents-info-card, .newsletter-form-wrap, .apply-form__main, .donation-form-card, .media-consent-card, .media-policy-content'
         )
       );
     }

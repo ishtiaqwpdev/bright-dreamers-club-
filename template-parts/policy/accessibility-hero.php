@@ -13,7 +13,7 @@ get_template_part(
 	'template-parts/page-hero',
 	null,
 	array(
-		'section_class'   => 'accessibility-hero',
+		'section_class'   => 'accessibility-hero about-hero',
 		'aria_label'      => $accessibility_hero_aria_label,
 		'headline'        => $accessibility_hero_title,
 		'supporting_copy' => $accessibility_hero_text,
