@@ -327,24 +327,13 @@
       if (!$active.length) return;
 
       var listEl = $navList.get(0);
-      var linkEl = $active.get(0);
-      var linkLeft = linkEl.offsetLeft;
-      var linkWidth = linkEl.offsetWidth;
-      var listScroll = listEl.scrollLeft;
-      var listWidth = listEl.clientWidth;
-      var edgePad = 12;
+      var itemEl = $active.closest('li').get(0) || $active.get(0);
+      if (!itemEl || !listEl) return;
 
-      if (linkLeft < listScroll + edgePad) {
-        listEl.scrollTo({ left: Math.max(0, linkLeft - edgePad), behavior: 'smooth' });
-        return;
-      }
-
-      if (linkLeft + linkWidth > listScroll + listWidth - edgePad) {
-        listEl.scrollTo({
-          left: linkLeft + linkWidth - listWidth + edgePad,
-          behavior: 'smooth',
-        });
-      }
+      listEl.scrollTo({
+        left: itemEl.offsetLeft,
+        behavior: 'smooth',
+      });
     }
 
     function setActiveSection(id) {
