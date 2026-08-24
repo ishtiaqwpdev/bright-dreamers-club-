@@ -1052,12 +1052,14 @@
         track.style.setProperty('margin-left', '0', 'important');
         track.style.setProperty('margin-right', '0', 'important');
         track.style.setProperty('margin-inline', '0', 'important');
-        track.style.setProperty('padding', '0 0 12px', 'important');
+        track.style.setProperty('padding', '0 0 16px', 'important');
         track.style.setProperty('padding-left', '0', 'important');
         track.style.setProperty('padding-right', '0', 'important');
         track.style.setProperty('padding-inline', '0', 'important');
         track.style.setProperty('gap', '0', 'important');
         track.style.setProperty('scroll-padding-inline', '0', 'important');
+        track.style.setProperty('left', 'auto', 'important');
+        track.style.setProperty('transform', 'none', 'important');
         track.scrollLeft = 0;
         items.forEach(function (item) {
           item.style.setProperty('flex', '0 0 100%', 'important');
@@ -1067,10 +1069,19 @@
           item.style.setProperty('margin', '0', 'important');
           item.style.setProperty('box-sizing', 'border-box', 'important');
         });
+        var soloSection =
+          track.closest(
+            '.for-parents-expect, .get-involved-ways, .partners-founding, .financial-support'
+          ) || null;
+        if (soloSection && soloSection.style) {
+          soloSection.style.setProperty('overflow', 'visible', 'important');
+          soloSection.style.setProperty('overflow-x', 'visible', 'important');
+        }
         var soloHost = track.closest('.site-container') || track.parentNode;
         if (soloHost && soloHost.style) {
-          soloHost.style.setProperty('padding-left', '20px', 'important');
-          soloHost.style.setProperty('padding-right', '20px', 'important');
+          soloHost.style.setProperty('padding-left', '24px', 'important');
+          soloHost.style.setProperty('padding-right', '24px', 'important');
+          soloHost.style.setProperty('overflow', 'visible', 'important');
           soloHost.style.setProperty('overflow-x', 'visible', 'important');
         }
         if (
@@ -1082,8 +1093,10 @@
           track.parentNode.style.setProperty('padding-right', '0', 'important');
           var expectWrap = track.parentNode.parentNode;
           if (expectWrap && expectWrap.classList && expectWrap.classList.contains('for-parents-expect__wrap')) {
-            expectWrap.style.setProperty('padding-left', '20px', 'important');
-            expectWrap.style.setProperty('padding-right', '20px', 'important');
+            expectWrap.style.setProperty('padding-left', '24px', 'important');
+            expectWrap.style.setProperty('padding-right', '24px', 'important');
+            expectWrap.style.setProperty('overflow', 'visible', 'important');
+            expectWrap.style.setProperty('overflow-x', 'visible', 'important');
           }
         }
       }
@@ -1174,6 +1187,8 @@
             'padding-inline',
             'gap',
             'scroll-padding-inline',
+            'left',
+            'transform',
           ].forEach(function (prop) {
             track.style.removeProperty(prop);
           });
@@ -1182,10 +1197,19 @@
             track.parentNode.style.removeProperty('padding-left');
             track.parentNode.style.removeProperty('padding-right');
           }
+          var soloSection =
+            track.closest(
+              '.for-parents-expect, .get-involved-ways, .partners-founding, .financial-support'
+            ) || null;
+          if (soloSection && soloSection.style) {
+            soloSection.style.removeProperty('overflow');
+            soloSection.style.removeProperty('overflow-x');
+          }
           var hostEl = track.closest('.site-container');
           if (hostEl) {
             hostEl.style.removeProperty('padding-left');
             hostEl.style.removeProperty('padding-right');
+            hostEl.style.removeProperty('overflow');
             hostEl.style.removeProperty('overflow-x');
             if (!hostEl.querySelector('.bdc-mobile-carousel')) {
               hostEl.classList.remove('bdc-mobile-carousel-host');
@@ -1195,6 +1219,8 @@
           if (expectWrap) {
             expectWrap.style.removeProperty('padding-left');
             expectWrap.style.removeProperty('padding-right');
+            expectWrap.style.removeProperty('overflow');
+            expectWrap.style.removeProperty('overflow-x');
           }
           items.forEach(function (item) {
             item.classList.remove('bdc-mobile-carousel__item');
