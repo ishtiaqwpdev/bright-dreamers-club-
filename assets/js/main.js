@@ -734,21 +734,24 @@
   }
 
   function initMobileCarousels() {
-    var media = window.matchMedia('(max-width: 767px)');
+    var phoneMedia = window.matchMedia('(max-width: 767px)');
+    var tabletMedia = window.matchMedia('(max-width: 991px)');
+    var twoColPeekMedia = window.matchMedia('(max-width: 375px)');
     var instances = [];
+    var phaseOnePages = ['index', 'about', 'explore'];
 
     var knownConfigs = [
-      { track: '.home-pillars__row', item: '.home-pillar' },
-      { track: '.home-different__grid', item: '.home-different__item' },
-      { track: '.home-reality__steps', item: '.home-reality-step' },
-      { track: '.home-explore__grid', item: '.experience-card' },
-      { track: '.we-believe__slider', item: '.believe-card' },
-      { track: '.role-icons', item: '.role-icons__item' },
-      { track: '.approach-steps', item: '.approach-step' },
-      { track: '.explore-ways__grid', item: '.explore-way' },
-      { track: '.explore-skills__grid', item: '.explore-skill' },
-      { track: '.explore-grow__track', item: '.explore-grow-stage' },
-      { track: '.explore-impact__track', item: '.explore-impact-card, .explore-impact-quote' },
+      { track: '.home-pillars__row', item: '.home-pillar', mode: 'full' },
+      { track: '.home-different__grid', item: '.home-different__item', mode: 'peek' },
+      { track: '.home-reality__steps', item: '.home-reality-step', mode: 'peek' },
+      { track: '.home-explore__grid', item: '.experience-card', mode: 'full' },
+      { track: '.we-believe__slider', item: '.believe-card', mode: 'peek' },
+      { track: '.role-icons', item: '.role-icons__item', mode: 'peek' },
+      { track: '.approach-steps', item: '.approach-step', mode: 'peek' },
+      { track: '.explore-ways__grid', item: '.explore-way', mode: 'full' },
+      { track: '.explore-skills__grid', item: '.explore-skill', mode: 'peek' },
+      { track: '.explore-grow__track', item: '.explore-grow-stage', mode: 'full' },
+      { track: '.explore-impact__track', item: '.explore-impact-card, .explore-impact-quote', mode: 'full' },
       { track: '.for-parents-expect__grid', item: '.for-parents-expect-card' },
       { track: '.vision-pillars__grid', item: '.vision-pillar-card' },
       { track: '.vision-journey-steps', item: '.vision-journey-step' },
@@ -758,8 +761,6 @@
       { track: '.partners-impact__grid', item: '.partners-impact-card' },
       { track: '.partners-founding__grid', item: '.partners-founding-card' },
       { track: '.creative-makers-explore__grid', item: '.creative-makers-activity' },
-      { track: '.creative-makers-parents__tablist', item: '.creative-makers-faq__tab' },
-      { track: '.faq-topic-list', item: 'li' },
       { track: '.accessibility-provide-grid', item: '.accessibility-provide-card' },
       { track: '.financial-support-grid', item: '.financial-support-card' },
       { track: '.financial-promise-grid', item: '.financial-promise-item' },
@@ -772,7 +773,26 @@
       '.media-policy-nav__list',
       '.home-spotlight__grid',
       '.vision-moments__gallery',
+      '.creative-makers-parents__tablist',
+      '.creative-makers-parents__accordion',
+      '.faq-topic-list',
+      '.faq-accordion',
+      '.about-panels__grid',
+      '.compare-different__bar',
     ].join(',');
+
+    function isPhaseOnePage() {
+      var body = document.body;
+      if (
+        body &&
+        (body.classList.contains('home-page') ||
+          body.classList.contains('about-page') ||
+          body.classList.contains('explore-page'))
+      ) {
+        return true;
+      }
+      return phaseOnePages.indexOf(pageSlug(window.location.pathname)) !== -1;
+    }
 
     function isSkipped(track) {
       return skipTrackSelector && track.matches(skipTrackSelector);
@@ -789,10 +809,26 @@
       );
     }
 
-    function itemSelectorFor(track) {
-      var match = knownConfigs.find(function (config) {
+    function configFor(track) {
+      return knownConfigs.find(function (config) {
         return track.matches(config.track);
-      });
+      }) || null;
+    }
+
+    function modeFor(track) {
+      if (!isPhaseOnePage()) {
+        return 'full';
+      }
+      var match = configFor(track);
+      return match && match.mode === 'peek' ? 'peek' : 'full';
+    }
+
+    function peekPerView() {
+      return twoColPeekMedia.matches ? 2 : 3;
+    }
+
+    function itemSelectorFor(track) {
+      var match = configFor(track);
       return match ? match.item : null;
     }
 
@@ -850,7 +886,7 @@
       return tracks;
     }
 
-    function closestIndex(track, items) {
+    function closestItemIndex(track, items) {
       var center = track.scrollLeft + track.clientWidth / 2;
       var best = 0;
       var bestDist = Infinity;
@@ -867,6 +903,26 @@
       return best;
     }
 
+    function closestPageIndex(track, items, perView) {
+      var pageCount = Math.max(1, Math.ceil(items.length / perView));
+      var best = 0;
+      var bestDist = Infinity;
+
+      for (var page = 0; page < pageCount; page += 1) {
+        var item = items[page * perView];
+        if (!item) {
+          continue;
+        }
+        var dist = Math.abs(item.offsetLeft - track.scrollLeft);
+        if (dist < bestDist) {
+          bestDist = dist;
+          best = page;
+        }
+      }
+
+      return best;
+    }
+
     function setActiveDot(dots, activeIndex) {
       dots.forEach(function (dot, index) {
         var isActive = index === activeIndex;
@@ -875,13 +931,20 @@
       });
     }
 
-    function bindCarousel(track) {
+    function bindCarousel(track, mode) {
       var items = getItems(track);
       if (items.length < 2) {
         return null;
       }
 
+      var perView = mode === 'peek' ? peekPerView() : 1;
+      var pageCount = Math.max(1, Math.ceil(items.length / perView));
+      var snapInline = mode === 'peek' ? 'start' : 'center';
+
       track.classList.add('bdc-mobile-carousel');
+      track.classList.toggle('bdc-mobile-carousel--full', mode === 'full');
+      track.classList.toggle('bdc-mobile-carousel--peek', mode === 'peek');
+      track.classList.toggle('bdc-mobile-carousel--peek-2', mode === 'peek' && perView === 2);
       track.classList.toggle('bdc-mobile-carousel--inset', isInset(track));
       if (track.parentNode && track.parentNode.classList) {
         track.parentNode.classList.add('bdc-mobile-carousel-parent');
@@ -904,20 +967,30 @@
       dotsWrap.setAttribute('role', 'tablist');
       dotsWrap.setAttribute('aria-label', 'Carousel pagination');
 
-      var dots = items.map(function (item, index) {
-        var button = document.createElement('button');
-        button.type = 'button';
-        button.className = 'bdc-carousel-dots__dot';
-        button.setAttribute('aria-label', 'Go to slide ' + (index + 1));
-        button.addEventListener('click', function () {
-          item.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
-        });
-        dotsWrap.appendChild(button);
-        return button;
-      });
+      var dots = [];
+      for (var page = 0; page < pageCount; page += 1) {
+        (function (pageIndex) {
+          var target = items[pageIndex * perView];
+          var button = document.createElement('button');
+          button.type = 'button';
+          button.className = 'bdc-carousel-dots__dot';
+          button.setAttribute('aria-label', 'Go to slide ' + (pageIndex + 1));
+          button.addEventListener('click', function () {
+            if (!target) {
+              return;
+            }
+            target.scrollIntoView({ behavior: 'smooth', inline: snapInline, block: 'nearest' });
+          });
+          dotsWrap.appendChild(button);
+          dots.push(button);
+        })(page);
+      }
 
       track.insertAdjacentElement('afterend', dotsWrap);
-      setActiveDot(dots, closestIndex(track, items));
+      setActiveDot(
+        dots,
+        mode === 'peek' ? closestPageIndex(track, items, perView) : closestItemIndex(track, items)
+      );
 
       var ticking = false;
       function onScroll() {
@@ -926,7 +999,10 @@
         }
         ticking = true;
         window.requestAnimationFrame(function () {
-          setActiveDot(dots, closestIndex(track, items));
+          setActiveDot(
+            dots,
+            mode === 'peek' ? closestPageIndex(track, items, perView) : closestItemIndex(track, items)
+          );
           ticking = false;
         });
       }
@@ -936,13 +1012,19 @@
       return {
         destroy: function () {
           track.removeEventListener('scroll', onScroll);
-          track.classList.remove('bdc-mobile-carousel', 'bdc-mobile-carousel--inset');
+          track.classList.remove(
+            'bdc-mobile-carousel',
+            'bdc-mobile-carousel--full',
+            'bdc-mobile-carousel--peek',
+            'bdc-mobile-carousel--peek-2',
+            'bdc-mobile-carousel--inset'
+          );
           if (track.parentNode && track.parentNode.classList) {
             track.parentNode.classList.remove('bdc-mobile-carousel-parent');
           }
-          var host = track.closest('.site-container');
-          if (host && !host.querySelector('.bdc-mobile-carousel')) {
-            host.classList.remove('bdc-mobile-carousel-host');
+          var hostEl = track.closest('.site-container');
+          if (hostEl && !hostEl.querySelector('.bdc-mobile-carousel')) {
+            hostEl.classList.remove('bdc-mobile-carousel-host');
           }
           items.forEach(function (item) {
             item.classList.remove('bdc-mobile-carousel__item');
@@ -965,12 +1047,13 @@
 
     function setup() {
       teardown();
-      if (!media.matches) {
+      var phaseOne = isPhaseOnePage();
+      if (phaseOne ? !tabletMedia.matches : !phoneMedia.matches) {
         return;
       }
 
       collectTracks().forEach(function (track) {
-        var instance = bindCarousel(track);
+        var instance = bindCarousel(track, modeFor(track));
         if (instance) {
           instances.push(instance);
         }
@@ -979,11 +1062,13 @@
 
     setup();
 
-    if (typeof media.addEventListener === 'function') {
-      media.addEventListener('change', setup);
-    } else if (typeof media.addListener === 'function') {
-      media.addListener(setup);
-    }
+    [phoneMedia, tabletMedia, twoColPeekMedia].forEach(function (media) {
+      if (typeof media.addEventListener === 'function') {
+        media.addEventListener('change', setup);
+      } else if (typeof media.addListener === 'function') {
+        media.addListener(setup);
+      }
+    });
   }
 
   function init() {
