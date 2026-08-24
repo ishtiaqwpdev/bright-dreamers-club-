@@ -892,7 +892,7 @@
     function isInset(track) {
       return !!(
         track.matches(
-          '.role-icons, .approach-steps, .vision-partner__icons, .partners-impact__grid, .for-parents-expect__grid, .for-parents-info-card__features, .financial-promise-grid, .newsletter-role-grid, .media-consent-usage-grid'
+          '.role-icons, .approach-steps, .vision-partner__icons, .partners-impact__grid, .for-parents-expect__grid, .for-parents-info-card__features, .financial-promise-grid, .newsletter-role-grid, .media-consent-usage-grid, .partners-founding__grid, .get-involved-ways__grid'
         ) ||
         track.closest(
           '.panel-card, .partners-impact__box, .for-parents-info-card, .newsletter-form-wrap, .apply-form__main, .donation-form-card, .media-consent-card, .media-policy-content'
@@ -1043,6 +1043,25 @@
       track.classList.toggle('bdc-mobile-carousel--peek-2', mode === 'peek' && perView === 2);
       track.classList.toggle('bdc-mobile-carousel--inset', isInset(track));
       track.classList.toggle('bdc-mobile-carousel--solo', isSolo);
+      if (isSolo) {
+        track.style.setProperty('width', '100%', 'important');
+        track.style.setProperty('max-width', '100%', 'important');
+        track.style.setProperty('margin', '0', 'important');
+        track.style.setProperty('margin-left', '0', 'important');
+        track.style.setProperty('margin-right', '0', 'important');
+        track.style.setProperty('padding-left', '0', 'important');
+        track.style.setProperty('padding-right', '0', 'important');
+        track.style.setProperty('gap', '0', 'important');
+        track.scrollLeft = 0;
+        items.forEach(function (item) {
+          item.style.setProperty('flex', '0 0 100%', 'important');
+          item.style.setProperty('width', '100%', 'important');
+          item.style.setProperty('min-width', '100%', 'important');
+          item.style.setProperty('max-width', '100%', 'important');
+          item.style.setProperty('margin', '0', 'important');
+          item.style.setProperty('box-sizing', 'border-box', 'important');
+        });
+      }
       if (track.parentNode && track.parentNode.classList) {
         track.parentNode.classList.add('bdc-mobile-carousel-parent');
       }
@@ -1117,6 +1136,18 @@
             'bdc-mobile-carousel--inset',
             'bdc-mobile-carousel--solo'
           );
+          [
+            'width',
+            'max-width',
+            'margin',
+            'margin-left',
+            'margin-right',
+            'padding-left',
+            'padding-right',
+            'gap',
+          ].forEach(function (prop) {
+            track.style.removeProperty(prop);
+          });
           if (track.parentNode && track.parentNode.classList) {
             track.parentNode.classList.remove('bdc-mobile-carousel-parent');
           }
@@ -1126,6 +1157,9 @@
           }
           items.forEach(function (item) {
             item.classList.remove('bdc-mobile-carousel__item');
+            ['flex', 'width', 'min-width', 'max-width', 'margin', 'box-sizing'].forEach(function (prop) {
+              item.style.removeProperty(prop);
+            });
           });
           if (dotsWrap.parentNode) {
             dotsWrap.parentNode.removeChild(dotsWrap);

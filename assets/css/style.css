@@ -10520,6 +10520,10 @@ img.lazy-img.loaded {
   max-width: 28rem;
 }
 
+.apply-hero__note-wrap {
+  margin-bottom: clamp(1.15rem, 2.2vw, 1.75rem);
+}
+
 .apply-hero__note {
   display: flex;
   align-items: center;
@@ -10528,6 +10532,8 @@ img.lazy-img.loaded {
   border-radius: var(--experience-card-radius);
   background-color: var(--believe-card-pink);
   max-width: 28rem;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .apply-hero__note-icon {
@@ -11437,6 +11443,14 @@ img.lazy-img.loaded {
   .apply-hero__banner {
     max-height: 360px;
     object-position: center bottom;
+  }
+
+  .apply-hero__note-wrap {
+    margin-bottom: clamp(1.25rem, 4vw, 1.75rem);
+  }
+
+  .apply-hero__note {
+    max-width: none;
   }
 
   .apply-form__row,
@@ -18583,34 +18597,57 @@ body.newsletter-success-open {
   }
 
   .partners-founding > .site-container,
-  .partners-founding > .site-container.bdc-mobile-carousel-host {
-    padding-left: 16px !important;
-    padding-right: 16px !important;
-    overflow-x: hidden !important;
+  .partners-founding > .site-container.bdc-mobile-carousel-host,
+  .partners-founding > .site-container.bdc-mobile-carousel-parent {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+    overflow-x: visible !important;
     max-width: 100% !important;
     box-sizing: border-box !important;
   }
 
-  .partners-founding__grid.bdc-mobile-carousel {
+  .partners-founding__grid,
+  .partners-founding__grid.bdc-mobile-carousel,
+  .partners-founding__grid.bdc-mobile-carousel--full,
+  .partners-founding__grid.bdc-mobile-carousel--solo,
+  .partners-founding__grid.bdc-mobile-carousel--inset,
+  .partners-founding__grid.bdc-mobile-carousel--peek,
+  .partners-founding__grid.bdc-mobile-carousel--peek-2 {
+    display: flex !important;
+    flex-wrap: nowrap !important;
     width: 100% !important;
     max-width: 100% !important;
+    margin: 0 !important;
     margin-left: 0 !important;
     margin-right: 0 !important;
     margin-inline: 0 !important;
+    padding: 0 0 8px !important;
     padding-left: 0 !important;
     padding-right: 0 !important;
     padding-inline: 0 !important;
+    gap: 0 !important;
+    scroll-padding: 0 !important;
     scroll-padding-inline: 0 !important;
     box-sizing: border-box !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    -webkit-overflow-scrolling: touch;
   }
 
-  .partners-founding .partners-founding-card.bdc-mobile-carousel__item {
+  .partners-founding .partners-founding-card,
+  .partners-founding .partners-founding-card.bdc-mobile-carousel__item,
+  .partners-founding__grid > .partners-founding-card {
     flex: 0 0 100% !important;
     width: 100% !important;
     min-width: 100% !important;
     max-width: 100% !important;
+    margin: 0 !important;
+    box-sizing: border-box !important;
     overflow: visible !important;
     box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+    scroll-snap-align: start !important;
+    scroll-snap-stop: always !important;
   }
 }
 

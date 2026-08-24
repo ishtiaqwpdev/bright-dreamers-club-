@@ -96,8 +96,10 @@ $apply_sidebar_door_url = bdc_get_acf_image_url(
       );
       ?>
       <?php if ( '' !== trim( $apply_hero_note_text ) ) : ?>
-      <div class="apply-hero__note site-container">
-        <p class="apply-hero__note-text"><?php echo wp_kses_post( $apply_hero_note_text ); ?></p>
+      <div class="site-container apply-hero__note-wrap">
+        <div class="apply-hero__note">
+          <p class="apply-hero__note-text"><?php echo wp_kses_post( $apply_hero_note_text ); ?></p>
+        </div>
       </div>
       <?php endif; ?>
 
