@@ -903,7 +903,10 @@
       return match && match.mode === 'peek' ? 'peek' : 'full';
     }
 
-    function peekPerView() {
+    function peekPerView(track) {
+      if (track && track.classList && track.classList.contains('vision-partner__icons')) {
+        return 2;
+      }
       return twoColPeekMedia.matches ? 2 : 3;
     }
 
@@ -1017,7 +1020,7 @@
         return null;
       }
 
-      var perView = mode === 'peek' ? peekPerView() : 1;
+      var perView = mode === 'peek' ? peekPerView(track) : 1;
       var pageCount = Math.max(1, Math.ceil(items.length / perView));
       var isSolo =
         mode === 'full' &&
