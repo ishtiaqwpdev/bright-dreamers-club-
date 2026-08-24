@@ -790,7 +790,7 @@
       { track: '.partners-ways__grid', item: '.partners-ways-card', mode: 'peek' },
       { track: '.partners-impact__grid', item: '.partners-impact-card', mode: 'full' },
       { track: '.partners-founding__grid', item: '.partners-founding-card', mode: 'full' },
-      { track: '.accessibility-provide-grid', item: '.accessibility-provide-card', mode: 'peek' },
+      { track: '.accessibility-provide-grid', item: '.accessibility-provide-card', mode: 'full' },
       { track: '.financial-support-grid', item: '.financial-support-card', mode: 'full' },
       { track: '.financial-promise-grid', item: '.financial-promise-item', mode: 'peek' },
       { track: '.newsletter-role-grid', item: '.newsletter-role-card', mode: 'peek' },
@@ -892,7 +892,7 @@
     function isInset(track) {
       return !!(
         track.matches(
-          '.role-icons, .approach-steps, .vision-partner__icons, .partners-impact__grid, .for-parents-expect__grid, .for-parents-info-card__features, .financial-promise-grid, .newsletter-role-grid, .media-consent-usage-grid, .partners-founding__grid, .get-involved-ways__grid, .financial-support-grid'
+          '.role-icons, .approach-steps, .vision-partner__icons, .partners-impact__grid, .for-parents-expect__grid, .for-parents-info-card__features, .financial-promise-grid, .newsletter-role-grid, .media-consent-usage-grid, .partners-founding__grid, .get-involved-ways__grid, .financial-support-grid, .accessibility-provide-grid'
         ) ||
         track.closest(
           '.panel-card, .partners-impact__box, .for-parents-info-card, .newsletter-form-wrap, .apply-form__main, .donation-form-card, .media-consent-card, .media-policy-content'
@@ -1035,7 +1035,8 @@
         (track.classList.contains('for-parents-expect__grid') ||
           track.classList.contains('get-involved-ways__grid') ||
           track.classList.contains('partners-founding__grid') ||
-          track.classList.contains('financial-support-grid'));
+          track.classList.contains('financial-support-grid') ||
+          track.classList.contains('accessibility-provide-grid'));
       var snapInline = isSolo || mode === 'peek' ? 'start' : 'center';
 
       track.classList.add('bdc-mobile-carousel');
@@ -1071,7 +1072,7 @@
         });
         var soloSection =
           track.closest(
-            '.for-parents-expect, .get-involved-ways, .partners-founding, .financial-support'
+            '.for-parents-expect, .get-involved-ways, .partners-founding, .financial-support, .accessibility-provide'
           ) || null;
         if (soloSection && soloSection.style) {
           soloSection.style.setProperty('overflow', 'visible', 'important');
@@ -1199,7 +1200,7 @@
           }
           var soloSection =
             track.closest(
-              '.for-parents-expect, .get-involved-ways, .partners-founding, .financial-support'
+              '.for-parents-expect, .get-involved-ways, .partners-founding, .financial-support, .accessibility-provide'
             ) || null;
           if (soloSection && soloSection.style) {
             soloSection.style.removeProperty('overflow');
