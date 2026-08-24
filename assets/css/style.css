@@ -9451,6 +9451,10 @@ img.lazy-img.loaded {
     overflow: hidden;
   }
 
+  .vision-pillar-card__deco {
+    display: none;
+  }
+
   .vision-pillar-card__title,
   .vision-pillar-card__text {
     --vision-pillar-text-lines: 4;
