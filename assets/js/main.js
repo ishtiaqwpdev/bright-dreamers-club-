@@ -781,7 +781,7 @@
       { track: '.explore-grow__track', item: '.explore-grow-stage', mode: 'full' },
       { track: '.explore-impact__track', item: '.explore-impact-card, .explore-impact-quote', mode: 'full' },
       { track: '.creative-makers-explore__grid', item: '.creative-makers-activity', mode: 'peek' },
-      { track: '.for-parents-expect__grid', item: '.for-parents-expect-card', mode: 'peek' },
+      { track: '.for-parents-expect__grid', item: '.for-parents-expect-card', mode: 'full' },
       { track: '.for-parents-info-card__features', item: '.for-parents-info-feature', mode: 'peek' },
       { track: '.vision-pillars__grid', item: '.vision-pillar-card', mode: 'peek' },
       { track: '.vision-journey-steps', item: '.vision-journey-step', mode: 'peek' },
