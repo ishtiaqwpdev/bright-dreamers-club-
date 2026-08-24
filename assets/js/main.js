@@ -119,7 +119,7 @@
 
       if (linkSlug(href) === current) {
         $link.addClass('is-active').attr('aria-current', 'page');
-        $link.closest('.mobile-nav__item:not(.mobile-nav__item--accordion)').addClass('is-active');
+        $link.closest('.mobile-nav__item').addClass('is-active');
         $link.closest('.mobile-nav__subitem').addClass('is-active');
       }
     });

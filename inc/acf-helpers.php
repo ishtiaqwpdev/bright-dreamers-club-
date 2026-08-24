@@ -90,6 +90,31 @@ function bdc_theme_asset_url( $relative_path ) {
 }
 
 /**
+ * Repair UTF-8 text that was saved as Windows-1252 mojibake (e.g. We areâ€¦).
+ *
+ * @param mixed $text Raw text.
+ * @return mixed
+ */
+function bdc_fix_mojibake( $text ) {
+	if ( ! is_string( $text ) || '' === $text ) {
+		return $text;
+	}
+
+	return strtr(
+		$text,
+		array(
+			'â€¦' => '...',
+			'â€“' => '-',
+			'â€”' => '-',
+			'â€™' => "'",
+			'â€˜' => "'",
+			'â€œ' => '"',
+			'â€' => '"',
+		)
+	);
+}
+
+/**
  * Read a text/textarea ACF field with fallback.
  *
  * @param string $field_name Field name.
@@ -102,11 +127,11 @@ function bdc_get_acf_text( $field_name, $fallback, $post_id = 0 ) {
 		$value = get_field( $field_name, $post_id ?: null );
 
 		if ( is_string( $value ) && '' !== trim( $value ) ) {
-			return $value;
+			return bdc_fix_mojibake( $value );
 		}
 	}
 
-	return $fallback;
+	return bdc_fix_mojibake( $fallback );
 }
 
 /**
@@ -267,12 +292,12 @@ function bdc_get_acf_group( $field_name, array $fallback, $post_id = 0 ) {
 					continue;
 				}
 
-				$merged[ $key ] = $value;
+				$merged[ $key ] = is_string( $value ) ? bdc_fix_mojibake( $value ) : $value;
 			}
 		}
 	}
 
-	return $merged;
+	return array_map( 'bdc_fix_mojibake', $merged );
 }
 
 /**

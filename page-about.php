@@ -104,7 +104,7 @@ $about_story_paragraph_1 = bdc_get_acf_text(
 );
 $about_story_paragraph_2 = bdc_get_acf_text(
 	'about_story_paragraph_2',
-	'Watching them made us realize something importantâ€¦',
+	'Watching them made us realize something important...',
 	$about_page_id
 );
 $about_story_paragraph_highlight = bdc_get_acf_text(
@@ -264,7 +264,7 @@ if ( empty( $about_panel_council_items ) ) {
 $about_panel_role_defaults = array(
 	'title'          => 'Our Role',
 	'title_icon'     => bdc_theme_asset_url( 'assets/images/role-heart-outline.png' ),
-	'lead'           => 'We areâ€¦',
+	'lead'           => 'We are...',
 	'role_items'     => array(
 		array(
 			'icon'  => bdc_theme_asset_url( 'assets/images/role-icon-heart.jpeg' ),

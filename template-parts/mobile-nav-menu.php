@@ -51,6 +51,9 @@ $header_social      = $header['social_links'];
 					$url        = (string) ( $link['url'] ?? '' );
 					$children   = isset( $link['children'] ) && is_array( $link['children'] ) ? $link['children'] : array();
 					$icon_key   = bdc_mobile_nav_icon_key( $label, $url );
+					if ( ! empty( $children ) && '' === trim( $url ) && 'explore' === $icon_key ) {
+						$url = home_url( '/explore/' );
+					}
 					$is_current = bdc_nav_url_is_current( $url );
 					$child_on   = false;
 
@@ -62,7 +65,7 @@ $header_social      = $header['social_links'];
 					}
 
 					$is_accordion = ! empty( $children );
-					$is_open      = $is_accordion && ( $is_current || $child_on );
+					$is_open      = $is_accordion && $child_on;
 					$item_class   = 'mobile-nav__item mobile-nav__item--' . sanitize_html_class( $icon_key );
 
 					if ( $is_accordion ) {
@@ -81,23 +84,32 @@ $header_social      = $header['social_links'];
 					?>
 					<li class="<?php echo esc_attr( $item_class ); ?>">
 						<?php if ( $is_accordion ) : ?>
-							<button
-								class="mobile-nav__row"
-								type="button"
-								data-mobile-accordion
-								aria-expanded="<?php echo $is_open ? 'true' : 'false'; ?>"
-								aria-controls="<?php echo esc_attr( $panel_id ); ?>"
-							>
-								<span class="mobile-nav__icon mobile-nav__icon--<?php echo esc_attr( $icon_key ); ?>">
-									<?php bdc_render_mobile_nav_icon( $icon_key ); ?>
-								</span>
-								<span class="mobile-nav__label"><?php echo esc_html( $label ); ?></span>
-								<span class="mobile-nav__chevron" aria-hidden="true">
-									<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-										<path d="M9 6l6 6-6 6" />
-									</svg>
-								</span>
-							</button>
+							<div class="mobile-nav__row mobile-nav__row--split">
+								<a
+									class="mobile-nav__link"
+									href="<?php echo esc_url( $url ); ?>"
+									<?php echo $is_current ? ' aria-current="page"' : ''; ?>
+								>
+									<span class="mobile-nav__icon mobile-nav__icon--<?php echo esc_attr( $icon_key ); ?>">
+										<?php bdc_render_mobile_nav_icon( $icon_key ); ?>
+									</span>
+									<span class="mobile-nav__label"><?php echo esc_html( $label ); ?></span>
+								</a>
+								<button
+									class="mobile-nav__chevron-btn"
+									type="button"
+									data-mobile-accordion
+									aria-expanded="<?php echo $is_open ? 'true' : 'false'; ?>"
+									aria-controls="<?php echo esc_attr( $panel_id ); ?>"
+									aria-label="<?php echo esc_attr( sprintf( __( 'Show %s pages', 'bright-dreamers-club' ), $label ) ); ?>"
+								>
+									<span class="mobile-nav__chevron" aria-hidden="true">
+										<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+											<path d="M9 6l6 6-6 6" />
+										</svg>
+									</span>
+								</button>
+							</div>
 							<ul class="mobile-nav__sublist" id="<?php echo esc_attr( $panel_id ); ?>"<?php echo $is_open ? '' : ' inert'; ?>>
 								<?php foreach ( $children as $child ) : ?>
 									<?php

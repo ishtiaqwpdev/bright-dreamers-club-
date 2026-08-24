@@ -1253,6 +1253,39 @@ button {
     cursor: pointer;
   }
 
+  .mobile-nav__row--split {
+    padding: 0;
+    gap: 0;
+    cursor: default;
+  }
+
+  .mobile-nav__link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex: 1 1 auto;
+    min-width: 0;
+    padding: 11px 8px 11px 16px;
+    color: inherit;
+    text-decoration: none;
+    font: inherit;
+  }
+
+  .mobile-nav__chevron-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 52px;
+    min-height: 48px;
+    margin: 0;
+    padding: 11px 16px 11px 8px;
+    border: 0;
+    background: transparent;
+    color: inherit;
+    cursor: pointer;
+  }
+
   .mobile-nav__item.is-active > .mobile-nav__row {
     background: var(--color-pink-soft);
     color: var(--color-pink);
@@ -17197,13 +17230,38 @@ body.newsletter-success-open {
     scroll-snap-stop: normal;
   }
 
+  .bdc-mobile-carousel--full {
+    gap: 16px;
+  }
+
   .bdc-mobile-carousel--inset {
     width: 100%;
     max-width: 100%;
     margin-inline: 0;
-    padding: 8px 0 18px;
+    padding: 8px 0 10px;
     gap: 20px;
     scroll-padding-inline: 0;
+  }
+
+  .role-icons.bdc-mobile-carousel,
+  .approach-steps.bdc-mobile-carousel {
+    margin-inline: 0;
+    width: 100%;
+    max-width: 100%;
+    padding-inline: 0;
+  }
+
+  .panel-card--role,
+  .panel-card--approach {
+    overflow-x: hidden;
+    max-width: 100%;
+  }
+
+  .role-callout {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
   }
 
   .bdc-mobile-carousel--peek.bdc-mobile-carousel--inset {
@@ -17232,6 +17290,14 @@ body.newsletter-success-open {
     flex-basis: 100%;
     width: 100%;
     max-width: 100%;
+  }
+
+  .bdc-mobile-carousel--full .bdc-mobile-carousel__item {
+    flex: 0 0 100%;
+    width: 100%;
+    max-width: 100%;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
   }
 
   .bdc-mobile-carousel--peek .bdc-mobile-carousel__item {
@@ -17343,9 +17409,15 @@ body.newsletter-success-open {
     align-items: center;
     justify-content: center;
     gap: 0.45rem;
-    margin-top: 0.9rem;
+    margin-top: 0.75rem;
+    margin-bottom: 1.15rem;
     padding: 0;
     list-style: none;
+  }
+
+  .panel-card .bdc-carousel-dots {
+    margin-top: 0.55rem;
+    margin-bottom: 1.35rem;
   }
 
   .bdc-carousel-dots__dot {
