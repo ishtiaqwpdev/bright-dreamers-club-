@@ -17635,7 +17635,7 @@ body.newsletter-success-open {
     width: 100% !important;
     max-width: 100% !important;
     height: auto !important;
-    max-height: min(560px, 68vh) !important;
+    max-height: min(700px, 68vh) !important;
     min-height: 0 !important;
     margin-inline: auto !important;
     object-fit: contain !important;
@@ -17741,7 +17741,7 @@ body.newsletter-success-open {
     width: 100% !important;
     max-width: 100% !important;
     height: auto !important;
-    max-height: min(560px, 68vh) !important;
+    max-height: min(700px, 68vh) !important;
     margin-inline: auto !important;
     object-fit: contain !important;
     object-position: center center !important;
