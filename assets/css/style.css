@@ -10352,8 +10352,8 @@ img.lazy-img.loaded {
 
   .site-header__logo img {
     width: auto;
-    --header-logo-height: 70px;
-    height: 70px;
+    --header-logo-height: 100px;
+    height: 100px;
   }
 
   .home-hero__logo {
@@ -17396,15 +17396,15 @@ body.newsletter-success-open {
   }
 
   .site-header__logo img {
-    --header-logo-height: 70px;
+    --header-logo-height: 100px;
     width: auto !important;
-    height: 70px !important;
-    max-height: 70px !important;
+    height: 100px !important;
+    max-height: 100px !important;
     object-fit: contain !important;
   }
 
   .site-header__inner {
-    min-height: calc(70px + var(--header-pad-y) * 2);
+    min-height: calc(100px + var(--header-pad-y) * 2);
   }
 
   .menu-toggle {
@@ -17754,10 +17754,10 @@ body.newsletter-success-open {
   }
 
   .site-header__logo img {
-    --header-logo-height: 70px;
+    --header-logo-height: 100px;
     width: auto !important;
-    height: 70px !important;
-    max-height: 70px !important;
+    height: 100px !important;
+    max-height: 100px !important;
   }
 }
 
