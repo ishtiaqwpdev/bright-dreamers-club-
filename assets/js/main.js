@@ -908,7 +908,10 @@
         if (track.classList.contains('vision-partner__icons')) {
           return 3;
         }
-        if (track.classList.contains('home-reality__steps')) {
+        if (
+          track.classList.contains('home-reality__steps') ||
+          track.classList.contains('home-different__grid')
+        ) {
           return 2;
         }
       }
