@@ -904,8 +904,13 @@
     }
 
     function peekPerView(track) {
-      if (track && track.classList && track.classList.contains('vision-partner__icons')) {
-        return 3;
+      if (track && track.classList) {
+        if (track.classList.contains('vision-partner__icons')) {
+          return 3;
+        }
+        if (track.classList.contains('home-reality__steps')) {
+          return 2;
+        }
       }
       return twoColPeekMedia.matches ? 2 : 3;
     }

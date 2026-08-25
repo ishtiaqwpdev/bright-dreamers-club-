@@ -8819,6 +8819,11 @@ img.lazy-img.loaded {
     padding-inline: clamp(1rem, 1.8vw, 1.45rem);
   }
 
+  .home-reality {
+    --home-reality-icon-size: 68px;
+    --home-reality-icon-inner: 100%;
+  }
+
   .home-reality__steps {
     flex-wrap: nowrap;
     overflow-x: auto;
@@ -8829,6 +8834,7 @@ img.lazy-img.loaded {
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
     justify-content: flex-start;
+    gap: clamp(0.65rem, 2.5vw, 0.95rem);
     padding-bottom: 0.35rem;
     margin-inline: calc(-1 * clamp(1rem, 1.8vw, 1.45rem));
     padding-inline: clamp(1rem, 1.8vw, 1.45rem);
@@ -8839,8 +8845,38 @@ img.lazy-img.loaded {
   }
 
   .home-reality-step {
-    flex: 0 0 min(132px, 44vw);
+    flex: 0 0 calc((100% - clamp(0.65rem, 2.5vw, 0.95rem)) / 2);
+    width: calc((100% - clamp(0.65rem, 2.5vw, 0.95rem)) / 2);
+    max-width: calc((100% - clamp(0.65rem, 2.5vw, 0.95rem)) / 2);
+    min-width: 0;
     scroll-snap-align: start;
+    box-sizing: border-box;
+  }
+
+  .home-reality-step__icon-wrap {
+    width: var(--home-reality-icon-size);
+    height: var(--home-reality-icon-size);
+    min-width: 64px;
+    min-height: 64px;
+    flex-shrink: 0;
+  }
+
+  .home-reality-step__icon {
+    width: 100%;
+    height: 100%;
+    min-width: 0;
+    min-height: 0;
+  }
+
+  .home-reality-step__title {
+    font-size: clamp(0.88rem, 2.8vw, 1rem);
+  }
+
+  .home-reality-step__text {
+    font-size: clamp(0.76rem, 2.4vw, 0.86rem);
+    max-width: 100%;
+    overflow-wrap: anywhere;
+    word-break: break-word;
   }
 
   .home-reality-step__arrow {
@@ -17938,15 +17974,58 @@ body.newsletter-success-open {
 
   .bdc-mobile-carousel--peek .explore-skill__icon,
   .bdc-mobile-carousel--peek .home-different__icon,
-  .bdc-mobile-carousel--peek .home-reality-step__icon,
   .bdc-mobile-carousel--peek .approach-step__icon {
     width: clamp(32px, 9vw, 44px);
     height: clamp(32px, 9vw, 44px);
   }
 
+  /* Home reality: keep icon circles readable (do not shrink with peek columns) */
+  .home-reality__steps.bdc-mobile-carousel--peek .home-reality-step.bdc-mobile-carousel__item,
+  .home-reality__steps.bdc-mobile-carousel--peek-2 .home-reality-step.bdc-mobile-carousel__item {
+    flex: 0 0 calc((100% - var(--bdc-peek-gap)) / 2) !important;
+    width: calc((100% - var(--bdc-peek-gap)) / 2) !important;
+    max-width: calc((100% - var(--bdc-peek-gap)) / 2) !important;
+    min-width: 0 !important;
+    padding-inline: 0.35rem;
+  }
+
+  .home-reality__steps.bdc-mobile-carousel--peek,
+  .home-reality__steps.bdc-mobile-carousel--peek-2 {
+    gap: var(--bdc-peek-gap) !important;
+  }
+
+  .home-reality__steps.bdc-mobile-carousel--peek .home-reality-step__icon-wrap,
+  .home-reality__steps.bdc-mobile-carousel--peek-2 .home-reality-step__icon-wrap {
+    width: 68px !important;
+    height: 68px !important;
+    min-width: 64px !important;
+    min-height: 64px !important;
+    flex-shrink: 0;
+  }
+
+  .home-reality__steps.bdc-mobile-carousel--peek .home-reality-step__icon,
+  .home-reality__steps.bdc-mobile-carousel--peek-2 .home-reality-step__icon {
+    width: 100% !important;
+    height: 100% !important;
+    min-width: 0 !important;
+    min-height: 0 !important;
+  }
+
+  .home-reality__steps.bdc-mobile-carousel--peek .home-reality-step__title,
+  .home-reality__steps.bdc-mobile-carousel--peek-2 .home-reality-step__title {
+    font-size: clamp(0.88rem, 2.8vw, 1rem) !important;
+    line-height: 1.25;
+  }
+
+  .home-reality__steps.bdc-mobile-carousel--peek .home-reality-step__text,
+  .home-reality__steps.bdc-mobile-carousel--peek-2 .home-reality-step__text {
+    font-size: clamp(0.76rem, 2.4vw, 0.86rem) !important;
+    line-height: 1.4;
+    max-width: 100%;
+  }
+
   .bdc-mobile-carousel--peek .explore-skill__title,
   .bdc-mobile-carousel--peek .home-different__name,
-  .bdc-mobile-carousel--peek .home-reality-step__title,
   .bdc-mobile-carousel--peek .believe-card__text,
   .bdc-mobile-carousel--peek .approach-step__title {
     font-size: clamp(0.72rem, 2.6vw, 0.84rem);
@@ -17955,7 +18034,6 @@ body.newsletter-success-open {
 
   .bdc-mobile-carousel--peek .explore-skill__text,
   .bdc-mobile-carousel--peek .home-different__text,
-  .bdc-mobile-carousel--peek .home-reality-step__text,
   .bdc-mobile-carousel--peek .role-icons__label {
     font-size: clamp(0.62rem, 2.3vw, 0.72rem);
     line-height: 1.35;
