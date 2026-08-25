@@ -10331,11 +10331,12 @@ img.lazy-img.loaded {
   .get-involved-hero .about-hero__banner,
   .vision-hero .about-hero__banner,
   .explore-hero__banner {
-    max-height: 300px;
+    max-height: min(420px, 52vh);
+    object-position: center center;
   }
 
   .partners-hero.vision-hero .about-hero__banner {
-    max-height: none;
+    max-height: min(420px, 52vh);
     min-height: unset;
   }
 
@@ -11498,7 +11499,8 @@ img.lazy-img.loaded {
 
 @media (max-width: 640px) {
   .apply-hero__banner {
-    max-height: 300px;
+    max-height: min(420px, 52vh);
+    object-position: center center;
   }
 
   .apply-radio-group {
@@ -15108,7 +15110,7 @@ body.newsletter-success-open {
   }
 
   .media-policy-hero__media {
-    order: -1;
+    order: 0;
   }
 
   .media-policy-section__body {
@@ -17544,20 +17546,56 @@ body.newsletter-success-open {
   .page-hero .home-hero__media {
     display: flex;
     justify-content: center;
+    align-items: center;
     width: 100%;
+    max-width: 100%;
     margin-top: 12px;
+    margin-inline: auto;
     grid-row: auto;
+    order: 0;
   }
 
   .page-hero .hero-image-wrap img,
   .page-hero [class*='__media'] img,
-  .page-hero [class*='__banner'] {
+  .page-hero [class*='__banner'],
+  .page-hero .home-hero__banner,
+  .page-hero .about-hero__banner,
+  .page-hero .explore-hero__banner,
+  .page-hero .creative-makers-hero__banner,
+  .page-hero .apply-hero__banner,
+  .page-hero .faq-hero__banner,
+  .page-hero .media-policy-hero__banner,
+  .page-hero .accessibility-hero__banner,
+  .page-hero .financial-hero__banner,
+  .page-hero .terms-hero__banner {
+    display: block;
     width: 100%;
-    max-width: 100%;
+    max-width: min(100%, 520px);
     height: auto;
-    max-height: min(240px, 38vh);
+    max-height: min(420px, 52vh);
+    margin-inline: auto;
     object-fit: contain;
+    object-position: center center;
     border-radius: 16px;
+  }
+
+  .page-hero.home-hero .home-hero__banner {
+    max-width: min(100%, 560px);
+    max-height: min(460px, 56vh);
+  }
+
+  .page-hero.explore-hero .explore-hero__banner,
+  .page-hero.vision-hero .about-hero__banner {
+    object-position: center center;
+  }
+
+  .page-hero.partners-hero .about-hero__banner {
+    max-height: min(420px, 52vh);
+  }
+
+  .page-hero.media-policy-hero .media-policy-hero__media,
+  .page-hero.privacy-hero .media-policy-hero__media {
+    order: 0;
   }
 
   .page-hero .explore-hero__deco,
@@ -17608,6 +17646,48 @@ body.newsletter-success-open {
   .vision-hero-checklist .vision-hero__list {
     margin: 0 auto;
     max-width: 320px;
+  }
+}
+
+/* Mobile hero images (incl. 768px): larger + centered — desktop unchanged */
+@media (max-width: 768px) {
+  .page-hero .hero-image-wrap,
+  .page-hero [class*='__media'],
+  .page-hero .home-hero__media {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 100%;
+    margin-inline: auto;
+  }
+
+  .page-hero .hero-image-wrap img,
+  .page-hero [class*='__media'] img,
+  .page-hero [class*='__banner'],
+  .page-hero .home-hero__banner,
+  .page-hero .about-hero__banner,
+  .page-hero .explore-hero__banner,
+  .page-hero .creative-makers-hero__banner,
+  .page-hero .apply-hero__banner,
+  .page-hero .faq-hero__banner,
+  .page-hero .media-policy-hero__banner,
+  .page-hero .accessibility-hero__banner,
+  .page-hero .financial-hero__banner,
+  .page-hero .terms-hero__banner {
+    display: block;
+    width: 100%;
+    max-width: min(100%, 520px);
+    height: auto;
+    max-height: min(420px, 52vh);
+    margin-inline: auto;
+    object-fit: contain;
+    object-position: center center;
+  }
+
+  .page-hero.home-hero .home-hero__banner {
+    max-width: min(100%, 560px);
+    max-height: min(460px, 56vh);
   }
 }
 
