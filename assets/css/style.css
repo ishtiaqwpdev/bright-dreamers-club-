@@ -765,10 +765,6 @@ button {
   margin: 0 0 var(--footer-heading-gap);
 }
 
-.site-footer__heading--explore {
-  color: red;
-}
-
 .site-footer__links {
   display: flex;
   flex-direction: column;
@@ -18583,10 +18579,6 @@ body.newsletter-success-open {
   .footer-acc__label {
     flex: 1 1 auto;
     min-width: 0;
-  }
-
-  .footer-acc__item--explore .footer-acc__label {
-    color: red;
   }
 
   .footer-acc__chevron {

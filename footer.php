@@ -79,7 +79,7 @@ $footer_legal_links            = $footer['legal_links'];
 			</div>
 
 			<div class="site-footer__col">
-				<h2 class="site-footer__heading site-footer__heading--explore"><?php echo esc_html( $footer_explore_heading ); ?></h2>
+				<h2 class="site-footer__heading"><?php echo esc_html( $footer_explore_heading ); ?></h2>
 				<ul class="site-footer__links">
 					<?php foreach ( $footer_explore_links as $row ) : ?>
 						<?php
