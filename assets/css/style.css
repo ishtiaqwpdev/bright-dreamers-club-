@@ -1206,10 +1206,10 @@ button {
 
   .mobile-nav__logo img {
     display: block;
-    width: min(180px, 58vw);
+    width: min(220px, 62vw);
     max-width: calc(100% - 8px);
     height: auto;
-    max-height: 56px;
+    max-height: 72px;
     object-fit: contain;
     filter: var(--logo-bg-filter);
     background: transparent;
@@ -8618,7 +8618,7 @@ img.lazy-img.loaded {
     width: auto;
     max-width: 100%;
     height: auto;
-    max-height: 56px;
+    max-height: 72px;
     object-fit: contain;
     background: transparent;
   }
@@ -10375,10 +10375,10 @@ img.lazy-img.loaded {
 
   .site-header__logo img {
     width: auto;
-    --header-logo-height: 56px;
+    --header-logo-height: 72px;
     height: auto;
-    max-height: 56px;
-    max-width: min(180px, calc(100vw - 96px));
+    max-height: 72px;
+    max-width: min(220px, calc(100vw - 96px));
     object-fit: contain;
     background: transparent;
   }
@@ -17425,17 +17425,17 @@ body.newsletter-success-open {
   }
 
   .site-header__logo img {
-    --header-logo-height: 56px;
+    --header-logo-height: 72px;
     width: auto !important;
     height: auto !important;
-    max-height: 56px !important;
-    max-width: min(180px, calc(100vw - 96px)) !important;
+    max-height: 72px !important;
+    max-width: min(220px, calc(100vw - 96px)) !important;
     object-fit: contain !important;
     background: transparent;
   }
 
   .site-header__inner {
-    min-height: calc(56px + var(--header-pad-y) * 2);
+    min-height: calc(72px + var(--header-pad-y) * 2);
   }
 
   .menu-toggle {
@@ -17785,11 +17785,11 @@ body.newsletter-success-open {
   }
 
   .site-header__logo img {
-    --header-logo-height: 56px;
+    --header-logo-height: 72px;
     width: auto !important;
     height: auto !important;
-    max-height: 56px !important;
-    max-width: min(180px, calc(100vw - 96px)) !important;
+    max-height: 72px !important;
+    max-width: min(220px, calc(100vw - 96px)) !important;
     object-fit: contain;
     background: transparent;
   }
