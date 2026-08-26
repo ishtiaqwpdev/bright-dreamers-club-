@@ -9,11 +9,11 @@ get_header();
 
 $front_page_id = bdc_get_front_page_id();
 
-$home_hero_logo_url = bdc_get_acf_image_url(
-	'home_hero_logo',
-	bdc_theme_asset_url( 'assets/images/bright-dreamers-logo.jpeg' ),
-	$front_page_id
-);
+$home_hero_logo_url = bdc_theme_asset_url( 'assets/images/bright-dreamers-logo.png' );
+$home_hero_logo_ver = bdc_asset_version( 'assets/images/bright-dreamers-logo.png' );
+if ( $home_hero_logo_ver ) {
+	$home_hero_logo_url = add_query_arg( 'v', $home_hero_logo_ver, $home_hero_logo_url );
+}
 $home_hero_logo_alt = bdc_get_acf_text(
 	'home_hero_logo_alt',
 	'Bright Dreamers — Dream, Create, Grow, Give',

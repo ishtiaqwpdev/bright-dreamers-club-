@@ -918,7 +918,6 @@ function bdc_hf_has_saved_settings() {
 function bdc_get_site_header_context() {
 	$defaults = bdc_build_default_header_footer_settings();
 	$logo_fallback = bdc_theme_asset_url( 'assets/images/bright-dreamers-logo-removebg-preview.png' );
-	$logo_mobile   = bdc_theme_asset_url( 'assets/images/bright-dreamers-logo.png' );
 
 	if ( ! bdc_hf_has_saved_settings() ) {
 		$donate = bdc_get_acf_option_link(
@@ -941,9 +940,8 @@ function bdc_get_site_header_context() {
 		return array(
 			'announce_text' => bdc_get_acf_option_text( 'global_header_announce_text', $defaults['announce_text'] ),
 			'social_links'  => bdc_get_acf_option_repeater( 'global_header_social', bdc_get_default_social_links() ),
-			'logo_url'        => bdc_get_acf_option_image_url( 'global_header_logo', $logo_fallback ),
-			'logo_mobile_url' => $logo_mobile,
-			'logo_alt'        => bdc_get_acf_option_text( 'global_header_logo_alt', $defaults['header_logo_alt'] ),
+			'logo_url'      => bdc_get_acf_option_image_url( 'global_header_logo', $logo_fallback ),
+			'logo_alt'      => bdc_get_acf_option_text( 'global_header_logo_alt', $defaults['header_logo_alt'] ),
 			'donate_text'   => bdc_get_acf_option_text( 'global_header_donate_text', $donate['title'] ),
 			'donate_link'   => $donate,
 			'apply_text'    => bdc_get_acf_option_text( 'global_header_apply_text', $apply['title'] ),
@@ -956,9 +954,8 @@ function bdc_get_site_header_context() {
 	return array(
 		'announce_text' => $settings['announce_text'],
 		'social_links'  => bdc_hf_social_rows( $settings['social'] ),
-		'logo_url'        => bdc_hf_image_url( (int) $settings['header_logo_id'], 'global_header_logo', $logo_fallback ),
-		'logo_mobile_url' => $logo_mobile,
-		'logo_alt'        => $settings['header_logo_alt'],
+		'logo_url'      => bdc_hf_image_url( (int) $settings['header_logo_id'], 'global_header_logo', $logo_fallback ),
+		'logo_alt'      => $settings['header_logo_alt'],
 		'donate_text'   => $settings['donate_text'],
 		'donate_link'   => array(
 			'title'  => $settings['donate_text'],

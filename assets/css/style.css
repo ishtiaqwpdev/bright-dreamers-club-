@@ -1018,12 +1018,6 @@ button {
   background: transparent;
 }
 
-.site-header__logo picture {
-  display: block;
-  line-height: 0;
-  background: transparent;
-}
-
 .site-header__logo img {
   width: auto;
   height: var(--header-logo-height);
@@ -2462,7 +2456,7 @@ img.lazy-img.loaded {
 .spotlight-card__copy p.spotlight-card__highlight {
   font-weight: 700;
   color: var(--color-pink);
-  line-height: 1.45;
+  line-height: 1.15;
   margin-bottom: 0;
   padding-bottom: 0;
 }
