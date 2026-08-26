@@ -17801,6 +17801,90 @@ body.newsletter-success-open {
   }
 }
 
+/* Homepage hero — phone layout (≤430px): tighter stack, larger image. Copy/colors/header unchanged. */
+@media (max-width: 430px) {
+  #main-content > section.home-hero.page-hero {
+    gap: 8px;
+    padding-top: 12px;
+    padding-bottom: 20px;
+    padding-left: 0;
+    padding-right: 0;
+    overflow-x: clip;
+  }
+
+  #main-content > section.home-hero.page-hero .page-hero__inner {
+    gap: 0;
+    row-gap: 0;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  #main-content > section.home-hero.page-hero .page-hero__content {
+    gap: 8px;
+    width: 100%;
+    max-width: 100%;
+    padding: 0 16px;
+    padding-bottom: 0;
+    box-sizing: border-box;
+  }
+
+  #main-content > section.home-hero.page-hero .home-hero__brand {
+    margin: 0;
+    justify-content: center;
+  }
+
+  #main-content > section.home-hero.page-hero .page-hero__text {
+    margin: 0 auto;
+  }
+
+  #main-content > section.home-hero.page-hero .page-hero__actions {
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: stretch;
+    justify-content: center;
+    width: 100%;
+    max-width: 280px;
+    margin: 2px auto 0;
+    gap: 8px;
+  }
+
+  #main-content > section.home-hero.page-hero .page-hero__actions .btn {
+    width: 100%;
+  }
+
+  #main-content > section.home-hero.page-hero .home-hero__media,
+  #main-content > section.home-hero.page-hero .home-hero__media .lazy-img-wrap {
+    width: 92vw !important;
+    max-width: min(92vw, 100%) !important;
+    margin-top: 24px !important;
+    margin-right: auto !important;
+    margin-bottom: 0 !important;
+    margin-left: auto !important;
+    overflow: hidden !important;
+  }
+
+  #main-content > section.home-hero.page-hero .home-hero__banner {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: clamp(310px, 86vw, 380px) !important;
+    min-height: 310px !important;
+    max-height: 380px !important;
+    object-fit: cover !important;
+    object-position: center center !important;
+    border-radius: 0 !important;
+    transform: none !important;
+  }
+}
+
+@media (max-width: 320px) {
+  #main-content > section.home-hero.page-hero .home-hero__banner {
+    height: clamp(280px, 94vw, 330px) !important;
+    min-height: 280px !important;
+    max-height: 330px !important;
+  }
+}
+
 /* ——— Site-wide mobile carousels: photo = 1 card, icon/text = 2–3 cards ——— */
 @media (max-width: 991px) {
   #main-content {
