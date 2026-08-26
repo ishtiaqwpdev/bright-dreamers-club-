@@ -1015,6 +1015,13 @@ button {
 
 .site-header__logo {
   flex-shrink: 0;
+  background: transparent;
+}
+
+.site-header__logo picture {
+  display: block;
+  line-height: 0;
+  background: transparent;
 }
 
 .site-header__logo img {
@@ -1022,6 +1029,7 @@ button {
   height: var(--header-logo-height);
   object-fit: contain;
   filter: var(--logo-bg-filter);
+  background: transparent;
 }
 
 @media (min-width: 1025px) {
@@ -1199,14 +1207,18 @@ button {
     display: block;
     min-width: 0;
     flex: 1 1 auto;
+    background: transparent;
   }
 
   .mobile-nav__logo img {
     display: block;
-    width: min(220px, 72vw);
+    width: min(180px, 58vw);
+    max-width: calc(100% - 8px);
     height: auto;
+    max-height: 56px;
     object-fit: contain;
     filter: var(--logo-bg-filter);
+    background: transparent;
   }
 
   .mobile-nav__close {
@@ -8600,6 +8612,20 @@ img.lazy-img.loaded {
     display: flex;
   }
 
+  .site-header__logo {
+    background: transparent;
+    max-width: calc(100% - 52px);
+  }
+
+  .site-header__logo img {
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    max-height: 56px;
+    object-fit: contain;
+    background: transparent;
+  }
+
   .site-footer__grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -10352,8 +10378,12 @@ img.lazy-img.loaded {
 
   .site-header__logo img {
     width: auto;
-    --header-logo-height: 100px;
-    height: 100px;
+    --header-logo-height: 56px;
+    height: auto;
+    max-height: 56px;
+    max-width: min(180px, calc(100vw - 96px));
+    object-fit: contain;
+    background: transparent;
   }
 
   .home-hero__logo {
@@ -17393,18 +17423,22 @@ body.newsletter-success-open {
   .site-header__logo {
     flex: 0 0 auto;
     margin-right: auto;
+    background: transparent;
+    max-width: calc(100% - 52px);
   }
 
   .site-header__logo img {
-    --header-logo-height: 100px;
+    --header-logo-height: 56px;
     width: auto !important;
-    height: 100px !important;
-    max-height: 100px !important;
+    height: auto !important;
+    max-height: 56px !important;
+    max-width: min(180px, calc(100vw - 96px)) !important;
     object-fit: contain !important;
+    background: transparent;
   }
 
   .site-header__inner {
-    min-height: calc(100px + var(--header-pad-y) * 2);
+    min-height: calc(56px + var(--header-pad-y) * 2);
   }
 
   .menu-toggle {
@@ -17754,10 +17788,13 @@ body.newsletter-success-open {
   }
 
   .site-header__logo img {
-    --header-logo-height: 100px;
+    --header-logo-height: 56px;
     width: auto !important;
-    height: 100px !important;
-    max-height: 100px !important;
+    height: auto !important;
+    max-height: 56px !important;
+    max-width: min(180px, calc(100vw - 96px)) !important;
+    object-fit: contain;
+    background: transparent;
   }
 }
 

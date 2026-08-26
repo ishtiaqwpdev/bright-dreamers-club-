@@ -12,8 +12,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 $header = bdc_get_site_header_context();
 $links  = bdc_get_mobile_nav_links();
 
-$header_logo_url    = $header['logo_url'];
-$header_logo_alt    = $header['logo_alt'];
+$header_logo_mobile_url = $header['logo_mobile_url'];
+$header_logo_alt        = $header['logo_alt'];
 $header_donate_text = $header['donate_text'];
 $header_donate_link = $header['donate_link'];
 $header_apply_text  = $header['apply_text'];
@@ -24,7 +24,7 @@ $header_social      = $header['social_links'];
 	<div class="mobile-nav__header">
 		<a class="mobile-nav__logo" href="<?php echo esc_url( home_url( '/' ) ); ?>" aria-label="Bright Dreamers Club home">
 			<img
-				src="<?php echo esc_url( $header_logo_url ); ?>"
+				src="<?php echo esc_url( $header_logo_mobile_url ); ?>"
 				alt="<?php echo esc_attr( $header_logo_alt ); ?>"
 				width="220"
 				height="72"

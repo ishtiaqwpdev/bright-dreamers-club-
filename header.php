@@ -12,8 +12,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 $header = bdc_get_site_header_context();
 $header_announce_text = $header['announce_text'];
 $header_social_links  = $header['social_links'];
-$header_logo_url      = $header['logo_url'];
-$header_logo_alt      = $header['logo_alt'];
+$header_logo_url        = $header['logo_url'];
+$header_logo_mobile_url = $header['logo_mobile_url'];
+$header_logo_alt        = $header['logo_alt'];
 $header_donate_text   = $header['donate_text'];
 $header_donate_link   = $header['donate_link'];
 $header_apply_text    = $header['apply_text'];
@@ -71,12 +72,15 @@ $header_apply_link    = $header['apply_link'];
 <header class="site-header" data-nav>
 	<div class="site-container site-header__inner">
 		<a class="site-header__logo" href="<?php echo esc_url( home_url( '/' ) ); ?>" aria-label="Bright Dreamers Club home">
-			<img
-				src="<?php echo esc_url( $header_logo_url ); ?>"
-				alt="<?php echo esc_attr( $header_logo_alt ); ?>"
-				width="240"
-				height="72"
-			>
+			<picture>
+				<source media="(max-width: 1023px)" srcset="<?php echo esc_url( $header_logo_mobile_url ); ?>">
+				<img
+					src="<?php echo esc_url( $header_logo_url ); ?>"
+					alt="<?php echo esc_attr( $header_logo_alt ); ?>"
+					width="240"
+					height="72"
+				>
+			</picture>
 		</a>
 
 		<nav class="site-nav" aria-label="Primary">
