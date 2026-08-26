@@ -117,11 +117,11 @@ $about_story_paragraph_3 = bdc_get_acf_text(
 	'Today, we\'re building a small, intentional nonprofit community where children have opportunities to discover their talents, explore their own ideas, and grow into confident, kind, and creative people.',
 	$about_page_id
 );
-$about_story_jar_url = bdc_get_acf_image_url(
-	'about_story_jar',
-	bdc_theme_asset_url( 'assets/images/our-story-jar.png' ),
-	$about_page_id
-);
+$about_story_jar_url = bdc_theme_asset_url( 'assets/images/our-story-jar.jpg' );
+$about_story_jar_ver = bdc_asset_version( 'assets/images/our-story-jar.jpg' );
+if ( $about_story_jar_ver ) {
+	$about_story_jar_url = add_query_arg( 'v', $about_story_jar_ver, $about_story_jar_url );
+}
 $about_story_jar_alt = bdc_get_acf_text(
 	'about_story_jar_alt',
 	'',
