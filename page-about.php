@@ -87,8 +87,8 @@ $about_story_title = bdc_get_acf_text(
 	'Our Story',
 	$about_page_id
 );
-$about_story_photo_url = bdc_theme_asset_url( 'assets/images/our-story-photo.jpg' );
-$about_story_photo_ver = bdc_asset_version( 'assets/images/our-story-photo.jpg' );
+$about_story_photo_url = bdc_theme_asset_url( 'assets/images/our-story-photo.png' );
+$about_story_photo_ver = bdc_asset_version( 'assets/images/our-story-photo.png' );
 if ( $about_story_photo_ver ) {
 	$about_story_photo_url = add_query_arg( 'v', $about_story_photo_ver, $about_story_photo_url );
 }
@@ -117,8 +117,8 @@ $about_story_paragraph_3 = bdc_get_acf_text(
 	'Today, we\'re building a small, intentional nonprofit community where children have opportunities to discover their talents, explore their own ideas, and grow into confident, kind, and creative people.',
 	$about_page_id
 );
-$about_story_jar_url = bdc_theme_asset_url( 'assets/images/our-story-jar.jpg' );
-$about_story_jar_ver = bdc_asset_version( 'assets/images/our-story-jar.jpg' );
+$about_story_jar_url = bdc_theme_asset_url( 'assets/images/our-story-jar.png' );
+$about_story_jar_ver = bdc_asset_version( 'assets/images/our-story-jar.png' );
 if ( $about_story_jar_ver ) {
 	$about_story_jar_url = add_query_arg( 'v', $about_story_jar_ver, $about_story_jar_url );
 }
