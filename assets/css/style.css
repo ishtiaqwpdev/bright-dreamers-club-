@@ -2407,6 +2407,7 @@ img.lazy-img.loaded {
 
 .spotlight-card--ideas .spotlight-card__content {
   flex: 1 1 52%;
+  padding-bottom: 0;
 }
 
 .spotlight-card__title {
@@ -2462,6 +2463,8 @@ img.lazy-img.loaded {
   font-weight: 700;
   color: var(--color-pink);
   line-height: 1.45;
+  margin-bottom: 0;
+  padding-bottom: 0;
 }
 
 .spotlight-card__note {
