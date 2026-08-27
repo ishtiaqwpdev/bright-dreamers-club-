@@ -17896,6 +17896,27 @@ body.newsletter-success-open {
     border-radius: 0 !important;
     transform: none !important;
   }
+
+  /* Homepage: pull image up so buttons + banner read as one block (16–20px gap). */
+  #main-content > section.home-hero.page-hero .page-hero__inner {
+    gap: 0 !important;
+    row-gap: 0 !important;
+  }
+
+  #main-content > section.home-hero.page-hero .page-hero__content {
+    padding-bottom: 0 !important;
+    margin-bottom: 0 !important;
+  }
+
+  #main-content > section.home-hero.page-hero .page-hero__actions {
+    margin-bottom: 0 !important;
+  }
+
+  #main-content > section.home-hero.page-hero .home-hero__media,
+  #main-content > section.home-hero.page-hero .home-hero__media .lazy-img-wrap {
+    margin-top: 16px !important;
+    padding-top: 0 !important;
+  }
 }
 
 @media (max-width: 320px) {
