@@ -443,9 +443,8 @@ $home_spotlight_council_items = ( is_array( $home_spotlight_council['list_items'
           <div class="home-hero__media">
             <div class="lazy-img-wrap">
               <img
-                class="home-hero__banner lazy-img"
-                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-                data-src="<?php echo esc_url( $home_hero_banner_url ); ?>"
+                class="home-hero__banner"
+                src="<?php echo esc_url( $home_hero_banner_url ); ?>"
                 alt="<?php echo esc_attr( $home_hero_banner_alt ); ?>"
                 width="1024"
                 height="584"
