@@ -389,11 +389,11 @@ $home_spotlight_council_items = ( is_array( $home_spotlight_council['list_items'
         <div class="site-container page-hero__inner">
           <div class="page-hero__content">
             <div class="home-hero__heading-wrap">
-              <img class="home-hero__deco home-hero__deco--heading-heart" src="<?php echo esc_url( $home_hero_deco_heart ); ?>" alt="" width="42" height="42" decoding="async" aria-hidden="true" />
-              <img class="home-hero__deco home-hero__deco--heading-star" src="<?php echo esc_url( $home_hero_deco_star ); ?>" alt="" width="28" height="28" decoding="async" aria-hidden="true" />
-              <img class="home-hero__deco home-hero__deco--heading-leaf" src="<?php echo esc_url( $home_hero_deco_leaf ); ?>" alt="" width="30" height="30" decoding="async" aria-hidden="true" />
-              <img class="home-hero__deco home-hero__deco--heading-plane" src="<?php echo esc_url( $home_hero_deco_plane ); ?>" alt="" width="72" height="72" decoding="async" aria-hidden="true" />
-              <svg class="home-hero__deco home-hero__deco--heading-arrow" viewBox="0 0 120 70" width="120" height="70" fill="none" aria-hidden="true">
+              <img class="home-hero__deco home-hero__deco--heading-heart" src="<?php echo esc_url( $home_hero_deco_heart ); ?>" alt="" width="32" height="32" decoding="async" aria-hidden="true" />
+              <img class="home-hero__deco home-hero__deco--heading-star" src="<?php echo esc_url( $home_hero_deco_star ); ?>" alt="" width="22" height="22" decoding="async" aria-hidden="true" />
+              <img class="home-hero__deco home-hero__deco--heading-leaf" src="<?php echo esc_url( $home_hero_deco_leaf ); ?>" alt="" width="26" height="26" decoding="async" aria-hidden="true" />
+              <img class="home-hero__deco home-hero__deco--heading-plane" src="<?php echo esc_url( $home_hero_deco_plane ); ?>" alt="" width="44" height="44" decoding="async" aria-hidden="true" />
+              <svg class="home-hero__deco home-hero__deco--heading-arrow" viewBox="0 0 120 70" width="72" height="42" fill="none" aria-hidden="true">
                 <path d="M8 52c18-4 38-28 62-30 16-1 28 8 36 20" stroke="#9b59d0" stroke-width="2.2" stroke-linecap="round" stroke-dasharray="5 6" />
                 <path d="M98 34l12 10-14 2" stroke="#9b59d0" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
               </svg>
@@ -483,11 +483,11 @@ $home_spotlight_council_items = ( is_array( $home_spotlight_council['list_items'
                   decoding="async"
                 />
               </div>
-              <img class="home-hero__deco home-hero__deco--media-heart-tl" src="<?php echo esc_url( $home_hero_deco_heart ); ?>" alt="" width="42" height="42" decoding="async" aria-hidden="true" />
-              <img class="home-hero__deco home-hero__deco--media-star-tr" src="<?php echo esc_url( $home_hero_deco_star ); ?>" alt="" width="26" height="26" decoding="async" aria-hidden="true" />
-              <img class="home-hero__deco home-hero__deco--media-star-bl" src="<?php echo esc_url( $home_hero_deco_star ); ?>" alt="" width="22" height="22" decoding="async" aria-hidden="true" />
-              <img class="home-hero__deco home-hero__deco--media-leaf-br" src="<?php echo esc_url( $home_hero_deco_leaf ); ?>" alt="" width="28" height="28" decoding="async" aria-hidden="true" />
-              <svg class="home-hero__deco home-hero__deco--media-arrow" viewBox="0 0 120 70" width="120" height="70" fill="none" aria-hidden="true">
+              <img class="home-hero__deco home-hero__deco--media-heart-tl" src="<?php echo esc_url( $home_hero_deco_heart ); ?>" alt="" width="34" height="34" decoding="async" aria-hidden="true" />
+              <img class="home-hero__deco home-hero__deco--media-star-tr" src="<?php echo esc_url( $home_hero_deco_star ); ?>" alt="" width="22" height="22" decoding="async" aria-hidden="true" />
+              <img class="home-hero__deco home-hero__deco--media-star-bl" src="<?php echo esc_url( $home_hero_deco_star ); ?>" alt="" width="20" height="20" decoding="async" aria-hidden="true" />
+              <img class="home-hero__deco home-hero__deco--media-leaf-br" src="<?php echo esc_url( $home_hero_deco_leaf ); ?>" alt="" width="24" height="24" decoding="async" aria-hidden="true" />
+              <svg class="home-hero__deco home-hero__deco--media-arrow" viewBox="0 0 120 70" width="72" height="42" fill="none" aria-hidden="true">
                 <path d="M8 52c18-4 38-28 62-30 16-1 28 8 36 20" stroke="#9b59d0" stroke-width="2.2" stroke-linecap="round" stroke-dasharray="5 6" />
                 <path d="M98 34l12 10-14 2" stroke="#9b59d0" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
               </svg>
