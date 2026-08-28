@@ -115,15 +115,17 @@ $image_class   = trim( 'lazy-img ' . (string) $hero['image_class'] );
             <?php else : ?>
             <div class="lazy-img-wrap">
               <?php if ( $has_mobile_image ) : ?>
+              <?php
+              $banner_class = trim( preg_replace( '/\blazy-img\b/', '', $image_class ) );
+              ?>
               <picture>
                 <source
                   media="(max-width: 767px)"
                   srcset="<?php echo esc_url( $hero['hero_image_mobile'] ); ?>"
                 />
                 <img
-                  class="<?php echo esc_attr( $image_class ); ?>"
-                  src="<?php echo esc_attr( $hero['hero_image_placeholder'] ); ?>"
-                  data-src="<?php echo esc_url( $hero['hero_image'] ); ?>"
+                  class="<?php echo esc_attr( $banner_class ); ?>"
+                  src="<?php echo esc_url( $hero['hero_image'] ); ?>"
                   alt="<?php echo esc_attr( $hero['hero_image_alt'] ); ?>"
                   width="1200"
                   height="900"

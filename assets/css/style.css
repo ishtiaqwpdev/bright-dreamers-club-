@@ -1769,6 +1769,27 @@ img.lazy-img.loaded {
   width: 100%;
 }
 
+/* About hero — no box/background behind transparent banner PNG */
+.page-hero.about-hero .hero-image-wrap,
+.page-hero.about-hero .about-hero__media,
+.page-hero.about-hero .lazy-img-wrap,
+.page-hero.about-hero picture {
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.page-hero.about-hero .lazy-img-wrap {
+  overflow: visible;
+}
+
+.page-hero.about-hero .about-hero__banner {
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
 /* ——— Home pillars (3 cards below hero) ——— */
 .home-pillars {
   background-color: #fff;
@@ -17743,6 +17764,22 @@ body.newsletter-success-open {
   .home-hero .page-hero__actions {
     flex-direction: column;
     max-width: 280px;
+  }
+
+  .page-hero.about-hero .hero-image-wrap,
+  .page-hero.about-hero .about-hero__media,
+  .page-hero.about-hero .lazy-img-wrap,
+  .page-hero.about-hero picture,
+  .page-hero.about-hero .about-hero__banner {
+    background: transparent !important;
+    background-color: transparent !important;
+    background-image: none !important;
+    border: none !important;
+    box-shadow: none !important;
+  }
+
+  .page-hero.about-hero .lazy-img-wrap {
+    overflow: visible !important;
   }
 
   .page-hero.home-hero .page-hero__inner {
