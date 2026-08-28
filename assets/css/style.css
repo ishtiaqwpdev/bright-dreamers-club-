@@ -19580,5 +19580,55 @@ body.newsletter-success-open {
     margin-top: 0 !important;
     padding-top: 0 !important;
   }
-}
 
+  /* For Parents (shared page-hero) — mobile: zero gap between CTAs and banner image */
+  #main-content > section.page-hero.for-parents-hero .page-hero__inner,
+  .page-hero.for-parents-hero .page-hero__inner {
+    gap: 0 !important;
+    row-gap: 0 !important;
+  }
+
+  #main-content > section.page-hero.for-parents-hero .page-hero__content,
+  .page-hero.for-parents-hero .page-hero__content {
+    padding-bottom: 0 !important;
+    margin-bottom: 0 !important;
+  }
+
+  #main-content > section.page-hero.for-parents-hero .page-hero__actions,
+  #main-content > section.page-hero.for-parents-hero .hero-ctas,
+  .page-hero.for-parents-hero .page-hero__actions,
+  .page-hero.for-parents-hero .hero-ctas {
+    margin-bottom: 0 !important;
+  }
+
+  #main-content > section.page-hero.for-parents-hero .about-hero__media,
+  #main-content > section.page-hero.for-parents-hero .hero-image-wrap,
+  #main-content > section.page-hero.for-parents-hero .hero-image-wrap .lazy-img-wrap,
+  #main-content > section.page-hero.for-parents-hero [class*='__media'] .lazy-img-wrap,
+  .page-hero.for-parents-hero .about-hero__media,
+  .page-hero.for-parents-hero .hero-image-wrap,
+  .page-hero.for-parents-hero .hero-image-wrap .lazy-img-wrap,
+  .page-hero.for-parents-hero [class*='__media'] .lazy-img-wrap {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+  }
+
+  /* For Parents — mobile heading: single line ("For" pink + "Parents" navy) */
+  #main-content > section.page-hero.for-parents-hero .hero-headline,
+  .page-hero.for-parents-hero .hero-headline {
+    font-size: clamp(21px, 6vw, 26px) !important;
+    line-height: 1.2 !important;
+    white-space: nowrap !important;
+  }
+
+  #main-content > section.page-hero.for-parents-hero .hero-headline .for-parents-hero__title-line,
+  .page-hero.for-parents-hero .hero-headline .for-parents-hero__title-line {
+    display: inline !important;
+    white-space: inherit !important;
+  }
+
+  #main-content > section.page-hero.for-parents-hero .hero-headline .for-parents-hero__title-line--pink + .for-parents-hero__title-line--navy::before,
+  .page-hero.for-parents-hero .hero-headline .for-parents-hero__title-line--pink + .for-parents-hero__title-line--navy::before {
+    content: ' ';
+  }
+}
