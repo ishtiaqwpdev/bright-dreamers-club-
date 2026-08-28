@@ -47,8 +47,8 @@ $home_hero_banner_ver = bdc_asset_version( 'assets/images/home-hero-banner.png' 
 if ( $home_hero_banner_ver ) {
 	$home_hero_banner_url = add_query_arg( 'v', $home_hero_banner_ver, $home_hero_banner_url );
 }
-$home_hero_banner_mobile_url = bdc_theme_asset_url( 'assets/images/home-hero-banner-mobile.png' );
-$home_hero_banner_mobile_ver = bdc_asset_version( 'assets/images/home-hero-banner-mobile.png' );
+$home_hero_banner_mobile_url = bdc_theme_asset_url( 'assets/images/home-hero-banner-mobile.jpg' );
+$home_hero_banner_mobile_ver = bdc_asset_version( 'assets/images/home-hero-banner-mobile.jpg' );
 if ( $home_hero_banner_mobile_ver ) {
 	$home_hero_banner_mobile_url = add_query_arg( 'v', $home_hero_banner_mobile_ver, $home_hero_banner_mobile_url );
 }
