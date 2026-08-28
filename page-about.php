@@ -81,6 +81,11 @@ $about_hero_banner_alt = bdc_get_acf_text(
 	'Children creating art together at Bright Dreamers Club',
 	$about_page_id
 );
+$about_hero_banner_mobile_url = bdc_theme_asset_url( 'assets/images/about-banner-mobile.png' );
+$about_hero_banner_mobile_ver = bdc_asset_version( 'assets/images/about-banner-mobile.png' );
+if ( $about_hero_banner_mobile_ver ) {
+	$about_hero_banner_mobile_url = add_query_arg( 'v', $about_hero_banner_mobile_ver, $about_hero_banner_mobile_url );
+}
 
 $about_story_title = bdc_get_acf_text(
 	'about_story_title',
@@ -510,6 +515,7 @@ if ( empty( $about_compare_right_items ) ) {
           'secondary_cta_text' => $about_hero_secondary_btn_text,
           'secondary_cta_link' => $about_hero_secondary_btn_link,
           'hero_image'         => $about_hero_banner_url,
+          'hero_image_mobile'  => $about_hero_banner_mobile_url,
           'hero_image_alt'     => $about_hero_banner_alt,
           'media_class'        => 'about-hero__media',
           'image_class'        => 'about-hero__banner',

@@ -29,6 +29,7 @@ $hero = wp_parse_args(
 		'secondary_cta_text'       => '',
 		'secondary_cta_link'       => array(),
 		'hero_image'               => '',
+		'hero_image_mobile'        => '',
 		'hero_image_alt'           => '',
 		'hero_image_html'          => '',
 		'hero_image_placeholder'   => 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7',
@@ -44,6 +45,7 @@ $secondary_url  = isset( $secondary_link['url'] ) ? (string) $secondary_link['ur
 $has_primary    = ( '' !== $primary_url && '' !== trim( (string) $hero['primary_cta_text'] ) );
 $has_secondary  = ( '' !== $secondary_url && '' !== trim( (string) $hero['secondary_cta_text'] ) );
 $has_image      = ( '' !== trim( (string) $hero['hero_image'] ) || '' !== trim( (string) $hero['hero_image_html'] ) );
+$has_mobile_image = '' !== trim( (string) $hero['hero_image_mobile'] );
 $headline_text  = trim( (string) $hero['headline'] );
 $headline_html  = trim( (string) $hero['headline_html'] );
 
@@ -112,6 +114,23 @@ $image_class   = trim( 'lazy-img ' . (string) $hero['image_class'] );
               <?php echo $hero['hero_image_html']; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
             <?php else : ?>
             <div class="lazy-img-wrap">
+              <?php if ( $has_mobile_image ) : ?>
+              <picture>
+                <source
+                  media="(max-width: 767px)"
+                  srcset="<?php echo esc_url( $hero['hero_image_mobile'] ); ?>"
+                />
+                <img
+                  class="<?php echo esc_attr( $image_class ); ?>"
+                  src="<?php echo esc_attr( $hero['hero_image_placeholder'] ); ?>"
+                  data-src="<?php echo esc_url( $hero['hero_image'] ); ?>"
+                  alt="<?php echo esc_attr( $hero['hero_image_alt'] ); ?>"
+                  width="1200"
+                  height="900"
+                  decoding="async"
+                />
+              </picture>
+              <?php else : ?>
               <img
                 class="<?php echo esc_attr( $image_class ); ?>"
                 src="<?php echo esc_attr( $hero['hero_image_placeholder'] ); ?>"
@@ -121,6 +140,7 @@ $image_class   = trim( 'lazy-img ' . (string) $hero['image_class'] );
                 height="900"
                 decoding="async"
               />
+              <?php endif; ?>
             </div>
             <?php endif; ?>
           </div>

@@ -86,6 +86,12 @@ $explore_hero_banner_alt = bdc_get_acf_text(
 	'Children painting a mural that reads together we create brighter communities',
 	$explore_page_id
 );
+$explore_hero_banner_mobile_url = bdc_theme_asset_url( 'assets/images/explore-banner-mobile.jpg' );
+$explore_hero_banner_mobile_ver = bdc_asset_version( 'assets/images/explore-banner-mobile.jpg' );
+if ( $explore_hero_banner_mobile_ver ) {
+	$explore_hero_banner_mobile_url = add_query_arg( 'v', $explore_hero_banner_mobile_ver, $explore_hero_banner_mobile_url );
+}
+
 $explore_hero_tags_defaults = array(
 	array( 'item_text' => 'Ideas' ),
 	array( 'item_text' => 'Creativity' ),
@@ -634,6 +640,7 @@ $explore_dream_secondary_btn_link = bdc_get_acf_link(
           'secondary_cta_text' => $explore_hero_secondary_btn_text,
           'secondary_cta_link' => $explore_hero_secondary_btn_link,
           'hero_image'       => $explore_hero_banner_url,
+          'hero_image_mobile' => $explore_hero_banner_mobile_url,
           'hero_image_alt'   => $explore_hero_banner_alt,
           'media_class'      => 'explore-hero__media',
           'image_class'      => 'explore-hero__banner',
