@@ -19631,4 +19631,67 @@ body.newsletter-success-open {
   .page-hero.for-parents-hero .hero-headline .for-parents-hero__title-line--pink + .for-parents-hero__title-line--navy::before {
     content: ' ';
   }
+
+  /* Our Vision (shared page-hero) — mobile: zero gap between copy and banner image */
+  #main-content > section.page-hero.vision-hero:not(.partners-hero) .page-hero__inner,
+  .page-hero.vision-hero:not(.partners-hero) .page-hero__inner {
+    gap: 0 !important;
+    row-gap: 0 !important;
+  }
+
+  #main-content > section.page-hero.vision-hero:not(.partners-hero) .page-hero__content,
+  .page-hero.vision-hero:not(.partners-hero) .page-hero__content {
+    padding-bottom: 0 !important;
+    margin-bottom: 0 !important;
+  }
+
+  #main-content > section.page-hero.vision-hero:not(.partners-hero) .hero-copy,
+  .page-hero.vision-hero:not(.partners-hero) .hero-copy {
+    margin-bottom: 0 !important;
+  }
+
+  #main-content > section.page-hero.vision-hero:not(.partners-hero) .about-hero__media,
+  #main-content > section.page-hero.vision-hero:not(.partners-hero) .hero-image-wrap,
+  #main-content > section.page-hero.vision-hero:not(.partners-hero) .hero-image-wrap .lazy-img-wrap,
+  #main-content > section.page-hero.vision-hero:not(.partners-hero) [class*='__media'] .lazy-img-wrap,
+  .page-hero.vision-hero:not(.partners-hero) .about-hero__media,
+  .page-hero.vision-hero:not(.partners-hero) .hero-image-wrap,
+  .page-hero.vision-hero:not(.partners-hero) .hero-image-wrap .lazy-img-wrap,
+  .page-hero.vision-hero:not(.partners-hero) [class*='__media'] .lazy-img-wrap {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+  }
+
+  /* Our Vision — mobile heading: 2 lines ("Building a Brighter Future" / "Together") */
+  #main-content > section.page-hero.vision-hero:not(.partners-hero) .hero-headline,
+  .page-hero.vision-hero:not(.partners-hero) .hero-headline {
+    font-size: clamp(20px, 5.5vw, 26px) !important;
+    line-height: 1.2 !important;
+    max-width: min(100%, 340px);
+    margin-bottom: 10px !important;
+  }
+
+  #main-content > section.page-hero.vision-hero:not(.partners-hero) .hero-headline .vision-hero__title-line,
+  .page-hero.vision-hero:not(.partners-hero) .hero-headline .vision-hero__title-line {
+    display: inline !important;
+    white-space: normal;
+  }
+
+  #main-content > section.page-hero.vision-hero:not(.partners-hero) .hero-headline .vision-hero__title-line--navy:first-child,
+  #main-content > section.page-hero.vision-hero:not(.partners-hero) .hero-headline .vision-hero__title-line--pink,
+  .page-hero.vision-hero:not(.partners-hero) .hero-headline .vision-hero__title-line--navy:first-child,
+  .page-hero.vision-hero:not(.partners-hero) .hero-headline .vision-hero__title-line--pink {
+    white-space: nowrap;
+  }
+
+  #main-content > section.page-hero.vision-hero:not(.partners-hero) .hero-headline .vision-hero__title-line--navy + .vision-hero__title-line--pink::before,
+  .page-hero.vision-hero:not(.partners-hero) .hero-headline .vision-hero__title-line--navy + .vision-hero__title-line--pink::before {
+    content: ' ';
+  }
+
+  #main-content > section.page-hero.vision-hero:not(.partners-hero) .hero-headline .vision-hero__title-line--pink + .vision-hero__title-line--navy,
+  .page-hero.vision-hero:not(.partners-hero) .hero-headline .vision-hero__title-line--pink + .vision-hero__title-line--navy {
+    display: block !important;
+    margin-top: 0;
+  }
 }
