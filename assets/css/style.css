@@ -10503,6 +10503,20 @@ img.lazy-img.loaded {
     margin-top: 0;
   }
 
+  .page-hero.explore-hero .hero-headline .explore-hero__title-line--navy {
+    display: inline;
+    white-space: normal;
+    margin-bottom: 0;
+  }
+
+  .page-hero.explore-hero .hero-headline .explore-hero__title-line--navy + .explore-hero__title-line--navy::before {
+    content: ' ';
+  }
+
+  .page-hero.explore-hero .hero-headline .explore-hero__title-line--pink {
+    display: block;
+  }
+
   .our-story__media {
     max-width: 100%;
   }
@@ -17919,6 +17933,28 @@ body.newsletter-success-open {
     margin-top: 0 !important;
   }
 
+  /* Explore hero — mobile heading: 2 lines (navy block + pink line) */
+  .page-hero.explore-hero .hero-headline {
+    font-size: clamp(22px, 6.2vw, 26px);
+    line-height: 1.2;
+    max-width: min(100%, 340px);
+  }
+
+  .page-hero.explore-hero .hero-headline .explore-hero__title-line--navy {
+    display: inline;
+    white-space: normal;
+    margin-bottom: 0;
+  }
+
+  .page-hero.explore-hero .hero-headline .explore-hero__title-line--navy + .explore-hero__title-line--navy::before {
+    content: ' ';
+  }
+
+  .page-hero.explore-hero .hero-headline .explore-hero__title-line--pink {
+    display: block;
+    margin-top: 0;
+  }
+
   .vision-hero-checklist {
     padding: 0 20px 16px;
   }
@@ -18145,6 +18181,27 @@ body.newsletter-success-open {
 
   #main-content > section.explore-hero.page-hero .explore-hero__media,
   #main-content > section.explore-hero.page-hero .hero-image-wrap {
+    margin-top: 0 !important;
+  }
+
+  #main-content > section.explore-hero.page-hero .hero-headline {
+    font-size: clamp(21px, 6vw, 26px) !important;
+    line-height: 1.2 !important;
+    max-width: min(100%, 340px);
+  }
+
+  #main-content > section.explore-hero.page-hero .hero-headline .explore-hero__title-line--navy {
+    display: inline !important;
+    white-space: normal !important;
+    margin-bottom: 0 !important;
+  }
+
+  #main-content > section.explore-hero.page-hero .hero-headline .explore-hero__title-line--navy + .explore-hero__title-line--navy::before {
+    content: ' ';
+  }
+
+  #main-content > section.explore-hero.page-hero .hero-headline .explore-hero__title-line--pink {
+    display: block !important;
     margin-top: 0 !important;
   }
 
