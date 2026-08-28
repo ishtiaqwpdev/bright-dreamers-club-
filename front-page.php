@@ -47,6 +47,11 @@ $home_hero_banner_ver = bdc_asset_version( 'assets/images/home-hero-banner.png' 
 if ( $home_hero_banner_ver ) {
 	$home_hero_banner_url = add_query_arg( 'v', $home_hero_banner_ver, $home_hero_banner_url );
 }
+$home_hero_banner_mobile_url = bdc_theme_asset_url( 'assets/images/home-hero-banner-mobile.jpg' );
+$home_hero_banner_mobile_ver = bdc_asset_version( 'assets/images/home-hero-banner-mobile.jpg' );
+if ( $home_hero_banner_mobile_ver ) {
+	$home_hero_banner_mobile_url = add_query_arg( 'v', $home_hero_banner_mobile_ver, $home_hero_banner_mobile_url );
+}
 $home_hero_banner_alt = bdc_get_acf_text(
 	'home_hero_banner_alt',
 	'Three Bright Dreamers holding colorful heart flower drawings',
@@ -442,14 +447,20 @@ $home_spotlight_council_items = ( is_array( $home_spotlight_council['list_items'
 
           <div class="home-hero__media">
             <div class="lazy-img-wrap">
-              <img
-                class="home-hero__banner"
-                src="<?php echo esc_url( $home_hero_banner_url ); ?>"
-                alt="<?php echo esc_attr( $home_hero_banner_alt ); ?>"
-                width="1024"
-                height="584"
-                decoding="async"
-              />
+              <picture>
+                <source
+                  media="(max-width: 767px)"
+                  srcset="<?php echo esc_url( $home_hero_banner_mobile_url ); ?>"
+                />
+                <img
+                  class="home-hero__banner"
+                  src="<?php echo esc_url( $home_hero_banner_url ); ?>"
+                  alt="<?php echo esc_attr( $home_hero_banner_alt ); ?>"
+                  width="1024"
+                  height="584"
+                  decoding="async"
+                />
+              </picture>
             </div>
           </div>
         </div>

@@ -1757,6 +1757,11 @@ img.lazy-img.loaded {
   min-height: 0;
 }
 
+.home-hero__media picture {
+  display: block;
+  width: 100%;
+}
+
 /* ——— Home pillars (3 cards below hero) ——— */
 .home-pillars {
   background-color: #fff;
