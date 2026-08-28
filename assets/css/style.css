@@ -19842,4 +19842,34 @@ body.newsletter-success-open {
     margin-top: 0 !important;
     padding-top: 0 !important;
   }
+
+  /* Contact (shared page-hero) — mobile: zero gap between copy and banner image */
+  #main-content > section.page-hero.contact-hero .page-hero__inner,
+  .page-hero.contact-hero .page-hero__inner {
+    gap: 0 !important;
+    row-gap: 0 !important;
+  }
+
+  #main-content > section.page-hero.contact-hero .page-hero__content,
+  .page-hero.contact-hero .page-hero__content {
+    padding-bottom: 0 !important;
+    margin-bottom: 0 !important;
+  }
+
+  #main-content > section.page-hero.contact-hero .hero-copy,
+  .page-hero.contact-hero .hero-copy {
+    margin-bottom: 0 !important;
+  }
+
+  #main-content > section.page-hero.contact-hero .about-hero__media,
+  #main-content > section.page-hero.contact-hero .hero-image-wrap,
+  #main-content > section.page-hero.contact-hero .hero-image-wrap .lazy-img-wrap,
+  #main-content > section.page-hero.contact-hero [class*='__media'] .lazy-img-wrap,
+  .page-hero.contact-hero .about-hero__media,
+  .page-hero.contact-hero .hero-image-wrap,
+  .page-hero.contact-hero .hero-image-wrap .lazy-img-wrap,
+  .page-hero.contact-hero [class*='__media'] .lazy-img-wrap {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+  }
 }
