@@ -52,10 +52,6 @@ $home_hero_banner_alt = bdc_get_acf_text(
 	'Three Bright Dreamers holding colorful heart flower drawings',
 	$front_page_id
 );
-$home_hero_deco_heart = bdc_theme_asset_url( 'assets/images/partners-impact-deco-heart-pink.jpeg' );
-$home_hero_deco_star  = bdc_theme_asset_url( 'assets/images/partners-impact-deco-star-yellow.jpeg' );
-$home_hero_deco_leaf  = bdc_theme_asset_url( 'assets/images/partners-impact-deco-leaf.jpeg' );
-$home_hero_deco_plane = bdc_theme_asset_url( 'assets/images/creative-makers-deco-plane-removebg-preview.png' );
 
 $home_pillars_idea_defaults = array(
 	'image' => bdc_theme_asset_url( 'assets/images/home-pillar-books.jpeg' ),
@@ -388,42 +384,15 @@ $home_spotlight_council_items = ( is_array( $home_spotlight_council['list_items'
       <section class="page-hero home-hero" aria-label="Welcome">
         <div class="site-container page-hero__inner">
           <div class="page-hero__content">
-            <div class="home-hero__heading-wrap">
-              <img class="home-hero__deco home-hero__deco--heading-heart" src="<?php echo esc_url( $home_hero_deco_heart ); ?>" alt="" width="42" height="42" decoding="async" aria-hidden="true" />
-              <img class="home-hero__deco home-hero__deco--heading-star" src="<?php echo esc_url( $home_hero_deco_star ); ?>" alt="" width="28" height="28" decoding="async" aria-hidden="true" />
-              <img class="home-hero__deco home-hero__deco--heading-leaf" src="<?php echo esc_url( $home_hero_deco_leaf ); ?>" alt="" width="30" height="30" decoding="async" aria-hidden="true" />
-              <img class="home-hero__deco home-hero__deco--heading-plane" src="<?php echo esc_url( $home_hero_deco_plane ); ?>" alt="" width="72" height="72" decoding="async" aria-hidden="true" />
-              <svg class="home-hero__deco home-hero__deco--heading-arrow" viewBox="0 0 120 70" width="120" height="70" fill="none" aria-hidden="true">
-                <path d="M8 52c18-4 38-28 62-30 16-1 28 8 36 20" stroke="#9b59d0" stroke-width="2.2" stroke-linecap="round" stroke-dasharray="5 6" />
-                <path d="M98 34l12 10-14 2" stroke="#9b59d0" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
-              </svg>
-
-              <div class="home-hero__brand">
-                <img
-                  class="home-hero__logo home-hero__logo--desktop"
-                  src="<?php echo esc_url( $home_hero_logo_url ); ?>"
-                  alt="<?php echo esc_attr( $home_hero_logo_alt ); ?>"
-                  width="380"
-                  height="110"
-                  decoding="async"
-                />
-
-                <div class="home-hero__heading-mobile">
-                  <h1 class="home-hero__title">
-                    <span class="home-hero__title-bright">Bright</span>
-                    <span class="home-hero__title-dreamers">Dreamers</span>
-                  </h1>
-                  <p class="home-hero__tagline">
-                    <span class="home-hero__tagline-word home-hero__tagline-word--dream">Dream</span>
-                    <span class="home-hero__tagline-sep" aria-hidden="true">•</span>
-                    <span class="home-hero__tagline-word home-hero__tagline-word--create">Create</span>
-                    <span class="home-hero__tagline-sep" aria-hidden="true">•</span>
-                    <span class="home-hero__tagline-word home-hero__tagline-word--grow">Grow</span>
-                    <span class="home-hero__tagline-sep" aria-hidden="true">•</span>
-                    <span class="home-hero__tagline-word home-hero__tagline-word--give">Give</span>
-                  </p>
-                </div>
-              </div>
+            <div class="home-hero__brand">
+              <img
+                class="home-hero__logo"
+                src="<?php echo esc_url( $home_hero_logo_url ); ?>"
+                alt="<?php echo esc_attr( $home_hero_logo_alt ); ?>"
+                width="380"
+                height="110"
+                decoding="async"
+              />
             </div>
 
             <p class="page-hero__text">
@@ -472,25 +441,15 @@ $home_spotlight_council_items = ( is_array( $home_spotlight_council['list_items'
           </div>
 
           <div class="home-hero__media">
-            <div class="home-hero__frame">
-              <div class="lazy-img-wrap">
-                <img
-                  class="home-hero__banner"
-                  src="<?php echo esc_url( $home_hero_banner_url ); ?>"
-                  alt="<?php echo esc_attr( $home_hero_banner_alt ); ?>"
-                  width="1024"
-                  height="584"
-                  decoding="async"
-                />
-              </div>
-              <img class="home-hero__deco home-hero__deco--media-heart-tl" src="<?php echo esc_url( $home_hero_deco_heart ); ?>" alt="" width="42" height="42" decoding="async" aria-hidden="true" />
-              <img class="home-hero__deco home-hero__deco--media-star-tr" src="<?php echo esc_url( $home_hero_deco_star ); ?>" alt="" width="26" height="26" decoding="async" aria-hidden="true" />
-              <img class="home-hero__deco home-hero__deco--media-star-bl" src="<?php echo esc_url( $home_hero_deco_star ); ?>" alt="" width="22" height="22" decoding="async" aria-hidden="true" />
-              <img class="home-hero__deco home-hero__deco--media-leaf-br" src="<?php echo esc_url( $home_hero_deco_leaf ); ?>" alt="" width="28" height="28" decoding="async" aria-hidden="true" />
-              <svg class="home-hero__deco home-hero__deco--media-arrow" viewBox="0 0 120 70" width="120" height="70" fill="none" aria-hidden="true">
-                <path d="M8 52c18-4 38-28 62-30 16-1 28 8 36 20" stroke="#9b59d0" stroke-width="2.2" stroke-linecap="round" stroke-dasharray="5 6" />
-                <path d="M98 34l12 10-14 2" stroke="#9b59d0" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
-              </svg>
+            <div class="lazy-img-wrap">
+              <img
+                class="home-hero__banner"
+                src="<?php echo esc_url( $home_hero_banner_url ); ?>"
+                alt="<?php echo esc_attr( $home_hero_banner_alt ); ?>"
+                width="1024"
+                height="584"
+                decoding="async"
+              />
             </div>
           </div>
         </div>
