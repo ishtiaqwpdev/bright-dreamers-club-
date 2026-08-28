@@ -17733,6 +17733,15 @@ body.newsletter-success-open {
     max-width: 280px;
   }
 
+  .page-hero.home-hero .page-hero__inner {
+    gap: 0;
+    row-gap: 0;
+  }
+
+  .page-hero.home-hero .home-hero__media {
+    margin-top: 3px !important;
+  }
+
   .vision-hero-checklist {
     padding: 0 20px 16px;
   }
@@ -17897,7 +17906,7 @@ body.newsletter-success-open {
     transform: none !important;
   }
 
-  /* Homepage: keep hero image visible (do not collapse), 8px gap, 94vw × 330–380px. */
+  /* Homepage: keep hero image visible (do not collapse), 3px gap, 94vw × 330–380px. */
   #main-content > section.home-hero.page-hero .page-hero__inner {
     gap: 0 !important;
     row-gap: 0 !important;
@@ -17923,7 +17932,7 @@ body.newsletter-success-open {
     max-width: 94vw !important;
     height: clamp(330px, 88vw, 380px) !important;
     min-height: 330px !important;
-    margin-top: 8px !important;
+    margin-top: 3px !important;
     padding-top: 0 !important;
     overflow: hidden !important;
   }
