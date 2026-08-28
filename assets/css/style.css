@@ -18068,7 +18068,7 @@ body.newsletter-success-open {
   }
 }
 
-/* All page heroes — phone layout (≤430px): tight stack, larger image. Copy/colors/header unchanged. */
+/* All page heroes — phone layout (≤430px): 92% width, fixed-height cover crop. */
 @media (max-width: 430px) {
   #main-content > section.page-hero,
   .page-hero {
@@ -18165,23 +18165,47 @@ body.newsletter-success-open {
     width: 100% !important;
     max-width: 100% !important;
     margin-top: 24px !important;
-    margin-right: 0 !important;
+    margin-right: auto !important;
     margin-bottom: 0 !important;
-    margin-left: 0 !important;
+    margin-left: auto !important;
     padding-inline: 0 !important;
-    overflow: visible !important;
+    overflow: hidden !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
   }
 
   #main-content > section.page-hero .hero-image-wrap img,
   #main-content > section.page-hero [class*='__media'] img,
+  #main-content > section.page-hero .home-hero__banner,
+  #main-content > section.page-hero .about-hero__banner,
+  #main-content > section.page-hero .explore-hero__banner,
+  #main-content > section.page-hero .creative-makers-hero__banner,
+  #main-content > section.page-hero .young-ideas-lab-hero__banner,
+  #main-content > section.page-hero .create-for-cause-hero__banner,
+  #main-content > section.page-hero .community-adventures-hero__banner,
+  #main-content > section.page-hero .for-parents-hero__banner,
+  #main-content > section.page-hero .apply-hero__banner,
+  #main-content > section.page-hero .faq-hero__banner,
+  #main-content > section.page-hero .media-policy-hero__banner,
+  #main-content > section.page-hero .accessibility-hero__banner,
+  #main-content > section.page-hero .financial-hero__banner,
+  #main-content > section.page-hero .terms-hero__banner,
+  #main-content > section.page-hero .contact-hero .about-hero__banner,
+  #main-content > section.page-hero .for-parents-hero .about-hero__banner,
+  #main-content > section.page-hero .get-involved-hero .about-hero__banner,
+  #main-content > section.page-hero .vision-hero .about-hero__banner,
+  #main-content > section.page-hero .partners-hero .about-hero__banner,
   #main-content > section.page-hero [class*='__banner'] {
     display: block !important;
-    width: 100% !important;
-    max-width: 100% !important;
-    height: auto !important;
-    min-height: 0 !important;
-    max-height: none !important;
-    object-fit: contain !important;
+    width: 92% !important;
+    max-width: 92% !important;
+    height: 350px !important;
+    min-height: 330px !important;
+    max-height: 380px !important;
+    margin: 0 auto !important;
+    padding-inline: 0 !important;
+    object-fit: cover !important;
     object-position: center center !important;
     border-radius: 0 !important;
     transform: none !important;
@@ -18268,32 +18292,21 @@ body.newsletter-success-open {
   }
 
   #main-content > section.home-hero.page-hero .home-hero__media .lazy-img-wrap {
-    display: block !important;
+    display: flex !important;
     flex: 0 0 auto !important;
+    justify-content: center !important;
+    align-items: center !important;
     width: 100% !important;
     max-width: 100% !important;
     height: auto !important;
     min-height: 0 !important;
     margin-top: 0 !important;
     padding-top: 0 !important;
-    overflow: visible !important;
+    overflow: hidden !important;
     background: transparent !important;
   }
 
   #main-content > section.home-hero.page-hero .home-hero__media picture {
-    background: transparent !important;
-  }
-
-  #main-content > section.home-hero.page-hero .home-hero__banner {
-    display: block !important;
-    width: 100% !important;
-    max-width: 100% !important;
-    height: auto !important;
-    min-height: 0 !important;
-    max-height: none !important;
-    object-fit: contain !important;
-    object-position: center center !important;
-    transform: none !important;
     background: transparent !important;
   }
 }
