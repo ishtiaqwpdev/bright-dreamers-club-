@@ -10489,6 +10489,10 @@ img.lazy-img.loaded {
     text-align: center;
   }
 
+  .home-hero .page-hero__actions .btn {
+    white-space: nowrap;
+  }
+
   .our-story__media {
     max-width: 100%;
   }
@@ -17761,9 +17765,20 @@ body.newsletter-success-open {
     padding: 16px 16px 20px;
   }
 
-  .home-hero .page-hero__actions {
+  .page-hero.home-hero .page-hero__actions {
     flex-direction: column;
-    max-width: 280px;
+    align-items: center;
+    width: 100%;
+    max-width: min(100%, 380px);
+  }
+
+  .page-hero.home-hero .page-hero__actions .btn {
+    width: 100%;
+    max-width: 100%;
+    white-space: nowrap;
+    font-size: clamp(0.68rem, 2.55vw, 0.875rem);
+    padding: 0.78rem clamp(0.65rem, 2.4vw, 1rem);
+    justify-content: center;
   }
 
   .page-hero.about-hero .hero-image-wrap,
@@ -18076,6 +18091,13 @@ body.newsletter-success-open {
   #main-content > section.home-hero.page-hero .page-hero__actions {
     margin-top: 0 !important;
     margin-bottom: 0 !important;
+    max-width: min(94vw, 380px) !important;
+  }
+
+  #main-content > section.home-hero.page-hero .page-hero__actions .btn {
+    white-space: nowrap !important;
+    font-size: clamp(0.68rem, 2.55vw, 0.875rem) !important;
+    padding-inline: clamp(0.65rem, 2.4vw, 1rem) !important;
   }
 
   #main-content > section.home-hero.page-hero .home-hero__media {
