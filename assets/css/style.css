@@ -19694,4 +19694,152 @@ body.newsletter-success-open {
     display: block !important;
     margin-top: 0;
   }
+
+  /* Get Involved (shared page-hero) — mobile: zero gap between CTAs and banner image */
+  #main-content > section.page-hero.get-involved-hero .page-hero__inner,
+  .page-hero.get-involved-hero .page-hero__inner {
+    gap: 0 !important;
+    row-gap: 0 !important;
+  }
+
+  #main-content > section.page-hero.get-involved-hero .page-hero__content,
+  .page-hero.get-involved-hero .page-hero__content {
+    padding-bottom: 0 !important;
+    margin-bottom: 0 !important;
+  }
+
+  #main-content > section.page-hero.get-involved-hero .page-hero__actions,
+  #main-content > section.page-hero.get-involved-hero .hero-ctas,
+  .page-hero.get-involved-hero .page-hero__actions,
+  .page-hero.get-involved-hero .hero-ctas {
+    margin-bottom: 0 !important;
+  }
+
+  #main-content > section.page-hero.get-involved-hero .about-hero__media,
+  #main-content > section.page-hero.get-involved-hero .hero-image-wrap,
+  #main-content > section.page-hero.get-involved-hero .hero-image-wrap .lazy-img-wrap,
+  #main-content > section.page-hero.get-involved-hero [class*='__media'] .lazy-img-wrap,
+  .page-hero.get-involved-hero .about-hero__media,
+  .page-hero.get-involved-hero .hero-image-wrap,
+  .page-hero.get-involved-hero .hero-image-wrap .lazy-img-wrap,
+  .page-hero.get-involved-hero [class*='__media'] .lazy-img-wrap {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+  }
+
+  /* Get Involved — mobile heading: single line ("Get" pink + "Involved" navy) */
+  #main-content > section.page-hero.get-involved-hero .hero-headline,
+  .page-hero.get-involved-hero .hero-headline {
+    font-size: clamp(21px, 6vw, 26px) !important;
+    line-height: 1.2 !important;
+    white-space: nowrap !important;
+  }
+
+  #main-content > section.page-hero.get-involved-hero .hero-headline .get-involved-hero__title-line,
+  .page-hero.get-involved-hero .hero-headline .get-involved-hero__title-line {
+    display: inline !important;
+    white-space: inherit !important;
+    margin-left: 0 !important;
+  }
+
+  #main-content > section.page-hero.get-involved-hero .hero-headline .get-involved-hero__title-line--pink + .get-involved-hero__title-line--navy::before,
+  .page-hero.get-involved-hero .hero-headline .get-involved-hero__title-line--pink + .get-involved-hero__title-line--navy::before {
+    content: ' ';
+  }
+
+  /* Partners (shared page-hero) — mobile: zero gap between CTAs and banner image */
+  #main-content > section.page-hero.partners-hero .page-hero__inner,
+  .page-hero.partners-hero .page-hero__inner {
+    gap: 0 !important;
+    row-gap: 0 !important;
+  }
+
+  #main-content > section.page-hero.partners-hero .page-hero__content,
+  .page-hero.partners-hero .page-hero__content {
+    padding-bottom: 0 !important;
+    margin-bottom: 0 !important;
+  }
+
+  #main-content > section.page-hero.partners-hero .page-hero__actions,
+  #main-content > section.page-hero.partners-hero .hero-ctas,
+  .page-hero.partners-hero .page-hero__actions,
+  .page-hero.partners-hero .hero-ctas {
+    margin-bottom: 0 !important;
+  }
+
+  #main-content > section.page-hero.partners-hero .about-hero__media,
+  #main-content > section.page-hero.partners-hero .hero-image-wrap,
+  #main-content > section.page-hero.partners-hero .hero-image-wrap .lazy-img-wrap,
+  #main-content > section.page-hero.partners-hero [class*='__media'] .lazy-img-wrap,
+  .page-hero.partners-hero .about-hero__media,
+  .page-hero.partners-hero .hero-image-wrap,
+  .page-hero.partners-hero .hero-image-wrap .lazy-img-wrap,
+  .page-hero.partners-hero [class*='__media'] .lazy-img-wrap {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+  }
+
+  /* About (shared page-hero) — mobile: zero gap between CTAs and banner image */
+  #main-content > section.page-hero.about-hero:not(.contact-hero):not(.vision-hero):not(.for-parents-hero):not(.get-involved-hero):not(.partners-hero):not(.apply-hero) .page-hero__inner,
+  .page-hero.about-hero:not(.contact-hero):not(.vision-hero):not(.for-parents-hero):not(.get-involved-hero):not(.partners-hero):not(.apply-hero) .page-hero__inner {
+    gap: 0 !important;
+    row-gap: 0 !important;
+  }
+
+  #main-content > section.page-hero.about-hero:not(.contact-hero):not(.vision-hero):not(.for-parents-hero):not(.get-involved-hero):not(.partners-hero):not(.apply-hero) .page-hero__content,
+  .page-hero.about-hero:not(.contact-hero):not(.vision-hero):not(.for-parents-hero):not(.get-involved-hero):not(.partners-hero):not(.apply-hero) .page-hero__content {
+    padding-bottom: 0 !important;
+    margin-bottom: 0 !important;
+  }
+
+  #main-content > section.page-hero.about-hero:not(.contact-hero):not(.vision-hero):not(.for-parents-hero):not(.get-involved-hero):not(.partners-hero):not(.apply-hero) .page-hero__actions,
+  #main-content > section.page-hero.about-hero:not(.contact-hero):not(.vision-hero):not(.for-parents-hero):not(.get-involved-hero):not(.partners-hero):not(.apply-hero) .hero-ctas,
+  .page-hero.about-hero:not(.contact-hero):not(.vision-hero):not(.for-parents-hero):not(.get-involved-hero):not(.partners-hero):not(.apply-hero) .page-hero__actions,
+  .page-hero.about-hero:not(.contact-hero):not(.vision-hero):not(.for-parents-hero):not(.get-involved-hero):not(.partners-hero):not(.apply-hero) .hero-ctas {
+    margin-bottom: 0 !important;
+  }
+
+  #main-content > section.page-hero.about-hero:not(.contact-hero):not(.vision-hero):not(.for-parents-hero):not(.get-involved-hero):not(.partners-hero):not(.apply-hero) .about-hero__media,
+  #main-content > section.page-hero.about-hero:not(.contact-hero):not(.vision-hero):not(.for-parents-hero):not(.get-involved-hero):not(.partners-hero):not(.apply-hero) .hero-image-wrap,
+  #main-content > section.page-hero.about-hero:not(.contact-hero):not(.vision-hero):not(.for-parents-hero):not(.get-involved-hero):not(.partners-hero):not(.apply-hero) .hero-image-wrap .lazy-img-wrap,
+  #main-content > section.page-hero.about-hero:not(.contact-hero):not(.vision-hero):not(.for-parents-hero):not(.get-involved-hero):not(.partners-hero):not(.apply-hero) [class*='__media'] .lazy-img-wrap,
+  .page-hero.about-hero:not(.contact-hero):not(.vision-hero):not(.for-parents-hero):not(.get-involved-hero):not(.partners-hero):not(.apply-hero) .about-hero__media,
+  .page-hero.about-hero:not(.contact-hero):not(.vision-hero):not(.for-parents-hero):not(.get-involved-hero):not(.partners-hero):not(.apply-hero) .hero-image-wrap,
+  .page-hero.about-hero:not(.contact-hero):not(.vision-hero):not(.for-parents-hero):not(.get-involved-hero):not(.partners-hero):not(.apply-hero) .hero-image-wrap .lazy-img-wrap,
+  .page-hero.about-hero:not(.contact-hero):not(.vision-hero):not(.for-parents-hero):not(.get-involved-hero):not(.partners-hero):not(.apply-hero) [class*='__media'] .lazy-img-wrap {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+  }
+
+  /* Explore (shared page-hero) — mobile: zero gap between CTAs and banner image */
+  #main-content > section.page-hero.explore-hero .page-hero__inner,
+  .page-hero.explore-hero .page-hero__inner {
+    gap: 0 !important;
+    row-gap: 0 !important;
+  }
+
+  #main-content > section.page-hero.explore-hero .page-hero__content,
+  .page-hero.explore-hero .page-hero__content {
+    padding-bottom: 0 !important;
+    margin-bottom: 0 !important;
+  }
+
+  #main-content > section.page-hero.explore-hero .page-hero__actions,
+  #main-content > section.page-hero.explore-hero .hero-ctas,
+  .page-hero.explore-hero .page-hero__actions,
+  .page-hero.explore-hero .hero-ctas {
+    margin-bottom: 0 !important;
+  }
+
+  #main-content > section.page-hero.explore-hero .explore-hero__media,
+  #main-content > section.page-hero.explore-hero .hero-image-wrap,
+  #main-content > section.page-hero.explore-hero .hero-image-wrap .lazy-img-wrap,
+  #main-content > section.page-hero.explore-hero [class*='__media'] .lazy-img-wrap,
+  .page-hero.explore-hero .explore-hero__media,
+  .page-hero.explore-hero .hero-image-wrap,
+  .page-hero.explore-hero .hero-image-wrap .lazy-img-wrap,
+  .page-hero.explore-hero [class*='__media'] .lazy-img-wrap {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+  }
 }
