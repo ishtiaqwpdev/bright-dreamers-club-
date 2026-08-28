@@ -10547,13 +10547,21 @@ img.lazy-img.loaded {
 
   .page-hero.creative-makers-hero .creative-makers-hero__media,
   .page-hero.creative-makers-hero .hero-image-wrap,
+  .page-hero.creative-makers-hero .hero-image-wrap .lazy-img-wrap,
+  .page-hero.creative-makers-hero [class*='__media'] .lazy-img-wrap,
   .page-hero.young-ideas-lab-hero .creative-makers-hero__media,
   .page-hero.young-ideas-lab-hero .hero-image-wrap,
+  .page-hero.young-ideas-lab-hero .hero-image-wrap .lazy-img-wrap,
+  .page-hero.young-ideas-lab-hero [class*='__media'] .lazy-img-wrap,
   .page-hero.create-for-cause-hero .creative-makers-hero__media,
   .page-hero.create-for-cause-hero .hero-image-wrap,
+  .page-hero.create-for-cause-hero .hero-image-wrap .lazy-img-wrap,
+  .page-hero.create-for-cause-hero [class*='__media'] .lazy-img-wrap,
   .page-hero.community-adventures-hero .creative-makers-hero__media,
-  .page-hero.community-adventures-hero .hero-image-wrap {
-    margin-top: 0;
+  .page-hero.community-adventures-hero .hero-image-wrap,
+  .page-hero.community-adventures-hero .hero-image-wrap .lazy-img-wrap,
+  .page-hero.community-adventures-hero [class*='__media'] .lazy-img-wrap {
+    margin-top: 0 !important;
   }
 
   .our-story__media {
@@ -18024,12 +18032,20 @@ body.newsletter-success-open {
 
   .page-hero.creative-makers-hero .creative-makers-hero__media,
   .page-hero.creative-makers-hero .hero-image-wrap,
+  .page-hero.creative-makers-hero .hero-image-wrap .lazy-img-wrap,
+  .page-hero.creative-makers-hero [class*='__media'] .lazy-img-wrap,
   .page-hero.young-ideas-lab-hero .creative-makers-hero__media,
   .page-hero.young-ideas-lab-hero .hero-image-wrap,
+  .page-hero.young-ideas-lab-hero .hero-image-wrap .lazy-img-wrap,
+  .page-hero.young-ideas-lab-hero [class*='__media'] .lazy-img-wrap,
   .page-hero.create-for-cause-hero .creative-makers-hero__media,
   .page-hero.create-for-cause-hero .hero-image-wrap,
+  .page-hero.create-for-cause-hero .hero-image-wrap .lazy-img-wrap,
+  .page-hero.create-for-cause-hero [class*='__media'] .lazy-img-wrap,
   .page-hero.community-adventures-hero .creative-makers-hero__media,
-  .page-hero.community-adventures-hero .hero-image-wrap {
+  .page-hero.community-adventures-hero .hero-image-wrap,
+  .page-hero.community-adventures-hero .hero-image-wrap .lazy-img-wrap,
+  .page-hero.community-adventures-hero [class*='__media'] .lazy-img-wrap {
     margin-top: 0 !important;
   }
 
@@ -18312,12 +18328,20 @@ body.newsletter-success-open {
 
   #main-content > section.creative-makers-hero.page-hero .creative-makers-hero__media,
   #main-content > section.creative-makers-hero.page-hero .hero-image-wrap,
+  #main-content > section.creative-makers-hero.page-hero .hero-image-wrap .lazy-img-wrap,
+  #main-content > section.creative-makers-hero.page-hero [class*='__media'] .lazy-img-wrap,
   #main-content > section.young-ideas-lab-hero.page-hero .creative-makers-hero__media,
   #main-content > section.young-ideas-lab-hero.page-hero .hero-image-wrap,
+  #main-content > section.young-ideas-lab-hero.page-hero .hero-image-wrap .lazy-img-wrap,
+  #main-content > section.young-ideas-lab-hero.page-hero [class*='__media'] .lazy-img-wrap,
   #main-content > section.create-for-cause-hero.page-hero .creative-makers-hero__media,
   #main-content > section.create-for-cause-hero.page-hero .hero-image-wrap,
+  #main-content > section.create-for-cause-hero.page-hero .hero-image-wrap .lazy-img-wrap,
+  #main-content > section.create-for-cause-hero.page-hero [class*='__media'] .lazy-img-wrap,
   #main-content > section.community-adventures-hero.page-hero .creative-makers-hero__media,
-  #main-content > section.community-adventures-hero.page-hero .hero-image-wrap {
+  #main-content > section.community-adventures-hero.page-hero .hero-image-wrap,
+  #main-content > section.community-adventures-hero.page-hero .hero-image-wrap .lazy-img-wrap,
+  #main-content > section.community-adventures-hero.page-hero [class*='__media'] .lazy-img-wrap {
     margin-top: 0 !important;
   }
 
