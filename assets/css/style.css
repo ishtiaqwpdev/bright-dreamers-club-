@@ -18068,7 +18068,7 @@ body.newsletter-success-open {
   }
 }
 
-/* All page heroes — phone layout (≤430px): 92% width, fixed-height cover crop. */
+/* All page heroes — phone layout (≤430px): 92% centered frames, full image visible (contain). */
 @media (max-width: 430px) {
   #main-content > section.page-hero,
   .page-hero {
@@ -18159,17 +18159,30 @@ body.newsletter-success-open {
 
   #main-content > section.page-hero .hero-image-wrap,
   #main-content > section.page-hero [class*='__media'],
-  #main-content > section.page-hero .home-hero__media,
-  #main-content > section.page-hero .hero-image-wrap .lazy-img-wrap,
-  #main-content > section.page-hero [class*='__media'] .lazy-img-wrap {
-    width: 100% !important;
-    max-width: 100% !important;
+  #main-content > section.page-hero .home-hero__media {
+    width: 92% !important;
+    max-width: 92% !important;
     margin-top: 24px !important;
     margin-right: auto !important;
     margin-bottom: 0 !important;
     margin-left: auto !important;
     padding-inline: 0 !important;
-    overflow: hidden !important;
+    overflow: visible !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+  }
+
+  #main-content > section.page-hero .hero-image-wrap .lazy-img-wrap,
+  #main-content > section.page-hero [class*='__media'] .lazy-img-wrap,
+  #main-content > section.page-hero .home-hero__media .lazy-img-wrap,
+  #main-content > section.page-hero .hero-image-wrap picture,
+  #main-content > section.page-hero [class*='__media'] picture {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding-inline: 0 !important;
+    overflow: visible !important;
     display: flex !important;
     justify-content: center !important;
     align-items: center !important;
@@ -18198,17 +18211,24 @@ body.newsletter-success-open {
   #main-content > section.page-hero .partners-hero .about-hero__banner,
   #main-content > section.page-hero [class*='__banner'] {
     display: block !important;
-    width: 92% !important;
-    max-width: 92% !important;
-    height: 350px !important;
-    min-height: 330px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
     max-height: 380px !important;
     margin: 0 auto !important;
     padding-inline: 0 !important;
-    object-fit: cover !important;
+    object-fit: contain !important;
     object-position: center center !important;
     border-radius: 0 !important;
     transform: none !important;
+  }
+
+  /* Our Vision — disable desktop scale transform that clips mural text on mobile */
+  #main-content > section.page-hero.vision-hero .about-hero__banner,
+  #main-content > section.vision-hero.page-hero .about-hero__banner {
+    transform: none !important;
+    transform-origin: center center !important;
   }
 
   /* Homepage: keep hero image visible (do not collapse), zero gap between CTAs and banner. */
@@ -18280,12 +18300,12 @@ body.newsletter-success-open {
     flex-shrink: 0 !important;
     align-items: center !important;
     justify-content: center !important;
-    width: 100% !important;
-    max-width: 100% !important;
+    width: 92% !important;
+    max-width: 92% !important;
     height: auto !important;
     min-height: 0 !important;
     margin-top: 0 !important;
-    margin-inline: 0 !important;
+    margin-inline: auto !important;
     padding-inline: 0 !important;
     overflow: visible !important;
     background: transparent !important;
@@ -18302,7 +18322,7 @@ body.newsletter-success-open {
     min-height: 0 !important;
     margin-top: 0 !important;
     padding-top: 0 !important;
-    overflow: hidden !important;
+    overflow: visible !important;
     background: transparent !important;
   }
 
@@ -18315,9 +18335,9 @@ body.newsletter-success-open {
   #main-content > section.page-hero .hero-image-wrap,
   #main-content > section.page-hero [class*='__media'],
   #main-content > section.page-hero .home-hero__media {
-    width: 100% !important;
-    max-width: 100% !important;
-    margin-inline: 0 !important;
+    width: 92% !important;
+    max-width: 92% !important;
+    margin-inline: auto !important;
     padding-inline: 0 !important;
   }
 
