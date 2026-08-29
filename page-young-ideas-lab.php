@@ -104,6 +104,11 @@ $young_ideas_lab_hero_banner_alt = bdc_get_acf_text(
 	'Two children working together on a science and engineering project',
 	$young_ideas_lab_page_id
 );
+$young_ideas_lab_hero_banner_mobile_url = bdc_theme_asset_url( 'assets/images/young-ideas-lab-hero-banner-mobile.jpg' );
+$young_ideas_lab_hero_banner_mobile_ver = bdc_asset_version( 'assets/images/young-ideas-lab-hero-banner-mobile.jpg' );
+if ( $young_ideas_lab_hero_banner_mobile_ver ) {
+	$young_ideas_lab_hero_banner_mobile_url = add_query_arg( 'v', $young_ideas_lab_hero_banner_mobile_ver, $young_ideas_lab_hero_banner_mobile_url );
+}
 
 $young_ideas_lab_explore_title = bdc_get_acf_text(
 	'young_ideas_lab_explore_title',
@@ -377,6 +382,7 @@ $young_ideas_lab_cta_btn_link = bdc_get_acf_link(
           'secondary_cta_text' => $young_ideas_lab_hero_back_text,
           'secondary_cta_link' => $young_ideas_lab_hero_back_link,
           'hero_image'         => $young_ideas_lab_hero_banner_url,
+          'hero_image_mobile'  => $young_ideas_lab_hero_banner_mobile_url,
           'hero_image_alt'     => $young_ideas_lab_hero_banner_alt,
           'media_class'        => 'creative-makers-hero__media',
           'image_class'        => 'creative-makers-hero__banner',
