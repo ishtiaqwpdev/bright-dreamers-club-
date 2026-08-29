@@ -35,6 +35,7 @@ $hero = wp_parse_args(
 		'hero_image_placeholder'   => 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7',
 		'media_class'              => '',
 		'image_class'              => '',
+		'hero_deco'                => false,
 	)
 );
 
@@ -63,6 +64,52 @@ $image_class   = trim( 'lazy-img ' . (string) $hero['image_class'] );
       >
         <div class="site-container page-hero__inner">
           <div class="page-hero__content">
+            <?php if ( ! empty( $hero['hero_deco'] ) ) : ?>
+            <div class="about-hero__deco" aria-hidden="true">
+              <img
+                class="about-hero__deco-icon about-hero__deco-icon--star-label"
+                src="<?php echo esc_url( bdc_theme_asset_url( 'assets/images/role-icon-star.jpeg' ) ); ?>"
+                alt=""
+                width="32"
+                height="32"
+                decoding="async"
+              />
+              <img
+                class="about-hero__deco-icon about-hero__deco-icon--heart-label"
+                src="<?php echo esc_url( bdc_theme_asset_url( 'assets/images/role-heart-outline.png' ) ); ?>"
+                alt=""
+                width="32"
+                height="32"
+                decoding="async"
+              />
+              <img
+                class="about-hero__deco-icon about-hero__deco-icon--plane-copy"
+                src="<?php echo esc_url( bdc_theme_asset_url( 'assets/images/young-ideas-lab-deco-plane-removebg-preview.png' ) ); ?>"
+                alt=""
+                width="96"
+                height="40"
+                decoding="async"
+              />
+              <img
+                class="about-hero__deco-icon about-hero__deco-icon--leaf-copy"
+                src="<?php echo esc_url( bdc_theme_asset_url( 'assets/images/role-icon-leaf.jpeg' ) ); ?>"
+                alt=""
+                width="32"
+                height="32"
+                decoding="async"
+              />
+              <span class="about-hero__deco-trail-wrap">
+                <img
+                  class="about-hero__deco-icon about-hero__deco-icon--trail-dot"
+                  src="<?php echo esc_url( bdc_theme_asset_url( 'assets/images/young-ideas-lab-deco-plane-removebg-preview.png' ) ); ?>"
+                  alt=""
+                  width="96"
+                  height="40"
+                  decoding="async"
+                />
+              </span>
+            </div>
+            <?php endif; ?>
             <?php if ( '' !== trim( (string) $hero['section_label_html'] ) ) : ?>
             <span class="hero-label"><?php echo $hero['section_label_html']; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></span>
             <?php elseif ( '' !== trim( (string) $hero['section_label'] ) ) : ?>

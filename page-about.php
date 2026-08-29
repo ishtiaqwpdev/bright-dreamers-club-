@@ -519,6 +519,7 @@ if ( empty( $about_compare_right_items ) ) {
           'hero_image_alt'     => $about_hero_banner_alt,
           'media_class'        => 'about-hero__media',
           'image_class'        => 'about-hero__banner',
+          'hero_deco'          => true,
         )
       );
       ?>
