@@ -93,10 +93,10 @@ $image_class   = trim( 'lazy-img ' . (string) $hero['image_class'] );
               />
               <img
                 class="about-hero__deco-icon about-hero__deco-icon--leaf-copy"
-                src="<?php echo esc_url( bdc_theme_asset_url( 'assets/images/role-icon-leaf.jpeg' ) ); ?>"
+                src="<?php echo esc_url( bdc_theme_asset_url( 'assets/images/about-hero-deco-plant-removebg-preview.png' ) ); ?>"
                 alt=""
-                width="32"
-                height="32"
+                width="36"
+                height="80"
                 decoding="async"
               />
               <span class="about-hero__deco-trail-wrap">

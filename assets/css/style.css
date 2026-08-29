@@ -18123,10 +18123,12 @@ body.newsletter-success-open {
 
   .about-hero__deco-icon--leaf-copy {
     top: clamp(6.85rem, 34.5vw, 8.65rem);
-    right: 0;
-    width: clamp(24px, 7vw, 32px) !important;
-    max-width: 32px !important;
-    max-height: 32px !important;
+    right: 20px;
+    width: clamp(28px, 8vw, 36px) !important;
+    max-width: 36px !important;
+    height: auto !important;
+    max-height: 80px !important;
+    background: transparent !important;
   }
 
   .about-hero__deco-trail-wrap {
