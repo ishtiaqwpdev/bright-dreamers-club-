@@ -6823,6 +6823,29 @@ img.lazy-img.loaded {
   object-position: center right;
 }
 
+@media (min-width: 769px) {
+  .creative-makers-page .page-hero.creative-makers-hero .page-hero__content {
+    width: min(100%, 42%);
+    max-width: 520px;
+  }
+
+  .creative-makers-page .page-hero.creative-makers-hero .hero-image-wrap,
+  .creative-makers-page .page-hero.creative-makers-hero .creative-makers-hero__media {
+    flex: 1 1 58%;
+    min-width: 0;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+
+  .creative-makers-page .page-hero.creative-makers-hero .creative-makers-hero__banner {
+    max-height: min(540px, 72vh);
+    width: 100%;
+    max-width: 100%;
+    object-position: center right;
+  }
+}
+
 .creative-makers-hero__deco {
   position: absolute;
   pointer-events: none;
