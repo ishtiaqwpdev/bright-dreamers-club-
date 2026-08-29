@@ -69,7 +69,7 @@ $image_class   = trim( 'lazy-img ' . (string) $hero['image_class'] );
             <div class="about-hero__deco" aria-hidden="true">
               <img
                 class="about-hero__deco-icon about-hero__deco-icon--star-label"
-                src="<?php echo esc_url( bdc_theme_asset_url( 'assets/images/role-icon-star.jpeg' ) ); ?>"
+                src="<?php echo esc_url( bdc_theme_asset_url( 'assets/images/role-icon-star-removebg-preview.png' ) ); ?>"
                 alt=""
                 width="32"
                 height="32"
