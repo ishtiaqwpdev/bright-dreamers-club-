@@ -83,7 +83,7 @@ $partners_hero_secondary_btn_link = bdc_get_acf_link(
 );
 $partners_hero_banner_url = bdc_get_acf_image_url(
 	'partners_hero_banner',
-	bdc_theme_asset_url( 'assets/images/partners-hero-banner.jpeg' ),
+	bdc_theme_asset_url( 'assets/images/partners-hero-banner-removebg-preview.png' ),
 	$partners_page_id
 );
 $partners_hero_banner_alt = bdc_get_acf_text(
