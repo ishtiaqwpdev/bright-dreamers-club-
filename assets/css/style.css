@@ -18034,21 +18034,12 @@ body.newsletter-success-open {
   }
 
   .home-hero__deco-icon--plane-heading {
-    top: clamp(7rem, 34vw, 9.25rem);
+    top: clamp(5.75rem, 28vw, 7.5rem);
     left: 20px;
     width: clamp(28px, 8vw, 36px) !important;
     max-width: 36px !important;
     height: auto !important;
     max-height: 96px !important;
-    background: transparent !important;
-  }
-
-  .home-hero__deco-icon--star-heading {
-    top: clamp(0.25rem, 1.5vw, 0.75rem);
-    right: 20px;
-    width: clamp(24px, 7.5vw, 32px) !important;
-    max-width: 32px !important;
-    max-height: 32px !important;
     background: transparent !important;
   }
 

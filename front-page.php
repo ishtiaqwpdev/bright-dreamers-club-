@@ -402,14 +402,6 @@ $home_spotlight_council_items = ( is_array( $home_spotlight_council['list_items'
                 decoding="async"
               />
               <img
-                class="home-hero__deco-icon home-hero__deco-icon--star-heading"
-                src="<?php echo esc_url( bdc_theme_asset_url( 'assets/images/role-icon-star-removebg-preview.png' ) ); ?>"
-                alt=""
-                width="32"
-                height="32"
-                decoding="async"
-              />
-              <img
                 class="home-hero__deco-icon home-hero__deco-icon--leaf-heading"
                 src="<?php echo esc_url( bdc_theme_asset_url( 'assets/images/about-hero-deco-plant-removebg-preview.png' ) ); ?>"
                 alt=""
