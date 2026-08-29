@@ -112,7 +112,7 @@ $young_ideas_lab_explore_title = bdc_get_acf_text(
 );
 $young_ideas_lab_explore_activities_defaults = array(
 	array(
-		'icon'       => bdc_theme_asset_url( 'assets/images/young-ideas-lab-icon-flask.jpeg' ),
+		'icon'       => bdc_theme_asset_url( 'assets/images/young-ideas-lab-icon-flask-removebg-preview.png' ),
 		'title'      => 'Science & Experiments',
 		'color_slug' => 'paint',
 	),
