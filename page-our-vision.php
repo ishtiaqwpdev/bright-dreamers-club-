@@ -75,7 +75,7 @@ if ( empty( $vision_hero_list ) ) {
 
 $vision_hero_banner_url = bdc_get_acf_image_url(
 	'vision_hero_banner',
-	bdc_theme_asset_url( 'assets/images/our-vision-hero-banner.png' ),
+	bdc_theme_asset_url( 'assets/images/our-vision-hero-banner-removebg-preview.png' ),
 	$vision_page_id
 );
 $vision_hero_banner_alt = bdc_get_acf_text(
