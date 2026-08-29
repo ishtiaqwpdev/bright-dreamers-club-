@@ -7647,6 +7647,59 @@ img.lazy-img.loaded {
   }
 }
 
+/* Our Vision hero — mobile banner centered (not Partners page) */
+@media (max-width: 767px) {
+  #main-content > section.page-hero.vision-hero:not(.partners-hero) .about-hero__media,
+  .page-hero.vision-hero:not(.partners-hero) .about-hero__media,
+  .page-hero.vision-hero:not(.partners-hero) .hero-image-wrap {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+  }
+
+  #main-content > section.page-hero.vision-hero:not(.partners-hero) .about-hero__media .lazy-img-wrap,
+  #main-content > section.page-hero.vision-hero:not(.partners-hero) .about-hero__media picture,
+  .page-hero.vision-hero:not(.partners-hero) .about-hero__media .lazy-img-wrap,
+  .page-hero.vision-hero:not(.partners-hero) .about-hero__media picture {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+  }
+
+  #main-content > section.page-hero.vision-hero:not(.partners-hero) .about-hero__banner,
+  .page-hero.vision-hero:not(.partners-hero) .about-hero__banner,
+  .page-hero.vision-hero:not(.partners-hero) picture img {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+    transform: none !important;
+    transform-origin: center center !important;
+    object-fit: contain !important;
+    object-position: center center !important;
+  }
+}
+
+@media (max-width: 430px) {
+  #main-content > section.page-hero.vision-hero:not(.partners-hero) .about-hero__media,
+  #main-content > section.page-hero.vision-hero:not(.partners-hero) .hero-image-wrap,
+  .page-hero.vision-hero:not(.partners-hero) .about-hero__media,
+  .page-hero.vision-hero:not(.partners-hero) .hero-image-wrap {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 auto !important;
+  }
+}
+
 /* ——— Our Story (about page) ——— */
 .our-story {
   background-color: #fff;
