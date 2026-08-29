@@ -18096,7 +18096,7 @@ body.newsletter-success-open {
 
   .about-hero__deco-icon--star-label {
     top: 0;
-    left: 0;
+    left: 20px;
     width: clamp(24px, 7.5vw, 32px) !important;
     max-width: 32px !important;
     max-height: 32px !important;
@@ -18105,7 +18105,7 @@ body.newsletter-success-open {
 
   .about-hero__deco-icon--heart-label {
     top: 0;
-    right: 0;
+    right: 20px;
     width: clamp(24px, 7.5vw, 30px) !important;
     max-width: 30px !important;
     max-height: 30px !important;
