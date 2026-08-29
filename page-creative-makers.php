@@ -122,12 +122,12 @@ $creative_makers_explore_title = bdc_get_acf_text(
 );
 $creative_makers_explore_activities_defaults = array(
 	array(
-		'icon'       => bdc_theme_asset_url( 'assets/images/creative-makers-icon-paint.jpeg' ),
+		'icon'       => bdc_theme_asset_url( 'assets/images/creative-makers-icon-paint-removebg-preview.png' ),
 		'title'      => 'Painting & Drawing',
 		'color_slug' => 'paint',
 	),
 	array(
-		'icon'       => bdc_theme_asset_url( 'assets/images/creative-makers-icon-scissors.jpeg' ),
+		'icon'       => bdc_theme_asset_url( 'assets/images/creative-makers-icon-scissors-removebg-preview.png' ),
 		'title'      => 'Crafts & DIY',
 		'color_slug' => 'crafts',
 	),

@@ -6904,6 +6904,7 @@ img.lazy-img.loaded {
   width: var(--creative-makers-activity-icon-size);
   height: var(--creative-makers-activity-icon-size);
   object-fit: contain;
+  background: transparent;
 }
 
 .creative-makers-activity__title {
