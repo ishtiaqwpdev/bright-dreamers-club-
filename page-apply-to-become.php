@@ -32,7 +32,7 @@ $apply_hero_note_text = bdc_get_acf_text(
 );
 $apply_hero_banner_url = bdc_get_acf_image_url(
 	'apply_hero_banner',
-	bdc_theme_asset_url( 'assets/images/apply-hero-banner.jpg' ),
+	bdc_theme_asset_url( 'assets/images/apply-hero-banner.png' ),
 	$apply_page_id
 );
 $apply_hero_banner_alt = bdc_get_acf_text(
