@@ -7306,6 +7306,39 @@ img.lazy-img.loaded {
   width: clamp(110px, 12vw, 150px);
 }
 
+/* Young Ideas Lab hero — mobile banner: edge-to-edge, no side gaps */
+@media (max-width: 767px) {
+  #main-content > section.page-hero.young-ideas-lab-hero .creative-makers-hero__media,
+  .page-hero.young-ideas-lab-hero .creative-makers-hero__media,
+  .page-hero.young-ideas-lab-hero .hero-image-wrap {
+    width: 100vw !important;
+    max-width: 100vw !important;
+    margin-left: calc(50% - 50vw) !important;
+    margin-right: calc(50% - 50vw) !important;
+    padding-inline: 0 !important;
+  }
+
+  #main-content > section.page-hero.young-ideas-lab-hero .creative-makers-hero__media .lazy-img-wrap,
+  #main-content > section.page-hero.young-ideas-lab-hero .creative-makers-hero__media picture,
+  .page-hero.young-ideas-lab-hero .creative-makers-hero__media .lazy-img-wrap,
+  .page-hero.young-ideas-lab-hero .creative-makers-hero__media picture {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  #main-content > section.page-hero.young-ideas-lab-hero .creative-makers-hero__banner,
+  .page-hero.young-ideas-lab-hero .creative-makers-hero__banner,
+  .page-hero.young-ideas-lab-hero picture img {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    object-fit: contain !important;
+    object-position: center center !important;
+  }
+}
+
 /* ——— Create for a Cause (green theme overrides) ——— */
 .create-for-cause-page .creative-makers-hero__title {
   color: var(--color-green);
