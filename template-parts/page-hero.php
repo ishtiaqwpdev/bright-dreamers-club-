@@ -85,10 +85,10 @@ $image_class   = trim( 'lazy-img ' . (string) $hero['image_class'] );
               />
               <img
                 class="about-hero__deco-icon about-hero__deco-icon--plane-copy"
-                src="<?php echo esc_url( bdc_theme_asset_url( 'assets/images/young-ideas-lab-deco-plane-removebg-preview.png' ) ); ?>"
+                src="<?php echo esc_url( bdc_theme_asset_url( 'assets/images/about-hero-deco-plane-removebg-preview.png' ) ); ?>"
                 alt=""
-                width="96"
-                height="40"
+                width="36"
+                height="96"
                 decoding="async"
               />
               <img
