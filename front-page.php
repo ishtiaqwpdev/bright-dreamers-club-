@@ -384,6 +384,41 @@ $home_spotlight_council_items = ( is_array( $home_spotlight_council['list_items'
       <section class="page-hero home-hero" aria-label="Welcome">
         <div class="site-container page-hero__inner">
           <div class="page-hero__content">
+            <div class="home-hero__deco home-hero__deco--heading" aria-hidden="true">
+              <img
+                class="home-hero__deco-icon home-hero__deco-icon--heart-heading"
+                src="<?php echo esc_url( bdc_theme_asset_url( 'assets/images/role-heart-outline.png' ) ); ?>"
+                alt=""
+                width="32"
+                height="32"
+                decoding="async"
+              />
+              <img
+                class="home-hero__deco-icon home-hero__deco-icon--plane-heading"
+                src="<?php echo esc_url( bdc_theme_asset_url( 'assets/images/young-ideas-lab-deco-plane-removebg-preview.png' ) ); ?>"
+                alt=""
+                width="120"
+                height="48"
+                decoding="async"
+              />
+              <img
+                class="home-hero__deco-icon home-hero__deco-icon--star-heading"
+                src="<?php echo esc_url( bdc_theme_asset_url( 'assets/images/role-icon-star.jpeg' ) ); ?>"
+                alt=""
+                width="32"
+                height="32"
+                decoding="async"
+              />
+              <img
+                class="home-hero__deco-icon home-hero__deco-icon--leaf-heading"
+                src="<?php echo esc_url( bdc_theme_asset_url( 'assets/images/partners-impact-deco-leaf.jpeg' ) ); ?>"
+                alt=""
+                width="36"
+                height="36"
+                decoding="async"
+              />
+            </div>
+
             <div class="home-hero__brand">
               <img
                 class="home-hero__logo"
@@ -441,6 +476,40 @@ $home_spotlight_council_items = ( is_array( $home_spotlight_council['list_items'
           </div>
 
           <div class="home-hero__media">
+            <div class="home-hero__deco home-hero__deco--image" aria-hidden="true">
+              <img
+                class="home-hero__deco-icon home-hero__deco-icon--heart-image"
+                src="<?php echo esc_url( bdc_theme_asset_url( 'assets/images/creative-makers-deco-heart-sm.jpeg' ) ); ?>"
+                alt=""
+                width="24"
+                height="24"
+                decoding="async"
+              />
+              <img
+                class="home-hero__deco-icon home-hero__deco-icon--star-image"
+                src="<?php echo esc_url( bdc_theme_asset_url( 'assets/images/partners-impact-deco-star-yellow.jpeg' ) ); ?>"
+                alt=""
+                width="30"
+                height="30"
+                decoding="async"
+              />
+              <img
+                class="home-hero__deco-icon home-hero__deco-icon--leaf-image"
+                src="<?php echo esc_url( bdc_theme_asset_url( 'assets/images/vision-pillar-deco-leaf-removebg-preview.png' ) ); ?>"
+                alt=""
+                width="34"
+                height="34"
+                decoding="async"
+              />
+              <img
+                class="home-hero__deco-icon home-hero__deco-icon--star-bottom"
+                src="<?php echo esc_url( bdc_theme_asset_url( 'assets/images/partners-impact-deco-star-yellow.jpeg' ) ); ?>"
+                alt=""
+                width="22"
+                height="22"
+                decoding="async"
+              />
+            </div>
             <div class="lazy-img-wrap">
               <img
                 class="home-hero__banner"

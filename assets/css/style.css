@@ -1705,6 +1705,10 @@ button {
   justify-content: flex-end;
 }
 
+.home-hero__deco {
+  display: none;
+}
+
 /* ——— Lazy blur-up content images ——— */
 .lazy-img-wrap {
   display: block;
@@ -17970,6 +17974,95 @@ body.newsletter-success-open {
   .page-hero.explore-hero .hero-headline .explore-hero__title-line--pink {
     display: block;
     margin-top: 0;
+  }
+
+  .home-hero.page-hero {
+    overflow-x: clip;
+  }
+
+  .home-hero .page-hero__content,
+  .home-hero .home-hero__media {
+    position: relative;
+    overflow: visible;
+  }
+
+  .home-hero .home-hero__brand,
+  .home-hero .page-hero__text,
+  .home-hero .page-hero__actions,
+  .home-hero .home-hero__media .lazy-img-wrap {
+    position: relative;
+    z-index: 2;
+  }
+
+  .home-hero__deco {
+    display: block;
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    user-select: none;
+    overflow: visible;
+  }
+
+  .home-hero__deco-icon {
+    position: absolute;
+    display: block;
+    width: auto;
+    height: auto;
+    max-width: none;
+    object-fit: contain;
+  }
+
+  .home-hero__deco-icon--heart-heading {
+    top: 0;
+    left: 2%;
+    width: clamp(24px, 7.5vw, 32px);
+  }
+
+  .home-hero__deco-icon--plane-heading {
+    top: clamp(2.75rem, 14vw, 3.5rem);
+    left: -1%;
+    width: clamp(72px, 24vw, 104px);
+  }
+
+  .home-hero__deco-icon--star-heading {
+    top: 0;
+    right: 3%;
+    width: clamp(24px, 7.5vw, 34px);
+  }
+
+  .home-hero__deco-icon--leaf-heading {
+    top: clamp(2.85rem, 14.5vw, 3.65rem);
+    right: 1%;
+    width: clamp(26px, 8vw, 38px);
+  }
+
+  .home-hero__deco--image {
+    inset: -8% 0 -18% 0;
+  }
+
+  .home-hero__deco-icon--heart-image {
+    top: 38%;
+    left: 1%;
+    width: clamp(22px, 6.5vw, 28px);
+  }
+
+  .home-hero__deco-icon--star-image {
+    top: 6%;
+    right: 2%;
+    width: clamp(24px, 7vw, 32px);
+  }
+
+  .home-hero__deco-icon--leaf-image {
+    top: 52%;
+    right: 0.5%;
+    width: clamp(26px, 8vw, 36px);
+  }
+
+  .home-hero__deco-icon--star-bottom {
+    bottom: 0;
+    left: 4%;
+    width: clamp(18px, 5.5vw, 24px);
   }
 
   .vision-hero-checklist {
