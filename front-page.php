@@ -395,15 +395,15 @@ $home_spotlight_council_items = ( is_array( $home_spotlight_council['list_items'
               />
               <img
                 class="home-hero__deco-icon home-hero__deco-icon--plane-heading"
-                src="<?php echo esc_url( bdc_theme_asset_url( 'assets/images/young-ideas-lab-deco-plane-removebg-preview.png' ) ); ?>"
+                src="<?php echo esc_url( bdc_theme_asset_url( 'assets/images/about-hero-deco-plane-removebg-preview.png' ) ); ?>"
                 alt=""
-                width="120"
-                height="48"
+                width="36"
+                height="96"
                 decoding="async"
               />
               <img
                 class="home-hero__deco-icon home-hero__deco-icon--star-heading"
-                src="<?php echo esc_url( bdc_theme_asset_url( 'assets/images/role-icon-star.jpeg' ) ); ?>"
+                src="<?php echo esc_url( bdc_theme_asset_url( 'assets/images/role-icon-star-removebg-preview.png' ) ); ?>"
                 alt=""
                 width="32"
                 height="32"
@@ -471,10 +471,10 @@ $home_spotlight_council_items = ( is_array( $home_spotlight_council['list_items'
             <div class="home-hero__deco home-hero__deco--image" aria-hidden="true">
               <img
                 class="home-hero__deco-icon home-hero__deco-icon--leaf-image"
-                src="<?php echo esc_url( bdc_theme_asset_url( 'assets/images/role-icon-leaf.jpeg' ) ); ?>"
+                src="<?php echo esc_url( bdc_theme_asset_url( 'assets/images/about-hero-deco-plant-removebg-preview.png' ) ); ?>"
                 alt=""
-                width="32"
-                height="32"
+                width="36"
+                height="80"
                 decoding="async"
               />
             </div>
