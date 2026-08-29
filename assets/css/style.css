@@ -19273,6 +19273,44 @@ body.newsletter-success-open {
     max-width: 100% !important;
   }
 
+  /* Explore skills: 2 cards/view, larger icons on mobile */
+  .explore-skills__grid.bdc-mobile-carousel--peek .explore-skill.bdc-mobile-carousel__item,
+  .explore-skills__grid.bdc-mobile-carousel--peek-2 .explore-skill.bdc-mobile-carousel__item {
+    flex: 0 0 calc((100% - var(--bdc-peek-gap)) / 2) !important;
+    width: calc((100% - var(--bdc-peek-gap)) / 2) !important;
+    max-width: calc((100% - var(--bdc-peek-gap)) / 2) !important;
+    min-width: 0 !important;
+    padding: 0.85rem 0.45rem !important;
+    gap: 0.75rem !important;
+    box-sizing: border-box !important;
+  }
+
+  .explore-skills__grid.bdc-mobile-carousel--peek,
+  .explore-skills__grid.bdc-mobile-carousel--peek-2 {
+    gap: var(--bdc-peek-gap) !important;
+  }
+
+  .explore-skills__grid.bdc-mobile-carousel--peek .explore-skill__icon,
+  .explore-skills__grid.bdc-mobile-carousel--peek-2 .explore-skill__icon {
+    width: clamp(56px, 16vw, 72px) !important;
+    height: clamp(56px, 16vw, 72px) !important;
+    max-width: 100% !important;
+  }
+
+  .explore-skills__grid.bdc-mobile-carousel--peek .explore-skill__title,
+  .explore-skills__grid.bdc-mobile-carousel--peek-2 .explore-skill__title {
+    font-size: clamp(0.85rem, 2.8vw, 0.95rem) !important;
+    line-height: 1.25 !important;
+  }
+
+  .explore-skills__grid.bdc-mobile-carousel--peek .explore-skill__text,
+  .explore-skills__grid.bdc-mobile-carousel--peek-2 .explore-skill__text {
+    font-size: clamp(0.72rem, 2.5vw, 0.82rem) !important;
+    line-height: 1.35 !important;
+    max-width: 100% !important;
+    min-height: 0 !important;
+  }
+
   .bdc-mobile-carousel--peek .explore-skill__title,
   .bdc-mobile-carousel--peek .believe-card__text,
   .bdc-mobile-carousel--peek .approach-step__title {

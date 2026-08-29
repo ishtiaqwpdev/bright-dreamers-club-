@@ -911,7 +911,8 @@
         if (
           track.classList.contains('home-reality__steps') ||
           track.classList.contains('home-different__grid') ||
-          track.classList.contains('we-believe__slider')
+          track.classList.contains('we-believe__slider') ||
+          track.classList.contains('explore-skills__grid')
         ) {
           return 2;
         }
