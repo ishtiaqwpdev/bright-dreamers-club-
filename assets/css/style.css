@@ -18587,6 +18587,17 @@ body.newsletter-success-open {
     justify-content: center;
   }
 
+  .home-hero__brand picture {
+    display: block;
+    width: min(100%, var(--home-hero-logo-width, 380px));
+    margin-inline: auto;
+  }
+
+  .home-hero__brand .home-hero__logo {
+    filter: none;
+    object-position: center center;
+  }
+
   #main-content > section.page-hero .page-hero__text,
   #main-content > section.page-hero .hero-copy {
     margin: 0 auto;
