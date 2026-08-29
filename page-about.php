@@ -268,27 +268,27 @@ if ( empty( $about_panel_council_items ) ) {
 
 $about_panel_role_defaults = array(
 	'title'          => 'Our Role',
-	'title_icon'     => bdc_theme_asset_url( 'assets/images/role-heart-outline.png' ),
+	'title_icon'     => bdc_theme_asset_url( 'assets/images/role-icon-heart-removebg-preview.png' ),
 	'lead'           => 'We are...',
 	'role_items'     => array(
 		array(
-			'icon'  => bdc_theme_asset_url( 'assets/images/role-icon-heart.jpeg' ),
+			'icon'  => bdc_theme_asset_url( 'assets/images/role-icon-heart-removebg-preview.png' ),
 			'label' => 'Encouragers',
 		),
 		array(
-			'icon'  => bdc_theme_asset_url( 'assets/images/role-icon-palette.jpeg' ),
+			'icon'  => bdc_theme_asset_url( 'assets/images/role-icon-palette-removebg-preview.png' ),
 			'label' => 'Creators',
 		),
 		array(
-			'icon'  => bdc_theme_asset_url( 'assets/images/role-icon-leaf.jpeg' ),
+			'icon'  => bdc_theme_asset_url( 'assets/images/role-icon-leaf-removebg-preview.png' ),
 			'label' => 'Mentors',
 		),
 		array(
-			'icon'  => bdc_theme_asset_url( 'assets/images/role-icon-ear.jpeg' ),
+			'icon'  => bdc_theme_asset_url( 'assets/images/role-icon-ear-removebg-preview.png' ),
 			'label' => 'Listeners',
 		),
 		array(
-			'icon'  => bdc_theme_asset_url( 'assets/images/role-icon-star.jpeg' ),
+			'icon'  => bdc_theme_asset_url( 'assets/images/role-icon-star-outline-removebg-preview.png' ),
 			'label' => 'Supporters',
 		),
 	),

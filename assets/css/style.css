@@ -7855,6 +7855,11 @@ img.lazy-img.loaded {
   width: clamp(36px, 3.6vw, 48px);
   height: clamp(36px, 3.6vw, 48px);
   object-fit: contain;
+  background: transparent;
+}
+
+.panel-card--role .panel-card__title-icon--img {
+  background: transparent;
 }
 
 .role-icons__label {
