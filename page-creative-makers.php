@@ -229,7 +229,7 @@ $creative_makers_info_grow_title_underline_word = bdc_get_acf_text(
 );
 $creative_makers_info_grow_title_underline_url = bdc_get_acf_image_url(
 	'creative_makers_info_grow_title_underline',
-	bdc_theme_asset_url( 'assets/images/heading-underline.jpeg' ),
+	bdc_theme_asset_url( 'assets/images/heading-underline-removebg-preview.png' ),
 	$creative_makers_page_id
 );
 $creative_makers_info_grow_title_suffix = bdc_get_acf_text(
