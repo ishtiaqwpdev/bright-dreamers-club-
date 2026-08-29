@@ -219,7 +219,7 @@ $young_ideas_lab_info_grow_title_underline_word = bdc_get_acf_text(
 );
 $young_ideas_lab_info_grow_title_underline_url = bdc_get_acf_image_url(
 	'young_ideas_lab_info_grow_title_underline',
-	bdc_theme_asset_url( 'assets/images/heading-underline.jpeg' ),
+	bdc_theme_asset_url( 'assets/images/heading-underline-removebg-preview.png' ),
 	$young_ideas_lab_page_id
 );
 $young_ideas_lab_info_grow_title_suffix = bdc_get_acf_text(

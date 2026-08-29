@@ -50,7 +50,7 @@ if ( ! defined( 'ABSPATH' ) ) {
               ) : ?>
               <h2 class="creative-makers-info-card__title creative-makers-info-card__title--pink">
                 <?php if ( '' !== trim( $young_ideas_lab_info_grow_title_underline_word ) ) : ?>
-                <span class="heading-underline heading-underline--pink">
+                <span class="heading-underline">
                   <?php echo esc_html( $young_ideas_lab_info_grow_title_underline_word ); ?>
                   <img
                     class="heading-underline__img"
