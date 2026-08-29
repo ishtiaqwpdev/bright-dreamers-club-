@@ -18111,7 +18111,7 @@ body.newsletter-success-open {
   }
 
   .about-hero__deco-icon--plane-copy {
-    top: clamp(2rem, 10vw, 2.75rem);
+    top: clamp(6.75rem, 34vw, 8.5rem);
     left: 0;
     width: clamp(72px, 22vw, 96px) !important;
     max-width: 96px !important;
@@ -18119,7 +18119,7 @@ body.newsletter-success-open {
   }
 
   .about-hero__deco-icon--leaf-copy {
-    top: clamp(2.1rem, 10.5vw, 2.85rem);
+    top: clamp(6.85rem, 34.5vw, 8.65rem);
     right: 0;
     width: clamp(24px, 7vw, 32px) !important;
     max-width: 32px !important;
@@ -18128,10 +18128,10 @@ body.newsletter-success-open {
 
   .about-hero__deco-trail-wrap {
     position: absolute;
-    right: 0;
-    bottom: clamp(0.5rem, 3vw, 1rem);
-    width: 28px;
-    height: 28px;
+    right: 2%;
+    bottom: clamp(0.35rem, 2vw, 0.65rem);
+    width: 20px;
+    height: 20px;
     overflow: hidden;
     pointer-events: none;
   }
@@ -18140,10 +18140,10 @@ body.newsletter-success-open {
     position: absolute;
     top: 50%;
     left: 0;
-    width: 88px !important;
-    max-width: 88px !important;
+    width: 72px !important;
+    max-width: 72px !important;
     height: auto !important;
-    max-height: 36px !important;
+    max-height: 30px !important;
     transform: translateY(-50%);
     object-fit: contain !important;
     object-position: left center;
