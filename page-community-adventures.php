@@ -94,6 +94,11 @@ $community_adventures_hero_banner_url = bdc_get_acf_image_url(
 	bdc_theme_asset_url( 'assets/images/community-adventures-hero-banner.png' ),
 	$community_adventures_page_id
 );
+$community_adventures_hero_banner_mobile_url = bdc_theme_asset_url( 'assets/images/community-adventures-hero-banner-mobile.jpg' );
+$community_adventures_hero_banner_mobile_ver = bdc_asset_version( 'assets/images/community-adventures-hero-banner-mobile.jpg' );
+if ( $community_adventures_hero_banner_mobile_ver ) {
+	$community_adventures_hero_banner_mobile_url = add_query_arg( 'v', $community_adventures_hero_banner_mobile_ver, $community_adventures_hero_banner_mobile_url );
+}
 $community_adventures_hero_banner_alt = bdc_get_acf_text(
 	'community_adventures_hero_banner_alt',
 	'Children exploring outdoors and discovering their community together',
@@ -371,6 +376,7 @@ $community_adventures_cta_btn_link = bdc_get_acf_link(
           'secondary_cta_text' => $community_adventures_hero_back_text,
           'secondary_cta_link' => $community_adventures_hero_back_link,
           'hero_image'         => $community_adventures_hero_banner_url,
+          'hero_image_mobile'  => $community_adventures_hero_banner_mobile_url,
           'hero_image_alt'     => $community_adventures_hero_banner_alt,
           'media_class'        => 'creative-makers-hero__media',
           'image_class'        => 'creative-makers-hero__banner',
