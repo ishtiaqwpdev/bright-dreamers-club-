@@ -18588,14 +18588,7 @@ body.newsletter-success-open {
   }
 
   .home-hero__brand picture {
-    display: block;
-    width: min(100%, var(--home-hero-logo-width, 380px));
-    margin-inline: auto;
-  }
-
-  .home-hero__brand .home-hero__logo {
-    filter: none;
-    object-position: center center;
+    display: contents;
   }
 
   #main-content > section.page-hero .page-hero__text,
