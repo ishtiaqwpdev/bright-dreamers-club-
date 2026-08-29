@@ -910,7 +910,8 @@
         }
         if (
           track.classList.contains('home-reality__steps') ||
-          track.classList.contains('home-different__grid')
+          track.classList.contains('home-different__grid') ||
+          track.classList.contains('we-believe__slider')
         ) {
           return 2;
         }
