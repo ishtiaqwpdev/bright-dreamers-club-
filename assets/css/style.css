@@ -19311,6 +19311,23 @@ body.newsletter-success-open {
     min-height: 0 !important;
   }
 
+  /* Creative Makers explore: 2 cards/view on mobile */
+  .creative-makers-explore__grid.bdc-mobile-carousel--peek .creative-makers-activity.bdc-mobile-carousel__item,
+  .creative-makers-explore__grid.bdc-mobile-carousel--peek-2 .creative-makers-activity.bdc-mobile-carousel__item {
+    flex: 0 0 calc((100% - var(--bdc-peek-gap)) / 2) !important;
+    width: calc((100% - var(--bdc-peek-gap)) / 2) !important;
+    max-width: calc((100% - var(--bdc-peek-gap)) / 2) !important;
+    min-width: 0 !important;
+    padding: 0.85rem 0.45rem !important;
+    gap: 0.75rem !important;
+    box-sizing: border-box !important;
+  }
+
+  .creative-makers-explore__grid.bdc-mobile-carousel--peek,
+  .creative-makers-explore__grid.bdc-mobile-carousel--peek-2 {
+    gap: var(--bdc-peek-gap) !important;
+  }
+
   .bdc-mobile-carousel--peek .explore-skill__title,
   .bdc-mobile-carousel--peek .believe-card__text,
   .bdc-mobile-carousel--peek .approach-step__title {
