@@ -88,7 +88,7 @@ $get_involved_hero_secondary_btn_link = bdc_get_acf_link(
 );
 $get_involved_hero_banner_url = bdc_get_acf_image_url(
 	'get_involved_hero_banner',
-	bdc_theme_asset_url( 'assets/images/get-involved-hero-banner.jpeg' ),
+	bdc_theme_asset_url( 'assets/images/get-involved-hero-banner-removebg-preview.png' ),
 	$get_involved_page_id
 );
 $get_involved_hero_banner_alt = bdc_get_acf_text(
