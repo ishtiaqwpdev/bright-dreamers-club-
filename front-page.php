@@ -409,14 +409,6 @@ $home_spotlight_council_items = ( is_array( $home_spotlight_council['list_items'
                 height="32"
                 decoding="async"
               />
-              <img
-                class="home-hero__deco-icon home-hero__deco-icon--leaf-heading"
-                src="<?php echo esc_url( bdc_theme_asset_url( 'assets/images/partners-impact-deco-leaf.jpeg' ) ); ?>"
-                alt=""
-                width="36"
-                height="36"
-                decoding="async"
-              />
             </div>
 
             <div class="home-hero__brand">
@@ -478,35 +470,11 @@ $home_spotlight_council_items = ( is_array( $home_spotlight_council['list_items'
           <div class="home-hero__media">
             <div class="home-hero__deco home-hero__deco--image" aria-hidden="true">
               <img
-                class="home-hero__deco-icon home-hero__deco-icon--heart-image"
-                src="<?php echo esc_url( bdc_theme_asset_url( 'assets/images/creative-makers-deco-heart-sm.jpeg' ) ); ?>"
-                alt=""
-                width="24"
-                height="24"
-                decoding="async"
-              />
-              <img
-                class="home-hero__deco-icon home-hero__deco-icon--star-image"
-                src="<?php echo esc_url( bdc_theme_asset_url( 'assets/images/partners-impact-deco-star-yellow.jpeg' ) ); ?>"
-                alt=""
-                width="30"
-                height="30"
-                decoding="async"
-              />
-              <img
                 class="home-hero__deco-icon home-hero__deco-icon--leaf-image"
-                src="<?php echo esc_url( bdc_theme_asset_url( 'assets/images/vision-pillar-deco-leaf-removebg-preview.png' ) ); ?>"
+                src="<?php echo esc_url( bdc_theme_asset_url( 'assets/images/role-icon-leaf.jpeg' ) ); ?>"
                 alt=""
-                width="34"
-                height="34"
-                decoding="async"
-              />
-              <img
-                class="home-hero__deco-icon home-hero__deco-icon--star-bottom"
-                src="<?php echo esc_url( bdc_theme_asset_url( 'assets/images/partners-impact-deco-star-yellow.jpeg' ) ); ?>"
-                alt=""
-                width="22"
-                height="22"
+                width="32"
+                height="32"
                 decoding="async"
               />
             </div>

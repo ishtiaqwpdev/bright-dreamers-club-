@@ -17733,7 +17733,7 @@ body.newsletter-success-open {
   }
 
   .page-hero .hero-image-wrap img,
-  .page-hero [class*='__media'] img,
+  .page-hero [class*='__media'] img:not(.home-hero__deco-icon),
   .page-hero [class*='__banner'],
   .page-hero .home-hero__banner,
   .page-hero .about-hero__banner,
@@ -17977,13 +17977,18 @@ body.newsletter-success-open {
   }
 
   .home-hero.page-hero {
-    overflow-x: clip;
+    overflow: hidden;
+  }
+
+  .home-hero .page-hero__inner {
+    position: relative;
+    overflow: hidden;
   }
 
   .home-hero .page-hero__content,
   .home-hero .home-hero__media {
     position: relative;
-    overflow: visible;
+    overflow: hidden;
   }
 
   .home-hero .home-hero__brand,
@@ -18001,68 +18006,51 @@ body.newsletter-success-open {
     z-index: 1;
     pointer-events: none;
     user-select: none;
-    overflow: visible;
+    overflow: hidden;
   }
 
   .home-hero__deco-icon {
     position: absolute;
     display: block;
-    width: auto;
-    height: auto;
-    max-width: none;
-    object-fit: contain;
+    width: auto !important;
+    height: auto !important;
+    max-width: 40px !important;
+    max-height: 40px !important;
+    object-fit: contain !important;
+    flex: none !important;
   }
 
   .home-hero__deco-icon--heart-heading {
     top: 0;
     left: 2%;
-    width: clamp(24px, 7.5vw, 32px);
+    width: clamp(24px, 7.5vw, 30px) !important;
+    max-width: 30px !important;
+    max-height: 30px !important;
   }
 
   .home-hero__deco-icon--plane-heading {
     top: clamp(2.75rem, 14vw, 3.5rem);
-    left: -1%;
-    width: clamp(72px, 24vw, 104px);
+    left: 0;
+    width: clamp(72px, 22vw, 96px) !important;
+    max-width: 96px !important;
+    max-height: 40px !important;
   }
 
   .home-hero__deco-icon--star-heading {
     top: 0;
     right: 3%;
-    width: clamp(24px, 7.5vw, 34px);
-  }
-
-  .home-hero__deco-icon--leaf-heading {
-    top: clamp(2.85rem, 14.5vw, 3.65rem);
-    right: 1%;
-    width: clamp(26px, 8vw, 38px);
-  }
-
-  .home-hero__deco--image {
-    inset: -8% 0 -18% 0;
-  }
-
-  .home-hero__deco-icon--heart-image {
-    top: 38%;
-    left: 1%;
-    width: clamp(22px, 6.5vw, 28px);
-  }
-
-  .home-hero__deco-icon--star-image {
-    top: 6%;
-    right: 2%;
-    width: clamp(24px, 7vw, 32px);
+    width: clamp(24px, 7.5vw, 32px) !important;
+    max-width: 32px !important;
+    max-height: 32px !important;
   }
 
   .home-hero__deco-icon--leaf-image {
-    top: 52%;
-    right: 0.5%;
-    width: clamp(26px, 8vw, 36px);
-  }
-
-  .home-hero__deco-icon--star-bottom {
-    bottom: 0;
-    left: 4%;
-    width: clamp(18px, 5.5vw, 24px);
+    top: auto;
+    bottom: 12%;
+    right: 3%;
+    width: clamp(24px, 7vw, 32px) !important;
+    max-width: 32px !important;
+    max-height: 32px !important;
   }
 
   .vision-hero-checklist {
@@ -18115,7 +18103,7 @@ body.newsletter-success-open {
   }
 
   .page-hero .hero-image-wrap img,
-  .page-hero [class*='__media'] img,
+  .page-hero [class*='__media'] img:not(.home-hero__deco-icon),
   .page-hero [class*='__banner'],
   .page-hero .home-hero__banner,
   .page-hero .about-hero__banner,
@@ -18282,7 +18270,7 @@ body.newsletter-success-open {
   }
 
   #main-content > section.page-hero .hero-image-wrap img,
-  #main-content > section.page-hero [class*='__media'] img,
+  #main-content > section.page-hero [class*='__media'] img:not(.home-hero__deco-icon),
   #main-content > section.page-hero .home-hero__banner,
   #main-content > section.page-hero .about-hero__banner,
   #main-content > section.page-hero .explore-hero__banner,
