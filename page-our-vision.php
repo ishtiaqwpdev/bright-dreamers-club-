@@ -398,11 +398,11 @@ $vision_partner_intro = bdc_get_acf_text(
 );
 $vision_partner_icons_defaults = array(
 	array(
-		'icon'  => bdc_theme_asset_url( 'assets/images/vision-partner-icon-materials.jpeg' ),
+		'icon'  => bdc_theme_asset_url( 'assets/images/vision-partner-icon-materials-removebg-preview.png' ),
 		'label' => 'Materials & Supplies',
 	),
 	array(
-		'icon'  => bdc_theme_asset_url( 'assets/images/vision-partner-icon-space.jpeg' ),
+		'icon'  => bdc_theme_asset_url( 'assets/images/vision-partner-icon-space-removebg-preview.png' ),
 		'label' => 'Creative Space',
 	),
 	array(
