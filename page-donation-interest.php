@@ -44,7 +44,7 @@ $donation_hero_banner_alt = bdc_get_acf_text(
 
 $donation_impact_heading_icon_url = bdc_get_acf_image_url(
 	'donation_impact_heading_icon',
-	bdc_theme_asset_url( $donation_asset_base . '7ace0363-5c5f-4db2-b270-1c09da91a31d.png' ),
+	bdc_theme_asset_url( $donation_asset_base . '7ace0363-5c5f-4db2-b270-1c09da91a31d-removebg-preview.png' ),
 	$donation_page_id
 );
 $donation_impact_heading = bdc_get_acf_text( 'donation_impact_heading', 'Your Impact', $donation_page_id );
