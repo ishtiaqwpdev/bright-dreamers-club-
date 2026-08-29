@@ -7882,6 +7882,48 @@ img.lazy-img.loaded {
   }
 }
 
+/* Creative Makers hero — mobile banner centered */
+@media (max-width: 768px) {
+  .creative-makers-page #main-content > section.page-hero.creative-makers-hero .creative-makers-hero__media,
+  .creative-makers-page .page-hero.creative-makers-hero .creative-makers-hero__media,
+  .creative-makers-page .page-hero.creative-makers-hero .hero-image-wrap {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+  }
+
+  .creative-makers-page #main-content > section.page-hero.creative-makers-hero .creative-makers-hero__media .lazy-img-wrap,
+  .creative-makers-page #main-content > section.page-hero.creative-makers-hero .creative-makers-hero__media picture,
+  .creative-makers-page .page-hero.creative-makers-hero .creative-makers-hero__media .lazy-img-wrap,
+  .creative-makers-page .page-hero.creative-makers-hero .creative-makers-hero__media picture {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+  }
+
+  .creative-makers-page #main-content > section.page-hero.creative-makers-hero .creative-makers-hero__banner,
+  .creative-makers-page .page-hero.creative-makers-hero .creative-makers-hero__banner,
+  .creative-makers-page .page-hero.creative-makers-hero picture img.creative-makers-hero__banner {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+    transform: none !important;
+    transform-origin: center center !important;
+    object-fit: contain !important;
+    object-position: center center !important;
+  }
+}
+
 @media (max-width: 430px) {
   #main-content > section.page-hero.vision-hero:not(.partners-hero) .about-hero__media,
   #main-content > section.page-hero.vision-hero:not(.partners-hero) .hero-image-wrap,
@@ -20462,6 +20504,13 @@ body.newsletter-success-open {
   #main-content > section.page-hero.for-parents-hero .hero-headline .for-parents-hero__title-line--pink + .for-parents-hero__title-line--navy::before,
   .page-hero.for-parents-hero .hero-headline .for-parents-hero__title-line--pink + .for-parents-hero__title-line--navy::before {
     content: ' ';
+  }
+
+  /* Our Vision (shared page-hero) — mobile: flush to header (no top gap) */
+  #main-content > section.page-hero.vision-hero:not(.partners-hero),
+  .page-hero.vision-hero:not(.partners-hero) {
+    padding-top: 0 !important;
+    margin-top: 0 !important;
   }
 
   /* Our Vision (shared page-hero) — mobile: zero gap between copy and banner image */

@@ -99,6 +99,11 @@ $creative_makers_hero_banner_url = bdc_get_acf_image_url(
 	bdc_theme_asset_url( 'assets/images/creative-makers-hero-banner.jpeg' ),
 	$creative_makers_page_id
 );
+$creative_makers_hero_banner_mobile_url = bdc_theme_asset_url( 'assets/images/creative-makers-hero-banner-mobile.jpg' );
+$creative_makers_hero_banner_mobile_ver = bdc_asset_version( 'assets/images/creative-makers-hero-banner-mobile.jpg' );
+if ( $creative_makers_hero_banner_mobile_ver ) {
+	$creative_makers_hero_banner_mobile_url = add_query_arg( 'v', $creative_makers_hero_banner_mobile_ver, $creative_makers_hero_banner_mobile_url );
+}
 $creative_makers_hero_banner_alt = bdc_get_acf_text(
 	'creative_makers_hero_banner_alt',
 	'Three children smiling while painting together at a table',
@@ -387,6 +392,7 @@ $creative_makers_cta_btn_link = bdc_get_acf_link(
           'secondary_cta_text' => $creative_makers_hero_back_text,
           'secondary_cta_link' => $creative_makers_hero_back_link,
           'hero_image'         => $creative_makers_hero_banner_url,
+          'hero_image_mobile'  => $creative_makers_hero_banner_mobile_url,
           'hero_image_alt'     => $creative_makers_hero_banner_alt,
           'media_class'        => 'creative-makers-hero__media',
           'image_class'        => 'creative-makers-hero__banner',
