@@ -209,7 +209,7 @@ if ( empty( $young_ideas_lab_info_skills_items ) ) {
 }
 $young_ideas_lab_info_skills_deco_url = bdc_get_acf_image_url(
 	'young_ideas_lab_info_skills_deco',
-	bdc_theme_asset_url( 'assets/images/young-ideas-lab-info-heart.jpeg' ),
+	bdc_theme_asset_url( 'assets/images/young-ideas-lab-info-heart-removebg-preview.png' ),
 	$young_ideas_lab_page_id
 );
 $young_ideas_lab_info_grow_title_underline_word = bdc_get_acf_text(

@@ -7019,6 +7019,7 @@ img.lazy-img.loaded {
   bottom: clamp(0.55rem, 0.9vw, 0.75rem);
   width: clamp(20px, 1.85vw, 26px);
   height: auto;
+  background: transparent;
 }
 
 .creative-makers-info-card__deco--plant {
