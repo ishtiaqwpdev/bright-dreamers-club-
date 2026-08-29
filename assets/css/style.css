@@ -7306,12 +7306,34 @@ img.lazy-img.loaded {
   width: clamp(110px, 12vw, 150px);
 }
 
-/* Young Ideas Lab hero — mobile banner: no side padding/margin, edge-to-edge */
+/* Young Ideas Lab hero — mobile banner: zero top/bottom/side spacing */
 @media (max-width: 767px) {
   #main-content > section.page-hero.young-ideas-lab-hero,
   .page-hero.young-ideas-lab-hero {
+    gap: 0 !important;
     padding-left: 0 !important;
     padding-right: 0 !important;
+    padding-bottom: 0 !important;
+  }
+
+  #main-content > section.page-hero.young-ideas-lab-hero .page-hero__inner,
+  .page-hero.young-ideas-lab-hero .page-hero__inner {
+    gap: 0 !important;
+    row-gap: 0 !important;
+  }
+
+  #main-content > section.page-hero.young-ideas-lab-hero .page-hero__content,
+  .page-hero.young-ideas-lab-hero .page-hero__content {
+    padding-bottom: 0 !important;
+    margin-bottom: 0 !important;
+  }
+
+  #main-content > section.page-hero.young-ideas-lab-hero .page-hero__actions,
+  #main-content > section.page-hero.young-ideas-lab-hero .hero-ctas,
+  .page-hero.young-ideas-lab-hero .page-hero__actions,
+  .page-hero.young-ideas-lab-hero .hero-ctas {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
   }
 
   #main-content > section.page-hero.young-ideas-lab-hero .creative-makers-hero__media,
@@ -7319,10 +7341,7 @@ img.lazy-img.loaded {
   .page-hero.young-ideas-lab-hero .hero-image-wrap {
     width: 100vw !important;
     max-width: 100vw !important;
-    margin-top: 0 !important;
-    margin-bottom: 0 !important;
-    margin-left: calc(50% - 50vw) !important;
-    margin-right: calc(50% - 50vw) !important;
+    margin: 0 calc(50% - 50vw) !important;
     padding: 0 !important;
   }
 
@@ -7334,31 +7353,46 @@ img.lazy-img.loaded {
     max-width: 100% !important;
     margin: 0 !important;
     padding: 0 !important;
+    line-height: 0 !important;
   }
 
   #main-content > section.page-hero.young-ideas-lab-hero .creative-makers-hero__banner,
   .page-hero.young-ideas-lab-hero .creative-makers-hero__banner,
   .page-hero.young-ideas-lab-hero picture img {
+    display: block !important;
     width: 100% !important;
     max-width: 100% !important;
+    max-height: none !important;
     margin: 0 !important;
     padding: 0 !important;
     object-fit: contain !important;
     object-position: center center !important;
+    vertical-align: top !important;
   }
 }
 
 @media (max-width: 430px) {
+  #main-content > section.page-hero.young-ideas-lab-hero,
+  .page-hero.young-ideas-lab-hero {
+    gap: 0 !important;
+    padding-bottom: 0 !important;
+  }
+
   #main-content > section.page-hero.young-ideas-lab-hero .creative-makers-hero__media,
   #main-content > section.page-hero.young-ideas-lab-hero .hero-image-wrap,
   .page-hero.young-ideas-lab-hero .creative-makers-hero__media,
   .page-hero.young-ideas-lab-hero .hero-image-wrap {
     width: 100vw !important;
     max-width: 100vw !important;
-    margin-top: 0 !important;
-    margin-right: calc(50% - 50vw) !important;
-    margin-bottom: 0 !important;
-    margin-left: calc(50% - 50vw) !important;
+    margin: 0 calc(50% - 50vw) !important;
+    padding: 0 !important;
+  }
+
+  #main-content > section.page-hero.young-ideas-lab-hero .creative-makers-hero__banner,
+  .page-hero.young-ideas-lab-hero .creative-makers-hero__banner,
+  .page-hero.young-ideas-lab-hero picture img {
+    max-height: none !important;
+    margin: 0 !important;
     padding: 0 !important;
   }
 }
