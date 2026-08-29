@@ -54,7 +54,7 @@ $home_hero_banner_alt = bdc_get_acf_text(
 );
 
 $home_pillars_idea_defaults = array(
-	'image' => bdc_theme_asset_url( 'assets/images/home-pillar-books.jpeg' ),
+	'image' => bdc_theme_asset_url( 'assets/images/home-pillar-books-removebg-preview.png' ),
 	'title' => 'It All Starts With One Idea',
 	'quote' => 'I have an idea.',
 	'text'  => 'At Bright Dreamers, children don\'t just imagine—they create. They lead. They discover their talents while making a positive difference in the world.',

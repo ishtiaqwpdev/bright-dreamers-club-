@@ -1849,6 +1849,11 @@ img.lazy-img.loaded {
   background-color: var(--home-pillar-idea-bg);
 }
 
+.home-pillar--idea .home-pillar__img {
+  mix-blend-mode: normal;
+  filter: none;
+}
+
 .home-pillar--inspire .home-pillar__figure {
   background-color: var(--home-pillar-inspire-bg);
   flex: 0 0 auto;
