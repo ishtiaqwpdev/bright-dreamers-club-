@@ -7576,6 +7576,77 @@ img.lazy-img.loaded {
   );
 }
 
+/* Community Adventures hero — mobile banner centered */
+@media (max-width: 767px) {
+  #main-content > section.page-hero.community-adventures-hero .page-hero__inner,
+  .page-hero.community-adventures-hero .page-hero__inner {
+    gap: 0 !important;
+    row-gap: 0 !important;
+  }
+
+  #main-content > section.page-hero.community-adventures-hero .page-hero__content,
+  .page-hero.community-adventures-hero .page-hero__content {
+    padding-bottom: 0 !important;
+    margin-bottom: 0 !important;
+  }
+
+  #main-content > section.page-hero.community-adventures-hero .page-hero__actions,
+  #main-content > section.page-hero.community-adventures-hero .hero-ctas,
+  .page-hero.community-adventures-hero .page-hero__actions,
+  .page-hero.community-adventures-hero .hero-ctas {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+  }
+
+  #main-content > section.page-hero.community-adventures-hero .creative-makers-hero__media,
+  .page-hero.community-adventures-hero .creative-makers-hero__media,
+  .page-hero.community-adventures-hero .hero-image-wrap {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+  }
+
+  #main-content > section.page-hero.community-adventures-hero .creative-makers-hero__media .lazy-img-wrap,
+  #main-content > section.page-hero.community-adventures-hero .creative-makers-hero__media picture,
+  .page-hero.community-adventures-hero .creative-makers-hero__media .lazy-img-wrap,
+  .page-hero.community-adventures-hero .creative-makers-hero__media picture {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+  }
+
+  #main-content > section.page-hero.community-adventures-hero .creative-makers-hero__banner,
+  .page-hero.community-adventures-hero .creative-makers-hero__banner,
+  .page-hero.community-adventures-hero picture img {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+    object-fit: contain !important;
+    object-position: center center !important;
+  }
+}
+
+@media (max-width: 430px) {
+  #main-content > section.page-hero.community-adventures-hero .creative-makers-hero__media,
+  #main-content > section.page-hero.community-adventures-hero .hero-image-wrap,
+  .page-hero.community-adventures-hero .creative-makers-hero__media,
+  .page-hero.community-adventures-hero .hero-image-wrap {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 auto !important;
+  }
+}
+
 /* ——— Our Story (about page) ——— */
 .our-story {
   background-color: #fff;
