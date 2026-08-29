@@ -78,6 +78,11 @@ $vision_hero_banner_url = bdc_get_acf_image_url(
 	bdc_theme_asset_url( 'assets/images/our-vision-hero-banner.jpg' ),
 	$vision_page_id
 );
+$vision_hero_banner_mobile_url = bdc_theme_asset_url( 'assets/images/our-vision-hero-banner-mobile.jpg' );
+$vision_hero_banner_mobile_ver = bdc_asset_version( 'assets/images/our-vision-hero-banner-mobile.jpg' );
+if ( $vision_hero_banner_mobile_ver ) {
+	$vision_hero_banner_mobile_url = add_query_arg( 'v', $vision_hero_banner_mobile_ver, $vision_hero_banner_mobile_url );
+}
 $vision_hero_banner_alt = bdc_get_acf_text(
 	'vision_hero_banner_alt',
 	'Children painting a mural with the words Big Ideas Brighter Tomorrows',
@@ -587,6 +592,7 @@ $vision_together_support_btn_link = bdc_get_acf_link(
           ),
           'supporting_copy_html' => $vision_copy_html,
           'hero_image'           => $vision_hero_banner_url,
+          'hero_image_mobile'    => $vision_hero_banner_mobile_url,
           'hero_image_alt'       => $vision_hero_banner_alt,
           'media_class'          => 'about-hero__media',
           'image_class'          => 'about-hero__banner',
