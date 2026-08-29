@@ -409,6 +409,14 @@ $home_spotlight_council_items = ( is_array( $home_spotlight_council['list_items'
                 height="32"
                 decoding="async"
               />
+              <img
+                class="home-hero__deco-icon home-hero__deco-icon--leaf-heading"
+                src="<?php echo esc_url( bdc_theme_asset_url( 'assets/images/about-hero-deco-plant-removebg-preview.png' ) ); ?>"
+                alt=""
+                width="36"
+                height="80"
+                decoding="async"
+              />
             </div>
 
             <div class="home-hero__brand">
@@ -468,16 +476,6 @@ $home_spotlight_council_items = ( is_array( $home_spotlight_council['list_items'
           </div>
 
           <div class="home-hero__media">
-            <div class="home-hero__deco home-hero__deco--image" aria-hidden="true">
-              <img
-                class="home-hero__deco-icon home-hero__deco-icon--leaf-image"
-                src="<?php echo esc_url( bdc_theme_asset_url( 'assets/images/about-hero-deco-plant-removebg-preview.png' ) ); ?>"
-                alt=""
-                width="36"
-                height="80"
-                decoding="async"
-              />
-            </div>
             <div class="lazy-img-wrap">
               <img
                 class="home-hero__banner"

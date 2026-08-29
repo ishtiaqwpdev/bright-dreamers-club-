@@ -18025,8 +18025,8 @@ body.newsletter-success-open {
   }
 
   .home-hero__deco-icon--heart-heading {
-    top: 0;
-    left: 2%;
+    top: clamp(0.25rem, 1.5vw, 0.75rem);
+    left: 20px;
     width: clamp(24px, 7.5vw, 30px) !important;
     max-width: 30px !important;
     max-height: 30px !important;
@@ -18034,8 +18034,8 @@ body.newsletter-success-open {
   }
 
   .home-hero__deco-icon--plane-heading {
-    top: clamp(2.75rem, 14vw, 3.5rem);
-    left: 0;
+    top: clamp(7rem, 34vw, 9.25rem);
+    left: 20px;
     width: clamp(28px, 8vw, 36px) !important;
     max-width: 36px !important;
     height: auto !important;
@@ -18044,18 +18044,17 @@ body.newsletter-success-open {
   }
 
   .home-hero__deco-icon--star-heading {
-    top: 0;
-    right: 3%;
+    top: clamp(0.25rem, 1.5vw, 0.75rem);
+    right: 20px;
     width: clamp(24px, 7.5vw, 32px) !important;
     max-width: 32px !important;
     max-height: 32px !important;
     background: transparent !important;
   }
 
-  .home-hero__deco-icon--leaf-image {
-    top: auto;
-    bottom: 12%;
-    right: 3%;
+  .home-hero__deco-icon--leaf-heading {
+    top: clamp(3.5rem, 17vw, 4.75rem);
+    right: 20px;
     width: clamp(28px, 8vw, 36px) !important;
     max-width: 36px !important;
     height: auto !important;
