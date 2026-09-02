@@ -1,7 +1,7 @@
 /*
-  Bright Dreamers Club — global styles
+  Bright Dreamers Club ? global styles
   Tokens on :root so you can tweak them live in DevTools
-  (Elements → <html> → Styles → :root).
+  (Elements ? <html> ? Styles ? :root).
 */
 
 :root {
@@ -88,6 +88,10 @@
   --home-hero-col-gap: clamp(0.25rem, 0.6vw, 0.65rem);
   --home-hero-content-max: 580px;
   --home-hero-content-share: 44%;
+  /* Shared desktop hero balance (home + category/inner pages) */
+  --page-hero-balanced-content-col: 1fr;
+  --page-hero-balanced-media-col: 1.1fr;
+  --page-hero-balanced-content-max: var(--home-hero-content-max);
   --explore-hero-content-col: 0.86fr;
   --explore-hero-media-col: 1.14fr;
   --explore-hero-content-max: 34rem;
@@ -401,7 +405,7 @@ button {
   background: none;
 }
 
-/* Shared content wrapper — full-bleed backgrounds stay outside this */
+/* Shared content wrapper ? full-bleed backgrounds stay outside this */
 .site-container {
   width: 100%;
   max-width: var(--container-max-width);
@@ -416,7 +420,7 @@ button {
   padding-bottom: var(--section-pad-y);
 }
 
-/* Main page sections — single-side gap so stacked sections don't double up */
+/* Main page sections ? single-side gap so stacked sections don't double up */
 #main-content > section {
   padding-top: 0;
   padding-bottom: var(--main-section-gap-y);
@@ -499,7 +503,7 @@ button {
   box-shadow: var(--card-shadow);
 }
 
-/* ——— Buttons ——— */
+/* ??? Buttons ??? */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -580,7 +584,7 @@ button {
   transform: scale(var(--btn-hover-scale));
 }
 
-/* ——— Nav underline (brush stroke image) ——— */
+/* ??? Nav underline (brush stroke image) ??? */
 .nav-link {
   position: relative;
   display: inline-block;
@@ -602,7 +606,7 @@ button {
   background-image: url('../images/nav-underline.png');
   background-repeat: no-repeat;
   background-position: center;
-  /* Force thin line — don’t stretch vertically */
+  /* Force thin line ? don?t stretch vertically */
   background-size: 100% 3px;
   opacity: 0;
   transform: translateX(-50%) scaleX(0.6);
@@ -631,7 +635,7 @@ button {
   font-weight: 600;
 }
 
-/* ——— Announcement bar ——— */
+/* ??? Announcement bar ??? */
 .announce-bar {
   background-color: var(--announce-bg);
   color: var(--announce-text-color);
@@ -692,7 +696,7 @@ button {
   background-color: var(--color-navy);
 }
 
-/* ——— Site footer ——— */
+/* ??? Site footer ??? */
 .site-footer {
   margin-top: auto;
 }
@@ -996,7 +1000,7 @@ button {
   border: 0;
 }
 
-/* ——— Site header ——— */
+/* ??? Site header ??? */
 .site-header {
   background: #fff;
   position: relative;
@@ -1534,7 +1538,7 @@ button {
   }
 }
 
-/* ——— Page hero (shared home + about banners) ——— */
+/* ??? Page hero (shared home + about banners) ??? */
 .page-hero {
   position: relative;
   z-index: 0;
@@ -1643,7 +1647,7 @@ button {
   margin: 0;
 }
 
-/* ——— Home hero ——— */
+/* ??? Home hero ??? */
 .home-hero {
   background-color: #fff;
   min-height: 0;
@@ -1705,6 +1709,107 @@ button {
   justify-content: flex-end;
 }
 
+/* Desktop side-by-side only (?1201px): shared balanced hero ?
+   center text in the left column so left edge ? text inset matches
+   the breathing room on the banner side. Banner/media stays right-aligned.
+   Used by homepage + all category/inner page heroes with text + banner. */
+@media (min-width: 1201px) {
+  .page-hero.home-hero .page-hero__inner,
+  .page-hero.about-hero .page-hero__inner,
+  .page-hero.explore-hero .page-hero__inner,
+  .page-hero.for-parents-hero .page-hero__inner,
+  .page-hero.vision-hero .page-hero__inner,
+  .page-hero.get-involved-hero .page-hero__inner,
+  .page-hero.partners-hero .page-hero__inner,
+  .page-hero.contact-hero .page-hero__inner,
+  .page-hero.creative-makers-hero .page-hero__inner,
+  .page-hero.young-ideas-lab-hero .page-hero__inner,
+  .page-hero.create-for-cause-hero .page-hero__inner,
+  .page-hero.community-adventures-hero .page-hero__inner,
+  .page-hero.apply-hero .page-hero__inner,
+  .page-hero.faq-hero .page-hero__inner,
+  .creative-makers-page .page-hero.creative-makers-hero .page-hero__inner,
+  .young-ideas-lab-page .page-hero.young-ideas-lab-hero .page-hero__inner,
+  .create-for-cause-page .page-hero.create-for-cause-hero .page-hero__inner,
+  .community-adventures-page .page-hero.community-adventures-hero .page-hero__inner {
+    display: grid;
+    grid-template-columns: minmax(0, var(--page-hero-balanced-content-col))
+      minmax(0, var(--page-hero-balanced-media-col));
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--home-hero-col-gap);
+  }
+
+  /* Explore keeps bottom-aligned banner composition */
+  .page-hero.explore-hero .page-hero__inner {
+    align-items: end;
+  }
+
+  .page-hero.home-hero .page-hero__content,
+  .page-hero.about-hero .page-hero__content,
+  .page-hero.explore-hero .page-hero__content,
+  .page-hero.for-parents-hero .page-hero__content,
+  .page-hero.vision-hero .page-hero__content,
+  .page-hero.get-involved-hero .page-hero__content,
+  .page-hero.partners-hero .page-hero__content,
+  .page-hero.contact-hero .page-hero__content,
+  .page-hero.creative-makers-hero .page-hero__content,
+  .page-hero.young-ideas-lab-hero .page-hero__content,
+  .page-hero.create-for-cause-hero .page-hero__content,
+  .page-hero.community-adventures-hero .page-hero__content,
+  .page-hero.apply-hero .page-hero__content,
+  .page-hero.faq-hero .page-hero__content,
+  .creative-makers-page .page-hero.creative-makers-hero .page-hero__content,
+  .young-ideas-lab-page .page-hero.young-ideas-lab-hero .page-hero__content,
+  .create-for-cause-page .page-hero.create-for-cause-hero .page-hero__content,
+  .community-adventures-page .page-hero.community-adventures-hero .page-hero__content {
+    grid-column: 1;
+    flex: none;
+    width: min(100%, var(--page-hero-balanced-content-max));
+    max-width: var(--page-hero-balanced-content-max);
+    justify-self: center;
+    margin-inline: auto;
+    padding-right: 0;
+  }
+
+  .page-hero.home-hero .home-hero__media,
+  .page-hero.about-hero .about-hero__media,
+  .page-hero.about-hero .hero-image-wrap,
+  .page-hero.explore-hero .explore-hero__media,
+  .page-hero.for-parents-hero .about-hero__media,
+  .page-hero.for-parents-hero .hero-image-wrap,
+  .page-hero.vision-hero .about-hero__media,
+  .page-hero.vision-hero .hero-image-wrap,
+  .page-hero.get-involved-hero .about-hero__media,
+  .page-hero.get-involved-hero .hero-image-wrap,
+  .page-hero.partners-hero .about-hero__media,
+  .page-hero.partners-hero .hero-image-wrap,
+  .page-hero.contact-hero .about-hero__media,
+  .page-hero.contact-hero .hero-image-wrap,
+  .page-hero.creative-makers-hero .creative-makers-hero__media,
+  .page-hero.creative-makers-hero .hero-image-wrap,
+  .page-hero.young-ideas-lab-hero .creative-makers-hero__media,
+  .page-hero.create-for-cause-hero .creative-makers-hero__media,
+  .page-hero.community-adventures-hero .creative-makers-hero__media,
+  .page-hero.apply-hero .about-hero__media,
+  .page-hero.apply-hero .hero-image-wrap,
+  .page-hero.faq-hero .faq-hero__media,
+  .page-hero.faq-hero .hero-image-wrap,
+  .creative-makers-page .page-hero.creative-makers-hero .creative-makers-hero__media,
+  .young-ideas-lab-page .page-hero.young-ideas-lab-hero .creative-makers-hero__media,
+  .create-for-cause-page .page-hero.create-for-cause-hero .creative-makers-hero__media,
+  .community-adventures-page .page-hero.community-adventures-hero .creative-makers-hero__media {
+    grid-column: 2;
+    width: 100%;
+    justify-content: flex-end;
+  }
+
+  .page-hero.explore-hero .explore-hero__media {
+    align-self: end;
+    align-items: flex-end;
+  }
+}
+
 .home-hero__deco {
   display: none;
 }
@@ -1713,7 +1818,7 @@ button {
   display: none;
 }
 
-/* ——— Lazy blur-up content images ——— */
+/* ??? Lazy blur-up content images ??? */
 .lazy-img-wrap {
   display: block;
   overflow: hidden;
@@ -1777,7 +1882,7 @@ img.lazy-img.loaded {
   width: 100%;
 }
 
-/* About hero — no box/background behind transparent banner PNG */
+/* About hero ? no box/background behind transparent banner PNG */
 .page-hero.about-hero .hero-image-wrap,
 .page-hero.about-hero .about-hero__media,
 .page-hero.about-hero .lazy-img-wrap,
@@ -1798,7 +1903,7 @@ img.lazy-img.loaded {
   background-color: transparent !important;
 }
 
-/* ——— Home pillars (3 cards below hero) ——— */
+/* ??? Home pillars (3 cards below hero) ??? */
 .home-pillars {
   background-color: #fff;
 }
@@ -2037,7 +2142,7 @@ img.lazy-img.loaded {
   bottom: -0.08em;
 }
 
-/* ——— Home different (6 pillars) ——— */
+/* ??? Home different (6 pillars) ??? */
 .home-different {
   background-color: #fff;
 }
@@ -2118,7 +2223,7 @@ img.lazy-img.loaded {
   margin-bottom: 0.2rem;
 }
 
-/* ——— Home reality (how ideas flow) ——— */
+/* ??? Home reality (how ideas flow) ??? */
 .home-reality {
   background-color: #fff;
 }
@@ -2287,7 +2392,7 @@ img.lazy-img.loaded {
   opacity: 0.85;
 }
 
-/* ——— Home explore (4 experience cards) ——— */
+/* ??? Home explore (4 experience cards) ??? */
 .home-explore {
   background-color: #fff;
 }
@@ -2404,7 +2509,7 @@ img.lazy-img.loaded {
   opacity: 0.85;
 }
 
-/* ——— Home spotlight (ideas + council panels) ——— */
+/* ??? Home spotlight (ideas + council panels) ??? */
 .home-spotlight {
   background-color: #fff;
   min-width: 0;
@@ -2650,7 +2755,7 @@ img.lazy-img.loaded {
   margin: 0 0 0.9rem;
 }
 
-/* ——— About + Contact + Explore hero layout ——— */
+/* ??? About + Contact + Explore hero layout ??? */
 .about-hero,
 .vision-hero,
 .contact-hero,
@@ -2854,7 +2959,7 @@ img.lazy-img.loaded {
   white-space: normal;
 }
 
-/* ——— Our Vision hero content ——— */
+/* ??? Our Vision hero content ??? */
 .vision-hero__content {
   min-width: 0;
 }
@@ -2964,7 +3069,7 @@ img.lazy-img.loaded {
   color: #fff;
 }
 
-/* ——— Our Vision pillars ——— */
+/* ??? Our Vision pillars ??? */
 .vision-pillars {
   background-color: #fff;
 }
@@ -3126,7 +3231,7 @@ img.lazy-img.loaded {
   opacity: 0.85;
 }
 
-/* ——— Our Vision roadmap (goals + journey) ——— */
+/* ??? Our Vision roadmap (goals + journey) ??? */
 .vision-roadmap {
   background-color: #fff;
 }
@@ -3339,7 +3444,7 @@ img.lazy-img.loaded {
   mix-blend-mode: multiply;
 }
 
-/* ——— Our Vision: moments, partner, together ——— */
+/* ??? Our Vision: moments, partner, together ??? */
 .vision-section__title {
   display: flex;
   align-items: center;
@@ -3847,7 +3952,7 @@ img.lazy-img.loaded {
   height: clamp(16px, 1.45vw, 20px);
 }
 
-/* ——— For Parents hero content ——— */
+/* ??? For Parents hero content ??? */
 .for-parents-hero__title-wrap {
   position: relative;
   margin: 0 0 clamp(0.85rem, 1.35vw, 1.05rem);
@@ -3934,7 +4039,7 @@ img.lazy-img.loaded {
   color: var(--color-cyan);
 }
 
-/* ——— Get Involved hero ——— */
+/* ??? Get Involved hero ??? */
 .get-involved-hero__eyebrow {
   display: inline-flex;
   align-items: center;
@@ -4000,7 +4105,7 @@ img.lazy-img.loaded {
   color: var(--color-pink);
 }
 
-/* ——— Get Involved ways (5 cards) ——— */
+/* ??? Get Involved ways (5 cards) ??? */
 .get-involved-ways {
   background-color: #fff;
 }
@@ -4091,7 +4196,7 @@ img.lazy-img.loaded {
   opacity: 0.82;
 }
 
-/* ——— Partners ways (5 cards) ——— */
+/* ??? Partners ways (5 cards) ??? */
 .partners-ways {
   background-color: #fff;
 }
@@ -4232,7 +4337,7 @@ img.lazy-img.loaded {
   margin: 0;
 }
 
-/* ——— Partners impact (5 photo cards in cream box) ——— */
+/* ??? Partners impact (5 photo cards in cream box) ??? */
 .partners-impact {
   background-color: #fff;
 }
@@ -4347,7 +4452,7 @@ img.lazy-img.loaded {
   mix-blend-mode: multiply;
 }
 
-/* ——— Partners opportunity CTA ——— */
+/* ??? Partners opportunity CTA ??? */
 .partners-opportunity-cta {
   background-color: #fff;
   padding-top: 0;
@@ -4441,7 +4546,7 @@ img.lazy-img.loaded {
   mix-blend-mode: screen;
 }
 
-/* ——— Partners founding (5 dashed cards) ——— */
+/* ??? Partners founding (5 dashed cards) ??? */
 .partners-founding {
   background-color: #fff;
 }
@@ -4587,7 +4692,7 @@ img.lazy-img.loaded {
   margin: 0;
 }
 
-/* ——— Get Involved impact (timeline + illustration) ——— */
+/* ??? Get Involved impact (timeline + illustration) ??? */
 .get-involved-impact {
   background-color: #fff;
 }
@@ -4803,7 +4908,7 @@ img.lazy-img.loaded {
   margin: 0;
 }
 
-/* ——— Get Involved partner CTA ——— */
+/* ??? Get Involved partner CTA ??? */
 .get-involved-partner-cta {
   background-color: #fff;
   padding-top: 0;
@@ -4862,7 +4967,7 @@ img.lazy-img.loaded {
   object-fit: contain;
 }
 
-/* ——— For Parents expect (5 cards) ——— */
+/* ??? For Parents expect (5 cards) ??? */
 .for-parents-expect {
   background-color: #fff;
 }
@@ -4966,7 +5071,7 @@ img.lazy-img.loaded {
   min-height: calc(1.45em * var(--for-parents-expect-text-lines));
 }
 
-/* ——— For Parents fit (2-panel section) ——— */
+/* ??? For Parents fit (2-panel section) ??? */
 .for-parents-fit {
   background-color: #fff;
 }
@@ -5101,7 +5206,7 @@ img.lazy-img.loaded {
   pointer-events: none;
 }
 
-/* ——— For Parents info (experience + get started) ——— */
+/* ??? For Parents info (experience + get started) ??? */
 .for-parents-info {
   background-color: #fff;
 }
@@ -5347,7 +5452,7 @@ img.lazy-img.loaded {
   padding: clamp(0.65rem, 0.95vw, 0.78rem) clamp(0.85rem, 1.1vw, 1.1rem);
 }
 
-/* ——— For Parents contact CTA banner ——— */
+/* ??? For Parents contact CTA banner ??? */
 .for-parents-cta {
   background-color: #fff;
 }
@@ -5427,7 +5532,7 @@ img.lazy-img.loaded {
   color: var(--color-yellow);
 }
 
-/* ——— Explore hero content ——— */
+/* ??? Explore hero content ??? */
 .explore-hero__eyebrow {
   display: inline-flex;
   align-items: center;
@@ -5549,7 +5654,7 @@ img.lazy-img.loaded {
   white-space: nowrap;
 }
 
-/* ——— Explore ways (6 experience cards) ——— */
+/* ??? Explore ways (6 experience cards) ??? */
 .explore-ways {
   background-color: #fff;
 }
@@ -5702,7 +5807,7 @@ img.lazy-img.loaded {
   min-height: calc(1.62em * var(--explore-way-text-lines));
 }
 
-/* ——— Explore skills (9 icon grid) ——— */
+/* ??? Explore skills (9 icon grid) ??? */
 .explore-skills {
   background-color: #fff;
 }
@@ -5763,7 +5868,7 @@ img.lazy-img.loaded {
   min-height: calc(1.4em * var(--explore-skill-text-min-lines));
 }
 
-/* ——— Explore grow (experiences grow with children) ——— */
+/* ??? Explore grow (experiences grow with children) ??? */
 .explore-grow {
   background-color: #fff;
 }
@@ -6006,7 +6111,7 @@ img.lazy-img.loaded {
   color: var(--color-cyan);
 }
 
-/* ——— Explore impact (Real Ideas projects) ——— */
+/* ??? Explore impact (Real Ideas projects) ??? */
 .explore-impact {
   background-color: #fff;
 }
@@ -6135,7 +6240,7 @@ img.lazy-img.loaded {
   margin-top: var(--explore-impact-quote-stanza-gap);
 }
 
-/* ——— Explore dream CTA banner ——— */
+/* ??? Explore dream CTA banner ??? */
 .explore-dream {
   background-color: #fff;
 }
@@ -6277,7 +6382,7 @@ img.lazy-img.loaded {
   z-index: -1;
 }
 
-/* ——— Contact hero content ——— */
+/* ??? Contact hero content ??? */
 .contact-hero__title {
   font-family: var(--font-heading);
   font-weight: 700;
@@ -6348,7 +6453,7 @@ img.lazy-img.loaded {
   color: var(--color-pink);
 }
 
-/* ——— Contact form section ——— */
+/* ??? Contact form section ??? */
 .contact-form {
   background-color: #fff;
 }
@@ -6590,7 +6695,7 @@ img.lazy-img.loaded {
   transform: rotate(-8deg);
 }
 
-/* ——— Contact CTA banner ——— */
+/* ??? Contact CTA banner ??? */
 .contact-cta {
   background-color: #fff;
 }
@@ -6658,7 +6763,7 @@ img.lazy-img.loaded {
   white-space: nowrap;
 }
 
-/* ——— Creative Makers (program page) ——— */
+/* ??? Creative Makers (program page) ??? */
 .creative-makers-hero {
   background-color: #fff;
   overflow: visible;
@@ -6826,7 +6931,8 @@ img.lazy-img.loaded {
 @media (min-width: 769px) {
   .creative-makers-page .page-hero.creative-makers-hero .page-hero__inner {
     display: grid;
-    grid-template-columns: minmax(0, 0.88fr) minmax(0, 1.12fr);
+    grid-template-columns: minmax(0, var(--page-hero-balanced-content-col))
+      minmax(0, var(--page-hero-balanced-media-col));
     align-items: center;
     justify-content: space-between;
     gap: var(--home-hero-col-gap);
@@ -6834,12 +6940,14 @@ img.lazy-img.loaded {
   }
 
   .creative-makers-page .page-hero.creative-makers-hero .page-hero__content {
-    width: 100%;
-    max-width: none;
+    width: min(100%, var(--page-hero-balanced-content-max));
+    max-width: var(--page-hero-balanced-content-max);
     padding-top: 0;
-    padding-right: 0.5rem;
+    padding-right: 0;
     grid-column: 1;
     grid-row: 1;
+    justify-self: center;
+    margin-inline: auto;
   }
 
   .creative-makers-page .page-hero.creative-makers-hero .hero-image-wrap,
@@ -6873,7 +6981,8 @@ img.lazy-img.loaded {
 
   .young-ideas-lab-page .page-hero.young-ideas-lab-hero .page-hero__inner {
     display: grid;
-    grid-template-columns: minmax(0, 0.88fr) minmax(0, 1.12fr);
+    grid-template-columns: minmax(0, var(--page-hero-balanced-content-col))
+      minmax(0, var(--page-hero-balanced-media-col));
     align-items: center;
     justify-content: space-between;
     gap: var(--home-hero-col-gap);
@@ -6881,12 +6990,14 @@ img.lazy-img.loaded {
   }
 
   .young-ideas-lab-page .page-hero.young-ideas-lab-hero .page-hero__content {
-    width: 100%;
-    max-width: none;
+    width: min(100%, var(--page-hero-balanced-content-max));
+    max-width: var(--page-hero-balanced-content-max);
     padding-top: 0;
-    padding-right: 0.5rem;
+    padding-right: 0;
     grid-column: 1;
     grid-row: 1;
+    justify-self: center;
+    margin-inline: auto;
   }
 
   .young-ideas-lab-page .page-hero.young-ideas-lab-hero .hero-image-wrap,
@@ -6921,7 +7032,8 @@ img.lazy-img.loaded {
 
   .create-for-cause-page .page-hero.create-for-cause-hero .page-hero__inner {
     display: grid;
-    grid-template-columns: minmax(0, 0.88fr) minmax(0, 1.12fr);
+    grid-template-columns: minmax(0, var(--page-hero-balanced-content-col))
+      minmax(0, var(--page-hero-balanced-media-col));
     align-items: center;
     justify-content: space-between;
     gap: var(--home-hero-col-gap);
@@ -6929,12 +7041,14 @@ img.lazy-img.loaded {
   }
 
   .create-for-cause-page .page-hero.create-for-cause-hero .page-hero__content {
-    width: 100%;
-    max-width: none;
+    width: min(100%, var(--page-hero-balanced-content-max));
+    max-width: var(--page-hero-balanced-content-max);
     padding-top: 0;
-    padding-right: 0.5rem;
+    padding-right: 0;
     grid-column: 1;
     grid-row: 1;
+    justify-self: center;
+    margin-inline: auto;
   }
 
   .create-for-cause-page .page-hero.create-for-cause-hero .hero-image-wrap,
@@ -6969,7 +7083,8 @@ img.lazy-img.loaded {
 
   .community-adventures-page .page-hero.community-adventures-hero .page-hero__inner {
     display: grid;
-    grid-template-columns: minmax(0, 0.88fr) minmax(0, 1.12fr);
+    grid-template-columns: minmax(0, var(--page-hero-balanced-content-col))
+      minmax(0, var(--page-hero-balanced-media-col));
     align-items: center;
     justify-content: space-between;
     gap: var(--home-hero-col-gap);
@@ -6977,12 +7092,14 @@ img.lazy-img.loaded {
   }
 
   .community-adventures-page .page-hero.community-adventures-hero .page-hero__content {
-    width: 100%;
-    max-width: none;
+    width: min(100%, var(--page-hero-balanced-content-max));
+    max-width: var(--page-hero-balanced-content-max);
     padding-top: 0;
-    padding-right: 0.5rem;
+    padding-right: 0;
     grid-column: 1;
     grid-row: 1;
+    justify-self: center;
+    margin-inline: auto;
   }
 
   .community-adventures-page .page-hero.community-adventures-hero .hero-image-wrap,
@@ -7398,7 +7515,7 @@ img.lazy-img.loaded {
   white-space: nowrap;
 }
 
-/* ——— Young Ideas Lab (purple theme overrides) ——— */
+/* ??? Young Ideas Lab (purple theme overrides) ??? */
 .young-ideas-lab-page .creative-makers-hero__title {
   color: var(--color-purple);
 }
@@ -7499,7 +7616,7 @@ img.lazy-img.loaded {
   width: clamp(110px, 12vw, 150px);
 }
 
-/* Young Ideas Lab hero — mobile banner: zero top/bottom/side spacing */
+/* Young Ideas Lab hero ? mobile banner: zero top/bottom/side spacing */
 @media (max-width: 767px) {
   #main-content > section.page-hero.young-ideas-lab-hero,
   .page-hero.young-ideas-lab-hero {
@@ -7590,7 +7707,7 @@ img.lazy-img.loaded {
   }
 }
 
-/* ——— Create for a Cause (green theme overrides) ——— */
+/* ??? Create for a Cause (green theme overrides) ??? */
 .create-for-cause-page .creative-makers-hero__title {
   color: var(--color-green);
 }
@@ -7699,7 +7816,7 @@ img.lazy-img.loaded {
   width: clamp(110px, 12vw, 150px);
 }
 
-/* ——— Community Adventures (blue theme overrides) ——— */
+/* ??? Community Adventures (blue theme overrides) ??? */
 .community-adventures-page .creative-makers-hero__title {
   color: var(--color-blue-accent);
 }
@@ -7769,7 +7886,7 @@ img.lazy-img.loaded {
   );
 }
 
-/* Community Adventures hero — mobile banner centered */
+/* Community Adventures hero ? mobile banner centered */
 @media (max-width: 767px) {
   #main-content > section.page-hero.community-adventures-hero .page-hero__inner,
   .page-hero.community-adventures-hero .page-hero__inner {
@@ -7840,7 +7957,7 @@ img.lazy-img.loaded {
   }
 }
 
-/* Our Vision hero — mobile banner: centered */
+/* Our Vision hero ? mobile banner: centered */
 @media (max-width: 768px) {
   #main-content > section.page-hero.vision-hero:not(.partners-hero) .about-hero__media,
   .page-hero.vision-hero:not(.partners-hero) .about-hero__media,
@@ -7882,7 +7999,7 @@ img.lazy-img.loaded {
   }
 }
 
-/* Creative Makers hero — mobile banner centered */
+/* Creative Makers hero ? mobile banner centered */
 @media (max-width: 768px) {
   .creative-makers-page #main-content > section.page-hero.creative-makers-hero .creative-makers-hero__media,
   .creative-makers-page .page-hero.creative-makers-hero .creative-makers-hero__media,
@@ -7924,7 +8041,7 @@ img.lazy-img.loaded {
   }
 }
 
-/* Community Adventures hero — mobile banner centered */
+/* Community Adventures hero ? mobile banner centered */
 @media (max-width: 768px) {
   .community-adventures-page #main-content > section.page-hero.community-adventures-hero .creative-makers-hero__media,
   .community-adventures-page .page-hero.community-adventures-hero .creative-makers-hero__media,
@@ -7977,7 +8094,7 @@ img.lazy-img.loaded {
   }
 }
 
-/* ——— Our Story (about page) ——— */
+/* ??? Our Story (about page) ??? */
 .our-story {
   background-color: #fff;
 }
@@ -8087,7 +8204,7 @@ img.lazy-img.loaded {
   user-select: none;
 }
 
-/* ——— We Believe (about page) ——— */
+/* ??? We Believe (about page) ??? */
 .we-believe {
   background-color: #fff;
 }
@@ -8203,7 +8320,7 @@ img.lazy-img.loaded {
   text-align: center;
 }
 
-/* ——— About panels (journey + council) ——— */
+/* ??? About panels (journey + council) ??? */
 .about-panels {
   background-color: #fff;
 }
@@ -8566,7 +8683,7 @@ img.lazy-img.loaded {
   pointer-events: none;
 }
 
-/* ——— Compare different (about page) ——— */
+/* ??? Compare different (about page) ??? */
 .compare-different {
   background-color: #fff;
 }
@@ -8873,7 +8990,7 @@ img.lazy-img.loaded {
   }
 }
 
-/* ——— Responsive ——— */
+/* ??? Responsive ??? */
 @media (max-width: 1200px) {
   :root {
     --nav-gap: calc(0.9rem + 5px);
@@ -10882,7 +10999,7 @@ img.lazy-img.loaded {
     justify-content: center;
   }
 
-  /* Home spotlight — tight 2px gap between highlight lines on mobile */
+  /* Home spotlight ? tight 2px gap between highlight lines on mobile */
   .home-spotlight .spotlight-card__copy p.spotlight-card__highlight {
     line-height: 1.2;
     margin: 0;
@@ -11157,7 +11274,7 @@ img.lazy-img.loaded {
   }
 }
 
-/* ——— Apply to Become page ——— */
+/* ??? Apply to Become page ??? */
 .apply-to-become-page {
   --apply-form-main-col: 0.68fr;
   --apply-form-sidebar-col: 0.32fr;
@@ -11253,7 +11370,7 @@ img.lazy-img.loaded {
   min-height: unset;
 }
 
-/* Apply hero — mobile: zero gap above banner image */
+/* Apply hero ? mobile: zero gap above banner image */
 @media (max-width: 767px) {
   #main-content > section.page-hero.apply-hero,
   .page-hero.apply-hero {
@@ -11314,14 +11431,14 @@ img.lazy-img.loaded {
   overflow: visible;
 }
 
-/* Keep sidebar positioning stable — transform on this section breaks fixed/sticky */
+/* Keep sidebar positioning stable ? transform on this section breaks fixed/sticky */
 .apply-form.scroll-rise {
   opacity: 1;
   transform: none;
   animation: none;
 }
 
-/* Keep home horizontal sliders swipeable — section transform breaks touch scroll */
+/* Keep home horizontal sliders swipeable ? section transform breaks touch scroll */
 .home-pillars.scroll-rise,
 .home-different.scroll-rise,
 .home-explore.scroll-rise,
@@ -12237,7 +12354,7 @@ img.lazy-img.loaded {
   }
 }
 
-/* ——— Volunteer Application page ——— */
+/* ??? Volunteer Application page ??? */
 .volunteer-application-page .apply-section--parent {
   background-color: #fffbfd;
   border-color: rgba(238, 29, 120, 0.06);
@@ -12632,7 +12749,7 @@ img.lazy-img.loaded {
   }
 }
 
-/* ——— Partner Inquiry page ——— */
+/* ??? Partner Inquiry page ??? */
 .partner-inquiry-page {
   --partner-section-pink: #fff5f9;
   --partner-section-purple: #f9f6fd;
@@ -13202,7 +13319,7 @@ img.lazy-img.loaded {
   }
 }
 
-/* ——— Donation Interest page ——— */
+/* ??? Donation Interest page ??? */
 .donation-interest-page {
   --donation-section-yellow: #fffaf0;
   --donation-section-purple: #f9f6fd;
@@ -13759,7 +13876,7 @@ img.lazy-img.loaded {
   }
 }
 
-/* ——— Newsletter Sign Up page ——— */
+/* ??? Newsletter Sign Up page ??? */
 .newsletter-signup-page {
   --newsletter-section-pink: #fff5f9;
   --newsletter-section-yellow: #fffaf0;
@@ -14412,7 +14529,7 @@ img.lazy-img.loaded {
   }
 }
 
-/* ——— Newsletter sign up success popup + welcome email preview ——— */
+/* ??? Newsletter sign up success popup + welcome email preview ??? */
 body.newsletter-success-open {
   overflow: hidden;
 }
@@ -14699,7 +14816,7 @@ body.newsletter-success-open {
   opacity: 0.75;
 }
 
-/* ——— FAQ page ——— */
+/* ??? FAQ page ??? */
 .faq-page {
   --faq-topic-icon-size: clamp(27px, 2.2vw, 31px);
   --faq-section-pink: #fff5f9;
@@ -15310,7 +15427,7 @@ body.newsletter-success-open {
   }
 }
 
-/* ——— Photo & Media Policy page ——— */
+/* ??? Photo & Media Policy page ??? */
 .media-policy-page {
   --media-policy-pink: #fff5f9;
   --media-policy-nav-active-bg: #fff0f6;
@@ -15402,7 +15519,7 @@ body.newsletter-success-open {
   overflow: visible;
 }
 
-/* Keep sidebar positioning stable — transform on this section breaks fixed/sticky */
+/* Keep sidebar positioning stable ? transform on this section breaks fixed/sticky */
 .media-policy-main.scroll-rise {
   opacity: 1;
   transform: none;
@@ -15838,7 +15955,7 @@ body.newsletter-success-open {
   }
 }
 
-/* ——— Photo & Media Consent Form page ——— */
+/* ??? Photo & Media Consent Form page ??? */
 .media-consent-page {
   --media-consent-green: #22a06b;
   --media-consent-green-bg: #f0faf5;
@@ -16406,7 +16523,7 @@ body.newsletter-success-open {
   }
 }
 
-/* ——— Accessibility page ——— */
+/* ??? Accessibility page ??? */
 .accessibility-page {
   overflow-x: hidden;
 }
@@ -16919,7 +17036,7 @@ body.newsletter-success-open {
   }
 }
 
-/* ——— Financial Transparency page ——— */
+/* ??? Financial Transparency page ??? */
 .financial-transparency-page {
   overflow-x: hidden;
 }
@@ -17529,7 +17646,7 @@ body.newsletter-success-open {
   }
 }
 
-/* ——— Privacy Policy page (extends media-policy layout) ——— */
+/* ??? Privacy Policy page (extends media-policy layout) ??? */
 .privacy-hero .privacy-hero__text--second {
   margin-top: clamp(0.45rem, 0.75vw, 0.65rem);
 }
@@ -17540,7 +17657,7 @@ body.newsletter-success-open {
   }
 }
 
-/* ——— Terms of Use page ——— */
+/* ??? Terms of Use page ??? */
 .terms-page {
   overflow-x: hidden;
 }
@@ -17971,7 +18088,7 @@ body.newsletter-success-open {
   }
 }
 
-/* ——— Global theme form submission (bdc-forms) ——— */
+/* ??? Global theme form submission (bdc-forms) ??? */
 .bdc-form-honeypot {
   position: absolute;
   left: -9999px;
@@ -18119,7 +18236,7 @@ body.newsletter-success-open {
   }
 }
 
-/* Shared compact mobile hero: label → headline → copy → CTAs → image */
+/* Shared compact mobile hero: label ? headline ? copy ? CTAs ? image */
 @media (max-width: 767px) {
   #main-content > section.page-hero,
   .page-hero {
@@ -18405,7 +18522,7 @@ body.newsletter-success-open {
     overflow: visible !important;
   }
 
-  /* About hero — mobile heading block (reference layout) */
+  /* About hero ? mobile heading block (reference layout) */
   .page-hero.about-hero .page-hero__content {
     gap: 0;
     padding: 0 20px;
@@ -18517,7 +18634,7 @@ body.newsletter-success-open {
     margin-top: 0 !important;
   }
 
-  /* Explore hero — mobile heading: 2 lines (navy block + pink line) */
+  /* Explore hero ? mobile heading: 2 lines (navy block + pink line) */
   .page-hero.explore-hero .hero-headline {
     font-size: clamp(22px, 6.2vw, 26px);
     line-height: 1.2;
@@ -18719,7 +18836,7 @@ body.newsletter-success-open {
   }
 }
 
-/* Mobile hero images (incl. 768px): full-width banners, no side inset — desktop unchanged */
+/* Mobile hero images (incl. 768px): full-width banners, no side inset ? desktop unchanged */
 @media (max-width: 768px) {
   #main-content > section.page-hero,
   .page-hero {
@@ -18811,7 +18928,7 @@ body.newsletter-success-open {
   }
 }
 
-/* All page heroes — phone layout (≤430px): 92% centered frames, full image visible (contain). */
+/* All page heroes ? phone layout (?430px): 92% centered frames, full image visible (contain). */
 @media (max-width: 430px) {
   #main-content > section.page-hero,
   .page-hero {
@@ -18971,7 +19088,7 @@ body.newsletter-success-open {
     transform: none !important;
   }
 
-  /* Our Vision — disable desktop scale transform that clips mural text on mobile */
+  /* Our Vision ? disable desktop scale transform that clips mural text on mobile */
   #main-content > section.page-hero.vision-hero .about-hero__banner,
   #main-content > section.vision-hero.page-hero .about-hero__banner {
     transform: none !important;
@@ -19094,7 +19211,7 @@ body.newsletter-success-open {
   }
 }
 
-/* ——— Site-wide mobile carousels: photo = 1 card, icon/text = 2–3 cards ——— */
+/* ??? Site-wide mobile carousels: photo = 1 card, icon/text = 2?3 cards ??? */
 @media (max-width: 991px) {
   #main-content {
     overflow-x: clip;
@@ -20274,7 +20391,7 @@ body.newsletter-success-open {
     box-sizing: border-box !important;
   }
 
-  /* For Parents: gap only on wrap — avoid double padding */
+  /* For Parents: gap only on wrap ? avoid double padding */
   .for-parents-expect__wrap .for-parents-expect__inner.site-container,
   .for-parents-expect__wrap .for-parents-expect__inner.site-container.bdc-mobile-carousel-host {
     padding-left: 0 !important;
@@ -20463,7 +20580,7 @@ body.newsletter-success-open {
   }
 }
 
-/* Experience detail pages (shared page-hero template) — mobile: zero gap between CTAs and banner.
+/* Experience detail pages (shared page-hero template) ? mobile: zero gap between CTAs and banner.
    All experience pages use creative-makers-hero: Creative Makers, Young Ideas Lab, Create for a Cause, Community Adventures. */
 @media (max-width: 768px) {
   #main-content > section.page-hero.creative-makers-hero .page-hero__inner,
@@ -20497,7 +20614,7 @@ body.newsletter-success-open {
     padding-top: 0 !important;
   }
 
-  /* For Parents (shared page-hero) — mobile: zero gap between CTAs and banner image */
+  /* For Parents (shared page-hero) ? mobile: zero gap between CTAs and banner image */
   #main-content > section.page-hero.for-parents-hero .page-hero__inner,
   .page-hero.for-parents-hero .page-hero__inner {
     gap: 0 !important;
@@ -20529,7 +20646,7 @@ body.newsletter-success-open {
     padding-top: 0 !important;
   }
 
-  /* For Parents — mobile heading: single line ("For" pink + "Parents" navy) */
+  /* For Parents ? mobile heading: single line ("For" pink + "Parents" navy) */
   #main-content > section.page-hero.for-parents-hero .hero-headline,
   .page-hero.for-parents-hero .hero-headline {
     font-size: clamp(21px, 6vw, 26px) !important;
@@ -20548,7 +20665,7 @@ body.newsletter-success-open {
     content: ' ';
   }
 
-  /* Our Vision (shared page-hero) — mobile: flush to header (no top gap) */
+  /* Our Vision (shared page-hero) ? mobile: flush to header (no top gap) */
   #main-content > section.page-hero.vision-hero:not(.partners-hero),
   .page-hero.vision-hero:not(.partners-hero) {
     padding-top: 0 !important;
@@ -20573,7 +20690,7 @@ body.newsletter-success-open {
     margin-top: 0 !important;
   }
 
-  /* Our Vision (shared page-hero) — mobile: zero gap between copy and banner image */
+  /* Our Vision (shared page-hero) ? mobile: zero gap between copy and banner image */
   #main-content > section.page-hero.vision-hero:not(.partners-hero) .page-hero__inner,
   .page-hero.vision-hero:not(.partners-hero) .page-hero__inner {
     gap: 0 !important;
@@ -20603,7 +20720,7 @@ body.newsletter-success-open {
     padding-top: 0 !important;
   }
 
-  /* Our Vision — mobile heading: 2 lines ("Building a Brighter Future" / "Together") */
+  /* Our Vision ? mobile heading: 2 lines ("Building a Brighter Future" / "Together") */
   #main-content > section.page-hero.vision-hero:not(.partners-hero) .hero-headline,
   .page-hero.vision-hero:not(.partners-hero) .hero-headline {
     font-size: clamp(20px, 5.5vw, 26px) !important;
@@ -20636,7 +20753,7 @@ body.newsletter-success-open {
     margin-top: 0;
   }
 
-  /* Get Involved (shared page-hero) — mobile: zero gap between CTAs and banner image */
+  /* Get Involved (shared page-hero) ? mobile: zero gap between CTAs and banner image */
   #main-content > section.page-hero.get-involved-hero .page-hero__inner,
   .page-hero.get-involved-hero .page-hero__inner {
     gap: 0 !important;
@@ -20668,7 +20785,7 @@ body.newsletter-success-open {
     padding-top: 0 !important;
   }
 
-  /* Get Involved — mobile heading: single line ("Get" pink + "Involved" navy) */
+  /* Get Involved ? mobile heading: single line ("Get" pink + "Involved" navy) */
   #main-content > section.page-hero.get-involved-hero .hero-headline,
   .page-hero.get-involved-hero .hero-headline {
     font-size: clamp(21px, 6vw, 26px) !important;
@@ -20688,7 +20805,7 @@ body.newsletter-success-open {
     content: ' ';
   }
 
-  /* Partners (shared page-hero) — mobile: zero gap between CTAs and banner image */
+  /* Partners (shared page-hero) ? mobile: zero gap between CTAs and banner image */
   #main-content > section.page-hero.partners-hero .page-hero__inner,
   .page-hero.partners-hero .page-hero__inner {
     gap: 0 !important;
@@ -20720,7 +20837,7 @@ body.newsletter-success-open {
     padding-top: 0 !important;
   }
 
-  /* About (shared page-hero) — mobile: zero gap between CTAs and banner image */
+  /* About (shared page-hero) ? mobile: zero gap between CTAs and banner image */
   #main-content > section.page-hero.about-hero:not(.contact-hero):not(.vision-hero):not(.for-parents-hero):not(.get-involved-hero):not(.partners-hero):not(.apply-hero) .page-hero__inner,
   .page-hero.about-hero:not(.contact-hero):not(.vision-hero):not(.for-parents-hero):not(.get-involved-hero):not(.partners-hero):not(.apply-hero) .page-hero__inner {
     gap: 0 !important;
@@ -20752,7 +20869,7 @@ body.newsletter-success-open {
     padding-top: 0 !important;
   }
 
-  /* Explore (shared page-hero) — mobile: zero gap between CTAs and banner image */
+  /* Explore (shared page-hero) ? mobile: zero gap between CTAs and banner image */
   #main-content > section.page-hero.explore-hero .page-hero__inner,
   .page-hero.explore-hero .page-hero__inner {
     gap: 0 !important;
@@ -20784,7 +20901,7 @@ body.newsletter-success-open {
     padding-top: 0 !important;
   }
 
-  /* Contact (shared page-hero) — mobile: zero gap between copy and banner image */
+  /* Contact (shared page-hero) ? mobile: zero gap between copy and banner image */
   #main-content > section.page-hero.contact-hero .page-hero__inner,
   .page-hero.contact-hero .page-hero__inner {
     gap: 0 !important;
@@ -20814,7 +20931,7 @@ body.newsletter-success-open {
     padding-top: 0 !important;
   }
 
-  /* Privacy / media policy pages (shared page-hero) — mobile: zero gap between copy and banner image */
+  /* Privacy / media policy pages (shared page-hero) ? mobile: zero gap between copy and banner image */
   #main-content > section.page-hero.media-policy-hero .page-hero__inner,
   .page-hero.media-policy-hero .page-hero__inner {
     gap: 0 !important;
@@ -20846,7 +20963,7 @@ body.newsletter-success-open {
     padding-top: 0 !important;
   }
 
-  /* Terms of Use (shared page-hero) — mobile: zero gap between copy and banner image */
+  /* Terms of Use (shared page-hero) ? mobile: zero gap between copy and banner image */
   #main-content > section.page-hero.terms-hero .page-hero__inner,
   .page-hero.terms-hero .page-hero__inner {
     gap: 0 !important;
@@ -20878,7 +20995,7 @@ body.newsletter-success-open {
     padding-top: 0 !important;
   }
 
-  /* Home (front page hero) — mobile: zero gap between CTAs and banner image */
+  /* Home (front page hero) ? mobile: zero gap between CTAs and banner image */
   #main-content > section.page-hero.home-hero .page-hero__inner,
   .page-hero.home-hero .page-hero__inner {
     gap: 0 !important;
@@ -20906,7 +21023,7 @@ body.newsletter-success-open {
   }
 }
 
-/* Our Vision page — mobile: zero top gap + full-width centered banner (wins over generic phone hero rules) */
+/* Our Vision page ? mobile: zero top gap + full-width centered banner (wins over generic phone hero rules) */
 @media (max-width: 768px) {
   .our-vision-page #main-content > section.page-hero.vision-hero.about-hero:not(.partners-hero),
   .our-vision-page #main-content > section.vision-hero.page-hero:not(.partners-hero) {
@@ -20961,7 +21078,7 @@ body.newsletter-success-open {
   }
 }
 
-/* Get Involved page — mobile: full-width centered banner */
+/* Get Involved page ? mobile: full-width centered banner */
 @media (max-width: 768px) {
   .get-involved-page #main-content > section.page-hero.get-involved-hero .about-hero__media,
   .get-involved-page #main-content > section.page-hero.get-involved-hero .hero-image-wrap,
@@ -20996,7 +21113,7 @@ body.newsletter-success-open {
   }
 }
 
-/* Get Involved page — mobile: full-width centered banner */
+/* Get Involved page ? mobile: full-width centered banner */
 @media (max-width: 768px) {
   .get-involved-page #main-content > section.page-hero.get-involved-hero .about-hero__media,
   .get-involved-page #main-content > section.page-hero.get-involved-hero .hero-image-wrap,
@@ -21028,5 +21145,43 @@ body.newsletter-success-open {
     object-position: center center !important;
     transform: none !important;
     transform-origin: center center !important;
+  }
+}
+
+/* Our Vision page ? equal vertical rhythm between stacked sections.
+   Uses the site section spacing token; neutralizes stacked
+   .section-padding + #main-content gap and checklist one-offs. */
+.our-vision-page {
+  --vision-block-gap: var(--section-pad-y);
+}
+
+.our-vision-page #main-content > section,
+.our-vision-page #main-content > section.page-hero,
+.our-vision-page #main-content > section.vision-hero,
+.our-vision-page #main-content > section.vision-hero-checklist,
+.our-vision-page #main-content > section.section-padding,
+.our-vision-page #main-content > section.vision-pillars,
+.our-vision-page #main-content > section.vision-roadmap,
+.our-vision-page #main-content > section.vision-moments,
+.our-vision-page #main-content > section.vision-partner,
+.our-vision-page #main-content > section.vision-together {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-bottom: var(--vision-block-gap);
+}
+
+.our-vision-page #main-content > section.section-padding {
+  padding-top: 0;
+}
+
+.our-vision-page #main-content > section.vision-hero-checklist {
+  padding-top: 0;
+}
+
+@media (max-width: 767px) {
+  .our-vision-page #main-content > section.vision-hero-checklist {
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: var(--vision-block-gap);
   }
 }
