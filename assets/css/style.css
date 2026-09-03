@@ -1835,26 +1835,9 @@ button {
   .page-hero.apply-hero .about-hero__banner {
     width: 100%;
     max-width: 100%;
-    object-fit: contain;
-    object-position: right center;
-  }
-
-  /* Homepage: fill to Apply-to-Join right edge without changing text/image gap.
-     PNG has extra white on the right; scale from the column's left and clip at the header inset. */
-  .page-hero.home-hero .home-hero__media,
-  .page-hero.home-hero .home-hero__media .lazy-img-wrap {
-    width: 100%;
-    max-width: 100%;
-    overflow: hidden;
-    justify-content: flex-start;
-  }
-
-  .page-hero.home-hero .home-hero__banner {
-    width: 122%;
-    max-width: none;
     height: auto;
     object-fit: contain;
-    object-position: left center;
+    object-position: right center;
   }
 
   .page-hero.home-hero .home-hero__media,
