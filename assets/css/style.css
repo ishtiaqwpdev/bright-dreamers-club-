@@ -88,10 +88,11 @@
   --home-hero-col-gap: clamp(0.25rem, 0.6vw, 0.65rem);
   --home-hero-content-max: 580px;
   --home-hero-content-share: 44%;
-  /* Shared desktop hero balance (home + category/inner pages) */
-  --page-hero-balanced-content-col: 1fr;
-  --page-hero-balanced-media-col: 1.1fr;
-  --page-hero-balanced-content-max: var(--home-hero-content-max);
+  /* Shared desktop hero: same inset as header, tighter text/image pairing */
+  --page-hero-balanced-content-col: 0.92fr;
+  --page-hero-balanced-media-col: 1.08fr;
+  --page-hero-balanced-content-max: none;
+  --page-hero-col-gap: clamp(0.75rem, 1.2vw, 1.35rem);
   --explore-hero-content-col: 0.86fr;
   --explore-hero-media-col: 1.14fr;
   --explore-hero-content-max: 34rem;
@@ -1709,10 +1710,9 @@ button {
   justify-content: flex-end;
 }
 
-/* Desktop side-by-side only (?1201px): shared balanced hero ?
-   center text in the left column so left edge ? text inset matches
-   the breathing room on the banner side. Banner/media stays right-aligned.
-   Used by homepage + all category/inner page heroes with text + banner. */
+/* Desktop side-by-side (≥1201px): shared hero container + tighter columns.
+   Header and hero both use .site-container (same max-width + --container-padding).
+   Text starts on the logo edge; banner stays on the Apply-to-Join edge. */
 @media (min-width: 1201px) {
   .page-hero.home-hero .page-hero__inner,
   .page-hero.about-hero .page-hero__inner,
@@ -1737,7 +1737,10 @@ button {
       minmax(0, var(--page-hero-balanced-media-col));
     align-items: center;
     justify-content: space-between;
-    gap: var(--home-hero-col-gap);
+    gap: var(--page-hero-col-gap);
+    max-width: var(--container-max-width);
+    padding-left: var(--container-padding);
+    padding-right: var(--container-padding);
   }
 
   /* Explore keeps bottom-aligned banner composition */
@@ -1765,10 +1768,10 @@ button {
   .community-adventures-page .page-hero.community-adventures-hero .page-hero__content {
     grid-column: 1;
     flex: none;
-    width: min(100%, var(--page-hero-balanced-content-max));
-    max-width: var(--page-hero-balanced-content-max);
-    justify-self: center;
-    margin-inline: auto;
+    width: 100%;
+    max-width: none;
+    justify-self: start;
+    margin-inline: 0;
     padding-right: 0;
   }
 
@@ -6940,14 +6943,14 @@ img.lazy-img.loaded {
   }
 
   .creative-makers-page .page-hero.creative-makers-hero .page-hero__content {
-    width: min(100%, var(--page-hero-balanced-content-max));
-    max-width: var(--page-hero-balanced-content-max);
+    width: 100%;
+    max-width: none;
     padding-top: 0;
     padding-right: 0;
     grid-column: 1;
     grid-row: 1;
-    justify-self: center;
-    margin-inline: auto;
+    justify-self: start;
+    margin-inline: 0;
   }
 
   .creative-makers-page .page-hero.creative-makers-hero .hero-image-wrap,
@@ -6990,14 +6993,14 @@ img.lazy-img.loaded {
   }
 
   .young-ideas-lab-page .page-hero.young-ideas-lab-hero .page-hero__content {
-    width: min(100%, var(--page-hero-balanced-content-max));
-    max-width: var(--page-hero-balanced-content-max);
+    width: 100%;
+    max-width: none;
     padding-top: 0;
     padding-right: 0;
     grid-column: 1;
     grid-row: 1;
-    justify-self: center;
-    margin-inline: auto;
+    justify-self: start;
+    margin-inline: 0;
   }
 
   .young-ideas-lab-page .page-hero.young-ideas-lab-hero .hero-image-wrap,
@@ -7041,14 +7044,14 @@ img.lazy-img.loaded {
   }
 
   .create-for-cause-page .page-hero.create-for-cause-hero .page-hero__content {
-    width: min(100%, var(--page-hero-balanced-content-max));
-    max-width: var(--page-hero-balanced-content-max);
+    width: 100%;
+    max-width: none;
     padding-top: 0;
     padding-right: 0;
     grid-column: 1;
     grid-row: 1;
-    justify-self: center;
-    margin-inline: auto;
+    justify-self: start;
+    margin-inline: 0;
   }
 
   .create-for-cause-page .page-hero.create-for-cause-hero .hero-image-wrap,
@@ -7092,14 +7095,14 @@ img.lazy-img.loaded {
   }
 
   .community-adventures-page .page-hero.community-adventures-hero .page-hero__content {
-    width: min(100%, var(--page-hero-balanced-content-max));
-    max-width: var(--page-hero-balanced-content-max);
+    width: 100%;
+    max-width: none;
     padding-top: 0;
     padding-right: 0;
     grid-column: 1;
     grid-row: 1;
-    justify-self: center;
-    margin-inline: auto;
+    justify-self: start;
+    margin-inline: 0;
   }
 
   .community-adventures-page .page-hero.community-adventures-hero .hero-image-wrap,
