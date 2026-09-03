@@ -489,6 +489,14 @@ $home_spotlight_council_items = ( is_array( $home_spotlight_council['list_items'
                 decoding="async"
               />
             </div>
+            <img
+              class="home-hero__media-plant"
+              src="<?php echo esc_url( bdc_theme_asset_url( 'assets/images/about-hero-deco-plant-removebg-preview.png' ) ); ?>"
+              alt=""
+              width="42"
+              height="80"
+              decoding="async"
+            />
           </div>
         </div>
       </section>
