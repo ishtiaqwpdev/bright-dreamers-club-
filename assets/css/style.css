@@ -1153,7 +1153,7 @@ button {
   display: none;
 }
 
-@media (max-width: 1023px) {
+@media (max-width: 1200px) {
   .mobile-menu {
     display: flex;
     flex-direction: column;
@@ -1523,7 +1523,7 @@ button {
   }
 }
 
-@media (max-width: 1023px) and (prefers-reduced-motion: reduce) {
+@media (max-width: 1200px) and (prefers-reduced-motion: reduce) {
   .mobile-menu,
   .mobile-nav__chevron,
   .mobile-nav__sublist {
@@ -1531,7 +1531,7 @@ button {
   }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1201px) {
   .mobile-menu {
     display: none !important;
     visibility: hidden !important;
@@ -1838,6 +1838,36 @@ button {
     object-fit: contain;
     object-position: right center;
   }
+
+  .page-hero.home-hero .home-hero__media,
+  .page-hero.about-hero .about-hero__media,
+  .page-hero.about-hero .hero-image-wrap,
+  .page-hero.explore-hero .explore-hero__media,
+  .page-hero.for-parents-hero .about-hero__media,
+  .page-hero.vision-hero .about-hero__media,
+  .page-hero.get-involved-hero .about-hero__media,
+  .page-hero.partners-hero .about-hero__media,
+  .page-hero.contact-hero .about-hero__media,
+  .page-hero.creative-makers-hero .creative-makers-hero__media,
+  .page-hero.apply-hero .about-hero__media,
+  .page-hero.faq-hero .faq-hero__media {
+    min-width: 0;
+    max-width: 100%;
+    overflow: hidden;
+  }
+
+  .page-hero.home-hero .home-hero__media .lazy-img-wrap,
+  .page-hero [class*='__media'] .lazy-img-wrap,
+  .page-hero .hero-image-wrap .lazy-img-wrap {
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+  }
+
+  .page-hero img.lazy-img {
+    max-width: 100%;
+    height: auto;
+  }
 }
 
 .home-hero__deco {
@@ -1846,6 +1876,71 @@ button {
 
 .about-hero__deco {
   display: none;
+}
+
+/* Compact desktop header (laptop widths): keep full nav, shrink to fit */
+@media (min-width: 1201px) and (max-width: 1439px) {
+  :root {
+    --nav-gap: 0.45rem;
+    --header-logo-box-width: clamp(168px, 13vw, 210px);
+  }
+
+  .nav-link {
+    font-size: 0.82rem;
+    padding-bottom: 0.5rem;
+    white-space: nowrap;
+  }
+
+  .site-nav__list {
+    flex-wrap: nowrap;
+    gap: var(--nav-gap);
+  }
+
+  .site-header__actions {
+    gap: 0.4rem;
+  }
+
+  .site-header__actions .btn {
+    font-size: 0.8rem;
+    padding: 0.55rem 0.85rem;
+  }
+}
+
+/* Hero banners never overflow their column (all desktop widths) */
+@media (min-width: 768px) {
+  .page-hero {
+    overflow-x: clip;
+  }
+
+  .page-hero .page-hero__inner {
+    min-width: 0;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .page-hero .home-hero__media,
+  .page-hero .about-hero__media,
+  .page-hero .explore-hero__media,
+  .page-hero .creative-makers-hero__media,
+  .page-hero .hero-image-wrap,
+  .page-hero .faq-hero__media,
+  .page-hero [class*='__media'] {
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  .page-hero .home-hero__banner,
+  .page-hero .about-hero__banner,
+  .page-hero .explore-hero__banner,
+  .page-hero .creative-makers-hero__banner,
+  .page-hero .apply-hero__banner,
+  .page-hero .faq-hero__banner,
+  .page-hero [class*='__banner'] {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+  }
 }
 
 /* ??? Lazy blur-up content images ??? */
@@ -9026,6 +9121,20 @@ img.lazy-img.loaded {
     --nav-gap: calc(0.9rem + 5px);
   }
 
+  .site-nav,
+  .site-header__actions {
+    display: none;
+  }
+
+  .menu-toggle {
+    display: flex;
+  }
+
+  .site-header__logo {
+    width: auto;
+    max-width: calc(100% - 52px);
+  }
+
   .site-header__logo img {
     width: auto;
     --header-logo-height: 56px;
@@ -9084,11 +9193,10 @@ img.lazy-img.loaded {
 
   .home-hero__media {
     width: 100%;
+    max-width: 100%;
+    min-width: 0;
     justify-content: center;
-  }
-
-  .home-hero__title {
-    font-size: clamp(3rem, 5vw, 4.5rem);
+    overflow: hidden;
   }
 
   .about-hero .page-hero__inner,
@@ -9097,9 +9205,25 @@ img.lazy-img.loaded {
   .get-involved-hero .page-hero__inner,
   .vision-hero .page-hero__inner,
   .explore-hero .page-hero__inner,
-  .apply-hero .page-hero__inner {
+  .apply-hero .page-hero__inner,
+  .partners-hero .page-hero__inner,
+  .faq-hero .page-hero__inner,
+  .creative-makers-hero .page-hero__inner,
+  .young-ideas-lab-hero .page-hero__inner,
+  .create-for-cause-hero .page-hero__inner,
+  .community-adventures-hero .page-hero__inner,
+  .creative-makers-page .page-hero.creative-makers-hero .page-hero__inner,
+  .young-ideas-lab-page .page-hero.young-ideas-lab-hero .page-hero__inner,
+  .create-for-cause-page .page-hero.create-for-cause-hero .page-hero__inner,
+  .community-adventures-page .page-hero.community-adventures-hero .page-hero__inner {
+    display: flex;
+    flex-direction: column;
     grid-template-columns: 1fr;
     row-gap: 1.25rem;
+  }
+
+  .home-hero__title {
+    font-size: clamp(3rem, 5vw, 4.5rem);
   }
 
   .about-hero .page-hero__content,
@@ -9122,12 +9246,18 @@ img.lazy-img.loaded {
   .vision-hero .about-hero__media,
   .explore-hero__media,
   .apply-hero .about-hero__media,
-  .donation-hero__media {
+  .donation-hero__media,
+  .partners-hero .about-hero__media,
+  .faq-hero__media,
+  .creative-makers-hero__media {
     grid-column: 1;
     grid-row: 2;
     margin-right: 0;
     width: 100%;
+    max-width: 100%;
+    min-width: 0;
     justify-content: center;
+    overflow: hidden;
   }
 
   .apply-hero__banner,
@@ -9141,10 +9271,19 @@ img.lazy-img.loaded {
   .for-parents-hero .about-hero__banner,
   .get-involved-hero .about-hero__banner,
   .vision-hero .about-hero__banner,
-  .explore-hero__banner {
-    max-height: 360px;
+  .explore-hero__banner,
+  .home-hero__banner,
+  .creative-makers-hero__banner,
+  .apply-hero__banner,
+  .faq-hero__banner {
+    display: block;
+    width: 100%;
     max-width: 100%;
+    height: auto;
+    max-height: 360px;
+    object-fit: contain;
     object-position: center bottom;
+    transform: none;
   }
 
   .vision-hero .about-hero__banner {

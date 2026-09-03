@@ -60,7 +60,7 @@
     });
 
     $(window).on('resize', function () {
-      if (window.innerWidth >= 1024 && $menu.attr('aria-hidden') === 'false') {
+      if (window.innerWidth >= 1201 && $menu.attr('aria-hidden') === 'false') {
         setMenuOpen(false);
       }
     });
