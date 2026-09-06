@@ -16284,7 +16284,7 @@ body.newsletter-success-open {
   }
 
   .media-policy-hero__media {
-    order: 0;
+    order: 2;
   }
 
   .media-policy-section__body {
@@ -17249,7 +17249,7 @@ body.newsletter-success-open {
   }
 
   .accessibility-hero__media {
-    order: -1;
+    order: 2;
   }
 
   .accessibility-commitment__inner {
@@ -17799,7 +17799,7 @@ body.newsletter-success-open {
   }
 
   .financial-hero__media {
-    order: -1;
+    order: 2;
   }
 
   .financial-commitment__inner {
@@ -18336,7 +18336,7 @@ body.newsletter-success-open {
   }
 
   .terms-hero__media {
-    order: -1;
+    order: 2;
   }
 
   .terms-commitment__inner {
@@ -18720,6 +18720,18 @@ body.newsletter-success-open {
     margin: 4px 0 0;
   }
 
+  .page-hero .page-hero__content,
+  .page-hero .apply-hero__content,
+  .page-hero .creative-makers-hero__content,
+  .page-hero .vision-hero__content,
+  .page-hero .media-policy-hero__content,
+  .page-hero .accessibility-hero__content,
+  .page-hero .financial-hero__content,
+  .page-hero .terms-hero__content,
+  .page-hero .faq-hero__content {
+    order: 1 !important;
+  }
+
   .page-hero .hero-ctas .btn,
   .page-hero .page-hero__actions .btn,
   .page-hero [class*='__actions'] .btn {
@@ -18739,7 +18751,7 @@ body.newsletter-success-open {
     margin-inline: 0 !important;
     padding-inline: 0 !important;
     grid-row: auto;
-    order: 0 !important;
+    order: 2 !important;
     overflow: visible !important;
   }
 
@@ -18793,7 +18805,7 @@ body.newsletter-success-open {
 
   .page-hero.media-policy-hero .media-policy-hero__media,
   .page-hero.privacy-hero .media-policy-hero__media {
-    order: 0 !important;
+    order: 2 !important;
   }
 
   .page-hero .explore-hero__deco,
@@ -22106,12 +22118,12 @@ body.newsletter-success-open {
   }
 }
 
-/* Phone — image on top, original centered banner + spacing (≤767px) */
+/* Phone — image below content/buttons, centered banner (≤767px) */
 @media (max-width: 767px) {
   .page-hero .hero-image-wrap,
   .page-hero [class*='__media'],
   .page-hero .home-hero__media {
-    order: 0 !important;
+    order: 2 !important;
     justify-content: center !important;
     align-items: center !important;
     margin-top: 0 !important;
@@ -22224,4 +22236,24 @@ body.newsletter-success-open {
 /* Home pillars — 20px top space below hero */
 #main-content > section.home-hero + section.home-pillars {
   padding-top: 20px;
+}
+
+/* Mobile/tablet — hero image always below content + buttons (all pages, ≤1023px) */
+@media (max-width: 1023px) {
+  .page-hero .page-hero__inner {
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  .page-hero .page-hero__content {
+    order: 1 !important;
+  }
+
+  .page-hero .hero-image-wrap,
+  .page-hero .home-hero__media,
+  .page-hero [class*='-hero__media'],
+  .page-hero .about-hero__media,
+  .page-hero .creative-makers-hero__media {
+    order: 2 !important;
+  }
 }
