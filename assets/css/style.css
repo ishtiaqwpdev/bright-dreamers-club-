@@ -22269,3 +22269,35 @@ body.newsletter-success-open {
     overflow: visible !important;
   }
 }
+
+/* Creative Makers — desktop: remove star near buttons (≥1024px) */
+@media (min-width: 1024px) {
+  .creative-makers-page .page-hero.creative-makers-hero .creative-makers-hero__deco--star,
+  .page-hero.creative-makers-hero .creative-makers-hero__deco--star {
+    display: none !important;
+  }
+
+  .creative-makers-page .page-hero.creative-makers-hero .hero-image-wrap,
+  .creative-makers-page .page-hero.creative-makers-hero .creative-makers-hero__media,
+  .page-hero.creative-makers-hero .hero-image-wrap,
+  .page-hero.creative-makers-hero .creative-makers-hero__media {
+    justify-content: flex-end !important;
+    align-items: flex-end !important;
+    overflow: hidden !important;
+  }
+
+  .creative-makers-page .page-hero.creative-makers-hero .hero-image-wrap .lazy-img-wrap,
+  .creative-makers-page .page-hero.creative-makers-hero .creative-makers-hero__media .lazy-img-wrap,
+  .page-hero.creative-makers-hero .hero-image-wrap .lazy-img-wrap,
+  .page-hero.creative-makers-hero .creative-makers-hero__media .lazy-img-wrap {
+    justify-content: flex-end !important;
+    align-items: flex-end !important;
+  }
+
+  .creative-makers-page .page-hero.creative-makers-hero .creative-makers-hero__banner,
+  .creative-makers-page .page-hero.creative-makers-hero picture img.creative-makers-hero__banner,
+  .page-hero.creative-makers-hero .creative-makers-hero__banner,
+  .page-hero.creative-makers-hero picture img.creative-makers-hero__banner {
+    object-position: right bottom !important;
+  }
+}
