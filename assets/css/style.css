@@ -22257,3 +22257,15 @@ body.newsletter-success-open {
     order: 2 !important;
   }
 }
+
+/* About page — mobile: hide decorative icons below heading (≤767px) */
+@media (max-width: 767px) {
+  .page-hero.about-hero .about-hero__deco {
+    display: none !important;
+  }
+
+  .page-hero.about-hero:has(.about-hero__deco),
+  .page-hero.about-hero .page-hero__content:has(.about-hero__deco) {
+    overflow: visible !important;
+  }
+}
