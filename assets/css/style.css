@@ -22220,3 +22220,8 @@ body.newsletter-success-open {
     max-height: none !important;
   }
 }
+
+/* Home pillars — 20px top space below hero */
+#main-content > section.home-hero + section.home-pillars {
+  padding-top: 20px;
+}
