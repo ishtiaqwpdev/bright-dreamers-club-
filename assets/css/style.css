@@ -21893,7 +21893,7 @@ body.newsletter-success-open {
     width: auto;
     max-width: 520px;
     margin-inline: 0;
-    margin-right: 0;
+    margin-right: 0 !important;
     padding: 0;
     text-align: left;
   }
@@ -21941,7 +21941,8 @@ body.newsletter-success-open {
     max-width: none;
     position: relative;
     overflow: hidden;
-    margin: 0;
+    margin: 0 !important;
+    margin-left: 0 !important;
     padding: 0;
   }
 
@@ -21961,7 +21962,7 @@ body.newsletter-success-open {
     width: 100%;
     max-width: 100%;
     height: auto;
-    max-height: none;
+    max-height: none !important;
     object-fit: contain;
     object-position: left bottom;
     transform: none;
