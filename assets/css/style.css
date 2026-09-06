@@ -1743,11 +1743,6 @@ button {
     padding-right: var(--container-padding);
   }
 
-  /* Explore keeps bottom-aligned banner composition */
-  .page-hero.explore-hero .page-hero__inner {
-    align-items: end;
-  }
-
   .page-hero.home-hero .page-hero__content,
   .page-hero.about-hero .page-hero__content,
   .page-hero.explore-hero .page-hero__content,
@@ -1767,12 +1762,20 @@ button {
   .create-for-cause-page .page-hero.create-for-cause-hero .page-hero__content,
   .community-adventures-page .page-hero.community-adventures-hero .page-hero__content {
     grid-column: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    align-self: center;
     flex: none;
     width: 100%;
-    max-width: none;
+    max-width: var(--page-hero-content-max-width, 520px);
     justify-self: start;
     margin-inline: 0;
+    padding-top: 0;
+    padding-bottom: 0;
     padding-right: 0;
+    text-align: left;
   }
 
   .page-hero.home-hero .home-hero__media,
@@ -1803,13 +1806,11 @@ button {
   .create-for-cause-page .page-hero.create-for-cause-hero .creative-makers-hero__media,
   .community-adventures-page .page-hero.community-adventures-hero .creative-makers-hero__media {
     grid-column: 2;
+    display: flex;
+    align-items: center;
+    align-self: center;
     width: 100%;
     justify-content: flex-end;
-  }
-
-  .page-hero.explore-hero .explore-hero__media {
-    align-self: end;
-    align-items: flex-end;
   }
 
   .page-hero.home-hero .page-hero__text,
@@ -9423,11 +9424,191 @@ img.lazy-img.loaded {
   }
 }
 
+/* Desktop hero (≥1024px): text block + image vertically centered as whole units */
+@media (min-width: 1024px) {
+  :root {
+    --page-hero-balanced-content-col: 0.42fr;
+    --page-hero-balanced-media-col: 0.58fr;
+    --contact-hero-content-col: 0.42fr;
+    --contact-hero-media-col: 0.58fr;
+    --vision-hero-content-col: 0.42fr;
+    --vision-hero-media-col: 0.58fr;
+    --explore-hero-content-col: 0.42fr;
+    --explore-hero-media-col: 0.58fr;
+    --home-hero-content-share: 42%;
+    --page-hero-col-gap: 56px;
+    --home-hero-col-gap: 56px;
+    --explore-hero-inner-gap: 56px;
+    --page-hero-content-max-width: 520px;
+    --home-hero-content-max: 520px;
+    --explore-hero-content-max: 520px;
+    --page-hero-desktop-pad-top: 12px;
+    --page-hero-desktop-pad-bottom: 1rem;
+    --page-hero-next-section-gap: 1rem;
+    --page-hero-desktop-min-height: clamp(500px, calc(100vh - 160px), 620px);
+  }
+
+  #main-content > section.page-hero.home-hero,
+  #main-content > section.page-hero.about-hero,
+  #main-content > section.page-hero.explore-hero,
+  #main-content > section.page-hero.for-parents-hero,
+  #main-content > section.page-hero.vision-hero,
+  #main-content > section.page-hero.partners-hero,
+  #main-content > section.page-hero.contact-hero,
+  #main-content > section.home-hero,
+  #main-content > section.about-hero,
+  #main-content > section.explore-hero.page-hero,
+  #main-content > section.for-parents-hero,
+  #main-content > section.vision-hero,
+  #main-content > section.partners-hero,
+  #main-content > section.contact-hero {
+    min-height: var(--page-hero-desktop-min-height);
+    padding-top: var(--page-hero-desktop-pad-top);
+    padding-bottom: var(--page-hero-next-section-gap);
+  }
+
+  #main-content > section.home-hero + section,
+  #main-content > section.about-hero + section,
+  #main-content > section.for-parents-hero + section,
+  #main-content > section.vision-hero + section,
+  #main-content > section.partners-hero + section,
+  #main-content > section.contact-hero + section,
+  #main-content > section.explore-hero.page-hero + #explore-content > .explore-ways:first-child {
+    padding-top: 0;
+  }
+
+  #explore-content > .explore-ways:first-child {
+    margin-top: 0;
+    padding-top: 0;
+  }
+
+  .our-vision-page #main-content > section.vision-hero + section.vision-hero-checklist {
+    padding-top: 0;
+  }
+
+  .page-hero.home-hero,
+  .page-hero.about-hero,
+  .page-hero.explore-hero,
+  .page-hero.for-parents-hero,
+  .page-hero.vision-hero,
+  .page-hero.partners-hero,
+  .page-hero.contact-hero {
+    min-height: var(--page-hero-desktop-min-height);
+    padding-top: var(--page-hero-desktop-pad-top);
+    padding-bottom: var(--page-hero-next-section-gap);
+  }
+
+  .our-vision-page #main-content > section.vision-hero {
+    min-height: var(--page-hero-desktop-min-height);
+    padding-bottom: var(--page-hero-next-section-gap);
+  }
+
+  .page-hero.home-hero .page-hero__inner,
+  .page-hero.about-hero .page-hero__inner,
+  .page-hero.explore-hero .page-hero__inner,
+  .page-hero.for-parents-hero .page-hero__inner,
+  .page-hero.vision-hero .page-hero__inner,
+  .page-hero.partners-hero .page-hero__inner,
+  .page-hero.contact-hero .page-hero__inner {
+    display: grid;
+    grid-template-columns: minmax(0, var(--page-hero-balanced-content-col))
+      minmax(0, var(--page-hero-balanced-media-col));
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--page-hero-col-gap);
+    min-height: inherit;
+    max-width: var(--container-max-width);
+    padding-left: var(--container-padding);
+    padding-right: var(--container-padding);
+  }
+
+  .page-hero.home-hero .page-hero__content,
+  .page-hero.about-hero .page-hero__content,
+  .page-hero.explore-hero .page-hero__content,
+  .page-hero.for-parents-hero .page-hero__content,
+  .page-hero.vision-hero .page-hero__content,
+  .page-hero.partners-hero .page-hero__content,
+  .page-hero.contact-hero .page-hero__content {
+    grid-column: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    align-self: center;
+    width: 100%;
+    max-width: var(--page-hero-content-max-width);
+    justify-self: start;
+    margin-inline: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    padding-right: 0;
+    text-align: left;
+  }
+
+  .page-hero.home-hero .page-hero__actions,
+  .page-hero.about-hero .page-hero__actions,
+  .page-hero.explore-hero .page-hero__actions,
+  .page-hero.for-parents-hero .page-hero__actions,
+  .page-hero.vision-hero .page-hero__actions,
+  .page-hero.partners-hero .page-hero__actions,
+  .page-hero.contact-hero .page-hero__actions {
+    justify-content: flex-start;
+  }
+
+  .page-hero.explore-hero .explore-hero__heading-block {
+    justify-content: flex-start;
+  }
+
+  .page-hero.home-hero .home-hero__media,
+  .page-hero.about-hero .about-hero__media,
+  .page-hero.about-hero .hero-image-wrap,
+  .page-hero.explore-hero .explore-hero__media,
+  .page-hero.for-parents-hero .about-hero__media,
+  .page-hero.for-parents-hero .hero-image-wrap,
+  .page-hero.vision-hero .about-hero__media,
+  .page-hero.vision-hero .hero-image-wrap,
+  .page-hero.partners-hero .about-hero__media,
+  .page-hero.partners-hero .hero-image-wrap,
+  .page-hero.contact-hero .about-hero__media,
+  .page-hero.contact-hero .hero-image-wrap {
+    grid-column: 2;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    align-self: center;
+    width: 100%;
+    min-width: 0;
+  }
+
+  .page-hero.about-hero .hero-headline [class*='__title-line'],
+  .page-hero.explore-hero .hero-headline [class*='__title-line'],
+  .page-hero.for-parents-hero .hero-headline [class*='__title-line'],
+  .page-hero.vision-hero .hero-headline [class*='__title-line'],
+  .page-hero.partners-hero .hero-headline [class*='__title-line'],
+  .page-hero.contact-hero .hero-headline [class*='__title-line'] {
+    white-space: normal;
+  }
+
+  .page-hero.home-hero .home-hero__banner,
+  .page-hero.about-hero .about-hero__banner,
+  .page-hero.explore-hero .explore-hero__banner,
+  .page-hero.for-parents-hero .about-hero__banner,
+  .page-hero.vision-hero .about-hero__banner,
+  .page-hero.partners-hero .about-hero__banner,
+  .page-hero.contact-hero .about-hero__banner {
+    max-height: min(420px, 52vh);
+    object-fit: contain;
+  }
+}
+
 @media (max-width: 1023px) {
   :root {
     --container-padding: 32px;
     --section-pad-y: 64px;
     --main-section-gap-y: 1.25rem;
+    --page-hero-mobile-stack-gap: 1.25rem;
+    --page-hero-mobile-content-gap: 0.85rem;
+    --page-hero-mobile-image-max-h: min(420px, 55vh);
   }
 
   .site-nav,
@@ -21344,5 +21525,335 @@ body.newsletter-success-open {
     padding-left: 20px;
     padding-right: 20px;
     padding-bottom: var(--vision-block-gap);
+  }
+}
+
+/* Mobile/tablet hero — unified stack + left align (7 main pages, ≤1023px) */
+@media (max-width: 1023px) {
+  .page-hero.home-hero,
+  .page-hero.about-hero,
+  .page-hero.explore-hero,
+  .page-hero.for-parents-hero,
+  .page-hero.vision-hero,
+  .page-hero.partners-hero,
+  .page-hero.contact-hero {
+    min-height: 0;
+    height: auto;
+    text-align: left;
+    align-items: stretch;
+    overflow: visible;
+  }
+
+  .page-hero.home-hero .page-hero__inner,
+  .page-hero.about-hero .page-hero__inner,
+  .page-hero.explore-hero .page-hero__inner,
+  .page-hero.for-parents-hero .page-hero__inner,
+  .page-hero.vision-hero .page-hero__inner,
+  .page-hero.partners-hero .page-hero__inner,
+  .page-hero.contact-hero .page-hero__inner {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    gap: var(--page-hero-mobile-stack-gap);
+    row-gap: var(--page-hero-mobile-stack-gap);
+    min-height: 0;
+    width: 100%;
+  }
+
+  .page-hero.home-hero .page-hero__content,
+  .page-hero.about-hero .page-hero__content,
+  .page-hero.explore-hero .page-hero__content,
+  .page-hero.for-parents-hero .page-hero__content,
+  .page-hero.vision-hero .page-hero__content,
+  .page-hero.partners-hero .page-hero__content,
+  .page-hero.contact-hero .page-hero__content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: var(--page-hero-mobile-content-gap);
+    order: 1;
+    width: 100%;
+    max-width: none;
+    padding: 0;
+    text-align: left;
+  }
+
+  .page-hero.home-hero .hero-label,
+  .page-hero.about-hero .hero-label,
+  .page-hero.explore-hero .hero-label,
+  .page-hero.for-parents-hero .hero-label,
+  .page-hero.vision-hero .hero-label,
+  .page-hero.partners-hero .hero-label,
+  .page-hero.contact-hero .hero-label,
+  .page-hero.home-hero .hero-headline,
+  .page-hero.about-hero .hero-headline,
+  .page-hero.explore-hero .hero-headline,
+  .page-hero.for-parents-hero .hero-headline,
+  .page-hero.vision-hero .hero-headline,
+  .page-hero.partners-hero .hero-headline,
+  .page-hero.contact-hero .hero-headline,
+  .page-hero.home-hero .hero-copy,
+  .page-hero.about-hero .hero-copy,
+  .page-hero.explore-hero .hero-copy,
+  .page-hero.for-parents-hero .hero-copy,
+  .page-hero.vision-hero .hero-copy,
+  .page-hero.partners-hero .hero-copy,
+  .page-hero.contact-hero .hero-copy,
+  .page-hero.home-hero .page-hero__text {
+    text-align: left;
+    margin-inline: 0;
+    max-width: none;
+  }
+
+  .page-hero.home-hero .hero-headline [class*='__title-line'],
+  .page-hero.about-hero .hero-headline [class*='__title-line'],
+  .page-hero.explore-hero .hero-headline [class*='__title-line'],
+  .page-hero.for-parents-hero .hero-headline [class*='__title-line'],
+  .page-hero.vision-hero .hero-headline [class*='__title-line'],
+  .page-hero.partners-hero .hero-headline [class*='__title-line'],
+  .page-hero.contact-hero .hero-headline [class*='__title-line'] {
+    white-space: normal;
+    text-align: left;
+  }
+
+  .page-hero.home-hero .home-hero__brand,
+  .page-hero.home-hero .page-hero__actions,
+  .page-hero.about-hero .page-hero__actions,
+  .page-hero.explore-hero .page-hero__actions,
+  .page-hero.explore-hero .explore-hero__heading-block,
+  .page-hero.for-parents-hero .page-hero__actions,
+  .page-hero.vision-hero .page-hero__actions,
+  .page-hero.partners-hero .page-hero__actions,
+  .page-hero.contact-hero .page-hero__actions {
+    justify-content: flex-start;
+    align-items: flex-start;
+    align-self: stretch;
+    width: 100%;
+    max-width: none;
+    margin-inline: 0;
+  }
+
+  .page-hero.home-hero .home-hero__logo {
+    object-position: left center;
+  }
+
+  .page-hero.home-hero .home-hero__media,
+  .page-hero.about-hero .about-hero__media,
+  .page-hero.about-hero .hero-image-wrap,
+  .page-hero.explore-hero .explore-hero__media,
+  .page-hero.for-parents-hero .about-hero__media,
+  .page-hero.for-parents-hero .hero-image-wrap,
+  .page-hero.vision-hero .about-hero__media,
+  .page-hero.vision-hero .hero-image-wrap,
+  .page-hero.partners-hero .about-hero__media,
+  .page-hero.partners-hero .hero-image-wrap,
+  .page-hero.contact-hero .about-hero__media,
+  .page-hero.contact-hero .hero-image-wrap {
+    order: 2;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
+    max-width: 100%;
+    min-height: 0;
+    margin: 0;
+    padding: 0;
+    overflow: visible;
+  }
+
+  .page-hero.home-hero .home-hero__banner,
+  .page-hero.about-hero .about-hero__banner,
+  .page-hero.explore-hero .explore-hero__banner,
+  .page-hero.for-parents-hero .about-hero__banner,
+  .page-hero.vision-hero .about-hero__banner,
+  .page-hero.partners-hero .about-hero__banner,
+  .page-hero.contact-hero .about-hero__banner {
+    display: block;
+    width: 100%;
+    height: auto;
+    min-height: 0;
+    max-height: var(--page-hero-mobile-image-max-h);
+    object-fit: contain;
+    object-position: left bottom;
+    transform: none;
+  }
+}
+
+/* Override shared compact mobile hero centering — 7 main pages stay left-aligned (≤767px) */
+@media (max-width: 767px) {
+  #main-content > section.page-hero.home-hero,
+  #main-content > section.page-hero.about-hero,
+  #main-content > section.page-hero.explore-hero,
+  #main-content > section.page-hero.for-parents-hero,
+  #main-content > section.page-hero.vision-hero,
+  #main-content > section.page-hero.partners-hero,
+  #main-content > section.page-hero.contact-hero {
+    text-align: left !important;
+    align-items: stretch !important;
+  }
+
+  .page-hero.home-hero .page-hero__inner,
+  .page-hero.about-hero .page-hero__inner,
+  .page-hero.explore-hero .page-hero__inner,
+  .page-hero.for-parents-hero .page-hero__inner,
+  .page-hero.vision-hero .page-hero__inner,
+  .page-hero.partners-hero .page-hero__inner,
+  .page-hero.contact-hero .page-hero__inner {
+    align-items: stretch !important;
+    gap: var(--page-hero-mobile-stack-gap) !important;
+    row-gap: var(--page-hero-mobile-stack-gap) !important;
+  }
+
+  .page-hero.home-hero .page-hero__content,
+  .page-hero.about-hero .page-hero__content,
+  .page-hero.explore-hero .page-hero__content,
+  .page-hero.for-parents-hero .page-hero__content,
+  .page-hero.vision-hero .page-hero__content,
+  .page-hero.partners-hero .page-hero__content,
+  .page-hero.contact-hero .page-hero__content {
+    align-items: flex-start !important;
+    text-align: left !important;
+    max-width: none !important;
+    padding-inline: 0 !important;
+  }
+
+  .page-hero.home-hero .hero-label,
+  .page-hero.about-hero .hero-label,
+  .page-hero.explore-hero .hero-label,
+  .page-hero.for-parents-hero .hero-label,
+  .page-hero.vision-hero .hero-label,
+  .page-hero.partners-hero .hero-label,
+  .page-hero.contact-hero .hero-label,
+  .page-hero.home-hero .hero-headline,
+  .page-hero.about-hero .hero-headline,
+  .page-hero.explore-hero .hero-headline,
+  .page-hero.for-parents-hero .hero-headline,
+  .page-hero.vision-hero .hero-headline,
+  .page-hero.partners-hero .hero-headline,
+  .page-hero.contact-hero .hero-headline,
+  .page-hero.home-hero .hero-copy,
+  .page-hero.about-hero .hero-copy,
+  .page-hero.explore-hero .hero-copy,
+  .page-hero.for-parents-hero .hero-copy,
+  .page-hero.vision-hero .hero-copy,
+  .page-hero.partners-hero .hero-copy,
+  .page-hero.contact-hero .hero-copy,
+  .page-hero.home-hero .page-hero__text,
+  .page-hero:not(.home-hero) .hero-headline,
+  .page-hero:not(.home-hero) h1,
+  .page-hero:not(.home-hero) [class*='__title-line'],
+  .page-hero:not(.home-hero) [class*='__title-row'],
+  .page-hero .hero-copy,
+  .page-hero .page-hero__text,
+  .page-hero [class*='__copy'],
+  .page-hero [class*='__text'] {
+    text-align: left !important;
+    margin-inline: 0 !important;
+    max-width: none !important;
+    justify-content: flex-start !important;
+  }
+
+  .page-hero.home-hero .home-hero__brand {
+    justify-content: flex-start !important;
+  }
+
+  .page-hero.home-hero .page-hero__actions,
+  .page-hero.about-hero .page-hero__actions,
+  .page-hero.explore-hero .page-hero__actions,
+  .page-hero.for-parents-hero .page-hero__actions,
+  .page-hero.vision-hero .page-hero__actions,
+  .page-hero.partners-hero .page-hero__actions,
+  .page-hero.contact-hero .page-hero__actions,
+  .page-hero .hero-ctas,
+  .page-hero .page-hero__actions {
+    align-items: stretch !important;
+    justify-content: flex-start !important;
+    max-width: none !important;
+    margin-inline: 0 !important;
+  }
+
+  .page-hero.home-hero .home-hero__media,
+  .page-hero.about-hero .about-hero__media,
+  .page-hero.about-hero .hero-image-wrap,
+  .page-hero.explore-hero .explore-hero__media,
+  .page-hero.for-parents-hero .about-hero__media,
+  .page-hero.for-parents-hero .hero-image-wrap,
+  .page-hero.vision-hero .about-hero__media,
+  .page-hero.vision-hero .hero-image-wrap,
+  .page-hero.partners-hero .about-hero__media,
+  .page-hero.partners-hero .hero-image-wrap,
+  .page-hero.contact-hero .about-hero__media,
+  .page-hero.contact-hero .hero-image-wrap {
+    justify-content: flex-start !important;
+    align-items: flex-start !important;
+    margin-top: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-inline: 0 !important;
+  }
+
+  .page-hero.home-hero .home-hero__banner,
+  .page-hero.about-hero .about-hero__banner,
+  .page-hero.explore-hero .explore-hero__banner,
+  .page-hero.for-parents-hero .about-hero__banner,
+  .page-hero.vision-hero .about-hero__banner,
+  .page-hero.partners-hero .about-hero__banner,
+  .page-hero.contact-hero .about-hero__banner {
+    max-height: var(--page-hero-mobile-image-max-h) !important;
+    min-height: 0 !important;
+    height: auto !important;
+    margin-inline: 0 !important;
+    object-position: left bottom !important;
+  }
+
+  #main-content > section.page-hero.home-hero .page-hero__inner,
+  #main-content > section.page-hero.about-hero .page-hero__inner,
+  #main-content > section.page-hero.explore-hero .page-hero__inner,
+  #main-content > section.page-hero.for-parents-hero .page-hero__inner,
+  #main-content > section.page-hero.vision-hero .page-hero__inner,
+  #main-content > section.page-hero.partners-hero .page-hero__inner,
+  #main-content > section.page-hero.contact-hero .page-hero__inner {
+    gap: var(--page-hero-mobile-stack-gap) !important;
+    row-gap: var(--page-hero-mobile-stack-gap) !important;
+  }
+
+  #main-content > section.page-hero.home-hero .page-hero__content,
+  #main-content > section.page-hero.about-hero .page-hero__content,
+  #main-content > section.page-hero.explore-hero .page-hero__content,
+  #main-content > section.page-hero.for-parents-hero .page-hero__content,
+  #main-content > section.page-hero.vision-hero .page-hero__content,
+  #main-content > section.page-hero.partners-hero .page-hero__content,
+  #main-content > section.page-hero.contact-hero .page-hero__content {
+    padding-bottom: 0 !important;
+    margin-bottom: 0 !important;
+    text-align: left !important;
+  }
+
+  #main-content > section.page-hero.home-hero .page-hero__actions,
+  #main-content > section.page-hero.about-hero .page-hero__actions,
+  #main-content > section.page-hero.explore-hero .page-hero__actions,
+  #main-content > section.page-hero.for-parents-hero .page-hero__actions,
+  #main-content > section.page-hero.vision-hero .page-hero__actions,
+  #main-content > section.page-hero.partners-hero .page-hero__actions,
+  #main-content > section.page-hero.contact-hero .page-hero__actions {
+    margin-bottom: 0 !important;
+  }
+
+  #main-content > section.page-hero.home-hero .home-hero__media,
+  #main-content > section.page-hero.about-hero .about-hero__media,
+  #main-content > section.page-hero.about-hero .hero-image-wrap,
+  #main-content > section.page-hero.explore-hero .explore-hero__media,
+  #main-content > section.page-hero.for-parents-hero .about-hero__media,
+  #main-content > section.page-hero.for-parents-hero .hero-image-wrap,
+  #main-content > section.page-hero.vision-hero .about-hero__media,
+  #main-content > section.page-hero.vision-hero .hero-image-wrap,
+  #main-content > section.page-hero.partners-hero .about-hero__media,
+  #main-content > section.page-hero.partners-hero .hero-image-wrap,
+  #main-content > section.page-hero.contact-hero .about-hero__media,
+  #main-content > section.page-hero.contact-hero .hero-image-wrap {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
   }
 }
