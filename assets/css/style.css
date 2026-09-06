@@ -22181,3 +22181,42 @@ body.newsletter-success-open {
     margin-inline: 0 !important;
   }
 }
+
+/* Our Vision hero — desktop: 0px gap between text and image (≥1024px) */
+@media (min-width: 1024px) {
+  .page-hero.vision-hero:not(.partners-hero) .page-hero__inner,
+  .our-vision-page .page-hero.vision-hero:not(.partners-hero) .page-hero__inner {
+    gap: 0 !important;
+    column-gap: 0 !important;
+  }
+
+  .page-hero.vision-hero:not(.partners-hero) .page-hero__content,
+  .our-vision-page .page-hero.vision-hero:not(.partners-hero) .page-hero__content {
+    flex: 0 0 auto !important;
+    width: auto !important;
+    max-width: 520px !important;
+    margin-right: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  .page-hero.vision-hero:not(.partners-hero) .about-hero__media,
+  .page-hero.vision-hero:not(.partners-hero) .hero-image-wrap,
+  .our-vision-page .page-hero.vision-hero:not(.partners-hero) .about-hero__media,
+  .our-vision-page .page-hero.vision-hero:not(.partners-hero) .hero-image-wrap {
+    flex: 1 1 0 !important;
+    justify-content: flex-start !important;
+    align-items: flex-end !important;
+    margin-left: 0 !important;
+    padding-left: 0 !important;
+  }
+
+  .page-hero.vision-hero:not(.partners-hero) .about-hero__banner,
+  .our-vision-page .page-hero.vision-hero:not(.partners-hero) .about-hero__banner,
+  .our-vision-page .page-hero.vision-hero:not(.partners-hero) picture img.about-hero__banner {
+    transform: none !important;
+    object-position: left bottom !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    max-height: none !important;
+  }
+}
