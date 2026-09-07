@@ -22367,3 +22367,37 @@ body.newsletter-success-open {
     object-position: left center !important;
   }
 }
+
+/* Explore hero — mobile/tablet: 0px top spacing on banner image (≤1023px) */
+@media (max-width: 1023px) {
+  #main-content > section.page-hero.explore-hero .page-hero__inner,
+  .page-hero.explore-hero .page-hero__inner {
+    gap: 0 !important;
+    row-gap: 0 !important;
+  }
+
+  #main-content > section.page-hero.explore-hero .page-hero__content,
+  .page-hero.explore-hero .page-hero__content {
+    padding-bottom: 0 !important;
+    margin-bottom: 0 !important;
+  }
+
+  #main-content > section.page-hero.explore-hero .page-hero__actions,
+  #main-content > section.page-hero.explore-hero .hero-ctas,
+  .page-hero.explore-hero .page-hero__actions,
+  .page-hero.explore-hero .hero-ctas {
+    margin-bottom: 0 !important;
+  }
+
+  #main-content > section.page-hero.explore-hero .explore-hero__media,
+  #main-content > section.page-hero.explore-hero .hero-image-wrap,
+  #main-content > section.page-hero.explore-hero .explore-hero__media .lazy-img-wrap,
+  #main-content > section.page-hero.explore-hero .explore-hero__media picture,
+  .page-hero.explore-hero .explore-hero__media,
+  .page-hero.explore-hero .hero-image-wrap,
+  .page-hero.explore-hero .explore-hero__media .lazy-img-wrap,
+  .page-hero.explore-hero .explore-hero__media picture {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+  }
+}
