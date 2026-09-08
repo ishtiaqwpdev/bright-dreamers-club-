@@ -23915,3 +23915,191 @@ body.newsletter-success-open {
     margin-inline: 0 !important;
   }
 }
+
+/* For Parents page — banner section: 100% reference layout on mobile (≤767px) */
+@media (max-width: 767px) {
+  .for-parents-page #main-content > section.page-hero.for-parents-hero,
+  .for-parents-page .page-hero.for-parents-hero {
+    padding: 0 0 24px !important;
+    margin-top: 0 !important;
+    min-height: 0 !important;
+    text-align: left !important;
+    align-items: stretch !important;
+    justify-content: flex-start !important;
+    gap: 0 !important;
+    background-color: #fff !important;
+  }
+
+  .for-parents-page #main-content > section.page-hero.for-parents-hero,
+  .for-parents-page #main-content > section.for-parents-hero.page-hero {
+    padding-top: 0 !important;
+  }
+
+  .for-parents-page .page-hero.for-parents-hero > .site-container.page-hero__inner,
+  .for-parents-page .page-hero.for-parents-hero .page-hero__inner {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    justify-content: flex-start !important;
+    gap: 1rem !important;
+    row-gap: 1rem !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    min-height: 0 !important;
+  }
+
+  .for-parents-page .page-hero.for-parents-hero .about-hero__media,
+  .for-parents-page .page-hero.for-parents-hero .hero-image-wrap {
+    order: -1 !important;
+    grid-row: auto !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+    margin-top: 0 !important;
+    padding: 0 var(--container-padding) !important;
+    overflow: visible !important;
+    background: #fff !important;
+    background-color: #fff !important;
+  }
+
+  .for-parents-page .page-hero.for-parents-hero .about-hero__media .lazy-img-wrap,
+  .for-parents-page .page-hero.for-parents-hero .about-hero__media picture {
+    display: block !important;
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+    overflow: visible !important;
+    background: #fff !important;
+    background-color: #fff !important;
+    text-align: center !important;
+  }
+
+  .for-parents-page .page-hero.for-parents-hero .about-hero__banner {
+    display: block !important;
+    width: 100% !important;
+    max-width: none !important;
+    height: auto !important;
+    max-height: none !important;
+    min-height: 0 !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+    border-radius: 0 !important;
+    object-fit: contain !important;
+    object-position: center top !important;
+    background: #fff !important;
+    background-color: #fff !important;
+    filter: none !important;
+    transform: none !important;
+  }
+
+  .for-parents-page .page-hero.for-parents-hero .page-hero__content {
+    order: 1 !important;
+    grid-row: auto !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    justify-content: flex-start !important;
+    gap: 0.85rem !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 var(--container-padding) !important;
+    padding-right: var(--container-padding) !important;
+    text-align: left !important;
+    overflow: visible !important;
+    position: static !important;
+  }
+
+  .for-parents-page .page-hero.for-parents-hero .about-hero__deco {
+    display: none !important;
+  }
+
+  .for-parents-page .page-hero.for-parents-hero .hero-headline {
+    font-family: var(--font-heading) !important;
+    font-size: inherit !important;
+    font-weight: 700 !important;
+    line-height: 1.12 !important;
+    letter-spacing: -0.02em !important;
+    text-align: left !important;
+    max-width: 100% !important;
+    width: 100% !important;
+    margin: 0 !important;
+  }
+
+  .for-parents-page .page-hero.for-parents-hero .for-parents-hero__title-line,
+  .for-parents-page .page-hero.for-parents-hero .hero-headline .for-parents-hero__title-line {
+    display: block !important;
+    text-align: left !important;
+    white-space: normal !important;
+    margin: 0 !important;
+    font-family: var(--font-heading) !important;
+    font-weight: 700 !important;
+    letter-spacing: -0.02em !important;
+  }
+
+  .for-parents-page .page-hero.for-parents-hero .for-parents-hero__title-line--pink {
+    color: var(--color-pink) !important;
+    font-size: clamp(1.45rem, 6.2vw, 1.75rem) !important;
+    line-height: 1.15 !important;
+    margin-bottom: 0.1rem !important;
+  }
+
+  .for-parents-page .page-hero.for-parents-hero .for-parents-hero__title-line--navy {
+    color: var(--color-navy) !important;
+    font-size: clamp(1.75rem, 7.5vw, 2.15rem) !important;
+    line-height: 1.12 !important;
+  }
+
+  .for-parents-page .page-hero.for-parents-hero .hero-copy {
+    font-family: var(--font-body) !important;
+    font-size: clamp(0.88rem, 2.6vw, 1rem) !important;
+    font-weight: 400 !important;
+    line-height: 1.55 !important;
+    color: var(--color-navy) !important;
+    text-align: left !important;
+    max-width: 100% !important;
+    width: 100% !important;
+    margin: 0 !important;
+  }
+
+  .for-parents-page .page-hero.for-parents-hero .for-parents-hero__accent--pink {
+    color: var(--color-pink) !important;
+    font-weight: 700 !important;
+  }
+
+  .for-parents-page .page-hero.for-parents-hero .for-parents-hero__accent--green {
+    color: var(--color-green) !important;
+    font-weight: 700 !important;
+  }
+
+  .for-parents-page .page-hero.for-parents-hero .for-parents-hero__accent--cyan {
+    color: var(--color-cyan) !important;
+    font-weight: 700 !important;
+  }
+
+  .for-parents-page .page-hero.for-parents-hero .page-hero__actions,
+  .for-parents-page .page-hero.for-parents-hero .hero-ctas {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    justify-content: flex-start !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    gap: 8px !important;
+  }
+
+  .for-parents-page .page-hero.for-parents-hero .page-hero__actions .btn,
+  .for-parents-page .page-hero.for-parents-hero .hero-ctas .btn {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-inline: 0 !important;
+    justify-content: center !important;
+  }
+}
