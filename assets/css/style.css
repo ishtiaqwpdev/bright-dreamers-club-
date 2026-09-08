@@ -3664,6 +3664,10 @@ img.lazy-img.loaded {
   grid-column: 2;
 }
 
+.vision-moments__list-slide {
+  display: none;
+}
+
 .vision-moments__check {
   display: inline-flex;
   align-items: center;
@@ -24786,12 +24790,23 @@ body.newsletter-success-open {
   }
 
   .our-vision-page .vision-moments__card {
-    order: 1 !important;
+    order: 0 !important;
     background: transparent !important;
     padding: 0 !important;
     margin: 0 !important;
     min-height: 0 !important;
     box-shadow: none !important;
+  }
+
+  .our-vision-page .vision-moments .bdc-carousel-shell--arrows {
+    order: 1 !important;
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    padding-inline: clamp(28px, 8vw, 36px);
+    overflow: hidden !important;
+    overflow-x: hidden !important;
   }
 
   .our-vision-page .vision-moments__card .vision-section__title {
@@ -24806,7 +24821,7 @@ body.newsletter-success-open {
     font-weight: 700 !important;
     line-height: 1.15 !important;
     color: var(--color-navy) !important;
-    margin: 0 0 0.35rem !important;
+    margin: 0 0 clamp(0.75rem, 2.5vw, 1rem) !important;
     width: 100% !important;
   }
 
@@ -24821,7 +24836,7 @@ body.newsletter-success-open {
   }
 
   .our-vision-page .vision-moments__gallery {
-    order: 2 !important;
+    order: unset !important;
     width: 100% !important;
     max-width: 100% !important;
     margin: 0 !important;
@@ -24829,16 +24844,6 @@ body.newsletter-success-open {
 
   .our-vision-page .vision-moments__photo-duo {
     display: contents !important;
-  }
-
-  .our-vision-page .vision-moments .bdc-carousel-shell--arrows {
-    position: relative;
-    width: 100%;
-    max-width: 100%;
-    box-sizing: border-box;
-    padding-inline: clamp(28px, 8vw, 36px);
-    overflow: hidden !important;
-    overflow-x: hidden !important;
   }
 
   .our-vision-page .vision-moments .bdc-carousel-shell--arrows .vision-moments__gallery.bdc-mobile-carousel {
@@ -24879,7 +24884,8 @@ body.newsletter-success-open {
   }
 
   .our-vision-page .vision-moments__photo-wrap.bdc-mobile-carousel__item,
-  .our-vision-page .vision-moments__feature.bdc-mobile-carousel__item {
+  .our-vision-page .vision-moments__feature.bdc-mobile-carousel__item,
+  .our-vision-page .vision-moments__list-slide.bdc-mobile-carousel__item {
     flex: 0 0 100% !important;
     flex-shrink: 0 !important;
     width: 100% !important;
@@ -24891,15 +24897,57 @@ body.newsletter-success-open {
     box-sizing: border-box !important;
     border-radius: var(--home-pillar-radius) !important;
     overflow: hidden !important;
-    aspect-ratio: 4 / 3 !important;
-    height: auto !important;
     align-self: stretch !important;
   }
 
   .our-vision-page .vision-moments__photo-wrap.bdc-mobile-carousel__item {
+    aspect-ratio: 4 / 3 !important;
+    height: auto !important;
     display: flex !important;
     align-items: stretch !important;
     justify-content: center !important;
+  }
+
+  .our-vision-page .vision-moments__feature.bdc-mobile-carousel__item {
+    aspect-ratio: 4 / 3 !important;
+    height: auto !important;
+    position: relative !important;
+  }
+
+  .our-vision-page .vision-moments__list-slide.bdc-mobile-carousel__item {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    aspect-ratio: auto !important;
+    height: auto !important;
+    min-height: clamp(220px, 58vw, 300px) !important;
+    background-color: var(--vision-moments-bg) !important;
+    padding: clamp(0.85rem, 2.5vw, 1.1rem) clamp(0.75rem, 2.5vw, 0.95rem) !important;
+    overflow: visible !important;
+  }
+
+  .our-vision-page .vision-moments__list-slide .vision-moments__list--slide {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: clamp(0.35rem, 1.5vw, 0.55rem) clamp(0.45rem, 2vw, 0.65rem) !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    list-style: none !important;
+  }
+
+  .our-vision-page .vision-moments__list-slide .vision-moments__list--slide li {
+    display: flex !important;
+    align-items: flex-start !important;
+    gap: 0.38rem !important;
+    font-family: var(--font-body) !important;
+    font-size: clamp(0.68rem, 2.4vw, 0.78rem) !important;
+    line-height: 1.35 !important;
+    color: var(--color-navy) !important;
+  }
+
+  .our-vision-page .vision-moments__list-slide .vision-moments__list-more {
+    grid-column: 2 !important;
   }
 
   .our-vision-page .vision-moments__photo-wrap .lazy-img-wrap,
@@ -24912,14 +24960,10 @@ body.newsletter-success-open {
   .our-vision-page .vision-moments__photo-wrap .vision-moments__photo {
     width: 100% !important;
     height: 100% !important;
-    object-fit: cover !important;
+    object-fit: contain !important;
     object-position: center center !important;
     border-radius: var(--home-pillar-radius) !important;
-  }
-
-  .our-vision-page .vision-moments__feature.bdc-mobile-carousel__item {
-    aspect-ratio: 16 / 10 !important;
-    position: relative !important;
+    background-color: rgba(255, 255, 255, 0.55) !important;
   }
 
   .our-vision-page .vision-moments__feature-inner {
@@ -24931,8 +24975,9 @@ body.newsletter-success-open {
   .our-vision-page .vision-moments__feature-img {
     width: 100% !important;
     height: 100% !important;
-    object-fit: cover !important;
+    object-fit: contain !important;
     object-position: center center !important;
+    background-color: rgba(255, 255, 255, 0.55) !important;
   }
 
   .our-vision-page .vision-moments__feature-copy {

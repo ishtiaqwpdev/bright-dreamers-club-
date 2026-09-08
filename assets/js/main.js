@@ -776,7 +776,7 @@
       { track: '.vision-journey-steps', item: '.vision-journey-step', mode: 'full' },
       {
         track: '.vision-moments__gallery',
-        item: '.vision-moments__photo-wrap, .vision-moments__feature',
+        item: '.vision-moments__photo-wrap, .vision-moments__feature, .vision-moments__list-slide',
         mode: 'full',
       },
       { track: '.vision-partner__icons', item: '.vision-partner__icon-item', mode: 'peek' },

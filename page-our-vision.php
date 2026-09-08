@@ -837,6 +837,19 @@ $vision_together_support_btn_link = bdc_get_acf_link(
                 </div>
               </figure>
             </div>
+
+            <article class="vision-moments__list-slide" aria-label="<?php echo esc_attr( $vision_moments_title ); ?>">
+              <ul class="vision-moments__list vision-moments__list--slide">
+                <?php foreach ( $vision_moments_list as $moment_item ) : ?>
+                <li<?php echo ! empty( $moment_item['is_more'] ) ? ' class="vision-moments__list-more"' : ''; ?>>
+                  <span class="vision-moments__check" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" width="10" height="10" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7" /></svg>
+                  </span>
+                  <?php echo esc_html( $moment_item['item_text'] ); ?>
+                </li>
+                <?php endforeach; ?>
+              </ul>
+            </article>
           </div>
         </div>
       </section>
