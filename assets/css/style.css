@@ -26034,12 +26034,34 @@ body.newsletter-success-open {
     grid-row: 1 / span 2 !important;
     align-self: center !important;
     flex-shrink: 0 !important;
-    width: clamp(56px, 14vw, 72px) !important;
-    height: clamp(56px, 14vw, 72px) !important;
+    display: block !important;
+    width: var(--partners-ways-icon-size) !important;
+    height: var(--partners-ways-icon-size) !important;
     max-width: none !important;
     margin: 0 !important;
     object-fit: contain !important;
+    filter: var(--partners-ways-icon-filter) !important;
     mix-blend-mode: normal !important;
+  }
+
+  .partners-page .partners-ways-card--purple .partners-ways-card__icon {
+    filter: brightness(1.1) contrast(1.08) saturate(1.08) hue-rotate(-4deg) !important;
+  }
+
+  .partners-page .partners-ways-card--green .partners-ways-card__icon {
+    filter: brightness(1.1) contrast(1.08) saturate(1.1) hue-rotate(8deg) !important;
+  }
+
+  .partners-page .partners-ways-card--blue .partners-ways-card__icon {
+    filter: brightness(1.1) contrast(1.08) saturate(1.08) hue-rotate(-12deg) !important;
+  }
+
+  .partners-page .partners-ways-card--pink .partners-ways-card__icon {
+    filter: brightness(1.1) contrast(1.08) saturate(1.1) hue-rotate(320deg) !important;
+  }
+
+  .partners-page .partners-ways-card--orange .partners-ways-card__icon {
+    filter: brightness(1.1) contrast(1.08) saturate(1.12) hue-rotate(-6deg) !important;
   }
 
   .partners-page .partners-ways-card__title {
