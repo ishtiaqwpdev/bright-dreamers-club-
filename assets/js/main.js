@@ -1142,7 +1142,7 @@
           track.style.setProperty('padding-left', 'clamp(28px, 8vw, 36px)', 'important');
           track.style.setProperty('padding-right', 'clamp(28px, 8vw, 36px)', 'important');
           track.style.setProperty('padding-inline', 'clamp(28px, 8vw, 36px)', 'important');
-          track.style.setProperty('scroll-padding-inline', 'clamp(28px, 8vw, 36px)', 'important');
+          track.style.setProperty('scroll-padding-inline', '0', 'important');
         } else {
           track.style.setProperty('padding', '2px 2px 16px', 'important');
           track.style.setProperty('padding-left', '2px', 'important');

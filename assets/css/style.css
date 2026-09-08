@@ -9997,10 +9997,21 @@ img.lazy-img.loaded {
     display: none;
   }
 
-  .explore-way {
+  .explore-ways__grid:not(.bdc-mobile-carousel) .explore-way {
     flex: 0 0 min(240px, 74vw);
     scroll-snap-align: start;
     min-height: auto;
+  }
+
+  .explore-ways__grid.bdc-mobile-carousel .explore-way {
+    flex: 0 0 100%;
+    width: 100%;
+    min-width: 100%;
+    max-width: 100%;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    min-height: auto;
+    box-sizing: border-box;
   }
 
   .explore-way__head {
@@ -23649,6 +23660,52 @@ body.newsletter-success-open {
   .explore-grow .bdc-carousel-shell--arrows .bdc-carousel-dots {
     margin-top: 0.85rem;
     margin-bottom: 0.35rem;
+  }
+
+  /* Explore ways — one full card per view (no peek of next slide) */
+  .explore-ways .bdc-carousel-shell--arrows {
+    overflow: hidden !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .explore-ways .explore-ways__grid.bdc-mobile-carousel,
+  .explore-ways .explore-ways__grid.bdc-mobile-carousel--solo,
+  .explore-ways .explore-ways__grid.bdc-mobile-carousel--full {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-inline: 0 !important;
+    padding-inline: clamp(28px, 8vw, 36px) !important;
+    padding-bottom: 16px !important;
+    gap: 0 !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    scroll-snap-type: x mandatory !important;
+    scroll-padding-inline: 0 !important;
+    box-sizing: border-box !important;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .explore-ways .explore-ways__grid.bdc-mobile-carousel::-webkit-scrollbar {
+    display: none;
+  }
+
+  .explore-ways .explore-ways__grid.bdc-mobile-carousel .explore-way,
+  .explore-ways .explore-ways__grid.bdc-mobile-carousel--solo .explore-way,
+  .explore-ways .explore-ways__grid.bdc-mobile-carousel .explore-way.bdc-mobile-carousel__item {
+    flex: 0 0 100% !important;
+    flex-shrink: 0 !important;
+    width: 100% !important;
+    min-width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding-inline: 0 !important;
+    scroll-snap-align: start !important;
+    scroll-snap-stop: always !important;
+    box-sizing: border-box !important;
   }
 
   .explore-grow .explore-grow-stage.bdc-mobile-carousel__item {
