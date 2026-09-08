@@ -23552,37 +23552,43 @@ body.newsletter-success-open {
   }
 }
 
-/* Explore page — Ways Children Can Explore: left/right carousel arrows */
+/* Explore page — Ways / Skills carousels: left/right arrows (reference layout) */
 @media (max-width: 991px) {
   .explore-ways .site-container.bdc-mobile-carousel-parent,
-  .explore-ways .site-container.bdc-mobile-carousel-host {
+  .explore-ways .site-container.bdc-mobile-carousel-host,
+  .explore-skills .site-container.bdc-mobile-carousel-parent,
+  .explore-skills .site-container.bdc-mobile-carousel-host {
     overflow: visible !important;
   }
 
-  .explore-ways .bdc-carousel-shell--arrows {
+  .explore-ways .bdc-carousel-shell--arrows,
+  .explore-skills .bdc-carousel-shell--arrows {
     position: relative;
     width: 100%;
     max-width: 100%;
     overflow: visible;
   }
 
-  .explore-ways .bdc-carousel-shell--arrows .explore-ways__grid.bdc-mobile-carousel {
+  .explore-ways .bdc-carousel-shell--arrows .explore-ways__grid.bdc-mobile-carousel,
+  .explore-skills .bdc-carousel-shell--arrows .explore-skills__grid.bdc-mobile-carousel {
     margin-inline: 0 !important;
     padding-inline: clamp(28px, 8vw, 36px) !important;
     scroll-padding-inline: clamp(28px, 8vw, 36px) !important;
   }
 
-  .explore-ways .bdc-carousel-arrows {
+  .explore-ways .bdc-carousel-arrows,
+  .explore-skills .bdc-carousel-arrows {
     position: absolute;
     inset: 0;
     pointer-events: none;
     z-index: 3;
   }
 
-  .explore-ways .bdc-carousel-arrows__btn {
+  .explore-ways .bdc-carousel-arrows__btn,
+  .explore-skills .bdc-carousel-arrows__btn {
     pointer-events: auto;
     position: absolute;
-    top: 58%;
+    top: 50%;
     transform: translateY(-50%);
     display: inline-flex;
     align-items: center;
@@ -23593,35 +23599,87 @@ body.newsletter-success-open {
     border: 1.5px solid var(--color-pink);
     border-radius: 999px;
     background: #fff;
-    color: var(--color-pink);
+    color: var(--color-navy);
     box-shadow: 0 2px 10px rgba(0, 27, 102, 0.08);
     cursor: pointer;
     appearance: none;
     transition: opacity 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
   }
 
-  .explore-ways .bdc-carousel-arrows__btn svg {
+  .explore-ways .bdc-carousel-arrows__btn {
+    top: 58%;
+  }
+
+  .explore-ways .bdc-carousel-arrows__btn svg,
+  .explore-skills .bdc-carousel-arrows__btn svg {
     display: block;
     width: clamp(16px, 4.2vw, 18px);
     height: clamp(16px, 4.2vw, 18px);
   }
 
-  .explore-ways .bdc-carousel-arrows__btn--prev {
+  .explore-ways .bdc-carousel-arrows__btn--prev,
+  .explore-skills .bdc-carousel-arrows__btn--prev {
     left: clamp(0px, 1vw, 4px);
   }
 
-  .explore-ways .bdc-carousel-arrows__btn--next {
+  .explore-ways .bdc-carousel-arrows__btn--next,
+  .explore-skills .bdc-carousel-arrows__btn--next {
     right: clamp(0px, 1vw, 4px);
   }
 
-  .explore-ways .bdc-carousel-arrows__btn:disabled {
+  .explore-ways .bdc-carousel-arrows__btn:disabled,
+  .explore-skills .bdc-carousel-arrows__btn:disabled {
     opacity: 0.35;
     cursor: not-allowed;
     box-shadow: none;
   }
 
-  .explore-ways .bdc-carousel-shell--arrows .bdc-carousel-dots {
+  .explore-ways .bdc-carousel-shell--arrows .bdc-carousel-dots,
+  .explore-skills .bdc-carousel-shell--arrows .bdc-carousel-dots {
     margin-top: 0.85rem;
     margin-bottom: 0.35rem;
+  }
+
+  .explore-skills .explore-skill.bdc-mobile-carousel__item {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    text-align: center !important;
+    gap: 0.75rem !important;
+    padding: 0.35rem clamp(12px, 4vw, 24px) 0.5rem !important;
+    border-left: none !important;
+    box-sizing: border-box !important;
+  }
+
+  .explore-skills .explore-skill__icon {
+    display: block !important;
+    width: clamp(56px, 16vw, 72px) !important;
+    height: clamp(56px, 16vw, 72px) !important;
+    max-width: 100% !important;
+    object-fit: contain !important;
+    filter: none !important;
+    mix-blend-mode: normal !important;
+  }
+
+  .explore-skills .explore-skill__title {
+    font-family: var(--font-heading) !important;
+    font-size: clamp(1rem, 3.2vw, 1.15rem) !important;
+    font-weight: 700 !important;
+    line-height: 1.25 !important;
+    color: var(--color-navy) !important;
+    margin: 0 !important;
+    max-width: 100% !important;
+  }
+
+  .explore-skills .explore-skill__text {
+    font-family: var(--font-body) !important;
+    font-size: clamp(0.82rem, 2.6vw, 0.92rem) !important;
+    font-weight: 400 !important;
+    line-height: 1.4 !important;
+    color: var(--color-navy) !important;
+    margin: 0 !important;
+    max-width: min(280px, 100%) !important;
+    min-height: 0 !important;
   }
 }

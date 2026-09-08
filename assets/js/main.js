@@ -766,7 +766,7 @@
       { track: '.role-icons', item: '.role-icons__item', mode: 'peek' },
       { track: '.approach-steps', item: '.approach-step', mode: 'peek' },
       { track: '.explore-ways__grid', item: '.explore-way', mode: 'full' },
-      { track: '.explore-skills__grid', item: '.explore-skill', mode: 'peek' },
+      { track: '.explore-skills__grid', item: '.explore-skill', mode: 'full' },
       { track: '.explore-grow__track', item: '.explore-grow-stage', mode: 'full' },
       { track: '.explore-impact__track', item: '.explore-impact-card, .explore-impact-quote', mode: 'full' },
       { track: '.creative-makers-explore__grid', item: '.creative-makers-activity', mode: 'peek' },
@@ -1068,7 +1068,12 @@
     }
 
     function wantsCarouselArrows(track) {
-      return !!(track && track.classList && track.classList.contains('explore-ways__grid'));
+      return !!(
+        track &&
+        track.classList &&
+        (track.classList.contains('explore-ways__grid') ||
+          track.classList.contains('explore-skills__grid'))
+      );
     }
 
     function chevronSvg(direction) {
@@ -1108,7 +1113,8 @@
           track.classList.contains('partners-founding__grid') ||
           track.classList.contains('financial-support-grid') ||
           track.classList.contains('accessibility-provide-grid') ||
-          track.classList.contains('explore-ways__grid'));
+          track.classList.contains('explore-ways__grid') ||
+          track.classList.contains('explore-skills__grid'));
       var snapInline = isSolo || mode === 'peek' ? 'start' : 'center';
 
       track.classList.add('bdc-mobile-carousel');
@@ -1125,7 +1131,10 @@
         track.style.setProperty('margin-left', '0', 'important');
         track.style.setProperty('margin-right', '0', 'important');
         track.style.setProperty('margin-inline', '0', 'important');
-        if (track.classList.contains('explore-ways__grid')) {
+        if (
+          track.classList.contains('explore-ways__grid') ||
+          track.classList.contains('explore-skills__grid')
+        ) {
           track.style.setProperty('padding', '2px clamp(28px, 8vw, 36px) 16px', 'important');
           track.style.setProperty('padding-left', 'clamp(28px, 8vw, 36px)', 'important');
           track.style.setProperty('padding-right', 'clamp(28px, 8vw, 36px)', 'important');
@@ -1152,7 +1161,7 @@
         });
         var soloSection =
           track.closest(
-            '.for-parents-expect, .get-involved-ways, .partners-founding, .financial-support, .accessibility-provide, .explore-ways'
+            '.for-parents-expect, .get-involved-ways, .partners-founding, .financial-support, .accessibility-provide, .explore-ways, .explore-skills'
           ) || null;
         if (soloSection && soloSection.style) {
           soloSection.style.setProperty('overflow', 'visible', 'important');
@@ -1334,7 +1343,7 @@
           }
           var soloSection =
             track.closest(
-              '.for-parents-expect, .get-involved-ways, .partners-founding, .financial-support, .accessibility-provide, .explore-ways'
+              '.for-parents-expect, .get-involved-ways, .partners-founding, .financial-support, .accessibility-provide, .explore-ways, .explore-skills'
             ) || null;
           if (soloSection && soloSection.style) {
             soloSection.style.removeProperty('overflow');
