@@ -23001,3 +23001,11 @@ body.newsletter-success-open {
     display: none !important;
   }
 }
+
+/* Home page — Explore Experiences heading left-aligned on mobile */
+@media (max-width: 991px) {
+  .home-page .home-explore__title {
+    justify-content: flex-start !important;
+    text-align: left !important;
+  }
+}
