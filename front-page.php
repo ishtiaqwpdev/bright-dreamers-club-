@@ -416,26 +416,28 @@ $home_spotlight_council_items = ( is_array( $home_spotlight_council['list_items'
               />
             </div>
 
-            <div class="home-hero__brand">
-              <picture>
-                <source
-                  media="(max-width: 767px)"
-                  srcset="<?php echo esc_url( $home_hero_logo_mobile_url ); ?>"
-                />
-                <img
-                  class="home-hero__logo"
-                  src="<?php echo esc_url( $home_hero_logo_url ); ?>"
-                  alt="<?php echo esc_attr( $home_hero_logo_alt ); ?>"
-                  width="380"
-                  height="110"
-                  decoding="async"
-                />
-              </picture>
-            </div>
+            <div class="home-hero__intro">
+              <div class="home-hero__brand">
+                <picture>
+                  <source
+                    media="(max-width: 767px)"
+                    srcset="<?php echo esc_url( $home_hero_logo_mobile_url ); ?>"
+                  />
+                  <img
+                    class="home-hero__logo"
+                    src="<?php echo esc_url( $home_hero_logo_url ); ?>"
+                    alt="<?php echo esc_attr( $home_hero_logo_alt ); ?>"
+                    width="970"
+                    height="437"
+                    decoding="async"
+                  />
+                </picture>
+              </div>
 
-            <p class="page-hero__text">
-              <?php echo esc_html( $home_hero_text ); ?>
-            </p>
+              <p class="page-hero__text">
+                <?php echo esc_html( $home_hero_text ); ?>
+              </p>
+            </div>
 
             <div class="page-hero__actions">
               <a class="btn btn--solid btn--lg btn-hover" href="<?php echo esc_url( $home_hero_primary_cta['url'] ); ?>"<?php echo bdc_acf_link_target_attr( $home_hero_primary_cta ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
