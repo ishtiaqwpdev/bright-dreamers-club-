@@ -23865,6 +23865,12 @@ body.newsletter-success-open {
 
 /* Explore page — Dream CTA section: mobile heading + image sizing */
 @media (max-width: 991px) {
+  .explore-page .explore-dream.section-padding {
+    padding-top: 0 !important;
+    --explore-section-pad-top: 0 !important;
+    margin-top: 0 !important;
+  }
+
   .explore-page .explore-dream {
     --explore-dream-photo-max-h: clamp(168px, 46vw, 240px);
     --explore-dream-jar-max-h: clamp(158px, 44vw, 220px);
