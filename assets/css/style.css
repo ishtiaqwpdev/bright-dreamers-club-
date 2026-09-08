@@ -23663,10 +23663,6 @@ body.newsletter-success-open {
     transition: opacity 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
   }
 
-  .explore-ways .bdc-carousel-arrows__btn {
-    top: 58%;
-  }
-
   .explore-ways .bdc-carousel-arrows__btn svg,
   .explore-skills .bdc-carousel-arrows__btn svg,
   .explore-grow .bdc-carousel-arrows__btn svg {
@@ -24730,7 +24726,7 @@ body.newsletter-success-open {
   .our-vision-page .vision-roadmap__journey .bdc-carousel-arrows__btn {
     pointer-events: auto;
     position: absolute;
-    top: 38%;
+    top: 50%;
     transform: translateY(-50%);
     display: inline-flex;
     align-items: center;
@@ -26191,7 +26187,6 @@ body.newsletter-success-open {
     position: absolute;
     top: 0;
     right: 0;
-    bottom: 2.75rem;
     left: 0;
     pointer-events: none;
     z-index: 3;
@@ -26356,5 +26351,19 @@ body.newsletter-success-open {
 
   .partners-page .partners-opportunity-cta__plane {
     display: none !important;
+  }
+}
+
+/* Arrow carousels — vertically center nav buttons on the active image/visual */
+@media (max-width: 991px) {
+  .bdc-carousel-shell--arrows .bdc-carousel-arrows {
+    position: absolute;
+    pointer-events: none;
+    z-index: 3;
+  }
+
+  .bdc-carousel-shell--arrows .bdc-carousel-arrows__btn {
+    top: 50% !important;
+    transform: translateY(-50%) !important;
   }
 }

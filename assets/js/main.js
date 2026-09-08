@@ -1106,6 +1106,71 @@
       });
     }
 
+    function findCarouselVisualTarget(item) {
+      if (!item) {
+        return null;
+      }
+      if (
+        item.classList.contains('vision-moments__photo-wrap') ||
+        item.classList.contains('vision-moments__feature')
+      ) {
+        return item;
+      }
+      return (
+        item.querySelector('.explore-way-card .lazy-img-wrap--cover') ||
+        item.querySelector('.explore-way-card img[class*="photo"]') ||
+        item.querySelector('.lazy-img-wrap--cover') ||
+        item.querySelector('[class*="photo-wrap"]') ||
+        item.querySelector('[class*="__photo-wrap"]') ||
+        item.querySelector('.explore-grow-stage__layout > .lazy-img-wrap') ||
+        item.querySelector('.explore-grow-stage__photo') ||
+        item.querySelector('.explore-skill__icon') ||
+        item.querySelector('picture') ||
+        item.querySelector('img[class*="photo"]') ||
+        item.querySelector('img[class*="__photo"]') ||
+        item.querySelector('img[class*="banner"]') ||
+        item.querySelector('.vision-journey-step__icon-wrap') ||
+        item.querySelector('[class*="__icon-wrap"]') ||
+        null
+      );
+    }
+
+    function createArrowOverlaySync(track, arrowShell, arrowNav, items) {
+      function sync() {
+        if (!track || !arrowShell || !arrowNav || !items.length) {
+          return;
+        }
+        var index = closestItemIndex(track, items);
+        var item = items[index];
+        var target = findCarouselVisualTarget(item);
+        if (!target) {
+          arrowNav.style.removeProperty('top');
+          arrowNav.style.removeProperty('height');
+          arrowNav.style.removeProperty('bottom');
+          return;
+        }
+        var shellRect = arrowShell.getBoundingClientRect();
+        var targetRect = target.getBoundingClientRect();
+        var top = Math.max(0, targetRect.top - shellRect.top);
+        var height = targetRect.height;
+        arrowNav.style.setProperty('top', top + 'px', 'important');
+        arrowNav.style.setProperty('height', height + 'px', 'important');
+        arrowNav.style.setProperty('bottom', 'auto', 'important');
+        arrowNav.style.setProperty('left', '0', 'important');
+        arrowNav.style.setProperty('right', '0', 'important');
+      }
+
+      items.forEach(function (item) {
+        item.querySelectorAll('img').forEach(function (img) {
+          if (!img.complete) {
+            img.addEventListener('load', sync, { once: true });
+          }
+        });
+      });
+
+      return sync;
+    }
+
     function wantsCarouselArrows(track) {
       return !!(
         track &&
@@ -1152,6 +1217,7 @@
       var arrowShell = null;
       var arrowNav = null;
       var updateArrowButtons = null;
+      var syncArrowOverlay = null;
 
       if (wantsCarouselArrows(track) && track.parentNode) {
         arrowShell = document.createElement('div');
@@ -1366,6 +1432,10 @@
         });
 
         updateArrowButtons();
+        syncArrowOverlay = createArrowOverlaySync(track, arrowShell, arrowNav, items);
+        syncArrowOverlay();
+        window.addEventListener('resize', syncArrowOverlay);
+        window.requestAnimationFrame(syncArrowOverlay);
       }
 
       var ticking = false;
@@ -1382,6 +1452,9 @@
           if (typeof updateArrowButtons === 'function') {
             updateArrowButtons();
           }
+          if (typeof syncArrowOverlay === 'function') {
+            syncArrowOverlay();
+          }
           ticking = false;
         });
       }
@@ -1391,6 +1464,9 @@
       return {
         destroy: function () {
           track.removeEventListener('scroll', onScroll);
+          if (typeof syncArrowOverlay === 'function') {
+            window.removeEventListener('resize', syncArrowOverlay);
+          }
           track.classList.remove(
             'bdc-mobile-carousel',
             'bdc-mobile-carousel--full',
