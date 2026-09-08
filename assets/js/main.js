@@ -943,6 +943,13 @@
       ) {
         return true;
       }
+      if (
+        track.classList.contains('partners-ways__grid') &&
+        document.body &&
+        document.body.classList.contains('partners-page')
+      ) {
+        return true;
+      }
       var className = String(track.className || '');
       return (
         className.indexOf('faq') !== -1 ||

@@ -25938,3 +25938,129 @@ body.newsletter-success-open {
     box-shadow: inset 0 0 0 1px var(--color-pink) !important;
   }
 }
+
+/* Partners page — Ways to Partner: vertical stacked cards on mobile (reference 2) */
+@media (max-width: 991px) {
+  .partners-page .partners-ways {
+    overflow: visible !important;
+  }
+
+  .partners-page .partners-ways > .site-container {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+    overflow: visible !important;
+  }
+
+  .partners-page .partners-ways__title {
+    justify-content: center !important;
+    text-align: center !important;
+    font-size: clamp(1.15rem, 4.2vw, 1.45rem) !important;
+    margin-bottom: clamp(0.65rem, 2vw, 0.85rem) !important;
+  }
+
+  .partners-page .partners-ways__intro {
+    text-align: center !important;
+    max-width: 100% !important;
+    margin: 0 0 clamp(0.85rem, 2.5vw, 1.1rem) !important;
+    font-size: clamp(0.82rem, 2.5vw, 0.92rem) !important;
+    line-height: 1.5 !important;
+  }
+
+  .partners-page .partners-ways__grid,
+  .partners-page .partners-ways__grid.bdc-mobile-carousel,
+  .partners-page .partners-ways__grid.bdc-mobile-carousel--peek,
+  .partners-page .partners-ways__grid.bdc-mobile-carousel--peek-2,
+  .partners-page .partners-ways__grid.bdc-mobile-carousel--solo,
+  .partners-page .partners-ways__grid.bdc-mobile-carousel--full,
+  .partners-page .partners-ways__grid.bdc-mobile-carousel--inset {
+    display: flex !important;
+    flex-direction: column !important;
+    flex-wrap: nowrap !important;
+    align-items: stretch !important;
+    gap: clamp(0.75rem, 2.5vw, 1rem) !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    margin-inline: 0 !important;
+    padding: 0 !important;
+    padding-inline: 0 !important;
+    overflow: visible !important;
+    overflow-x: visible !important;
+    scroll-snap-type: none !important;
+    touch-action: auto !important;
+    -webkit-overflow-scrolling: auto !important;
+    scrollbar-width: auto !important;
+  }
+
+  .partners-page .partners-ways__grid::-webkit-scrollbar {
+    display: none !important;
+  }
+
+  .partners-page .partners-ways-card,
+  .partners-page .partners-ways-card.bdc-mobile-carousel__item {
+    display: grid !important;
+    grid-template-columns: auto minmax(0, 1fr) !important;
+    grid-template-rows: auto auto !important;
+    column-gap: clamp(0.75rem, 3vw, 1rem) !important;
+    row-gap: 0.35rem !important;
+    align-items: start !important;
+    flex: none !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    scroll-snap-align: unset !important;
+    text-align: left !important;
+    box-sizing: border-box !important;
+    border-radius: var(--home-pillar-radius) !important;
+    padding: clamp(0.85rem, 2.5vw, 1.05rem) clamp(0.85rem, 3vw, 1.1rem) !important;
+    box-shadow: none !important;
+    overflow: visible !important;
+  }
+
+  .partners-page .partners-ways-card__icon {
+    grid-column: 1 !important;
+    grid-row: 1 / span 2 !important;
+    align-self: center !important;
+    flex-shrink: 0 !important;
+    width: clamp(56px, 14vw, 72px) !important;
+    height: clamp(56px, 14vw, 72px) !important;
+    max-width: none !important;
+    margin: 0 !important;
+    object-fit: contain !important;
+    mix-blend-mode: normal !important;
+  }
+
+  .partners-page .partners-ways-card__title {
+    grid-column: 2 !important;
+    grid-row: 1 !important;
+    font-family: var(--font-heading) !important;
+    font-size: clamp(0.92rem, 2.8vw, 1.05rem) !important;
+    font-weight: 700 !important;
+    line-height: 1.28 !important;
+    text-align: left !important;
+    margin: 0 !important;
+    max-width: 100% !important;
+  }
+
+  .partners-page .partners-ways-card__text {
+    grid-column: 2 !important;
+    grid-row: 2 !important;
+    flex: unset !important;
+    font-family: var(--font-body) !important;
+    font-size: clamp(0.82rem, 2.5vw, 0.92rem) !important;
+    font-weight: 400 !important;
+    line-height: 1.45 !important;
+    color: var(--color-navy) !important;
+    text-align: left !important;
+    margin: 0 !important;
+    min-height: 0 !important;
+    max-width: 100% !important;
+    overflow-wrap: anywhere !important;
+    word-break: break-word !important;
+  }
+
+  .partners-page .partners-ways .bdc-carousel-dots,
+  .partners-page .partners-ways > .site-container > .bdc-carousel-dots {
+    display: none !important;
+  }
+}
