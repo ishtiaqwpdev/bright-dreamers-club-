@@ -911,6 +911,13 @@
       ) {
         return true;
       }
+      if (
+        track.classList.contains('for-parents-expect__grid') &&
+        document.body &&
+        document.body.classList.contains('for-parents-page')
+      ) {
+        return true;
+      }
       var className = String(track.className || '');
       return (
         className.indexOf('faq') !== -1 ||

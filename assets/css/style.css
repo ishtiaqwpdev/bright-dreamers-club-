@@ -24103,3 +24103,118 @@ body.newsletter-success-open {
     justify-content: center !important;
   }
 }
+
+/* For Parents page — What Parents Can Expect: vertical stacked cards on mobile (no slider) */
+@media (max-width: 991px) {
+  .for-parents-page .for-parents-expect {
+    overflow: visible !important;
+  }
+
+  .for-parents-page .for-parents-expect__wrap {
+    padding-inline: 0 !important;
+    overflow: visible !important;
+  }
+
+  .for-parents-page .for-parents-expect__inner {
+    overflow: visible !important;
+  }
+
+  .for-parents-page .for-parents-expect__grid,
+  .for-parents-page .for-parents-expect__grid.bdc-mobile-carousel,
+  .for-parents-page .for-parents-expect__grid.bdc-mobile-carousel--solo,
+  .for-parents-page .for-parents-expect__grid.bdc-mobile-carousel--full,
+  .for-parents-page .for-parents-expect__grid.bdc-mobile-carousel--inset {
+    display: flex !important;
+    flex-direction: column !important;
+    flex-wrap: nowrap !important;
+    align-items: stretch !important;
+    gap: clamp(0.75rem, 2.5vw, 1rem) !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    margin-inline: 0 !important;
+    padding: 0 !important;
+    padding-inline: 0 !important;
+    overflow: visible !important;
+    overflow-x: visible !important;
+    scroll-snap-type: none !important;
+    touch-action: auto !important;
+    -webkit-overflow-scrolling: auto !important;
+    scrollbar-width: auto !important;
+  }
+
+  .for-parents-page .for-parents-expect__grid::-webkit-scrollbar {
+    display: none !important;
+  }
+
+  .for-parents-page .for-parents-expect-card,
+  .for-parents-page .for-parents-expect-card.bdc-mobile-carousel__item {
+    display: grid !important;
+    grid-template-columns: auto minmax(0, 1fr) !important;
+    grid-template-rows: auto auto !important;
+    column-gap: clamp(0.75rem, 3vw, 1rem) !important;
+    row-gap: 0.35rem !important;
+    align-items: start !important;
+    flex: none !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    scroll-snap-align: unset !important;
+    text-align: left !important;
+    box-sizing: border-box !important;
+    background-color: #fff !important;
+    border: 1px solid var(--for-parents-expect-card-border) !important;
+    border-radius: var(--experience-card-radius) !important;
+    padding: clamp(0.85rem, 2.5vw, 1.05rem) clamp(0.85rem, 3vw, 1.1rem) !important;
+    box-shadow: none !important;
+    overflow: visible !important;
+  }
+
+  .for-parents-page .for-parents-expect-card__icon {
+    grid-column: 1 !important;
+    grid-row: 1 / span 2 !important;
+    align-self: center !important;
+    flex-shrink: 0 !important;
+    width: clamp(56px, 14vw, 72px) !important;
+    height: clamp(56px, 14vw, 72px) !important;
+    max-width: none !important;
+    margin: 0 !important;
+    object-fit: contain !important;
+  }
+
+  .for-parents-page .for-parents-expect-card__title {
+    grid-column: 2 !important;
+    grid-row: 1 !important;
+    font-family: var(--font-heading) !important;
+    font-size: clamp(0.92rem, 2.8vw, 1.05rem) !important;
+    font-weight: 700 !important;
+    line-height: 1.28 !important;
+    color: var(--color-navy) !important;
+    text-align: left !important;
+    margin: 0 !important;
+    max-width: 100% !important;
+  }
+
+  .for-parents-page .for-parents-expect-card__text {
+    grid-column: 2 !important;
+    grid-row: 2 !important;
+    flex: unset !important;
+    font-family: var(--font-body) !important;
+    font-size: clamp(0.82rem, 2.5vw, 0.92rem) !important;
+    font-weight: 400 !important;
+    line-height: 1.45 !important;
+    color: var(--color-navy) !important;
+    text-align: left !important;
+    margin: 0 !important;
+    min-height: 0 !important;
+    max-width: 100% !important;
+    overflow-wrap: anywhere !important;
+    word-break: break-word !important;
+  }
+
+  .for-parents-page .for-parents-expect .bdc-carousel-dots,
+  .for-parents-page .for-parents-expect__inner > .bdc-carousel-dots,
+  .for-parents-page .for-parents-expect__wrap .bdc-carousel-dots {
+    display: none !important;
+  }
+}
