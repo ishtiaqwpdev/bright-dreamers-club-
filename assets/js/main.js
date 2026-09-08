@@ -1114,7 +1114,8 @@
           track.classList.contains('explore-skills__grid') ||
           track.classList.contains('explore-grow__track') ||
           track.classList.contains('vision-journey-steps') ||
-          track.classList.contains('vision-moments__gallery'))
+          track.classList.contains('vision-moments__gallery') ||
+          track.classList.contains('partners-impact__grid'))
       );
     }
 
@@ -1126,7 +1127,8 @@
           track.classList.contains('explore-skills__grid') ||
           track.classList.contains('explore-grow__track') ||
           track.classList.contains('vision-journey-steps') ||
-          track.classList.contains('vision-moments__gallery'))
+          track.classList.contains('vision-moments__gallery') ||
+          track.classList.contains('partners-impact__grid'))
       );
     }
 
@@ -1171,7 +1173,8 @@
           track.classList.contains('explore-skills__grid') ||
           track.classList.contains('explore-grow__track') ||
           track.classList.contains('vision-journey-steps') ||
-          track.classList.contains('vision-moments__gallery'));
+          track.classList.contains('vision-moments__gallery') ||
+          track.classList.contains('partners-impact__grid'));
       var snapInline = isSolo || mode === 'peek' ? 'start' : 'center';
 
       track.classList.add('bdc-mobile-carousel');
@@ -1231,7 +1234,7 @@
         });
         var soloSection =
           track.closest(
-            '.for-parents-expect, .get-involved-ways, .partners-founding, .financial-support, .accessibility-provide, .explore-ways, .explore-skills, .explore-grow, .vision-roadmap__journey, .vision-moments'
+            '.for-parents-expect, .get-involved-ways, .partners-founding, .partners-impact, .financial-support, .accessibility-provide, .explore-ways, .explore-skills, .explore-grow, .vision-roadmap__journey, .vision-moments'
           ) || null;
         if (soloSection && soloSection.style) {
           soloSection.style.setProperty('overflow', 'visible', 'important');
