@@ -22815,3 +22815,147 @@ body.newsletter-success-open {
     box-sizing: border-box;
   }
 }
+
+/* Home page — What Makes Bright Dreamers Different: 3-column grid on mobile (replaces slider) */
+@media (max-width: 991px) {
+  .home-page .home-different__grid,
+  .home-page .home-different__grid.bdc-mobile-carousel,
+  .home-page .home-different__grid.bdc-mobile-carousel--peek,
+  .home-page .home-different__grid.bdc-mobile-carousel--peek-2 {
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    grid-auto-rows: auto !important;
+    align-items: stretch !important;
+    gap: clamp(0.65rem, 2.5vw, 0.85rem) clamp(0.35rem, 1.5vw, 0.5rem) !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    margin-inline: 0 !important;
+    padding: 0 !important;
+    padding-inline: 0 !important;
+    overflow: visible !important;
+    overflow-x: visible !important;
+    scroll-snap-type: none !important;
+    flex-wrap: unset !important;
+  }
+
+  .home-page .home-different__grid .home-different__item,
+  .home-page .home-different__grid .home-different__item.bdc-mobile-carousel__item {
+    flex: unset !important;
+    width: auto !important;
+    max-width: none !important;
+    min-width: 0 !important;
+    scroll-snap-align: unset !important;
+    padding: clamp(0.35rem, 1.5vw, 0.55rem) clamp(0.2rem, 1vw, 0.35rem) !important;
+    gap: clamp(0.35rem, 1.5vw, 0.5rem) !important;
+    box-sizing: border-box !important;
+    border-left: none !important;
+  }
+
+  .home-page .home-different__grid .home-different__item:not(:nth-child(3n + 1)) {
+    border-left: 1px solid var(--home-different-divider) !important;
+  }
+
+  .home-page .home-different__grid .home-different__icon-wrap {
+    width: auto !important;
+    height: auto !important;
+    min-width: 0 !important;
+    min-height: 0 !important;
+  }
+
+  .home-page .home-different__grid .home-different__icon {
+    width: clamp(36px, 10vw, 48px) !important;
+    height: clamp(36px, 10vw, 48px) !important;
+    max-width: 100% !important;
+  }
+
+  .home-page .home-different__grid .home-different__name {
+    font-size: clamp(0.82rem, 2.6vw, 0.95rem) !important;
+    line-height: 1.25 !important;
+    margin-bottom: 0.15rem !important;
+  }
+
+  .home-page .home-different__grid .home-different__text {
+    font-size: clamp(0.68rem, 2.1vw, 0.78rem) !important;
+    line-height: 1.35 !important;
+    max-width: 100% !important;
+  }
+
+  .home-page .home-different .bdc-carousel-dots {
+    display: none !important;
+  }
+}
+
+/* Home page — How Ideas Become Reality: 3-column grid on mobile (replaces slider) */
+@media (max-width: 991px) {
+  .home-page .home-reality__inner {
+    padding-inline: clamp(0.5rem, 2vw, 0.85rem) !important;
+  }
+
+  .home-page .home-reality__steps,
+  .home-page .home-reality__steps.bdc-mobile-carousel,
+  .home-page .home-reality__steps.bdc-mobile-carousel--peek,
+  .home-page .home-reality__steps.bdc-mobile-carousel--peek-2 {
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    grid-auto-rows: auto !important;
+    align-items: start !important;
+    gap: clamp(0.75rem, 2.5vw, 1rem) clamp(0.25rem, 1.2vw, 0.45rem) !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    margin-inline: 0 !important;
+    padding: 0 !important;
+    padding-inline: 0 !important;
+    overflow: visible !important;
+    overflow-x: visible !important;
+    scroll-snap-type: none !important;
+    flex-wrap: unset !important;
+  }
+
+  .home-page .home-reality__steps .home-reality-step,
+  .home-page .home-reality__steps .home-reality-step.bdc-mobile-carousel__item {
+    flex: unset !important;
+    width: auto !important;
+    max-width: none !important;
+    min-width: 0 !important;
+    scroll-snap-align: unset !important;
+    padding: clamp(0.25rem, 1vw, 0.4rem) clamp(0.15rem, 0.8vw, 0.3rem) !important;
+    gap: clamp(0.3rem, 1.2vw, 0.45rem) !important;
+    box-sizing: border-box !important;
+  }
+
+  .home-page .home-reality__steps .home-reality-step__arrow {
+    display: none !important;
+  }
+
+  .home-page .home-reality__steps .home-reality-step__icon-wrap {
+    width: clamp(52px, 15vw, 68px) !important;
+    height: clamp(52px, 15vw, 68px) !important;
+    min-width: 0 !important;
+    min-height: 0 !important;
+    flex-shrink: 0 !important;
+  }
+
+  .home-page .home-reality__steps .home-reality-step__icon {
+    width: 100% !important;
+    height: 100% !important;
+    max-width: 100% !important;
+    max-height: 100% !important;
+  }
+
+  .home-page .home-reality__steps .home-reality-step__title {
+    font-size: clamp(0.78rem, 2.4vw, 0.92rem) !important;
+    line-height: 1.2 !important;
+  }
+
+  .home-page .home-reality__steps .home-reality-step__text {
+    font-size: clamp(0.65rem, 2vw, 0.76rem) !important;
+    line-height: 1.35 !important;
+    max-width: 100% !important;
+  }
+
+  .home-page .home-reality .bdc-carousel-dots {
+    display: none !important;
+  }
+}

@@ -876,6 +876,20 @@
       ) {
         return true;
       }
+      if (
+        track.classList.contains('home-different__grid') &&
+        document.body &&
+        document.body.classList.contains('home-page')
+      ) {
+        return true;
+      }
+      if (
+        track.classList.contains('home-reality__steps') &&
+        document.body &&
+        document.body.classList.contains('home-page')
+      ) {
+        return true;
+      }
       var className = String(track.className || '');
       return (
         className.indexOf('faq') !== -1 ||
