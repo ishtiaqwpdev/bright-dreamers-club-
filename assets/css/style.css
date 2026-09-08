@@ -24615,3 +24615,157 @@ body.newsletter-success-open {
     display: none !important;
   }
 }
+
+/* Our Vision page — Journey steps: one card + left/right arrows on mobile */
+@media (max-width: 991px) {
+  .our-vision-page .vision-roadmap__journey {
+    overflow: visible !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  .our-vision-page .vision-roadmap__journey .bdc-carousel-shell--arrows {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    padding-inline: clamp(28px, 8vw, 36px);
+    overflow: hidden !important;
+    overflow-x: hidden !important;
+  }
+
+  .our-vision-page .vision-roadmap__journey .bdc-carousel-shell--arrows .vision-journey-steps.bdc-mobile-carousel {
+    margin-inline: 0 !important;
+    padding-inline: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    scroll-padding-inline: 0 !important;
+  }
+
+  .our-vision-page .vision-journey-steps,
+  .our-vision-page .vision-journey-steps.bdc-mobile-carousel,
+  .our-vision-page .vision-journey-steps.bdc-mobile-carousel--solo,
+  .our-vision-page .vision-journey-steps.bdc-mobile-carousel--full,
+  .our-vision-page .vision-journey-steps.bdc-mobile-carousel--inset {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    align-items: stretch !important;
+    gap: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    margin-inline: 0 !important;
+    padding: 0 0 16px !important;
+    padding-inline: 0 !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    scroll-snap-type: x mandatory !important;
+    scroll-padding-inline: 0 !important;
+    box-sizing: border-box !important;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    touch-action: pan-x pan-y;
+  }
+
+  .our-vision-page .vision-journey-steps::-webkit-scrollbar {
+    display: none !important;
+  }
+
+  .our-vision-page .vision-journey-step,
+  .our-vision-page .vision-journey-step.bdc-mobile-carousel__item {
+    flex: 0 0 100% !important;
+    flex-shrink: 0 !important;
+    width: 100% !important;
+    min-width: 100% !important;
+    max-width: 100% !important;
+    scroll-snap-align: start !important;
+    scroll-snap-stop: always !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    text-align: center !important;
+    box-sizing: border-box !important;
+    padding: 0.35rem 0.25rem 0.5rem !important;
+    margin: 0 !important;
+    overflow: visible !important;
+  }
+
+  .our-vision-page .vision-journey-step__icon-wrap {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 0.15rem !important;
+    margin-bottom: 0.15rem !important;
+  }
+
+  .our-vision-page .vision-journey-step__icon {
+    width: clamp(56px, 14vw, 68px) !important;
+    height: clamp(56px, 14vw, 68px) !important;
+    object-fit: contain !important;
+  }
+
+  .our-vision-page .vision-journey-step__title,
+  .our-vision-page .vision-journey-step__quote,
+  .our-vision-page .vision-journey-step__text {
+    max-width: min(280px, 100%) !important;
+    text-align: center !important;
+  }
+
+  .our-vision-page .vision-journey-step__arrow {
+    display: none !important;
+  }
+
+  .our-vision-page .vision-roadmap__journey .bdc-carousel-arrows {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 3;
+  }
+
+  .our-vision-page .vision-roadmap__journey .bdc-carousel-arrows__btn {
+    pointer-events: auto;
+    position: absolute;
+    top: 38%;
+    transform: translateY(-50%);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: clamp(34px, 9vw, 40px);
+    height: clamp(34px, 9vw, 40px);
+    padding: 0;
+    border: 1.5px solid var(--color-pink);
+    border-radius: 999px;
+    background: #fff;
+    color: var(--color-navy);
+    box-shadow: 0 2px 10px rgba(0, 27, 102, 0.08);
+    cursor: pointer;
+    appearance: none;
+    transition: opacity 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .our-vision-page .vision-roadmap__journey .bdc-carousel-arrows__btn svg {
+    display: block;
+    width: clamp(16px, 4.2vw, 18px);
+    height: clamp(16px, 4.2vw, 18px);
+  }
+
+  .our-vision-page .vision-roadmap__journey .bdc-carousel-arrows__btn--prev {
+    left: clamp(0px, 1vw, 4px);
+  }
+
+  .our-vision-page .vision-roadmap__journey .bdc-carousel-arrows__btn--next {
+    right: clamp(0px, 1vw, 4px);
+  }
+
+  .our-vision-page .vision-roadmap__journey .bdc-carousel-arrows__btn:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+    box-shadow: none;
+  }
+
+  .our-vision-page .vision-roadmap__journey .bdc-carousel-shell--arrows .bdc-carousel-dots {
+    margin-top: 0.85rem;
+    margin-bottom: 0.35rem;
+  }
+}
