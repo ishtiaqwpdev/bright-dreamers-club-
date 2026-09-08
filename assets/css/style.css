@@ -23085,13 +23085,13 @@ body.newsletter-success-open {
     width: 100% !important;
     max-width: none !important;
     height: auto !important;
-    max-height: min(820px, 72vh) !important;
+    max-height: none !important;
     min-height: 0 !important;
     margin: 0 !important;
     padding: 0 !important;
     border-radius: 0 !important;
     object-fit: contain !important;
-    object-position: left center !important;
+    object-position: left top !important;
     background: #fff !important;
     background-color: #fff !important;
     filter: none !important;
