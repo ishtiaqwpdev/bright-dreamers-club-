@@ -25367,29 +25367,31 @@ body.newsletter-success-open {
     max-width: none !important;
     margin: 0 !important;
     margin-top: 0 !important;
-    padding: 0 !important;
+    padding: 0 20px !important;
     overflow: visible !important;
     background: #fff !important;
     background-color: #fff !important;
+    box-sizing: border-box !important;
   }
 
   .get-involved-page .page-hero.get-involved-hero .about-hero__media .lazy-img-wrap,
   .get-involved-page .page-hero.get-involved-hero .about-hero__media picture {
     display: block !important;
     width: 100% !important;
-    max-width: none !important;
+    max-width: 100% !important;
     margin: 0 auto !important;
     padding: 0 !important;
     overflow: visible !important;
     background: #fff !important;
     background-color: #fff !important;
     text-align: center !important;
+    box-sizing: border-box !important;
   }
 
   .get-involved-page .page-hero.get-involved-hero .about-hero__banner {
     display: block !important;
     width: 100% !important;
-    max-width: none !important;
+    max-width: 100% !important;
     height: auto !important;
     max-height: none !important;
     min-height: 0 !important;
@@ -25402,6 +25404,7 @@ body.newsletter-success-open {
     background-color: #fff !important;
     filter: none !important;
     transform: none !important;
+    box-sizing: border-box !important;
   }
 
   .get-involved-page .page-hero.get-involved-hero .page-hero__content {
