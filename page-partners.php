@@ -539,8 +539,22 @@ if ( empty( $partners_founding_cards ) ) {
             </div>
 
             <?php if ( '' !== trim( $partners_opportunity_cta_text ) ) : ?>
+            <?php
+            $partners_opportunity_cta_text_parts = preg_split( '/\?\s+/', $partners_opportunity_cta_text, 2 );
+            $partners_opportunity_cta_text_main  = isset( $partners_opportunity_cta_text_parts[0] )
+              ? trim( $partners_opportunity_cta_text_parts[0] )
+              : trim( $partners_opportunity_cta_text );
+            $partners_opportunity_cta_text_extra = isset( $partners_opportunity_cta_text_parts[1] )
+              ? trim( $partners_opportunity_cta_text_parts[1] )
+              : '';
+            ?>
             <p class="partners-opportunity-cta__text">
-              <?php echo esc_html( $partners_opportunity_cta_text ); ?>
+              <?php echo esc_html( $partners_opportunity_cta_text_main ); ?>?
+              <?php if ( '' !== $partners_opportunity_cta_text_extra ) : ?>
+              <span class="partners-opportunity-cta__text-extra">
+                <?php echo esc_html( $partners_opportunity_cta_text_extra ); ?>
+              </span>
+              <?php endif; ?>
             </p>
             <?php endif; ?>
 
