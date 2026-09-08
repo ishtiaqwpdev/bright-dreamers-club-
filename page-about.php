@@ -92,11 +92,16 @@ $about_story_title = bdc_get_acf_text(
 	'Our Story',
 	$about_page_id
 );
-$about_story_photo_url = bdc_theme_asset_url( 'assets/images/our-story-photo.png' );
-$about_story_photo_ver = bdc_asset_version( 'assets/images/our-story-photo.png' );
+$about_story_photo_default = bdc_theme_asset_url( 'assets/images/our-story-photo.png' );
+$about_story_photo_ver       = bdc_asset_version( 'assets/images/our-story-photo.png' );
 if ( $about_story_photo_ver ) {
-	$about_story_photo_url = add_query_arg( 'v', $about_story_photo_ver, $about_story_photo_url );
+	$about_story_photo_default = add_query_arg( 'v', $about_story_photo_ver, $about_story_photo_default );
 }
+$about_story_photo_url = bdc_get_acf_image_url(
+	'about_story_photo',
+	$about_story_photo_default,
+	$about_page_id
+);
 $about_story_photo_alt = bdc_get_acf_text(
 	'about_story_photo_alt',
 	'Two Bright Dreamers holding a sign that reads Our Ideas Can Change The World',
@@ -530,15 +535,15 @@ if ( empty( $about_compare_right_items ) ) {
           <div class="our-story__card">
             <div class="our-story__inner">
               <div class="our-story__media">
-                <div class="lazy-img-wrap">
+                <div class="our-story__photo-wrap">
                   <img
-                    class="our-story__photo lazy-img"
-                    src="<?php echo esc_attr( $about_hero_lazy_placeholder ); ?>"
-                    data-src="<?php echo esc_url( $about_story_photo_url ); ?>"
+                    class="our-story__photo"
+                    src="<?php echo esc_url( $about_story_photo_url ); ?>"
                     alt="<?php echo esc_attr( $about_story_photo_alt ); ?>"
                     width="900"
                     height="900"
                     decoding="async"
+                    loading="eager"
                   />
                 </div>
               </div>
