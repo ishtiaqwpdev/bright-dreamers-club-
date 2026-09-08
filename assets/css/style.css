@@ -23202,3 +23202,75 @@ body.newsletter-success-open {
     justify-content: center !important;
   }
 }
+
+/* About page — Our Role: 3-column grid on mobile (replaces slider) */
+@media (max-width: 991px) {
+  .about-page .panel-card--role {
+    overflow: visible !important;
+  }
+
+  .about-page .panel-card--role .panel-card__content,
+  .about-page .panel-card--role .panel-card__content--full {
+    overflow: visible !important;
+  }
+
+  .about-page .role-icons,
+  .about-page .role-icons.bdc-mobile-carousel,
+  .about-page .role-icons.bdc-mobile-carousel--peek,
+  .about-page .role-icons.bdc-mobile-carousel--peek-2 {
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    grid-auto-rows: auto !important;
+    align-items: start !important;
+    gap: clamp(0.75rem, 3vw, 1rem) clamp(0.35rem, 1.5vw, 0.55rem) !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 0 clamp(0.85rem, 2vw, 1.15rem) !important;
+    margin-inline: 0 !important;
+    padding: 0 !important;
+    padding-inline: 0 !important;
+    overflow: visible !important;
+    overflow-x: visible !important;
+    scroll-snap-type: none !important;
+    flex-wrap: unset !important;
+    touch-action: auto !important;
+  }
+
+  .about-page .role-icons .role-icons__item,
+  .about-page .role-icons .role-icons__item.bdc-mobile-carousel__item {
+    flex: unset !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    width: auto !important;
+    max-width: none !important;
+    min-width: 0 !important;
+    scroll-snap-align: unset !important;
+    padding: 0 !important;
+    gap: 0.4rem !important;
+    text-align: center !important;
+    box-sizing: border-box !important;
+    border-left: none !important;
+  }
+
+  .about-page .role-icons .role-icons__img {
+    width: clamp(36px, 10vw, 48px) !important;
+    height: clamp(36px, 10vw, 48px) !important;
+    max-width: 100% !important;
+    object-fit: contain !important;
+  }
+
+  .about-page .role-icons .role-icons__label {
+    font-size: clamp(0.72rem, 2.4vw, 0.82rem) !important;
+    font-weight: 600 !important;
+    line-height: 1.25 !important;
+    color: var(--color-navy) !important;
+    max-width: 100% !important;
+  }
+
+  .about-page .panel-card--role .bdc-carousel-dots,
+  .about-page .panel-card--role .bdc-mobile-carousel-parent > .bdc-carousel-dots {
+    display: none !important;
+  }
+}
