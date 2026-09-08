@@ -21402,7 +21402,8 @@ body.newsletter-success-open {
     max-width: 100% !important;
     margin-top: 0 !important;
     margin-inline: auto !important;
-    padding: 0 !important;
+    padding: 0 20px !important;
+    box-sizing: border-box !important;
   }
 
   .get-involved-page #main-content > section.page-hero.get-involved-hero .about-hero__banner,
@@ -21437,7 +21438,8 @@ body.newsletter-success-open {
     max-width: 100% !important;
     margin-top: 0 !important;
     margin-inline: auto !important;
-    padding: 0 !important;
+    padding: 0 20px !important;
+    box-sizing: border-box !important;
   }
 
   .get-involved-page #main-content > section.page-hero.get-involved-hero .about-hero__banner,
@@ -25318,8 +25320,8 @@ body.newsletter-success-open {
   }
 }
 
-/* Get Involved page — banner section: 100% reference layout on mobile (≤767px) */
-@media (max-width: 767px) {
+/* Get Involved page — banner section: 100% reference layout on mobile (≤991px) */
+@media (max-width: 991px) {
   .get-involved-page #main-content > section.page-hero.get-involved-hero,
   .get-involved-page .page-hero.get-involved-hero {
     padding: 0 0 24px !important;
@@ -25430,6 +25432,20 @@ body.newsletter-success-open {
     letter-spacing: 0.16em !important;
     text-transform: uppercase !important;
     color: var(--color-pink) !important;
+  }
+
+  .get-involved-page .page-hero.get-involved-hero .hero-label::before {
+    content: '^ ' !important;
+  }
+
+  .get-involved-page .page-hero.get-involved-hero .hero-label::after {
+    display: none !important;
+    content: none !important;
+    width: 0 !important;
+    height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: none !important;
   }
 
   .get-involved-page .page-hero.get-involved-hero .hero-headline {
