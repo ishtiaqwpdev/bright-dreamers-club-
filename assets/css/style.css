@@ -22476,8 +22476,8 @@ body.newsletter-success-open {
   .page-hero.about-hero:not(.contact-hero):not(.vision-hero):not(.for-parents-hero):not(.get-involved-hero):not(.partners-hero):not(.apply-hero) .about-hero__media {
     order: -1 !important;
     display: flex !important;
-    justify-content: flex-start !important;
-    align-items: flex-start !important;
+    justify-content: center !important;
+    align-items: center !important;
     width: 100% !important;
     max-width: none !important;
     margin: 0 !important;
@@ -22667,7 +22667,8 @@ body.newsletter-success-open {
     max-width: none !important;
     border-radius: 0 !important;
     object-fit: contain !important;
-    object-position: left center !important;
+    object-position: center top !important;
+    margin-inline: auto !important;
     background-color: #fff !important;
   }
 }
@@ -23056,8 +23057,8 @@ body.newsletter-success-open {
   .about-page .page-hero.about-hero .hero-image-wrap {
     order: -1 !important;
     display: flex !important;
-    justify-content: flex-start !important;
-    align-items: flex-start !important;
+    justify-content: center !important;
+    align-items: center !important;
     width: 100% !important;
     max-width: none !important;
     margin: 0 !important;
@@ -23073,11 +23074,12 @@ body.newsletter-success-open {
     display: block !important;
     width: 100% !important;
     max-width: none !important;
-    margin: 0 !important;
+    margin: 0 auto !important;
     padding: 0 !important;
     overflow: visible !important;
     background: #fff !important;
     background-color: #fff !important;
+    text-align: center !important;
   }
 
   .about-page .page-hero.about-hero .about-hero__banner {
@@ -23087,11 +23089,11 @@ body.newsletter-success-open {
     height: auto !important;
     max-height: none !important;
     min-height: 0 !important;
-    margin: 0 !important;
+    margin: 0 auto !important;
     padding: 0 !important;
     border-radius: 0 !important;
     object-fit: contain !important;
-    object-position: left top !important;
+    object-position: center top !important;
     background: #fff !important;
     background-color: #fff !important;
     filter: none !important;
