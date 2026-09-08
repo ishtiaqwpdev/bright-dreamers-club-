@@ -22612,3 +22612,66 @@ body.newsletter-success-open {
     border-radius: 12px !important;
   }
 }
+
+/* About page — We Believe: 3-column grid on mobile (replaces slider) */
+@media (max-width: 991px) {
+  .about-page .we-believe__row,
+  .about-page .we-believe__row.bdc-mobile-carousel-parent {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .about-page .we-believe__slider,
+  .about-page .we-believe__slider.bdc-mobile-carousel,
+  .about-page .we-believe__slider.bdc-mobile-carousel--peek,
+  .about-page .we-believe__slider.bdc-mobile-carousel--peek-2 {
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    grid-auto-rows: auto !important;
+    align-items: stretch !important;
+    gap: clamp(0.45rem, 2vw, 0.65rem) !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    margin-inline: 0 !important;
+    padding: 0 !important;
+    padding-inline: 0 !important;
+    overflow: visible !important;
+    overflow-x: visible !important;
+    scroll-snap-type: none !important;
+    flex-wrap: unset !important;
+  }
+
+  .about-page .we-believe__slider .believe-card,
+  .about-page .we-believe__slider .believe-card.bdc-mobile-carousel__item {
+    flex: unset !important;
+    width: auto !important;
+    max-width: none !important;
+    min-width: 0 !important;
+    scroll-snap-align: unset !important;
+    padding: clamp(0.65rem, 2.5vw, 0.85rem) clamp(0.3rem, 1.2vw, 0.45rem) !important;
+    gap: 0.4rem !important;
+    border-radius: 12px !important;
+    box-shadow: none !important;
+  }
+
+  .about-page .we-believe__slider .believe-card__icon {
+    width: auto !important;
+    height: clamp(34px, 9vw, 46px) !important;
+    flex: 0 0 clamp(34px, 9vw, 46px) !important;
+    max-width: 100% !important;
+  }
+
+  .about-page .we-believe__slider .believe-card__text {
+    font-size: clamp(0.6rem, 2.3vw, 0.72rem) !important;
+    line-height: 1.28 !important;
+    --believe-text-max-width: 100% !important;
+    max-width: 100% !important;
+    min-height: calc(1.28em * 3) !important;
+  }
+
+  .about-page .we-believe__row > .bdc-carousel-dots {
+    display: none !important;
+  }
+}

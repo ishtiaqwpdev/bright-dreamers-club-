@@ -869,6 +869,13 @@
       if (skipTrackSelector && (track.matches(skipTrackSelector) || track.closest(skipTrackSelector))) {
         return true;
       }
+      if (
+        track.classList.contains('we-believe__slider') &&
+        document.body &&
+        document.body.classList.contains('about-page')
+      ) {
+        return true;
+      }
       var className = String(track.className || '');
       return (
         className.indexOf('faq') !== -1 ||
