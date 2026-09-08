@@ -8274,13 +8274,17 @@ img.lazy-img.loaded {
 
 .our-story__media .lazy-img-wrap,
 .our-story__photo-wrap {
+  display: block;
+  width: 100%;
   background: transparent;
   overflow: visible;
+  line-height: 0;
 }
 
 .our-story__photo {
   display: block;
   width: 100%;
+  max-width: 100%;
   height: auto;
   object-fit: contain;
   background: transparent;
@@ -22191,8 +22195,8 @@ body.newsletter-success-open {
     order: -1 !important;
     align-self: stretch !important;
     display: flex !important;
-    justify-content: flex-start !important;
-    align-items: flex-start !important;
+    justify-content: center !important;
+    align-items: center !important;
     width: 100% !important;
     max-width: 100% !important;
     margin: 0 !important;
@@ -22221,9 +22225,9 @@ body.newsletter-success-open {
     max-width: 100% !important;
     height: auto !important;
     max-height: min(820px, 72vh) !important;
-    margin: 0 !important;
+    margin: 0 auto !important;
     object-fit: contain !important;
-    object-position: left center !important;
+    object-position: center center !important;
     transform: none !important;
   }
 
@@ -22625,6 +22629,13 @@ body.newsletter-success-open {
     width: 100% !important;
     max-width: 100% !important;
     margin: 0 !important;
+    display: block !important;
+  }
+
+  .about-page .our-story__photo-wrap {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
   }
 
   .about-page .our-story__photo {
@@ -26518,5 +26529,69 @@ body.newsletter-success-open {
     text-align: left !important;
     overflow: visible !important;
     position: static !important;
+  }
+}
+
+/* All pages — hero banner image centered in page (≤991px, single global fix) */
+@media (max-width: 991px) {
+  #main-content > section.page-hero,
+  .page-hero {
+    overflow-x: clip !important;
+  }
+
+  #main-content > section.page-hero .hero-image-wrap,
+  #main-content > section.page-hero [class*='-hero__media'],
+  #main-content > section.page-hero .home-hero__media,
+  .page-hero .hero-image-wrap,
+  .page-hero [class*='-hero__media'],
+  .page-hero.home-hero .home-hero__media {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 20px !important;
+    overflow: hidden !important;
+    box-sizing: border-box !important;
+    background: transparent !important;
+  }
+
+  #main-content > section.page-hero .hero-image-wrap .lazy-img-wrap,
+  #main-content > section.page-hero [class*='-hero__media'] .lazy-img-wrap,
+  #main-content > section.page-hero .home-hero__media .lazy-img-wrap,
+  .page-hero .hero-image-wrap .lazy-img-wrap,
+  .page-hero [class*='-hero__media'] .lazy-img-wrap,
+  .page-hero.home-hero .home-hero__media .lazy-img-wrap,
+  #main-content > section.page-hero [class*='-hero__media'] picture,
+  .page-hero [class*='-hero__media'] picture {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+    box-sizing: border-box !important;
+    text-align: center !important;
+  }
+
+  #main-content > section.page-hero img[class*='__banner'],
+  #main-content > section.page-hero picture img[class*='__banner'],
+  .page-hero img[class*='__banner'],
+  .page-hero picture img[class*='__banner'],
+  .page-hero .home-hero__banner {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    max-height: min(820px, 72vh) !important;
+    min-height: 0 !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+    object-fit: contain !important;
+    object-position: center center !important;
+    transform: none !important;
+    filter: none !important;
+    box-sizing: border-box !important;
   }
 }

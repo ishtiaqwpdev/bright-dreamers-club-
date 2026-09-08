@@ -92,16 +92,12 @@ $about_story_title = bdc_get_acf_text(
 	'Our Story',
 	$about_page_id
 );
-$about_story_photo_default = bdc_theme_asset_url( 'assets/images/our-story-photo.png' );
-$about_story_photo_ver       = bdc_asset_version( 'assets/images/our-story-photo.png' );
+$about_story_photo_relative = 'assets/images/our-story-photo.png';
+$about_story_photo_url      = bdc_theme_asset_url( $about_story_photo_relative );
+$about_story_photo_ver      = bdc_asset_version( $about_story_photo_relative );
 if ( $about_story_photo_ver ) {
-	$about_story_photo_default = add_query_arg( 'v', $about_story_photo_ver, $about_story_photo_default );
+	$about_story_photo_url = add_query_arg( 'v', $about_story_photo_ver, $about_story_photo_url );
 }
-$about_story_photo_url = bdc_get_acf_image_url(
-	'about_story_photo',
-	$about_story_photo_default,
-	$about_page_id
-);
 $about_story_photo_alt = bdc_get_acf_text(
 	'about_story_photo_alt',
 	'Two Bright Dreamers holding a sign that reads Our Ideas Can Change The World',
