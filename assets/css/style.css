@@ -25694,3 +25694,31 @@ body.newsletter-success-open {
     display: none !important;
   }
 }
+
+/* Get Involved page — Help Us Make: center bottom illustration on mobile */
+@media (max-width: 991px) {
+  .get-involved-page .get-involved-impact__visual {
+    justify-items: center !important;
+  }
+
+  .get-involved-page .get-involved-impact__visual > .lazy-img-wrap {
+    justify-self: center !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    width: 100% !important;
+    max-width: min(100%, 320px) !important;
+    margin-inline: auto !important;
+  }
+
+  .get-involved-page .get-involved-impact__illustration {
+    justify-self: center !important;
+    display: block !important;
+    width: 100% !important;
+    max-width: min(100%, 320px) !important;
+    height: auto !important;
+    margin-inline: auto !important;
+    object-fit: contain !important;
+    object-position: center center !important;
+  }
+}
