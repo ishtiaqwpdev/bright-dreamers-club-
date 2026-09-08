@@ -24288,6 +24288,16 @@ body.newsletter-success-open {
     color: var(--color-pink) !important;
   }
 
+  .our-vision-page .page-hero.vision-hero .hero-label::after {
+    display: none !important;
+    content: none !important;
+    width: 0 !important;
+    height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: none !important;
+  }
+
   .our-vision-page .page-hero.vision-hero .hero-headline {
     position: relative !important;
     display: block !important;
