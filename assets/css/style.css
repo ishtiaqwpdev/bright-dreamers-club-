@@ -24903,6 +24903,13 @@ body.newsletter-success-open {
   }
 
   .our-vision-page .vision-moments__feature-inner {
+    position: relative !important;
+    width: 100% !important;
+    height: 100% !important;
+    min-height: 100% !important;
+  }
+
+  .our-vision-page .vision-moments__feature-inner > .lazy-img-wrap {
     width: 100% !important;
     height: 100% !important;
     min-height: 100% !important;
@@ -24919,12 +24926,20 @@ body.newsletter-success-open {
   .our-vision-page .vision-moments__feature-copy {
     position: absolute !important;
     inset: 0 !important;
+    left: 0 !important;
+    top: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    width: auto !important;
+    max-width: none !important;
+    transform: none !important;
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
     justify-content: center !important;
     text-align: center !important;
-    padding: 0.75rem !important;
+    padding: clamp(0.65rem, 3vw, 0.85rem) !important;
+    box-sizing: border-box !important;
     pointer-events: none !important;
   }
 
