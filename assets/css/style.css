@@ -22959,3 +22959,45 @@ body.newsletter-success-open {
     display: none !important;
   }
 }
+
+/* Home page — pillars: stacked cards on mobile (replaces slider) */
+@media (max-width: 991px) {
+  .home-page .home-pillars__row,
+  .home-page .home-pillars__row.bdc-mobile-carousel,
+  .home-page .home-pillars__row.bdc-mobile-carousel--full,
+  .home-page .home-pillars__row.bdc-mobile-carousel--peek,
+  .home-page .home-pillars__row.bdc-mobile-carousel--peek-2 {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: clamp(0.75rem, 2.5vw, 1rem) !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    margin-inline: 0 !important;
+    padding: 0 !important;
+    padding-inline: 0 !important;
+    overflow: visible !important;
+    overflow-x: visible !important;
+    scroll-snap-type: none !important;
+    flex-wrap: unset !important;
+  }
+
+  .home-page .home-pillars__row .home-pillar,
+  .home-page .home-pillars__row .home-pillar.bdc-mobile-carousel__item {
+    flex: 1 1 auto !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    scroll-snap-align: unset !important;
+    box-sizing: border-box !important;
+  }
+
+  .home-page .home-pillars__row .home-pillar__inner {
+    align-items: center !important;
+  }
+
+  .home-page .home-pillars .bdc-carousel-dots {
+    display: none !important;
+  }
+}

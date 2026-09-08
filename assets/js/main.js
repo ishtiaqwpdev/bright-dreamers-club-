@@ -890,6 +890,13 @@
       ) {
         return true;
       }
+      if (
+        track.classList.contains('home-pillars__row') &&
+        document.body &&
+        document.body.classList.contains('home-page')
+      ) {
+        return true;
+      }
       var className = String(track.className || '');
       return (
         className.indexOf('faq') !== -1 ||
