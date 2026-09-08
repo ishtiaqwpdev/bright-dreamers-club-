@@ -936,6 +936,13 @@
       ) {
         return true;
       }
+      if (
+        track.classList.contains('get-involved-ways__grid') &&
+        document.body &&
+        document.body.classList.contains('get-involved-page')
+      ) {
+        return true;
+      }
       var className = String(track.className || '');
       return (
         className.indexOf('faq') !== -1 ||

@@ -25524,3 +25524,173 @@ body.newsletter-success-open {
     box-shadow: inset 0 0 0 1px var(--color-pink) !important;
   }
 }
+
+/* Get Involved page — How You Can Get Involved: vertical stacked cards on mobile (no slider) */
+@media (max-width: 991px) {
+  .get-involved-page .get-involved-ways {
+    overflow: visible !important;
+  }
+
+  .get-involved-page .get-involved-ways > .site-container {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+    overflow: visible !important;
+  }
+
+  .get-involved-page .get-involved-ways__title {
+    justify-content: flex-start !important;
+    text-align: left !important;
+    font-size: clamp(1.15rem, 4.2vw, 1.45rem) !important;
+    margin-bottom: clamp(0.85rem, 2.5vw, 1.1rem) !important;
+  }
+
+  .get-involved-page .get-involved-ways__grid,
+  .get-involved-page .get-involved-ways__grid.bdc-mobile-carousel,
+  .get-involved-page .get-involved-ways__grid.bdc-mobile-carousel--solo,
+  .get-involved-page .get-involved-ways__grid.bdc-mobile-carousel--full,
+  .get-involved-page .get-involved-ways__grid.bdc-mobile-carousel--inset {
+    display: flex !important;
+    flex-direction: column !important;
+    flex-wrap: nowrap !important;
+    align-items: stretch !important;
+    gap: clamp(0.75rem, 2.5vw, 1rem) !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    margin-inline: 0 !important;
+    padding: 0 !important;
+    padding-inline: 0 !important;
+    overflow: visible !important;
+    overflow-x: visible !important;
+    scroll-snap-type: none !important;
+    touch-action: auto !important;
+    -webkit-overflow-scrolling: auto !important;
+    scrollbar-width: auto !important;
+  }
+
+  .get-involved-page .get-involved-ways__grid::-webkit-scrollbar {
+    display: none !important;
+  }
+
+  .get-involved-page .get-involved-ways-card,
+  .get-involved-page .get-involved-ways-card.bdc-mobile-carousel__item {
+    display: grid !important;
+    grid-template-columns: auto minmax(0, 1fr) !important;
+    grid-template-rows: auto auto !important;
+    column-gap: clamp(0.75rem, 3vw, 1rem) !important;
+    row-gap: 0.35rem !important;
+    align-items: start !important;
+    flex: none !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    scroll-snap-align: unset !important;
+    text-align: left !important;
+    box-sizing: border-box !important;
+    border-radius: var(--experience-card-radius) !important;
+    border-width: 1px !important;
+    border-style: solid !important;
+    padding: clamp(0.85rem, 2.5vw, 1.05rem) clamp(0.85rem, 3vw, 1.1rem) !important;
+    box-shadow: none !important;
+    overflow: visible !important;
+  }
+
+  .get-involved-page .get-involved-ways-card__icon {
+    grid-column: 1 !important;
+    grid-row: 1 / span 2 !important;
+    align-self: center !important;
+    flex-shrink: 0 !important;
+    width: clamp(56px, 14vw, 72px) !important;
+    height: clamp(56px, 14vw, 72px) !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: clamp(0.45rem, 1.5vw, 0.55rem) !important;
+    border-radius: 50% !important;
+    object-fit: contain !important;
+    box-sizing: border-box !important;
+  }
+
+  .get-involved-page .get-involved-ways-card__title {
+    grid-column: 2 !important;
+    grid-row: 1 !important;
+    font-family: var(--font-heading) !important;
+    font-size: clamp(0.92rem, 2.8vw, 1.05rem) !important;
+    font-weight: 700 !important;
+    line-height: 1.28 !important;
+    color: var(--color-navy) !important;
+    text-align: left !important;
+    margin: 0 !important;
+    max-width: 100% !important;
+  }
+
+  .get-involved-page .get-involved-ways-card__text {
+    grid-column: 2 !important;
+    grid-row: 2 !important;
+    flex: unset !important;
+    font-family: var(--font-body) !important;
+    font-size: clamp(0.82rem, 2.5vw, 0.92rem) !important;
+    font-weight: 400 !important;
+    line-height: 1.45 !important;
+    color: var(--color-navy) !important;
+    text-align: left !important;
+    margin: 0 !important;
+    min-height: 0 !important;
+    max-width: 100% !important;
+    overflow-wrap: anywhere !important;
+    word-break: break-word !important;
+  }
+
+  .get-involved-page .get-involved-ways-card__link {
+    display: none !important;
+  }
+
+  .get-involved-page .get-involved-ways-card:nth-child(1) {
+    background-color: var(--color-purple-soft) !important;
+    border-color: rgba(123, 63, 189, 0.28) !important;
+  }
+
+  .get-involved-page .get-involved-ways-card:nth-child(1) .get-involved-ways-card__icon {
+    background-color: var(--color-purple-muted) !important;
+  }
+
+  .get-involved-page .get-involved-ways-card:nth-child(2) {
+    background-color: #fff9e6 !important;
+    border-color: rgba(245, 166, 35, 0.35) !important;
+  }
+
+  .get-involved-page .get-involved-ways-card:nth-child(2) .get-involved-ways-card__icon {
+    background-color: #fff2cc !important;
+  }
+
+  .get-involved-page .get-involved-ways-card:nth-child(3) {
+    background-color: var(--color-green-soft) !important;
+    border-color: rgba(61, 154, 90, 0.28) !important;
+  }
+
+  .get-involved-page .get-involved-ways-card:nth-child(3) .get-involved-ways-card__icon {
+    background-color: var(--color-green-muted) !important;
+  }
+
+  .get-involved-page .get-involved-ways-card:nth-child(4) {
+    background-color: var(--color-blue-soft) !important;
+    border-color: rgba(43, 127, 212, 0.28) !important;
+  }
+
+  .get-involved-page .get-involved-ways-card:nth-child(4) .get-involved-ways-card__icon {
+    background-color: var(--color-blue-muted) !important;
+  }
+
+  .get-involved-page .get-involved-ways-card:nth-child(5) {
+    background-color: var(--color-pink-soft) !important;
+    border-color: rgba(238, 29, 120, 0.22) !important;
+  }
+
+  .get-involved-page .get-involved-ways-card:nth-child(5) .get-involved-ways-card__icon {
+    background-color: #ffe6f0 !important;
+  }
+
+  .get-involved-page .get-involved-ways .bdc-carousel-dots,
+  .get-involved-page .get-involved-ways > .site-container > .bdc-carousel-dots {
+    display: none !important;
+  }
+}
