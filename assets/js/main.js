@@ -1072,7 +1072,8 @@
         track &&
         track.classList &&
         (track.classList.contains('explore-ways__grid') ||
-          track.classList.contains('explore-skills__grid'))
+          track.classList.contains('explore-skills__grid') ||
+          track.classList.contains('explore-grow__track'))
       );
     }
 
@@ -1114,7 +1115,8 @@
           track.classList.contains('financial-support-grid') ||
           track.classList.contains('accessibility-provide-grid') ||
           track.classList.contains('explore-ways__grid') ||
-          track.classList.contains('explore-skills__grid'));
+          track.classList.contains('explore-skills__grid') ||
+          track.classList.contains('explore-grow__track'));
       var snapInline = isSolo || mode === 'peek' ? 'start' : 'center';
 
       track.classList.add('bdc-mobile-carousel');
@@ -1133,7 +1135,8 @@
         track.style.setProperty('margin-inline', '0', 'important');
         if (
           track.classList.contains('explore-ways__grid') ||
-          track.classList.contains('explore-skills__grid')
+          track.classList.contains('explore-skills__grid') ||
+          track.classList.contains('explore-grow__track')
         ) {
           track.style.setProperty('padding', '2px clamp(28px, 8vw, 36px) 16px', 'important');
           track.style.setProperty('padding-left', 'clamp(28px, 8vw, 36px)', 'important');
@@ -1161,7 +1164,7 @@
         });
         var soloSection =
           track.closest(
-            '.for-parents-expect, .get-involved-ways, .partners-founding, .financial-support, .accessibility-provide, .explore-ways, .explore-skills'
+            '.for-parents-expect, .get-involved-ways, .partners-founding, .financial-support, .accessibility-provide, .explore-ways, .explore-skills, .explore-grow'
           ) || null;
         if (soloSection && soloSection.style) {
           soloSection.style.setProperty('overflow', 'visible', 'important');
@@ -1343,7 +1346,7 @@
           }
           var soloSection =
             track.closest(
-              '.for-parents-expect, .get-involved-ways, .partners-founding, .financial-support, .accessibility-provide, .explore-ways, .explore-skills'
+              '.for-parents-expect, .get-involved-ways, .partners-founding, .financial-support, .accessibility-provide, .explore-ways, .explore-skills, .explore-grow'
             ) || null;
           if (soloSection && soloSection.style) {
             soloSection.style.removeProperty('overflow');
