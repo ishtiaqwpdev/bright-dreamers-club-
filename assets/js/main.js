@@ -774,6 +774,11 @@
       { track: '.for-parents-info-card__features', item: '.for-parents-info-feature', mode: 'peek' },
       { track: '.vision-pillars__grid', item: '.vision-pillar-card', mode: 'peek' },
       { track: '.vision-journey-steps', item: '.vision-journey-step', mode: 'full' },
+      {
+        track: '.vision-moments__gallery',
+        item: '.vision-moments__photo-wrap, .vision-moments__feature',
+        mode: 'full',
+      },
       { track: '.vision-partner__icons', item: '.vision-partner__icon-item', mode: 'peek' },
       { track: '.get-involved-ways__grid', item: '.get-involved-ways-card', mode: 'full' },
       { track: '.partners-ways__grid', item: '.partners-ways-card', mode: 'peek' },
@@ -789,7 +794,6 @@
     var skipTrackSelector = [
       '.media-policy-nav__list',
       '.home-spotlight__grid',
-      '.vision-moments__gallery',
       '.vision-together__grid',
       '.vision-roadmap__list',
       '.vision-hero-checklist',
@@ -920,6 +924,13 @@
       }
       if (
         track.classList.contains('vision-pillars__grid') &&
+        document.body &&
+        document.body.classList.contains('our-vision-page')
+      ) {
+        return true;
+      }
+      if (
+        track.classList.contains('vision-partner__icons') &&
         document.body &&
         document.body.classList.contains('our-vision-page')
       ) {
@@ -1088,7 +1099,8 @@
         (track.classList.contains('explore-ways__grid') ||
           track.classList.contains('explore-skills__grid') ||
           track.classList.contains('explore-grow__track') ||
-          track.classList.contains('vision-journey-steps'))
+          track.classList.contains('vision-journey-steps') ||
+          track.classList.contains('vision-moments__gallery'))
       );
     }
 
@@ -1099,7 +1111,8 @@
         (track.classList.contains('explore-ways__grid') ||
           track.classList.contains('explore-skills__grid') ||
           track.classList.contains('explore-grow__track') ||
-          track.classList.contains('vision-journey-steps'))
+          track.classList.contains('vision-journey-steps') ||
+          track.classList.contains('vision-moments__gallery'))
       );
     }
 
@@ -1143,7 +1156,8 @@
           track.classList.contains('explore-ways__grid') ||
           track.classList.contains('explore-skills__grid') ||
           track.classList.contains('explore-grow__track') ||
-          track.classList.contains('vision-journey-steps'));
+          track.classList.contains('vision-journey-steps') ||
+          track.classList.contains('vision-moments__gallery'));
       var snapInline = isSolo || mode === 'peek' ? 'start' : 'center';
 
       track.classList.add('bdc-mobile-carousel');
@@ -1203,7 +1217,7 @@
         });
         var soloSection =
           track.closest(
-            '.for-parents-expect, .get-involved-ways, .partners-founding, .financial-support, .accessibility-provide, .explore-ways, .explore-skills, .explore-grow, .vision-roadmap__journey'
+            '.for-parents-expect, .get-involved-ways, .partners-founding, .financial-support, .accessibility-provide, .explore-ways, .explore-skills, .explore-grow, .vision-roadmap__journey, .vision-moments'
           ) || null;
         if (soloSection && soloSection.style) {
           soloSection.style.setProperty('overflow', 'visible', 'important');
@@ -1385,7 +1399,7 @@
           }
           var soloSection =
             track.closest(
-              '.for-parents-expect, .get-involved-ways, .partners-founding, .financial-support, .accessibility-provide, .explore-ways, .explore-skills, .explore-grow, .vision-roadmap__journey'
+              '.for-parents-expect, .get-involved-ways, .partners-founding, .financial-support, .accessibility-provide, .explore-ways, .explore-skills, .explore-grow, .vision-roadmap__journey, .vision-moments'
             ) || null;
           if (soloSection && soloSection.style) {
             soloSection.style.removeProperty('overflow');

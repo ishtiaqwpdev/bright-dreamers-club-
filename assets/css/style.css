@@ -24769,3 +24769,394 @@ body.newsletter-success-open {
     margin-bottom: 0.35rem;
   }
 }
+
+/* Our Vision page — Moments gallery: one image + arrows (reference mobile layout) */
+@media (max-width: 991px) {
+  .our-vision-page .vision-moments {
+    overflow: visible !important;
+  }
+
+  .our-vision-page .vision-moments .site-container.vision-moments__inner {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: clamp(0.85rem, 2.5vw, 1.1rem) !important;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+    overflow: visible !important;
+  }
+
+  .our-vision-page .vision-moments__card {
+    order: 1 !important;
+    background: transparent !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    min-height: 0 !important;
+    box-shadow: none !important;
+  }
+
+  .our-vision-page .vision-moments__card .vision-section__title {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex-wrap: wrap !important;
+    gap: 0.45rem !important;
+    text-align: center !important;
+    font-family: var(--font-heading) !important;
+    font-size: clamp(1.15rem, 4.2vw, 1.45rem) !important;
+    font-weight: 700 !important;
+    line-height: 1.15 !important;
+    color: var(--color-navy) !important;
+    margin: 0 0 0.35rem !important;
+    width: 100% !important;
+  }
+
+  .our-vision-page .vision-moments__card .vision-section__title-icon {
+    color: var(--color-pink) !important;
+    flex-shrink: 0 !important;
+  }
+
+  .our-vision-page .vision-moments__intro,
+  .our-vision-page .vision-moments__list {
+    display: none !important;
+  }
+
+  .our-vision-page .vision-moments__gallery {
+    order: 2 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+  }
+
+  .our-vision-page .vision-moments__photo-duo {
+    display: contents !important;
+  }
+
+  .our-vision-page .vision-moments .bdc-carousel-shell--arrows {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    padding-inline: clamp(28px, 8vw, 36px);
+    overflow: hidden !important;
+    overflow-x: hidden !important;
+  }
+
+  .our-vision-page .vision-moments .bdc-carousel-shell--arrows .vision-moments__gallery.bdc-mobile-carousel {
+    margin-inline: 0 !important;
+    padding-inline: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    scroll-padding-inline: 0 !important;
+  }
+
+  .our-vision-page .vision-moments__gallery,
+  .our-vision-page .vision-moments__gallery.bdc-mobile-carousel,
+  .our-vision-page .vision-moments__gallery.bdc-mobile-carousel--solo,
+  .our-vision-page .vision-moments__gallery.bdc-mobile-carousel--full {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    align-items: stretch !important;
+    gap: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    margin-inline: 0 !important;
+    padding: 0 0 16px !important;
+    padding-inline: 0 !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    scroll-snap-type: x mandatory !important;
+    scroll-padding-inline: 0 !important;
+    box-sizing: border-box !important;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    grid-template-columns: none !important;
+    grid-template-areas: none !important;
+  }
+
+  .our-vision-page .vision-moments__gallery::-webkit-scrollbar {
+    display: none !important;
+  }
+
+  .our-vision-page .vision-moments__photo-wrap.bdc-mobile-carousel__item,
+  .our-vision-page .vision-moments__feature.bdc-mobile-carousel__item {
+    flex: 0 0 100% !important;
+    flex-shrink: 0 !important;
+    width: 100% !important;
+    min-width: 100% !important;
+    max-width: 100% !important;
+    scroll-snap-align: start !important;
+    scroll-snap-stop: always !important;
+    margin: 0 !important;
+    box-sizing: border-box !important;
+    border-radius: var(--home-pillar-radius) !important;
+    overflow: hidden !important;
+    aspect-ratio: 4 / 3 !important;
+    height: auto !important;
+    align-self: stretch !important;
+  }
+
+  .our-vision-page .vision-moments__photo-wrap.bdc-mobile-carousel__item {
+    display: flex !important;
+    align-items: stretch !important;
+    justify-content: center !important;
+  }
+
+  .our-vision-page .vision-moments__photo-wrap .lazy-img-wrap,
+  .our-vision-page .vision-moments__photo-wrap .lazy-img-wrap .vision-moments__photo {
+    width: 100% !important;
+    height: 100% !important;
+    min-height: 100% !important;
+  }
+
+  .our-vision-page .vision-moments__photo-wrap .vision-moments__photo {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center center !important;
+    border-radius: var(--home-pillar-radius) !important;
+  }
+
+  .our-vision-page .vision-moments__feature.bdc-mobile-carousel__item {
+    aspect-ratio: 16 / 10 !important;
+    position: relative !important;
+  }
+
+  .our-vision-page .vision-moments__feature-inner {
+    width: 100% !important;
+    height: 100% !important;
+    min-height: 100% !important;
+  }
+
+  .our-vision-page .vision-moments__feature-img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center center !important;
+  }
+
+  .our-vision-page .vision-moments__feature-copy {
+    position: absolute !important;
+    inset: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    padding: 0.75rem !important;
+    pointer-events: none !important;
+  }
+
+  .our-vision-page .vision-moments .bdc-carousel-arrows {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 3;
+  }
+
+  .our-vision-page .vision-moments .bdc-carousel-arrows__btn {
+    pointer-events: auto;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: clamp(34px, 9vw, 40px);
+    height: clamp(34px, 9vw, 40px);
+    padding: 0;
+    border: 1.5px solid var(--color-pink);
+    border-radius: 999px;
+    background: #fff;
+    color: var(--color-navy);
+    box-shadow: 0 2px 10px rgba(0, 27, 102, 0.08);
+    cursor: pointer;
+    appearance: none;
+    transition: opacity 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .our-vision-page .vision-moments .bdc-carousel-arrows__btn svg {
+    display: block;
+    width: clamp(16px, 4.2vw, 18px);
+    height: clamp(16px, 4.2vw, 18px);
+  }
+
+  .our-vision-page .vision-moments .bdc-carousel-arrows__btn--prev {
+    left: clamp(0px, 1vw, 4px);
+  }
+
+  .our-vision-page .vision-moments .bdc-carousel-arrows__btn--next {
+    right: clamp(0px, 1vw, 4px);
+  }
+
+  .our-vision-page .vision-moments .bdc-carousel-arrows__btn:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+    box-shadow: none;
+  }
+
+  .our-vision-page .vision-moments .bdc-carousel-shell--arrows .bdc-carousel-dots {
+    margin-top: 0.85rem;
+    margin-bottom: 0.35rem;
+  }
+}
+
+/* Our Vision page — Become a Founding Partner: 2-col static layout on mobile (reference 2) */
+@media (max-width: 991px) {
+  .our-vision-page .vision-partner {
+    overflow: visible !important;
+  }
+
+  .our-vision-page .vision-partner .site-container {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+    overflow: visible !important;
+  }
+
+  .our-vision-page .vision-partner__card {
+    background-color: #fff !important;
+    padding: 0 !important;
+    border-radius: 0 !important;
+  }
+
+  .our-vision-page .vision-partner__inner {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: clamp(0.85rem, 2.5vw, 1.15rem) !important;
+  }
+
+  .our-vision-page .vision-partner__copy {
+    background-color: transparent !important;
+    padding: 0 !important;
+    text-align: center !important;
+    align-items: center !important;
+  }
+
+  .our-vision-page .vision-partner__copy .vision-section__title {
+    justify-content: center !important;
+    text-align: center !important;
+    margin-bottom: 0 !important;
+    font-size: clamp(1.05rem, 4.2vw, 1.32rem) !important;
+    line-height: 1.2 !important;
+  }
+
+  .our-vision-page .vision-partner__copy .vision-section__title-icon {
+    width: clamp(0.95rem, 3.5vw, 1.15rem) !important;
+    height: clamp(0.95rem, 3.5vw, 1.15rem) !important;
+  }
+
+  .our-vision-page .vision-partner__intro {
+    display: none !important;
+  }
+
+  .our-vision-page .vision-partner__panel {
+    background-color: #fff !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border-radius: 0 !important;
+  }
+
+  .our-vision-page .vision-partner__panel-inner {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: clamp(0.85rem, 2.5vw, 1.15rem) !important;
+    width: 100% !important;
+  }
+
+  .our-vision-page .vision-partner__icons,
+  .our-vision-page .vision-partner__icons.bdc-mobile-carousel,
+  .our-vision-page .vision-partner__icons.bdc-mobile-carousel--peek,
+  .our-vision-page .vision-partner__icons.bdc-mobile-carousel--peek-2,
+  .our-vision-page .vision-partner__icons.bdc-mobile-carousel--inset,
+  .our-vision-page .vision-partner__icons.bdc-mobile-carousel--solo,
+  .our-vision-page .vision-partner__icons.bdc-mobile-carousel--full {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    flex-wrap: nowrap !important;
+    align-items: stretch !important;
+    gap: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    margin-inline: 0 !important;
+    padding: 0 !important;
+    padding-inline: 0 !important;
+    overflow: visible !important;
+    overflow-x: visible !important;
+    scroll-snap-type: none !important;
+    touch-action: auto !important;
+    -webkit-overflow-scrolling: auto !important;
+    scrollbar-width: auto !important;
+  }
+
+  .our-vision-page .vision-partner__icons::-webkit-scrollbar {
+    display: none !important;
+  }
+
+  .our-vision-page .vision-partner__icon-item:nth-child(n + 3) {
+    display: none !important;
+  }
+
+  .our-vision-page .vision-partner__icon-item,
+  .our-vision-page .vision-partner__icon-item.bdc-mobile-carousel__item {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    flex: none !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    scroll-snap-align: unset !important;
+    box-sizing: border-box !important;
+    padding: clamp(0.35rem, 1.5vw, 0.55rem) clamp(0.25rem, 1.5vw, 0.45rem) !important;
+    border-left: none !important;
+  }
+
+  .our-vision-page .vision-partner__icon-item:nth-child(even) {
+    border-left: 1px solid var(--vision-partner-divider) !important;
+  }
+
+  .our-vision-page .vision-partner__icon {
+    width: clamp(40px, 12vw, 52px) !important;
+    height: clamp(40px, 12vw, 52px) !important;
+    object-fit: contain !important;
+  }
+
+  .our-vision-page .vision-partner__icon-label {
+    font-family: var(--font-body) !important;
+    font-weight: 700 !important;
+    font-size: clamp(0.72rem, 2.8vw, 0.88rem) !important;
+    line-height: 1.25 !important;
+    color: var(--color-navy) !important;
+    max-width: 100% !important;
+    overflow-wrap: anywhere !important;
+    word-break: break-word !important;
+  }
+
+  .our-vision-page .vision-partner__cta-wrap {
+    align-items: stretch !important;
+    width: 100% !important;
+  }
+
+  .our-vision-page .vision-partner__btn {
+    width: 100% !important;
+    max-width: none !important;
+    justify-content: center !important;
+    border-radius: 999px !important;
+    padding: clamp(0.75rem, 2.5vw, 0.95rem) clamp(1rem, 3vw, 1.25rem) !important;
+    font-size: clamp(0.82rem, 2.5vw, 0.95rem) !important;
+    white-space: normal !important;
+    text-align: center !important;
+  }
+
+  .our-vision-page .vision-partner__cta-heart {
+    display: none !important;
+  }
+
+  .our-vision-page .vision-partner .bdc-carousel-arrows,
+  .our-vision-page .vision-partner .bdc-carousel-dots {
+    display: none !important;
+  }
+}
