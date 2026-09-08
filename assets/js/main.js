@@ -1067,10 +1067,36 @@
       });
     }
 
+    function wantsCarouselArrows(track) {
+      return !!(track && track.classList && track.classList.contains('explore-ways__grid'));
+    }
+
+    function chevronSvg(direction) {
+      var path = direction === 'prev' ? 'M15 6l-6 6 6 6' : 'M9 6l6 6-6 6';
+      return (
+        '<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">' +
+        '<path d="' +
+        path +
+        '" />' +
+        '</svg>'
+      );
+    }
+
     function bindCarousel(track, mode) {
       var items = getItems(track);
       if (items.length < 2) {
         return null;
+      }
+
+      var arrowShell = null;
+      var arrowNav = null;
+      var updateArrowButtons = null;
+
+      if (wantsCarouselArrows(track) && track.parentNode) {
+        arrowShell = document.createElement('div');
+        arrowShell.className = 'bdc-carousel-shell bdc-carousel-shell--arrows';
+        track.parentNode.insertBefore(arrowShell, track);
+        arrowShell.appendChild(track);
       }
 
       var perView = mode === 'peek' ? peekPerView(track) : 1;
@@ -1081,7 +1107,8 @@
           track.classList.contains('get-involved-ways__grid') ||
           track.classList.contains('partners-founding__grid') ||
           track.classList.contains('financial-support-grid') ||
-          track.classList.contains('accessibility-provide-grid'));
+          track.classList.contains('accessibility-provide-grid') ||
+          track.classList.contains('explore-ways__grid'));
       var snapInline = isSolo || mode === 'peek' ? 'start' : 'center';
 
       track.classList.add('bdc-mobile-carousel');
@@ -1098,12 +1125,20 @@
         track.style.setProperty('margin-left', '0', 'important');
         track.style.setProperty('margin-right', '0', 'important');
         track.style.setProperty('margin-inline', '0', 'important');
-        track.style.setProperty('padding', '2px 2px 16px', 'important');
-        track.style.setProperty('padding-left', '2px', 'important');
-        track.style.setProperty('padding-right', '2px', 'important');
-        track.style.setProperty('padding-inline', '2px', 'important');
+        if (track.classList.contains('explore-ways__grid')) {
+          track.style.setProperty('padding', '2px clamp(28px, 8vw, 36px) 16px', 'important');
+          track.style.setProperty('padding-left', 'clamp(28px, 8vw, 36px)', 'important');
+          track.style.setProperty('padding-right', 'clamp(28px, 8vw, 36px)', 'important');
+          track.style.setProperty('padding-inline', 'clamp(28px, 8vw, 36px)', 'important');
+          track.style.setProperty('scroll-padding-inline', 'clamp(28px, 8vw, 36px)', 'important');
+        } else {
+          track.style.setProperty('padding', '2px 2px 16px', 'important');
+          track.style.setProperty('padding-left', '2px', 'important');
+          track.style.setProperty('padding-right', '2px', 'important');
+          track.style.setProperty('padding-inline', '2px', 'important');
+          track.style.setProperty('scroll-padding-inline', '0', 'important');
+        }
         track.style.setProperty('gap', '0', 'important');
-        track.style.setProperty('scroll-padding-inline', '0', 'important');
         track.style.setProperty('left', 'auto', 'important');
         track.style.setProperty('transform', 'none', 'important');
         track.scrollLeft = 0;
@@ -1117,7 +1152,7 @@
         });
         var soloSection =
           track.closest(
-            '.for-parents-expect, .get-involved-ways, .partners-founding, .financial-support, .accessibility-provide'
+            '.for-parents-expect, .get-involved-ways, .partners-founding, .financial-support, .accessibility-provide, .explore-ways'
           ) || null;
         if (soloSection && soloSection.style) {
           soloSection.style.setProperty('overflow', 'visible', 'important');
@@ -1192,6 +1227,57 @@
         mode === 'peek' ? closestPageIndex(track, items, perView) : closestItemIndex(track, items)
       );
 
+      if (wantsCarouselArrows(track) && arrowShell) {
+        arrowNav = document.createElement('div');
+        arrowNav.className = 'bdc-carousel-arrows';
+
+        var prevBtn = document.createElement('button');
+        prevBtn.type = 'button';
+        prevBtn.className = 'bdc-carousel-arrows__btn bdc-carousel-arrows__btn--prev';
+        prevBtn.setAttribute('aria-label', 'Previous slide');
+        prevBtn.innerHTML = chevronSvg('prev');
+
+        var nextBtn = document.createElement('button');
+        nextBtn.type = 'button';
+        nextBtn.className = 'bdc-carousel-arrows__btn bdc-carousel-arrows__btn--next';
+        nextBtn.setAttribute('aria-label', 'Next slide');
+        nextBtn.innerHTML = chevronSvg('next');
+
+        arrowNav.appendChild(prevBtn);
+        arrowNav.appendChild(nextBtn);
+        arrowShell.insertBefore(arrowNav, track);
+
+        updateArrowButtons = function () {
+          var activeIndex = closestItemIndex(track, items);
+          prevBtn.disabled = activeIndex <= 0;
+          nextBtn.disabled = activeIndex >= items.length - 1;
+        };
+
+        prevBtn.addEventListener('click', function () {
+          var activeIndex = closestItemIndex(track, items);
+          if (activeIndex > 0 && items[activeIndex - 1]) {
+            items[activeIndex - 1].scrollIntoView({
+              behavior: 'smooth',
+              inline: snapInline,
+              block: 'nearest',
+            });
+          }
+        });
+
+        nextBtn.addEventListener('click', function () {
+          var activeIndex = closestItemIndex(track, items);
+          if (activeIndex < items.length - 1 && items[activeIndex + 1]) {
+            items[activeIndex + 1].scrollIntoView({
+              behavior: 'smooth',
+              inline: snapInline,
+              block: 'nearest',
+            });
+          }
+        });
+
+        updateArrowButtons();
+      }
+
       var ticking = false;
       function onScroll() {
         if (ticking) {
@@ -1203,6 +1289,9 @@
             dots,
             mode === 'peek' ? closestPageIndex(track, items, perView) : closestItemIndex(track, items)
           );
+          if (typeof updateArrowButtons === 'function') {
+            updateArrowButtons();
+          }
           ticking = false;
         });
       }
@@ -1245,7 +1334,7 @@
           }
           var soloSection =
             track.closest(
-              '.for-parents-expect, .get-involved-ways, .partners-founding, .financial-support, .accessibility-provide'
+              '.for-parents-expect, .get-involved-ways, .partners-founding, .financial-support, .accessibility-provide, .explore-ways'
             ) || null;
           if (soloSection && soloSection.style) {
             soloSection.style.removeProperty('overflow');
@@ -1276,6 +1365,13 @@
           });
           if (dotsWrap.parentNode) {
             dotsWrap.parentNode.removeChild(dotsWrap);
+          }
+          if (arrowNav && arrowNav.parentNode) {
+            arrowNav.parentNode.removeChild(arrowNav);
+          }
+          if (arrowShell && arrowShell.parentNode) {
+            arrowShell.parentNode.insertBefore(track, arrowShell);
+            arrowShell.parentNode.removeChild(arrowShell);
           }
         },
       };

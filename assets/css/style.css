@@ -23551,3 +23551,77 @@ body.newsletter-success-open {
     justify-content: center !important;
   }
 }
+
+/* Explore page — Ways Children Can Explore: left/right carousel arrows */
+@media (max-width: 991px) {
+  .explore-ways .site-container.bdc-mobile-carousel-parent,
+  .explore-ways .site-container.bdc-mobile-carousel-host {
+    overflow: visible !important;
+  }
+
+  .explore-ways .bdc-carousel-shell--arrows {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    overflow: visible;
+  }
+
+  .explore-ways .bdc-carousel-shell--arrows .explore-ways__grid.bdc-mobile-carousel {
+    margin-inline: 0 !important;
+    padding-inline: clamp(28px, 8vw, 36px) !important;
+    scroll-padding-inline: clamp(28px, 8vw, 36px) !important;
+  }
+
+  .explore-ways .bdc-carousel-arrows {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 3;
+  }
+
+  .explore-ways .bdc-carousel-arrows__btn {
+    pointer-events: auto;
+    position: absolute;
+    top: 58%;
+    transform: translateY(-50%);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: clamp(34px, 9vw, 40px);
+    height: clamp(34px, 9vw, 40px);
+    padding: 0;
+    border: 1.5px solid var(--color-pink);
+    border-radius: 999px;
+    background: #fff;
+    color: var(--color-pink);
+    box-shadow: 0 2px 10px rgba(0, 27, 102, 0.08);
+    cursor: pointer;
+    appearance: none;
+    transition: opacity 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .explore-ways .bdc-carousel-arrows__btn svg {
+    display: block;
+    width: clamp(16px, 4.2vw, 18px);
+    height: clamp(16px, 4.2vw, 18px);
+  }
+
+  .explore-ways .bdc-carousel-arrows__btn--prev {
+    left: clamp(0px, 1vw, 4px);
+  }
+
+  .explore-ways .bdc-carousel-arrows__btn--next {
+    right: clamp(0px, 1vw, 4px);
+  }
+
+  .explore-ways .bdc-carousel-arrows__btn:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+    box-shadow: none;
+  }
+
+  .explore-ways .bdc-carousel-shell--arrows .bdc-carousel-dots {
+    margin-top: 0.85rem;
+    margin-bottom: 0.35rem;
+  }
+}
