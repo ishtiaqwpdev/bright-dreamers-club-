@@ -22481,8 +22481,9 @@ body.newsletter-success-open {
     width: 100% !important;
     max-width: none !important;
     margin: 0 !important;
-    padding: 0 15px !important;
+    padding: 0 var(--container-padding) !important;
     overflow: visible !important;
+    background-color: #fff !important;
   }
 
   .about-page .page-hero.about-hero .about-hero__media .lazy-img-wrap,
@@ -22497,6 +22498,7 @@ body.newsletter-success-open {
     padding: 0 !important;
     overflow: visible !important;
     box-sizing: border-box !important;
+    background-color: #fff !important;
   }
 
   .about-page .page-hero.about-hero .about-hero__banner,
@@ -22513,6 +22515,8 @@ body.newsletter-success-open {
     border-radius: 0 !important;
     object-fit: contain !important;
     object-position: left center !important;
+    background-color: #fff !important;
+    filter: none !important;
   }
 
   .about-page .page-hero.about-hero .page-hero__content,
@@ -22527,7 +22531,7 @@ body.newsletter-success-open {
     width: 100% !important;
     max-width: 100% !important;
     margin: 0 !important;
-    padding: 0 15px !important;
+    padding: 0 var(--container-padding) !important;
     text-align: left !important;
   }
 
@@ -22653,7 +22657,8 @@ body.newsletter-success-open {
     max-width: none !important;
     margin: 0 !important;
     order: -1 !important;
-    padding: 0 15px !important;
+    padding: 0 var(--container-padding) !important;
+    background-color: #fff !important;
   }
 
   #main-content > section.page-hero.about-hero:not(.contact-hero):not(.vision-hero):not(.for-parents-hero):not(.get-involved-hero):not(.partners-hero):not(.apply-hero) .about-hero__banner,
@@ -22663,6 +22668,7 @@ body.newsletter-success-open {
     border-radius: 0 !important;
     object-fit: contain !important;
     object-position: left center !important;
+    background-color: #fff !important;
   }
 }
 
