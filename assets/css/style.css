@@ -25205,3 +25205,119 @@ body.newsletter-success-open {
     display: none !important;
   }
 }
+
+/* Our Vision page — Together section: jar + title row + stacked buttons (reference 2 mobile) */
+@media (max-width: 991px) {
+  .our-vision-page .vision-together {
+    overflow: visible !important;
+  }
+
+  .our-vision-page .vision-together .site-container {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+    overflow: visible !important;
+  }
+
+  .our-vision-page .vision-together__card {
+    background-color: var(--vision-together-bg) !important;
+    border-radius: var(--home-pillar-radius) !important;
+    padding: clamp(0.85rem, 2.5vw, 1.1rem) !important;
+  }
+
+  .our-vision-page .vision-together__grid {
+    display: grid !important;
+    grid-template-columns: auto minmax(0, 1fr) !important;
+    grid-template-areas:
+      "jar title"
+      "actions actions" !important;
+    gap: clamp(0.55rem, 2vw, 0.75rem) clamp(0.55rem, 2.5vw, 0.85rem) !important;
+    align-items: center !important;
+    text-align: left !important;
+  }
+
+  .our-vision-page .vision-together__jar-wrap {
+    grid-area: jar !important;
+    justify-content: flex-start !important;
+    align-self: center !important;
+    width: clamp(72px, 22vw, 96px) !important;
+    flex-shrink: 0 !important;
+  }
+
+  .our-vision-page .vision-together__jar-wrap > .lazy-img-wrap,
+  .our-vision-page .vision-together__jar {
+    width: 100% !important;
+    max-width: clamp(72px, 22vw, 96px) !important;
+  }
+
+  .our-vision-page .vision-together__stars {
+    display: none !important;
+  }
+
+  .our-vision-page .vision-together__title {
+    grid-area: title !important;
+    text-align: left !important;
+    margin: 0 !important;
+    font-family: var(--font-heading) !important;
+    font-size: clamp(0.78rem, 2.6vw, 0.94rem) !important;
+    font-weight: 700 !important;
+    line-height: 1.28 !important;
+    letter-spacing: -0.01em !important;
+    color: var(--color-navy) !important;
+    max-width: 100% !important;
+  }
+
+  .our-vision-page .vision-together__accent {
+    display: inline !important;
+    font-family: var(--font-heading) !important;
+    font-style: italic !important;
+    font-weight: 700 !important;
+    font-size: clamp(1.1rem, 4vw, 1.38rem) !important;
+    line-height: 1.1 !important;
+    color: var(--color-pink) !important;
+  }
+
+  .our-vision-page .vision-together__title-icon {
+    width: clamp(0.85rem, 3vw, 1rem) !important;
+    height: clamp(0.85rem, 3vw, 1rem) !important;
+    margin-left: 0.15rem !important;
+    vertical-align: middle !important;
+  }
+
+  .our-vision-page .vision-together__list {
+    display: none !important;
+  }
+
+  .our-vision-page .vision-together__actions {
+    grid-area: actions !important;
+    grid-column: 1 / -1 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: clamp(0.2rem, 0.8vw, 0.4rem) 0 0 !important;
+    gap: clamp(0.55rem, 2vw, 0.7rem) !important;
+  }
+
+  .our-vision-page .vision-together__actions .btn {
+    width: 100% !important;
+    max-width: 100% !important;
+    justify-content: center !important;
+    border-radius: 999px !important;
+    font-family: var(--font-body) !important;
+    font-size: clamp(0.72rem, 2.4vw, 0.86rem) !important;
+    font-weight: 700 !important;
+    line-height: 1.25 !important;
+    padding: clamp(0.7rem, 2.5vw, 0.85rem) clamp(0.85rem, 2.5vw, 1rem) !important;
+    white-space: normal !important;
+    text-align: center !important;
+  }
+
+  .our-vision-page .vision-together__btn-outline {
+    background-color: #fff !important;
+    color: var(--color-navy) !important;
+    border-color: var(--color-pink) !important;
+    box-shadow: inset 0 0 0 1px var(--color-pink) !important;
+  }
+
+  .our-vision-page .vision-together__deco-stars {
+    display: none !important;
+  }
+}
