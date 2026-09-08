@@ -1193,12 +1193,20 @@
         track.style.setProperty('margin-inline', '0', 'important');
         if (isArrowSoloCarousel(track)) {
           if (arrowShell && arrowShell.style) {
-            arrowShell.style.setProperty('padding-inline', 'clamp(28px, 8vw, 36px)', 'important');
+            var impactCarousel = track.classList.contains('partners-impact__grid');
+            arrowShell.style.setProperty(
+              'padding-inline',
+              impactCarousel ? 'clamp(48px, 12vw, 56px)' : 'clamp(28px, 8vw, 36px)',
+              'important'
+            );
             arrowShell.style.setProperty('overflow', 'hidden', 'important');
             arrowShell.style.setProperty('overflow-x', 'hidden', 'important');
             arrowShell.style.setProperty('width', '100%', 'important');
             arrowShell.style.setProperty('max-width', '100%', 'important');
             arrowShell.style.setProperty('box-sizing', 'border-box', 'important');
+            if (impactCarousel) {
+              arrowShell.classList.add('bdc-carousel-shell--partners-impact');
+            }
           }
           track.style.setProperty('margin-inline', '0', 'important');
           track.style.setProperty('margin-left', '0', 'important');

@@ -26082,12 +26082,13 @@ body.newsletter-success-open {
     padding: clamp(1.15rem, 4vw, 1.35rem) 20px clamp(1rem, 3.5vw, 1.25rem) !important;
   }
 
-  .partners-page .partners-impact__box .bdc-carousel-shell--arrows {
+  .partners-page .partners-impact__box .bdc-carousel-shell--arrows,
+  .partners-page .partners-impact__box .bdc-carousel-shell--partners-impact {
     position: relative;
     width: 100%;
     max-width: 100%;
     box-sizing: border-box;
-    padding-inline: clamp(28px, 8vw, 36px);
+    padding-inline: clamp(48px, 12vw, 56px) !important;
     overflow: hidden !important;
     overflow-x: hidden !important;
   }
@@ -26172,7 +26173,10 @@ body.newsletter-success-open {
 
   .partners-page .partners-impact__box .bdc-carousel-arrows {
     position: absolute;
-    inset: 0;
+    top: 0;
+    right: 0;
+    bottom: 2.75rem;
+    left: 0;
     pointer-events: none;
     z-index: 3;
   }
@@ -26180,7 +26184,7 @@ body.newsletter-success-open {
   .partners-page .partners-impact__box .bdc-carousel-arrows__btn {
     pointer-events: auto;
     position: absolute;
-    top: 38%;
+    top: 50%;
     transform: translateY(-50%);
     display: inline-flex;
     align-items: center;
@@ -26205,11 +26209,11 @@ body.newsletter-success-open {
   }
 
   .partners-page .partners-impact__box .bdc-carousel-arrows__btn--prev {
-    left: clamp(0px, 1vw, 4px);
+    left: clamp(4px, 1.2vw, 8px);
   }
 
   .partners-page .partners-impact__box .bdc-carousel-arrows__btn--next {
-    right: clamp(0px, 1vw, 4px);
+    right: clamp(4px, 1.2vw, 8px);
   }
 
   .partners-page .partners-impact__box .bdc-carousel-arrows__btn:disabled {
