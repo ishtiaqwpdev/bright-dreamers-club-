@@ -20026,9 +20026,11 @@ body.newsletter-success-open {
 
   .explore-skills__grid.bdc-mobile-carousel--peek .explore-skill__icon,
   .explore-skills__grid.bdc-mobile-carousel--peek-2 .explore-skill__icon {
-    width: clamp(56px, 16vw, 72px) !important;
-    height: clamp(56px, 16vw, 72px) !important;
+    width: clamp(48px, 4.5vw, 58px) !important;
+    height: clamp(48px, 4.5vw, 58px) !important;
     max-width: 100% !important;
+    filter: var(--home-section-icon-filter) !important;
+    mix-blend-mode: multiply !important;
   }
 
   .explore-skills__grid.bdc-mobile-carousel--peek .explore-skill__title,
@@ -23779,14 +23781,24 @@ body.newsletter-success-open {
     overflow: hidden !important;
   }
 
-  .explore-skills .explore-skill__icon {
+  .explore-skills .explore-skill__icon,
+  .explore-skills .explore-skills__grid.bdc-mobile-carousel .explore-skill__icon,
+  .explore-skills .explore-skills__grid.bdc-mobile-carousel--solo .explore-skill__icon,
+  .explore-skills .explore-skills__grid.bdc-mobile-carousel--full .explore-skill__icon,
+  .explore-skills .explore-skills__grid.bdc-mobile-carousel--peek .explore-skill__icon,
+  .explore-skills .explore-skills__grid.bdc-mobile-carousel--peek-2 .explore-skill__icon,
+  .explore-skills .explore-skill.bdc-mobile-carousel__item .explore-skill__icon {
     display: block !important;
-    width: clamp(56px, 16vw, 72px) !important;
-    height: clamp(56px, 16vw, 72px) !important;
+    width: clamp(48px, 4.5vw, 58px) !important;
+    height: clamp(48px, 4.5vw, 58px) !important;
     max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border-radius: 0 !important;
     object-fit: contain !important;
-    filter: none !important;
-    mix-blend-mode: normal !important;
+    filter: var(--home-section-icon-filter) !important;
+    mix-blend-mode: multiply !important;
+    background: none !important;
   }
 
   .explore-skills .explore-skill__title {
