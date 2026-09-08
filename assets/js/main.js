@@ -1138,10 +1138,21 @@
           track.classList.contains('explore-skills__grid') ||
           track.classList.contains('explore-grow__track')
         ) {
-          track.style.setProperty('padding', '2px clamp(28px, 8vw, 36px) 16px', 'important');
-          track.style.setProperty('padding-left', 'clamp(28px, 8vw, 36px)', 'important');
-          track.style.setProperty('padding-right', 'clamp(28px, 8vw, 36px)', 'important');
-          track.style.setProperty('padding-inline', 'clamp(28px, 8vw, 36px)', 'important');
+          if (arrowShell && arrowShell.style) {
+            arrowShell.style.setProperty('padding-inline', 'clamp(28px, 8vw, 36px)', 'important');
+            arrowShell.style.setProperty('overflow', 'hidden', 'important');
+            arrowShell.style.setProperty('overflow-x', 'hidden', 'important');
+            arrowShell.style.setProperty('width', '100%', 'important');
+            arrowShell.style.setProperty('max-width', '100%', 'important');
+            arrowShell.style.setProperty('box-sizing', 'border-box', 'important');
+          }
+          track.style.setProperty('margin-inline', '0', 'important');
+          track.style.setProperty('margin-left', '0', 'important');
+          track.style.setProperty('margin-right', '0', 'important');
+          track.style.setProperty('padding', '0 0 16px', 'important');
+          track.style.setProperty('padding-left', '0', 'important');
+          track.style.setProperty('padding-right', '0', 'important');
+          track.style.setProperty('padding-inline', '0', 'important');
           track.style.setProperty('scroll-padding-inline', '0', 'important');
         } else {
           track.style.setProperty('padding', '2px 2px 16px', 'important');
@@ -1156,8 +1167,17 @@
         track.scrollLeft = 0;
         items.forEach(function (item) {
           item.style.setProperty('flex', '0 0 100%', 'important');
+          item.style.setProperty('flex-shrink', '0', 'important');
           item.style.setProperty('width', '100%', 'important');
-          item.style.setProperty('min-width', '0', 'important');
+          item.style.setProperty(
+            'min-width',
+            track.classList.contains('explore-ways__grid') ||
+              track.classList.contains('explore-skills__grid') ||
+              track.classList.contains('explore-grow__track')
+              ? '100%'
+              : '0',
+            'important'
+          );
           item.style.setProperty('max-width', '100%', 'important');
           item.style.setProperty('margin', '0', 'important');
           item.style.setProperty('box-sizing', 'border-box', 'important');

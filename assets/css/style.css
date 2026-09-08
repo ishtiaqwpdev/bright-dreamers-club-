@@ -23593,15 +23593,20 @@ body.newsletter-success-open {
     position: relative;
     width: 100%;
     max-width: 100%;
-    overflow: visible;
+    box-sizing: border-box;
+    padding-inline: clamp(28px, 8vw, 36px);
+    overflow: hidden !important;
+    overflow-x: hidden !important;
   }
 
   .explore-ways .bdc-carousel-shell--arrows .explore-ways__grid.bdc-mobile-carousel,
   .explore-skills .bdc-carousel-shell--arrows .explore-skills__grid.bdc-mobile-carousel,
   .explore-grow .bdc-carousel-shell--arrows .explore-grow__track.bdc-mobile-carousel {
     margin-inline: 0 !important;
-    padding-inline: clamp(28px, 8vw, 36px) !important;
-    scroll-padding-inline: clamp(28px, 8vw, 36px) !important;
+    padding-inline: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    scroll-padding-inline: 0 !important;
   }
 
   .explore-ways .bdc-carousel-arrows,
@@ -23676,12 +23681,6 @@ body.newsletter-success-open {
   }
 
   /* Explore ways — one full card per view (no peek of next slide) */
-  .explore-ways .bdc-carousel-shell--arrows {
-    overflow: hidden !important;
-    width: 100% !important;
-    max-width: 100% !important;
-  }
-
   .explore-ways .explore-ways__grid.bdc-mobile-carousel,
   .explore-ways .explore-ways__grid.bdc-mobile-carousel--solo,
   .explore-ways .explore-ways__grid.bdc-mobile-carousel--full {
@@ -23690,7 +23689,9 @@ body.newsletter-success-open {
     width: 100% !important;
     max-width: 100% !important;
     margin-inline: 0 !important;
-    padding-inline: clamp(28px, 8vw, 36px) !important;
+    padding-inline: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
     padding-bottom: 16px !important;
     gap: 0 !important;
     overflow-x: auto !important;
@@ -23722,12 +23723,6 @@ body.newsletter-success-open {
   }
 
   /* Explore skills — one full card per view (no peek of next slide) */
-  .explore-skills .bdc-carousel-shell--arrows {
-    overflow: hidden !important;
-    width: 100% !important;
-    max-width: 100% !important;
-  }
-
   .explore-skills .explore-skills__grid.bdc-mobile-carousel,
   .explore-skills .explore-skills__grid.bdc-mobile-carousel--solo,
   .explore-skills .explore-skills__grid.bdc-mobile-carousel--full {
@@ -23736,7 +23731,9 @@ body.newsletter-success-open {
     width: 100% !important;
     max-width: 100% !important;
     margin-inline: 0 !important;
-    padding-inline: clamp(28px, 8vw, 36px) !important;
+    padding-inline: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
     padding-bottom: 16px !important;
     gap: 0 !important;
     overflow-x: auto !important;
@@ -23772,9 +23769,43 @@ body.newsletter-success-open {
 
   .explore-grow .explore-grow-stage.bdc-mobile-carousel__item {
     display: block !important;
+    flex: 0 0 100% !important;
+    flex-shrink: 0 !important;
+    width: 100% !important;
+    min-width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    scroll-snap-align: start !important;
+    scroll-snap-stop: always !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+  }
+
+  /* Explore grow — one full card per view (no peek of next slide) */
+  .explore-grow .explore-grow__track.bdc-mobile-carousel,
+  .explore-grow .explore-grow__track.bdc-mobile-carousel--solo,
+  .explore-grow .explore-grow__track.bdc-mobile-carousel--full {
+    display: flex !important;
+    flex-wrap: nowrap !important;
     width: 100% !important;
     max-width: 100% !important;
+    margin-inline: 0 !important;
+    padding-inline: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    padding-bottom: 16px !important;
+    gap: 0 !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    scroll-snap-type: x mandatory !important;
+    scroll-padding-inline: 0 !important;
     box-sizing: border-box !important;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .explore-grow .explore-grow__track.bdc-mobile-carousel::-webkit-scrollbar {
+    display: none;
   }
 
   .explore-grow .explore-grow-stage__card {
