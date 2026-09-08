@@ -25751,8 +25751,8 @@ body.newsletter-success-open {
     flex-direction: column !important;
     align-items: stretch !important;
     justify-content: flex-start !important;
-    gap: 0.75rem !important;
-    row-gap: 0.75rem !important;
+    gap: 0.35rem !important;
+    row-gap: 0.35rem !important;
     width: 100% !important;
     max-width: 100% !important;
     margin: 0 !important;
@@ -25771,6 +25771,7 @@ body.newsletter-success-open {
     max-width: none !important;
     margin: 0 !important;
     margin-top: 0 !important;
+    margin-bottom: 0 !important;
     padding: 0 20px !important;
     overflow: visible !important;
     background: #fff !important;
@@ -25822,6 +25823,7 @@ body.newsletter-success-open {
     width: 100% !important;
     max-width: 100% !important;
     margin: 0 !important;
+    margin-top: 0 !important;
     padding: 0 20px !important;
     text-align: left !important;
     overflow: visible !important;
@@ -25838,6 +25840,20 @@ body.newsletter-success-open {
     letter-spacing: 0.16em !important;
     text-transform: uppercase !important;
     color: var(--color-pink) !important;
+  }
+
+  .partners-page .page-hero.partners-hero .hero-label::before {
+    content: '^ ' !important;
+  }
+
+  .partners-page .page-hero.partners-hero .hero-label::after {
+    display: none !important;
+    content: none !important;
+    width: 0 !important;
+    height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: none !important;
   }
 
   .partners-page .page-hero.partners-hero .hero-headline {
