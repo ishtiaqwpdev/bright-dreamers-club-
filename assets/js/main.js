@@ -904,6 +904,13 @@
       ) {
         return true;
       }
+      if (
+        track.classList.contains('approach-steps') &&
+        document.body &&
+        document.body.classList.contains('about-page')
+      ) {
+        return true;
+      }
       var className = String(track.className || '');
       return (
         className.indexOf('faq') !== -1 ||
