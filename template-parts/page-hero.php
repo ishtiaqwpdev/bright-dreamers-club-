@@ -24,6 +24,7 @@ $hero = wp_parse_args(
 		'headline_id'              => '',
 		'supporting_copy'          => '',
 		'supporting_copy_html'     => '',
+		'extra_content_html'       => '',
 		'primary_cta_text'         => '',
 		'primary_cta_link'         => array(),
 		'secondary_cta_text'       => '',
@@ -138,6 +139,10 @@ $image_class   = trim( 'lazy-img ' . (string) $hero['image_class'] );
             <p class="hero-copy"><?php echo $hero['supporting_copy_html']; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></p>
             <?php elseif ( '' !== trim( (string) $hero['supporting_copy'] ) ) : ?>
             <p class="hero-copy"><?php echo esc_html( $hero['supporting_copy'] ); ?></p>
+            <?php endif; ?>
+
+            <?php if ( '' !== trim( (string) $hero['extra_content_html'] ) ) : ?>
+            <div class="page-hero__extra"><?php echo $hero['extra_content_html']; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></div>
             <?php endif; ?>
 
             <?php if ( $has_primary || $has_secondary ) : ?>

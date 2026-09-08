@@ -3187,6 +3187,24 @@ img.lazy-img.loaded {
   color: #fff;
 }
 
+.page-hero__extra {
+  width: 100%;
+  max-width: 100%;
+}
+
+.vision-hero__title-heart {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: var(--color-pink);
+  vertical-align: middle;
+}
+
+.vision-hero__title-heart svg {
+  display: block;
+}
+
 /* ??? Our Vision pillars ??? */
 .vision-pillars {
   background-color: #fff;
@@ -24219,6 +24237,381 @@ body.newsletter-success-open {
   .for-parents-page .for-parents-expect .bdc-carousel-dots,
   .for-parents-page .for-parents-expect__inner > .bdc-carousel-dots,
   .for-parents-page .for-parents-expect__wrap .bdc-carousel-dots {
+    display: none !important;
+  }
+}
+
+/* Our Vision page — banner section: 100% reference layout on mobile (≤767px) */
+@media (max-width: 767px) {
+  .our-vision-page #main-content > section.page-hero.vision-hero,
+  .our-vision-page .page-hero.vision-hero {
+    padding: 0 0 24px !important;
+    margin-top: 0 !important;
+    min-height: 0 !important;
+    text-align: left !important;
+    align-items: stretch !important;
+    justify-content: flex-start !important;
+    gap: 0 !important;
+    background-color: #fff !important;
+  }
+
+  .our-vision-page #main-content > section.page-hero.vision-hero,
+  .our-vision-page #main-content > section.vision-hero.page-hero {
+    padding-top: 0 !important;
+  }
+
+  .our-vision-page .page-hero.vision-hero > .site-container.page-hero__inner,
+  .our-vision-page .page-hero.vision-hero .page-hero__inner {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    justify-content: flex-start !important;
+    gap: 1rem !important;
+    row-gap: 1rem !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    min-height: 0 !important;
+  }
+
+  .our-vision-page .page-hero.vision-hero .about-hero__media,
+  .our-vision-page .page-hero.vision-hero .hero-image-wrap {
+    order: -1 !important;
+    grid-row: auto !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+    margin-top: 0 !important;
+    padding: 0 !important;
+    overflow: visible !important;
+    background: #fff !important;
+    background-color: #fff !important;
+  }
+
+  .our-vision-page .page-hero.vision-hero .about-hero__media .lazy-img-wrap,
+  .our-vision-page .page-hero.vision-hero .about-hero__media picture {
+    display: block !important;
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+    overflow: visible !important;
+    background: #fff !important;
+    background-color: #fff !important;
+    text-align: center !important;
+  }
+
+  .our-vision-page .page-hero.vision-hero .about-hero__banner {
+    display: block !important;
+    width: 100% !important;
+    max-width: none !important;
+    height: auto !important;
+    max-height: none !important;
+    min-height: 0 !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+    border-radius: 0 !important;
+    object-fit: contain !important;
+    object-position: center top !important;
+    background: #fff !important;
+    background-color: #fff !important;
+    filter: none !important;
+    transform: none !important;
+  }
+
+  .our-vision-page .page-hero.vision-hero .page-hero__content {
+    order: 1 !important;
+    grid-row: auto !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    justify-content: flex-start !important;
+    gap: 0.85rem !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 20px !important;
+    text-align: left !important;
+    overflow: visible !important;
+    position: static !important;
+  }
+
+  .our-vision-page .page-hero.vision-hero .about-hero__deco {
+    display: none !important;
+  }
+
+  .our-vision-page .page-hero.vision-hero .hero-label {
+    display: inline-block !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    font-family: var(--font-body) !important;
+    font-size: 11px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.14em !important;
+    line-height: 1.3 !important;
+    text-transform: uppercase !important;
+    text-align: left !important;
+    color: var(--color-pink) !important;
+  }
+
+  .our-vision-page .page-hero.vision-hero .hero-headline {
+    position: relative !important;
+    display: block !important;
+    font-family: var(--font-heading) !important;
+    font-size: inherit !important;
+    font-weight: 700 !important;
+    line-height: 1.15 !important;
+    letter-spacing: -0.02em !important;
+    text-align: left !important;
+    max-width: calc(100% - 2rem) !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding-right: 1.75rem !important;
+    box-sizing: border-box !important;
+  }
+
+  .our-vision-page .page-hero.vision-hero .vision-hero__title-line {
+    display: block !important;
+    text-align: left !important;
+    white-space: normal !important;
+    margin: 0 !important;
+    font-family: var(--font-heading) !important;
+    font-weight: 700 !important;
+    letter-spacing: -0.02em !important;
+  }
+
+  .our-vision-page .page-hero.vision-hero .vision-hero__title-line--navy {
+    color: var(--color-navy) !important;
+    font-size: clamp(1.45rem, 6.2vw, 1.85rem) !important;
+    line-height: 1.15 !important;
+  }
+
+  .our-vision-page .page-hero.vision-hero .vision-hero__title-line--pink {
+    color: var(--color-pink) !important;
+    font-size: clamp(1.45rem, 6.2vw, 1.85rem) !important;
+    line-height: 1.15 !important;
+  }
+
+  .our-vision-page .page-hero.vision-hero .vision-hero__title-heart {
+    position: absolute !important;
+    top: 0.1rem !important;
+    right: 0 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    color: var(--color-pink) !important;
+    line-height: 1 !important;
+  }
+
+  .our-vision-page .page-hero.vision-hero .vision-hero__title-heart svg {
+    display: block !important;
+    width: clamp(18px, 5vw, 22px) !important;
+    height: clamp(18px, 5vw, 22px) !important;
+  }
+
+  .our-vision-page .page-hero.vision-hero .hero-copy {
+    font-family: var(--font-body) !important;
+    font-size: clamp(0.88rem, 2.6vw, 1rem) !important;
+    font-weight: 400 !important;
+    line-height: 1.55 !important;
+    color: var(--color-navy) !important;
+    text-align: left !important;
+    max-width: 100% !important;
+    width: 100% !important;
+    margin: 0 !important;
+  }
+
+  .our-vision-page .page-hero.vision-hero .vision-hero__accent--pink {
+    color: var(--color-pink) !important;
+    font-weight: 700 !important;
+  }
+
+  .our-vision-page .page-hero.vision-hero .page-hero__extra {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .our-vision-page .page-hero.vision-hero .page-hero__extra .vision-hero__list {
+    list-style: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0.45rem !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .our-vision-page .page-hero.vision-hero .page-hero__extra .vision-hero__list li {
+    display: flex !important;
+    align-items: flex-start !important;
+    gap: 0.42rem !important;
+    font-family: var(--font-body) !important;
+    font-size: clamp(0.82rem, 2.5vw, 0.92rem) !important;
+    line-height: 1.45 !important;
+    color: var(--color-navy) !important;
+    text-align: left !important;
+  }
+
+  .our-vision-page .page-hero.vision-hero .page-hero__extra .vision-hero__check {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex-shrink: 0 !important;
+    width: clamp(18px, 5vw, 22px) !important;
+    height: clamp(18px, 5vw, 22px) !important;
+    margin-top: 0.08rem !important;
+    border-radius: 50% !important;
+    background-color: var(--color-pink) !important;
+    color: #fff !important;
+  }
+
+  .our-vision-page .page-hero.vision-hero .page-hero__actions,
+  .our-vision-page .page-hero.vision-hero .hero-ctas {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    justify-content: flex-start !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    gap: 8px !important;
+  }
+
+  .our-vision-page .page-hero.vision-hero .page-hero__actions .btn,
+  .our-vision-page .page-hero.vision-hero .hero-ctas .btn {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-inline: 0 !important;
+    justify-content: center !important;
+  }
+
+  .our-vision-page #main-content > section.vision-hero-checklist {
+    display: none !important;
+  }
+}
+
+/* Our Vision page — Our Vision pillars: vertical stacked cards on mobile (no slider) */
+@media (max-width: 991px) {
+  .our-vision-page .vision-pillars {
+    overflow: visible !important;
+  }
+
+  .our-vision-page .vision-pillars .site-container {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+    overflow: visible !important;
+  }
+
+  .our-vision-page .vision-pillars__title {
+    text-align: center !important;
+    justify-content: center !important;
+    margin-bottom: clamp(0.85rem, 2.5vw, 1.1rem) !important;
+  }
+
+  .our-vision-page .vision-pillars__grid,
+  .our-vision-page .vision-pillars__grid.bdc-mobile-carousel,
+  .our-vision-page .vision-pillars__grid.bdc-mobile-carousel--peek,
+  .our-vision-page .vision-pillars__grid.bdc-mobile-carousel--peek-2,
+  .our-vision-page .vision-pillars__grid.bdc-mobile-carousel--solo,
+  .our-vision-page .vision-pillars__grid.bdc-mobile-carousel--full {
+    display: flex !important;
+    flex-direction: column !important;
+    flex-wrap: nowrap !important;
+    align-items: stretch !important;
+    gap: clamp(0.75rem, 2.5vw, 1rem) !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    margin-inline: 0 !important;
+    padding: 0 !important;
+    padding-inline: 0 !important;
+    overflow: visible !important;
+    overflow-x: visible !important;
+    scroll-snap-type: none !important;
+    touch-action: auto !important;
+    -webkit-overflow-scrolling: auto !important;
+    scrollbar-width: auto !important;
+  }
+
+  .our-vision-page .vision-pillars__grid::-webkit-scrollbar {
+    display: none !important;
+  }
+
+  .our-vision-page .vision-pillar-card,
+  .our-vision-page .vision-pillar-card.bdc-mobile-carousel__item {
+    display: grid !important;
+    grid-template-columns: auto minmax(0, 1fr) !important;
+    grid-template-rows: auto auto !important;
+    column-gap: clamp(0.75rem, 3vw, 1rem) !important;
+    row-gap: 0.35rem !important;
+    align-items: start !important;
+    flex: none !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    scroll-snap-align: unset !important;
+    text-align: left !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+    padding: clamp(0.85rem, 2.5vw, 1.05rem) clamp(0.85rem, 3vw, 1.1rem) !important;
+    border-radius: var(--home-pillar-radius) !important;
+  }
+
+  .our-vision-page .vision-pillar-card__icon,
+  .our-vision-page .vision-pillar-card__icon--purpose {
+    grid-column: 1 !important;
+    grid-row: 1 / span 2 !important;
+    align-self: center !important;
+    flex-shrink: 0 !important;
+    width: clamp(56px, 14vw, 72px) !important;
+    height: clamp(56px, 14vw, 72px) !important;
+    max-width: none !important;
+    margin: 0 !important;
+    object-fit: contain !important;
+  }
+
+  .our-vision-page .vision-pillar-card__title {
+    grid-column: 2 !important;
+    grid-row: 1 !important;
+    font-family: var(--font-heading) !important;
+    font-size: clamp(0.92rem, 2.8vw, 1.05rem) !important;
+    font-weight: 700 !important;
+    line-height: 1.28 !important;
+    text-align: left !important;
+    margin: 0 !important;
+    max-width: 100% !important;
+  }
+
+  .our-vision-page .vision-pillar-card__text {
+    grid-column: 2 !important;
+    grid-row: 2 !important;
+    flex: unset !important;
+    font-family: var(--font-body) !important;
+    font-size: clamp(0.82rem, 2.5vw, 0.92rem) !important;
+    font-weight: 400 !important;
+    line-height: 1.45 !important;
+    color: var(--color-navy) !important;
+    text-align: left !important;
+    margin: 0 !important;
+    min-height: 0 !important;
+    max-width: 100% !important;
+    overflow-wrap: anywhere !important;
+    word-break: break-word !important;
+  }
+
+  .our-vision-page .vision-pillar-card__deco {
+    display: none !important;
+  }
+
+  .our-vision-page .vision-pillars .bdc-carousel-dots,
+  .our-vision-page .vision-pillars .site-container > .bdc-carousel-dots {
     display: none !important;
   }
 }
