@@ -24111,11 +24111,15 @@ body.newsletter-success-open {
   }
 
   .for-parents-page .for-parents-expect__wrap {
-    padding-inline: 0 !important;
+    padding-inline: 20px !important;
     overflow: visible !important;
   }
 
-  .for-parents-page .for-parents-expect__inner {
+  .for-parents-page .for-parents-expect__inner,
+  .for-parents-page .for-parents-expect__inner.site-container,
+  .for-parents-page .for-parents-expect__wrap .for-parents-expect__inner.site-container {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
     overflow: visible !important;
   }
 
