@@ -22439,12 +22439,12 @@ body.newsletter-success-open {
   }
 }
 
-/* About page — mobile reference layout: image → label → heading → copy → buttons (≤767px) */
+/* About page — mobile layout matches home hero (≤767px) */
 @media (max-width: 767px) {
   .about-page #main-content > section.page-hero.about-hero,
   #main-content > section.page-hero.about-hero:not(.contact-hero):not(.vision-hero):not(.for-parents-hero):not(.get-involved-hero):not(.partners-hero):not(.apply-hero),
   .page-hero.about-hero:not(.contact-hero):not(.vision-hero):not(.for-parents-hero):not(.get-involved-hero):not(.partners-hero):not(.apply-hero) {
-    padding: 8px 0 24px !important;
+    padding: 0 0 24px !important;
     margin-top: 0 !important;
     text-align: left !important;
     align-items: stretch !important;
@@ -22453,7 +22453,7 @@ body.newsletter-success-open {
   .about-page #main-content > section.about-hero,
   .about-page #main-content > section.page-hero.about-hero,
   #main-content > section.page-hero.about-hero:not(.contact-hero):not(.vision-hero):not(.for-parents-hero):not(.get-involved-hero):not(.partners-hero):not(.apply-hero) {
-    padding-top: 8px !important;
+    padding-top: 0 !important;
   }
 
   .about-page #main-content > section.page-hero.about-hero .page-hero__inner,
@@ -22463,12 +22463,12 @@ body.newsletter-success-open {
     flex-direction: column !important;
     align-items: stretch !important;
     justify-content: flex-start !important;
-    gap: 0.85rem !important;
-    row-gap: 0.85rem !important;
+    gap: 1rem !important;
+    row-gap: 1rem !important;
     width: 100% !important;
     max-width: 100% !important;
     margin: 0 !important;
-    padding: 0 20px !important;
+    padding: 0 !important;
   }
 
   .about-page .page-hero.about-hero .about-hero__media,
@@ -22479,9 +22479,9 @@ body.newsletter-success-open {
     justify-content: flex-start !important;
     align-items: flex-start !important;
     width: 100% !important;
-    max-width: 100% !important;
+    max-width: none !important;
     margin: 0 !important;
-    padding: 0 !important;
+    padding: 0 15px !important;
     overflow: visible !important;
   }
 
@@ -22492,10 +22492,11 @@ body.newsletter-success-open {
   #main-content > section.page-hero.about-hero:not(.contact-hero):not(.vision-hero):not(.for-parents-hero):not(.get-involved-hero):not(.partners-hero):not(.apply-hero) .about-hero__media picture {
     display: block !important;
     width: 100% !important;
-    max-width: 100% !important;
+    max-width: none !important;
     margin: 0 !important;
     padding: 0 !important;
     overflow: visible !important;
+    box-sizing: border-box !important;
   }
 
   .about-page .page-hero.about-hero .about-hero__banner,
@@ -22503,15 +22504,15 @@ body.newsletter-success-open {
   .page-hero.about-hero:not(.contact-hero):not(.vision-hero):not(.for-parents-hero):not(.get-involved-hero):not(.partners-hero):not(.apply-hero) .about-hero__banner {
     display: block !important;
     width: 100% !important;
-    max-width: 100% !important;
+    max-width: none !important;
     height: auto !important;
-    max-height: min(420px, 52vh) !important;
+    max-height: min(820px, 72vh) !important;
     min-height: 0 !important;
     margin: 0 !important;
     padding: 0 !important;
-    border-radius: 12px !important;
-    object-fit: cover !important;
-    object-position: center center !important;
+    border-radius: 0 !important;
+    object-fit: contain !important;
+    object-position: left center !important;
   }
 
   .about-page .page-hero.about-hero .page-hero__content,
@@ -22522,11 +22523,11 @@ body.newsletter-success-open {
     flex-direction: column !important;
     align-items: flex-start !important;
     justify-content: flex-start !important;
-    gap: 0 !important;
+    gap: 0.85rem !important;
     width: 100% !important;
     max-width: 100% !important;
     margin: 0 !important;
-    padding: 0 !important;
+    padding: 0 15px !important;
     text-align: left !important;
   }
 
@@ -22535,7 +22536,7 @@ body.newsletter-success-open {
   .page-hero.about-hero:not(.contact-hero):not(.vision-hero):not(.for-parents-hero):not(.get-involved-hero):not(.partners-hero):not(.apply-hero) .hero-label {
     display: inline-block !important;
     text-align: left !important;
-    margin: 0 0 14px !important;
+    margin: 0 !important;
   }
 
   .about-page .page-hero.about-hero .hero-label::after,
@@ -22549,7 +22550,7 @@ body.newsletter-success-open {
   .page-hero.about-hero:not(.contact-hero):not(.vision-hero):not(.for-parents-hero):not(.get-involved-hero):not(.partners-hero):not(.apply-hero) .hero-headline {
     text-align: left !important;
     max-width: 100% !important;
-    margin: 0 0 14px !important;
+    margin: 0 !important;
   }
 
   .about-page .page-hero.about-hero .hero-headline .about-hero__title-line--navy,
@@ -22566,7 +22567,7 @@ body.newsletter-success-open {
   .page-hero.about-hero:not(.contact-hero):not(.vision-hero):not(.for-parents-hero):not(.get-involved-hero):not(.partners-hero):not(.apply-hero) .hero-copy {
     text-align: left !important;
     max-width: 100% !important;
-    margin: 0 0 16px !important;
+    margin: 0 !important;
   }
 
   .about-page .page-hero.about-hero .page-hero__actions,
@@ -22649,16 +22650,19 @@ body.newsletter-success-open {
   #main-content > section.page-hero.about-hero:not(.contact-hero):not(.vision-hero):not(.for-parents-hero):not(.get-involved-hero):not(.partners-hero):not(.apply-hero) .about-hero__media,
   .about-page #main-content > section.page-hero.about-hero .about-hero__media {
     width: 100% !important;
-    max-width: 100% !important;
+    max-width: none !important;
     margin: 0 !important;
     order: -1 !important;
+    padding: 0 15px !important;
   }
 
   #main-content > section.page-hero.about-hero:not(.contact-hero):not(.vision-hero):not(.for-parents-hero):not(.get-involved-hero):not(.partners-hero):not(.apply-hero) .about-hero__banner,
   .about-page #main-content > section.page-hero.about-hero .about-hero__banner {
     width: 100% !important;
-    max-width: 100% !important;
-    border-radius: 12px !important;
+    max-width: none !important;
+    border-radius: 0 !important;
+    object-fit: contain !important;
+    object-position: left center !important;
   }
 }
 
