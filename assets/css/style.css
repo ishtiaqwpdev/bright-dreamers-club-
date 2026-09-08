@@ -22090,9 +22090,15 @@ body.newsletter-success-open {
   }
 }
 
-/* Home pillars — 20px top space below hero */
+/* Home pillars — 20px top space below hero (desktop/tablet) */
 #main-content > section.home-hero + section.home-pillars {
   padding-top: 20px;
+}
+
+@media (max-width: 767px) {
+  .home-page #main-content > section.home-hero + section.home-pillars {
+    padding-top: 0 !important;
+  }
 }
 
 /* Mobile/tablet — hero image always below content + buttons (all pages, ≤1023px) */
