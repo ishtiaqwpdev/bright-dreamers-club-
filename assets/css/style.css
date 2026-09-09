@@ -26715,15 +26715,17 @@ body.newsletter-success-open {
   }
 }
 
-/* Home + For Parents hero — desktop: left text aligned to top */
+/* Home + For Parents + Explore hero — desktop: left text aligned to top */
 @media (min-width: 1024px) {
   .page-hero.home-hero .page-hero__inner,
-  .page-hero.for-parents-hero .page-hero__inner {
+  .page-hero.for-parents-hero .page-hero__inner,
+  .page-hero.explore-hero .page-hero__inner {
     align-items: start;
   }
 
   .page-hero.home-hero .page-hero__content,
-  .page-hero.for-parents-hero .page-hero__content {
+  .page-hero.for-parents-hero .page-hero__content,
+  .page-hero.explore-hero .page-hero__content {
     align-self: start;
   }
 
@@ -26732,7 +26734,9 @@ body.newsletter-success-open {
   }
 
   .page-hero.for-parents-hero .about-hero__media,
-  .page-hero.for-parents-hero .hero-image-wrap {
+  .page-hero.for-parents-hero .hero-image-wrap,
+  .page-hero.explore-hero .explore-hero__media,
+  .page-hero.explore-hero .hero-image-wrap {
     align-self: start;
     align-items: flex-start;
   }
