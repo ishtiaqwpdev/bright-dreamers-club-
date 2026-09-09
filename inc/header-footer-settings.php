@@ -911,13 +911,29 @@ function bdc_hf_has_saved_settings() {
 }
 
 /**
+ * Theme header logo URL (bypasses ACF / admin overrides).
+ *
+ * @return string
+ */
+function bdc_get_theme_header_logo_url() {
+	$relative = 'assets/images/bright-dreamers-logo-removebg-preview.png';
+	$url      = bdc_theme_asset_url( $relative );
+	$version  = bdc_asset_version( $relative );
+
+	if ( $version ) {
+		$url = add_query_arg( 'v', $version, $url );
+	}
+
+	return $url;
+}
+
+/**
  * Values used by header.php.
  *
  * @return array<string, mixed>
  */
 function bdc_get_site_header_context() {
 	$defaults = bdc_build_default_header_footer_settings();
-	$logo_fallback = bdc_theme_asset_url( 'assets/images/bright-dreamers-logo-removebg-preview.png' );
 
 	if ( ! bdc_hf_has_saved_settings() ) {
 		$donate = bdc_get_acf_option_link(
@@ -940,7 +956,7 @@ function bdc_get_site_header_context() {
 		return array(
 			'announce_text' => bdc_get_acf_option_text( 'global_header_announce_text', $defaults['announce_text'] ),
 			'social_links'  => bdc_get_acf_option_repeater( 'global_header_social', bdc_get_default_social_links() ),
-			'logo_url'      => bdc_get_acf_option_image_url( 'global_header_logo', $logo_fallback ),
+			'logo_url'      => bdc_get_theme_header_logo_url(),
 			'logo_alt'      => bdc_get_acf_option_text( 'global_header_logo_alt', $defaults['header_logo_alt'] ),
 			'donate_text'   => bdc_get_acf_option_text( 'global_header_donate_text', $donate['title'] ),
 			'donate_link'   => $donate,
@@ -954,7 +970,7 @@ function bdc_get_site_header_context() {
 	return array(
 		'announce_text' => $settings['announce_text'],
 		'social_links'  => bdc_hf_social_rows( $settings['social'] ),
-		'logo_url'      => bdc_hf_image_url( (int) $settings['header_logo_id'], 'global_header_logo', $logo_fallback ),
+		'logo_url'      => bdc_get_theme_header_logo_url(),
 		'logo_alt'      => $settings['header_logo_alt'],
 		'donate_text'   => $settings['donate_text'],
 		'donate_link'   => array(

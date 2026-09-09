@@ -1027,7 +1027,7 @@ button {
   width: auto;
   height: var(--header-logo-height);
   object-fit: contain;
-  filter: var(--logo-bg-filter);
+  filter: none;
   background: transparent;
 }
 
@@ -1216,7 +1216,7 @@ button {
     height: auto;
     max-height: 72px;
     object-fit: contain;
-    filter: var(--logo-bg-filter);
+    filter: none;
     background: transparent;
   }
 
