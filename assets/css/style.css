@@ -26747,9 +26747,9 @@ body.newsletter-success-open {
     object-position: left top;
   }
 
-  /* Align top of "Bright" with banner heart (heart sits ~68% down the logo height) */
+  /* Align top of "Bright" with banner heart (~6% from top of hero image) */
   .page-hero.home-hero .home-hero__brand {
-    padding-top: calc(min(100%, var(--home-hero-logo-width, 380px)) * 437 / 970 * 0.68);
+    padding-top: calc(min(420px, 52vh) * 0.062);
   }
 
   .page-hero.for-parents-hero .about-hero__media,
