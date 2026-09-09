@@ -26825,3 +26825,33 @@ body.newsletter-success-open {
     display: inline-block;
   }
 }
+
+/* Home spotlight — center ideas photo on mobile */
+@media (max-width: 768px) {
+  .spotlight-card--ideas .spotlight-card__figure {
+    justify-content: center;
+    padding-left: clamp(1.1rem, 1.9vw, 1.55rem);
+  }
+
+  .spotlight-card--ideas .spotlight-card__figure-wrap {
+    width: min(100%, 320px);
+    max-width: 100%;
+    margin-inline: auto;
+  }
+
+  .spotlight-card--ideas .spotlight-card__figure-wrap .lazy-img-wrap {
+    width: 100%;
+    height: auto;
+    margin-inline: auto;
+  }
+
+  .spotlight-card--ideas .spotlight-card__figure-img {
+    display: block;
+    width: 100%;
+    max-width: 320px;
+    height: auto;
+    margin-inline: auto;
+    object-fit: contain;
+    object-position: center center;
+  }
+}
