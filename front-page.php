@@ -420,12 +420,12 @@ $home_spotlight_council_items = ( is_array( $home_spotlight_council['list_items'
               <div class="home-hero__brand">
                 <picture>
                   <source
-                    media="(max-width: 767px)"
-                    srcset="<?php echo esc_url( $home_hero_logo_mobile_url ); ?>"
+                    media="(min-width: 768px)"
+                    srcset="<?php echo esc_url( $home_hero_logo_url ); ?>"
                   />
                   <img
                     class="home-hero__logo"
-                    src="<?php echo esc_url( $home_hero_logo_url ); ?>"
+                    src="<?php echo esc_url( $home_hero_logo_mobile_url ); ?>"
                     alt="<?php echo esc_attr( $home_hero_logo_alt ); ?>"
                     width="970"
                     height="437"
