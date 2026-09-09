@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 $footer = bdc_get_site_footer_context();
 
-$footer_logo_url                = $footer['logo_url'];
+$footer_logo_url                = bdc_get_theme_footer_logo_url();
 $footer_logo_alt                = $footer['logo_alt'];
 $footer_mission_text            = $footer['mission_text'];
 $footer_social_links            = $footer['social_links'];

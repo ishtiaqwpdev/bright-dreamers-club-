@@ -928,6 +928,23 @@ function bdc_get_theme_header_logo_url() {
 }
 
 /**
+ * Theme footer logo URL for mobile footer (restored pre-header-update asset).
+ *
+ * @return string
+ */
+function bdc_get_theme_footer_logo_url() {
+	$relative = 'assets/images/bright-dreamers-logo-footer.png';
+	$url      = bdc_theme_asset_url( $relative );
+	$version  = bdc_asset_version( $relative );
+
+	if ( $version ) {
+		$url = add_query_arg( 'v', $version, $url );
+	}
+
+	return $url;
+}
+
+/**
  * Values used by header.php.
  *
  * @return array<string, mixed>
