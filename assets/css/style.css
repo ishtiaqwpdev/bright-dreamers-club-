@@ -26747,9 +26747,9 @@ body.newsletter-success-open {
     object-position: left top;
   }
 
-  /* Home hero — left text block: 20px top padding (desktop) */
+  /* Home hero — left text block: 30px top padding (desktop) */
   .page-hero.home-hero .page-hero__content {
-    padding-top: 20px;
+    padding-top: 30px;
   }
 
   .page-hero.for-parents-hero .about-hero__media,
