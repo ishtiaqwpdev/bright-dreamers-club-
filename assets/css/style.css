@@ -26749,3 +26749,11 @@ body.newsletter-success-open {
     display: none !important;
   }
 }
+
+/* Our Vision — 10px space between checklist and CTA buttons (desktop) */
+@media (min-width: 1024px) {
+  .page-hero.vision-hero .page-hero__extra + .page-hero__actions,
+  .page-hero.vision-hero .page-hero__extra + .hero-ctas {
+    margin-top: 10px !important;
+  }
+}
