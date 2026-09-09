@@ -14,8 +14,8 @@ $home_hero_logo_ver = bdc_asset_version( 'assets/images/bright-dreamers-logo.png
 if ( $home_hero_logo_ver ) {
 	$home_hero_logo_url = add_query_arg( 'v', $home_hero_logo_ver, $home_hero_logo_url );
 }
-$home_hero_logo_mobile_url = bdc_theme_asset_url( 'assets/images/bright-dreamers-logo-mobile.png' );
-$home_hero_logo_mobile_ver = bdc_asset_version( 'assets/images/bright-dreamers-logo-mobile.png' );
+$home_hero_logo_mobile_url = bdc_theme_asset_url( 'assets/images/bright-dreamers-logo-mobile-white.png' );
+$home_hero_logo_mobile_ver = bdc_asset_version( 'assets/images/bright-dreamers-logo-mobile-white.png' );
 if ( $home_hero_logo_mobile_ver ) {
 	$home_hero_logo_mobile_url = add_query_arg( 'v', $home_hero_logo_mobile_ver, $home_hero_logo_mobile_url );
 }
