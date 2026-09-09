@@ -26747,18 +26747,22 @@ body.newsletter-success-open {
     object-position: left top;
   }
 
-  /* Home + Explore hero — left text block: 30px top padding (desktop) */
+  /* Home + Explore + For Parents hero — left text block: 30px top padding (desktop) */
   .page-hero.home-hero .page-hero__content,
-  .page-hero.explore-hero .page-hero__content {
+  .page-hero.explore-hero .page-hero__content,
+  .page-hero.for-parents-hero .page-hero__content {
     padding-top: 30px;
   }
 
-  .page-hero.explore-hero .explore-hero__media .lazy-img-wrap {
+  .page-hero.explore-hero .explore-hero__media .lazy-img-wrap,
+  .page-hero.for-parents-hero .about-hero__media .lazy-img-wrap,
+  .page-hero.for-parents-hero .hero-image-wrap .lazy-img-wrap {
     display: flex;
     align-items: flex-start;
   }
 
-  .page-hero.explore-hero .explore-hero__banner {
+  .page-hero.explore-hero .explore-hero__banner,
+  .page-hero.for-parents-hero .about-hero__banner {
     object-position: left top !important;
   }
 
