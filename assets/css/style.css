@@ -113,8 +113,8 @@
   --explore-grow-quote-lines: 2;
   --explore-grow-arrow-width: clamp(18px, 1.9vw, 28px);
   --explore-impact-text-lines: 4;
-  --explore-impact-quote-min-h: clamp(230px, 22vw, 300px);
-  --explore-impact-quote-text-max: clamp(11rem, 12vw, 14rem);
+  --explore-impact-quote-min-h: clamp(210px, 20vw, 280px);
+  --explore-impact-quote-text-max: clamp(10.5rem, 11vw, 13rem);
   --explore-impact-quote-stanza-gap: clamp(0.55rem, 0.85vw, 0.75rem);
   --explore-dream-bg: #fff0f5;
   --explore-dream-radius: 20px;
@@ -6289,7 +6289,6 @@ img.lazy-img.loaded {
   display: flex;
   align-items: stretch;
   gap: clamp(0.55rem, 1vw, 0.85rem);
-  overflow: visible;
 }
 
 .explore-impact-card {
@@ -6342,26 +6341,24 @@ img.lazy-img.loaded {
 }
 
 .explore-impact-quote {
-  flex: 1.35 1 280px;
-  min-width: min(100%, 280px);
+  flex: 1.2 1 0;
+  min-width: 0;
   align-self: stretch;
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
   min-height: var(--explore-impact-quote-min-h);
-  padding: clamp(0.35rem, 0.8vw, 0.6rem);
-  overflow: visible;
+  padding: clamp(0.35rem, 0.75vw, 0.65rem) clamp(0.35rem, 0.7vw, 0.55rem);
+  overflow: hidden;
   box-sizing: border-box;
 }
 
 .explore-impact-quote__blob {
   position: absolute;
-  /* Push baked-in heart/stars outward so they frame text instead of crossing it */
-  inset: -6% -2% -4% -12%;
-  width: auto;
-  height: auto;
-  max-width: none;
+  inset: 0;
+  width: 100%;
+  height: 100%;
   object-fit: contain;
   object-position: center center;
   pointer-events: none;
@@ -6378,26 +6375,19 @@ img.lazy-img.loaded {
   width: min(100%, var(--explore-impact-quote-text-max));
   max-width: 100%;
   margin-inline: auto;
-  /* Extra left/top inset clears the pink heart stroke on the blob */
-  padding-top: clamp(1.35rem, 2.4vw, 2rem);
-  padding-right: clamp(1rem, 1.8vw, 1.5rem);
-  padding-bottom: clamp(1.1rem, 1.8vw, 1.5rem);
-  padding-left: clamp(2rem, 3.8vw, 3.25rem);
+  padding: clamp(0.95rem, 1.4vw, 1.25rem) clamp(1rem, 1.6vw, 1.4rem);
   text-align: center;
   box-sizing: border-box;
-  overflow: visible;
 }
 
 .explore-impact-quote__stanza {
   font-family: var(--font-body);
   font-weight: 700;
-  font-size: clamp(0.74rem, 0.84vw, 0.9rem);
-  line-height: 1.42;
+  font-size: clamp(0.8rem, 0.9vw, 0.95rem);
+  line-height: 1.4;
   color: var(--color-navy);
   margin: 0;
   max-width: 100%;
-  overflow-wrap: break-word;
-  word-wrap: break-word;
 }
 
 .explore-impact-quote__stanza + .explore-impact-quote__stanza {
@@ -10282,20 +10272,12 @@ img.lazy-img.loaded {
   }
 
   .explore-impact-quote {
-    flex: 0 0 min(320px, 90vw);
-    min-width: min(320px, 90vw);
+    flex: 0 0 min(260px, 82vw);
+    min-width: min(260px, 82vw);
     scroll-snap-align: start;
-    min-height: clamp(260px, 72vw, 330px);
+    min-height: clamp(210px, 62vw, 280px);
     justify-content: center;
-    padding: 0.5rem;
-    overflow: visible;
-  }
-
-  .explore-impact-quote__text {
-    padding-top: 1.5rem;
-    padding-right: 1.15rem;
-    padding-bottom: 1.25rem;
-    padding-left: 2.5rem;
+    padding-inline: 0.35rem;
   }
 
   .explore-dream__grid {
