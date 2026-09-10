@@ -6289,6 +6289,7 @@ img.lazy-img.loaded {
   display: flex;
   align-items: stretch;
   gap: clamp(0.55rem, 1vw, 0.85rem);
+  overflow: visible;
 }
 
 .explore-impact-card {
@@ -6341,29 +6342,30 @@ img.lazy-img.loaded {
 }
 
 .explore-impact-quote {
-  flex: 1.25 1 240px;
-  min-width: min(100%, 240px);
+  flex: 1.35 1 280px;
+  min-width: min(100%, 280px);
   align-self: stretch;
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
   min-height: var(--explore-impact-quote-min-h);
-  padding: clamp(0.5rem, 1vw, 0.85rem) clamp(0.65rem, 1.2vw, 1rem);
+  padding: clamp(0.35rem, 0.8vw, 0.6rem);
   overflow: visible;
   box-sizing: border-box;
 }
 
 .explore-impact-quote__blob {
   position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
+  /* Push baked-in heart/stars outward so they frame text instead of crossing it */
+  inset: -6% -2% -4% -12%;
+  width: auto;
+  height: auto;
+  max-width: none;
   object-fit: contain;
   object-position: center center;
   pointer-events: none;
   user-select: none;
-  overflow: visible;
 }
 
 .explore-impact-quote__text {
@@ -6376,7 +6378,11 @@ img.lazy-img.loaded {
   width: min(100%, var(--explore-impact-quote-text-max));
   max-width: 100%;
   margin-inline: auto;
-  padding: clamp(1rem, 1.6vw, 1.35rem) clamp(1.15rem, 2.2vw, 1.85rem);
+  /* Extra left/top inset clears the pink heart stroke on the blob */
+  padding-top: clamp(1.35rem, 2.4vw, 2rem);
+  padding-right: clamp(1rem, 1.8vw, 1.5rem);
+  padding-bottom: clamp(1.1rem, 1.8vw, 1.5rem);
+  padding-left: clamp(2rem, 3.8vw, 3.25rem);
   text-align: center;
   box-sizing: border-box;
   overflow: visible;
@@ -6385,8 +6391,8 @@ img.lazy-img.loaded {
 .explore-impact-quote__stanza {
   font-family: var(--font-body);
   font-weight: 700;
-  font-size: clamp(0.78rem, 0.88vw, 0.94rem);
-  line-height: 1.4;
+  font-size: clamp(0.74rem, 0.84vw, 0.9rem);
+  line-height: 1.42;
   color: var(--color-navy);
   margin: 0;
   max-width: 100%;
@@ -10276,13 +10282,20 @@ img.lazy-img.loaded {
   }
 
   .explore-impact-quote {
-    flex: 0 0 min(300px, 88vw);
-    min-width: min(300px, 88vw);
+    flex: 0 0 min(320px, 90vw);
+    min-width: min(320px, 90vw);
     scroll-snap-align: start;
-    min-height: clamp(240px, 68vw, 310px);
+    min-height: clamp(260px, 72vw, 330px);
     justify-content: center;
-    padding: 0.65rem 0.85rem;
+    padding: 0.5rem;
     overflow: visible;
+  }
+
+  .explore-impact-quote__text {
+    padding-top: 1.5rem;
+    padding-right: 1.15rem;
+    padding-bottom: 1.25rem;
+    padding-left: 2.5rem;
   }
 
   .explore-dream__grid {
