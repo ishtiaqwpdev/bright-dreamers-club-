@@ -26715,42 +26715,52 @@ body.newsletter-success-open {
   }
 }
 
-/* For Parents + Explore hero — desktop: left text aligned to top */
+/* Explore hero — desktop: left text aligned to top */
 @media (min-width: 1024px) {
-  .page-hero.for-parents-hero .page-hero__inner,
   .page-hero.explore-hero .page-hero__inner {
     align-items: start;
   }
 
-  .page-hero.for-parents-hero .page-hero__content,
   .page-hero.explore-hero .page-hero__content {
     align-self: start;
-  }
-
-  /* Explore + For Parents hero — left text block: 30px top padding (desktop) */
-  .page-hero.explore-hero .page-hero__content,
-  .page-hero.for-parents-hero .page-hero__content {
     padding-top: 30px;
   }
 
-  .page-hero.explore-hero .explore-hero__media .lazy-img-wrap,
-  .page-hero.for-parents-hero .about-hero__media .lazy-img-wrap,
-  .page-hero.for-parents-hero .hero-image-wrap .lazy-img-wrap {
+  .page-hero.explore-hero .explore-hero__media .lazy-img-wrap {
     display: flex;
     align-items: flex-start;
   }
 
-  .page-hero.explore-hero .explore-hero__banner,
-  .page-hero.for-parents-hero .about-hero__banner {
+  .page-hero.explore-hero .explore-hero__banner {
     object-position: left top !important;
   }
 
-  .page-hero.for-parents-hero .about-hero__media,
-  .page-hero.for-parents-hero .hero-image-wrap,
   .page-hero.explore-hero .explore-hero__media,
   .page-hero.explore-hero .hero-image-wrap {
     align-self: start;
     align-items: flex-start;
+  }
+}
+
+/* For Parents hero — desktop: vertically center left content vs right image (no horizontal change) */
+@media (min-width: 1024px) {
+  #main-content > section.page-hero.for-parents-hero .page-hero__inner,
+  .page-hero.for-parents-hero .page-hero__inner {
+    align-items: center !important;
+  }
+
+  #main-content > section.page-hero.for-parents-hero .page-hero__content,
+  .page-hero.for-parents-hero .page-hero__content {
+    align-self: center !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
+
+  #main-content > section.page-hero.for-parents-hero .about-hero__media,
+  #main-content > section.page-hero.for-parents-hero .hero-image-wrap,
+  .page-hero.for-parents-hero .about-hero__media,
+  .page-hero.for-parents-hero .hero-image-wrap {
+    align-self: center !important;
   }
 }
 
