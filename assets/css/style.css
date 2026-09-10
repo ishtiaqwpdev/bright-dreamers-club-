@@ -26780,7 +26780,7 @@ body.newsletter-success-open {
   }
 }
 
-/* Partners + Contact — desktop: center hero text block in content column */
+/* Partners + Contact — desktop: center heading/CTAs; left-align paragraph under heading */
 @media (min-width: 1024px) {
   .page-hero.partners-hero .page-hero__content,
   .page-hero.contact-hero .page-hero__content {
@@ -26789,10 +26789,14 @@ body.newsletter-success-open {
   }
 
   .page-hero.partners-hero .hero-headline,
-  .page-hero.contact-hero .hero-headline,
+  .page-hero.contact-hero .hero-headline {
+    text-align: center;
+  }
+
   .page-hero.partners-hero .hero-copy,
   .page-hero.contact-hero .hero-copy {
-    text-align: center;
+    text-align: left !important;
+    align-self: stretch;
   }
 
   .page-hero.partners-hero .hero-headline [class*='__title-line'],
