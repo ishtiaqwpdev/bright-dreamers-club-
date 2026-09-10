@@ -35,6 +35,10 @@ $apply_hero_banner_url = bdc_get_acf_image_url(
 	bdc_theme_asset_url( 'assets/images/apply-hero-banner.png' ),
 	$apply_page_id
 );
+$apply_hero_banner_ver = bdc_asset_version( 'assets/images/apply-hero-banner.png' );
+if ( $apply_hero_banner_ver && false !== strpos( $apply_hero_banner_url, 'apply-hero-banner.png' ) ) {
+	$apply_hero_banner_url = add_query_arg( 'v', $apply_hero_banner_ver, $apply_hero_banner_url );
+}
 $apply_hero_banner_alt = bdc_get_acf_text(
 	'apply_hero_banner_alt',
 	'A young girl smiling while drawing with colored pencils',
