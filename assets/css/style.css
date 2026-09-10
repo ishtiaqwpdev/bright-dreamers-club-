@@ -26845,8 +26845,7 @@ body.newsletter-success-open {
     align-self: center !important;
     text-align: left !important;
     margin-inline: 0 !important;
-    /* Cancel hero logo PNG left transparent pad so "Bright" lines up with header logo */
-    margin-left: clamp(-22px, -1.6vw, -14px) !important;
+    margin-left: 0 !important;
     margin-right: 0 !important;
     padding-top: 0 !important;
     padding-left: 0 !important;
