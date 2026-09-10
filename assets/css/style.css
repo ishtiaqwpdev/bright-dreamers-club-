@@ -113,8 +113,8 @@
   --explore-grow-quote-lines: 2;
   --explore-grow-arrow-width: clamp(18px, 1.9vw, 28px);
   --explore-impact-text-lines: 4;
-  --explore-impact-quote-min-h: clamp(210px, 20vw, 280px);
-  --explore-impact-quote-text-max: clamp(9rem, 9.5vw, 10.5rem);
+  --explore-impact-quote-min-h: clamp(230px, 22vw, 300px);
+  --explore-impact-quote-text-max: clamp(11rem, 12vw, 14rem);
   --explore-impact-quote-stanza-gap: clamp(0.55rem, 0.85vw, 0.75rem);
   --explore-dream-bg: #fff0f5;
   --explore-dream-radius: 20px;
@@ -6341,14 +6341,17 @@ img.lazy-img.loaded {
 }
 
 .explore-impact-quote {
-  flex: 1.12 1 0;
-  min-width: 0;
+  flex: 1.25 1 240px;
+  min-width: min(100%, 240px);
   align-self: stretch;
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: clamp(0.35rem, 0.75vw, 0.65rem) clamp(0.25rem, 0.5vw, 0.45rem);
+  min-height: var(--explore-impact-quote-min-h);
+  padding: clamp(0.5rem, 1vw, 0.85rem) clamp(0.65rem, 1.2vw, 1rem);
+  overflow: visible;
+  box-sizing: border-box;
 }
 
 .explore-impact-quote__blob {
@@ -6357,9 +6360,10 @@ img.lazy-img.loaded {
   width: 100%;
   height: 100%;
   object-fit: contain;
-  object-position: center;
+  object-position: center center;
   pointer-events: none;
   user-select: none;
+  overflow: visible;
 }
 
 .explore-impact-quote__text {
@@ -6370,18 +6374,24 @@ img.lazy-img.loaded {
   align-items: center;
   justify-content: center;
   width: min(100%, var(--explore-impact-quote-text-max));
+  max-width: 100%;
   margin-inline: auto;
-  padding: clamp(0.85rem, 1.25vw, 1.1rem) clamp(0.25rem, 0.5vw, 0.4rem);
+  padding: clamp(1rem, 1.6vw, 1.35rem) clamp(1.15rem, 2.2vw, 1.85rem);
   text-align: center;
+  box-sizing: border-box;
+  overflow: visible;
 }
 
 .explore-impact-quote__stanza {
   font-family: var(--font-body);
   font-weight: 700;
-  font-size: clamp(0.82rem, 0.9vw, 0.96rem);
-  line-height: 1.38;
+  font-size: clamp(0.78rem, 0.88vw, 0.94rem);
+  line-height: 1.4;
   color: var(--color-navy);
   margin: 0;
+  max-width: 100%;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
 }
 
 .explore-impact-quote__stanza + .explore-impact-quote__stanza {
@@ -10266,11 +10276,13 @@ img.lazy-img.loaded {
   }
 
   .explore-impact-quote {
-    flex: 0 0 min(260px, 82vw);
+    flex: 0 0 min(300px, 88vw);
+    min-width: min(300px, 88vw);
     scroll-snap-align: start;
-    min-height: clamp(210px, 62vw, 280px);
+    min-height: clamp(240px, 68vw, 310px);
     justify-content: center;
-    padding-inline: 0.35rem;
+    padding: 0.65rem 0.85rem;
+    overflow: visible;
   }
 
   .explore-dream__grid {
