@@ -809,7 +809,7 @@ button {
 
 .site-footer__newsletter-layout {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: clamp(0.65rem, 1.2vw, 1rem);
 }
 
@@ -844,17 +844,19 @@ button {
 
 .footer-newsletter {
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: var(--footer-newsletter-gap);
+  flex-direction: row;
+  align-items: stretch;
+  gap: 0;
   width: 100%;
   margin: 0;
 }
 
 .footer-newsletter__field {
-  width: 100%;
+  flex: 1 1 auto;
+  min-width: 0;
   border: 1px solid var(--contact-form-input-border);
-  border-radius: 999px;
+  border-right: 0;
+  border-radius: 999px 0 0 999px;
   background-color: #fff;
   overflow: hidden;
 }
@@ -889,10 +891,11 @@ button {
   align-items: center;
   justify-content: center;
   gap: 0.35rem;
-  width: 100%;
+  flex-shrink: 0;
+  width: auto;
   height: var(--footer-newsletter-shell-height);
   border: 0;
-  border-radius: 999px;
+  border-radius: 0 999px 999px 0;
   padding: 0 1.2rem;
   margin: 0;
   background-color: var(--color-pink);
@@ -918,10 +921,12 @@ button {
 
 .site-footer__plant {
   flex-shrink: 0;
+  align-self: flex-start;
   width: var(--footer-plant-max-w);
   height: auto;
   object-fit: contain;
   pointer-events: none;
+  margin-top: 0.15rem;
 }
 
 .site-footer__legal {
@@ -2316,11 +2321,11 @@ img.lazy-img.loaded {
 
 .home-different__icon {
   display: block;
-  width: clamp(48px, 4.5vw, 58px);
-  height: clamp(48px, 4.5vw, 58px);
+  width: clamp(52px, 5vw, 64px);
+  height: clamp(52px, 5vw, 64px);
   object-fit: contain;
-  filter: var(--home-section-icon-filter);
-  mix-blend-mode: multiply;
+  filter: none;
+  mix-blend-mode: normal;
 }
 
 .home-different__text {
@@ -11534,7 +11539,7 @@ img.lazy-img.loaded {
   }
 
   .site-footer__newsletter-layout {
-    align-items: center;
+    align-items: flex-start;
   }
 
   .site-footer__legal-inner {
@@ -20615,7 +20620,7 @@ body.newsletter-success-open {
     display: grid;
     grid-template-columns: minmax(0, 1fr) auto;
     gap: 10px;
-    align-items: end;
+    align-items: start;
     background: var(--color-pink-soft);
     border-radius: 22px;
     padding: 18px 16px 16px;
@@ -20734,7 +20739,8 @@ body.newsletter-success-open {
     width: 80px;
     height: auto;
     object-fit: contain;
-    align-self: end;
+    align-self: start;
+    margin-top: 0.1rem;
     pointer-events: none;
   }
 

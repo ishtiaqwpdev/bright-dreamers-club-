@@ -124,32 +124,32 @@ $home_different_title = bdc_get_acf_text(
 );
 $home_different_items_defaults = array(
 	array(
-		'icon'        => bdc_theme_asset_url( 'assets/images/believe-icon-star.png' ),
+		'icon'        => bdc_theme_asset_url( 'assets/images/home-diff-dream.png' ),
 		'name'        => 'Dream',
 		'description' => 'Children imagine possibilities.',
 	),
 	array(
-		'icon'        => bdc_theme_asset_url( 'assets/images/role-icon-palette.jpeg' ),
+		'icon'        => bdc_theme_asset_url( 'assets/images/home-diff-create.png' ),
 		'name'        => 'Create',
 		'description' => 'Turn ideas into real projects.',
 	),
 	array(
-		'icon'        => bdc_theme_asset_url( 'assets/images/home-diff-grow.jpeg' ),
+		'icon'        => bdc_theme_asset_url( 'assets/images/home-diff-grow.png' ),
 		'name'        => 'Grow',
 		'description' => 'Build confidence through experience.',
 	),
 	array(
-		'icon'        => bdc_theme_asset_url( 'assets/images/home-diff-connect.jpeg' ),
+		'icon'        => bdc_theme_asset_url( 'assets/images/home-diff-connect.png' ),
 		'name'        => 'Connect',
 		'description' => 'Work together and make friends.',
 	),
 	array(
-		'icon'        => bdc_theme_asset_url( 'assets/images/home-diff-lead.jpeg' ),
+		'icon'        => bdc_theme_asset_url( 'assets/images/home-diff-lead.png' ),
 		'name'        => 'Lead',
 		'description' => 'Share ideas and solve problems.',
 	),
 	array(
-		'icon'        => bdc_theme_asset_url( 'assets/images/home-diff-give.jpeg' ),
+		'icon'        => bdc_theme_asset_url( 'assets/images/home-diff-give.png' ),
 		'name'        => 'Give',
 		'description' => 'Use creativity to help others.',
 	),
