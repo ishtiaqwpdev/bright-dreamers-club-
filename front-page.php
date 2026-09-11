@@ -52,11 +52,6 @@ $home_hero_banner_url = bdc_get_acf_image_url(
 	bdc_theme_asset_url( 'assets/images/home-hero-banner.png' ),
 	$front_page_id
 );
-$home_hero_banner_mobile_url = bdc_theme_asset_url( 'assets/images/home-hero-banner-mobile.png' );
-$home_hero_banner_mobile_ver = bdc_asset_version( 'assets/images/home-hero-banner-mobile.png' );
-if ( $home_hero_banner_mobile_ver ) {
-	$home_hero_banner_mobile_url = add_query_arg( 'v', $home_hero_banner_mobile_ver, $home_hero_banner_mobile_url );
-}
 $home_hero_banner_alt = bdc_get_acf_text(
 	'home_hero_banner_alt',
 	'Three children with books, a robot, and a plant representing Bright Dreamers creativity',
@@ -99,25 +94,15 @@ $home_pillars_mission_items = ( is_array( $home_pillars_mission['list_items'] ??
 $home_pillars_mission_checks = array( 'pink', 'orange', 'green', 'purple' );
 
 $home_pillars_inspire_defaults = array(
-	'image'           => bdc_theme_asset_url( 'assets/images/home-pillar-jar.jpeg' ),
-	'line_1'          => 'Together, we can',
-	'line_2'          => 'inspire big',
-	'accent_1'        => 'dreams',
-	'line_3'          => 'and create lasting',
-	'accent_2'        => 'change.',
-	'underline_image' => bdc_theme_asset_url( 'assets/images/heading-underline.jpeg' ),
+	'image' => bdc_theme_asset_url( 'assets/images/home-pillar-inspire.png' ),
 );
 $home_pillars_inspire       = bdc_get_acf_group( 'home_pillars_inspire', $home_pillars_inspire_defaults, $front_page_id );
 $home_pillars_inspire_image = bdc_acf_image_value_to_url( $home_pillars_inspire['image'] ?? null, $home_pillars_inspire_defaults['image'] );
-$home_pillars_inspire_underline = bdc_acf_image_value_to_url(
-	$home_pillars_inspire['underline_image'] ?? null,
-	$home_pillars_inspire_defaults['underline_image']
+$home_pillars_inspire_alt   = bdc_get_acf_text(
+	'home_pillars_inspire_alt',
+	'Together, we can inspire big dreams and create lasting change',
+	$front_page_id
 );
-$home_pillars_inspire_line_1   = (string) $home_pillars_inspire['line_1'];
-$home_pillars_inspire_line_2   = (string) $home_pillars_inspire['line_2'];
-$home_pillars_inspire_accent_1 = (string) $home_pillars_inspire['accent_1'];
-$home_pillars_inspire_line_3   = (string) $home_pillars_inspire['line_3'];
-$home_pillars_inspire_accent_2 = (string) $home_pillars_inspire['accent_2'];
 $home_pillars_mission_title    = (string) $home_pillars_mission['title'];
 $home_pillars_mission_intro    = (string) $home_pillars_mission['intro_text'];
 $home_pillars_mission_closing  = (string) $home_pillars_mission['closing_text'];
@@ -396,20 +381,14 @@ $home_spotlight_council_items = ( is_array( $home_spotlight_council['list_items'
         aria-label="<?php echo esc_attr__( 'Welcome', 'bright-dreamers-club' ); ?>"
       >
         <div class="home-hero__banner-wrap">
-          <picture>
-            <source
-              media="(max-width: 767px)"
-              srcset="<?php echo esc_url( $home_hero_banner_mobile_url ); ?>"
-            />
-            <img
-              class="home-hero__banner"
-              src="<?php echo esc_url( $home_hero_banner_url ); ?>"
-              alt="<?php echo esc_attr( $home_hero_banner_alt ); ?>"
-              width="1024"
-              height="682"
-              decoding="async"
-            />
-          </picture>
+          <img
+            class="home-hero__banner"
+            src="<?php echo esc_url( $home_hero_banner_url ); ?>"
+            alt="<?php echo esc_attr( $home_hero_banner_alt ); ?>"
+            width="1024"
+            height="682"
+            decoding="async"
+          />
         </div>
       </section>
 
@@ -517,41 +496,16 @@ $home_spotlight_council_items = ( is_array( $home_spotlight_council['list_items'
             </article>
 
             <article class="home-pillar home-pillar--inspire">
-              <div class="home-pillar__inner">
-                <div class="home-pillar__figure">
-                  <div class="lazy-img-wrap">
-                    <img
-                      class="home-pillar__img home-pillar__img--jar lazy-img"
-                      src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-                      data-src="<?php echo esc_url( $home_pillars_inspire_image ); ?>"
-                      alt=""
-                      width="280"
-                      height="320"
-                      decoding="async"
-                    />
-                  </div>
-                </div>
-
-                <div class="home-pillar__content">
-                  <p class="home-pillar__inspire-text">
-                    <?php echo esc_html( $home_pillars_inspire_line_1 ); ?><br />
-                    <?php echo esc_html( $home_pillars_inspire_line_2 ); ?>
-                    <span class="home-pillar__accent home-pillar__accent--pink"><?php echo esc_html( $home_pillars_inspire_accent_1 ); ?></span><br />
-                    <?php echo esc_html( $home_pillars_inspire_line_3 ); ?><br />
-                    <span class="heading-underline heading-underline--inspire">
-                      <span class="home-pillar__accent home-pillar__accent--green"
-                        ><?php echo esc_html( $home_pillars_inspire_accent_2 ); ?></span
-                      >
-                      <img
-                        class="heading-underline__img"
-                        src="<?php echo esc_url( $home_pillars_inspire_underline ); ?>"
-                        alt=""
-                        width="120"
-                        height="12"
-                      />
-                    </span>
-                  </p>
-                </div>
+              <div class="home-pillar__inner home-pillar__inner--inspire">
+                <img
+                  class="home-pillar__img home-pillar__img--inspire"
+                  src="<?php echo esc_url( $home_pillars_inspire_image ); ?>"
+                  alt="<?php echo esc_attr( $home_pillars_inspire_alt ); ?>"
+                  width="641"
+                  height="389"
+                  loading="lazy"
+                  decoding="async"
+                />
               </div>
             </article>
           </div>

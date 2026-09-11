@@ -123,7 +123,7 @@
   --explore-dream-jar-max-h: clamp(112px, 10.8vw, 158px);
   --home-pillar-idea-bg: #fff5f8;
   --home-pillar-mission-bg: #fffbeb;
-  --home-pillar-inspire-bg: #eef6fc;
+  --home-pillar-inspire-bg: #000;
   --home-pillar-radius: 18px;
   --home-pillar-pad: clamp(1rem, 1.8vw, 1.45rem);
   --home-pillar-img-filter: var(--logo-bg-filter);
@@ -2082,25 +2082,21 @@ img.lazy-img.loaded {
   filter: none;
 }
 
-.home-pillar--inspire .home-pillar__figure {
-  background-color: var(--home-pillar-inspire-bg);
-  flex: 0 0 auto;
-  width: auto;
+.home-pillar--inspire .home-pillar__inner--inspire {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  padding: clamp(0.65rem, 1.2vw, 1rem);
 }
 
-.home-pillar--inspire .home-pillar__inner {
-  gap: clamp(1rem, 1.75vw, 1.45rem);
-}
-
-.home-pillar--inspire .home-pillar__content {
-  flex: 1 1 0;
-  min-width: 0;
-  padding-left: clamp(0.15rem, 0.4vw, 0.35rem);
-}
-
-.home-pillar--inspire .home-pillar__img--jar {
-  width: clamp(78px, 9vw, 108px);
-  max-width: none;
+.home-pillar--inspire .home-pillar__img--inspire {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+  filter: none;
+  mix-blend-mode: normal;
 }
 
 .home-pillar__img {
