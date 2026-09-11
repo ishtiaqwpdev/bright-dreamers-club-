@@ -810,10 +810,10 @@ button {
 }
 
 .site-footer__newsletter-layout {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  align-items: center;
-  gap: clamp(0.65rem, 1.2vw, 1rem);
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: clamp(0.65rem, 1.2vw, 0.85rem);
   background: var(--color-pink-soft);
   border-radius: 22px;
   padding: clamp(16px, 1.5vw, 22px) clamp(16px, 1.4vw, 20px);
@@ -937,11 +937,11 @@ button {
 .site-footer__plant {
   flex-shrink: 0;
   align-self: center;
-  width: var(--footer-plant-max-w);
+  width: clamp(90px, 22vw, var(--footer-plant-max-w));
   height: auto;
   object-fit: contain;
   pointer-events: none;
-  margin-top: 0;
+  margin: 0 auto 0.15rem;
 }
 
 .site-footer__legal {
@@ -20598,8 +20598,7 @@ body.newsletter-success-open {
     transform: translateY(-50%);
   }
 
-  .footer-m-brand,
-  .footer-m-news {
+  .footer-m-brand {
     display: grid;
     grid-template-columns: minmax(0, 1fr) auto;
     gap: 10px;
@@ -20607,6 +20606,21 @@ body.newsletter-success-open {
     background: var(--color-pink-soft);
     border-radius: 22px;
     padding: 18px 16px 16px;
+  }
+
+  .footer-m-news {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+    background: var(--color-pink-soft);
+    border-radius: 22px;
+    padding: 18px 16px 16px;
+  }
+
+  .footer-m-news__copy {
+    width: 100%;
+    min-width: 0;
   }
 
   .footer-m-brand__logo {
@@ -20683,21 +20697,33 @@ body.newsletter-success-open {
     display: flex;
     align-items: stretch;
     width: 100%;
+    max-width: 100%;
     min-width: 0;
   }
 
-  .footer-m-news__input {
+  .footer-m-news__field {
     flex: 1 1 auto;
     min-width: 0;
-    height: 42px;
     border: 1px solid rgba(0, 27, 102, 0.12);
     border-right: 0;
     border-radius: 999px 0 0 999px;
     background: #fff;
+    overflow: hidden;
+  }
+
+  .footer-m-news__input {
+    display: block;
+    width: 100%;
+    min-width: 0;
+    height: 42px;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
     padding: 0 0.9rem;
     font-family: var(--font-body);
     font-size: 0.84rem;
     color: var(--color-navy);
+    box-sizing: border-box;
   }
 
   .footer-m-news__input:focus {
@@ -20724,11 +20750,11 @@ body.newsletter-success-open {
   }
 
   .footer-m-news__plant {
-    width: clamp(90px, 24vw, 110px);
+    width: clamp(100px, 28vw, 120px);
     height: auto;
     object-fit: contain;
     align-self: center;
-    margin-top: 0;
+    margin: 0 auto 0.1rem;
     pointer-events: none;
   }
 

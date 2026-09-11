@@ -206,31 +206,6 @@ $acc_groups = array(
 	</div>
 
 	<div class="footer-m-news">
-		<div class="footer-m-news__copy">
-			<a class="footer-m-news__heading-link" href="<?php echo esc_url( $footer_newsletter_heading_link['url'] ); ?>"<?php echo bdc_acf_link_target_attr( $footer_newsletter_heading_link ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
-				<h2 class="footer-m-news__heading">
-					<?php echo esc_html( $footer_newsletter_heading_link['title'] ); ?>
-					<span class="footer-m-news__heading-heart" aria-hidden="true">♡</span>
-				</h2>
-			</a>
-			<p class="footer-m-news__text"><?php echo esc_html( $footer_newsletter_text ); ?></p>
-			<form class="footer-m-news__form" action="<?php echo esc_url( $footer_newsletter_form_action ); ?>" method="get">
-				<label class="visually-hidden" for="footer-newsletter-email-mobile"><?php esc_html_e( 'Your email', 'bright-dreamers-club' ); ?></label>
-				<input
-					class="footer-m-news__input"
-					id="footer-newsletter-email-mobile"
-					name="email"
-					type="email"
-					placeholder="<?php echo esc_attr( $footer_newsletter_placeholder ); ?>"
-					autocomplete="email"
-					required
-				>
-				<button class="footer-m-news__btn" type="submit">
-					<?php echo esc_html( $footer_newsletter_button_text ); ?>
-					<span aria-hidden="true">♡</span>
-				</button>
-			</form>
-		</div>
 		<img
 			class="footer-m-news__plant"
 			src="<?php echo esc_url( $footer_plant_url ); ?>"
@@ -240,5 +215,32 @@ $acc_groups = array(
 			loading="lazy"
 			decoding="async"
 		>
+		<div class="footer-m-news__copy">
+			<a class="footer-m-news__heading-link" href="<?php echo esc_url( $footer_newsletter_heading_link['url'] ); ?>"<?php echo bdc_acf_link_target_attr( $footer_newsletter_heading_link ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
+				<h2 class="footer-m-news__heading">
+					<?php echo esc_html( $footer_newsletter_heading_link['title'] ); ?>
+					<span class="footer-m-news__heading-heart" aria-hidden="true">♡</span>
+				</h2>
+			</a>
+			<p class="footer-m-news__text"><?php echo esc_html( $footer_newsletter_text ); ?></p>
+			<form class="footer-m-news__form" action="<?php echo esc_url( $footer_newsletter_form_action ); ?>" method="get">
+				<div class="footer-m-news__field">
+					<label class="visually-hidden" for="footer-newsletter-email-mobile"><?php esc_html_e( 'Your email', 'bright-dreamers-club' ); ?></label>
+					<input
+						class="footer-m-news__input"
+						id="footer-newsletter-email-mobile"
+						name="email"
+						type="email"
+						placeholder="<?php echo esc_attr( $footer_newsletter_placeholder ); ?>"
+						autocomplete="email"
+						required
+					>
+				</div>
+				<button class="footer-m-news__btn" type="submit">
+					<?php echo esc_html( $footer_newsletter_button_text ); ?>
+					<span aria-hidden="true">♡</span>
+				</button>
+			</form>
+		</div>
 	</div>
 </div>
