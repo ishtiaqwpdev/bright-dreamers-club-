@@ -38,6 +38,7 @@ $hero = wp_parse_args(
 		'image_class'              => '',
 		'hero_deco'                => false,
 		'secondary_cta_show_heart' => false,
+		'brand_html'               => '',
 	)
 );
 
@@ -66,6 +67,10 @@ $image_class   = trim( 'lazy-img ' . (string) $hero['image_class'] );
       >
         <div class="site-container page-hero__inner">
           <div class="page-hero__content">
+            <?php if ( '' !== trim( (string) $hero['brand_html'] ) ) : ?>
+            <?php echo $hero['brand_html']; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+            <?php endif; ?>
+
             <?php if ( ! empty( $hero['hero_deco'] ) ) : ?>
             <div class="about-hero__deco" aria-hidden="true">
               <img

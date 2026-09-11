@@ -52,6 +52,11 @@ $home_hero_banner_alt = bdc_get_acf_text(
 	'Three children with books, a robot, and a plant representing Bright Dreamers creativity',
 	$front_page_id
 );
+$home_hero_banner_mobile_url = bdc_theme_asset_url( 'assets/images/home-hero-banner-mobile.png' );
+$home_hero_banner_mobile_ver = bdc_asset_version( 'assets/images/home-hero-banner-mobile.png' );
+if ( $home_hero_banner_mobile_ver ) {
+	$home_hero_banner_mobile_url = add_query_arg( 'v', $home_hero_banner_mobile_ver, $home_hero_banner_mobile_url );
+}
 
 $home_pillars_idea_defaults = array(
 	'image' => bdc_theme_asset_url( 'assets/images/home-pillar-books-removebg-preview.png' ),
@@ -371,80 +376,34 @@ $home_spotlight_council_items = ( is_array( $home_spotlight_council['list_items'
 	: $home_spotlight_council_defaults['list_items'];
 ?>
     <main id="main-content">
-      <section class="page-hero home-hero" aria-label="Welcome">
-        <div class="site-container page-hero__inner">
-          <div class="page-hero__content">
-            <div class="home-hero__brand">
-              <img
-                class="home-hero__logo"
-                src="<?php echo esc_url( $home_hero_logo_url ); ?>"
-                alt="<?php echo esc_attr( $home_hero_logo_alt ); ?>"
-                width="380"
-                height="110"
-                decoding="async"
-              />
-            </div>
+      <?php
+      $home_hero_brand_html = sprintf(
+        '<div class="home-hero__brand"><img class="home-hero__logo" src="%1$s" alt="%2$s" width="380" height="110" decoding="async" /></div>',
+        esc_url( $home_hero_logo_url ),
+        esc_attr( $home_hero_logo_alt )
+      );
 
-            <p class="page-hero__text">
-              <?php echo esc_html( $home_hero_text ); ?>
-            </p>
-
-            <div class="page-hero__actions">
-              <a class="btn btn--solid btn--lg btn-hover" href="<?php echo esc_url( $home_hero_primary_cta['url'] ); ?>"<?php echo bdc_acf_link_target_attr( $home_hero_primary_cta ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
-                <?php echo esc_html( $home_hero_primary_cta['title'] ); ?>
-                <svg
-                  class="btn__icon"
-                  viewBox="0 0 24 24"
-                  width="18"
-                  height="18"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="1.7"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  aria-hidden="true"
-                >
-                  <circle cx="9" cy="9" r="2.6" />
-                  <circle cx="15.5" cy="9.5" r="2.2" />
-                  <path d="M4.5 19c.7-2.6 2.6-4 4.5-4s3.8 1.4 4.5 4" />
-                  <path d="M12.8 18.5c.5-1.8 1.8-2.8 3.2-2.8 1.2 0 2.2.7 2.8 2" />
-                </svg>
-              </a>
-              <a class="btn btn--outline btn--lg btn-hover" href="<?php echo esc_url( $home_hero_secondary_cta['url'] ); ?>"<?php echo bdc_acf_link_target_attr( $home_hero_secondary_cta ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
-                <?php echo esc_html( $home_hero_secondary_cta['title'] ); ?>
-                <svg
-                  class="btn__icon"
-                  viewBox="0 0 24 24"
-                  width="18"
-                  height="18"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="1.8"
-                  aria-hidden="true"
-                >
-                  <path
-                    d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
-                  />
-                </svg>
-              </a>
-            </div>
-          </div>
-
-          <div class="home-hero__media">
-            <div class="lazy-img-wrap">
-              <img
-                class="home-hero__banner lazy-img"
-                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-                data-src="<?php echo esc_url( $home_hero_banner_url ); ?>"
-                alt="<?php echo esc_attr( $home_hero_banner_alt ); ?>"
-                width="1024"
-                height="584"
-                decoding="async"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
+      get_template_part(
+        'template-parts/page-hero',
+        null,
+        array(
+          'section_class'            => 'home-hero',
+          'aria_label'               => 'Welcome',
+          'brand_html'               => $home_hero_brand_html,
+          'supporting_copy'          => $home_hero_text,
+          'primary_cta_text'         => $home_hero_primary_cta['title'],
+          'primary_cta_link'         => $home_hero_primary_cta,
+          'secondary_cta_text'       => $home_hero_secondary_cta['title'],
+          'secondary_cta_link'       => $home_hero_secondary_cta,
+          'hero_image'               => $home_hero_banner_url,
+          'hero_image_mobile'        => $home_hero_banner_mobile_url,
+          'hero_image_alt'           => $home_hero_banner_alt,
+          'media_class'              => 'about-hero__media',
+          'image_class'              => 'about-hero__banner',
+          'secondary_cta_show_heart' => true,
+        )
+      );
+      ?>
 
       <section class="home-pillars scroll-rise" aria-label="Bright Dreamers pillars">
         <div class="site-container">
