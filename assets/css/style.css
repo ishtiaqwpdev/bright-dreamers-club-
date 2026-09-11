@@ -27108,10 +27108,12 @@ body.newsletter-success-open {
   transform: none !important;
 }
 
-/* Home full-banner hero — mobile/tablet: same left/right inset as header */
+/* Full-banner heroes — mobile/tablet: same left/right inset as header */
 @media (max-width: 1023px) {
   #main-content > section.page-hero.home-hero.home-hero--full-banner,
-  .page-hero.home-hero.home-hero--full-banner {
+  .page-hero.home-hero.home-hero--full-banner,
+  #main-content > section.page-hero.explore-hero.explore-hero--full-banner,
+  .page-hero.explore-hero.explore-hero--full-banner {
     padding-left: var(--container-padding) !important;
     padding-right: var(--container-padding) !important;
     padding-top: 0 !important;
