@@ -28,7 +28,6 @@ $footer_newsletter_text         = $footer['newsletter_text'];
 $footer_newsletter_placeholder  = $footer['newsletter_placeholder'];
 $footer_newsletter_button_text  = $footer['newsletter_button_text'];
 $footer_newsletter_form_action  = $footer['newsletter_form_action'];
-$footer_plant_url               = $footer['plant_url'];
 
 $stay_heading = __( 'Stay Connected', 'bright-dreamers-club' );
 $stay_links   = array();
@@ -233,14 +232,5 @@ $acc_groups = array(
 				</button>
 			</form>
 		</div>
-		<img
-			class="footer-m-news__plant"
-			src="<?php echo esc_url( $footer_plant_url ); ?>"
-			alt=""
-			width="80"
-			height="80"
-			loading="lazy"
-			decoding="async"
-		>
 	</div>
 </div>

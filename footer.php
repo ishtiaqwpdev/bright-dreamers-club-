@@ -27,7 +27,6 @@ $footer_newsletter_text        = $footer['newsletter_text'];
 $footer_newsletter_placeholder = $footer['newsletter_placeholder'];
 $footer_newsletter_button_text = $footer['newsletter_button_text'];
 $footer_newsletter_form_action = $footer['newsletter_form_action'];
-$footer_plant_url              = $footer['plant_url'];
 $footer_copyright_prefix       = $footer['copyright'];
 $footer_legal_links            = $footer['legal_links'];
 ?>
@@ -219,15 +218,6 @@ $footer_legal_links            = $footer['legal_links'];
 							</button>
 						</form>
 					</div>
-					<img
-						class="site-footer__plant"
-						src="<?php echo esc_url( $footer_plant_url ); ?>"
-						alt=""
-						width="128"
-						height="128"
-						loading="lazy"
-						decoding="async"
-					>
 				</div>
 			</div>
 		</div>
