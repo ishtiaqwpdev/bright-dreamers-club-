@@ -47,14 +47,19 @@ $home_hero_secondary_cta = bdc_get_acf_link(
 	),
 	$front_page_id
 );
-$home_hero_banner_url = bdc_theme_asset_url( 'assets/images/home-hero-banner.png' );
-$home_hero_banner_ver = bdc_asset_version( 'assets/images/home-hero-banner.png' );
-if ( $home_hero_banner_ver ) {
-	$home_hero_banner_url = add_query_arg( 'v', $home_hero_banner_ver, $home_hero_banner_url );
+$home_hero_banner_url = bdc_get_acf_image_url(
+	'home_hero_banner',
+	bdc_theme_asset_url( 'assets/images/home-hero-banner.png' ),
+	$front_page_id
+);
+$home_hero_banner_mobile_url = bdc_theme_asset_url( 'assets/images/home-hero-banner-mobile.png' );
+$home_hero_banner_mobile_ver = bdc_asset_version( 'assets/images/home-hero-banner-mobile.png' );
+if ( $home_hero_banner_mobile_ver ) {
+	$home_hero_banner_mobile_url = add_query_arg( 'v', $home_hero_banner_mobile_ver, $home_hero_banner_mobile_url );
 }
 $home_hero_banner_alt = bdc_get_acf_text(
 	'home_hero_banner_alt',
-	'Three Bright Dreamers holding colorful heart flower drawings',
+	'Three children with books, a robot, and a plant representing Bright Dreamers creativity',
 	$front_page_id
 );
 
@@ -386,112 +391,25 @@ $home_spotlight_council_items = ( is_array( $home_spotlight_council['list_items'
 	: $home_spotlight_council_defaults['list_items'];
 ?>
     <main id="main-content">
-      <section class="page-hero home-hero" aria-label="Welcome">
-        <div class="site-container page-hero__inner">
-          <div class="page-hero__content">
-            <div class="home-hero__deco home-hero__deco--heading" aria-hidden="true">
-              <img
-                class="home-hero__deco-icon home-hero__deco-icon--heart-heading"
-                src="<?php echo esc_url( bdc_theme_asset_url( 'assets/images/role-heart-outline.png' ) ); ?>"
-                alt=""
-                width="32"
-                height="32"
-                decoding="async"
-              />
-              <img
-                class="home-hero__deco-icon home-hero__deco-icon--plane-heading"
-                src="<?php echo esc_url( bdc_theme_asset_url( 'assets/images/about-hero-deco-plane-removebg-preview.png' ) ); ?>"
-                alt=""
-                width="36"
-                height="96"
-                decoding="async"
-              />
-              <img
-                class="home-hero__deco-icon home-hero__deco-icon--leaf-heading"
-                src="<?php echo esc_url( bdc_theme_asset_url( 'assets/images/about-hero-deco-plant-removebg-preview.png' ) ); ?>"
-                alt=""
-                width="36"
-                height="80"
-                decoding="async"
-              />
-            </div>
-
-            <div class="home-hero__intro">
-              <div class="home-hero__brand">
-                <picture>
-                  <source
-                    media="(min-width: 768px)"
-                    srcset="<?php echo esc_url( $home_hero_logo_url ); ?>"
-                  />
-                  <img
-                    class="home-hero__logo"
-                    src="<?php echo esc_url( $home_hero_logo_mobile_url ); ?>"
-                    alt="<?php echo esc_attr( $home_hero_logo_alt ); ?>"
-                    width="970"
-                    height="437"
-                    decoding="async"
-                  />
-                </picture>
-              </div>
-
-              <p class="page-hero__text">
-                <?php echo esc_html( $home_hero_text ); ?>
-              </p>
-            </div>
-
-            <div class="page-hero__actions">
-              <a class="btn btn--solid btn--lg btn-hover" href="<?php echo esc_url( $home_hero_primary_cta['url'] ); ?>"<?php echo bdc_acf_link_target_attr( $home_hero_primary_cta ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
-                <?php echo esc_html( $home_hero_primary_cta['title'] ); ?>
-                <svg
-                  class="btn__icon"
-                  viewBox="0 0 24 24"
-                  width="18"
-                  height="18"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="1.7"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  aria-hidden="true"
-                >
-                  <circle cx="9" cy="9" r="2.6" />
-                  <circle cx="15.5" cy="9.5" r="2.2" />
-                  <path d="M4.5 19c.7-2.6 2.6-4 4.5-4s3.8 1.4 4.5 4" />
-                  <path d="M12.8 18.5c.5-1.8 1.8-2.8 3.2-2.8 1.2 0 2.2.7 2.8 2" />
-                </svg>
-              </a>
-              <a class="btn btn--outline btn--lg btn-hover" href="<?php echo esc_url( $home_hero_secondary_cta['url'] ); ?>"<?php echo bdc_acf_link_target_attr( $home_hero_secondary_cta ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
-                <?php echo esc_html( $home_hero_secondary_cta['title'] ); ?>
-                <svg
-                  class="btn__icon"
-                  viewBox="0 0 24 24"
-                  width="18"
-                  height="18"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="1.8"
-                  aria-hidden="true"
-                >
-                  <path
-                    d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
-                  />
-                </svg>
-              </a>
-            </div>
-          </div>
-
-          <div class="home-hero__media">
-            <div class="lazy-img-wrap">
-              <img
-                class="home-hero__banner"
-                src="<?php echo esc_url( $home_hero_banner_url ); ?>"
-                alt="<?php echo esc_attr( $home_hero_banner_alt ); ?>"
-                width="1024"
-                height="584"
-                decoding="async"
-              />
-            </div>
-          </div>
+      <section
+        class="page-hero home-hero home-hero--full-banner"
+        aria-label="<?php echo esc_attr__( 'Welcome', 'bright-dreamers-club' ); ?>"
+      >
+        <div class="home-hero__banner-wrap">
+          <picture>
+            <source
+              media="(max-width: 767px)"
+              srcset="<?php echo esc_url( $home_hero_banner_mobile_url ); ?>"
+            />
+            <img
+              class="home-hero__banner"
+              src="<?php echo esc_url( $home_hero_banner_url ); ?>"
+              alt="<?php echo esc_attr( $home_hero_banner_alt ); ?>"
+              width="1920"
+              height="1080"
+              decoding="async"
+            />
+          </picture>
         </div>
       </section>
 

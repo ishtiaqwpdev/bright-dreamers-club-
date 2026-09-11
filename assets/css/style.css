@@ -27068,3 +27068,37 @@ body.newsletter-success-open {
   object-fit: cover !important;
   object-position: center center !important;
 }
+
+/* Home full-banner hero — edge-to-edge width, 100vh height on all breakpoints */
+#main-content > section.page-hero.home-hero.home-hero--full-banner,
+.page-hero.home-hero.home-hero--full-banner {
+  min-height: 100vh !important;
+  height: 100vh !important;
+  max-height: 100vh !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  overflow: hidden !important;
+}
+
+.home-hero--full-banner .home-hero__banner-wrap,
+.home-hero--full-banner picture {
+  display: block !important;
+  width: 100% !important;
+  max-width: none !important;
+  height: 100vh !important;
+  min-height: 100vh !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  line-height: 0;
+}
+
+.home-hero--full-banner .home-hero__banner {
+  display: block !important;
+  width: 100% !important;
+  max-width: none !important;
+  height: 100vh !important;
+  min-height: 100vh !important;
+  max-height: none !important;
+  object-fit: cover !important;
+  object-position: center center !important;
+}
