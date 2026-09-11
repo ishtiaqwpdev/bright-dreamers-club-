@@ -20626,6 +20626,10 @@ body.newsletter-success-open {
     padding: 18px 16px 16px;
   }
 
+  .footer-m-brand {
+    align-items: center;
+  }
+
   .footer-m-brand__logo {
     display: inline-block;
     margin-bottom: 0.7rem;
@@ -20657,11 +20661,10 @@ body.newsletter-success-open {
   }
 
   .footer-m-brand__art {
-    width: 120px;
+    width: 130px;
     height: auto;
     object-fit: contain;
-    align-self: end;
-    margin-bottom: 2px;
+    align-self: center;
   }
 
   .footer-m-news__heading-link {
