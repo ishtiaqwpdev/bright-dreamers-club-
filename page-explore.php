@@ -78,16 +78,16 @@ $explore_hero_secondary_btn_link = bdc_get_acf_link(
 );
 $explore_hero_banner_url = bdc_get_acf_image_url(
 	'explore_hero_banner',
-	bdc_theme_asset_url( 'assets/images/explore-hero-banner.png' ),
+	bdc_theme_asset_url( 'assets/images/explore-hero-banner.jpeg' ),
 	$explore_page_id
 );
 $explore_hero_banner_alt = bdc_get_acf_text(
 	'explore_hero_banner_alt',
-	'Illustration of children creating together with the message together we create brighter communities',
+	'Children painting a mural that reads together we create brighter communities',
 	$explore_page_id
 );
-$explore_hero_banner_mobile_url = bdc_theme_asset_url( 'assets/images/explore-banner-mobile.png' );
-$explore_hero_banner_mobile_ver = bdc_asset_version( 'assets/images/explore-banner-mobile.png' );
+$explore_hero_banner_mobile_url = bdc_theme_asset_url( 'assets/images/explore-banner-mobile.jpg' );
+$explore_hero_banner_mobile_ver = bdc_asset_version( 'assets/images/explore-banner-mobile.jpg' );
 if ( $explore_hero_banner_mobile_ver ) {
 	$explore_hero_banner_mobile_url = add_query_arg( 'v', $explore_hero_banner_mobile_ver, $explore_hero_banner_mobile_url );
 }
@@ -619,27 +619,34 @@ $explore_dream_secondary_btn_link = bdc_get_acf_link(
 );
 ?>
     <main id="main-content">
-      <section
-        class="page-hero explore-hero explore-hero--full-banner"
-        aria-label="<?php echo esc_attr__( 'Explore Bright Dreamers', 'bright-dreamers-club' ); ?>"
-      >
-        <div class="explore-hero__banner-wrap">
-          <picture>
-            <source
-              media="(max-width: 767px)"
-              srcset="<?php echo esc_url( $explore_hero_banner_mobile_url ); ?>"
-            />
-            <img
-              class="explore-hero__banner"
-              src="<?php echo esc_url( $explore_hero_banner_url ); ?>"
-              alt="<?php echo esc_attr( $explore_hero_banner_alt ); ?>"
-              width="1200"
-              height="675"
-              decoding="async"
-            />
-          </picture>
-        </div>
-      </section>
+      <?php
+      get_template_part(
+        'template-parts/page-hero',
+        null,
+        array(
+          'section_class'      => 'explore-hero',
+          'aria_label'         => 'Explore Bright Dreamers',
+          'section_label'      => $explore_hero_eyebrow,
+          'headline_html'      => bdc_hero_lines_html(
+            array(
+              array( 'text' => $explore_hero_title_line_1, 'class' => 'explore-hero__title-line explore-hero__title-line--navy' ),
+              array( 'text' => $explore_hero_title_line_2, 'class' => 'explore-hero__title-line explore-hero__title-line--navy' ),
+              array( 'text' => $explore_hero_title_line_3, 'class' => 'explore-hero__title-line explore-hero__title-line--pink' ),
+            )
+          ),
+          'supporting_copy'    => bdc_hero_join_copy( $explore_hero_text, $explore_hero_text_last ),
+          'primary_cta_text'   => $explore_hero_primary_btn_text,
+          'primary_cta_link'   => $explore_hero_primary_btn_link,
+          'secondary_cta_text' => $explore_hero_secondary_btn_text,
+          'secondary_cta_link' => $explore_hero_secondary_btn_link,
+          'hero_image'         => $explore_hero_banner_url,
+          'hero_image_mobile'  => $explore_hero_banner_mobile_url,
+          'hero_image_alt'     => $explore_hero_banner_alt,
+          'media_class'        => 'explore-hero__media',
+          'image_class'        => 'explore-hero__banner',
+        )
+      );
+      ?>
 
       <div id="explore-content">
         <section class="explore-ways section-padding" aria-labelledby="explore-ways-title">
