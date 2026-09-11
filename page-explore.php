@@ -78,16 +78,16 @@ $explore_hero_secondary_btn_link = bdc_get_acf_link(
 );
 $explore_hero_banner_url = bdc_get_acf_image_url(
 	'explore_hero_banner',
-	bdc_theme_asset_url( 'assets/images/explore-hero-banner.jpeg' ),
+	bdc_theme_asset_url( 'assets/images/explore-hero-banner.png' ),
 	$explore_page_id
 );
 $explore_hero_banner_alt = bdc_get_acf_text(
 	'explore_hero_banner_alt',
-	'Children painting a mural that reads together we create brighter communities',
+	'Illustration of children creating together with the message together we create brighter communities',
 	$explore_page_id
 );
-$explore_hero_banner_mobile_url = bdc_theme_asset_url( 'assets/images/explore-banner-mobile.jpg' );
-$explore_hero_banner_mobile_ver = bdc_asset_version( 'assets/images/explore-banner-mobile.jpg' );
+$explore_hero_banner_mobile_url = bdc_theme_asset_url( 'assets/images/explore-banner-mobile.png' );
+$explore_hero_banner_mobile_ver = bdc_asset_version( 'assets/images/explore-banner-mobile.png' );
 if ( $explore_hero_banner_mobile_ver ) {
 	$explore_hero_banner_mobile_url = add_query_arg( 'v', $explore_hero_banner_mobile_ver, $explore_hero_banner_mobile_url );
 }
