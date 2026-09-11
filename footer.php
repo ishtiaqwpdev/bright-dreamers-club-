@@ -173,15 +173,6 @@ $footer_legal_links            = $footer['legal_links'];
 
 			<div class="site-footer__col site-footer__col--newsletter">
 				<div class="site-footer__newsletter-layout">
-					<img
-						class="site-footer__plant"
-						src="<?php echo esc_url( $footer_plant_url ); ?>"
-						alt=""
-						width="128"
-						height="128"
-						loading="lazy"
-						decoding="async"
-					>
 					<div class="site-footer__newsletter-content">
 						<a class="site-footer__heading-link" href="<?php echo esc_url( $footer_newsletter_heading_link['url'] ); ?>"<?php echo bdc_acf_link_target_attr( $footer_newsletter_heading_link ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
 							<h2 class="site-footer__heading site-footer__heading--newsletter">
@@ -228,6 +219,15 @@ $footer_legal_links            = $footer['legal_links'];
 							</button>
 						</form>
 					</div>
+					<img
+						class="site-footer__plant"
+						src="<?php echo esc_url( $footer_plant_url ); ?>"
+						alt=""
+						width="128"
+						height="128"
+						loading="lazy"
+						decoding="async"
+					>
 				</div>
 			</div>
 		</div>

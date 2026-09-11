@@ -206,15 +206,6 @@ $acc_groups = array(
 	</div>
 
 	<div class="footer-m-news">
-		<img
-			class="footer-m-news__plant"
-			src="<?php echo esc_url( $footer_plant_url ); ?>"
-			alt=""
-			width="80"
-			height="80"
-			loading="lazy"
-			decoding="async"
-		>
 		<div class="footer-m-news__copy">
 			<a class="footer-m-news__heading-link" href="<?php echo esc_url( $footer_newsletter_heading_link['url'] ); ?>"<?php echo bdc_acf_link_target_attr( $footer_newsletter_heading_link ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
 				<h2 class="footer-m-news__heading">
@@ -242,5 +233,14 @@ $acc_groups = array(
 				</button>
 			</form>
 		</div>
+		<img
+			class="footer-m-news__plant"
+			src="<?php echo esc_url( $footer_plant_url ); ?>"
+			alt=""
+			width="80"
+			height="80"
+			loading="lazy"
+			decoding="async"
+		>
 	</div>
 </div>
