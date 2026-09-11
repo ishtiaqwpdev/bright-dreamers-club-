@@ -28,6 +28,10 @@ $contact_hero_title_underline_url = bdc_get_acf_image_url(
 	bdc_theme_asset_url( 'assets/images/heading-underline.jpeg' ),
 	$contact_page_id
 );
+$contact_hero_title_underline_ver = bdc_asset_version( 'assets/images/heading-underline.jpeg' );
+if ( $contact_hero_title_underline_ver && false !== strpos( $contact_hero_title_underline_url, 'heading-underline.jpeg' ) ) {
+	$contact_hero_title_underline_url = add_query_arg( 'v', $contact_hero_title_underline_ver, $contact_hero_title_underline_url );
+}
 $contact_hero_title_suffix = bdc_get_acf_text(
 	'contact_hero_title_suffix',
 	'Us',
@@ -94,6 +98,10 @@ $contact_form_aside_title_underline_url = bdc_get_acf_image_url(
 	bdc_theme_asset_url( 'assets/images/heading-underline.jpeg' ),
 	$contact_page_id
 );
+$contact_form_aside_title_underline_ver = bdc_asset_version( 'assets/images/heading-underline.jpeg' );
+if ( $contact_form_aside_title_underline_ver && false !== strpos( $contact_form_aside_title_underline_url, 'heading-underline.jpeg' ) ) {
+	$contact_form_aside_title_underline_url = add_query_arg( 'v', $contact_form_aside_title_underline_ver, $contact_form_aside_title_underline_url );
+}
 $contact_form_aside_title_suffix = bdc_get_acf_text(
 	'contact_form_aside_title_suffix',
 	'Here to Help',

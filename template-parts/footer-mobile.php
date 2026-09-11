@@ -198,8 +198,8 @@ $acc_groups = array(
 			class="footer-m-brand__art"
 			src="<?php echo esc_url( $footer_art_url ); ?>"
 			alt="<?php echo esc_attr( $footer_art_alt ); ?>"
-			width="140"
-			height="140"
+			width="130"
+			height="163"
 			loading="lazy"
 			decoding="async"
 		>
@@ -209,7 +209,7 @@ $acc_groups = array(
 		<div class="footer-m-news__copy">
 			<a class="footer-m-news__heading-link" href="<?php echo esc_url( $footer_newsletter_heading_link['url'] ); ?>"<?php echo bdc_acf_link_target_attr( $footer_newsletter_heading_link ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
 				<h2 class="footer-m-news__heading">
-					<?php esc_html_e( 'Subscribe for updates', 'bright-dreamers-club' ); ?>
+					<?php echo esc_html( $footer_newsletter_heading_link['title'] ); ?>
 					<span class="footer-m-news__heading-heart" aria-hidden="true">♡</span>
 				</h2>
 			</a>
@@ -235,8 +235,8 @@ $acc_groups = array(
 			class="footer-m-news__plant"
 			src="<?php echo esc_url( $footer_plant_url ); ?>"
 			alt=""
-			width="96"
-			height="128"
+			width="80"
+			height="80"
 			loading="lazy"
 			decoding="async"
 		>
