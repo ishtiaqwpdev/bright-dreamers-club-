@@ -123,7 +123,7 @@
   --explore-dream-jar-max-h: clamp(112px, 10.8vw, 158px);
   --home-pillar-idea-bg: #fff5f8;
   --home-pillar-mission-bg: #fffbeb;
-  --home-pillar-inspire-bg: #000;
+  --home-pillar-inspire-bg: #eef6fc;
   --home-pillar-radius: 18px;
   --home-pillar-pad: clamp(1rem, 1.8vw, 1.45rem);
   --home-pillar-img-filter: var(--logo-bg-filter);
