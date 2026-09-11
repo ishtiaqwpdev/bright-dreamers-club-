@@ -74,8 +74,8 @@ if ( ! defined( 'ABSPATH' ) ) {
                     src="<?php echo esc_attr( $for_parents_fit_lazy_placeholder ); ?>"
                     data-src="<?php echo esc_url( $for_parents_fit_jar_url ); ?>"
                     alt=""
-                    width="180"
-                    height="220"
+                    width="210"
+                    height="180"
                     decoding="async"
                     aria-hidden="true"
                   />

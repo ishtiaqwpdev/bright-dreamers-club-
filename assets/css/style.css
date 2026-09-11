@@ -5351,7 +5351,7 @@ img.lazy-img.loaded {
 .for-parents-fit-card__jar {
   display: block;
   width: 100%;
-  max-width: clamp(118px, 11vw, 158px);
+  max-width: clamp(140px, 14vw, 210px);
   height: auto;
   object-fit: contain;
   justify-self: center;
@@ -5360,7 +5360,7 @@ img.lazy-img.loaded {
 .for-parents-fit-card__quote-layout > .lazy-img-wrap {
   justify-self: center;
   width: 100%;
-  max-width: clamp(118px, 11vw, 158px);
+  max-width: clamp(140px, 14vw, 210px);
 }
 
 .for-parents-fit-card__quote {
