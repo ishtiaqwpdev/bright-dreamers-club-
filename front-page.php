@@ -9,16 +9,11 @@ get_header();
 
 $front_page_id = bdc_get_front_page_id();
 
-$home_hero_logo_url = bdc_theme_asset_url( 'assets/images/bright-dreamers-logo.png' );
-$home_hero_logo_ver = bdc_asset_version( 'assets/images/bright-dreamers-logo.png' );
-if ( $home_hero_logo_ver ) {
-	$home_hero_logo_url = add_query_arg( 'v', $home_hero_logo_ver, $home_hero_logo_url );
-}
-$home_hero_logo_mobile_url = bdc_theme_asset_url( 'assets/images/bright-dreamers-logo-mobile-white.png' );
-$home_hero_logo_mobile_ver = bdc_asset_version( 'assets/images/bright-dreamers-logo-mobile-white.png' );
-if ( $home_hero_logo_mobile_ver ) {
-	$home_hero_logo_mobile_url = add_query_arg( 'v', $home_hero_logo_mobile_ver, $home_hero_logo_mobile_url );
-}
+$home_hero_logo_url = bdc_get_acf_image_url(
+	'home_hero_logo',
+	bdc_theme_asset_url( 'assets/images/bright-dreamers-logo.jpeg' ),
+	$front_page_id
+);
 $home_hero_logo_alt = bdc_get_acf_text(
 	'home_hero_logo_alt',
 	'Bright Dreamers — Dream, Create, Grow, Give',
@@ -389,55 +384,20 @@ $home_spotlight_council_items = ( is_array( $home_spotlight_council['list_items'
       <section class="page-hero home-hero" aria-label="Welcome">
         <div class="site-container page-hero__inner">
           <div class="page-hero__content">
-            <div class="home-hero__deco home-hero__deco--heading" aria-hidden="true">
+            <div class="home-hero__brand">
               <img
-                class="home-hero__deco-icon home-hero__deco-icon--heart-heading"
-                src="<?php echo esc_url( bdc_theme_asset_url( 'assets/images/role-heart-outline.png' ) ); ?>"
-                alt=""
-                width="32"
-                height="32"
-                decoding="async"
-              />
-              <img
-                class="home-hero__deco-icon home-hero__deco-icon--plane-heading"
-                src="<?php echo esc_url( bdc_theme_asset_url( 'assets/images/about-hero-deco-plane-removebg-preview.png' ) ); ?>"
-                alt=""
-                width="36"
-                height="96"
-                decoding="async"
-              />
-              <img
-                class="home-hero__deco-icon home-hero__deco-icon--leaf-heading"
-                src="<?php echo esc_url( bdc_theme_asset_url( 'assets/images/about-hero-deco-plant-removebg-preview.png' ) ); ?>"
-                alt=""
-                width="36"
-                height="80"
+                class="home-hero__logo"
+                src="<?php echo esc_url( $home_hero_logo_url ); ?>"
+                alt="<?php echo esc_attr( $home_hero_logo_alt ); ?>"
+                width="380"
+                height="110"
                 decoding="async"
               />
             </div>
 
-            <div class="home-hero__intro">
-              <div class="home-hero__brand">
-                <picture>
-                  <source
-                    media="(min-width: 768px)"
-                    srcset="<?php echo esc_url( $home_hero_logo_url ); ?>"
-                  />
-                  <img
-                    class="home-hero__logo"
-                    src="<?php echo esc_url( $home_hero_logo_mobile_url ); ?>"
-                    alt="<?php echo esc_attr( $home_hero_logo_alt ); ?>"
-                    width="970"
-                    height="437"
-                    decoding="async"
-                  />
-                </picture>
-              </div>
-
-              <p class="page-hero__text">
-                <?php echo esc_html( $home_hero_text ); ?>
-              </p>
-            </div>
+            <p class="page-hero__text">
+              <?php echo esc_html( $home_hero_text ); ?>
+            </p>
 
             <div class="page-hero__actions">
               <a class="btn btn--solid btn--lg btn-hover" href="<?php echo esc_url( $home_hero_primary_cta['url'] ); ?>"<?php echo bdc_acf_link_target_attr( $home_hero_primary_cta ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
@@ -483,8 +443,9 @@ $home_spotlight_council_items = ( is_array( $home_spotlight_council['list_items'
           <div class="home-hero__media">
             <div class="lazy-img-wrap">
               <img
-                class="home-hero__banner"
-                src="<?php echo esc_url( $home_hero_banner_url ); ?>"
+                class="home-hero__banner lazy-img"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+                data-src="<?php echo esc_url( $home_hero_banner_url ); ?>"
                 alt="<?php echo esc_attr( $home_hero_banner_alt ); ?>"
                 width="1024"
                 height="584"
