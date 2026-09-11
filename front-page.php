@@ -62,7 +62,7 @@ $home_pillars_idea_defaults = array(
 	'image' => bdc_theme_asset_url( 'assets/images/home-pillar-books-removebg-preview.png' ),
 	'title' => 'It All Starts With One Idea',
 	'quote' => 'I have an idea.',
-	'text'  => 'At Bright Dreamers, children don\'t just imagine—they create. They lead. They discover their talents while making a positive difference in the world.',
+	'text'  => 'We empower children to turn their ideas into projects that make a difference. With support, resources, and a community of dreamers, their ideas can change the world.',
 );
 $home_pillars_idea = bdc_get_acf_group( 'home_pillars_idea', $home_pillars_idea_defaults, $front_page_id );
 $home_pillars_idea_image = bdc_acf_image_value_to_url( $home_pillars_idea['image'] ?? null, $home_pillars_idea_defaults['image'] );

@@ -135,7 +135,7 @@ acf_add_local_field_group(
 						'name'          => 'text',
 						'type'          => 'textarea',
 						'rows'          => 4,
-						'default_value' => 'At Bright Dreamers, children don\'t just imagine—they create. They lead. They discover their talents while making a positive difference in the world.',
+						'default_value' => 'We empower children to turn their ideas into projects that make a difference. With support, resources, and a community of dreamers, their ideas can change the world.',
 					),
 				),
 			),
