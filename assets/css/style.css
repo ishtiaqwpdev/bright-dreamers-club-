@@ -2904,11 +2904,13 @@ img.lazy-img.loaded {
 }
 
 .explore-hero--full-banner {
+  --explore-full-banner-max-h: min(320px, 38vh);
   padding-bottom: 0;
 }
 
 .explore-hero--full-banner .explore-hero__banner-wrap {
   width: 100%;
+  line-height: 0;
 }
 
 .explore-hero--full-banner .explore-hero__banner {
@@ -2916,7 +2918,7 @@ img.lazy-img.loaded {
   width: 100%;
   max-width: 100%;
   height: auto;
-  max-height: none;
+  max-height: var(--explore-full-banner-max-h);
   margin: 0 auto;
   object-fit: contain;
   object-position: center center;
@@ -22121,6 +22123,11 @@ body.newsletter-success-open {
     max-height: min(820px, 80vh) !important;
     object-position: center center !important;
   }
+
+  .page-hero.explore-hero--full-banner .explore-hero__banner {
+    max-height: var(--explore-full-banner-max-h, min(240px, 32vh)) !important;
+    object-fit: contain !important;
+  }
 }
 
 /* Our Vision hero — desktop: 0px gap between text and image (≥1024px) */
@@ -23554,6 +23561,17 @@ body.newsletter-success-open {
     background: #fff !important;
     background-color: #fff !important;
     filter: none !important;
+  }
+
+  .explore-page .page-hero.explore-hero.explore-hero--full-banner {
+    --explore-full-banner-max-h: min(240px, 32vh);
+    padding-bottom: 0 !important;
+  }
+
+  .explore-page .page-hero.explore-hero.explore-hero--full-banner .explore-hero__banner {
+    max-height: var(--explore-full-banner-max-h) !important;
+    object-fit: contain !important;
+    border-radius: 0 !important;
   }
 
   .explore-page .page-hero.explore-hero .page-hero__content {
@@ -26996,5 +27014,20 @@ body.newsletter-success-open {
     margin-inline: auto;
     object-fit: contain;
     object-position: center center;
+  }
+}
+
+/* Explore full-banner hero — keep illustration compact across breakpoints */
+.explore-page .page-hero.explore-hero.explore-hero--full-banner .explore-hero__banner,
+.page-hero.explore-hero.explore-hero--full-banner .explore-hero__banner {
+  max-height: var(--explore-full-banner-max-h, min(320px, 38vh)) !important;
+  object-fit: contain !important;
+  object-position: center center !important;
+}
+
+@media (max-width: 767px) {
+  .explore-page .page-hero.explore-hero.explore-hero--full-banner,
+  .page-hero.explore-hero.explore-hero--full-banner {
+    --explore-full-banner-max-h: min(240px, 32vh);
   }
 }
