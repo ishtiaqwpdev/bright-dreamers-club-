@@ -137,8 +137,8 @@ $footer_legal_links            = $footer['legal_links'];
 					class="site-footer__art"
 					src="<?php echo esc_url( $footer_art_url ); ?>"
 					alt="<?php echo esc_attr( $footer_art_alt ); ?>"
-					width="250"
-					height="250"
+					width="220"
+					height="280"
 					loading="lazy"
 					decoding="async"
 				>

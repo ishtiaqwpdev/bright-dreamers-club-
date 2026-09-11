@@ -179,7 +179,7 @@ function bdc_build_default_header_footer_settings() {
 		'resources_heading'        => 'Resources',
 		'resources_links'          => bdc_hf_default_link_group( 'resources' ),
 		'art_id'                   => 0,
-		'art_alt'                  => 'Bright Dreamers children gathered around a heart',
+		'art_alt'                  => 'A Stronger, Brighter Tomorrow — a nonprofit community initiative',
 		'newsletter_heading'       => 'Stay Connected',
 		'newsletter_url'           => home_url( '/newsletter-signup/' ),
 		'newsletter_text'          => 'Subscribe for updates, inspiring stories, new experiences, and ways to make a difference.',
@@ -1012,7 +1012,7 @@ function bdc_get_site_header_context() {
 function bdc_get_site_footer_context() {
 	$defaults      = bdc_build_default_header_footer_settings();
 	$logo_fallback = bdc_theme_asset_url( 'assets/images/bright-dreamers-logo-removebg-preview.png' );
-	$art_fallback  = bdc_theme_asset_url( 'assets/images/a78c0669-c149-4611-891f-86ce471532b4-removebg-preview.png' );
+	$art_fallback  = bdc_theme_asset_url( 'assets/images/footer-art-stronger-brighter.png' );
 	$plant_fallback = bdc_theme_asset_url( 'assets/images/footer-plant-deco.png' );
 
 	if ( ! bdc_hf_has_saved_settings() ) {

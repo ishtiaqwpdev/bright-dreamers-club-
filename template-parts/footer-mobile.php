@@ -198,8 +198,8 @@ $acc_groups = array(
 			class="footer-m-brand__art"
 			src="<?php echo esc_url( $footer_art_url ); ?>"
 			alt="<?php echo esc_attr( $footer_art_alt ); ?>"
-			width="140"
-			height="140"
+			width="120"
+			height="150"
 			loading="lazy"
 			decoding="async"
 		>
