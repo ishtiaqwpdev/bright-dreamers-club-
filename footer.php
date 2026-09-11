@@ -175,7 +175,10 @@ $footer_legal_links            = $footer['legal_links'];
 				<div class="site-footer__newsletter-layout">
 					<div class="site-footer__newsletter-content">
 						<a class="site-footer__heading-link" href="<?php echo esc_url( $footer_newsletter_heading_link['url'] ); ?>"<?php echo bdc_acf_link_target_attr( $footer_newsletter_heading_link ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
-							<h2 class="site-footer__heading site-footer__heading--newsletter"><?php echo esc_html( $footer_newsletter_heading_link['title'] ); ?></h2>
+							<h2 class="site-footer__heading site-footer__heading--newsletter">
+								<?php echo esc_html( $footer_newsletter_heading_link['title'] ); ?>
+								<span class="site-footer__heading-heart" aria-hidden="true">♡</span>
+							</h2>
 						</a>
 
 						<p class="site-footer__newsletter-text">

@@ -808,19 +808,32 @@ button {
 }
 
 .site-footer__newsletter-layout {
-  display: flex;
-  align-items: flex-start;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
   gap: clamp(0.65rem, 1.2vw, 1rem);
+  background: var(--color-pink-soft);
+  border-radius: 22px;
+  padding: clamp(16px, 1.5vw, 22px) clamp(16px, 1.4vw, 20px);
 }
 
 .site-footer__newsletter-content {
   flex: 1;
   min-width: 0;
-  max-width: 18.5rem;
+  max-width: none;
 }
 
 .site-footer__heading--newsletter {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.35rem;
   margin-bottom: 0.65rem;
+}
+
+.site-footer__heading-heart {
+  color: var(--color-pink);
+  font-weight: 500;
 }
 
 .site-footer__heading-link {
@@ -921,12 +934,12 @@ button {
 
 .site-footer__plant {
   flex-shrink: 0;
-  align-self: flex-start;
+  align-self: center;
   width: var(--footer-plant-max-w);
   height: auto;
   object-fit: contain;
   pointer-events: none;
-  margin-top: 0.15rem;
+  margin-top: 0;
 }
 
 .site-footer__legal {
@@ -2908,7 +2921,7 @@ img.lazy-img.loaded {
   padding-left: 0;
   padding-right: 0;
   padding-bottom: 0;
-  overflow: hidden;
+  overflow: visible;
 }
 
 .explore-hero--full-banner .explore-hero__banner-wrap,
@@ -2916,6 +2929,8 @@ img.lazy-img.loaded {
   display: block;
   width: 100%;
   max-width: none;
+  height: auto;
+  min-height: 0;
   margin: 0;
   padding: 0;
   line-height: 0;
@@ -2927,9 +2942,10 @@ img.lazy-img.loaded {
   max-width: none;
   height: auto;
   max-height: none;
+  min-height: 0;
   margin: 0;
-  object-fit: cover;
-  object-position: center center;
+  object-fit: contain;
+  object-position: center top;
 }
 
 .contact-hero {
@@ -11535,7 +11551,7 @@ img.lazy-img.loaded {
   }
 
   .site-footer__newsletter-layout {
-    align-items: flex-start;
+    align-items: center;
   }
 
   .site-footer__legal-inner {
@@ -20616,14 +20632,10 @@ body.newsletter-success-open {
     display: grid;
     grid-template-columns: minmax(0, 1fr) auto;
     gap: 10px;
-    align-items: start;
+    align-items: center;
     background: var(--color-pink-soft);
     border-radius: 22px;
     padding: 18px 16px 16px;
-  }
-
-  .footer-m-brand {
-    align-items: center;
   }
 
   .footer-m-brand__logo {
@@ -20669,6 +20681,10 @@ body.newsletter-success-open {
   }
 
   .footer-m-news__heading {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.35rem;
     margin: 0 0 0.45rem;
     font-family: var(--font-heading);
     font-size: 1.15rem;
@@ -20735,11 +20751,11 @@ body.newsletter-success-open {
   }
 
   .footer-m-news__plant {
-    width: 80px;
+    width: clamp(90px, 24vw, 110px);
     height: auto;
     object-fit: contain;
-    align-self: start;
-    margin-top: 0.1rem;
+    align-self: center;
+    margin-top: 0;
     pointer-events: none;
   }
 
@@ -22140,7 +22156,8 @@ body.newsletter-success-open {
     width: 100% !important;
     max-width: none !important;
     max-height: none !important;
-    object-fit: cover !important;
+    object-fit: contain !important;
+    object-position: center top !important;
   }
 }
 
@@ -23577,16 +23594,12 @@ body.newsletter-success-open {
     filter: none !important;
   }
 
-  .explore-page .page-hero.explore-hero.explore-hero--full-banner {
-    padding-left: 0 !important;
-    padding-right: 0 !important;
-    padding-bottom: 0 !important;
-  }
-
   .explore-page .page-hero.explore-hero.explore-hero--full-banner .explore-hero__banner-wrap,
   .explore-page .page-hero.explore-hero.explore-hero--full-banner picture {
     width: 100% !important;
     max-width: none !important;
+    height: auto !important;
+    min-height: 0 !important;
     margin: 0 !important;
     padding: 0 !important;
   }
@@ -23594,9 +23607,13 @@ body.newsletter-success-open {
   .explore-page .page-hero.explore-hero.explore-hero--full-banner .explore-hero__banner {
     width: 100% !important;
     max-width: none !important;
+    height: auto !important;
     max-height: none !important;
-    object-fit: cover !important;
+    min-height: 0 !important;
+    object-fit: contain !important;
+    object-position: center top !important;
     border-radius: 0 !important;
+    transform: none !important;
   }
 
   .explore-page .page-hero.explore-hero .page-hero__content {
@@ -27042,35 +27059,11 @@ body.newsletter-success-open {
   }
 }
 
-/* Explore full-banner hero — edge-to-edge width on all breakpoints */
+/* Full-banner heroes — natural height, no crop or upscale blur */
+#main-content > section.page-hero.home-hero.home-hero--full-banner,
+.page-hero.home-hero.home-hero--full-banner,
 #main-content > section.page-hero.explore-hero.explore-hero--full-banner,
 .page-hero.explore-hero.explore-hero--full-banner {
-  padding-left: 0 !important;
-  padding-right: 0 !important;
-}
-
-.explore-page .page-hero.explore-hero.explore-hero--full-banner .explore-hero__banner-wrap,
-.page-hero.explore-hero.explore-hero--full-banner .explore-hero__banner-wrap,
-.explore-page .page-hero.explore-hero.explore-hero--full-banner picture,
-.page-hero.explore-hero.explore-hero--full-banner picture {
-  width: 100% !important;
-  max-width: none !important;
-  margin: 0 !important;
-  padding: 0 !important;
-}
-
-.explore-page .page-hero.explore-hero.explore-hero--full-banner .explore-hero__banner,
-.page-hero.explore-hero.explore-hero--full-banner .explore-hero__banner {
-  width: 100% !important;
-  max-width: none !important;
-  max-height: none !important;
-  object-fit: cover !important;
-  object-position: center center !important;
-}
-
-/* Home full-banner hero — full width, natural height, no crop or upscale blur */
-#main-content > section.page-hero.home-hero.home-hero--full-banner,
-.page-hero.home-hero.home-hero--full-banner {
   min-height: 0 !important;
   height: auto !important;
   max-height: none !important;
@@ -27081,7 +27074,9 @@ body.newsletter-success-open {
 }
 
 .home-hero--full-banner .home-hero__banner-wrap,
-.home-hero--full-banner picture {
+.explore-hero--full-banner .explore-hero__banner-wrap,
+.home-hero--full-banner picture,
+.explore-hero--full-banner picture {
   display: block !important;
   width: 100% !important;
   max-width: none !important;
@@ -27092,7 +27087,8 @@ body.newsletter-success-open {
   line-height: 0;
 }
 
-.home-hero--full-banner .home-hero__banner {
+.home-hero--full-banner .home-hero__banner,
+.explore-hero--full-banner .explore-hero__banner {
   display: block !important;
   width: 100% !important;
   max-width: none !important;

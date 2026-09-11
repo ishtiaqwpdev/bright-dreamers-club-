@@ -180,7 +180,7 @@ function bdc_build_default_header_footer_settings() {
 		'resources_links'          => bdc_hf_default_link_group( 'resources' ),
 		'art_id'                   => 0,
 		'art_alt'                  => 'A Stronger, Brighter Tomorrow — a nonprofit community initiative',
-		'newsletter_heading'       => 'Stay Connected',
+		'newsletter_heading'       => 'Subscribe for updates',
 		'newsletter_url'           => home_url( '/newsletter-signup/' ),
 		'newsletter_text'          => 'Subscribe for updates, inspiring stories, new experiences, and ways to make a difference.',
 		'newsletter_placeholder'   => 'Your email',

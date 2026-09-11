@@ -209,7 +209,7 @@ $acc_groups = array(
 		<div class="footer-m-news__copy">
 			<a class="footer-m-news__heading-link" href="<?php echo esc_url( $footer_newsletter_heading_link['url'] ); ?>"<?php echo bdc_acf_link_target_attr( $footer_newsletter_heading_link ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
 				<h2 class="footer-m-news__heading">
-					<?php esc_html_e( 'Subscribe for updates', 'bright-dreamers-club' ); ?>
+					<?php echo esc_html( $footer_newsletter_heading_link['title'] ); ?>
 					<span class="footer-m-news__heading-heart" aria-hidden="true">♡</span>
 				</h2>
 			</a>
