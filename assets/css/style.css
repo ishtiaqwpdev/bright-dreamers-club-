@@ -741,7 +741,9 @@ button {
   width: min(100%, 220px);
   height: auto;
   object-fit: contain;
-  filter: var(--logo-bg-filter);
+  background: transparent;
+  filter: none;
+  mix-blend-mode: multiply;
 }
 
 .site-footer__mission {
@@ -20617,7 +20619,9 @@ body.newsletter-success-open {
     width: min(100%, 190px);
     height: auto;
     object-fit: contain;
-    filter: var(--logo-bg-filter);
+    background: transparent;
+    filter: none;
+    mix-blend-mode: multiply;
   }
 
   .footer-m-brand__mission {
