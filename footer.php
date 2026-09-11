@@ -221,8 +221,8 @@ $footer_legal_links            = $footer['legal_links'];
 						class="site-footer__plant"
 						src="<?php echo esc_url( $footer_plant_url ); ?>"
 						alt=""
-						width="120"
-						height="160"
+						width="128"
+						height="128"
 						loading="lazy"
 						decoding="async"
 					>

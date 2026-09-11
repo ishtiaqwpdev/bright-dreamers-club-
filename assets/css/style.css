@@ -74,7 +74,7 @@
   --footer-link-gap: 0.42rem;
   --footer-heading-gap: 0.8rem;
   --footer-art-max-w: 250px;
-  --footer-plant-max-w: clamp(88px, 7vw, 112px);
+  --footer-plant-max-w: clamp(96px, 8vw, 128px);
   --footer-newsletter-max-w: none;
   --footer-newsletter-gap: clamp(0.5rem, 0.85vw, 0.65rem);
   --footer-newsletter-shell-height: 48px;
@@ -20731,7 +20731,7 @@ body.newsletter-success-open {
   }
 
   .footer-m-news__plant {
-    width: 72px;
+    width: 80px;
     height: auto;
     object-fit: contain;
     align-self: end;

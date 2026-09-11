@@ -235,8 +235,8 @@ $acc_groups = array(
 			class="footer-m-news__plant"
 			src="<?php echo esc_url( $footer_plant_url ); ?>"
 			alt=""
-			width="96"
-			height="128"
+			width="80"
+			height="80"
 			loading="lazy"
 			decoding="async"
 		>
