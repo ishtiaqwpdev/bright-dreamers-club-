@@ -405,8 +405,8 @@ $home_spotlight_council_items = ( is_array( $home_spotlight_council['list_items'
               class="home-hero__banner"
               src="<?php echo esc_url( $home_hero_banner_url ); ?>"
               alt="<?php echo esc_attr( $home_hero_banner_alt ); ?>"
-              width="1920"
-              height="1080"
+              width="1024"
+              height="682"
               decoding="async"
             />
           </picture>

@@ -27069,15 +27069,16 @@ body.newsletter-success-open {
   object-position: center center !important;
 }
 
-/* Home full-banner hero — edge-to-edge width, 100vh height on all breakpoints */
+/* Home full-banner hero — full width, natural height, no crop or upscale blur */
 #main-content > section.page-hero.home-hero.home-hero--full-banner,
 .page-hero.home-hero.home-hero--full-banner {
-  min-height: 100vh !important;
-  height: 100vh !important;
-  max-height: 100vh !important;
+  min-height: 0 !important;
+  height: auto !important;
+  max-height: none !important;
   padding: 0 !important;
   margin: 0 !important;
-  overflow: hidden !important;
+  overflow: visible !important;
+  background-color: #fff;
 }
 
 .home-hero--full-banner .home-hero__banner-wrap,
@@ -27085,8 +27086,8 @@ body.newsletter-success-open {
   display: block !important;
   width: 100% !important;
   max-width: none !important;
-  height: 100vh !important;
-  min-height: 100vh !important;
+  height: auto !important;
+  min-height: 0 !important;
   margin: 0 !important;
   padding: 0 !important;
   line-height: 0;
@@ -27096,9 +27097,10 @@ body.newsletter-success-open {
   display: block !important;
   width: 100% !important;
   max-width: none !important;
-  height: 100vh !important;
-  min-height: 100vh !important;
+  height: auto !important;
+  min-height: 0 !important;
   max-height: none !important;
-  object-fit: cover !important;
-  object-position: center center !important;
+  object-fit: contain !important;
+  object-position: center top !important;
+  transform: none !important;
 }
