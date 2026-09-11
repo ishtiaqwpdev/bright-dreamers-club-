@@ -86,6 +86,11 @@ $explore_hero_banner_alt = bdc_get_acf_text(
 	'Illustration of children creating together with the message together we create brighter communities',
 	$explore_page_id
 );
+$explore_hero_banner_mobile_url = bdc_theme_asset_url( 'assets/images/explore-banner-mobile.png' );
+$explore_hero_banner_mobile_ver = bdc_asset_version( 'assets/images/explore-banner-mobile.png' );
+if ( $explore_hero_banner_mobile_ver ) {
+	$explore_hero_banner_mobile_url = add_query_arg( 'v', $explore_hero_banner_mobile_ver, $explore_hero_banner_mobile_url );
+}
 
 $explore_hero_tags_defaults = array(
 	array( 'item_text' => 'Ideas' ),
@@ -619,14 +624,20 @@ $explore_dream_secondary_btn_link = bdc_get_acf_link(
         aria-label="<?php echo esc_attr__( 'Explore Bright Dreamers', 'bright-dreamers-club' ); ?>"
       >
         <div class="explore-hero__banner-wrap">
-          <img
-            class="explore-hero__banner"
-            src="<?php echo esc_url( $explore_hero_banner_url ); ?>"
-            alt="<?php echo esc_attr( $explore_hero_banner_alt ); ?>"
-            width="1024"
-            height="576"
-            decoding="async"
-          />
+          <picture>
+            <source
+              media="(max-width: 767px)"
+              srcset="<?php echo esc_url( $explore_hero_banner_mobile_url ); ?>"
+            />
+            <img
+              class="explore-hero__banner"
+              src="<?php echo esc_url( $explore_hero_banner_url ); ?>"
+              alt="<?php echo esc_attr( $explore_hero_banner_alt ); ?>"
+              width="1200"
+              height="675"
+              decoding="async"
+            />
+          </picture>
         </div>
       </section>
 
