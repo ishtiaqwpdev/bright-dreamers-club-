@@ -5838,6 +5838,10 @@ img.lazy-img.loaded {
   margin: 0 0 clamp(0.65rem, 1.2vw, 1rem);
 }
 
+.explore-ways__title {
+  margin-top: 20px;
+}
+
 .explore-ways__title-icon {
   flex-shrink: 0;
   color: var(--color-pink);

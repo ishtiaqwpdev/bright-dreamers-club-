@@ -928,7 +928,7 @@ function bdc_get_theme_header_logo_url() {
 }
 
 /**
- * Theme footer logo URL for mobile footer (restored pre-header-update asset).
+ * Theme footer logo URL (shared on desktop + mobile footer).
  *
  * @return string
  */
@@ -1011,7 +1011,7 @@ function bdc_get_site_header_context() {
  */
 function bdc_get_site_footer_context() {
 	$defaults      = bdc_build_default_header_footer_settings();
-	$logo_fallback = bdc_theme_asset_url( 'assets/images/bright-dreamers-logo-removebg-preview.png' );
+	$logo_fallback = bdc_get_theme_footer_logo_url();
 	$art_fallback  = bdc_theme_asset_url( 'assets/images/footer-art-stronger-brighter.png' );
 	$plant_fallback = bdc_theme_asset_url( 'assets/images/footer-plant-deco.png' );
 
