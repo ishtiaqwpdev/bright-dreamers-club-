@@ -623,7 +623,7 @@ $explore_dream_secondary_btn_link = bdc_get_acf_link(
         class="page-hero explore-hero explore-hero--full-banner"
         aria-label="<?php echo esc_attr__( 'Explore Bright Dreamers', 'bright-dreamers-club' ); ?>"
       >
-        <div class="site-container explore-hero__banner-wrap">
+        <div class="explore-hero__banner-wrap">
           <picture>
             <source
               media="(max-width: 767px)"
