@@ -81,14 +81,21 @@ $partners_hero_secondary_btn_link = bdc_get_acf_link(
 	),
 	$partners_page_id
 );
-$partners_hero_banner_url = bdc_get_acf_image_url(
-	'partners_hero_banner',
-	bdc_theme_asset_url( 'assets/images/partners-hero-banner-removebg-preview.png' ),
-	$partners_page_id
-);
+$partners_hero_banner_theme_path = 'assets/images/partners-hero-banner.png';
+$partners_hero_banner_url        = bdc_theme_asset_url( $partners_hero_banner_theme_path );
+$partners_hero_banner_ver        = bdc_asset_version( $partners_hero_banner_theme_path );
+if ( $partners_hero_banner_ver ) {
+	$partners_hero_banner_url = add_query_arg( 'v', $partners_hero_banner_ver, $partners_hero_banner_url );
+}
+$partners_hero_banner_mobile_theme_path = 'assets/images/partners-hero-banner-mobile.png';
+$partners_hero_banner_mobile_url        = bdc_theme_asset_url( $partners_hero_banner_mobile_theme_path );
+$partners_hero_banner_mobile_ver        = bdc_asset_version( $partners_hero_banner_mobile_theme_path );
+if ( $partners_hero_banner_mobile_ver ) {
+	$partners_hero_banner_mobile_url = add_query_arg( 'v', $partners_hero_banner_mobile_ver, $partners_hero_banner_mobile_url );
+}
 $partners_hero_banner_alt = bdc_get_acf_text(
 	'partners_hero_banner_alt',
-	'Children collaborating on a model village with the words Big Ideas Kind Hearts Brighter Tomorrows',
+	'Three children with books, a robot, and a plant representing dream, create, and give',
 	$partners_page_id
 );
 
@@ -429,6 +436,7 @@ if ( empty( $partners_founding_cards ) ) {
           'secondary_cta_text'   => $partners_hero_secondary_btn_text,
           'secondary_cta_link'   => $partners_hero_secondary_btn_link,
           'hero_image'           => $partners_hero_banner_url,
+          'hero_image_mobile'    => $partners_hero_banner_mobile_url,
           'hero_image_alt'       => $partners_hero_banner_alt,
           'media_class'          => 'about-hero__media',
           'image_class'          => 'about-hero__banner',
