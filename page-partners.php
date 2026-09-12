@@ -81,13 +81,13 @@ $partners_hero_secondary_btn_link = bdc_get_acf_link(
 	),
 	$partners_page_id
 );
-$partners_hero_banner_theme_path = 'assets/images/partners-hero-banner.png';
+$partners_hero_banner_theme_path = 'assets/images/partners-hero-banner.jpg';
 $partners_hero_banner_url        = bdc_theme_asset_url( $partners_hero_banner_theme_path );
 $partners_hero_banner_ver        = bdc_asset_version( $partners_hero_banner_theme_path );
 if ( $partners_hero_banner_ver ) {
 	$partners_hero_banner_url = add_query_arg( 'v', $partners_hero_banner_ver, $partners_hero_banner_url );
 }
-$partners_hero_banner_mobile_theme_path = 'assets/images/partners-hero-banner-mobile.png';
+$partners_hero_banner_mobile_theme_path = 'assets/images/partners-hero-banner-mobile.jpg';
 $partners_hero_banner_mobile_url        = bdc_theme_asset_url( $partners_hero_banner_mobile_theme_path );
 $partners_hero_banner_mobile_ver        = bdc_asset_version( $partners_hero_banner_mobile_theme_path );
 if ( $partners_hero_banner_mobile_ver ) {
