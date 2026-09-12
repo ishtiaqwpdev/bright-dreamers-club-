@@ -26716,6 +26716,9 @@ body.newsletter-success-open {
     max-width: 100% !important;
     object-fit: contain !important;
     object-position: right center !important;
+    filter: none !important;
+    background: transparent !important;
+    background-color: transparent !important;
   }
 }
 
@@ -26765,6 +26768,49 @@ body.newsletter-success-open {
     max-height: none !important;
     object-fit: contain !important;
     object-position: center top !important;
+  }
+}
+
+/* Home hero — feathered PNG: no box, clip, or filter edge (match About) */
+.home-page .page-hero.home-hero.about-hero .about-hero__media,
+.home-page .page-hero.home-hero.about-hero .hero-image-wrap,
+.home-page .page-hero.home-hero.about-hero .about-hero__media .lazy-img-wrap,
+.home-page .page-hero.home-hero.about-hero .about-hero__media picture,
+.home-page .page-hero.home-hero.about-hero .lazy-img-wrap {
+  background: transparent !important;
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+.home-page .page-hero.home-hero.about-hero .about-hero__banner {
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  outline: none !important;
+  filter: none !important;
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+@media (max-width: 991px) {
+  .home-page #main-content > section.page-hero.home-hero .hero-image-wrap,
+  .home-page #main-content > section.page-hero.home-hero .about-hero__media,
+  .home-page .page-hero.home-hero.about-hero .hero-image-wrap,
+  .home-page .page-hero.home-hero.about-hero .about-hero__media,
+  .home-page .page-hero.home-hero.about-hero .about-hero__media .lazy-img-wrap,
+  .home-page .page-hero.home-hero.about-hero .about-hero__media picture {
+    overflow: visible !important;
+    padding-inline: var(--container-padding) !important;
+  }
+
+  .home-page .page-hero.home-hero.about-hero .about-hero__banner,
+  .home-page #main-content > section.page-hero.home-hero picture img.about-hero__banner {
+    overflow: visible !important;
+    filter: none !important;
+    background: transparent !important;
+    background-color: transparent !important;
   }
 }
 
