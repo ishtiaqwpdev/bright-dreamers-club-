@@ -985,8 +985,13 @@ button {
 }
 
 @media (min-width: 992px) {
-  .site-footer__main > .site-container.site-footer__grid {
+  .site-footer__main > .site-container.site-footer__grid,
+  .site-footer__legal > .site-container.site-footer__legal-inner {
+    width: 100%;
     max-width: var(--footer-desktop-max-width);
+    margin-left: auto;
+    margin-right: auto;
+    box-sizing: border-box;
   }
 
   .site-footer__main {
