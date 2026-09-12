@@ -5420,6 +5420,12 @@ img.lazy-img.loaded {
 .partners-hero.vision-hero .about-hero__banner {
   max-height: none;
   min-height: unset;
+  background-color: #fff !important;
+}
+
+.page-hero.partners-hero .about-hero__media .lazy-img-wrap,
+.page-hero.partners-hero picture {
+  background-color: #fff;
 }
 
 .for-parents-info-card__features {
