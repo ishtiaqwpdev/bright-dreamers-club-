@@ -3064,6 +3064,20 @@ img.lazy-img.loaded {
   background-color: transparent;
 }
 
+.page-hero.home-hero .about-hero__media {
+  align-items: flex-end;
+}
+
+.page-hero.home-hero .about-hero__banner {
+  object-position: right bottom;
+  vertical-align: bottom;
+}
+
+.page-hero.home-hero .about-hero__media .lazy-img-wrap,
+.page-hero.home-hero .about-hero__media picture {
+  line-height: 0;
+}
+
 .vision-hero .about-hero__banner {
   transform: scale(var(--vision-hero-banner-scale));
   transform-origin: center right;
@@ -22355,8 +22369,8 @@ body.newsletter-success-open {
     flex-direction: column !important;
     align-items: stretch !important;
     justify-content: flex-start !important;
-    gap: 1rem !important;
-    row-gap: 1rem !important;
+    gap: 0 !important;
+    row-gap: 0 !important;
     width: 100% !important;
     max-width: 100% !important;
     margin: 0 !important;
@@ -22372,11 +22386,13 @@ body.newsletter-success-open {
     order: -1 !important;
     display: flex !important;
     justify-content: flex-start !important;
-    align-items: flex-start !important;
+    align-items: flex-end !important;
     width: 100% !important;
     max-width: none !important;
     margin: 0 !important;
+    margin-bottom: 0 !important;
     padding: 0 var(--container-padding) !important;
+    padding-bottom: 0 !important;
     overflow: visible !important;
     background-color: #fff !important;
   }
@@ -22395,6 +22411,8 @@ body.newsletter-success-open {
     overflow: visible !important;
     box-sizing: border-box !important;
     background-color: #fff !important;
+    line-height: 0 !important;
+    font-size: 0 !important;
   }
 
   .home-page .page-hero.home-hero .about-hero__banner,
@@ -22404,13 +22422,13 @@ body.newsletter-success-open {
     width: 100% !important;
     max-width: none !important;
     height: auto !important;
-    max-height: min(820px, 72vh) !important;
+    max-height: none !important;
     min-height: 0 !important;
     margin: 0 !important;
     padding: 0 !important;
     border-radius: 0 !important;
     object-fit: contain !important;
-    object-position: left center !important;
+    object-position: left bottom !important;
     background-color: #fff !important;
     filter: none !important;
   }
@@ -22427,7 +22445,9 @@ body.newsletter-success-open {
     width: 100% !important;
     max-width: 100% !important;
     margin: 0 !important;
+    margin-top: 0 !important;
     padding: 0 var(--container-padding) !important;
+    padding-top: 0 !important;
     text-align: left !important;
   }
 
@@ -22755,6 +22775,12 @@ body.newsletter-success-open {
   }
 
   /* Hero banner + text block: same horizontal inset as header logo / menu */
+  .home-page #main-content > section.page-hero.home-hero .page-hero__inner,
+  #main-content > section.page-hero.home-hero .page-hero__inner {
+    gap: 0 !important;
+    row-gap: 0 !important;
+  }
+
   .home-page #main-content > section.page-hero.home-hero .about-hero__media,
   .home-page #main-content > section.page-hero.home-hero .hero-image-wrap,
   #main-content > section.page-hero.home-hero .about-hero__media,
@@ -22763,10 +22789,12 @@ body.newsletter-success-open {
     max-width: 100% !important;
     margin-inline: 0 !important;
     margin-top: 0 !important;
+    margin-bottom: 0 !important;
     padding-inline: var(--container-padding) !important;
+    padding-bottom: 0 !important;
     box-sizing: border-box !important;
     justify-content: flex-start !important;
-    align-items: flex-start !important;
+    align-items: flex-end !important;
   }
 
   .home-page #main-content > section.page-hero.home-hero .about-hero__media .lazy-img-wrap,
@@ -22777,20 +22805,25 @@ body.newsletter-success-open {
     max-width: 100% !important;
     margin: 0 !important;
     align-self: stretch !important;
+    line-height: 0 !important;
+    font-size: 0 !important;
   }
 
   .home-page #main-content > section.page-hero.home-hero .about-hero__banner,
   #main-content > section.page-hero.home-hero .about-hero__banner {
     width: 100% !important;
     max-width: 100% !important;
+    max-height: none !important;
     margin: 0 !important;
     object-fit: contain !important;
-    object-position: left top !important;
+    object-position: left bottom !important;
   }
 
   .home-page #main-content > section.page-hero.home-hero .page-hero__content,
   #main-content > section.page-hero.home-hero .page-hero__content {
     padding-inline: var(--container-padding) !important;
+    padding-top: 0 !important;
+    margin-top: 0 !important;
     box-sizing: border-box !important;
     text-align: left !important;
     align-items: flex-start !important;
