@@ -11485,7 +11485,7 @@ img.lazy-img.loaded {
     justify-content: center;
   }
 
-  .page-hero__content {
+  .page-hero:not(.home-hero) .page-hero__content {
     text-align: center;
   }
 
@@ -11498,11 +11498,11 @@ img.lazy-img.loaded {
   }
 
   .home-hero__tagline,
-  .page-hero__actions {
+  .page-hero:not(.home-hero) .page-hero__actions {
     justify-content: center;
   }
 
-  .page-hero__text {
+  .page-hero:not(.home-hero) .page-hero__text {
     margin-inline: auto;
   }
 
@@ -22371,8 +22371,8 @@ body.newsletter-success-open {
   .page-hero.home-hero .hero-image-wrap {
     order: -1 !important;
     display: flex !important;
-    justify-content: center !important;
-    align-items: center !important;
+    justify-content: flex-start !important;
+    align-items: flex-start !important;
     width: 100% !important;
     max-width: none !important;
     margin: 0 !important;
@@ -22738,7 +22738,7 @@ body.newsletter-success-open {
 }
 
 /* Home page — mobile: unified 20px left/right alignment (hero image → footer) */
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   .home-page {
     --container-padding: 20px;
   }
@@ -22765,12 +22765,74 @@ body.newsletter-success-open {
     margin-top: 0 !important;
     padding-inline: var(--container-padding) !important;
     box-sizing: border-box !important;
+    justify-content: flex-start !important;
+    align-items: flex-start !important;
+  }
+
+  .home-page #main-content > section.page-hero.home-hero .about-hero__media .lazy-img-wrap,
+  .home-page #main-content > section.page-hero.home-hero .about-hero__media picture,
+  #main-content > section.page-hero.home-hero .about-hero__media .lazy-img-wrap,
+  #main-content > section.page-hero.home-hero .about-hero__media picture {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    align-self: stretch !important;
+  }
+
+  .home-page #main-content > section.page-hero.home-hero .about-hero__banner,
+  #main-content > section.page-hero.home-hero .about-hero__banner {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    object-fit: contain !important;
+    object-position: left top !important;
   }
 
   .home-page #main-content > section.page-hero.home-hero .page-hero__content,
   #main-content > section.page-hero.home-hero .page-hero__content {
     padding-inline: var(--container-padding) !important;
     box-sizing: border-box !important;
+    text-align: left !important;
+    align-items: flex-start !important;
+  }
+
+  .home-page #main-content > section.page-hero.home-hero .home-hero__brand,
+  #main-content > section.page-hero.home-hero .home-hero__brand {
+    justify-content: flex-start !important;
+    align-self: stretch !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    text-align: left !important;
+  }
+
+  .home-page #main-content > section.page-hero.home-hero .home-hero__logo,
+  #main-content > section.page-hero.home-hero .home-hero__logo {
+    display: block !important;
+    width: min(100%, var(--home-hero-logo-width, 320px)) !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    object-fit: contain !important;
+    object-position: left center !important;
+  }
+
+  .home-page #main-content > section.page-hero.home-hero .hero-copy,
+  .home-page #main-content > section.page-hero.home-hero .page-hero__text,
+  #main-content > section.page-hero.home-hero .hero-copy,
+  #main-content > section.page-hero.home-hero .page-hero__text {
+    text-align: left !important;
+    margin-inline: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .home-page #main-content > section.page-hero.home-hero .page-hero__actions,
+  #main-content > section.page-hero.home-hero .page-hero__actions {
+    align-self: stretch !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-inline: 0 !important;
+    justify-content: flex-start !important;
   }
 
   .home-page #main-content > section:not(.page-hero) .site-container,
