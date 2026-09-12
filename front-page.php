@@ -42,18 +42,20 @@ $home_hero_secondary_cta = bdc_get_acf_link(
 	),
 	$front_page_id
 );
-$home_hero_banner_url = bdc_get_acf_image_url(
-	'home_hero_banner',
-	bdc_theme_asset_url( 'assets/images/home-hero-banner.png' ),
-	$front_page_id
-);
+$home_hero_banner_theme_path = 'assets/images/home-hero-banner.jpg';
+$home_hero_banner_url        = bdc_theme_asset_url( $home_hero_banner_theme_path );
+$home_hero_banner_ver        = bdc_asset_version( $home_hero_banner_theme_path );
+if ( $home_hero_banner_ver ) {
+	$home_hero_banner_url = add_query_arg( 'v', $home_hero_banner_ver, $home_hero_banner_url );
+}
 $home_hero_banner_alt = bdc_get_acf_text(
 	'home_hero_banner_alt',
-	'Three children with books, a robot, and a plant representing Bright Dreamers creativity',
+	'Child with notebook, colorful path, and city skyline — today\'s ideas, tomorrow\'s real change',
 	$front_page_id
 );
-$home_hero_banner_mobile_url = bdc_theme_asset_url( 'assets/images/home-hero-banner-mobile.png' );
-$home_hero_banner_mobile_ver = bdc_asset_version( 'assets/images/home-hero-banner-mobile.png' );
+$home_hero_banner_mobile_theme_path = 'assets/images/home-hero-banner-mobile.jpg';
+$home_hero_banner_mobile_url        = bdc_theme_asset_url( $home_hero_banner_mobile_theme_path );
+$home_hero_banner_mobile_ver        = bdc_asset_version( $home_hero_banner_mobile_theme_path );
 if ( $home_hero_banner_mobile_ver ) {
 	$home_hero_banner_mobile_url = add_query_arg( 'v', $home_hero_banner_mobile_ver, $home_hero_banner_mobile_url );
 }
