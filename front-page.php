@@ -363,14 +363,16 @@ $home_spotlight_council_defaults = array(
 		'url'    => bdc_page_url( 'about.html' ),
 		'target' => '',
 	),
-	'illustration' => bdc_theme_asset_url( 'assets/images/home-council-illustration-removebg-preview.png' ),
+	'illustration' => bdc_theme_asset_url( 'assets/images/home-council-star.png' ),
 );
-$home_spotlight_council              = bdc_get_acf_group( 'home_spotlight_council', $home_spotlight_council_defaults, $front_page_id );
-$home_spotlight_council_link         = bdc_resolve_acf_link_value( $home_spotlight_council['link'] ?? null, $home_spotlight_council_defaults['link'] );
-$home_spotlight_council_illustration = bdc_acf_image_value_to_url(
-	$home_spotlight_council['illustration'] ?? null,
-	$home_spotlight_council_defaults['illustration']
-);
+$home_spotlight_council      = bdc_get_acf_group( 'home_spotlight_council', $home_spotlight_council_defaults, $front_page_id );
+$home_spotlight_council_link = bdc_resolve_acf_link_value( $home_spotlight_council['link'] ?? null, $home_spotlight_council_defaults['link'] );
+$home_council_illustration_theme_path = 'assets/images/home-council-star.png';
+$home_spotlight_council_illustration  = bdc_theme_asset_url( $home_council_illustration_theme_path );
+$home_council_illustration_ver        = bdc_asset_version( $home_council_illustration_theme_path );
+if ( $home_council_illustration_ver ) {
+	$home_spotlight_council_illustration = add_query_arg( 'v', $home_council_illustration_ver, $home_spotlight_council_illustration );
+}
 $home_spotlight_council_title = (string) $home_spotlight_council['title'];
 $home_spotlight_council_note  = (string) $home_spotlight_council['note'];
 $home_spotlight_council_items = ( is_array( $home_spotlight_council['list_items'] ?? null ) && ! empty( $home_spotlight_council['list_items'] ) )

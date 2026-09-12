@@ -2804,11 +2804,11 @@ img.lazy-img.loaded {
 
 .spotlight-card--council .spotlight-card__figure-img {
   display: block;
-  width: clamp(220px, 24vw, 280px);
+  width: clamp(160px, 18vw, 220px);
   height: auto;
   object-fit: contain;
-  filter: var(--home-section-icon-filter);
-  mix-blend-mode: multiply;
+  filter: none;
+  mix-blend-mode: normal;
 }
 
 .home-hero__title {
