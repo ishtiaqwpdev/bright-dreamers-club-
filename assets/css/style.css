@@ -999,6 +999,15 @@ button {
     padding-left: clamp(1rem, 1.6vw, 1.85rem);
   }
 
+  .site-footer__col--resources .site-footer__heading,
+  .site-footer__col--newsletter .site-footer__heading--newsletter {
+    margin-top: 0;
+  }
+
+  .site-footer__col--newsletter .site-footer__newsletter-layout {
+    padding-top: 0;
+  }
+
   .site-footer__initiative {
     display: none;
   }
