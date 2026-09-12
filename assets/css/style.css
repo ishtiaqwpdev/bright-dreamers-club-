@@ -19486,7 +19486,7 @@ body.newsletter-success-open {
   #main-content > section.home-hero.page-hero .page-hero__content,
   .page-hero.home-hero .page-hero__content {
     gap: 0;
-    padding: 0 18px;
+    padding: 0 var(--container-padding);
   }
 
   #main-content > section.about-hero.page-hero .hero-label {
@@ -19541,9 +19541,9 @@ body.newsletter-success-open {
     width: 100%;
   }
 
-  #main-content > section.page-hero .hero-image-wrap,
-  #main-content > section.page-hero [class*='__media'],
-  #main-content > section.page-hero .home-hero__media {
+  #main-content > section.page-hero:not(.home-hero) .hero-image-wrap,
+  #main-content > section.page-hero:not(.home-hero) [class*='__media'],
+  #main-content > section.page-hero:not(.home-hero) .home-hero__media {
     width: 92% !important;
     max-width: 92% !important;
     margin-top: 24px !important;
@@ -19657,9 +19657,9 @@ body.newsletter-success-open {
 }
 
 @media (max-width: 320px) {
-  #main-content > section.page-hero .hero-image-wrap,
-  #main-content > section.page-hero [class*='__media'],
-  #main-content > section.page-hero .home-hero__media {
+  #main-content > section.page-hero:not(.home-hero) .hero-image-wrap,
+  #main-content > section.page-hero:not(.home-hero) [class*='__media'],
+  #main-content > section.page-hero:not(.home-hero) .home-hero__media {
     width: 92% !important;
     max-width: 92% !important;
     margin-inline: auto !important;
@@ -22743,10 +22743,34 @@ body.newsletter-success-open {
     --container-padding: 20px;
   }
 
+  .home-page .site-header .site-container {
+    padding-left: var(--container-padding) !important;
+    padding-right: var(--container-padding) !important;
+  }
+
   .home-page #main-content > section.page-hero.home-hero .site-container.page-hero__inner,
   .home-page #main-content > section.page-hero.home-hero .page-hero__inner {
     padding-left: 0 !important;
     padding-right: 0 !important;
+  }
+
+  /* Hero banner + text block: same horizontal inset as header logo / menu */
+  .home-page #main-content > section.page-hero.home-hero .about-hero__media,
+  .home-page #main-content > section.page-hero.home-hero .hero-image-wrap,
+  #main-content > section.page-hero.home-hero .about-hero__media,
+  #main-content > section.page-hero.home-hero .hero-image-wrap {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-inline: 0 !important;
+    margin-top: 0 !important;
+    padding-inline: var(--container-padding) !important;
+    box-sizing: border-box !important;
+  }
+
+  .home-page #main-content > section.page-hero.home-hero .page-hero__content,
+  #main-content > section.page-hero.home-hero .page-hero__content {
+    padding-inline: var(--container-padding) !important;
+    box-sizing: border-box !important;
   }
 
   .home-page #main-content > section:not(.page-hero) .site-container,
