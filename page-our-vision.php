@@ -73,13 +73,13 @@ if ( empty( $vision_hero_list ) ) {
 	}
 }
 
-$vision_hero_banner_theme_path = 'assets/images/our-vision-hero-banner.png';
+$vision_hero_banner_theme_path = 'assets/images/our-vision-hero-banner.jpg';
 $vision_hero_banner_url        = bdc_theme_asset_url( $vision_hero_banner_theme_path );
 $vision_hero_banner_ver        = bdc_asset_version( $vision_hero_banner_theme_path );
 if ( $vision_hero_banner_ver ) {
 	$vision_hero_banner_url = add_query_arg( 'v', $vision_hero_banner_ver, $vision_hero_banner_url );
 }
-$vision_hero_banner_mobile_theme_path = 'assets/images/our-vision-hero-banner-mobile.png';
+$vision_hero_banner_mobile_theme_path = 'assets/images/our-vision-hero-banner-mobile.jpg';
 $vision_hero_banner_mobile_url        = bdc_theme_asset_url( $vision_hero_banner_mobile_theme_path );
 $vision_hero_banner_mobile_ver        = bdc_asset_version( $vision_hero_banner_mobile_theme_path );
 if ( $vision_hero_banner_mobile_ver ) {
