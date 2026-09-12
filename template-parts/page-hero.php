@@ -22,6 +22,7 @@ $hero = wp_parse_args(
 		'headline'                 => '',
 		'headline_html'            => '',
 		'headline_id'              => '',
+		'tagline_html'             => '',
 		'supporting_copy'          => '',
 		'supporting_copy_html'     => '',
 		'extra_content_html'       => '',
@@ -37,6 +38,7 @@ $hero = wp_parse_args(
 		'media_class'              => '',
 		'image_class'              => '',
 		'hero_deco'                => false,
+		'primary_cta_show_icon'    => false,
 		'secondary_cta_show_heart' => false,
 		'brand_html'               => '',
 	)
@@ -140,6 +142,10 @@ $image_class   = trim( 'lazy-img ' . (string) $hero['image_class'] );
             </h1>
             <?php endif; ?>
 
+            <?php if ( '' !== trim( (string) $hero['tagline_html'] ) ) : ?>
+            <?php echo $hero['tagline_html']; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+            <?php endif; ?>
+
             <?php if ( '' !== trim( (string) $hero['supporting_copy_html'] ) ) : ?>
             <p class="hero-copy"><?php echo $hero['supporting_copy_html']; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></p>
             <?php elseif ( '' !== trim( (string) $hero['supporting_copy'] ) ) : ?>
@@ -154,6 +160,22 @@ $image_class   = trim( 'lazy-img ' . (string) $hero['image_class'] );
             <div class="hero-ctas page-hero__actions">
               <?php if ( $has_primary ) : ?>
               <a class="btn btn--solid btn--lg btn-hover" href="<?php echo esc_url( $primary_url ); ?>"<?php echo bdc_acf_link_target_attr( $primary_link ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
+                <?php if ( ! empty( $hero['primary_cta_show_icon'] ) ) : ?>
+                <svg
+                  class="btn__icon home-hero__cta-icon"
+                  viewBox="0 0 24 24"
+                  width="20"
+                  height="20"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  aria-hidden="true"
+                >
+                  <circle cx="12" cy="12" r="9.1" />
+                  <circle cx="12" cy="9.2" r="2.35" />
+                  <path d="M7.35 17.05c1.15-2.05 2.7-3.05 4.65-3.05s3.5 1 4.65 3.05" />
+                </svg>
+                <?php endif; ?>
                 <?php echo esc_html( $hero['primary_cta_text'] ); ?>
               </a>
               <?php endif; ?>

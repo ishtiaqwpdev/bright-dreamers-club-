@@ -9,14 +9,19 @@ get_header();
 
 $front_page_id = bdc_get_front_page_id();
 
-$home_hero_logo_url = bdc_get_acf_image_url(
-	'home_hero_logo',
-	bdc_theme_asset_url( 'assets/images/bright-dreamers-logo.jpeg' ),
+$home_hero_title_bright = bdc_get_acf_text(
+	'home_hero_title_bright',
+	'Bright',
 	$front_page_id
 );
-$home_hero_logo_alt = bdc_get_acf_text(
-	'home_hero_logo_alt',
-	'Bright Dreamers — Dream, Create, Grow, Give',
+$home_hero_title_dreamers = bdc_get_acf_text(
+	'home_hero_title_dreamers',
+	'Dreamers',
+	$front_page_id
+);
+$home_hero_tagline = bdc_get_acf_text(
+	'home_hero_tagline',
+	'Dream • Create • Grow • Give',
 	$front_page_id
 );
 $home_hero_text = bdc_get_acf_text(
@@ -42,7 +47,7 @@ $home_hero_secondary_cta = bdc_get_acf_link(
 	),
 	$front_page_id
 );
-$home_hero_banner_theme_path = 'assets/images/home-hero-banner.png';
+$home_hero_banner_theme_path = 'assets/images/home-hero-banner.jpg';
 $home_hero_banner_url        = bdc_theme_asset_url( $home_hero_banner_theme_path );
 $home_hero_banner_ver        = bdc_asset_version( $home_hero_banner_theme_path );
 if ( $home_hero_banner_ver ) {
@@ -53,7 +58,7 @@ $home_hero_banner_alt = bdc_get_acf_text(
 	'Child with notebook, colorful path, and city skyline — today\'s ideas, tomorrow\'s real change',
 	$front_page_id
 );
-$home_hero_banner_mobile_theme_path = 'assets/images/home-hero-banner-mobile.png';
+$home_hero_banner_mobile_theme_path = 'assets/images/home-hero-banner.jpg';
 $home_hero_banner_mobile_url        = bdc_theme_asset_url( $home_hero_banner_mobile_theme_path );
 $home_hero_banner_mobile_ver        = bdc_asset_version( $home_hero_banner_mobile_theme_path );
 if ( $home_hero_banner_mobile_ver ) {
@@ -382,11 +387,31 @@ $home_spotlight_council_items = ( is_array( $home_spotlight_council['list_items'
 ?>
     <main id="main-content">
       <?php
-      $home_hero_brand_html = sprintf(
-        '<div class="home-hero__brand"><img class="home-hero__logo" src="%1$s" alt="%2$s" width="380" height="110" decoding="async" /></div>',
-        esc_url( $home_hero_logo_url ),
-        esc_attr( $home_hero_logo_alt )
-      );
+      $home_hero_headline_html  = '<span class="home-hero__title-line">';
+      $home_hero_headline_html .= '<span class="home-hero__title-bright">' . esc_html( $home_hero_title_bright ) . '</span>';
+      $home_hero_headline_html .= '<svg class="home-hero__title-star" viewBox="0 0 24 24" width="44" height="44" aria-hidden="true"><path fill="currentColor" d="M12 2.2l2.72 6.28 6.83.74-5.16 4.78 1.42 6.73L12 17.48l-5.81 3.25 1.42-6.73-5.16-4.78 6.83-.74L12 2.2z"/></svg>';
+      $home_hero_headline_html .= '</span>';
+      $home_hero_headline_html .= '<span class="home-hero__title-dreamers">' . esc_html( $home_hero_title_dreamers ) . '</span>';
+
+      $home_hero_tagline_html = '';
+      $home_hero_tagline_words = preg_split( '/\s*[•·|,]\s*/u', $home_hero_tagline );
+      $home_hero_tagline_words = array_values( array_filter( array_map( 'trim', (array) $home_hero_tagline_words ) ) );
+      $home_hero_tagline_dots  = array( 'pink', 'orange', 'green', 'purple' );
+
+      if ( ! empty( $home_hero_tagline_words ) ) {
+        $home_hero_tagline_html = '<p class="home-hero__tagline">';
+
+        foreach ( $home_hero_tagline_words as $index => $word ) {
+          if ( $index > 0 ) {
+            $dot_mod = $home_hero_tagline_dots[ ( $index - 1 ) % count( $home_hero_tagline_dots ) ];
+            $home_hero_tagline_html .= '<span class="home-hero__tagline-dot home-hero__tagline-dot--' . esc_attr( $dot_mod ) . '" aria-hidden="true">•</span>';
+          }
+
+          $home_hero_tagline_html .= '<span class="home-hero__tagline-word">' . esc_html( $word ) . '</span>';
+        }
+
+        $home_hero_tagline_html .= '</p>';
+      }
 
       get_template_part(
         'template-parts/page-hero',
@@ -394,7 +419,9 @@ $home_spotlight_council_items = ( is_array( $home_spotlight_council['list_items'
         array(
           'section_class'            => 'home-hero about-hero',
           'aria_label'               => 'Welcome',
-          'brand_html'               => $home_hero_brand_html,
+          'headline_id'              => 'home-hero-heading',
+          'headline_html'            => $home_hero_headline_html,
+          'tagline_html'             => $home_hero_tagline_html,
           'supporting_copy'          => $home_hero_text,
           'primary_cta_text'         => $home_hero_primary_cta['title'],
           'primary_cta_link'         => $home_hero_primary_cta,
@@ -405,6 +432,7 @@ $home_spotlight_council_items = ( is_array( $home_spotlight_council['list_items'
           'hero_image_alt'           => $home_hero_banner_alt,
           'media_class'              => 'about-hero__media',
           'image_class'              => 'about-hero__banner',
+          'primary_cta_show_icon'    => true,
           'secondary_cta_show_heart' => true,
         )
       );

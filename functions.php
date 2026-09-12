@@ -303,7 +303,7 @@ add_filter( 'body_class', 'bdc_page_template_body_classes' );
 function bdc_enqueue_assets() {
 	wp_enqueue_style(
 		'bdc-google-fonts',
-		'https://fonts.googleapis.com/css2?family=Bitter:wght@400;500;600;700;800&family=Outfit:wght@300;400;500;600;700&display=swap',
+		'https://fonts.googleapis.com/css2?family=Bitter:wght@400;500;600;700;800&family=Outfit:wght@300;400;500;600;700;800&display=swap',
 		array(),
 		null
 	);

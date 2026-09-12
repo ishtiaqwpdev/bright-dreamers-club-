@@ -36,6 +36,28 @@ acf_add_local_field_group(
 				'default_value' => 'Bright Dreamers — Dream, Create, Grow, Give',
 			),
 			array(
+				'key'           => 'field_home_hero_title_bright',
+				'label'         => 'Title line 1',
+				'name'          => 'home_hero_title_bright',
+				'type'          => 'text',
+				'default_value' => 'Bright',
+			),
+			array(
+				'key'           => 'field_home_hero_title_dreamers',
+				'label'         => 'Title line 2',
+				'name'          => 'home_hero_title_dreamers',
+				'type'          => 'text',
+				'default_value' => 'Dreamers',
+			),
+			array(
+				'key'           => 'field_home_hero_tagline',
+				'label'         => 'Tagline',
+				'name'          => 'home_hero_tagline',
+				'type'          => 'text',
+				'default_value' => 'Dream • Create • Grow • Give',
+				'instructions'  => 'Separate words with • so each dot can use a brand color.',
+			),
+			array(
 				'key'           => 'field_home_hero_text',
 				'label'         => 'Intro text',
 				'name'          => 'home_hero_text',
