@@ -940,8 +940,8 @@ button {
 }
 
 .site-footer__legal {
-  background-color: #fff;
-  border-top: 1px solid rgba(0, 27, 102, 0.06);
+  background-color: var(--footer-bg);
+  border-top: 1px solid rgba(0, 27, 102, 0.08);
 }
 
 .site-footer__legal-inner {
@@ -20802,7 +20802,7 @@ body.newsletter-success-open {
   }
 
   .site-footer__legal {
-    background: #fff;
+    background: var(--footer-bg);
   }
 
   .site-footer__legal-inner {
