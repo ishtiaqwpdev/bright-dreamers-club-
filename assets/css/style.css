@@ -3000,6 +3000,7 @@ img.lazy-img.loaded {
 .vision-hero .about-hero__banner {
   transform: scale(var(--vision-hero-banner-scale));
   transform-origin: center right;
+  filter: none;
 }
 
 .explore-hero .page-hero__content {
