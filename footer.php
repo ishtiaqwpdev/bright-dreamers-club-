@@ -131,19 +131,7 @@ $footer_legal_links            = $footer['legal_links'];
 				</ul>
 			</div>
 
-			<div class="site-footer__col site-footer__col--art">
-				<img
-					class="site-footer__art"
-					src="<?php echo esc_url( $footer_art_url ); ?>"
-					alt="<?php echo esc_attr( $footer_art_alt ); ?>"
-					width="220"
-					height="280"
-					loading="lazy"
-					decoding="async"
-				>
-			</div>
-
-			<div class="site-footer__col">
+			<div class="site-footer__col site-footer__col--resources">
 				<h2 class="site-footer__heading"><?php echo esc_html( $footer_resources_heading ); ?></h2>
 				<ul class="site-footer__links">
 					<?php foreach ( $footer_resources_links as $row ) : ?>

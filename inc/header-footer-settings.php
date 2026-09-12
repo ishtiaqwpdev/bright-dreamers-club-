@@ -183,7 +183,7 @@ function bdc_build_default_header_footer_settings() {
 		'newsletter_heading'       => 'Subscribe for updates',
 		'newsletter_url'           => home_url( '/newsletter-signup/' ),
 		'newsletter_text'          => 'Subscribe for updates, inspiring stories, new experiences, and ways to make a difference.',
-		'newsletter_placeholder'   => 'Your email',
+		'newsletter_placeholder'   => 'Your email address',
 		'newsletter_button'        => 'Subscribe',
 		'newsletter_action'        => home_url( '/newsletter-signup/' ),
 		'plant_id'                 => 0,

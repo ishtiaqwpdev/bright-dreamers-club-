@@ -70,6 +70,9 @@
   --footer-bg: var(--color-pink-soft);
   --footer-edge-height: clamp(24px, 3.2vw, 40px);
   --footer-pad-y: clamp(2.35rem, 4vw, 3.65rem);
+  --footer-pad-top-desktop: 60px;
+  --footer-pad-bottom-desktop: 40px;
+  --footer-desktop-max-width: 1440px;
   --footer-col-gap: clamp(1rem, 2.2vw, 2.25rem);
   --footer-link-gap: 0.42rem;
   --footer-heading-gap: 0.8rem;
@@ -716,14 +719,13 @@ button {
 .site-footer__grid {
   display: grid;
   grid-template-columns:
-    minmax(0, 1.35fr)
-    minmax(0, 0.82fr)
-    minmax(0, 0.82fr)
-    minmax(0, 0.78fr)
-    minmax(0, 1fr)
-    minmax(0, 1fr);
+    minmax(0, 1.45fr)
+    minmax(0, 0.88fr)
+    minmax(0, 0.88fr)
+    minmax(0, 0.95fr)
+    minmax(0, 1.35fr);
   gap: var(--footer-col-gap);
-  align-items: stretch;
+  align-items: start;
 }
 
 .site-footer__col--brand {
@@ -817,7 +819,7 @@ button {
   min-height: 100%;
   background: var(--color-pink-soft);
   border-radius: 22px;
-  padding: 0 clamp(16px, 1.4vw, 20px) clamp(16px, 1.5vw, 22px);
+  padding: clamp(16px, 1.5vw, 22px) clamp(16px, 1.4vw, 20px);
 }
 
 .site-footer__newsletter-content {
@@ -834,10 +836,6 @@ button {
   flex-wrap: wrap;
   gap: 0.35rem;
   margin: 0 0 var(--footer-heading-gap);
-}
-
-.site-footer__newsletter-content .footer-newsletter {
-  margin-top: auto;
 }
 
 .site-footer__heading-heart {
@@ -984,6 +982,51 @@ button {
 
 .site-footer__legal-link:hover {
   color: var(--color-pink);
+}
+
+@media (min-width: 992px) {
+  .site-footer__main > .site-container.site-footer__grid {
+    max-width: var(--footer-desktop-max-width);
+  }
+
+  .site-footer__main {
+    padding-top: var(--footer-pad-top-desktop);
+    padding-bottom: var(--footer-pad-bottom-desktop);
+  }
+
+  .site-footer__grid > .site-footer__col:not(:first-child) {
+    border-left: 1px dashed rgba(0, 27, 102, 0.14);
+    padding-left: clamp(1rem, 1.6vw, 1.85rem);
+  }
+
+  .site-footer__initiative {
+    display: none;
+  }
+
+  .site-footer__legal-sep--heart,
+  .site-footer__legal-heart {
+    display: none;
+  }
+
+  .site-footer__legal-inner {
+    flex-wrap: nowrap;
+    justify-content: center;
+    gap: 0.65rem;
+    padding-top: 0.85rem;
+    padding-bottom: 0.85rem;
+  }
+
+  .site-footer__legal-copy {
+    display: contents;
+  }
+
+  .site-footer__copyright {
+    margin: 0;
+  }
+
+  .site-footer__legal-sep--lead {
+    display: inline;
+  }
 }
 
 .site-footer__mobile {
