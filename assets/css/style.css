@@ -2785,13 +2785,18 @@ img.lazy-img.loaded {
   isolation: isolate;
 }
 
+.spotlight-card--ideas .spotlight-card__figure .lazy-img-wrap {
+  background-color: var(--panel-cream);
+}
+
 .spotlight-card--ideas .spotlight-card__figure-img {
   display: block;
-  width: 100%;
-  max-width: none;
-  height: 100%;
+  width: clamp(180px, 22vw, 280px);
+  height: auto;
+  max-width: 100%;
   object-fit: contain;
-  object-position: center right;
+  object-position: center;
+  background-color: var(--panel-cream);
 }
 
 .spotlight-card--council .spotlight-card__figure-wrap {

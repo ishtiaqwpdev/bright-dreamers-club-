@@ -334,11 +334,12 @@ $home_spotlight_ideas_defaults = array(
 	'body'       => 'Many of our projects begin with children\'s own ideas. Children help imagine new activities, suggest community projects, and inspire future programs through our Young Dreamers Council.',
 	'highlight'  => "Because the best ideas sometimes\ncome from the smallest voices.",
 	'photo'      => bdc_theme_asset_url( 'assets/images/home-ideas-photo.png' ),
-	'photo_alt'  => 'Children lying in a circle looking up and smiling',
+	'photo_alt'  => 'Colorful speech bubbles representing children sharing ideas',
 );
-$home_spotlight_ideas       = bdc_get_acf_group( 'home_spotlight_ideas', $home_spotlight_ideas_defaults, $front_page_id );
-$home_spotlight_ideas_photo = $home_spotlight_ideas_defaults['photo'];
-$home_ideas_photo_ver       = bdc_asset_version( 'assets/images/home-ideas-photo.png' );
+$home_spotlight_ideas = bdc_get_acf_group( 'home_spotlight_ideas', $home_spotlight_ideas_defaults, $front_page_id );
+$home_ideas_photo_theme_path = 'assets/images/home-ideas-photo.png';
+$home_spotlight_ideas_photo    = bdc_theme_asset_url( $home_ideas_photo_theme_path );
+$home_ideas_photo_ver          = bdc_asset_version( $home_ideas_photo_theme_path );
 if ( $home_ideas_photo_ver ) {
 	$home_spotlight_ideas_photo = add_query_arg( 'v', $home_ideas_photo_ver, $home_spotlight_ideas_photo );
 }
