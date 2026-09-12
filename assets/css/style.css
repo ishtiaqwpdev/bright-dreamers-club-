@@ -26694,6 +26694,80 @@ body.newsletter-success-open {
   object-position: center center !important;
 }
 
+/* Home hero banner — same display size as About page */
+@media (min-width: 1024px) {
+  .home-page .page-hero.home-hero.about-hero .about-hero__media,
+  .home-page .page-hero.home-hero.about-hero .hero-image-wrap {
+    flex: 1 1 58% !important;
+    min-width: 0 !important;
+    overflow: visible !important;
+  }
+
+  .home-page .page-hero.home-hero.about-hero .about-hero__media .lazy-img-wrap,
+  .home-page .page-hero.home-hero.about-hero .about-hero__media picture {
+    overflow: visible !important;
+    width: 100% !important;
+    max-width: none !important;
+  }
+
+  .home-page .page-hero.home-hero.about-hero .about-hero__banner {
+    max-height: none !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    object-fit: contain !important;
+    object-position: right center !important;
+  }
+}
+
+@media (max-width: 991px) {
+  .home-page .page-hero.home-hero.about-hero .about-hero__media,
+  .home-page .page-hero.home-hero.about-hero .hero-image-wrap {
+    overflow: visible !important;
+  }
+
+  .home-page .page-hero.home-hero.about-hero .about-hero__media .lazy-img-wrap,
+  .home-page .page-hero.home-hero.about-hero .about-hero__media picture {
+    overflow: visible !important;
+    max-width: none !important;
+  }
+
+  .home-page .page-hero.home-hero.about-hero .about-hero__banner {
+    max-height: none !important;
+    max-width: none !important;
+    width: 100% !important;
+    object-fit: contain !important;
+    object-position: center top !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .home-page .page-hero.home-hero.about-hero .about-hero__media,
+  .home-page .page-hero.home-hero.about-hero .hero-image-wrap {
+    order: -1 !important;
+    justify-content: center !important;
+    align-items: center !important;
+    width: 100% !important;
+    max-width: none !important;
+    padding: 0 var(--container-padding) !important;
+    overflow: visible !important;
+  }
+
+  .home-page .page-hero.home-hero.about-hero .about-hero__media .lazy-img-wrap,
+  .home-page .page-hero.home-hero.about-hero .about-hero__media picture {
+    width: 100% !important;
+    max-width: none !important;
+    overflow: visible !important;
+  }
+
+  .home-page .page-hero.home-hero.about-hero .about-hero__banner {
+    width: 100% !important;
+    max-width: none !important;
+    max-height: none !important;
+    object-fit: contain !important;
+    object-position: center top !important;
+  }
+}
+
 /* Home full-banner hero — full width, natural height, no crop or upscale blur */
 #main-content > section.page-hero.home-hero.home-hero--full-banner,
 .page-hero.home-hero.home-hero--full-banner {
