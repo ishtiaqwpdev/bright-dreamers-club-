@@ -73,19 +73,21 @@ if ( empty( $vision_hero_list ) ) {
 	}
 }
 
-$vision_hero_banner_url = bdc_get_acf_image_url(
-	'vision_hero_banner',
-	bdc_theme_asset_url( 'assets/images/our-vision-hero-banner.jpg' ),
-	$vision_page_id
-);
-$vision_hero_banner_mobile_url = bdc_theme_asset_url( 'assets/images/our-vision-hero-banner-mobile.jpg' );
-$vision_hero_banner_mobile_ver = bdc_asset_version( 'assets/images/our-vision-hero-banner-mobile.jpg' );
+$vision_hero_banner_theme_path = 'assets/images/our-vision-hero-banner.png';
+$vision_hero_banner_url        = bdc_theme_asset_url( $vision_hero_banner_theme_path );
+$vision_hero_banner_ver        = bdc_asset_version( $vision_hero_banner_theme_path );
+if ( $vision_hero_banner_ver ) {
+	$vision_hero_banner_url = add_query_arg( 'v', $vision_hero_banner_ver, $vision_hero_banner_url );
+}
+$vision_hero_banner_mobile_theme_path = 'assets/images/our-vision-hero-banner-mobile.png';
+$vision_hero_banner_mobile_url        = bdc_theme_asset_url( $vision_hero_banner_mobile_theme_path );
+$vision_hero_banner_mobile_ver        = bdc_asset_version( $vision_hero_banner_mobile_theme_path );
 if ( $vision_hero_banner_mobile_ver ) {
 	$vision_hero_banner_mobile_url = add_query_arg( 'v', $vision_hero_banner_mobile_ver, $vision_hero_banner_mobile_url );
 }
 $vision_hero_banner_alt = bdc_get_acf_text(
 	'vision_hero_banner_alt',
-	'Children painting a mural with the words Big Ideas Brighter Tomorrows',
+	'Three children holding colorful heart artwork posters',
 	$vision_page_id
 );
 
