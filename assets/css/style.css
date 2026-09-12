@@ -2802,6 +2802,10 @@ img.lazy-img.loaded {
   line-height: 0;
 }
 
+.spotlight-card--council .spotlight-card__figure .lazy-img-wrap {
+  background-color: var(--panel-lavender);
+}
+
 .spotlight-card--council .spotlight-card__figure-img {
   display: block;
   width: clamp(160px, 18vw, 220px);
@@ -2809,6 +2813,7 @@ img.lazy-img.loaded {
   object-fit: contain;
   filter: none;
   mix-blend-mode: normal;
+  background-color: var(--panel-lavender);
 }
 
 .home-hero__title {
