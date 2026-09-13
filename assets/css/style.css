@@ -22351,7 +22351,7 @@ body.newsletter-success-open {
     width: auto !important;
     max-width: 100% !important;
     height: auto !important;
-    max-height: min(520px, 68vh) !important;
+    max-height: min(610px, 72vh) !important;
     min-height: 0 !important;
     margin-left: auto !important;
     margin-right: 0 !important;
@@ -27142,7 +27142,7 @@ body.newsletter-success-open {
   .our-vision-page .page-hero.vision-hero:not(.partners-hero) picture img.about-hero__banner {
     width: auto !important;
     max-width: 100% !important;
-    max-height: min(520px, 68vh) !important;
+    max-height: min(610px, 72vh) !important;
     object-fit: contain !important;
     object-position: right center !important;
     margin-left: auto !important;
