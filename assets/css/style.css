@@ -86,7 +86,7 @@
   --header-logo-width-pct: 80%;
   --hero-pad-y: 0;
   --about-hero-pad-top: 30px;
-  --home-hero-logo-width: 380px;
+  --home-hero-logo-width: 460px;
   --home-hero-col-gap: clamp(0.25rem, 0.6vw, 0.65rem);
   --home-hero-content-max: 36rem;
   --home-hero-content-share: 44%;
@@ -1732,15 +1732,23 @@ button {
 }
 
 .home-hero__brand {
-  margin: 0 0 clamp(0.85rem, 1.4vw, 1.1rem);
+  margin: 0 0 clamp(0.55rem, 1.1vw, 0.85rem);
+}
+
+.home-hero__logo-heading {
+  margin: 0;
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: 0;
 }
 
 .home-hero__logo {
-  width: min(100%, var(--home-hero-logo-width, 380px));
+  display: block;
+  width: min(100%, var(--home-hero-logo-width, 460px));
   height: auto;
   object-fit: contain;
   object-position: left center;
-  filter: var(--logo-bg-filter);
+  filter: none;
 }
 
 .home-hero .hero-headline,
@@ -19259,7 +19267,7 @@ body.newsletter-success-open {
     height: auto;
     object-fit: contain;
     object-position: left center;
-    filter: var(--logo-bg-filter);
+    filter: none;
   }
 
   .page-hero.home-hero .hero-copy {
