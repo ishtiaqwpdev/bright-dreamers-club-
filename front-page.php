@@ -61,6 +61,24 @@ if ( $home_hero_banner_mobile_ver ) {
 	$home_hero_banner_mobile_url = add_query_arg( 'v', $home_hero_banner_mobile_ver, $home_hero_banner_mobile_url );
 }
 
+$home_about_banner_theme_path = 'assets/images/about-banner.png';
+$home_about_banner_url        = bdc_theme_asset_url( $home_about_banner_theme_path );
+$home_about_banner_ver        = bdc_asset_version( $home_about_banner_theme_path );
+if ( $home_about_banner_ver ) {
+	$home_about_banner_url = add_query_arg( 'v', $home_about_banner_ver, $home_about_banner_url );
+}
+$home_about_banner_mobile_theme_path = 'assets/images/about-banner-mobile.png';
+$home_about_banner_mobile_url        = bdc_theme_asset_url( $home_about_banner_mobile_theme_path );
+$home_about_banner_mobile_ver        = bdc_asset_version( $home_about_banner_mobile_theme_path );
+if ( $home_about_banner_mobile_ver ) {
+	$home_about_banner_mobile_url = add_query_arg( 'v', $home_about_banner_mobile_ver, $home_about_banner_mobile_url );
+}
+$home_about_banner_alt = bdc_get_acf_text(
+	'home_about_banner_alt',
+	'Children creating art together at Bright Dreamers Club',
+	$front_page_id
+);
+
 $home_pillars_idea_defaults = array(
 	'image' => bdc_theme_asset_url( 'assets/images/home-pillar-books-removebg-preview.png' ),
 	'title' => 'It All Starts With One Idea',
@@ -389,6 +407,29 @@ $home_spotlight_council_items = ( is_array( $home_spotlight_council['list_items'
         esc_attr( $home_hero_logo_alt )
       );
 
+      $home_hero_banner_stack_html = sprintf(
+        '<div class="home-hero__banner-stack">
+          <div class="home-hero__banner-stack-item">
+            <picture>
+              <source media="(max-width: 767px)" srcset="%1$s" />
+              <img class="about-hero__banner home-hero__about-banner" src="%2$s" alt="%3$s" width="1200" height="900" decoding="async" />
+            </picture>
+          </div>
+          <div class="home-hero__banner-stack-item">
+            <picture>
+              <source media="(max-width: 767px)" srcset="%4$s" />
+              <img class="about-hero__banner home-hero__banner" src="%5$s" alt="%6$s" width="1200" height="900" decoding="async" />
+            </picture>
+          </div>
+        </div>',
+        esc_url( $home_about_banner_mobile_url ),
+        esc_url( $home_about_banner_url ),
+        esc_attr( $home_about_banner_alt ),
+        esc_url( $home_hero_banner_mobile_url ),
+        esc_url( $home_hero_banner_url ),
+        esc_attr( $home_hero_banner_alt )
+      );
+
       get_template_part(
         'template-parts/page-hero',
         null,
@@ -401,11 +442,8 @@ $home_spotlight_council_items = ( is_array( $home_spotlight_council['list_items'
           'primary_cta_link'         => $home_hero_primary_cta,
           'secondary_cta_text'       => $home_hero_secondary_cta['title'],
           'secondary_cta_link'       => $home_hero_secondary_cta,
-          'hero_image'               => $home_hero_banner_url,
-          'hero_image_mobile'        => $home_hero_banner_mobile_url,
-          'hero_image_alt'           => $home_hero_banner_alt,
+          'hero_image_html'          => $home_hero_banner_stack_html,
           'media_class'              => 'about-hero__media',
-          'image_class'              => 'about-hero__banner',
           'primary_cta_show_icon'    => true,
           'secondary_cta_show_heart' => true,
         )
