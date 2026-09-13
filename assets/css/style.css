@@ -1846,33 +1846,35 @@ button {
   gap: 1.15rem 1.45rem;
 }
 
-.home-hero .page-hero__actions .btn {
-  background-color: transparent;
-  border-color: transparent;
-  color: var(--color-pink);
-  box-shadow: none;
-  padding: 0.15rem 0;
-  white-space: normal;
-}
+@media (min-width: 768px) {
+  .home-hero .page-hero__actions .btn {
+    background-color: transparent;
+    border-color: transparent;
+    color: var(--color-pink);
+    box-shadow: none;
+    padding: 0.15rem 0;
+    white-space: normal;
+  }
 
-.home-hero .page-hero__actions .btn--lg {
-  font-size: clamp(0.92rem, 0.98vw, 1.02rem);
-  font-weight: 600;
-  padding: 0.15rem 0;
-}
+  .home-hero .page-hero__actions .btn--lg {
+    font-size: clamp(0.92rem, 0.98vw, 1.02rem);
+    font-weight: 600;
+    padding: 0.15rem 0;
+  }
 
-.home-hero .page-hero__actions .btn--solid,
-.home-hero .page-hero__actions .btn--outline {
-  background-color: transparent;
-  border-color: transparent;
-  color: var(--color-pink);
-}
+  .home-hero .page-hero__actions .btn--solid,
+  .home-hero .page-hero__actions .btn--outline {
+    background-color: transparent;
+    border-color: transparent;
+    color: var(--color-pink);
+  }
 
-.home-hero .page-hero__actions .btn--solid:hover,
-.home-hero .page-hero__actions .btn--outline:hover {
-  background-color: transparent;
-  border-color: transparent;
-  color: #d4186a;
+  .home-hero .page-hero__actions .btn--solid:hover,
+  .home-hero .page-hero__actions .btn--outline:hover {
+    background-color: transparent;
+    border-color: transparent;
+    color: #d4186a;
+  }
 }
 
 .home-hero__cta-icon {
@@ -11769,7 +11771,8 @@ img.lazy-img.loaded {
     flex-direction: column;
     flex-wrap: nowrap;
     justify-content: flex-start;
-    align-items: flex-start;
+    align-items: stretch;
+    width: 100%;
   }
 
   .page-hero__actions .btn {
@@ -11779,7 +11782,7 @@ img.lazy-img.loaded {
   }
 
   .home-hero .page-hero__actions .btn {
-    white-space: nowrap;
+    white-space: normal;
   }
 
   .page-hero.explore-hero .page-hero__inner {
@@ -19147,8 +19150,8 @@ body.newsletter-success-open {
 
   .page-hero.home-hero .page-hero__actions .btn {
     white-space: normal;
-    font-size: clamp(0.92rem, 3.2vw, 1.02rem);
-    padding: 0.1rem 0;
+    font-size: clamp(0.68rem, 2.55vw, 0.875rem);
+    padding: 0.78rem clamp(0.65rem, 2.4vw, 1rem);
   }
 
   .page-hero.about-hero .hero-image-wrap,
@@ -21866,18 +21869,44 @@ body.newsletter-success-open {
 
   .page-hero.home-hero .page-hero__actions {
     flex-direction: column;
-    align-items: flex-start !important;
+    align-items: stretch !important;
+    align-self: stretch !important;
+    width: 100% !important;
     gap: 0.75rem !important;
   }
 
   .page-hero.home-hero .page-hero__actions .btn {
-    width: auto !important;
-    padding: 0.1rem 0 !important;
+    width: 100% !important;
+    padding: 0.78rem clamp(0.65rem, 2.4vw, 1rem) !important;
     white-space: normal !important;
-    text-align: left !important;
-    justify-content: flex-start !important;
+    text-align: center !important;
+    justify-content: center !important;
+    border-width: 2px !important;
+    border-style: solid !important;
+    box-shadow: none !important;
+  }
+
+  .page-hero.home-hero .page-hero__actions .btn--solid {
+    background-color: var(--color-pink) !important;
+    border-color: var(--color-pink) !important;
+    color: #fff !important;
+  }
+
+  .page-hero.home-hero .page-hero__actions .btn--outline {
     background-color: transparent !important;
-    border-color: transparent !important;
+    border-color: var(--color-pink) !important;
+    color: var(--color-pink) !important;
+  }
+
+  .page-hero.home-hero .page-hero__actions .btn--solid:hover {
+    background-color: #d4186a !important;
+    border-color: #d4186a !important;
+    color: #fff !important;
+  }
+
+  .page-hero.home-hero .page-hero__actions .btn--outline:hover {
+    background-color: var(--color-pink-soft) !important;
+    border-color: var(--color-pink) !important;
     color: var(--color-pink) !important;
   }
 
@@ -21894,10 +21923,6 @@ body.newsletter-success-open {
     justify-content: flex-start !important;
     max-width: none !important;
     margin-inline: 0 !important;
-  }
-
-  .page-hero.home-hero .page-hero__actions {
-    align-items: flex-start !important;
   }
 
   .page-hero.home-hero .about-hero__media,
@@ -22063,6 +22088,23 @@ body.newsletter-success-open {
   .page-hero .hero-ctas .btn {
     width: auto;
     max-width: none;
+  }
+
+  .page-hero.home-hero .page-hero__actions,
+  .page-hero.home-hero .hero-ctas {
+    flex-direction: column !important;
+    flex-wrap: nowrap !important;
+    align-items: stretch !important;
+    align-self: stretch !important;
+    width: 100% !important;
+    max-width: none !important;
+    gap: 0.75rem !important;
+  }
+
+  .page-hero.home-hero .page-hero__actions .btn,
+  .page-hero.home-hero .hero-ctas .btn {
+    width: 100% !important;
+    max-width: none !important;
   }
 
   .page-hero .home-hero__logo {
