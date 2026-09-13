@@ -1733,6 +1733,7 @@ button {
 
 .home-hero__brand {
   margin: 0 0 clamp(0.55rem, 1.1vw, 0.85rem);
+  background-color: #fff;
 }
 
 .home-hero__logo-heading {
@@ -1740,6 +1741,7 @@ button {
   font-size: inherit;
   font-weight: inherit;
   line-height: 0;
+  background-color: #fff;
 }
 
 .home-hero__logo {
@@ -1749,6 +1751,7 @@ button {
   object-fit: contain;
   object-position: left center;
   filter: none;
+  background-color: #fff;
 }
 
 .home-hero .hero-headline,
