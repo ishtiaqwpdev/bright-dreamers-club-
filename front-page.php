@@ -402,7 +402,7 @@ $home_spotlight_council_items = ( is_array( $home_spotlight_council['list_items'
         'template-parts/page-hero',
         null,
         array(
-          'section_class'            => 'home-hero about-hero',
+          'section_class'            => 'home-hero home-welcome-hero about-hero',
           'aria_label'               => 'Welcome',
           'brand_html'               => $home_hero_brand_html,
           'supporting_copy'          => $home_hero_text,

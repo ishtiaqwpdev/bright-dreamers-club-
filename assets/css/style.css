@@ -22200,8 +22200,8 @@ body.newsletter-success-open {
     background-color: transparent !important;
   }
 
-  .page-hero .page-hero__actions,
-  .page-hero .hero-ctas {
+  .page-hero:not(.home-welcome-hero) .page-hero__actions,
+  .page-hero:not(.home-welcome-hero) .hero-ctas {
     flex-direction: column !important;
     align-items: stretch !important;
     justify-content: flex-start !important;
@@ -22209,8 +22209,8 @@ body.newsletter-success-open {
     max-width: none !important;
   }
 
-  .page-hero .page-hero__actions .btn,
-  .page-hero .hero-ctas .btn {
+  .page-hero:not(.home-welcome-hero) .page-hero__actions .btn,
+  .page-hero:not(.home-welcome-hero) .hero-ctas .btn {
     width: 100% !important;
   }
 }
@@ -26886,24 +26886,6 @@ body.newsletter-success-open {
     height: auto !important;
   }
 
-  .home-page .page-hero.home-hero .page-hero__actions,
-  .home-page .page-hero.home-hero .hero-ctas {
-    flex-direction: row !important;
-    flex-wrap: wrap !important;
-    align-items: center !important;
-    align-self: flex-start !important;
-    width: auto !important;
-    max-width: 100% !important;
-    gap: 0.7rem !important;
-  }
-
-  .home-page .page-hero.home-hero .page-hero__actions .btn,
-  .home-page .page-hero.home-hero .hero-ctas .btn {
-    width: auto !important;
-    max-width: none !important;
-    flex: 0 1 auto !important;
-  }
-
   .home-page .page-hero.home-hero .about-hero__media,
   .home-page .page-hero.home-hero .hero-image-wrap {
     align-items: center !important;
@@ -27066,28 +27048,30 @@ body.newsletter-success-open {
   }
 }
 
-/* Home welcome hero — tablet/desktop: both CTAs on one row (About-style) */
+/* Home welcome hero — tablet/desktop: CTAs on one row (About-style) */
 @media (min-width: 769px) {
-  body.home-page #main-content > section.page-hero.home-hero .hero-ctas.page-hero__actions,
-  body.home-page #main-content > section.page-hero.home-hero .page-hero__actions,
-  #main-content > section.page-hero.home-hero .hero-ctas.page-hero__actions,
-  #main-content > section.page-hero.home-hero .page-hero__actions {
+  #main-content > section.page-hero.home-welcome-hero .hero-ctas.page-hero__actions,
+  #main-content > section.page-hero.home-welcome-hero .page-hero__actions,
+  .page-hero.home-welcome-hero .hero-ctas.page-hero__actions,
+  .page-hero.home-welcome-hero .page-hero__actions {
     display: flex !important;
     flex-direction: row !important;
     flex-wrap: wrap !important;
     align-items: center !important;
     align-self: flex-start !important;
+    justify-content: flex-start !important;
     width: auto !important;
     max-width: 100% !important;
-    gap: 0.7rem !important;
+    gap: 0.65rem !important;
   }
 
-  body.home-page #main-content > section.page-hero.home-hero .page-hero__actions .btn,
-  body.home-page #main-content > section.page-hero.home-hero .hero-ctas .btn,
-  #main-content > section.page-hero.home-hero .page-hero__actions .btn,
-  #main-content > section.page-hero.home-hero .hero-ctas .btn {
+  #main-content > section.page-hero.home-welcome-hero .page-hero__actions .btn,
+  #main-content > section.page-hero.home-welcome-hero .hero-ctas .btn,
+  .page-hero.home-welcome-hero .page-hero__actions .btn,
+  .page-hero.home-welcome-hero .hero-ctas .btn {
     width: auto !important;
     max-width: none !important;
+    min-width: 0 !important;
     flex: 0 1 auto !important;
   }
 }
