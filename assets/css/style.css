@@ -22046,23 +22046,6 @@ body.newsletter-success-open {
     max-width: none;
   }
 
-  .page-hero.home-hero .page-hero__actions,
-  .page-hero.home-hero .hero-ctas {
-    flex-direction: column !important;
-    flex-wrap: nowrap !important;
-    align-items: stretch !important;
-    align-self: stretch !important;
-    width: 100% !important;
-    max-width: none !important;
-    gap: 0.75rem !important;
-  }
-
-  .page-hero.home-hero .page-hero__actions .btn,
-  .page-hero.home-hero .hero-ctas .btn {
-    width: 100% !important;
-    max-width: none !important;
-  }
-
   .page-hero .home-hero__logo {
     object-position: left center;
   }
@@ -27080,5 +27063,31 @@ body.newsletter-success-open {
     padding-right: var(--container-padding) !important;
     padding-top: 0 !important;
     padding-bottom: 0 !important;
+  }
+}
+
+/* Home welcome hero — tablet/desktop: both CTAs on one row (About-style) */
+@media (min-width: 769px) {
+  body.home-page #main-content > section.page-hero.home-hero .hero-ctas.page-hero__actions,
+  body.home-page #main-content > section.page-hero.home-hero .page-hero__actions,
+  #main-content > section.page-hero.home-hero .hero-ctas.page-hero__actions,
+  #main-content > section.page-hero.home-hero .page-hero__actions {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    align-self: flex-start !important;
+    width: auto !important;
+    max-width: 100% !important;
+    gap: 0.7rem !important;
+  }
+
+  body.home-page #main-content > section.page-hero.home-hero .page-hero__actions .btn,
+  body.home-page #main-content > section.page-hero.home-hero .hero-ctas .btn,
+  #main-content > section.page-hero.home-hero .page-hero__actions .btn,
+  #main-content > section.page-hero.home-hero .hero-ctas .btn {
+    width: auto !important;
+    max-width: none !important;
+    flex: 0 1 auto !important;
   }
 }
