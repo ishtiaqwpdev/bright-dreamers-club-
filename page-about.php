@@ -13,80 +13,6 @@ $about_page_id = get_queried_object_id();
 
 $about_hero_lazy_placeholder = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';
 
-$about_hero_eyebrow = bdc_get_acf_text(
-	'about_hero_eyebrow',
-	'ABOUT US',
-	$about_page_id
-);
-$about_hero_title_line_1 = bdc_get_acf_text(
-	'about_hero_title_line_1',
-	'Every Child Has a Dream.',
-	$about_page_id
-);
-$about_hero_title_accent = bdc_get_acf_text(
-	'about_hero_title_accent',
-	'We\'re',
-	$about_page_id
-);
-$about_hero_title_underline_url = bdc_get_acf_image_url(
-	'about_hero_title_underline',
-	bdc_theme_asset_url( 'assets/images/heading-underline.jpeg' ),
-	$about_page_id
-);
-$about_hero_title_line_2 = bdc_get_acf_text(
-	'about_hero_title_line_2',
-	'Here to Help It Grow.',
-	$about_page_id
-);
-$about_hero_text = bdc_get_acf_text(
-	'about_hero_text',
-	'Bright Dreamers is a nonprofit community where children are encouraged to dream freely, explore their ideas, create with confidence, and make a positive difference in the world.',
-	$about_page_id
-);
-$about_hero_primary_btn_text = bdc_get_acf_text(
-	'about_hero_primary_btn_text',
-	'Apply to Become a Bright Dreamer',
-	$about_page_id
-);
-$about_hero_primary_btn_link = bdc_get_acf_link(
-	'about_hero_primary_btn_link',
-	array(
-		'title'  => '',
-		'url'    => bdc_page_url( 'apply-to-become.html' ),
-		'target' => '',
-	),
-	$about_page_id
-);
-$about_hero_secondary_btn_text = bdc_get_acf_text(
-	'about_hero_secondary_btn_text',
-	'See Our Vision',
-	$about_page_id
-);
-$about_hero_secondary_btn_link = bdc_get_acf_link(
-	'about_hero_secondary_btn_link',
-	array(
-		'title'  => '',
-		'url'    => bdc_page_url( 'our-vision.html' ),
-		'target' => '',
-	),
-	$about_page_id
-);
-$about_hero_banner_url = bdc_get_acf_image_url(
-	'about_hero_banner',
-	bdc_theme_asset_url( 'assets/images/about-banner.png' ),
-	$about_page_id
-);
-$about_hero_banner_alt = bdc_get_acf_text(
-	'about_hero_banner_alt',
-	'Children creating art together at Bright Dreamers Club',
-	$about_page_id
-);
-$about_hero_banner_mobile_url = bdc_theme_asset_url( 'assets/images/about-banner-mobile.png' );
-$about_hero_banner_mobile_ver = bdc_asset_version( 'assets/images/about-banner-mobile.png' );
-if ( $about_hero_banner_mobile_ver ) {
-	$about_hero_banner_mobile_url = add_query_arg( 'v', $about_hero_banner_mobile_ver, $about_hero_banner_mobile_url );
-}
-
 $about_story_title = bdc_get_acf_text(
 	'about_story_title',
 	'Our Story',
@@ -486,42 +412,11 @@ if ( empty( $about_compare_right_items ) ) {
 ?>
     <main id="main-content">
       <?php
-      $about_headline_html = bdc_hero_lines_html(
-        array(
-          array( 'text' => $about_hero_title_line_1, 'class' => 'about-hero__title-line about-hero__title-line--navy' ),
-        )
-      );
-      if ( '' !== trim( $about_hero_title_accent ) || '' !== trim( $about_hero_title_line_2 ) ) {
-        $about_headline_html .= '<span class="about-hero__title-line about-hero__title-line--pink">';
-        if ( '' !== trim( $about_hero_title_accent ) ) {
-          $about_headline_html .= '<span class="heading-underline">' . esc_html( $about_hero_title_accent ) . '<img class="heading-underline__img" src="' . esc_url( $about_hero_title_underline_url ) . '" alt="" width="120" height="12" /></span>';
-        }
-        if ( '' !== trim( $about_hero_title_line_2 ) ) {
-          $about_headline_html .= ( '' !== trim( $about_hero_title_accent ) ? ' ' : '' ) . esc_html( $about_hero_title_line_2 );
-        }
-        $about_headline_html .= '</span>';
-      }
-
       get_template_part(
-        'template-parts/page-hero',
+        'template-parts/about-hero',
         null,
         array(
-          'section_class'      => 'about-hero',
-          'aria_label'         => 'About Bright Dreamers',
-          'section_label'      => $about_hero_eyebrow,
-          'headline_html'      => $about_headline_html,
-          'supporting_copy'    => $about_hero_text,
-          'primary_cta_text'   => $about_hero_primary_btn_text,
-          'primary_cta_link'   => $about_hero_primary_btn_link,
-          'secondary_cta_text' => $about_hero_secondary_btn_text,
-          'secondary_cta_link' => $about_hero_secondary_btn_link,
-          'hero_image'         => $about_hero_banner_url,
-          'hero_image_mobile'  => $about_hero_banner_mobile_url,
-          'hero_image_alt'     => $about_hero_banner_alt,
-          'media_class'        => 'about-hero__media',
-          'image_class'        => 'about-hero__banner',
-          'hero_deco'                  => true,
-          'secondary_cta_show_heart'   => true,
+          'post_id' => $about_page_id,
         )
       );
       ?>
