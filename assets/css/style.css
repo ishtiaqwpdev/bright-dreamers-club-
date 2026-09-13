@@ -5598,7 +5598,7 @@ img.lazy-img.loaded {
 }
 
 .partners-hero.vision-hero .about-hero__banner {
-  max-height: none;
+  max-height: min(560px, calc(72vh - 50px));
   min-height: unset;
   background-color: #fff !important;
 }
@@ -9548,7 +9548,7 @@ img.lazy-img.loaded {
   }
 
   .partners-hero.vision-hero .about-hero__banner {
-    max-height: none;
+    max-height: min(560px, calc(72vh - 50px));
     min-height: unset;
   }
 
@@ -11735,7 +11735,7 @@ img.lazy-img.loaded {
   }
 
   .partners-hero.vision-hero .about-hero__banner {
-    max-height: min(420px, 52vh);
+    max-height: min(370px, calc(52vh - 50px));
     min-height: unset;
   }
 
@@ -25977,7 +25977,7 @@ body.newsletter-success-open {
     width: 100% !important;
     max-width: 100% !important;
     height: auto !important;
-    max-height: min(820px, 72vh) !important;
+    max-height: min(770px, calc(72vh - 50px)) !important;
     min-height: 0 !important;
     margin: 0 auto !important;
     padding: 0 !important;
@@ -27193,6 +27193,40 @@ body.newsletter-success-open {
     margin-left: auto !important;
     margin-right: 0 !important;
     transform: none !important;
+  }
+}
+
+/* Partners page — desktop hero banner (−50px vs Vision/For Parents) */
+@media (min-width: 1024px) {
+  .partners-page #main-content > section.page-hero.partners-hero .about-hero__banner,
+  .partners-page #main-content > section.page-hero.partners-hero picture img.about-hero__banner,
+  .partners-page .page-hero.partners-hero.vision-hero .about-hero__banner,
+  .partners-page .page-hero.partners-hero.vision-hero picture img.about-hero__banner,
+  .partners-page .page-hero.partners-hero .about-hero__banner,
+  .partners-page .page-hero.partners-hero picture img.about-hero__banner {
+    width: auto !important;
+    max-width: 100% !important;
+    height: min(560px, calc(72vh - 50px)) !important;
+    max-height: min(560px, calc(72vh - 50px)) !important;
+    object-fit: contain !important;
+    object-position: right center !important;
+    margin-left: auto !important;
+    margin-right: 0 !important;
+    transform: none !important;
+  }
+
+  .partners-page .page-hero.partners-hero .about-hero__media,
+  .partners-page .page-hero.partners-hero .hero-image-wrap {
+    justify-content: flex-end !important;
+    align-items: center !important;
+  }
+
+  .partners-page .page-hero.partners-hero .about-hero__media picture,
+  .partners-page .page-hero.partners-hero .about-hero__media .lazy-img-wrap {
+    width: auto !important;
+    max-width: 100% !important;
+    margin-left: auto !important;
+    margin-right: 0 !important;
   }
 }
 
