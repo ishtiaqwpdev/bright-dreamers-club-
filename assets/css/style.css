@@ -1839,42 +1839,19 @@ button {
   margin: 0 0 1.25rem;
 }
 
-.home-hero .page-hero__actions {
-  flex-direction: row;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 1.15rem 1.45rem;
+.home-page .page-hero.home-hero.about-hero .page-hero__content {
+  align-items: flex-start;
+  text-align: left;
 }
 
-@media (min-width: 768px) {
-  .home-hero .page-hero__actions .btn {
-    background-color: transparent;
-    border-color: transparent;
-    color: var(--color-pink);
-    box-shadow: none;
-    padding: 0.15rem 0;
-    white-space: normal;
-  }
+.home-page .page-hero.home-hero.about-hero .home-hero__brand {
+  align-self: flex-start;
+  width: 100%;
+}
 
-  .home-hero .page-hero__actions .btn--lg {
-    font-size: clamp(0.92rem, 0.98vw, 1.02rem);
-    font-weight: 600;
-    padding: 0.15rem 0;
-  }
-
-  .home-hero .page-hero__actions .btn--solid,
-  .home-hero .page-hero__actions .btn--outline {
-    background-color: transparent;
-    border-color: transparent;
-    color: var(--color-pink);
-  }
-
-  .home-hero .page-hero__actions .btn--solid:hover,
-  .home-hero .page-hero__actions .btn--outline:hover {
-    background-color: transparent;
-    border-color: transparent;
-    color: #d4186a;
-  }
+.home-page .page-hero.home-hero.about-hero .hero-copy {
+  text-align: left;
+  margin-inline: 0;
 }
 
 .home-hero__cta-icon {
@@ -1950,15 +1927,6 @@ button {
     text-align: left;
   }
 
-  .page-hero.home-hero .page-hero__inner {
-    grid-template-columns: minmax(0, 0.7fr) minmax(0, 1.3fr);
-    gap: clamp(0.2rem, 0.8vw, 0.75rem);
-  }
-
-  .page-hero.home-hero .page-hero__content {
-    max-width: var(--home-hero-content-max);
-  }
-
   .page-hero.home-hero .about-hero__media,
   .page-hero.home-hero .hero-image-wrap,
   .page-hero.about-hero .about-hero__media,
@@ -2022,11 +1990,6 @@ button {
     height: auto;
     object-fit: contain;
     object-position: right center;
-  }
-
-  .page-hero.home-hero .about-hero__banner {
-    max-height: var(--home-hero-banner-max);
-    filter: none;
   }
 
 }
@@ -3174,18 +3137,6 @@ img.lazy-img.loaded {
   object-fit: contain;
   object-position: center;
   filter: brightness(1.1);
-  background-color: transparent;
-}
-
-.page-hero.home-hero .about-hero__banner {
-  width: 100%;
-  max-width: 100%;
-  height: auto;
-  max-height: var(--home-hero-banner-max);
-  min-height: 0;
-  object-fit: contain;
-  object-position: right center;
-  filter: none;
   background-color: transparent;
 }
 
