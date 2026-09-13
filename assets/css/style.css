@@ -9864,6 +9864,21 @@ img.lazy-img.loaded {
     max-height: min(420px, 52vh);
     object-fit: contain;
   }
+
+  .our-vision-page .page-hero.vision-hero:not(.partners-hero) .about-hero__banner,
+  .our-vision-page .page-hero.vision-hero:not(.partners-hero) picture img.about-hero__banner,
+  .for-parents-page .page-hero.for-parents-hero .about-hero__banner,
+  .for-parents-page .page-hero.for-parents-hero picture img.about-hero__banner {
+    height: min(610px, 72vh) !important;
+    max-height: min(610px, 72vh) !important;
+    width: auto !important;
+    max-width: 100% !important;
+    object-fit: contain !important;
+    object-position: right center !important;
+    margin-left: auto !important;
+    margin-right: 0 !important;
+    transform: none !important;
+  }
 }
 
 @media (max-width: 1023px) {
@@ -22281,10 +22296,11 @@ body.newsletter-success-open {
   }
 }
 
-/* Our Vision hero — desktop: balanced gap; larger banner, right flush (≥1024px) */
+/* Our Vision + For Parents — desktop: cropped banner, right flush (≥1024px) */
 @media (min-width: 1024px) {
   .page-hero.vision-hero:not(.partners-hero) .page-hero__inner,
-  .our-vision-page .page-hero.vision-hero:not(.partners-hero) .page-hero__inner {
+  .our-vision-page .page-hero.vision-hero:not(.partners-hero) .page-hero__inner,
+  .for-parents-page .page-hero.for-parents-hero .page-hero__inner {
     display: grid !important;
     grid-template-columns: minmax(0, var(--vision-hero-content-col)) minmax(0, var(--vision-hero-media-col)) !important;
     gap: clamp(0.75rem, 1.35vw, 1.35rem) !important;
@@ -22293,13 +22309,16 @@ body.newsletter-success-open {
     justify-content: space-between !important;
   }
 
-  .our-vision-page .page-hero.vision-hero:not(.partners-hero) .page-hero__inner {
+  .our-vision-page .page-hero.vision-hero:not(.partners-hero) .page-hero__inner,
+  .for-parents-page .page-hero.for-parents-hero .page-hero__inner {
     --vision-hero-content-col: 0.46fr;
     --vision-hero-media-col: 0.54fr;
+    grid-template-columns: minmax(0, var(--vision-hero-content-col)) minmax(0, var(--vision-hero-media-col)) !important;
   }
 
   .page-hero.vision-hero:not(.partners-hero) .page-hero__content,
-  .our-vision-page .page-hero.vision-hero:not(.partners-hero) .page-hero__content {
+  .our-vision-page .page-hero.vision-hero:not(.partners-hero) .page-hero__content,
+  .for-parents-page .page-hero.for-parents-hero .page-hero__content {
     width: 100% !important;
     max-width: 520px !important;
     margin-right: 0 !important;
@@ -22310,7 +22329,9 @@ body.newsletter-success-open {
   .page-hero.vision-hero:not(.partners-hero) .about-hero__media,
   .page-hero.vision-hero:not(.partners-hero) .hero-image-wrap,
   .our-vision-page .page-hero.vision-hero:not(.partners-hero) .about-hero__media,
-  .our-vision-page .page-hero.vision-hero:not(.partners-hero) .hero-image-wrap {
+  .our-vision-page .page-hero.vision-hero:not(.partners-hero) .hero-image-wrap,
+  .for-parents-page .page-hero.for-parents-hero .about-hero__media,
+  .for-parents-page .page-hero.for-parents-hero .hero-image-wrap {
     min-width: 0 !important;
     width: 100% !important;
     max-width: 100% !important;
@@ -22330,7 +22351,11 @@ body.newsletter-success-open {
   .our-vision-page .page-hero.vision-hero:not(.partners-hero) .about-hero__media .lazy-img-wrap,
   .our-vision-page .page-hero.vision-hero:not(.partners-hero) .about-hero__media picture,
   .our-vision-page .page-hero.vision-hero:not(.partners-hero) .hero-image-wrap .lazy-img-wrap,
-  .our-vision-page .page-hero.vision-hero:not(.partners-hero) .hero-image-wrap picture {
+  .our-vision-page .page-hero.vision-hero:not(.partners-hero) .hero-image-wrap picture,
+  .for-parents-page .page-hero.for-parents-hero .about-hero__media .lazy-img-wrap,
+  .for-parents-page .page-hero.for-parents-hero .about-hero__media picture,
+  .for-parents-page .page-hero.for-parents-hero .hero-image-wrap .lazy-img-wrap,
+  .for-parents-page .page-hero.for-parents-hero .hero-image-wrap picture {
     display: block !important;
     width: auto !important;
     max-width: 100% !important;
@@ -22342,7 +22367,9 @@ body.newsletter-success-open {
 
   .page-hero.vision-hero:not(.partners-hero) .about-hero__banner,
   .our-vision-page .page-hero.vision-hero:not(.partners-hero) .about-hero__banner,
-  .our-vision-page .page-hero.vision-hero:not(.partners-hero) picture img.about-hero__banner {
+  .our-vision-page .page-hero.vision-hero:not(.partners-hero) picture img.about-hero__banner,
+  .for-parents-page .page-hero.for-parents-hero .about-hero__banner,
+  .for-parents-page .page-hero.for-parents-hero picture img.about-hero__banner {
     display: block !important;
     transform: none !important;
     transform-origin: center right !important;
@@ -22350,7 +22377,7 @@ body.newsletter-success-open {
     object-position: right center !important;
     width: auto !important;
     max-width: 100% !important;
-    height: auto !important;
+    height: min(610px, 72vh) !important;
     max-height: min(610px, 72vh) !important;
     min-height: 0 !important;
     margin-left: auto !important;
@@ -22358,6 +22385,12 @@ body.newsletter-success-open {
     filter: none !important;
     background: transparent !important;
     background-color: transparent !important;
+  }
+
+  .for-parents-page .page-hero.for-parents-hero img.lazy-img.about-hero__banner {
+    width: auto !important;
+    max-width: 100% !important;
+    transform: none !important;
   }
 }
 
@@ -27121,17 +27154,24 @@ body.newsletter-success-open {
   }
 }
 
-/* Our Vision — hero banner: cropped assets align with header right edge (desktop) */
+/* Cropped hero banners — Our Vision + For Parents (desktop, wins over shared hero caps) */
 @media (min-width: 1024px) {
   .our-vision-page #main-content > section.page-hero.vision-hero:not(.partners-hero) .page-hero__inner,
-  .our-vision-page .page-hero.vision-hero:not(.partners-hero) .page-hero__inner {
+  .our-vision-page .page-hero.vision-hero:not(.partners-hero) .page-hero__inner,
+  .for-parents-page #main-content > section.page-hero.for-parents-hero .page-hero__inner,
+  .for-parents-page .page-hero.for-parents-hero .page-hero__inner {
     align-items: center !important;
+    gap: clamp(0.75rem, 1.35vw, 1.35rem) !important;
   }
 
   .our-vision-page #main-content > section.page-hero.vision-hero:not(.partners-hero) .about-hero__media,
   .our-vision-page #main-content > section.page-hero.vision-hero:not(.partners-hero) .hero-image-wrap,
   .our-vision-page .page-hero.vision-hero:not(.partners-hero) .about-hero__media,
-  .our-vision-page .page-hero.vision-hero:not(.partners-hero) .hero-image-wrap {
+  .our-vision-page .page-hero.vision-hero:not(.partners-hero) .hero-image-wrap,
+  .for-parents-page #main-content > section.page-hero.for-parents-hero .about-hero__media,
+  .for-parents-page #main-content > section.page-hero.for-parents-hero .hero-image-wrap,
+  .for-parents-page .page-hero.for-parents-hero .about-hero__media,
+  .for-parents-page .page-hero.for-parents-hero .hero-image-wrap {
     justify-content: flex-end !important;
     align-items: center !important;
   }
@@ -27139,14 +27179,20 @@ body.newsletter-success-open {
   .our-vision-page #main-content > section.page-hero.vision-hero:not(.partners-hero) .about-hero__banner,
   .our-vision-page #main-content > section.page-hero.vision-hero:not(.partners-hero) picture img.about-hero__banner,
   .our-vision-page .page-hero.vision-hero:not(.partners-hero) .about-hero__banner,
-  .our-vision-page .page-hero.vision-hero:not(.partners-hero) picture img.about-hero__banner {
+  .our-vision-page .page-hero.vision-hero:not(.partners-hero) picture img.about-hero__banner,
+  .for-parents-page #main-content > section.page-hero.for-parents-hero .about-hero__banner,
+  .for-parents-page #main-content > section.page-hero.for-parents-hero picture img.about-hero__banner,
+  .for-parents-page .page-hero.for-parents-hero .about-hero__banner,
+  .for-parents-page .page-hero.for-parents-hero picture img.about-hero__banner {
     width: auto !important;
     max-width: 100% !important;
+    height: min(610px, 72vh) !important;
     max-height: min(610px, 72vh) !important;
     object-fit: contain !important;
     object-position: right center !important;
     margin-left: auto !important;
     margin-right: 0 !important;
+    transform: none !important;
   }
 }
 

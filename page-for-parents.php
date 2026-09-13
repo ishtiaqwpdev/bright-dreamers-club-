@@ -82,11 +82,19 @@ $for_parents_hero_secondary_btn_link = bdc_get_acf_link(
 	),
 	$for_parents_page_id
 );
-$for_parents_hero_banner_url = bdc_get_acf_image_url(
+$for_parents_hero_banner_theme_path = 'assets/images/for-parents-hero-banner.png';
+$for_parents_hero_banner_default_url = bdc_theme_asset_url( $for_parents_hero_banner_theme_path );
+$for_parents_hero_banner_url         = bdc_get_acf_image_url(
 	'for_parents_hero_banner',
-	bdc_theme_asset_url( 'assets/images/for-parents-hero-banner.png' ),
+	$for_parents_hero_banner_default_url,
 	$for_parents_page_id
 );
+if ( $for_parents_hero_banner_url === $for_parents_hero_banner_default_url ) {
+	$for_parents_hero_banner_ver = bdc_asset_version( $for_parents_hero_banner_theme_path );
+	if ( $for_parents_hero_banner_ver ) {
+		$for_parents_hero_banner_url = add_query_arg( 'v', $for_parents_hero_banner_ver, $for_parents_hero_banner_url );
+	}
+}
 $for_parents_hero_banner_alt = bdc_get_acf_text(
 	'for_parents_hero_banner_alt',
 	'A mother and daughter drawing together at a table with colored pencils',
