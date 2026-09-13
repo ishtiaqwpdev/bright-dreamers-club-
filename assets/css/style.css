@@ -27230,10 +27230,17 @@ body.newsletter-success-open {
   }
 }
 
-/* Explore page — desktop hero banner (same size as Partners) */
+/* Explore hub + program sub-pages — desktop hero banner (shared size) */
 @media (min-width: 1024px) {
+  .explore-page,
+  .program-detail-page {
+    --explore-hub-hero-banner-h: min(510px, calc(72vh - 80px));
+  }
+
   .explore-page #main-content > section.page-hero.explore-hero .page-hero__inner,
-  .explore-page .page-hero.explore-hero .page-hero__inner {
+  .explore-page .page-hero.explore-hero .page-hero__inner,
+  .program-detail-page #main-content > section.page-hero .page-hero__inner,
+  .program-detail-page .page-hero .page-hero__inner {
     align-items: center !important;
     gap: clamp(0.75rem, 1.35vw, 1.35rem) !important;
   }
@@ -27241,15 +27248,24 @@ body.newsletter-success-open {
   .explore-page #main-content > section.page-hero.explore-hero .explore-hero__media,
   .explore-page #main-content > section.page-hero.explore-hero .hero-image-wrap,
   .explore-page .page-hero.explore-hero .explore-hero__media,
-  .explore-page .page-hero.explore-hero .hero-image-wrap {
+  .explore-page .page-hero.explore-hero .hero-image-wrap,
+  .program-detail-page #main-content > section.page-hero .creative-makers-hero__media,
+  .program-detail-page #main-content > section.page-hero .hero-image-wrap,
+  .program-detail-page .page-hero .creative-makers-hero__media,
+  .program-detail-page .page-hero .hero-image-wrap {
     justify-content: flex-end !important;
     align-items: center !important;
+    overflow: visible !important;
   }
 
   .explore-page .page-hero.explore-hero .explore-hero__media picture,
   .explore-page .page-hero.explore-hero .explore-hero__media .lazy-img-wrap,
   .explore-page .page-hero.explore-hero .hero-image-wrap picture,
-  .explore-page .page-hero.explore-hero .hero-image-wrap .lazy-img-wrap {
+  .explore-page .page-hero.explore-hero .hero-image-wrap .lazy-img-wrap,
+  .program-detail-page .page-hero .creative-makers-hero__media picture,
+  .program-detail-page .page-hero .creative-makers-hero__media .lazy-img-wrap,
+  .program-detail-page .page-hero .hero-image-wrap picture,
+  .program-detail-page .page-hero .hero-image-wrap .lazy-img-wrap {
     width: auto !important;
     max-width: 100% !important;
     margin-left: auto !important;
@@ -27259,20 +27275,26 @@ body.newsletter-success-open {
   .explore-page #main-content > section.page-hero.explore-hero .explore-hero__banner,
   .explore-page #main-content > section.page-hero.explore-hero picture img.explore-hero__banner,
   .explore-page .page-hero.explore-hero .explore-hero__banner,
-  .explore-page .page-hero.explore-hero picture img.explore-hero__banner {
+  .explore-page .page-hero.explore-hero picture img.explore-hero__banner,
+  .program-detail-page #main-content > section.page-hero .creative-makers-hero__banner,
+  .program-detail-page #main-content > section.page-hero picture img.creative-makers-hero__banner,
+  .program-detail-page .page-hero .creative-makers-hero__banner,
+  .program-detail-page .page-hero picture img.creative-makers-hero__banner {
     width: auto !important;
     max-width: 100% !important;
-    height: min(510px, calc(72vh - 80px)) !important;
-    max-height: min(510px, calc(72vh - 80px)) !important;
+    height: var(--explore-hub-hero-banner-h) !important;
+    max-height: var(--explore-hub-hero-banner-h) !important;
     object-fit: contain !important;
     object-position: right center !important;
     margin-left: auto !important;
     margin-right: 0 !important;
     border-radius: 0 !important;
     transform: none !important;
+    filter: none !important;
   }
 
-  .explore-page .page-hero.explore-hero img.lazy-img.explore-hero__banner {
+  .explore-page .page-hero.explore-hero img.lazy-img.explore-hero__banner,
+  .program-detail-page .page-hero img.lazy-img.creative-makers-hero__banner {
     width: auto !important;
     max-width: 100% !important;
     transform: none !important;
