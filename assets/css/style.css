@@ -27230,3 +27230,52 @@ body.newsletter-success-open {
   }
 }
 
+/* Explore page — desktop hero banner (same size as Partners) */
+@media (min-width: 1024px) {
+  .explore-page #main-content > section.page-hero.explore-hero .page-hero__inner,
+  .explore-page .page-hero.explore-hero .page-hero__inner {
+    align-items: center !important;
+    gap: clamp(0.75rem, 1.35vw, 1.35rem) !important;
+  }
+
+  .explore-page #main-content > section.page-hero.explore-hero .explore-hero__media,
+  .explore-page #main-content > section.page-hero.explore-hero .hero-image-wrap,
+  .explore-page .page-hero.explore-hero .explore-hero__media,
+  .explore-page .page-hero.explore-hero .hero-image-wrap {
+    justify-content: flex-end !important;
+    align-items: center !important;
+  }
+
+  .explore-page .page-hero.explore-hero .explore-hero__media picture,
+  .explore-page .page-hero.explore-hero .explore-hero__media .lazy-img-wrap,
+  .explore-page .page-hero.explore-hero .hero-image-wrap picture,
+  .explore-page .page-hero.explore-hero .hero-image-wrap .lazy-img-wrap {
+    width: auto !important;
+    max-width: 100% !important;
+    margin-left: auto !important;
+    margin-right: 0 !important;
+  }
+
+  .explore-page #main-content > section.page-hero.explore-hero .explore-hero__banner,
+  .explore-page #main-content > section.page-hero.explore-hero picture img.explore-hero__banner,
+  .explore-page .page-hero.explore-hero .explore-hero__banner,
+  .explore-page .page-hero.explore-hero picture img.explore-hero__banner {
+    width: auto !important;
+    max-width: 100% !important;
+    height: min(560px, calc(72vh - 50px)) !important;
+    max-height: min(560px, calc(72vh - 50px)) !important;
+    object-fit: contain !important;
+    object-position: right center !important;
+    margin-left: auto !important;
+    margin-right: 0 !important;
+    border-radius: 0 !important;
+    transform: none !important;
+  }
+
+  .explore-page .page-hero.explore-hero img.lazy-img.explore-hero__banner {
+    width: auto !important;
+    max-width: 100% !important;
+    transform: none !important;
+  }
+}
+
