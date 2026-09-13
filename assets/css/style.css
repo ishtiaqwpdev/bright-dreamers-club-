@@ -27262,8 +27262,8 @@ body.newsletter-success-open {
   .explore-page .page-hero.explore-hero picture img.explore-hero__banner {
     width: auto !important;
     max-width: 100% !important;
-    height: min(560px, calc(72vh - 50px)) !important;
-    max-height: min(560px, calc(72vh - 50px)) !important;
+    height: min(510px, calc(72vh - 80px)) !important;
+    max-height: min(510px, calc(72vh - 80px)) !important;
     object-fit: contain !important;
     object-position: right center !important;
     margin-left: auto !important;
