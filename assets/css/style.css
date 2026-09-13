@@ -22281,37 +22281,45 @@ body.newsletter-success-open {
   }
 }
 
-/* Our Vision hero — desktop: modest center gap; banner right-aligned in container (≥1024px) */
+/* Our Vision hero — desktop: balanced gap; larger banner, right flush (≥1024px) */
 @media (min-width: 1024px) {
   .page-hero.vision-hero:not(.partners-hero) .page-hero__inner,
   .our-vision-page .page-hero.vision-hero:not(.partners-hero) .page-hero__inner {
-    gap: clamp(1rem, 2.5vw, 2rem) !important;
-    column-gap: clamp(1rem, 2.5vw, 2rem) !important;
+    display: grid !important;
+    grid-template-columns: minmax(0, var(--vision-hero-content-col)) minmax(0, var(--vision-hero-media-col)) !important;
+    gap: clamp(0.75rem, 1.35vw, 1.35rem) !important;
+    column-gap: clamp(0.75rem, 1.35vw, 1.35rem) !important;
     align-items: center !important;
+    justify-content: space-between !important;
+  }
+
+  .our-vision-page .page-hero.vision-hero:not(.partners-hero) .page-hero__inner {
+    --vision-hero-content-col: 0.46fr;
+    --vision-hero-media-col: 0.54fr;
   }
 
   .page-hero.vision-hero:not(.partners-hero) .page-hero__content,
   .our-vision-page .page-hero.vision-hero:not(.partners-hero) .page-hero__content {
-    flex: 0 1 auto !important;
-    width: auto !important;
+    width: 100% !important;
     max-width: 520px !important;
     margin-right: 0 !important;
     padding-right: 0 !important;
-    align-self: center !important;
+    justify-self: start !important;
   }
 
   .page-hero.vision-hero:not(.partners-hero) .about-hero__media,
   .page-hero.vision-hero:not(.partners-hero) .hero-image-wrap,
   .our-vision-page .page-hero.vision-hero:not(.partners-hero) .about-hero__media,
   .our-vision-page .page-hero.vision-hero:not(.partners-hero) .hero-image-wrap {
-    flex: 1 1 58% !important;
     min-width: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    justify-self: end !important;
+    display: flex !important;
     justify-content: flex-end !important;
     align-items: center !important;
-    align-self: center !important;
-    margin-left: 0 !important;
-    padding-left: 0 !important;
-    padding-right: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
     overflow: visible !important;
   }
 
@@ -22323,12 +22331,11 @@ body.newsletter-success-open {
   .our-vision-page .page-hero.vision-hero:not(.partners-hero) .about-hero__media picture,
   .our-vision-page .page-hero.vision-hero:not(.partners-hero) .hero-image-wrap .lazy-img-wrap,
   .our-vision-page .page-hero.vision-hero:not(.partners-hero) .hero-image-wrap picture {
-    display: flex !important;
-    justify-content: flex-end !important;
-    align-items: center !important;
-    width: 100% !important;
-    max-width: none !important;
-    margin: 0 !important;
+    display: block !important;
+    width: auto !important;
+    max-width: 100% !important;
+    margin-left: auto !important;
+    margin-right: 0 !important;
     padding: 0 !important;
     overflow: visible !important;
   }
@@ -22341,10 +22348,10 @@ body.newsletter-success-open {
     transform-origin: center right !important;
     object-fit: contain !important;
     object-position: right center !important;
-    width: 100% !important;
+    width: auto !important;
     max-width: 100% !important;
     height: auto !important;
-    max-height: min(430px, 60vh) !important;
+    max-height: min(520px, 68vh) !important;
     min-height: 0 !important;
     margin-left: auto !important;
     margin-right: 0 !important;
@@ -27133,7 +27140,10 @@ body.newsletter-success-open {
   .our-vision-page #main-content > section.page-hero.vision-hero:not(.partners-hero) picture img.about-hero__banner,
   .our-vision-page .page-hero.vision-hero:not(.partners-hero) .about-hero__banner,
   .our-vision-page .page-hero.vision-hero:not(.partners-hero) picture img.about-hero__banner {
-    max-height: min(430px, 60vh) !important;
+    width: auto !important;
+    max-width: 100% !important;
+    max-height: min(520px, 68vh) !important;
+    object-fit: contain !important;
     object-position: right center !important;
     margin-left: auto !important;
     margin-right: 0 !important;
