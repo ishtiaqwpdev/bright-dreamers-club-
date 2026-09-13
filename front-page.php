@@ -383,15 +383,6 @@ $home_spotlight_council_items = ( is_array( $home_spotlight_council['list_items'
 ?>
     <main id="main-content">
       <?php
-      get_template_part(
-        'template-parts/about-hero',
-        null,
-        array(
-          'post_id'        => bdc_get_page_id_by_slug( 'about' ),
-          'section_class'  => 'about-hero home-about-hero',
-        )
-      );
-
       $home_hero_brand_html = sprintf(
         '<div class="home-hero__brand"><h1 class="home-hero__logo-heading"><img class="home-hero__logo" src="%1$s" alt="%2$s" width="480" height="220" decoding="async" /></h1></div>',
         esc_url( $home_hero_logo_url ),
@@ -402,7 +393,8 @@ $home_spotlight_council_items = ( is_array( $home_spotlight_council['list_items'
         'template-parts/page-hero',
         null,
         array(
-          'section_class'            => 'home-hero home-welcome-hero about-hero',
+          'section_class'            => 'home-hero home-welcome-hero',
+          'actions_class'            => 'home-hero__actions home-hero__actions--inline',
           'aria_label'               => 'Welcome',
           'brand_html'               => $home_hero_brand_html,
           'supporting_copy'          => $home_hero_text,

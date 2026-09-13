@@ -41,8 +41,11 @@ $hero = wp_parse_args(
 		'primary_cta_show_icon'    => false,
 		'secondary_cta_show_heart' => false,
 		'brand_html'               => '',
+		'actions_class'            => '',
 	)
 );
+
+$actions_class = trim( 'hero-ctas page-hero__actions ' . (string) $hero['actions_class'] );
 
 $primary_link   = is_array( $hero['primary_cta_link'] ) ? $hero['primary_cta_link'] : array();
 $secondary_link = is_array( $hero['secondary_cta_link'] ) ? $hero['secondary_cta_link'] : array();
@@ -157,7 +160,7 @@ $image_class   = trim( 'lazy-img ' . (string) $hero['image_class'] );
             <?php endif; ?>
 
             <?php if ( $has_primary || $has_secondary ) : ?>
-            <div class="hero-ctas page-hero__actions">
+            <div class="<?php echo esc_attr( $actions_class ); ?>">
               <?php if ( $has_primary ) : ?>
               <a class="btn btn--solid btn--lg btn-hover" href="<?php echo esc_url( $primary_url ); ?>"<?php echo bdc_acf_link_target_attr( $primary_link ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
                 <?php if ( ! empty( $hero['primary_cta_show_icon'] ) ) : ?>
