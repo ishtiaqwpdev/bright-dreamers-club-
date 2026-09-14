@@ -15,6 +15,12 @@ $home_hero_logo_ver        = bdc_asset_version( $home_hero_logo_theme_path );
 if ( $home_hero_logo_ver ) {
 	$home_hero_logo_url = add_query_arg( 'v', $home_hero_logo_ver, $home_hero_logo_url );
 }
+$home_hero_logo_mobile_theme_path = 'assets/images/home-hero-logo-mobile.png';
+$home_hero_logo_mobile_url        = bdc_theme_asset_url( $home_hero_logo_mobile_theme_path );
+$home_hero_logo_mobile_ver        = bdc_asset_version( $home_hero_logo_mobile_theme_path );
+if ( $home_hero_logo_mobile_ver ) {
+	$home_hero_logo_mobile_url = add_query_arg( 'v', $home_hero_logo_mobile_ver, $home_hero_logo_mobile_url );
+}
 $home_hero_logo_alt = bdc_get_acf_text(
 	'home_hero_logo_alt',
 	'Bright Dreamers — Dream, Create, Grow, Give',
@@ -384,9 +390,10 @@ $home_spotlight_council_items = ( is_array( $home_spotlight_council['list_items'
     <main id="main-content">
       <?php
       $home_hero_brand_html = sprintf(
-        '<div class="home-hero__brand"><h1 class="home-hero__logo-heading"><img class="home-hero__logo" src="%1$s" alt="%2$s" width="480" height="220" decoding="async" /></h1></div>',
+        '<div class="home-hero__brand"><h1 class="home-hero__logo-heading"><picture><source media="(max-width: 767px)" srcset="%3$s" /><img class="home-hero__logo" src="%1$s" alt="%2$s" width="480" height="220" decoding="async" /></picture></h1></div>',
         esc_url( $home_hero_logo_url ),
-        esc_attr( $home_hero_logo_alt )
+        esc_attr( $home_hero_logo_alt ),
+        esc_url( $home_hero_logo_mobile_url )
       );
 
       get_template_part(
