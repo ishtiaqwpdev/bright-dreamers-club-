@@ -764,7 +764,7 @@ acf_add_local_field_group(
 				'return_format' => 'array',
 				'preview_size'  => 'medium',
 				'library'       => 'all',
-				'instructions'  => 'Leave empty to keep the current about banner photo.',
+				'instructions'  => 'Banner image is loaded from the theme file assets/images/about-banner.png (Git). This field is not used on the front end.',
 			),
 			array(
 				'key'           => 'field_about_hero_banner_alt',

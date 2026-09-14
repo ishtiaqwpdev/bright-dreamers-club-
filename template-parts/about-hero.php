@@ -79,18 +79,11 @@ $about_hero_secondary_btn_link = bdc_get_acf_link(
 	),
 	$post_id
 );
-$about_hero_banner_theme_path  = 'assets/images/about-banner.png';
-$about_hero_banner_default_url = bdc_theme_asset_url( $about_hero_banner_theme_path );
-$about_hero_banner_url         = bdc_get_acf_image_url(
-	'about_hero_banner',
-	$about_hero_banner_default_url,
-	$post_id
-);
-if ( $about_hero_banner_url === $about_hero_banner_default_url ) {
-	$about_hero_banner_ver = bdc_asset_version( $about_hero_banner_theme_path );
-	if ( $about_hero_banner_ver ) {
-		$about_hero_banner_url = add_query_arg( 'v', $about_hero_banner_ver, $about_hero_banner_url );
-	}
+$about_hero_banner_theme_path = 'assets/images/about-banner.png';
+$about_hero_banner_url        = bdc_theme_asset_url( $about_hero_banner_theme_path );
+$about_hero_banner_ver        = bdc_asset_version( $about_hero_banner_theme_path );
+if ( $about_hero_banner_ver ) {
+	$about_hero_banner_url = add_query_arg( 'v', $about_hero_banner_ver, $about_hero_banner_url );
 }
 $about_hero_banner_alt = bdc_get_acf_text(
 	'about_hero_banner_alt',
