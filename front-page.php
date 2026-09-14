@@ -51,7 +51,7 @@ if ( $home_hero_banner_ver ) {
 }
 $home_hero_banner_alt = bdc_get_acf_text(
 	'home_hero_banner_alt',
-	'Child with notebook, colorful path, and city skyline — today\'s ideas, tomorrow\'s real change',
+	'Student with backpack and notebook on a colorful path toward a sunlit city skyline',
 	$front_page_id
 );
 $home_hero_banner_mobile_theme_path = 'assets/images/home-hero-banner.jpg';
