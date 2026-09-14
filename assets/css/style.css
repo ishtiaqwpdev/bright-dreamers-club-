@@ -19152,9 +19152,12 @@ body.newsletter-success-open {
   }
 
   .page-hero .vision-hero__list {
-    margin: 0;
-    max-width: 320px;
-    text-align: left;
+    margin: 0 !important;
+    margin-inline: 0 !important;
+    max-width: none !important;
+    width: 100% !important;
+    align-self: stretch !important;
+    text-align: left !important;
   }
 
   .faq-hero .page-hero__inner {
@@ -19508,8 +19511,11 @@ body.newsletter-success-open {
   }
 
   .vision-hero-checklist .vision-hero__list {
-    margin: 0 auto;
-    max-width: 320px;
+    margin: 0 !important;
+    margin-inline: 0 !important;
+    max-width: none !important;
+    width: 100% !important;
+    text-align: left !important;
   }
 }
 
@@ -24610,21 +24616,26 @@ body.newsletter-success-open {
   }
 
   .our-vision-page .page-hero.vision-hero .page-hero__extra {
+    align-self: stretch !important;
     width: 100% !important;
-    max-width: 100% !important;
+    max-width: none !important;
     margin: 0 !important;
     padding: 0 !important;
+    text-align: left !important;
   }
 
   .our-vision-page .page-hero.vision-hero .page-hero__extra .vision-hero__list {
     list-style: none !important;
     margin: 0 !important;
+    margin-inline: 0 !important;
     padding: 0 !important;
     display: flex !important;
     flex-direction: column !important;
+    align-items: flex-start !important;
     gap: 0.45rem !important;
     width: 100% !important;
-    max-width: 100% !important;
+    max-width: none !important;
+    text-align: left !important;
   }
 
   .our-vision-page .page-hero.vision-hero .page-hero__extra .vision-hero__list li {
@@ -27892,7 +27903,6 @@ body.newsletter-success-open {
 
   #main-content .page-hero:not(.home-welcome-hero) .page-hero__extra,
   #main-content .page-hero:not(.home-welcome-hero) .explore-hero__heading-block,
-  #main-content .page-hero:not(.home-welcome-hero) .vision-hero__list,
   #main-content .page-hero:not(.home-welcome-hero) .creative-makers-breadcrumbs {
     order: 4 !important;
     box-sizing: border-box !important;
@@ -28083,6 +28093,36 @@ body.newsletter-success-open {
     max-height: none !important;
     object-fit: contain !important;
     object-position: center center !important;
+  }
+}
+
+/* Our Vision — mobile/tablet: left-align hero checklist above banner (≤1023px) */
+@media (max-width: 1023px) {
+  .our-vision-page #main-content .page-hero.vision-hero .page-hero__extra {
+    align-self: stretch !important;
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 0 var(--container-padding) !important;
+    text-align: left !important;
+  }
+
+  .our-vision-page #main-content .page-hero.vision-hero .page-hero__extra .vision-hero__list,
+  .our-vision-page #main-content .page-hero.vision-hero .vision-hero__list {
+    margin: 0 !important;
+    margin-inline: 0 !important;
+    max-width: none !important;
+    width: 100% !important;
+    align-self: stretch !important;
+    align-items: flex-start !important;
+    text-align: left !important;
+  }
+
+  .our-vision-page #main-content .page-hero.vision-hero .page-hero__extra .vision-hero__list li {
+    justify-content: flex-start !important;
+    text-align: left !important;
+    width: 100% !important;
+    max-width: none !important;
   }
 }
 
