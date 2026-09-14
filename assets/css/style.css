@@ -19281,6 +19281,15 @@ body.newsletter-success-open {
     margin: 0 0 14px;
   }
 
+  .home-page .page-hero.home-welcome-hero .home-hero__brand {
+    margin: 0 !important;
+  }
+
+  .home-page .page-hero.home-welcome-hero .hero-copy {
+    margin-top: calc(-1 * var(--page-hero-mobile-stack-gap, 1rem)) !important;
+    margin-bottom: 0 !important;
+  }
+
   .page-hero.home-hero .home-hero__logo {
     width: min(100%, 320px);
     height: auto;
@@ -22549,7 +22558,7 @@ body.newsletter-success-open {
   .about-page .page-hero.about-hero .about-hero__media,
   #main-content > section.page-hero.about-hero:not(.contact-hero):not(.vision-hero):not(.for-parents-hero):not(.get-involved-hero):not(.partners-hero):not(.apply-hero) .about-hero__media,
   .page-hero.about-hero:not(.contact-hero):not(.vision-hero):not(.for-parents-hero):not(.get-involved-hero):not(.partners-hero):not(.apply-hero) .about-hero__media {
-    order: -1 !important;
+    order: 5 !important;
     display: flex !important;
     justify-content: center !important;
     align-items: center !important;
@@ -27067,10 +27076,19 @@ body.newsletter-success-open {
     margin: 0 !important;
   }
 
+  .home-page .page-hero.home-welcome-hero .home-hero__logo-heading,
+  .home-page .page-hero.home-welcome-hero .home-hero__logo-heading picture,
+  .home-page .page-hero.home-welcome-hero .home-hero__logo {
+    display: block;
+    margin: 0 !important;
+    padding: 0 !important;
+    line-height: 0;
+  }
+
   .home-page .page-hero.home-welcome-hero .hero-copy {
     order: 2 !important;
     padding: 0 var(--container-padding) !important;
-    margin: 0 !important;
+    margin: calc(-1 * var(--page-hero-mobile-stack-gap, 1rem)) 0 0 !important;
     text-align: left !important;
     max-width: none !important;
   }
@@ -27137,6 +27155,200 @@ body.newsletter-success-open {
     width: 1rem !important;
     height: 1rem !important;
     flex-shrink: 0;
+  }
+}
+
+/* Main nav pages — mobile/tablet hero stack matches home: text → banner → CTAs (≤1023px) */
+@media (max-width: 1023px) {
+  .about-page .page-hero .page-hero__inner,
+  .explore-page .page-hero .page-hero__inner,
+  .for-parents-page .page-hero .page-hero__inner,
+  .our-vision-page .page-hero .page-hero__inner,
+  .get-involved-page .page-hero .page-hero__inner,
+  .partners-page .page-hero .page-hero__inner,
+  .contact-page .page-hero .page-hero__inner {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: var(--page-hero-mobile-stack-gap, 1rem) !important;
+    row-gap: var(--page-hero-mobile-stack-gap, 1rem) !important;
+  }
+
+  .about-page .page-hero .page-hero__content,
+  .explore-page .page-hero .page-hero__content,
+  .for-parents-page .page-hero .page-hero__content,
+  .our-vision-page .page-hero .page-hero__content,
+  .get-involved-page .page-hero .page-hero__content,
+  .partners-page .page-hero .page-hero__content,
+  .contact-page .page-hero .page-hero__content {
+    display: contents !important;
+  }
+
+  .about-page .page-hero .hero-label,
+  .explore-page .page-hero .hero-label,
+  .for-parents-page .page-hero .hero-label,
+  .our-vision-page .page-hero .hero-label,
+  .get-involved-page .page-hero .hero-label,
+  .partners-page .page-hero .hero-label,
+  .contact-page .page-hero .hero-label {
+    order: 1 !important;
+    box-sizing: border-box !important;
+    width: 100% !important;
+    padding: 0 var(--container-padding) !important;
+    margin: 0 !important;
+    text-align: left !important;
+  }
+
+  .about-page .page-hero .hero-headline,
+  .explore-page .page-hero .hero-headline,
+  .for-parents-page .page-hero .hero-headline,
+  .our-vision-page .page-hero .hero-headline,
+  .get-involved-page .page-hero .hero-headline,
+  .partners-page .page-hero .hero-headline,
+  .contact-page .page-hero .hero-headline {
+    order: 2 !important;
+    box-sizing: border-box !important;
+    width: 100% !important;
+    padding: 0 var(--container-padding) !important;
+    margin: 0 !important;
+    text-align: left !important;
+    max-width: none !important;
+  }
+
+  .about-page .page-hero .hero-copy,
+  .explore-page .page-hero .hero-copy,
+  .for-parents-page .page-hero .hero-copy,
+  .our-vision-page .page-hero .hero-copy,
+  .get-involved-page .page-hero .hero-copy,
+  .partners-page .page-hero .hero-copy,
+  .contact-page .page-hero .hero-copy {
+    order: 3 !important;
+    box-sizing: border-box !important;
+    width: 100% !important;
+    padding: 0 var(--container-padding) !important;
+    margin: 0 !important;
+    text-align: left !important;
+    max-width: none !important;
+  }
+
+  .about-page .page-hero .page-hero__extra,
+  .explore-page .page-hero .page-hero__extra,
+  .for-parents-page .page-hero .page-hero__extra,
+  .our-vision-page .page-hero .page-hero__extra,
+  .get-involved-page .page-hero .page-hero__extra,
+  .partners-page .page-hero .page-hero__extra,
+  .contact-page .page-hero .page-hero__extra {
+    order: 4 !important;
+    box-sizing: border-box !important;
+    width: 100% !important;
+    padding: 0 var(--container-padding) !important;
+    margin: 0 !important;
+  }
+
+  .about-page .page-hero .about-hero__media,
+  .about-page .page-hero .hero-image-wrap,
+  .explore-page .page-hero .explore-hero__media,
+  .explore-page .page-hero .hero-image-wrap,
+  .for-parents-page .page-hero .about-hero__media,
+  .for-parents-page .page-hero .hero-image-wrap,
+  .our-vision-page .page-hero .about-hero__media,
+  .our-vision-page .page-hero .hero-image-wrap,
+  .get-involved-page .page-hero .about-hero__media,
+  .get-involved-page .page-hero .hero-image-wrap,
+  .partners-page .page-hero .about-hero__media,
+  .partners-page .page-hero .hero-image-wrap,
+  .contact-page .page-hero .about-hero__media,
+  .contact-page .page-hero .hero-image-wrap {
+    order: 5 !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 0 var(--container-padding) !important;
+    overflow: visible !important;
+  }
+
+  .about-page .page-hero .about-hero__banner,
+  .about-page .page-hero .explore-hero__banner,
+  .explore-page .page-hero .explore-hero__banner,
+  .for-parents-page .page-hero .about-hero__banner,
+  .our-vision-page .page-hero .about-hero__banner,
+  .get-involved-page .page-hero .about-hero__banner,
+  .partners-page .page-hero .about-hero__banner,
+  .contact-page .page-hero .about-hero__banner,
+  .about-page .page-hero picture img[class*='__banner'],
+  .explore-page .page-hero picture img[class*='__banner'],
+  .for-parents-page .page-hero picture img[class*='__banner'],
+  .our-vision-page .page-hero picture img[class*='__banner'],
+  .get-involved-page .page-hero picture img[class*='__banner'],
+  .partners-page .page-hero picture img[class*='__banner'],
+  .contact-page .page-hero picture img[class*='__banner'] {
+    display: block !important;
+    width: 100% !important;
+    max-width: none !important;
+    max-height: none !important;
+    height: auto !important;
+    object-fit: contain !important;
+    object-position: center center !important;
+    margin: 0 !important;
+  }
+
+  .about-page .page-hero .page-hero__actions,
+  .about-page .page-hero .hero-ctas,
+  .explore-page .page-hero .page-hero__actions,
+  .explore-page .page-hero .hero-ctas,
+  .for-parents-page .page-hero .page-hero__actions,
+  .for-parents-page .page-hero .hero-ctas,
+  .our-vision-page .page-hero .page-hero__actions,
+  .our-vision-page .page-hero .hero-ctas,
+  .get-involved-page .page-hero .page-hero__actions,
+  .get-involved-page .page-hero .hero-ctas,
+  .partners-page .page-hero .page-hero__actions,
+  .partners-page .page-hero .hero-ctas,
+  .contact-page .page-hero .page-hero__actions,
+  .contact-page .page-hero .hero-ctas {
+    order: 6 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    align-self: stretch !important;
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 0 var(--container-padding) !important;
+    gap: 0.75rem !important;
+  }
+
+  .about-page .page-hero .page-hero__actions .btn,
+  .about-page .page-hero .hero-ctas .btn,
+  .explore-page .page-hero .page-hero__actions .btn,
+  .explore-page .page-hero .hero-ctas .btn,
+  .for-parents-page .page-hero .page-hero__actions .btn,
+  .for-parents-page .page-hero .hero-ctas .btn,
+  .our-vision-page .page-hero .page-hero__actions .btn,
+  .our-vision-page .page-hero .hero-ctas .btn,
+  .get-involved-page .page-hero .page-hero__actions .btn,
+  .get-involved-page .page-hero .hero-ctas .btn,
+  .partners-page .page-hero .page-hero__actions .btn,
+  .partners-page .page-hero .hero-ctas .btn,
+  .contact-page .page-hero .page-hero__actions .btn,
+  .contact-page .page-hero .hero-ctas .btn {
+    width: 100% !important;
+    max-width: none !important;
+    justify-content: center !important;
+    white-space: normal !important;
+  }
+
+  .about-page .page-hero .about-hero__deco,
+  .explore-page .page-hero .about-hero__deco,
+  .for-parents-page .page-hero .about-hero__deco,
+  .our-vision-page .page-hero .about-hero__deco,
+  .get-involved-page .page-hero .about-hero__deco,
+  .partners-page .page-hero .about-hero__deco,
+  .contact-page .page-hero .about-hero__deco {
+    display: none !important;
   }
 }
 
