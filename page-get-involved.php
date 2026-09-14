@@ -86,14 +86,15 @@ $get_involved_hero_secondary_btn_link = bdc_get_acf_link(
 	),
 	$get_involved_page_id
 );
-$get_involved_hero_banner_url = bdc_get_acf_image_url(
-	'get_involved_hero_banner',
-	bdc_theme_asset_url( 'assets/images/get-involved-hero-banner-removebg-preview.png' ),
-	$get_involved_page_id
-);
+$get_involved_hero_banner_theme_path = 'assets/images/get-involved-hero-banner-removebg-preview.png';
+$get_involved_hero_banner_url        = bdc_theme_asset_url( $get_involved_hero_banner_theme_path );
+$get_involved_hero_banner_ver        = bdc_asset_version( $get_involved_hero_banner_theme_path );
+if ( $get_involved_hero_banner_ver ) {
+	$get_involved_hero_banner_url = add_query_arg( 'v', $get_involved_hero_banner_ver, $get_involved_hero_banner_url );
+}
 $get_involved_hero_banner_alt = bdc_get_acf_text(
 	'get_involved_hero_banner_alt',
-	'Children collaborating on a creative project together',
+	'Children building a model house with solar panels and wind turbines',
 	$get_involved_page_id
 );
 
