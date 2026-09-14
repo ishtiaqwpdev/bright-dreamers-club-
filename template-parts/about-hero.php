@@ -94,7 +94,7 @@ if ( $about_hero_banner_url === $about_hero_banner_default_url ) {
 }
 $about_hero_banner_alt = bdc_get_acf_text(
 	'about_hero_banner_alt',
-	'Children creating art together at Bright Dreamers Club',
+	'Four smiling girls with backpacks and school supplies',
 	$post_id
 );
 $about_hero_banner_mobile_url = bdc_theme_asset_url( 'assets/images/about-banner-mobile.png' );
