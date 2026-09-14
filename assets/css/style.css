@@ -22592,13 +22592,13 @@ body.newsletter-success-open {
     width: 100% !important;
     max-width: none !important;
     height: auto !important;
-    max-height: min(820px, 72vh) !important;
+    max-height: none !important;
     min-height: 0 !important;
     margin: 0 !important;
     padding: 0 !important;
     border-radius: 0 !important;
     object-fit: contain !important;
-    object-position: left center !important;
+    object-position: center center !important;
     background-color: #fff !important;
     filter: none !important;
   }
@@ -22631,6 +22631,10 @@ body.newsletter-success-open {
   .about-page .page-hero.about-hero .hero-label,
   #main-content > section.page-hero.about-hero:not(.contact-hero):not(.vision-hero):not(.for-parents-hero):not(.get-involved-hero):not(.partners-hero):not(.apply-hero) .hero-label,
   .page-hero.about-hero:not(.contact-hero):not(.vision-hero):not(.for-parents-hero):not(.get-involved-hero):not(.partners-hero):not(.apply-hero) .hero-label {
+    order: 1 !important;
+    box-sizing: border-box !important;
+    width: 100% !important;
+    padding: 0 var(--container-padding) !important;
     display: inline-block !important;
     text-align: left !important;
     margin: 0 !important;
@@ -22645,6 +22649,10 @@ body.newsletter-success-open {
   .about-page .page-hero.about-hero .hero-headline,
   #main-content > section.page-hero.about-hero:not(.contact-hero):not(.vision-hero):not(.for-parents-hero):not(.get-involved-hero):not(.partners-hero):not(.apply-hero) .hero-headline,
   .page-hero.about-hero:not(.contact-hero):not(.vision-hero):not(.for-parents-hero):not(.get-involved-hero):not(.partners-hero):not(.apply-hero) .hero-headline {
+    order: 2 !important;
+    box-sizing: border-box !important;
+    width: 100% !important;
+    padding: 0 var(--container-padding) !important;
     text-align: left !important;
     max-width: 100% !important;
     margin: 0 !important;
@@ -22662,6 +22670,10 @@ body.newsletter-success-open {
   .about-page .page-hero.about-hero .hero-copy,
   #main-content > section.page-hero.about-hero:not(.contact-hero):not(.vision-hero):not(.for-parents-hero):not(.get-involved-hero):not(.partners-hero):not(.apply-hero) .hero-copy,
   .page-hero.about-hero:not(.contact-hero):not(.vision-hero):not(.for-parents-hero):not(.get-involved-hero):not(.partners-hero):not(.apply-hero) .hero-copy {
+    order: 3 !important;
+    box-sizing: border-box !important;
+    width: 100% !important;
+    padding: 0 var(--container-padding) !important;
     text-align: left !important;
     max-width: 100% !important;
     margin: 0 !important;
@@ -22785,7 +22797,7 @@ body.newsletter-success-open {
     width: 100% !important;
     max-width: none !important;
     margin: 0 !important;
-    order: -1 !important;
+    order: 5 !important;
     padding: 0 var(--container-padding) !important;
     background-color: #fff !important;
   }
@@ -28020,6 +28032,57 @@ body.newsletter-success-open {
   .creative-makers-page #main-content > section.page-hero.creative-makers-hero .hero-copy {
     text-align: left !important;
     max-width: none !important;
+  }
+}
+
+/* About page — mobile: text → banner → CTAs (home layout, final override ≤767px) */
+@media (max-width: 767px) {
+  .about-page #main-content > section.page-hero.about-hero .page-hero__inner {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 1rem !important;
+    row-gap: 1rem !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  .about-page #main-content > section.page-hero.about-hero .page-hero__content {
+    display: contents !important;
+  }
+
+  .about-page #main-content > section.page-hero.about-hero .hero-label {
+    order: 1 !important;
+  }
+
+  .about-page #main-content > section.page-hero.about-hero .hero-headline {
+    order: 2 !important;
+  }
+
+  .about-page #main-content > section.page-hero.about-hero .hero-copy {
+    order: 3 !important;
+  }
+
+  .about-page #main-content > section.page-hero.about-hero .about-hero__media,
+  .about-page #main-content > section.page-hero.about-hero .hero-image-wrap {
+    order: 5 !important;
+    justify-content: center !important;
+    align-items: center !important;
+    overflow: visible !important;
+  }
+
+  .about-page #main-content > section.page-hero.about-hero .page-hero__actions,
+  .about-page #main-content > section.page-hero.about-hero .hero-ctas {
+    order: 6 !important;
+  }
+
+  .about-page #main-content > section.page-hero.about-hero .about-hero__banner,
+  .about-page #main-content > section.page-hero.about-hero picture img.about-hero__banner {
+    width: 100% !important;
+    max-width: none !important;
+    max-height: none !important;
+    object-fit: contain !important;
+    object-position: center center !important;
   }
 }
 
