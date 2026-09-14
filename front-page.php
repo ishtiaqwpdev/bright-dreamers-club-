@@ -57,10 +57,10 @@ if ( $home_hero_banner_ver ) {
 }
 $home_hero_banner_alt = bdc_get_acf_text(
 	'home_hero_banner_alt',
-	'Student with backpack and notebook on a colorful path toward a sunlit city skyline',
+	'Girl on a colorful path toward a sunlit city skyline with notebook ideas and inspirational messages',
 	$front_page_id
 );
-$home_hero_banner_mobile_theme_path = 'assets/images/home-hero-banner.jpg';
+$home_hero_banner_mobile_theme_path = 'assets/images/home-hero-banner-mobile.jpg';
 $home_hero_banner_mobile_url        = bdc_theme_asset_url( $home_hero_banner_mobile_theme_path );
 $home_hero_banner_mobile_ver        = bdc_asset_version( $home_hero_banner_mobile_theme_path );
 if ( $home_hero_banner_mobile_ver ) {

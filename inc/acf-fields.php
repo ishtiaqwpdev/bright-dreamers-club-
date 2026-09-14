@@ -88,14 +88,14 @@ acf_add_local_field_group(
 				'return_format' => 'array',
 				'preview_size'  => 'medium',
 				'library'       => 'all',
-				'instructions'  => 'Leave empty to keep the current hero photo.',
+				'instructions'  => 'Front page uses the theme file assets/images/home-hero-banner.jpg (and home-hero-banner-mobile.jpg on mobile). This upload is not shown on the live hero.',
 			),
 			array(
 				'key'           => 'field_home_hero_banner_alt',
 				'label'         => 'Banner alt text',
 				'name'          => 'home_hero_banner_alt',
 				'type'          => 'text',
-				'default_value' => 'Three Bright Dreamers holding colorful heart flower drawings in a sunny park',
+				'default_value' => 'Girl on a colorful path toward a sunlit city skyline with notebook ideas and inspirational messages',
 			),
 		),
 		'location'              => array(
