@@ -9865,6 +9865,16 @@ img.lazy-img.loaded {
     object-fit: contain;
   }
 
+  .about-page .page-hero.about-hero .about-hero__banner,
+  .about-page .page-hero.about-hero picture img.about-hero__banner {
+    width: 100% !important;
+    max-width: 100% !important;
+    max-height: none !important;
+    height: auto !important;
+    object-fit: contain !important;
+    object-position: right center !important;
+  }
+
   .our-vision-page .page-hero.vision-hero:not(.partners-hero) .about-hero__banner,
   .our-vision-page .page-hero.vision-hero:not(.partners-hero) picture img.about-hero__banner,
   .for-parents-page .page-hero.for-parents-hero .about-hero__banner,
@@ -22151,18 +22161,6 @@ body.newsletter-success-open {
     background-color: transparent;
   }
 
-  /* About hero — match home banner height at the same column width (1024×430 home art) */
-  .about-page .page-hero.about-hero .about-hero__media,
-  .about-page .page-hero.about-hero .hero-image-wrap {
-    container-type: inline-size;
-  }
-
-  .about-page .page-hero.about-hero .about-hero__banner,
-  .about-page .page-hero.about-hero picture img.about-hero__banner {
-    max-height: calc(100cqw * 430 / 1024) !important;
-    object-fit: contain !important;
-    object-position: right center !important;
-  }
 }
 
 /* Mobile/tablet reset — restore pre-desktop hero spacing on all pages (≤1023px) */
