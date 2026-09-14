@@ -26631,16 +26631,16 @@ body.newsletter-success-open {
   body:not(.get-involved-page):not(.partners-page):not(.our-vision-page) .page-hero:not(.home-hero) .creative-makers-hero__media,
   body:not(.get-involved-page):not(.partners-page):not(.our-vision-page) .page-hero:not(.home-hero) .faq-hero__media,
   body:not(.get-involved-page):not(.partners-page):not(.our-vision-page) .page-hero:not(.home-hero) [class*='-hero__media'] {
-    order: -1 !important;
+    order: 5 !important;
     align-self: stretch !important;
     display: flex !important;
-    justify-content: flex-start !important;
-    align-items: flex-start !important;
+    justify-content: center !important;
+    align-items: center !important;
     width: 100% !important;
     max-width: none !important;
     margin: 0 !important;
     margin-top: 0 !important;
-    padding: 0 15px !important;
+    padding: 0 var(--container-padding) !important;
     overflow: visible !important;
     background: transparent !important;
     background-color: transparent !important;
@@ -26675,13 +26675,13 @@ body.newsletter-success-open {
     width: 100% !important;
     max-width: none !important;
     height: auto !important;
-    max-height: min(820px, 72vh) !important;
+    max-height: none !important;
     min-height: 0 !important;
     margin: 0 !important;
     padding: 0 !important;
     border-radius: 0 !important;
     object-fit: contain !important;
-    object-position: left center !important;
+    object-position: center center !important;
     background: transparent !important;
     filter: none !important;
     transform: none !important;
@@ -26689,19 +26689,39 @@ body.newsletter-success-open {
   }
 
   body:not(.get-involved-page):not(.partners-page):not(.our-vision-page) .page-hero:not(.home-hero) .page-hero__content {
-    order: 1 !important;
+    display: contents !important;
+  }
+
+  body:not(.get-involved-page):not(.partners-page):not(.our-vision-page) .page-hero:not(.home-hero) .hero-headline {
+    order: 2 !important;
+    box-sizing: border-box !important;
+    width: 100% !important;
+    padding: 0 var(--container-padding) !important;
+    margin: 0 !important;
+    text-align: left !important;
+    max-width: none !important;
+  }
+
+  body:not(.get-involved-page):not(.partners-page):not(.our-vision-page) .page-hero:not(.home-hero) .hero-copy {
+    order: 3 !important;
+    box-sizing: border-box !important;
+    width: 100% !important;
+    padding: 0 var(--container-padding) !important;
+    margin: 0 !important;
+    text-align: left !important;
+    max-width: none !important;
+  }
+
+  body:not(.get-involved-page):not(.partners-page):not(.our-vision-page) .page-hero:not(.home-hero) .page-hero__actions,
+  body:not(.get-involved-page):not(.partners-page):not(.our-vision-page) .page-hero:not(.home-hero) .hero-ctas {
+    order: 6 !important;
     display: flex !important;
     flex-direction: column !important;
-    align-items: flex-start !important;
-    justify-content: flex-start !important;
-    gap: 0.85rem !important;
+    align-items: stretch !important;
     width: 100% !important;
-    max-width: 100% !important;
+    padding: 0 var(--container-padding) !important;
     margin: 0 !important;
-    padding: 0 15px !important;
-    text-align: left !important;
-    overflow: visible !important;
-    position: static !important;
+    gap: 0.75rem !important;
   }
 }
 
@@ -26764,8 +26784,9 @@ body.newsletter-success-open {
   }
 }
 
-/* Creative Makers — mobile hero spacing match Home (≤767px, final override) */
+/* Program pages — mobile hero stack matches home (≤767px) */
 @media (max-width: 767px) {
+  .program-detail-page #main-content > section.page-hero .page-hero__inner,
   .creative-makers-page #main-content > section.page-hero.creative-makers-hero .page-hero__inner,
   .creative-makers-page .page-hero.creative-makers-hero .page-hero__inner {
     padding: 0 !important;
@@ -26774,33 +26795,86 @@ body.newsletter-success-open {
     row-gap: 1rem !important;
   }
 
+  .program-detail-page #main-content > section.page-hero .page-hero__content,
+  .creative-makers-page #main-content > section.page-hero.creative-makers-hero .page-hero__content,
+  .creative-makers-page .page-hero.creative-makers-hero .page-hero__content {
+    display: contents !important;
+  }
+
+  .program-detail-page #main-content > section.page-hero .hero-image-wrap,
+  .program-detail-page #main-content > section.page-hero [class*='-hero__media'],
   .creative-makers-page #main-content > section.page-hero.creative-makers-hero .hero-image-wrap,
   .creative-makers-page #main-content > section.page-hero.creative-makers-hero .creative-makers-hero__media,
   .creative-makers-page .page-hero.creative-makers-hero .hero-image-wrap,
   .creative-makers-page .page-hero.creative-makers-hero .creative-makers-hero__media {
-    order: -1 !important;
+    order: 5 !important;
     width: 100% !important;
-    max-width: 100% !important;
+    max-width: none !important;
     margin: 0 !important;
-    padding: 0 20px !important;
-    overflow: hidden !important;
+    padding: 0 var(--container-padding) !important;
+    overflow: visible !important;
+    justify-content: center !important;
+    align-items: center !important;
     box-sizing: border-box !important;
   }
 
-  .creative-makers-page #main-content > section.page-hero.creative-makers-hero .page-hero__content,
-  .creative-makers-page .page-hero.creative-makers-hero .page-hero__content {
-    padding: 0 20px !important;
-    box-sizing: border-box !important;
-  }
-
+  .program-detail-page #main-content > section.page-hero .page-hero__actions,
+  .program-detail-page #main-content > section.page-hero .hero-ctas,
   .creative-makers-page #main-content > section.page-hero.creative-makers-hero .page-hero__actions,
   .creative-makers-page #main-content > section.page-hero.creative-makers-hero .hero-ctas,
   .creative-makers-page .page-hero.creative-makers-hero .page-hero__actions,
   .creative-makers-page .page-hero.creative-makers-hero .hero-ctas {
+    order: 6 !important;
     width: 100% !important;
-    max-width: 100% !important;
+    max-width: none !important;
     margin: 0 !important;
-    padding: 0 !important;
+    padding: 0 var(--container-padding) !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 0.75rem !important;
+  }
+
+  .program-detail-page #main-content > section.page-hero .hero-headline,
+  .creative-makers-page #main-content > section.page-hero.creative-makers-hero .hero-headline,
+  .creative-makers-page .page-hero.creative-makers-hero .hero-headline {
+    order: 2 !important;
+    width: 100% !important;
+    padding: 0 var(--container-padding) !important;
+    margin: 0 !important;
+    text-align: left !important;
+    max-width: none !important;
+  }
+
+  .program-detail-page #main-content > section.page-hero .hero-copy,
+  .creative-makers-page #main-content > section.page-hero.creative-makers-hero .hero-copy,
+  .creative-makers-page .page-hero.creative-makers-hero .hero-copy {
+    order: 3 !important;
+    width: 100% !important;
+    padding: 0 var(--container-padding) !important;
+    margin: 0 !important;
+    text-align: left !important;
+    max-width: none !important;
+  }
+
+  .program-detail-page #main-content > section.page-hero img[class*='__banner'],
+  .program-detail-page #main-content > section.page-hero picture img[class*='__banner'],
+  .creative-makers-page #main-content > section.page-hero.creative-makers-hero .creative-makers-hero__banner,
+  .creative-makers-page .page-hero.creative-makers-hero .creative-makers-hero__banner,
+  .creative-makers-page .page-hero.creative-makers-hero picture img.creative-makers-hero__banner {
+    width: 100% !important;
+    max-width: none !important;
+    max-height: none !important;
+    height: auto !important;
+    object-fit: contain !important;
+    object-position: center center !important;
+    transform: none !important;
+  }
+
+  .program-detail-page #main-content > section.page-hero,
+  .creative-makers-page #main-content > section.page-hero.creative-makers-hero {
+    text-align: left !important;
+    align-items: stretch !important;
+    padding: 16px 0 24px !important;
   }
 }
 
@@ -27898,6 +27972,54 @@ body.newsletter-success-open {
   #main-content .page-hero:not(.home-welcome-hero) .about-hero__deco,
   #main-content .page-hero:not(.home-welcome-hero) [class*='-hero__deco']:not(.home-hero__deco) {
     display: none !important;
+  }
+}
+
+/* Program detail heroes — beat legacy banner-first overrides (≤1023px) */
+@media (max-width: 1023px) {
+  .program-detail-page #main-content > section.page-hero.creative-makers-hero .creative-makers-hero__media,
+  .program-detail-page #main-content > section.page-hero .hero-image-wrap,
+  .program-detail-page #main-content > section.page-hero [class*='-hero__media'],
+  .creative-makers-page #main-content > section.page-hero.creative-makers-hero .creative-makers-hero__media,
+  .creative-makers-page #main-content > section.page-hero.creative-makers-hero .hero-image-wrap {
+    order: 5 !important;
+    overflow: visible !important;
+    justify-content: center !important;
+    align-items: center !important;
+  }
+
+  .program-detail-page #main-content > section.page-hero .page-hero__content,
+  .creative-makers-page #main-content > section.page-hero.creative-makers-hero .page-hero__content {
+    display: contents !important;
+  }
+
+  .program-detail-page #main-content > section.page-hero .page-hero__actions,
+  .program-detail-page #main-content > section.page-hero .hero-ctas,
+  .creative-makers-page #main-content > section.page-hero.creative-makers-hero .page-hero__actions,
+  .creative-makers-page #main-content > section.page-hero.creative-makers-hero .hero-ctas {
+    order: 6 !important;
+  }
+
+  .program-detail-page #main-content > section.page-hero picture img.creative-makers-hero__banner,
+  .program-detail-page #main-content > section.page-hero .creative-makers-hero__banner,
+  .creative-makers-page #main-content > section.page-hero.creative-makers-hero picture img.creative-makers-hero__banner,
+  .creative-makers-page #main-content > section.page-hero.creative-makers-hero .creative-makers-hero__banner {
+    width: 100% !important;
+    max-width: none !important;
+    height: auto !important;
+    max-height: none !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    object-fit: contain !important;
+    object-position: center center !important;
+  }
+
+  .program-detail-page #main-content > section.page-hero .hero-headline,
+  .program-detail-page #main-content > section.page-hero .hero-copy,
+  .creative-makers-page #main-content > section.page-hero.creative-makers-hero .hero-headline,
+  .creative-makers-page #main-content > section.page-hero.creative-makers-hero .hero-copy {
+    text-align: left !important;
+    max-width: none !important;
   }
 }
 
