@@ -9712,6 +9712,12 @@ img.lazy-img.loaded {
     --page-hero-desktop-min-height: clamp(500px, calc(100vh - 160px), 620px);
   }
 
+  .home-page {
+    --page-hero-balanced-content-col: 0.41fr;
+    --page-hero-balanced-media-col: 0.59fr;
+    --home-hero-content-share: 41%;
+  }
+
   #main-content > section.page-hero.home-hero,
   #main-content > section.page-hero.about-hero,
   #main-content > section.page-hero.explore-hero,
