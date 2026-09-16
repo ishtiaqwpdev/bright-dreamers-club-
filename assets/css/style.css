@@ -451,6 +451,13 @@ button {
   padding-top: var(--about-hero-pad-top);
 }
 
+.home-page #main-content > section.home-hero,
+.home-page #main-content > section.page-hero.home-hero,
+.home-page #main-content > section.page-hero.home-welcome-hero {
+  padding-top: 0 !important;
+  margin-top: 0;
+}
+
 #main-content > section.faq-hero {
   padding-top: var(--about-hero-pad-top);
   padding-bottom: var(--main-section-gap-y);
@@ -9735,6 +9742,28 @@ img.lazy-img.loaded {
   .home-page .page-hero.home-welcome-hero .about-hero__media,
   .home-page .page-hero.home-welcome-hero .hero-image-wrap {
     --bdc-hero-col-percent: var(--bdc-home-hero-banner-col-percent);
+  }
+
+  .home-page #main-content > section.page-hero.home-hero,
+  .home-page #main-content > section.page-hero.home-welcome-hero,
+  .home-page #main-content > section.home-hero.page-hero {
+    padding-top: 0 !important;
+    margin-top: 0 !important;
+    min-height: 0 !important;
+  }
+
+  .home-page .page-hero.home-hero,
+  .home-page .page-hero.home-welcome-hero {
+    padding-top: 0 !important;
+    margin-top: 0 !important;
+    min-height: 0 !important;
+  }
+
+  .home-page .page-hero.home-hero .page-hero__inner,
+  .home-page .page-hero.home-welcome-hero .page-hero__inner {
+    padding-top: 0 !important;
+    min-height: 0 !important;
+    align-items: center !important;
   }
 
   #main-content > section.page-hero.home-hero,
