@@ -28308,8 +28308,12 @@ body.newsletter-success-open {
   }
 }
 
-/* Get Involved — mobile/tablet: 0px space above banner (flush under copy) */
+/* Get Involved — mobile/tablet: 2px gap between copy and banner */
 @media (max-width: 1023px) {
+  .get-involved-page {
+    --get-involved-mobile-copy-banner-gap: 2px;
+  }
+
   .get-involved-page .page-hero.get-involved-hero .hero-copy {
     margin-bottom: 0 !important;
     padding-bottom: 0 !important;
@@ -28317,7 +28321,9 @@ body.newsletter-success-open {
 
   .get-involved-page .page-hero.get-involved-hero .about-hero__media,
   .get-involved-page .page-hero.get-involved-hero .hero-image-wrap {
-    margin-top: calc(-1 * var(--page-hero-mobile-stack-gap, 1rem)) !important;
+    margin-top: calc(
+      -1 * var(--page-hero-mobile-stack-gap, 1rem) + var(--get-involved-mobile-copy-banner-gap, 2px)
+    ) !important;
     padding-top: 0 !important;
     align-items: flex-start !important;
     justify-content: flex-start !important;
