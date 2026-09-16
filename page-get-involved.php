@@ -86,15 +86,21 @@ $get_involved_hero_secondary_btn_link = bdc_get_acf_link(
 	),
 	$get_involved_page_id
 );
-$get_involved_hero_banner_theme_path = 'assets/images/get-involved-hero-banner-removebg-preview.png';
+$get_involved_hero_banner_theme_path = 'assets/images/get-involved-hero-banner.jpeg';
 $get_involved_hero_banner_url        = bdc_theme_asset_url( $get_involved_hero_banner_theme_path );
 $get_involved_hero_banner_ver        = bdc_asset_version( $get_involved_hero_banner_theme_path );
 if ( $get_involved_hero_banner_ver ) {
 	$get_involved_hero_banner_url = add_query_arg( 'v', $get_involved_hero_banner_ver, $get_involved_hero_banner_url );
 }
+$get_involved_hero_banner_mobile_theme_path = 'assets/images/get-involved-hero-banner-mobile.jpg';
+$get_involved_hero_banner_mobile_url        = bdc_theme_asset_url( $get_involved_hero_banner_mobile_theme_path );
+$get_involved_hero_banner_mobile_ver        = bdc_asset_version( $get_involved_hero_banner_mobile_theme_path );
+if ( $get_involved_hero_banner_mobile_ver ) {
+	$get_involved_hero_banner_mobile_url = add_query_arg( 'v', $get_involved_hero_banner_mobile_ver, $get_involved_hero_banner_mobile_url );
+}
 $get_involved_hero_banner_alt = bdc_get_acf_text(
 	'get_involved_hero_banner_alt',
-	'Children building a model house with solar panels and wind turbines',
+	'Children with signs and projects — Real People. Real Change.',
 	$get_involved_page_id
 );
 
@@ -371,6 +377,7 @@ $get_involved_partner_cta_deco_url = bdc_get_acf_image_url(
           'secondary_cta_text' => $get_involved_hero_secondary_btn_text,
           'secondary_cta_link' => $get_involved_hero_secondary_btn_link,
           'hero_image'         => $get_involved_hero_banner_url,
+          'hero_image_mobile'  => $get_involved_hero_banner_mobile_url,
           'hero_image_alt'     => $get_involved_hero_banner_alt,
           'media_class'        => 'about-hero__media',
           'image_class'        => 'about-hero__banner',
