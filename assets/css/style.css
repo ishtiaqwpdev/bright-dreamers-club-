@@ -28345,3 +28345,27 @@ body.newsletter-success-open {
   }
 }
 
+/* Mobile/tablet hero banners — 20px left/right inset (all pages) */
+@media (max-width: 1023px) {
+  #main-content > section.page-hero .about-hero__media,
+  #main-content > section.page-hero .hero-image-wrap,
+  #main-content > section.page-hero .explore-hero__media,
+  #main-content > section.page-hero .creative-makers-hero__media,
+  #main-content > section.page-hero .faq-hero__media,
+  #main-content > section.page-hero .donation-hero__media,
+  #main-content > section.page-hero [class*='-hero__media'],
+  #main-content > section.home-hero .about-hero__media,
+  #main-content > section.home-hero .hero-image-wrap,
+  .page-hero .about-hero__media,
+  .page-hero .hero-image-wrap,
+  .page-hero .explore-hero__media,
+  .page-hero .creative-makers-hero__media,
+  .page-hero .faq-hero__media,
+  .page-hero .donation-hero__media,
+  .page-hero [class*='-hero__media'] {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+    box-sizing: border-box !important;
+  }
+}
+
