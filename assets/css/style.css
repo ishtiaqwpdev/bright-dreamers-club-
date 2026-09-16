@@ -164,8 +164,8 @@
   --for-parents-hero-title-size: clamp(2.75rem, 4.8vw, 4rem);
   --for-parents-hero-star-size: clamp(22px, 2.4vw, 30px);
   --get-involved-hero-title-size: clamp(2.75rem, 4.8vw, 4rem);
-  --get-involved-hero-content-col: 0.3fr;
-  --get-involved-hero-media-col: 0.7fr;
+  --get-involved-hero-content-col: 0.4fr;
+  --get-involved-hero-media-col: 0.6fr;
   --get-involved-ways-icon-size: clamp(68px, 6.5vw, 84px);
   --get-involved-ways-card-title-size: clamp(0.92rem, 1vw, 1.08rem);
   --get-involved-ways-card-text-size: clamp(0.78rem, 0.86vw, 0.88rem);
@@ -454,6 +454,12 @@ button {
 .home-page #main-content > section.home-hero,
 .home-page #main-content > section.page-hero.home-hero,
 .home-page #main-content > section.page-hero.home-welcome-hero {
+  padding-top: 0 !important;
+  margin-top: 0;
+}
+
+.get-involved-page #main-content > section.get-involved-hero,
+.get-involved-page #main-content > section.page-hero.get-involved-hero {
   padding-top: 0 !important;
   margin-top: 0;
 }
@@ -9761,6 +9767,33 @@ img.lazy-img.loaded {
 
   .home-page .page-hero.home-hero .page-hero__inner,
   .home-page .page-hero.home-welcome-hero .page-hero__inner {
+    padding-top: 0 !important;
+    min-height: 0 !important;
+    align-items: center !important;
+  }
+
+  .get-involved-page {
+    --get-involved-hero-content-col: 0.4fr;
+    --get-involved-hero-media-col: 0.6fr;
+    --page-hero-balanced-content-col: 0.4fr;
+    --page-hero-balanced-media-col: 0.6fr;
+  }
+
+  .get-involved-page #main-content > section.page-hero.get-involved-hero,
+  .get-involved-page #main-content > section.get-involved-hero.page-hero {
+    padding-top: 0 !important;
+    margin-top: 0 !important;
+    min-height: 0 !important;
+  }
+
+  .get-involved-page .page-hero.get-involved-hero {
+    padding-top: 0 !important;
+    margin-top: 0 !important;
+    min-height: 0 !important;
+  }
+
+  .get-involved-page .page-hero.get-involved-hero .page-hero__inner {
+    grid-template-columns: minmax(0, 0.4fr) minmax(0, 0.6fr) !important;
     padding-top: 0 !important;
     min-height: 0 !important;
     align-items: center !important;
