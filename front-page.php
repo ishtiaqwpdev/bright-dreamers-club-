@@ -416,6 +416,10 @@ $home_spotlight_council_items = ( is_array( $home_spotlight_council['list_items'
           'image_class'              => 'about-hero__banner',
           'primary_cta_show_icon'    => true,
           'secondary_cta_show_heart' => true,
+          'inner_data_attrs'         => array(
+            'data-bdc-hero-text-col'   => '40',
+            'data-bdc-hero-banner-col' => '60',
+          ),
         )
       );
       ?>

@@ -42,8 +42,20 @@ $hero = wp_parse_args(
 		'secondary_cta_show_heart' => false,
 		'brand_html'               => '',
 		'actions_class'            => '',
+		'inner_data_attrs'         => array(),
 	)
 );
+
+$inner_data_attrs = array();
+if ( ! empty( $hero['inner_data_attrs'] ) && is_array( $hero['inner_data_attrs'] ) ) {
+	foreach ( $hero['inner_data_attrs'] as $attr_name => $attr_value ) {
+		$attr_name = preg_replace( '/[^a-z0-9_-]/i', '', (string) $attr_name );
+		if ( '' === $attr_name ) {
+			continue;
+		}
+		$inner_data_attrs[ $attr_name ] = (string) $attr_value;
+	}
+}
 
 $actions_class = trim( 'hero-ctas page-hero__actions ' . (string) $hero['actions_class'] );
 
@@ -70,7 +82,12 @@ $image_class   = trim( 'lazy-img ' . (string) $hero['image_class'] );
         aria-label="<?php echo esc_attr( $hero['aria_label'] ); ?>"
         <?php endif; ?>
       >
-        <div class="site-container page-hero__inner">
+        <div
+          class="site-container page-hero__inner"
+          <?php foreach ( $inner_data_attrs as $inner_attr_name => $inner_attr_value ) : ?>
+          <?php echo esc_attr( $inner_attr_name ); ?>="<?php echo esc_attr( $inner_attr_value ); ?>"
+          <?php endforeach; ?>
+        >
           <div class="page-hero__content">
             <?php if ( '' !== trim( (string) $hero['brand_html'] ) ) : ?>
             <?php echo $hero['brand_html']; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>

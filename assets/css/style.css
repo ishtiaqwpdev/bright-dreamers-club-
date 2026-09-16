@@ -9713,9 +9713,28 @@ img.lazy-img.loaded {
   }
 
   .home-page {
-    --page-hero-balanced-content-col: 0.41fr;
-    --page-hero-balanced-media-col: 0.59fr;
-    --home-hero-content-share: 41%;
+    --bdc-home-hero-text-col-percent: 40;
+    --bdc-home-hero-banner-col-percent: 60;
+    --page-hero-balanced-content-col: 0.4fr;
+    --page-hero-balanced-media-col: 0.6fr;
+    --home-hero-content-share: 40%;
+  }
+
+  .home-page .page-hero.home-hero .page-hero__inner,
+  .home-page .page-hero.home-welcome-hero .page-hero__inner {
+    grid-template-columns: minmax(0, 0.4fr) minmax(0, 0.6fr) !important;
+  }
+
+  .home-page .page-hero.home-hero .page-hero__content,
+  .home-page .page-hero.home-welcome-hero .page-hero__content {
+    --bdc-hero-col-percent: var(--bdc-home-hero-text-col-percent);
+  }
+
+  .home-page .page-hero.home-hero .about-hero__media,
+  .home-page .page-hero.home-hero .hero-image-wrap,
+  .home-page .page-hero.home-welcome-hero .about-hero__media,
+  .home-page .page-hero.home-welcome-hero .hero-image-wrap {
+    --bdc-hero-col-percent: var(--bdc-home-hero-banner-col-percent);
   }
 
   #main-content > section.page-hero.home-hero,
