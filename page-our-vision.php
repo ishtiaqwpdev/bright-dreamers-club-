@@ -623,6 +623,10 @@ $vision_together_support_btn_link = bdc_get_acf_link(
           'hero_image_alt'       => $vision_hero_banner_alt,
           'media_class'          => 'about-hero__media',
           'image_class'          => 'about-hero__banner',
+          'inner_data_attrs'     => array(
+            'data-bdc-hero-text-col'   => '40',
+            'data-bdc-hero-banner-col' => '60',
+          ),
         )
       );
       ?>
