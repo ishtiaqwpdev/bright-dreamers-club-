@@ -1813,6 +1813,12 @@ button {
   color: var(--color-pink);
 }
 
+.home-hero__mobile-logo {
+  display: none;
+  width: min(100%, 320px);
+  height: auto;
+}
+
 .home-hero__title-star {
   display: none;
   width: 0.42em;
@@ -28921,17 +28927,7 @@ body.newsletter-success-open {
 
   .home-page #main-content > section.page-hero.home-welcome-hero .page-hero__content,
   .home-page .page-hero.home-welcome-hero .page-hero__content {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: flex-start !important;
-    justify-content: flex-start !important;
-    order: 1 !important;
-    width: 100% !important;
-    max-width: none !important;
-    margin: 0 !important;
-    padding: 0 16px !important;
-    gap: 0.2rem !important;
-    text-align: left !important;
+    display: contents !important;
   }
 
   .home-page #main-content > section.page-hero.home-welcome-hero .hero-label,
@@ -28948,8 +28944,17 @@ body.newsletter-success-open {
     line-height: 0.92 !important;
   }
 
-  .home-page .page-hero.home-welcome-hero .home-hero__title-star {
+  .home-page .page-hero.home-welcome-hero .home-hero__mobile-logo {
     display: block !important;
+    width: min(100%, 320px) !important;
+    height: auto !important;
+    margin: 0.15rem 0 0.35rem !important;
+  }
+
+  .home-page .page-hero.home-welcome-hero .home-hero__title-line,
+  .home-page .page-hero.home-welcome-hero .home-hero__tagline,
+  .home-page .page-hero.home-welcome-hero .home-hero__title-star {
+    display: none !important;
   }
 
   .home-page #main-content > section.page-hero.home-welcome-hero .home-hero__tagline,
@@ -28974,14 +28979,15 @@ body.newsletter-success-open {
   .home-page .page-hero.home-welcome-hero .hero-headline,
   .home-page .page-hero.home-welcome-hero .home-hero__tagline,
   .home-page .page-hero.home-welcome-hero .hero-copy {
-    order: 0 !important;
+    order: 1 !important;
     align-self: stretch !important;
+    box-sizing: border-box !important;
     width: 100% !important;
     max-width: none !important;
     margin-left: 0 !important;
     margin-right: 0 !important;
-    padding-left: 0 !important;
-    padding-right: 0 !important;
+    padding-left: 16px !important;
+    padding-right: 16px !important;
     text-align: left !important;
   }
 

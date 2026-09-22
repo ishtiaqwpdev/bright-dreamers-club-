@@ -14,6 +14,12 @@ $home_hero_eyebrow = bdc_get_acf_text(
 	'Welcome to Bright Dreamers',
 	$front_page_id
 );
+$home_hero_mobile_logo_path = 'assets/images/home-hero-mobile-lockup.png';
+$home_hero_mobile_logo_url  = bdc_theme_asset_url( $home_hero_mobile_logo_path );
+$home_hero_mobile_logo_ver  = bdc_asset_version( $home_hero_mobile_logo_path );
+if ( $home_hero_mobile_logo_ver ) {
+	$home_hero_mobile_logo_url = add_query_arg( 'v', $home_hero_mobile_logo_ver, $home_hero_mobile_logo_url );
+}
 $home_hero_title_bright = bdc_get_acf_text(
 	'home_hero_title_bright',
 	'Bright',
@@ -392,7 +398,10 @@ $home_spotlight_council_items = ( is_array( $home_spotlight_council['list_items'
 ?>
     <main id="main-content">
       <?php
-      $home_hero_headline_html = '';
+      $home_hero_headline_html = sprintf(
+        '<img class="home-hero__mobile-logo" src="%1$s" alt="Bright Dreamers — Dream, Create, Grow, Give" width="509" height="267" decoding="async" />',
+        esc_url( $home_hero_mobile_logo_url )
+      );
       foreach (
         array(
           array(
