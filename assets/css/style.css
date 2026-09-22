@@ -1976,11 +1976,11 @@ button {
   .create-for-cause-page .page-hero.create-for-cause-hero .page-hero__inner,
   .community-adventures-page .page-hero.community-adventures-hero .page-hero__inner {
     display: grid;
-    grid-template-columns: minmax(0, var(--page-hero-balanced-content-col))
-      minmax(0, var(--page-hero-balanced-media-col));
+    grid-template-columns: auto minmax(0, 1fr);
     align-items: center;
-    justify-content: space-between;
-    gap: var(--page-hero-col-gap);
+    justify-content: start;
+    gap: 0;
+    column-gap: 0;
     max-width: var(--container-max-width);
     padding-left: var(--container-padding);
     padding-right: var(--container-padding);
@@ -2054,12 +2054,8 @@ button {
     align-items: center;
     align-self: center;
     width: 100%;
-    justify-content: flex-end;
+    justify-content: flex-start;
   }
-
-  .page-hero.home-hero .page-hero__text,
-  .page-hero.home-hero .hero-copy,
-  .page-hero.about-hero .hero-copy,
   .page-hero.explore-hero .hero-copy,
   .page-hero.for-parents-hero .hero-copy,
   .page-hero.vision-hero .hero-copy,
@@ -2083,10 +2079,8 @@ button {
     max-width: 100%;
     height: auto;
     object-fit: contain;
-    object-position: right center;
+    object-position: left center;
   }
-
-}
 
 .home-hero__deco {
   display: none;
@@ -3142,11 +3136,11 @@ img.lazy-img.loaded {
 .vision-hero .page-hero__inner,
 .for-parents-hero .page-hero__inner {
   display: grid;
-  grid-template-columns: minmax(0, var(--page-hero-balanced-content-col))
-    minmax(0, var(--page-hero-balanced-media-col));
+  grid-template-columns: auto minmax(0, 1fr);
   align-items: center;
-  justify-content: space-between;
-  gap: var(--home-hero-col-gap);
+  justify-content: start;
+  gap: 0;
+  column-gap: 0;
   min-height: inherit;
 }
 
@@ -9762,9 +9756,9 @@ img.lazy-img.loaded {
     --explore-hero-content-col: 0.4fr;
     --explore-hero-media-col: 0.6fr;
     --home-hero-content-share: 42%;
-    --page-hero-col-gap: 56px;
-    --home-hero-col-gap: 56px;
-    --explore-hero-inner-gap: 56px;
+    --page-hero-col-gap: 0;
+    --home-hero-col-gap: 0;
+    --explore-hero-inner-gap: 0;
     --page-hero-content-max-width: 520px;
     --home-hero-content-max: 520px;
     --explore-hero-content-max: 520px;
@@ -9784,7 +9778,9 @@ img.lazy-img.loaded {
 
   .home-page .page-hero.home-hero .page-hero__inner,
   .home-page .page-hero.home-welcome-hero .page-hero__inner {
-    grid-template-columns: minmax(0, 0.4fr) minmax(0, 0.6fr) !important;
+    grid-template-columns: auto minmax(0, 1fr) !important;
+    column-gap: 0 !important;
+    gap: 0 !important;
   }
 
   .home-page .page-hero.home-hero .page-hero__content,
@@ -9960,11 +9956,11 @@ img.lazy-img.loaded {
   .page-hero.partners-hero .page-hero__inner,
   .page-hero.contact-hero .page-hero__inner {
     display: grid;
-    grid-template-columns: minmax(0, var(--page-hero-balanced-content-col))
-      minmax(0, var(--page-hero-balanced-media-col));
+    grid-template-columns: auto minmax(0, 1fr);
     align-items: center;
-    justify-content: space-between;
-    gap: var(--page-hero-col-gap);
+    justify-content: start;
+    gap: 0;
+    column-gap: 0;
     min-height: inherit;
     max-width: var(--container-max-width);
     padding-left: var(--container-padding);
@@ -10024,7 +10020,7 @@ img.lazy-img.loaded {
     grid-column: 2;
     display: flex;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: flex-start;
     align-self: center;
     width: 100%;
     min-width: 0;
@@ -28548,11 +28544,13 @@ body.newsletter-success-open {
   .page-hero__inner--layout-40-60 {
     --bdc-hero-text-col-percent: 40;
     --bdc-hero-banner-col-percent: 60;
-    --page-hero-balanced-content-col: 0.4fr;
-    --page-hero-balanced-media-col: 0.6fr;
+    --page-hero-balanced-content-col: auto;
+    --page-hero-balanced-media-col: minmax(0, 1fr);
     display: grid !important;
-    grid-template-columns: minmax(0, var(--page-hero-balanced-content-col))
-      minmax(0, var(--page-hero-balanced-media-col)) !important;
+    grid-template-columns: auto minmax(0, 1fr) !important;
+    column-gap: 0 !important;
+    gap: 0 !important;
+    justify-content: start !important;
     align-items: center;
   }
 
@@ -28560,8 +28558,11 @@ body.newsletter-success-open {
   .page-hero .page-hero__content {
     grid-column: 1 !important;
     --bdc-hero-col-percent: var(--bdc-hero-text-col-percent);
-    width: 100% !important;
-    max-width: min(100%, var(--page-hero-content-max-width, 520px)) !important;
+    width: max-content !important;
+    max-width: min(100%, 44rem) !important;
+    justify-self: start !important;
+    padding-right: 0 !important;
+    margin-right: 0 !important;
   }
 
   #main-content > section.page-hero .about-hero__media,
@@ -28580,52 +28581,15 @@ body.newsletter-success-open {
     --bdc-hero-col-percent: var(--bdc-hero-banner-col-percent);
     width: 100% !important;
     max-width: none !important;
-    justify-self: stretch;
-  }
-
-  /* Home hero — columns stay flush at every desktop width, including 90% zoom */
-  .home-page #main-content > section.page-hero.home-hero .page-hero__inner,
-  .home-page #main-content > section.page-hero.home-welcome-hero .page-hero__inner,
-  .home-page .page-hero.home-hero .page-hero__inner,
-  .home-page .page-hero.home-welcome-hero .page-hero__inner {
-    grid-template-columns: auto minmax(0, 1fr) !important;
-    column-gap: 0 !important;
-    gap: 0 !important;
-    justify-content: start !important;
-  }
-
-  .home-page #main-content > section.page-hero.home-hero .page-hero__content,
-  .home-page #main-content > section.page-hero.home-welcome-hero .page-hero__content,
-  .home-page .page-hero.home-hero .page-hero__content,
-  .home-page .page-hero.home-welcome-hero .page-hero__content {
-    width: max-content !important;
-    max-width: 44rem !important;
-    justify-self: start !important;
-    padding-right: 0 !important;
-    margin-right: 0 !important;
-  }
-
-  .home-page #main-content > section.page-hero.home-hero .about-hero__media,
-  .home-page #main-content > section.page-hero.home-hero .hero-image-wrap,
-  .home-page #main-content > section.page-hero.home-welcome-hero .about-hero__media,
-  .home-page #main-content > section.page-hero.home-welcome-hero .hero-image-wrap,
-  .home-page .page-hero.home-hero .about-hero__media,
-  .home-page .page-hero.home-hero .hero-image-wrap,
-  .home-page .page-hero.home-welcome-hero .about-hero__media,
-  .home-page .page-hero.home-welcome-hero .hero-image-wrap {
     justify-content: flex-start !important;
     justify-self: stretch !important;
     margin-left: 0 !important;
     padding-left: 0 !important;
-    width: 100% !important;
   }
 
-  .home-page #main-content > section.page-hero.home-hero .about-hero__banner,
-  .home-page #main-content > section.page-hero.home-welcome-hero .about-hero__banner,
-  .home-page .page-hero.home-hero .about-hero__banner,
-  .home-page .page-hero.home-welcome-hero .about-hero__banner {
-    width: 100% !important;
-    max-width: 100% !important;
+  #main-content > section.page-hero [class*='__banner'],
+  .page-hero [class*='__banner'],
+  .page-hero picture img[class*='__banner'] {
     margin-left: 0 !important;
     object-position: left center !important;
   }
