@@ -27398,8 +27398,8 @@ body.newsletter-success-open {
   .home-page .page-hero.home-welcome-hero .page-hero__inner {
     grid-template-columns: auto minmax(0, 1fr) !important;
     justify-content: start !important;
-    column-gap: 12px !important;
-    gap: 12px !important;
+    column-gap: 0 !important;
+    gap: 0 !important;
   }
 
   .home-page .page-hero.home-hero .page-hero__content,
@@ -28575,6 +28575,53 @@ body.newsletter-success-open {
     max-width: none !important;
     justify-self: stretch;
   }
+
+  /* Home hero — columns stay flush at every desktop width, including 90% zoom */
+  .home-page #main-content > section.page-hero.home-hero .page-hero__inner,
+  .home-page #main-content > section.page-hero.home-welcome-hero .page-hero__inner,
+  .home-page .page-hero.home-hero .page-hero__inner,
+  .home-page .page-hero.home-welcome-hero .page-hero__inner {
+    grid-template-columns: auto minmax(0, 1fr) !important;
+    column-gap: 0 !important;
+    gap: 0 !important;
+    justify-content: start !important;
+  }
+
+  .home-page #main-content > section.page-hero.home-hero .page-hero__content,
+  .home-page #main-content > section.page-hero.home-welcome-hero .page-hero__content,
+  .home-page .page-hero.home-hero .page-hero__content,
+  .home-page .page-hero.home-welcome-hero .page-hero__content {
+    width: max-content !important;
+    max-width: 44rem !important;
+    justify-self: start !important;
+    padding-right: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  .home-page #main-content > section.page-hero.home-hero .about-hero__media,
+  .home-page #main-content > section.page-hero.home-hero .hero-image-wrap,
+  .home-page #main-content > section.page-hero.home-welcome-hero .about-hero__media,
+  .home-page #main-content > section.page-hero.home-welcome-hero .hero-image-wrap,
+  .home-page .page-hero.home-hero .about-hero__media,
+  .home-page .page-hero.home-hero .hero-image-wrap,
+  .home-page .page-hero.home-welcome-hero .about-hero__media,
+  .home-page .page-hero.home-welcome-hero .hero-image-wrap {
+    justify-content: flex-start !important;
+    justify-self: stretch !important;
+    margin-left: 0 !important;
+    padding-left: 0 !important;
+    width: 100% !important;
+  }
+
+  .home-page #main-content > section.page-hero.home-hero .about-hero__banner,
+  .home-page #main-content > section.page-hero.home-welcome-hero .about-hero__banner,
+  .home-page .page-hero.home-hero .about-hero__banner,
+  .home-page .page-hero.home-welcome-hero .about-hero__banner {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-left: 0 !important;
+    object-position: left center !important;
+  }
 }
 
 /* Mobile/tablet (≤1023px): 0px gap between hero copy and banner (all pages) */
@@ -28852,6 +28899,99 @@ body.newsletter-success-open {
   .page-hero.partners-hero picture img.about-hero__banner {
     width: 100% !important;
     max-width: 100% !important;
+  }
+}
+
+/* Home hero — mobile stack: eyebrow, heading, description, full-width image, buttons.
+   Side inset matches the header (16px). Banner image stays 100% wide. */
+@media (max-width: 767px) {
+  .home-page #main-content > section.page-hero.home-welcome-hero .page-hero__inner,
+  .home-page .page-hero.home-welcome-hero .page-hero__inner {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    justify-content: flex-start !important;
+    gap: 0.85rem !important;
+    row-gap: 0.85rem !important;
+    width: 100% !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  .home-page #main-content > section.page-hero.home-welcome-hero .page-hero__content,
+  .home-page .page-hero.home-welcome-hero .page-hero__content {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    justify-content: flex-start !important;
+    order: 1 !important;
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 0 16px !important;
+    gap: 0.45rem !important;
+    text-align: left !important;
+  }
+
+  .home-page #main-content > section.page-hero.home-welcome-hero .hero-label,
+  .home-page #main-content > section.page-hero.home-welcome-hero .hero-headline,
+  .home-page #main-content > section.page-hero.home-welcome-hero .home-hero__tagline,
+  .home-page #main-content > section.page-hero.home-welcome-hero .hero-copy,
+  .home-page .page-hero.home-welcome-hero .hero-label,
+  .home-page .page-hero.home-welcome-hero .hero-headline,
+  .home-page .page-hero.home-welcome-hero .home-hero__tagline,
+  .home-page .page-hero.home-welcome-hero .hero-copy {
+    order: 0 !important;
+    align-self: stretch !important;
+    width: 100% !important;
+    max-width: none !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    text-align: left !important;
+  }
+
+  .home-page #main-content > section.page-hero.home-welcome-hero .about-hero__media,
+  .home-page #main-content > section.page-hero.home-welcome-hero .hero-image-wrap,
+  .home-page .page-hero.home-welcome-hero .about-hero__media,
+  .home-page .page-hero.home-welcome-hero .hero-image-wrap {
+    order: 2 !important;
+    box-sizing: border-box !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .home-page #main-content > section.page-hero.home-welcome-hero .about-hero__media .lazy-img-wrap,
+  .home-page #main-content > section.page-hero.home-welcome-hero .about-hero__media picture,
+  .home-page .page-hero.home-welcome-hero .about-hero__media .lazy-img-wrap,
+  .home-page .page-hero.home-welcome-hero .about-hero__media picture,
+  .home-page #main-content > section.page-hero.home-welcome-hero .about-hero__banner,
+  .home-page .page-hero.home-welcome-hero .about-hero__banner {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .home-page #main-content > section.page-hero.home-welcome-hero .page-hero__actions,
+  .home-page #main-content > section.page-hero.home-welcome-hero .home-hero__actions,
+  .home-page .page-hero.home-welcome-hero .page-hero__actions,
+  .home-page .page-hero.home-welcome-hero .home-hero__actions {
+    order: 3 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 0 16px !important;
+    gap: 0.75rem !important;
+    grid-template-columns: none !important;
   }
 }
 
