@@ -1883,8 +1883,14 @@ button {
   font-weight: 400;
   line-height: 1.6;
   color: var(--color-navy);
-  max-width: 30.5rem;
+  max-width: 28rem;
   margin: 0 0 1.25rem;
+}
+
+@media (max-width: 767px) {
+  .home-hero__copy-break {
+    display: none;
+  }
 }
 
 .home-page .page-hero.home-hero .page-hero__content,
