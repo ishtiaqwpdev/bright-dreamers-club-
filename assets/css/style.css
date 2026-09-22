@@ -1883,7 +1883,7 @@ button {
   font-weight: 400;
   line-height: 1.6;
   color: var(--color-navy);
-  max-width: 28rem;
+  max-width: 42rem;
   margin: 0 0 1.25rem;
 }
 
@@ -27405,7 +27405,7 @@ body.newsletter-success-open {
   .home-page .page-hero.home-hero .page-hero__content,
   .home-page .page-hero.home-welcome-hero .page-hero__content {
     width: max-content !important;
-    max-width: 36rem !important;
+    max-width: 44rem !important;
     justify-self: start !important;
   }
 

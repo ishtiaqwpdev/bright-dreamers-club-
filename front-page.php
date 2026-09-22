@@ -449,14 +449,8 @@ $home_spotlight_council_items = ( is_array( $home_spotlight_council['list_items'
 
       $home_hero_copy_html = esc_html( $home_hero_text );
       $home_hero_copy_html = preg_replace(
-        '/ideas(\s+)/u',
-        'ideas<br class="home-hero__copy-break">$1',
-        $home_hero_copy_html,
-        1
-      );
-      $home_hero_copy_html = preg_replace(
-        '/confidence,(\s+)/u',
-        'confidence,<br class="home-hero__copy-break">$1',
+        '/that(\s+)/u',
+        'that<br class="home-hero__copy-break">$1',
         $home_hero_copy_html,
         1
       );
