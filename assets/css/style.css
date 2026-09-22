@@ -85,7 +85,7 @@
   --header-logo-box-width: clamp(240px, 16vw, 300px);
   --header-logo-width-pct: 80%;
   --hero-pad-y: 0;
-  --about-hero-pad-top: 30px;
+  --about-hero-pad-top: 8px;
   --home-hero-logo-width: 460px;
   --home-hero-col-gap: clamp(0.25rem, 0.6vw, 0.65rem);
   --home-hero-content-max: 36rem;
@@ -1976,7 +1976,7 @@ button {
   .create-for-cause-page .page-hero.create-for-cause-hero .page-hero__inner,
   .community-adventures-page .page-hero.community-adventures-hero .page-hero__inner {
     display: grid;
-    grid-template-columns: auto minmax(0, 1fr);
+    grid-template-columns: minmax(0, max-content) minmax(280px, 1fr);
     align-items: center;
     justify-content: start;
     gap: 0;
@@ -3136,7 +3136,7 @@ img.lazy-img.loaded {
 .vision-hero .page-hero__inner,
 .for-parents-hero .page-hero__inner {
   display: grid;
-  grid-template-columns: auto minmax(0, 1fr);
+  grid-template-columns: minmax(0, max-content) minmax(280px, 1fr);
   align-items: center;
   justify-content: start;
   gap: 0;
@@ -9778,7 +9778,7 @@ img.lazy-img.loaded {
 
   .home-page .page-hero.home-hero .page-hero__inner,
   .home-page .page-hero.home-welcome-hero .page-hero__inner {
-    grid-template-columns: auto minmax(0, 1fr) !important;
+    grid-template-columns: minmax(0, max-content) minmax(280px, 1fr) !important;
     column-gap: 0 !important;
     gap: 0 !important;
   }
@@ -9812,6 +9812,21 @@ img.lazy-img.loaded {
 
   .home-page .page-hero.home-hero .page-hero__inner,
   .home-page .page-hero.home-welcome-hero .page-hero__inner {
+    padding-top: 0 !important;
+    min-height: 0 !important;
+    align-items: center !important;
+  }
+
+  /* About page — tight top on laptop at 70–100% zoom (no tall empty band) */
+  .about-page #main-content > section.page-hero.about-hero,
+  .about-page #main-content > section.about-hero.page-hero,
+  .about-page .page-hero.about-hero {
+    padding-top: 0 !important;
+    margin-top: 0 !important;
+    min-height: 0 !important;
+  }
+
+  .about-page .page-hero.about-hero .page-hero__inner {
     padding-top: 0 !important;
     min-height: 0 !important;
     align-items: center !important;
@@ -9956,7 +9971,7 @@ img.lazy-img.loaded {
   .page-hero.partners-hero .page-hero__inner,
   .page-hero.contact-hero .page-hero__inner {
     display: grid;
-    grid-template-columns: auto minmax(0, 1fr);
+    grid-template-columns: minmax(0, max-content) minmax(280px, 1fr);
     align-items: center;
     justify-content: start;
     gap: 0;
@@ -10058,13 +10073,13 @@ img.lazy-img.loaded {
 
   .our-vision-page .page-hero.vision-hero:not(.partners-hero) .about-hero__banner,
   .our-vision-page .page-hero.vision-hero:not(.partners-hero) picture img.about-hero__banner {
-    height: min(610px, 72vh) !important;
+    height: auto !important;
     max-height: min(610px, 72vh) !important;
-    width: auto !important;
+    width: 100% !important;
     max-width: 100% !important;
     object-fit: contain !important;
-    object-position: right center !important;
-    margin-left: auto !important;
+    object-position: left center !important;
+    margin-left: 0 !important;
     margin-right: 0 !important;
     transform: none !important;
   }
@@ -10074,7 +10089,7 @@ img.lazy-img.loaded {
     height: auto !important;
     max-height: none !important;
     min-height: 0 !important;
-    width: auto !important;
+    width: 100% !important;
     max-width: 100% !important;
     object-fit: contain !important;
     object-position: right center !important;
@@ -27399,7 +27414,7 @@ body.newsletter-success-open {
   /* Home hero — text and banner sit close, like the reference lockup */
   .home-page .page-hero.home-hero .page-hero__inner,
   .home-page .page-hero.home-welcome-hero .page-hero__inner {
-    grid-template-columns: auto minmax(0, 1fr) !important;
+    grid-template-columns: minmax(0, max-content) minmax(280px, 1fr) !important;
     justify-content: start !important;
     column-gap: 0 !important;
     gap: 0 !important;
@@ -27998,13 +28013,13 @@ body.newsletter-success-open {
   .our-vision-page #main-content > section.page-hero.vision-hero:not(.partners-hero) picture img.about-hero__banner,
   .our-vision-page .page-hero.vision-hero:not(.partners-hero) .about-hero__banner,
   .our-vision-page .page-hero.vision-hero:not(.partners-hero) picture img.about-hero__banner {
-    width: auto !important;
+    width: 100% !important;
     max-width: 100% !important;
-    height: min(610px, 72vh) !important;
+    height: auto !important;
     max-height: min(610px, 72vh) !important;
     object-fit: contain !important;
-    object-position: right center !important;
-    margin-left: auto !important;
+    object-position: left center !important;
+    margin-left: 0 !important;
     margin-right: 0 !important;
     transform: none !important;
   }
@@ -28013,14 +28028,14 @@ body.newsletter-success-open {
   .for-parents-page #main-content > section.page-hero.for-parents-hero picture img.about-hero__banner,
   .for-parents-page .page-hero.for-parents-hero .about-hero__banner,
   .for-parents-page .page-hero.for-parents-hero picture img.about-hero__banner {
-    width: auto !important;
+    width: 100% !important;
     max-width: 100% !important;
     height: auto !important;
     max-height: none !important;
     min-height: 0 !important;
     object-fit: contain !important;
-    object-position: right center !important;
-    margin-left: auto !important;
+    object-position: left center !important;
+    margin-left: 0 !important;
     margin-right: 0 !important;
     transform: none !important;
   }
@@ -28034,13 +28049,13 @@ body.newsletter-success-open {
   .partners-page .page-hero.partners-hero.vision-hero picture img.about-hero__banner,
   .partners-page .page-hero.partners-hero .about-hero__banner,
   .partners-page .page-hero.partners-hero picture img.about-hero__banner {
-    width: auto !important;
+    width: 100% !important;
     max-width: 100% !important;
-    height: min(560px, calc(72vh - 50px)) !important;
+    height: auto !important;
     max-height: min(560px, calc(72vh - 50px)) !important;
     object-fit: contain !important;
-    object-position: right center !important;
-    margin-left: auto !important;
+    object-position: left center !important;
+    margin-left: 0 !important;
     margin-right: 0 !important;
     transform: none !important;
   }
@@ -28096,9 +28111,9 @@ body.newsletter-success-open {
   .program-detail-page .page-hero .creative-makers-hero__media .lazy-img-wrap,
   .program-detail-page .page-hero .hero-image-wrap picture,
   .program-detail-page .page-hero .hero-image-wrap .lazy-img-wrap {
-    width: auto !important;
+    width: 100% !important;
     max-width: 100% !important;
-    margin-left: auto !important;
+    margin-left: 0 !important;
     margin-right: 0 !important;
   }
 
@@ -28110,13 +28125,13 @@ body.newsletter-success-open {
   .program-detail-page #main-content > section.page-hero picture img.creative-makers-hero__banner,
   .program-detail-page .page-hero .creative-makers-hero__banner,
   .program-detail-page .page-hero picture img.creative-makers-hero__banner {
-    width: auto !important;
+    width: 100% !important;
     max-width: 100% !important;
-    height: var(--explore-hub-hero-banner-h) !important;
+    height: auto !important;
     max-height: var(--explore-hub-hero-banner-h) !important;
     object-fit: contain !important;
-    object-position: right center !important;
-    margin-left: auto !important;
+    object-position: left center !important;
+    margin-left: 0 !important;
     margin-right: 0 !important;
     border-radius: 0 !important;
     transform: none !important;
@@ -28125,7 +28140,7 @@ body.newsletter-success-open {
 
   .explore-page .page-hero.explore-hero img.lazy-img.explore-hero__banner,
   .program-detail-page .page-hero img.lazy-img.creative-makers-hero__banner {
-    width: auto !important;
+    width: 100% !important;
     max-width: 100% !important;
     transform: none !important;
   }
@@ -28547,7 +28562,8 @@ body.newsletter-success-open {
     --page-hero-balanced-content-col: auto;
     --page-hero-balanced-media-col: minmax(0, 1fr);
     display: grid !important;
-    grid-template-columns: auto minmax(0, 1fr) !important;
+    /* Keep text flush, but never let the banner column collapse on smaller laptop widths */
+    grid-template-columns: minmax(0, max-content) minmax(280px, 1fr) !important;
     column-gap: 0 !important;
     gap: 0 !important;
     justify-content: start !important;
@@ -28558,8 +28574,9 @@ body.newsletter-success-open {
   .page-hero .page-hero__content {
     grid-column: 1 !important;
     --bdc-hero-col-percent: var(--bdc-hero-text-col-percent);
-    width: max-content !important;
-    max-width: min(100%, 44rem) !important;
+    width: auto !important;
+    max-width: min(100%, 36rem) !important;
+    min-width: 0 !important;
     justify-self: start !important;
     padding-right: 0 !important;
     margin-right: 0 !important;
@@ -28579,18 +28596,41 @@ body.newsletter-success-open {
   .page-hero [class*='-hero__media'] {
     grid-column: 2 !important;
     --bdc-hero-col-percent: var(--bdc-hero-banner-col-percent);
+    display: flex !important;
+    align-items: center !important;
     width: 100% !important;
+    min-width: 0 !important;
     max-width: none !important;
     justify-content: flex-start !important;
     justify-self: stretch !important;
     margin-left: 0 !important;
     padding-left: 0 !important;
+    overflow: visible !important;
+  }
+
+  #main-content > section.page-hero .about-hero__media .lazy-img-wrap,
+  #main-content > section.page-hero .hero-image-wrap .lazy-img-wrap,
+  #main-content > section.page-hero [class*='__media'] .lazy-img-wrap,
+  #main-content > section.page-hero [class*='__media'] picture,
+  .page-hero .about-hero__media .lazy-img-wrap,
+  .page-hero .hero-image-wrap .lazy-img-wrap,
+  .page-hero [class*='__media'] .lazy-img-wrap,
+  .page-hero [class*='__media'] picture {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
   }
 
   #main-content > section.page-hero [class*='__banner'],
   .page-hero [class*='__banner'],
   .page-hero picture img[class*='__banner'] {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
     margin-left: 0 !important;
+    object-fit: contain !important;
     object-position: left center !important;
   }
 }
