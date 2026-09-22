@@ -1814,10 +1814,11 @@ button {
 }
 
 .home-hero__title-star {
+  display: none;
   width: 0.42em;
   height: 0.42em;
   margin-top: 0.12em;
-  color: var(--color-pink);
+  color: #f5b400;
   flex-shrink: 0;
 }
 
@@ -28929,8 +28930,40 @@ body.newsletter-success-open {
     max-width: none !important;
     margin: 0 !important;
     padding: 0 16px !important;
-    gap: 0.45rem !important;
+    gap: 0.2rem !important;
     text-align: left !important;
+  }
+
+  .home-page #main-content > section.page-hero.home-welcome-hero .hero-label,
+  .home-page .page-hero.home-welcome-hero .hero-label {
+    margin: 0 0 0.15rem !important;
+    font-size: 0.72rem !important;
+    letter-spacing: 0.14em !important;
+  }
+
+  .home-page #main-content > section.page-hero.home-welcome-hero .hero-headline,
+  .home-page .page-hero.home-welcome-hero .hero-headline {
+    margin: 0 !important;
+    font-size: clamp(2.6rem, 12vw, 3.15rem) !important;
+    line-height: 0.92 !important;
+  }
+
+  .home-page .page-hero.home-welcome-hero .home-hero__title-star {
+    display: block !important;
+  }
+
+  .home-page #main-content > section.page-hero.home-welcome-hero .home-hero__tagline,
+  .home-page .page-hero.home-welcome-hero .home-hero__tagline {
+    margin: 0.15rem 0 0.35rem !important;
+    font-size: 1.02rem !important;
+    gap: 0.2rem 0.35rem !important;
+  }
+
+  .home-page #main-content > section.page-hero.home-welcome-hero .hero-copy,
+  .home-page .page-hero.home-welcome-hero .hero-copy {
+    margin: 0 !important;
+    font-size: 0.95rem !important;
+    line-height: 1.45 !important;
   }
 
   .home-page #main-content > section.page-hero.home-welcome-hero .hero-label,
@@ -28973,9 +29006,12 @@ body.newsletter-success-open {
     display: block !important;
     width: 100% !important;
     max-width: 100% !important;
-    height: auto !important;
+    height: 62vw !important;
+    max-height: 280px !important;
     margin: 0 !important;
     padding: 0 !important;
+    object-fit: cover !important;
+    object-position: 18% 40% !important;
   }
 
   .home-page #main-content > section.page-hero.home-welcome-hero .page-hero__actions,

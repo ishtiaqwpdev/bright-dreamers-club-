@@ -409,11 +409,15 @@ $home_spotlight_council_items = ( is_array( $home_spotlight_council['list_items'
         if ( '' === $home_hero_title_line_text ) {
           continue;
         }
-        $home_hero_headline_html .= sprintf(
-          '<span class="%1$s">%2$s</span>',
+        $home_hero_line_html = sprintf(
+          '<span class="%1$s">%2$s',
           esc_attr( $home_hero_title_line['class'] ),
           esc_html( $home_hero_title_line_text )
         );
+        if ( false !== strpos( $home_hero_title_line['class'], 'home-hero__title-bright' ) ) {
+          $home_hero_line_html .= '<svg class="home-hero__title-star" viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" aria-hidden="true"><path d="M12 2.8 14.7 9.2h6.8l-5.5 4.2 2.1 6.6L12 16.2 6 20l2.1-6.6L2.5 9.2h6.8L12 2.8z"/></svg>';
+        }
+        $home_hero_headline_html .= $home_hero_line_html . '</span>';
       }
 
       $home_hero_tagline_html  = '';
