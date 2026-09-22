@@ -27392,6 +27392,35 @@ body.newsletter-success-open {
     align-items: center !important;
     justify-content: flex-end !important;
   }
+
+  /* Home hero — text and banner sit close, like the reference lockup */
+  .home-page .page-hero.home-hero .page-hero__inner,
+  .home-page .page-hero.home-welcome-hero .page-hero__inner {
+    grid-template-columns: auto minmax(0, 1fr) !important;
+    justify-content: start !important;
+    column-gap: 12px !important;
+    gap: 12px !important;
+  }
+
+  .home-page .page-hero.home-hero .page-hero__content,
+  .home-page .page-hero.home-welcome-hero .page-hero__content {
+    width: max-content !important;
+    max-width: 36rem !important;
+    justify-self: start !important;
+  }
+
+  .home-page .page-hero.home-hero .about-hero__media,
+  .home-page .page-hero.home-hero .hero-image-wrap,
+  .home-page .page-hero.home-welcome-hero .about-hero__media,
+  .home-page .page-hero.home-welcome-hero .hero-image-wrap {
+    justify-content: flex-start !important;
+    margin-left: 0 !important;
+  }
+
+  .home-page .page-hero.home-welcome-hero .about-hero__banner,
+  .home-page .page-hero.home-hero .about-hero__banner {
+    object-position: left center !important;
+  }
 }
 
 @media (min-width: 1201px) {
