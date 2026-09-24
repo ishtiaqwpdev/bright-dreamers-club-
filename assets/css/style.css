@@ -3324,10 +3324,10 @@ img.lazy-img.loaded {
   width: 100%;
   max-width: 100%;
   height: auto;
-  max-height: min(520px, 68vh);
+  max-height: none;
   min-height: 0;
   object-fit: contain;
-  object-position: center center;
+  object-position: right center;
   filter: none;
   background-color: transparent;
 }
@@ -6095,6 +6095,24 @@ img.lazy-img.loaded {
     flex-wrap: nowrap !important;
     align-items: center !important;
     gap: 0.65rem !important;
+  }
+
+  .explore-page #main-content > section.page-hero.explore-hero .explore-hero__media,
+  .explore-page .page-hero.explore-hero .explore-hero__media,
+  .explore-page .page-hero.explore-hero .hero-image-wrap {
+    justify-content: flex-end !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .explore-page #main-content > section.page-hero.explore-hero .explore-hero__banner,
+  .explore-page .page-hero.explore-hero .explore-hero__banner {
+    width: 112% !important;
+    max-width: none !important;
+    max-height: none !important;
+    margin-left: -12% !important;
+    margin-right: 0 !important;
+    object-position: right center !important;
   }
 }
 
@@ -28435,11 +28453,27 @@ body.newsletter-success-open {
 @media (min-width: 1024px) {
   .explore-page,
   .program-detail-page {
-    --explore-hub-hero-banner-h: min(510px, calc(72vh - 80px));
+    --explore-hub-hero-banner-h: min(620px, calc(78vh - 72px));
   }
 
   .explore-page #main-content > section.page-hero.explore-hero .page-hero__inner,
-  .explore-page .page-hero.explore-hero .page-hero__inner,
+  .explore-page .page-hero.explore-hero .page-hero__inner {
+    align-items: center !important;
+    gap: 0 !important;
+    column-gap: 0 !important;
+    row-gap: 0 !important;
+    overflow: visible !important;
+  }
+
+  .explore-page #main-content > section.page-hero.explore-hero,
+  .explore-page .page-hero.explore-hero {
+    overflow: visible !important;
+  }
+
+  .explore-page .page-hero.explore-hero .page-hero__content {
+    z-index: 2 !important;
+  }
+
   .program-detail-page #main-content > section.page-hero .page-hero__inner,
   .program-detail-page .page-hero .page-hero__inner {
     align-items: center !important;
@@ -28449,7 +28483,17 @@ body.newsletter-success-open {
   .explore-page #main-content > section.page-hero.explore-hero .explore-hero__media,
   .explore-page #main-content > section.page-hero.explore-hero .hero-image-wrap,
   .explore-page .page-hero.explore-hero .explore-hero__media,
-  .explore-page .page-hero.explore-hero .hero-image-wrap,
+  .explore-page .page-hero.explore-hero .hero-image-wrap {
+    justify-content: flex-end !important;
+    align-items: center !important;
+    align-self: center !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: visible !important;
+  }
+
   .program-detail-page #main-content > section.page-hero .creative-makers-hero__media,
   .program-detail-page #main-content > section.page-hero .hero-image-wrap,
   .program-detail-page .page-hero .creative-makers-hero__media,
@@ -28462,7 +28506,15 @@ body.newsletter-success-open {
   .explore-page .page-hero.explore-hero .explore-hero__media picture,
   .explore-page .page-hero.explore-hero .explore-hero__media .lazy-img-wrap,
   .explore-page .page-hero.explore-hero .hero-image-wrap picture,
-  .explore-page .page-hero.explore-hero .hero-image-wrap .lazy-img-wrap,
+  .explore-page .page-hero.explore-hero .hero-image-wrap .lazy-img-wrap {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    line-height: 0 !important;
+  }
+
   .program-detail-page .page-hero .creative-makers-hero__media picture,
   .program-detail-page .page-hero .creative-makers-hero__media .lazy-img-wrap,
   .program-detail-page .page-hero .hero-image-wrap picture,
@@ -28477,10 +28529,28 @@ body.newsletter-success-open {
   .explore-page #main-content > section.page-hero.explore-hero picture img.explore-hero__banner,
   .explore-page .page-hero.explore-hero .explore-hero__banner,
   .explore-page .page-hero.explore-hero picture img.explore-hero__banner,
+  .explore-page .page-hero.explore-hero img.lazy-img.explore-hero__banner {
+    display: block !important;
+    /* Keep right edge on the Apply-to-Join line; bleed left to kill center gap */
+    width: 112% !important;
+    max-width: none !important;
+    height: auto !important;
+    max-height: none !important;
+    margin-left: -12% !important;
+    margin-right: 0 !important;
+    padding: 0 !important;
+    object-fit: contain !important;
+    object-position: right center !important;
+    border-radius: 0 !important;
+    transform: none !important;
+    filter: none !important;
+  }
+
   .program-detail-page #main-content > section.page-hero .creative-makers-hero__banner,
   .program-detail-page #main-content > section.page-hero picture img.creative-makers-hero__banner,
   .program-detail-page .page-hero .creative-makers-hero__banner,
-  .program-detail-page .page-hero picture img.creative-makers-hero__banner {
+  .program-detail-page .page-hero picture img.creative-makers-hero__banner,
+  .program-detail-page .page-hero img.lazy-img.creative-makers-hero__banner {
     width: 100% !important;
     max-width: 100% !important;
     height: auto !important;
@@ -28492,13 +28562,6 @@ body.newsletter-success-open {
     border-radius: 0 !important;
     transform: none !important;
     filter: none !important;
-  }
-
-  .explore-page .page-hero.explore-hero img.lazy-img.explore-hero__banner,
-  .program-detail-page .page-hero img.lazy-img.creative-makers-hero__banner {
-    width: 100% !important;
-    max-width: 100% !important;
-    transform: none !important;
   }
 }
 
@@ -28990,7 +29053,7 @@ body.newsletter-success-open {
     object-position: left center !important;
   }
 
-  /* Explore — image column already 64% via sitewide 36/64 */
+  /* Explore — flush image to header Apply edge; kill center gap */
   .explore-page {
     --bdc-hero-text-col-percent: 36;
     --bdc-hero-banner-col-percent: 64;
@@ -29004,6 +29067,28 @@ body.newsletter-success-open {
     --bdc-hero-text-col-percent: 36;
     --bdc-hero-banner-col-percent: 64;
     grid-template-columns: minmax(0, 36%) minmax(0, 64%) !important;
+    gap: 0 !important;
+    column-gap: 0 !important;
+  }
+
+  .explore-page #main-content > section.page-hero.explore-hero .explore-hero__media,
+  .explore-page .page-hero.explore-hero .explore-hero__media,
+  .explore-page .page-hero.explore-hero .hero-image-wrap {
+    justify-content: flex-end !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .explore-page #main-content > section.page-hero.explore-hero .explore-hero__banner,
+  .explore-page .page-hero.explore-hero .explore-hero__banner,
+  .explore-page .page-hero.explore-hero picture img.explore-hero__banner {
+    width: 112% !important;
+    max-width: none !important;
+    max-height: none !important;
+    margin-left: -12% !important;
+    margin-right: 0 !important;
+    object-fit: contain !important;
+    object-position: right center !important;
   }
 }
 
