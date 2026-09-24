@@ -315,6 +315,13 @@ function bdc_enqueue_assets() {
 		bdc_asset_version( 'assets/css/style.css' )
 	);
 
+	wp_enqueue_style(
+		'bdc-mobile-fix',
+		get_template_directory_uri() . '/assets/css/mobile-fix.css',
+		array( 'bdc-main' ),
+		bdc_asset_version( 'assets/css/mobile-fix.css' )
+	);
+
 	wp_enqueue_script( 'jquery' );
 
 	wp_enqueue_script(

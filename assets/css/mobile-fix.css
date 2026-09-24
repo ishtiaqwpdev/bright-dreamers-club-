@@ -1,0 +1,292 @@
+/**
+ * Bright Dreamers — mobile chrome + hero (loaded AFTER style.css).
+ * Forces phone/tablet layout: hamburger header, full-width hero stack.
+ */
+
+/* -------------------------------------------------------------------------- */
+/* ≤1200px — tablet + phone header                                            */
+/* -------------------------------------------------------------------------- */
+@media (max-width: 1200px) {
+  .site-header,
+  .site-header .site-container,
+  .site-header__inner {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  .site-header__inner {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 10px !important;
+    padding: 8px 16px !important;
+  }
+
+  /* Hide desktop nav completely */
+  .site-header .site-nav,
+  .site-header nav.site-nav,
+  .site-nav,
+  .site-nav__list,
+  .site-nav__item,
+  .site-nav .nav-link {
+    display: none !important;
+    visibility: hidden !important;
+    width: 0 !important;
+    height: 0 !important;
+    overflow: hidden !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    pointer-events: none !important;
+  }
+
+  .site-header__logo {
+    flex: 1 1 auto !important;
+    min-width: 0 !important;
+    max-width: calc(100% - 150px) !important;
+    margin: 0 !important;
+  }
+
+  .site-header__logo img {
+    display: block !important;
+    width: auto !important;
+    height: auto !important;
+    max-height: 56px !important;
+    max-width: 100% !important;
+    object-fit: contain !important;
+  }
+
+  /* Donate only (hide Apply) */
+  .site-header__actions {
+    display: flex !important;
+    flex: 0 0 auto !important;
+    align-items: center !important;
+    gap: 10px !important;
+    margin: 0 !important;
+  }
+
+  .site-header__actions .btn--solid {
+    display: none !important;
+  }
+
+  .site-header__actions .btn--outline {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 0.3rem !important;
+    padding: 0.38rem 0.85rem !important;
+    font-size: 0.82rem !important;
+    white-space: nowrap !important;
+  }
+
+  .menu-toggle {
+    display: flex !important;
+    flex: 0 0 auto !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    gap: 5px !important;
+    width: 40px !important;
+    height: 40px !important;
+    margin: 0 !important;
+    padding: 8px !important;
+  }
+
+  /* Announce bar: don’t overflow */
+  .announce-bar__inner {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 8px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+  }
+
+  .announce-bar__text {
+    flex: 1 1 auto !important;
+    min-width: 0 !important;
+    text-align: center !important;
+  }
+
+  .announce-bar__social {
+    flex: 0 0 auto !important;
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    gap: 6px !important;
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+/* ≤1023px — full-width page + hero stack                                     */
+/* -------------------------------------------------------------------------- */
+@media (max-width: 1023px) {
+  html,
+  body {
+    width: 100% !important;
+    max-width: 100vw !important;
+    overflow-x: hidden !important;
+  }
+
+  :root {
+    --container-padding: 16px;
+  }
+
+  #page,
+  #main-content,
+  main,
+  .site-footer {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    overflow-x: hidden !important;
+  }
+
+  .site-container {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+    padding-left: var(--container-padding) !important;
+    padding-right: var(--container-padding) !important;
+  }
+
+  /* Single-column hero — never max-content / 40-60 grid */
+  .page-hero .page-hero__inner,
+  #main-content > section.page-hero .page-hero__inner,
+  .home-hero .page-hero__inner,
+  .about-hero .page-hero__inner,
+  .vision-hero .page-hero__inner,
+  .for-parents-hero .page-hero__inner,
+  .contact-hero .page-hero__inner,
+  .get-involved-hero .page-hero__inner,
+  .explore-hero .page-hero__inner,
+  .partners-hero .page-hero__inner,
+  .creative-makers-hero .page-hero__inner,
+  .young-ideas-lab-hero .page-hero__inner,
+  .create-for-cause-hero .page-hero__inner,
+  .community-adventures-hero .page-hero__inner {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    grid-template-columns: none !important;
+    gap: 1rem !important;
+    column-gap: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  .page-hero .page-hero__content {
+    display: contents !important;
+  }
+
+  .page-hero .hero-label,
+  .page-hero .hero-headline,
+  .page-hero .home-hero__tagline,
+  .page-hero .hero-copy,
+  .page-hero .page-hero__extra {
+    order: 1 !important;
+    width: 100% !important;
+    max-width: none !important;
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    text-align: left !important;
+  }
+
+  .page-hero .about-hero__media,
+  .page-hero .hero-image-wrap,
+  .page-hero [class*='-hero__media'] {
+    order: 2 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .page-hero .page-hero__actions,
+  .page-hero .hero-ctas {
+    order: 3 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    width: 100% !important;
+    max-width: none !important;
+    box-sizing: border-box !important;
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+    gap: 0.75rem !important;
+  }
+
+  .page-hero .page-hero__actions .btn,
+  .page-hero .hero-ctas .btn {
+    width: 100% !important;
+  }
+
+  .page-hero img[class*='__banner'],
+  .page-hero .about-hero__banner,
+  .page-hero .explore-hero__banner,
+  .page-hero .creative-makers-hero__banner,
+  .page-hero .lazy-img-wrap,
+  .page-hero picture {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    max-height: none !important;
+    object-fit: contain !important;
+  }
+
+  /* Home: real title + star + tagline (not lockup PNG) */
+  .home-page .page-hero.home-welcome-hero .home-hero__mobile-logo {
+    display: none !important;
+  }
+
+  .home-page .page-hero.home-welcome-hero .hero-headline,
+  .home-page .page-hero.home-welcome-hero .home-hero__title {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    font-size: clamp(2.4rem, 11vw, 3.1rem) !important;
+    line-height: 0.92 !important;
+  }
+
+  .home-page .page-hero.home-welcome-hero .home-hero__title-line {
+    display: inline-flex !important;
+  }
+
+  .home-page .page-hero.home-welcome-hero .home-hero__title-star {
+    display: block !important;
+    width: 0.38em !important;
+    height: 0.38em !important;
+    color: #f5b400 !important;
+  }
+
+  .home-page .page-hero.home-welcome-hero .home-hero__tagline {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    font-size: 1rem !important;
+  }
+
+  .home-page .page-hero.home-welcome-hero .home-hero__copy-break {
+    display: none !important;
+  }
+
+  #main-content > section,
+  #main-content > section > .site-container {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+  }
+}
