@@ -35,11 +35,6 @@ $home_hero_tagline = bdc_get_acf_text(
 	'Dream • Create • Grow • Give',
 	$front_page_id
 );
-$home_hero_text = bdc_get_acf_text(
-	'home_hero_text',
-	'A nonprofit community where children\'s ideas become real projects that build confidence, creativity, kindness, and positive change.',
-	$front_page_id
-);
 $home_hero_primary_cta = bdc_get_acf_link(
 	'home_hero_primary_cta',
 	array(
@@ -460,14 +455,6 @@ $home_spotlight_council_items = ( is_array( $home_spotlight_council['list_items'
         }
       }
 
-      $home_hero_copy_html = esc_html( $home_hero_text );
-      $home_hero_copy_html = preg_replace(
-        '/that(\s+)/u',
-        'that<br class="home-hero__copy-break">$1',
-        $home_hero_copy_html,
-        1
-      );
-
       get_template_part(
         'template-parts/page-hero',
         null,
@@ -478,7 +465,7 @@ $home_spotlight_council_items = ( is_array( $home_spotlight_council['list_items'
           'section_label'            => $home_hero_eyebrow,
           'headline_html'            => $home_hero_headline_html,
           'tagline_html'             => $home_hero_tagline_html,
-          'supporting_copy_html'     => $home_hero_copy_html,
+          'supporting_copy_html'     => '',
           'primary_cta_text'         => $home_hero_primary_cta['title'],
           'primary_cta_link'         => $home_hero_primary_cta,
           'secondary_cta_text'       => $home_hero_secondary_cta['title'],
