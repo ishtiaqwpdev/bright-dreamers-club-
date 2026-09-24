@@ -9851,16 +9851,16 @@ img.lazy-img.loaded {
   }
 
   .home-page {
-    --bdc-home-hero-text-col-percent: 40;
-    --bdc-home-hero-banner-col-percent: 60;
-    --page-hero-balanced-content-col: 0.4fr;
-    --page-hero-balanced-media-col: 0.6fr;
-    --home-hero-content-share: 40%;
+    --bdc-home-hero-text-col-percent: 34;
+    --bdc-home-hero-banner-col-percent: 66;
+    --page-hero-balanced-content-col: 0.34fr;
+    --page-hero-balanced-media-col: 0.66fr;
+    --home-hero-content-share: 34%;
   }
 
   .home-page .page-hero.home-hero .page-hero__inner,
   .home-page .page-hero.home-welcome-hero .page-hero__inner {
-    grid-template-columns: minmax(0, 40%) minmax(0, 60%) !important;
+    grid-template-columns: minmax(0, 34%) minmax(0, 66%) !important;
     column-gap: 0 !important;
     gap: 0 !important;
   }
@@ -27647,13 +27647,14 @@ body.newsletter-success-open {
     justify-content: flex-end !important;
   }
 
-  /* Home hero — fixed 40/60 so 70–100% zoom keeps the same lockup */
+  /* Home hero — 34/66 + left-bleed banner so center white space closes */
   .home-page .page-hero.home-hero .page-hero__inner,
   .home-page .page-hero.home-welcome-hero .page-hero__inner {
-    grid-template-columns: minmax(0, 40%) minmax(0, 60%) !important;
+    grid-template-columns: minmax(0, 34%) minmax(0, 66%) !important;
     justify-content: start !important;
     column-gap: 0 !important;
     gap: 0 !important;
+    overflow: visible !important;
   }
 
   .home-page .page-hero.home-hero .page-hero__content,
@@ -27664,6 +27665,7 @@ body.newsletter-success-open {
     max-width: 100% !important;
     justify-self: start !important;
     box-sizing: border-box !important;
+    z-index: 2 !important;
   }
 
   .home-page .page-hero.home-hero .about-hero__media,
@@ -27671,11 +27673,16 @@ body.newsletter-success-open {
   .home-page .page-hero.home-welcome-hero .about-hero__media,
   .home-page .page-hero.home-welcome-hero .hero-image-wrap {
     justify-content: flex-start !important;
-    margin-left: 0 !important;
+    width: 118% !important;
+    max-width: none !important;
+    margin-left: -12% !important;
+    overflow: visible !important;
   }
 
   .home-page .page-hero.home-welcome-hero .about-hero__banner,
   .home-page .page-hero.home-hero .about-hero__banner {
+    width: 100% !important;
+    max-width: none !important;
     object-position: left center !important;
   }
 }
@@ -29354,20 +29361,29 @@ body.newsletter-success-open {
 /* --------------------------------------------------------------------------
    Home welcome hero — zoom-stable lockup (70% / 80% / 90% / 100%)
    Keep text + banner proportions identical across browser zoom by using a
-   fixed 40/60 grid and container-relative type (not max-content / raw vw).
+   fixed grid and container-relative type (not max-content / raw vw).
+   Gap is already 0; banner is widened + pulled left to kill the center white.
    Breakpoint matches desktop nav (≥1201) so tablets keep the stacked hero.
    -------------------------------------------------------------------------- */
 @media (min-width: 1201px) {
+  .home-page #main-content > section.page-hero.home-welcome-hero,
+  .home-page .page-hero.home-welcome-hero,
+  .home-page #main-content > section.page-hero.home-hero,
+  .home-page .page-hero.home-hero {
+    overflow: visible !important;
+  }
+
   .home-page #main-content > section.page-hero.home-welcome-hero .page-hero__inner,
   .home-page .page-hero.home-welcome-hero .page-hero__inner,
   .home-page #main-content > section.page-hero.home-hero .page-hero__inner,
   .home-page .page-hero.home-hero .page-hero__inner {
     display: grid !important;
-    grid-template-columns: minmax(0, 40%) minmax(0, 60%) !important;
+    grid-template-columns: minmax(0, 34%) minmax(0, 66%) !important;
     align-items: center !important;
     justify-content: start !important;
     column-gap: 0 !important;
     gap: 0 !important;
+    overflow: visible !important;
   }
 
   .home-page #main-content > section.page-hero.home-welcome-hero .page-hero__content,
@@ -29379,6 +29395,7 @@ body.newsletter-success-open {
     width: 100% !important;
     max-width: 100% !important;
     min-width: 0 !important;
+    z-index: 2 !important;
   }
 
   .home-page .page-hero.home-welcome-hero .hero-label,
@@ -29445,19 +29462,39 @@ body.newsletter-success-open {
   .home-page .page-hero.home-welcome-hero .hero-image-wrap,
   .home-page .page-hero.home-hero .about-hero__media,
   .home-page .page-hero.home-hero .hero-image-wrap {
-    width: 100% !important;
+    width: 118% !important;
+    max-width: none !important;
     min-width: 0 !important;
+    margin-left: -12% !important;
+    padding-left: 0 !important;
     justify-content: flex-start !important;
     align-self: center !important;
+    overflow: visible !important;
+    z-index: 1 !important;
+  }
+
+  .home-page #main-content > section.page-hero.home-welcome-hero .about-hero__media .lazy-img-wrap,
+  .home-page #main-content > section.page-hero.home-welcome-hero .about-hero__media picture,
+  .home-page .page-hero.home-welcome-hero .about-hero__media .lazy-img-wrap,
+  .home-page .page-hero.home-welcome-hero .about-hero__media picture,
+  .home-page .page-hero.home-hero .about-hero__media .lazy-img-wrap,
+  .home-page .page-hero.home-hero .about-hero__media picture,
+  .home-page .page-hero.home-hero .hero-image-wrap .lazy-img-wrap,
+  .home-page .page-hero.home-hero .hero-image-wrap picture {
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+    overflow: visible !important;
   }
 
   .home-page #main-content > section.page-hero.home-welcome-hero .about-hero__banner,
   .home-page .page-hero.home-welcome-hero .about-hero__banner,
   .home-page .page-hero.home-hero .about-hero__banner {
     width: 100% !important;
-    max-width: 100% !important;
+    max-width: none !important;
     height: auto !important;
     max-height: none !important;
+    margin-left: 0 !important;
     object-fit: contain !important;
     object-position: left center !important;
   }
