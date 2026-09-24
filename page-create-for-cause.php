@@ -359,6 +359,7 @@ $create_for_cause_cta_btn_link = bdc_get_acf_link(
         null,
         array(
           'section_class'      => 'creative-makers-hero create-for-cause-hero',
+          'actions_class'      => 'home-hero__actions--inline',
           'labelledby'         => 'create-for-cause-title',
           'headline'           => $create_for_cause_hero_title,
           'headline_id'        => 'create-for-cause-title',

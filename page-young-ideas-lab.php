@@ -373,6 +373,7 @@ $young_ideas_lab_cta_btn_link = bdc_get_acf_link(
         null,
         array(
           'section_class'      => 'creative-makers-hero young-ideas-lab-hero',
+          'actions_class'      => 'home-hero__actions--inline',
           'labelledby'         => 'young-ideas-lab-title',
           'headline'           => $young_ideas_lab_hero_title,
           'headline_id'        => 'young-ideas-lab-title',

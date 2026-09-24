@@ -383,6 +383,7 @@ $creative_makers_cta_btn_link = bdc_get_acf_link(
         null,
         array(
           'section_class'      => 'creative-makers-hero',
+          'actions_class'      => 'home-hero__actions--inline',
           'labelledby'         => 'creative-makers-title',
           'headline'           => $creative_makers_hero_title,
           'headline_id'        => 'creative-makers-title',

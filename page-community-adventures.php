@@ -367,6 +367,7 @@ $community_adventures_cta_btn_link = bdc_get_acf_link(
         null,
         array(
           'section_class'      => 'creative-makers-hero community-adventures-hero',
+          'actions_class'      => 'home-hero__actions--inline',
           'labelledby'         => 'community-adventures-title',
           'headline'           => $community_adventures_hero_title,
           'headline_id'        => 'community-adventures-title',
