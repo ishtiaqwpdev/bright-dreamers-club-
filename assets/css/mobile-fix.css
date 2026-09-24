@@ -330,7 +330,7 @@
     max-width: 100% !important;
     min-width: 0 !important;
     margin: 0 !important;
-    padding: 0 20px 8px !important;
+    padding: 0 0 8px !important;
     box-sizing: border-box !important;
   }
 
@@ -340,7 +340,7 @@
     align-items: center !important;
     text-align: center !important;
     width: 100% !important;
-    padding: 0 0 24px !important;
+    padding: 0 20px 24px !important;
   }
 
   .footer-m-brand__logo {
@@ -354,6 +354,7 @@
     height: auto !important;
     margin-inline: auto !important;
     object-fit: contain !important;
+    mix-blend-mode: multiply;
   }
 
   .footer-m-brand__mission {
@@ -378,9 +379,16 @@
 
   .footer-m-brand__social .social-icon {
     display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 32px !important;
+    height: 32px !important;
+    border-radius: 50% !important;
+    background-color: var(--color-pink) !important;
+    color: #fff !important;
   }
 
-  /* Full-width accordion rows */
+  /* Full-bleed accordion hairlines; text inset */
   .footer-acc {
     display: flex !important;
     flex-direction: column !important;
@@ -402,7 +410,7 @@
     gap: 12px !important;
     width: 100% !important;
     margin: 0 !important;
-    padding: 16px 0 !important;
+    padding: 16px 20px !important;
     border: 0 !important;
     background: transparent !important;
     color: var(--color-navy) !important;
@@ -435,6 +443,8 @@
 
   .footer-acc__panel {
     width: 100% !important;
+    padding: 0 20px !important;
+    box-sizing: border-box !important;
   }
 
   .footer-acc__links {
@@ -444,7 +454,7 @@
     padding: 0 0 16px !important;
   }
 
-  /* Legal strip — centered, full width */
+  /* Legal strip — centered, heart on its own row */
   .site-footer__legal {
     width: 100% !important;
     max-width: 100% !important;
@@ -486,13 +496,17 @@
   }
 
   .site-footer__legal-nav .site-footer__legal-sep,
-  .site-footer__legal-sep--heart {
+  .site-footer__legal-sep--heart,
+  .site-footer__legal-sep--trail {
     display: inline !important;
   }
 
   .site-footer__legal-heart {
-    display: inline-flex !important;
+    display: flex !important;
+    justify-content: center !important;
     align-items: center !important;
+    width: 100% !important;
+    margin: 0.35rem 0 0 !important;
     color: var(--color-pink) !important;
   }
 

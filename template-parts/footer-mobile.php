@@ -57,10 +57,6 @@ foreach ( $ordered_social as $social ) {
 	}
 }
 
-if ( empty( $mobile_social ) && ! empty( $ordered_social ) ) {
-	$mobile_social[] = $ordered_social[0];
-}
-
 $acc_groups = array(
 	array(
 		'key'   => 'explore',
