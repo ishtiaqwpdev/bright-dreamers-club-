@@ -443,7 +443,11 @@ $home_spotlight_council_items = ( is_array( $home_spotlight_council['list_items'
           }
 
           if ( ! empty( $home_hero_tagline_parts ) ) {
-            $home_hero_tagline_parts[] = '<span class="home-hero__tagline-dot" aria-hidden="true">•</span>';
+            $home_hero_prev_tone        = $home_hero_tagline_tones[ ( $home_hero_tagline_index - 1 ) % count( $home_hero_tagline_tones ) ];
+            $home_hero_tagline_parts[] = sprintf(
+              '<span class="home-hero__tagline-dot home-hero__tagline-dot--%1$s" aria-hidden="true">•</span>',
+              esc_attr( $home_hero_prev_tone )
+            );
           }
 
           $home_hero_tagline_tone    = $home_hero_tagline_tones[ $home_hero_tagline_index % count( $home_hero_tagline_tones ) ];
@@ -461,11 +465,16 @@ $home_spotlight_council_items = ( is_array( $home_spotlight_council['list_items'
       }
 
       $home_hero_copy_html = esc_html( $home_hero_text );
-      $home_hero_copy_html = preg_replace(
-        '/that(\s+)/u',
-        'that<br class="home-hero__copy-break">$1',
-        $home_hero_copy_html,
-        1
+      $home_hero_copy_html = str_replace(
+        array(
+          'ideas become',
+          'confidence, creativity',
+        ),
+        array(
+          'ideas<br class="home-hero__copy-break">become',
+          'confidence,<br class="home-hero__copy-break">creativity',
+        ),
+        $home_hero_copy_html
       );
 
       get_template_part(

@@ -1846,11 +1846,11 @@ button {
 }
 
 .home-hero__tagline-word--dream {
-  color: #2f80ed;
+  color: var(--color-navy);
 }
 
 .home-hero__tagline-word--create {
-  color: var(--color-green);
+  color: var(--color-cyan);
 }
 
 .home-hero__tagline-word--grow {
@@ -1858,13 +1858,29 @@ button {
 }
 
 .home-hero__tagline-word--give {
-  color: var(--color-plane);
+  color: var(--color-green);
 }
 
 .home-hero__tagline-dot {
   font-size: 1.15em;
   line-height: 1;
   transform: translateY(-0.04em);
+}
+
+.home-hero__tagline-dot--dream {
+  color: var(--color-navy);
+}
+
+.home-hero__tagline-dot--create {
+  color: var(--color-cyan);
+}
+
+.home-hero__tagline-dot--grow {
+  color: var(--color-orange);
+}
+
+.home-hero__tagline-dot--give {
+  color: var(--color-green);
 }
 
 .home-hero__tagline-dot--pink {
@@ -1888,9 +1904,9 @@ button {
   font-family: var(--font-body);
   font-size: clamp(0.98rem, 1.05vw, 1.08rem);
   font-weight: 400;
-  line-height: 1.6;
+  line-height: 1.55;
   color: var(--color-navy);
-  max-width: 42rem;
+  max-width: 28.5rem;
   margin: 0 0 1.25rem;
 }
 
