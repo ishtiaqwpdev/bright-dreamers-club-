@@ -1674,7 +1674,7 @@ button {
 .page-hero__content {
   position: relative;
   z-index: 2;
-  width: min(100%, 50%);
+  width: 100%;
   max-width: 580px;
   padding-top: 0.35rem;
   padding-bottom: 0.75rem;
@@ -1992,7 +1992,7 @@ button {
   .create-for-cause-page .page-hero.create-for-cause-hero .page-hero__inner,
   .community-adventures-page .page-hero.community-adventures-hero .page-hero__inner {
     display: grid;
-    grid-template-columns: minmax(0, max-content) minmax(280px, 1fr);
+    grid-template-columns: minmax(0, 40%) minmax(0, 60%);
     align-items: center;
     justify-content: start;
     gap: 0;
@@ -3147,17 +3147,55 @@ img.lazy-img.loaded {
   overflow: visible;
 }
 
-.about-hero .page-hero__inner,
-.home-hero .page-hero__inner,
-.vision-hero .page-hero__inner,
-.for-parents-hero .page-hero__inner {
-  display: grid;
-  grid-template-columns: minmax(0, max-content) minmax(280px, 1fr);
-  align-items: center;
-  justify-content: start;
-  gap: 0;
-  column-gap: 0;
-  min-height: inherit;
+@media (min-width: 1024px) {
+  .about-hero .page-hero__inner,
+  .home-hero .page-hero__inner,
+  .vision-hero .page-hero__inner,
+  .for-parents-hero .page-hero__inner {
+    display: grid;
+    grid-template-columns: minmax(0, 40%) minmax(0, 60%);
+    align-items: center;
+    justify-content: start;
+    gap: 0;
+    column-gap: 0;
+    min-height: inherit;
+  }
+}
+
+@media (max-width: 1023px) {
+  .about-hero .page-hero__inner,
+  .home-hero .page-hero__inner,
+  .vision-hero .page-hero__inner,
+  .for-parents-hero .page-hero__inner,
+  .contact-hero .page-hero__inner,
+  .get-involved-hero .page-hero__inner,
+  .explore-hero .page-hero__inner,
+  .page-hero .page-hero__inner {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    grid-template-columns: none !important;
+    gap: var(--page-hero-mobile-stack-gap, 1rem) !important;
+  }
+
+  .page-hero .page-hero__content,
+  .about-hero .page-hero__content,
+  .home-hero .page-hero__content,
+  .vision-hero .page-hero__content,
+  .for-parents-hero .page-hero__content,
+  .contact-hero .page-hero__content,
+  .get-involved-hero .page-hero__content,
+  .explore-hero .page-hero__content {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    width: 100% !important;
+    max-width: none !important;
+    min-width: 0 !important;
+  }
 }
 
 .contact-hero .page-hero__inner {
@@ -10007,7 +10045,7 @@ img.lazy-img.loaded {
   .page-hero.partners-hero .page-hero__inner,
   .page-hero.contact-hero .page-hero__inner {
     display: grid;
-    grid-template-columns: minmax(0, max-content) minmax(280px, 1fr);
+    grid-template-columns: minmax(0, 40%) minmax(0, 60%);
     align-items: center;
     justify-content: start;
     gap: 0;
@@ -28694,8 +28732,8 @@ body.newsletter-success-open {
     --page-hero-balanced-content-col: auto;
     --page-hero-balanced-media-col: minmax(0, 1fr);
     display: grid !important;
-    /* Keep text flush, but never let the banner column collapse on smaller laptop widths */
-    grid-template-columns: minmax(0, max-content) minmax(280px, 1fr) !important;
+    /* Fixed 40/60 — never max-content (collapses on narrow / zoomed viewports) */
+    grid-template-columns: minmax(0, 40%) minmax(0, 60%) !important;
     column-gap: 0 !important;
     gap: 0 !important;
     justify-content: start !important;
@@ -28706,7 +28744,7 @@ body.newsletter-success-open {
   .page-hero .page-hero__content {
     grid-column: 1 !important;
     --bdc-hero-col-percent: var(--bdc-hero-text-col-percent);
-    width: auto !important;
+    width: 100% !important;
     max-width: min(100%, 36rem) !important;
     min-width: 0 !important;
     justify-self: start !important;
@@ -29315,6 +29353,196 @@ body.newsletter-success-open {
 
   .home-hero__tagline {
     flex-wrap: wrap !important;
+  }
+}
+
+/* ==========================================================================
+   MOBILE FULL-WIDTH EMERGENCY FIX
+   Prevents the "narrow strip" collapse from leftover max-content grids /
+   display:contents. Must stay last so it wins on phones/tablets.
+   ========================================================================== */
+@media (max-width: 1023px) {
+  html,
+  body {
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+  }
+
+  :root {
+    --container-padding: 16px;
+  }
+
+  #page,
+  #main-content,
+  main,
+  .site-header,
+  .site-footer,
+  .announce-bar {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  .site-container,
+  .announce-bar__inner,
+  .site-header__inner,
+  .site-footer__grid,
+  .site-footer__legal-inner {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Kill any 2-col max-content hero grid on small screens */
+  .page-hero .page-hero__inner,
+  .page-hero > .site-container.page-hero__inner,
+  #main-content > section.page-hero .page-hero__inner,
+  .home-hero .page-hero__inner,
+  .about-hero .page-hero__inner,
+  .vision-hero .page-hero__inner,
+  .for-parents-hero .page-hero__inner,
+  .contact-hero .page-hero__inner,
+  .get-involved-hero .page-hero__inner,
+  .explore-hero .page-hero__inner,
+  .partners-hero .page-hero__inner,
+  .creative-makers-hero .page-hero__inner,
+  .young-ideas-lab-hero .page-hero__inner,
+  .create-for-cause-hero .page-hero__inner,
+  .community-adventures-hero .page-hero__inner {
+    display: flex !important;
+    flex-direction: column !important;
+    flex-wrap: nowrap !important;
+    align-items: stretch !important;
+    justify-content: flex-start !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    grid-template-columns: none !important;
+    grid-template-rows: none !important;
+    gap: 1rem !important;
+    column-gap: 0 !important;
+  }
+
+  /* contents = text/image/CTAs can reorder; every child must be full width */
+  .page-hero .page-hero__content,
+  #main-content > section.page-hero .page-hero__content,
+  .home-page .page-hero.home-welcome-hero .page-hero__content,
+  .about-page .page-hero .page-hero__content,
+  .explore-page .page-hero .page-hero__content,
+  .for-parents-page .page-hero .page-hero__content,
+  .our-vision-page .page-hero .page-hero__content,
+  .get-involved-page .page-hero .page-hero__content,
+  .partners-page .page-hero .page-hero__content,
+  .contact-page .page-hero .page-hero__content,
+  .creative-makers-page .page-hero .page-hero__content,
+  .young-ideas-lab-page .page-hero .page-hero__content,
+  .create-for-cause-page .page-hero .page-hero__content,
+  .community-adventures-page .page-hero .page-hero__content {
+    display: contents !important;
+  }
+
+  .page-hero .hero-label,
+  .page-hero .hero-headline,
+  .page-hero .home-hero__tagline,
+  .page-hero .hero-copy,
+  .page-hero .page-hero__extra {
+    order: 1 !important;
+    width: 100% !important;
+    max-width: none !important;
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+    padding-left: var(--container-padding, 16px) !important;
+    padding-right: var(--container-padding, 16px) !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  .page-hero .about-hero__media,
+  .page-hero .hero-image-wrap,
+  .page-hero [class*='-hero__media'] {
+    order: 2 !important;
+    display: flex !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    margin: 0 !important;
+  }
+
+  .page-hero .page-hero__actions,
+  .page-hero .hero-ctas {
+    order: 3 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    width: 100% !important;
+    max-width: none !important;
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+    padding-left: var(--container-padding, 16px) !important;
+    padding-right: var(--container-padding, 16px) !important;
+    gap: 0.75rem !important;
+  }
+
+  .page-hero img[class*='__banner'],
+  .page-hero .about-hero__banner,
+  .page-hero .explore-hero__banner,
+  .page-hero .creative-makers-hero__banner,
+  .page-hero .lazy-img-wrap,
+  .page-hero picture {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    max-height: none !important;
+    object-fit: contain !important;
+  }
+
+  .page-hero .page-hero__actions .btn,
+  .page-hero .hero-ctas .btn {
+    width: 100% !important;
+    max-width: none !important;
+  }
+
+  /* Home mobile: keep Bright/Dreamers + star + tagline visible */
+  .home-page .page-hero.home-welcome-hero .home-hero__mobile-logo {
+    display: none !important;
+  }
+
+  .home-page .page-hero.home-welcome-hero .home-hero__title-line {
+    display: inline-flex !important;
+  }
+
+  .home-page .page-hero.home-welcome-hero .home-hero__title-star {
+    display: block !important;
+    color: #f5b400 !important;
+  }
+
+  .home-page .page-hero.home-welcome-hero .home-hero__tagline {
+    display: flex !important;
+    flex-wrap: wrap !important;
+  }
+
+  .home-page .page-hero.home-welcome-hero .home-hero__copy-break {
+    display: none !important;
+  }
+
+  /* General section grids shouldn't collapse */
+  #main-content > section,
+  #main-content > section > .site-container,
+  .home-pillars,
+  .home-pillars__row,
+  .home-different,
+  .home-reality,
+  .home-explore,
+  .home-spotlight {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    box-sizing: border-box !important;
   }
 }
 
