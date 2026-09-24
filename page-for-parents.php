@@ -429,36 +429,32 @@ $for_parents_cta_btn_link = bdc_get_acf_link(
 ?>
     <main id="main-content">
       <?php
-      // Plain description only — no <br>, no accent spans; natural wrap.
-      $for_parents_copy_default = 'You know your child best. We\'re here to help their ideas grow. Bright Dreamers is a small, intentional community where children with ideas, curiosity, and a desire to make a difference come together to explore, create, and turn their ideas into real projects.';
-      $for_parents_copy         = trim( (string) $for_parents_hero_subhead_intro );
-      // Prefer the full one-piece copy; ignore leftover short ACF fragments.
-      if ( '' === $for_parents_copy || strlen( $for_parents_copy ) < 80 ) {
-        $for_parents_copy = $for_parents_copy_default;
-      }
+      // Always one plain navy paragraph — no <br>, no accent spans/colors.
+      $for_parents_copy = 'You know your child best. We\'re here to help their ideas grow. Bright Dreamers is a small, intentional community where children with ideas, curiosity, and a desire to make a difference come together to explore, create, and turn their ideas into real projects.';
 
       get_template_part(
         'template-parts/page-hero',
         null,
         array(
-          'section_class'      => 'for-parents-hero about-hero',
-          'aria_label'         => $for_parents_hero_aria_label,
-          'headline_html'      => bdc_hero_lines_html(
+          'section_class'          => 'for-parents-hero about-hero',
+          'aria_label'             => $for_parents_hero_aria_label,
+          'headline_html'          => bdc_hero_lines_html(
             array(
               array( 'text' => $for_parents_hero_title_line_1, 'class' => 'for-parents-hero__title-line for-parents-hero__title-line--pink' ),
               array( 'text' => $for_parents_hero_title_line_2, 'class' => 'for-parents-hero__title-line for-parents-hero__title-line--navy' ),
             )
           ),
-          'supporting_copy'    => $for_parents_copy,
-          'primary_cta_text'   => $for_parents_hero_primary_btn_text,
-          'primary_cta_link'   => $for_parents_hero_primary_btn_link,
-          'secondary_cta_text' => $for_parents_hero_secondary_btn_text,
-          'secondary_cta_link' => $for_parents_hero_secondary_btn_link,
-          'hero_image'         => $for_parents_hero_banner_url,
-          'hero_image_mobile'  => $for_parents_hero_banner_mobile_url,
-          'hero_image_alt'     => $for_parents_hero_banner_alt,
-          'media_class'        => 'about-hero__media',
-          'image_class'        => 'about-hero__banner',
+          'supporting_copy'        => $for_parents_copy,
+          'supporting_copy_html'   => '',
+          'primary_cta_text'       => $for_parents_hero_primary_btn_text,
+          'primary_cta_link'       => $for_parents_hero_primary_btn_link,
+          'secondary_cta_text'     => $for_parents_hero_secondary_btn_text,
+          'secondary_cta_link'     => $for_parents_hero_secondary_btn_link,
+          'hero_image'             => $for_parents_hero_banner_url,
+          'hero_image_mobile'      => $for_parents_hero_banner_mobile_url,
+          'hero_image_alt'         => $for_parents_hero_banner_alt,
+          'media_class'            => 'about-hero__media',
+          'image_class'            => 'about-hero__banner',
         )
       );
       ?>

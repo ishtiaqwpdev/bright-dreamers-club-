@@ -4460,19 +4460,20 @@ img.lazy-img.loaded {
 }
 
 .for-parents-hero__accent {
-  font-weight: 700;
+  font-weight: inherit;
+  color: inherit;
 }
 
-.for-parents-hero__accent--pink {
-  color: var(--color-pink);
-}
-
-.for-parents-hero__accent--green {
-  color: var(--color-green);
-}
-
+.for-parents-hero__accent--pink,
+.for-parents-hero__accent--green,
 .for-parents-hero__accent--cyan {
-  color: var(--color-cyan);
+  color: inherit;
+}
+
+.for-parents-page .page-hero.for-parents-hero .hero-copy,
+.for-parents-page .page-hero.for-parents-hero .hero-copy * {
+  color: var(--color-navy);
+  font-weight: inherit;
 }
 
 /* ??? Get Involved hero ??? */
@@ -24815,19 +24816,11 @@ body.newsletter-success-open {
     margin: 0 !important;
   }
 
-  .for-parents-page .page-hero.for-parents-hero .for-parents-hero__accent--pink {
-    color: var(--color-pink) !important;
-    font-weight: 700 !important;
-  }
-
-  .for-parents-page .page-hero.for-parents-hero .for-parents-hero__accent--green {
-    color: var(--color-green) !important;
-    font-weight: 700 !important;
-  }
-
+  .for-parents-page .page-hero.for-parents-hero .for-parents-hero__accent--pink,
+  .for-parents-page .page-hero.for-parents-hero .for-parents-hero__accent--green,
   .for-parents-page .page-hero.for-parents-hero .for-parents-hero__accent--cyan {
-    color: var(--color-cyan) !important;
-    font-weight: 700 !important;
+    color: var(--color-navy) !important;
+    font-weight: inherit !important;
   }
 
   .for-parents-page .page-hero.for-parents-hero .page-hero__actions,
