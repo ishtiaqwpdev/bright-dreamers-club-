@@ -122,7 +122,45 @@
 }
 
 /* -------------------------------------------------------------------------- */
-/* ≤1023px — full-width page + hero stack                                     */
+/* ≤1200px — hero stack (match hamburger header; do not leave 40/60 on tablet) */
+/* -------------------------------------------------------------------------- */
+@media (max-width: 1200px) {
+  /* Single-column hero — never max-content / 40-60 grid while nav is collapsed */
+  .page-hero .page-hero__inner,
+  #main-content > section.page-hero .page-hero__inner,
+  .page-hero__inner--layout-40-60,
+  .home-hero .page-hero__inner,
+  .about-hero .page-hero__inner,
+  .vision-hero .page-hero__inner,
+  .for-parents-hero .page-hero__inner,
+  .contact-hero .page-hero__inner,
+  .get-involved-hero .page-hero__inner,
+  .explore-hero .page-hero__inner,
+  .partners-hero .page-hero__inner,
+  .creative-makers-hero .page-hero__inner,
+  .young-ideas-lab-hero .page-hero__inner,
+  .create-for-cause-hero .page-hero__inner,
+  .community-adventures-hero .page-hero__inner {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    grid-template-columns: none !important;
+    gap: 1rem !important;
+    column-gap: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  .page-hero .page-hero__content {
+    display: contents !important;
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+/* ≤1023px — full-width page + remaining hero chrome                          */
 /* -------------------------------------------------------------------------- */
 @media (max-width: 1023px) {
   html,
@@ -153,38 +191,6 @@
     box-sizing: border-box !important;
     padding-left: var(--container-padding) !important;
     padding-right: var(--container-padding) !important;
-  }
-
-  /* Single-column hero — never max-content / 40-60 grid */
-  .page-hero .page-hero__inner,
-  #main-content > section.page-hero .page-hero__inner,
-  .home-hero .page-hero__inner,
-  .about-hero .page-hero__inner,
-  .vision-hero .page-hero__inner,
-  .for-parents-hero .page-hero__inner,
-  .contact-hero .page-hero__inner,
-  .get-involved-hero .page-hero__inner,
-  .explore-hero .page-hero__inner,
-  .partners-hero .page-hero__inner,
-  .creative-makers-hero .page-hero__inner,
-  .young-ideas-lab-hero .page-hero__inner,
-  .create-for-cause-hero .page-hero__inner,
-  .community-adventures-hero .page-hero__inner {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: stretch !important;
-    width: 100% !important;
-    max-width: 100% !important;
-    min-width: 0 !important;
-    grid-template-columns: none !important;
-    gap: 1rem !important;
-    column-gap: 0 !important;
-    padding-left: 0 !important;
-    padding-right: 0 !important;
-  }
-
-  .page-hero .page-hero__content {
-    display: contents !important;
   }
 
   .page-hero .hero-label,

@@ -2099,6 +2099,7 @@ button {
     object-fit: contain;
     object-position: left center;
   }
+}
 
 .home-hero__deco {
   display: none;
@@ -3149,7 +3150,8 @@ img.lazy-img.loaded {
   overflow: visible;
 }
 
-@media (min-width: 1024px) {
+/* Align with hamburger breakpoint (≤1200) — do not force 2-col hero while nav is collapsed */
+@media (min-width: 1201px) {
   .about-hero .page-hero__inner,
   .home-hero .page-hero__inner,
   .vision-hero .page-hero__inner,
@@ -3183,6 +3185,7 @@ img.lazy-img.loaded {
     gap: var(--page-hero-mobile-stack-gap, 1rem) !important;
   }
 
+  /* contents so label/copy/media/CTAs can reorder as siblings of .page-hero__inner */
   .page-hero .page-hero__content,
   .about-hero .page-hero__content,
   .home-hero .page-hero__content,
@@ -3191,82 +3194,80 @@ img.lazy-img.loaded {
   .contact-hero .page-hero__content,
   .get-involved-hero .page-hero__content,
   .explore-hero .page-hero__content {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: stretch !important;
-    width: 100% !important;
-    max-width: none !important;
-    min-width: 0 !important;
+    display: contents !important;
   }
 }
 
-.contact-hero .page-hero__inner {
-  display: grid;
-  grid-template-columns: minmax(0, var(--contact-hero-content-col))
-    minmax(0, var(--contact-hero-media-col));
-  align-items: center;
-  justify-content: space-between;
-  gap: clamp(0.35rem, 0.75vw, 0.85rem);
-  min-height: inherit;
-}
+/* Per-page hero grids — desktop only (≤1200 uses stacked flex from responsive block) */
+@media (min-width: 1201px) {
+  .contact-hero .page-hero__inner {
+    display: grid;
+    grid-template-columns: minmax(0, var(--contact-hero-content-col))
+      minmax(0, var(--contact-hero-media-col));
+    align-items: center;
+    justify-content: space-between;
+    gap: clamp(0.35rem, 0.75vw, 0.85rem);
+    min-height: inherit;
+  }
 
-.get-involved-hero .page-hero__inner {
-  display: grid;
-  grid-template-columns: minmax(0, var(--get-involved-hero-content-col))
-    minmax(0, var(--get-involved-hero-media-col));
-  align-items: center;
-  justify-content: space-between;
-  gap: clamp(0.35rem, 0.75vw, 0.85rem);
-  min-height: inherit;
-}
+  .get-involved-hero .page-hero__inner {
+    display: grid;
+    grid-template-columns: minmax(0, var(--get-involved-hero-content-col))
+      minmax(0, var(--get-involved-hero-media-col));
+    align-items: center;
+    justify-content: space-between;
+    gap: clamp(0.35rem, 0.75vw, 0.85rem);
+    min-height: inherit;
+  }
 
-.vision-hero .page-hero__inner {
-  grid-template-columns: minmax(0, var(--vision-hero-content-col))
-    minmax(0, var(--vision-hero-media-col));
-  gap: clamp(0.35rem, 0.75vw, 0.85rem);
-}
+  .vision-hero .page-hero__inner {
+    grid-template-columns: minmax(0, var(--vision-hero-content-col))
+      minmax(0, var(--vision-hero-media-col));
+    gap: clamp(0.35rem, 0.75vw, 0.85rem);
+  }
 
-.explore-hero .page-hero__inner {
-  display: grid;
-  grid-template-columns: minmax(0, var(--explore-hero-content-col))
-    minmax(0, var(--explore-hero-media-col));
-  align-items: center;
-  justify-content: space-between;
-  gap: var(--explore-hero-inner-gap);
-  min-height: inherit;
-}
+  .explore-hero .page-hero__inner {
+    display: grid;
+    grid-template-columns: minmax(0, var(--explore-hero-content-col))
+      minmax(0, var(--explore-hero-media-col));
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--explore-hero-inner-gap);
+    min-height: inherit;
+  }
 
-.about-hero .page-hero__content,
-.home-hero .page-hero__content,
-.vision-hero .page-hero__content,
-.contact-hero .page-hero__content,
-.for-parents-hero .page-hero__content,
-.get-involved-hero .page-hero__content,
-.creative-makers-hero .page-hero__content,
-.young-ideas-lab-hero .page-hero__content,
-.create-for-cause-hero .page-hero__content,
-.community-adventures-hero .page-hero__content {
-  width: 100%;
-  max-width: none;
-  padding-top: 0;
-  padding-right: 0.5rem;
-  grid-column: 1;
-  grid-row: 1;
-}
+  .about-hero .page-hero__content,
+  .home-hero .page-hero__content,
+  .vision-hero .page-hero__content,
+  .contact-hero .page-hero__content,
+  .for-parents-hero .page-hero__content,
+  .get-involved-hero .page-hero__content,
+  .creative-makers-hero .page-hero__content,
+  .young-ideas-lab-hero .page-hero__content,
+  .create-for-cause-hero .page-hero__content,
+  .community-adventures-hero .page-hero__content {
+    width: 100%;
+    max-width: none;
+    padding-top: 0;
+    padding-right: 0.5rem;
+    grid-column: 1;
+    grid-row: 1;
+  }
 
-.about-hero__media,
-.home-hero .about-hero__media,
-.contact-hero .about-hero__media,
-.for-parents-hero .about-hero__media,
-.get-involved-hero .about-hero__media,
-.vision-hero .about-hero__media {
-  grid-column: 2;
-  grid-row: 1;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  position: relative;
-  min-width: 0;
+  .about-hero__media,
+  .home-hero .about-hero__media,
+  .contact-hero .about-hero__media,
+  .for-parents-hero .about-hero__media,
+  .get-involved-hero .about-hero__media,
+  .vision-hero .about-hero__media {
+    grid-column: 2;
+    grid-row: 1;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    position: relative;
+    min-width: 0;
+  }
 }
 
 .about-hero__banner,
@@ -22402,8 +22403,8 @@ body.newsletter-success-open {
   }
 }
 
-/* All page heroes — desktop layout (matches home hero, ≥1024px only) */
-@media (min-width: 1024px) {
+/* All page heroes — desktop layout (matches home hero, ≥1201px — same as desktop nav) */
+@media (min-width: 1201px) {
   #main-content > section.page-hero,
   .page-hero {
     min-height: 0 !important;
@@ -22685,8 +22686,8 @@ body.newsletter-success-open {
   }
 }
 
-/* Our Vision + For Parents — desktop: cropped banner, right flush (≥1024px) */
-@media (min-width: 1024px) {
+/* Our Vision + For Parents — desktop: cropped banner, right flush (≥1201px) */
+@media (min-width: 1201px) {
   .page-hero.vision-hero:not(.partners-hero) .page-hero__inner,
   .our-vision-page .page-hero.vision-hero:not(.partners-hero) .page-hero__inner,
   .for-parents-page .page-hero.for-parents-hero .page-hero__inner {
@@ -22858,8 +22859,8 @@ body.newsletter-success-open {
   }
 }
 
-/* Creative Makers — desktop: match home hero lockup (≥1024px) */
-@media (min-width: 1024px) {
+/* Creative Makers — desktop: match home hero lockup (≥1201px) */
+@media (min-width: 1201px) {
   .creative-makers-page .page-hero.creative-makers-hero .creative-makers-hero__deco--star,
   .page-hero.creative-makers-hero .creative-makers-hero__deco--star {
     display: none !important;
@@ -27584,8 +27585,8 @@ body.newsletter-success-open {
   object-position: center center !important;
 }
 
-/* Home hero banner — same display size as About page */
-@media (min-width: 1024px) {
+/* Home hero banner — same display size as About page (desktop nav widths only) */
+@media (min-width: 1201px) {
   .home-page .page-hero.home-welcome-hero .about-hero__media,
   .home-page .page-hero.home-welcome-hero .hero-image-wrap {
     flex: 1 1 58% !important;
@@ -28823,8 +28824,8 @@ body.newsletter-success-open {
   }
 }
 
-/* Desktop (≥1024px): sitewide hero — inspectable 40/60 grid (see data-bdc-hero-* on .page-hero__inner) */
-@media (min-width: 1024px) {
+/* Desktop (≥1201px): sitewide hero 40/60 — same breakpoint as full desktop nav */
+@media (min-width: 1201px) {
   :root {
     --bdc-hero-text-col-percent: 40;
     --bdc-hero-banner-col-percent: 60;
@@ -29354,8 +29355,9 @@ body.newsletter-success-open {
    Home welcome hero — zoom-stable lockup (70% / 80% / 90% / 100%)
    Keep text + banner proportions identical across browser zoom by using a
    fixed 40/60 grid and container-relative type (not max-content / raw vw).
+   Breakpoint matches desktop nav (≥1201) so tablets keep the stacked hero.
    -------------------------------------------------------------------------- */
-@media (min-width: 1024px) {
+@media (min-width: 1201px) {
   .home-page #main-content > section.page-hero.home-welcome-hero .page-hero__inner,
   .home-page .page-hero.home-welcome-hero .page-hero__inner,
   .home-page #main-content > section.page-hero.home-hero .page-hero__inner,
