@@ -31,27 +31,27 @@ $for_parents_hero_title_line_2 = bdc_get_acf_text(
 );
 $for_parents_hero_subhead_intro = bdc_get_acf_text(
 	'for_parents_hero_subhead_intro',
-	'You know your child best. We\'re here to help their',
+	'You know your child best. We\'re here to help their ideas grow. Bright Dreamers is a small, intentional community where children with ideas, curiosity, and a desire to make a difference come together to explore, create, and turn their ideas into real projects.',
 	$for_parents_page_id
 );
 $for_parents_hero_subhead_accent_pink = bdc_get_acf_text(
 	'for_parents_hero_subhead_accent_pink',
-	'ideas',
+	'',
 	$for_parents_page_id
 );
 $for_parents_hero_subhead_accent_green = bdc_get_acf_text(
 	'for_parents_hero_subhead_accent_green',
-	' grow.',
+	'',
 	$for_parents_page_id
 );
 $for_parents_hero_text_intro = bdc_get_acf_text(
 	'for_parents_hero_text_intro',
-	'Bright Dreamers is a small, intentional community where children with ideas, curiosity, and a desire to make a difference come together to explore, create, and turn their ideas into real',
+	'',
 	$for_parents_page_id
 );
 $for_parents_hero_text_accent_cyan = bdc_get_acf_text(
 	'for_parents_hero_text_accent_cyan',
-	'projects.',
+	'',
 	$for_parents_page_id
 );
 $for_parents_hero_primary_btn_text = bdc_get_acf_text(
@@ -429,20 +429,12 @@ $for_parents_cta_btn_link = bdc_get_acf_link(
 ?>
     <main id="main-content">
       <?php
-      $for_parents_copy_html  = '';
-      $for_parents_copy_html .= esc_html( $for_parents_hero_subhead_intro );
-      if ( '' !== trim( $for_parents_hero_subhead_accent_pink ) ) {
-        $for_parents_copy_html .= ' <span class="for-parents-hero__accent for-parents-hero__accent--pink">' . esc_html( $for_parents_hero_subhead_accent_pink ) . '</span>';
-      }
-      if ( '' !== trim( $for_parents_hero_subhead_accent_green ) ) {
-        $for_parents_copy_html .= ' <span class="for-parents-hero__accent for-parents-hero__accent--green">' . esc_html( $for_parents_hero_subhead_accent_green ) . '</span>';
-      }
-      $for_parents_body = trim( $for_parents_hero_text_intro );
-      if ( '' !== $for_parents_body || '' !== trim( $for_parents_hero_text_accent_cyan ) ) {
-        $for_parents_copy_html .= ( '' !== trim( wp_strip_all_tags( $for_parents_copy_html ) ) ? ' ' : '' ) . esc_html( $for_parents_hero_text_intro );
-        if ( '' !== trim( $for_parents_hero_text_accent_cyan ) ) {
-          $for_parents_copy_html .= ' <span class="for-parents-hero__accent for-parents-hero__accent--cyan">' . esc_html( $for_parents_hero_text_accent_cyan ) . '</span>';
-        }
+      // Plain description only — no <br>, no accent spans; natural wrap.
+      $for_parents_copy_default = 'You know your child best. We\'re here to help their ideas grow. Bright Dreamers is a small, intentional community where children with ideas, curiosity, and a desire to make a difference come together to explore, create, and turn their ideas into real projects.';
+      $for_parents_copy         = trim( (string) $for_parents_hero_subhead_intro );
+      // Prefer the full one-piece copy; ignore leftover short ACF fragments.
+      if ( '' === $for_parents_copy || strlen( $for_parents_copy ) < 80 ) {
+        $for_parents_copy = $for_parents_copy_default;
       }
 
       get_template_part(
@@ -457,7 +449,7 @@ $for_parents_cta_btn_link = bdc_get_acf_link(
               array( 'text' => $for_parents_hero_title_line_2, 'class' => 'for-parents-hero__title-line for-parents-hero__title-line--navy' ),
             )
           ),
-          'supporting_copy_html' => $for_parents_copy_html,
+          'supporting_copy'    => $for_parents_copy,
           'primary_cta_text'   => $for_parents_hero_primary_btn_text,
           'primary_cta_link'   => $for_parents_hero_primary_btn_link,
           'secondary_cta_text' => $for_parents_hero_secondary_btn_text,
