@@ -9467,18 +9467,38 @@ img.lazy-img.loaded {
     --nav-gap: calc(0.9rem + 5px);
   }
 
-  .site-nav,
-  .site-header__actions {
+  .site-nav {
     display: none;
+  }
+
+  .site-header__actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-left: auto;
+  }
+
+  .site-header__actions .btn--solid {
+    display: none;
+  }
+
+  .site-header__actions .btn--outline {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.4rem 0.9rem;
+    font-size: 0.85rem;
+    white-space: nowrap;
   }
 
   .menu-toggle {
     display: flex;
+    margin-left: 0;
   }
 
   .site-header__logo {
     width: auto;
-    max-width: calc(100% - 52px);
+    max-width: calc(100% - 148px);
   }
 
   .site-header__logo img {
@@ -10125,18 +10145,38 @@ img.lazy-img.loaded {
     --page-hero-mobile-image-max-h: min(420px, 55vh);
   }
 
-  .site-nav,
-  .site-header__actions {
+  .site-nav {
     display: none;
+  }
+
+  .site-header__actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-left: auto;
+  }
+
+  .site-header__actions .btn--solid {
+    display: none;
+  }
+
+  .site-header__actions .btn--outline {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.4rem 0.9rem;
+    font-size: 0.85rem;
+    white-space: nowrap;
   }
 
   .menu-toggle {
     display: flex;
+    margin-left: 0;
   }
 
   .site-header__logo {
     background: transparent;
-    max-width: calc(100% - 52px);
+    max-width: calc(100% - 148px);
   }
 
   .site-header__logo img {
@@ -19064,16 +19104,16 @@ body.newsletter-success-open {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 0;
+    gap: 10px;
     min-height: 0;
     padding: 8px 16px;
   }
 
   .site-header__logo {
-    flex: 0 0 auto;
+    flex: 0 1 auto;
     margin-right: auto;
     background: transparent;
-    max-width: calc(100% - 52px);
+    max-width: calc(100% - 148px);
   }
 
   .site-header__logo img {
@@ -19081,13 +19121,34 @@ body.newsletter-success-open {
     width: auto !important;
     height: auto !important;
     max-height: 72px !important;
-    max-width: min(220px, calc(100vw - 96px)) !important;
+    max-width: min(200px, calc(100vw - 160px)) !important;
     object-fit: contain !important;
     background: transparent;
   }
 
   .site-header__inner {
     min-height: calc(72px + var(--header-pad-y) * 2);
+  }
+
+  .site-header__actions {
+    display: flex !important;
+    align-items: center;
+    gap: 10px;
+    flex: 0 0 auto;
+    margin-left: 0;
+  }
+
+  .site-header__actions .btn--solid {
+    display: none !important;
+  }
+
+  .site-header__actions .btn--outline {
+    display: inline-flex !important;
+    align-items: center;
+    gap: 0.3rem;
+    padding: 0.38rem 0.85rem !important;
+    font-size: 0.82rem !important;
+    white-space: nowrap;
   }
 
   .menu-toggle {
@@ -27528,7 +27589,7 @@ body.newsletter-success-open {
 
   .home-page .page-hero.home-welcome-hero .about-hero__media,
   .home-page .page-hero.home-welcome-hero .hero-image-wrap {
-    order: 3 !important;
+    order: 2 !important;
     justify-content: center !important;
     align-items: center !important;
     width: 100% !important;
@@ -27555,7 +27616,7 @@ body.newsletter-success-open {
 
   .home-page .page-hero.home-welcome-hero .page-hero__actions,
   .home-page .page-hero.home-welcome-hero .home-hero__actions {
-    order: 4 !important;
+    order: 3 !important;
     display: flex !important;
     flex-direction: column !important;
     align-items: stretch !important;
@@ -27599,7 +27660,11 @@ body.newsletter-success-open {
   .our-vision-page .page-hero .page-hero__inner,
   .get-involved-page .page-hero .page-hero__inner,
   .partners-page .page-hero .page-hero__inner,
-  .contact-page .page-hero .page-hero__inner {
+  .contact-page .page-hero .page-hero__inner,
+  .creative-makers-page .page-hero .page-hero__inner,
+  .young-ideas-lab-page .page-hero .page-hero__inner,
+  .create-for-cause-page .page-hero .page-hero__inner,
+  .community-adventures-page .page-hero .page-hero__inner {
     display: flex !important;
     flex-direction: column !important;
     align-items: stretch !important;
@@ -27613,7 +27678,11 @@ body.newsletter-success-open {
   .our-vision-page .page-hero .page-hero__content,
   .get-involved-page .page-hero .page-hero__content,
   .partners-page .page-hero .page-hero__content,
-  .contact-page .page-hero .page-hero__content {
+  .contact-page .page-hero .page-hero__content,
+  .creative-makers-page .page-hero .page-hero__content,
+  .young-ideas-lab-page .page-hero .page-hero__content,
+  .create-for-cause-page .page-hero .page-hero__content,
+  .community-adventures-page .page-hero .page-hero__content {
     display: contents !important;
   }
 
@@ -27623,7 +27692,11 @@ body.newsletter-success-open {
   .our-vision-page .page-hero .hero-label,
   .get-involved-page .page-hero .hero-label,
   .partners-page .page-hero .hero-label,
-  .contact-page .page-hero .hero-label {
+  .contact-page .page-hero .hero-label,
+  .creative-makers-page .page-hero .hero-label,
+  .young-ideas-lab-page .page-hero .hero-label,
+  .create-for-cause-page .page-hero .hero-label,
+  .community-adventures-page .page-hero .hero-label {
     order: 1 !important;
     box-sizing: border-box !important;
     width: 100% !important;
@@ -27638,7 +27711,11 @@ body.newsletter-success-open {
   .our-vision-page .page-hero .hero-headline,
   .get-involved-page .page-hero .hero-headline,
   .partners-page .page-hero .hero-headline,
-  .contact-page .page-hero .hero-headline {
+  .contact-page .page-hero .hero-headline,
+  .creative-makers-page .page-hero .hero-headline,
+  .young-ideas-lab-page .page-hero .hero-headline,
+  .create-for-cause-page .page-hero .hero-headline,
+  .community-adventures-page .page-hero .hero-headline {
     order: 2 !important;
     box-sizing: border-box !important;
     width: 100% !important;
@@ -27654,7 +27731,11 @@ body.newsletter-success-open {
   .our-vision-page .page-hero .hero-copy,
   .get-involved-page .page-hero .hero-copy,
   .partners-page .page-hero .hero-copy,
-  .contact-page .page-hero .hero-copy {
+  .contact-page .page-hero .hero-copy,
+  .creative-makers-page .page-hero .hero-copy,
+  .young-ideas-lab-page .page-hero .hero-copy,
+  .create-for-cause-page .page-hero .hero-copy,
+  .community-adventures-page .page-hero .hero-copy {
     order: 3 !important;
     box-sizing: border-box !important;
     width: 100% !important;
@@ -27691,7 +27772,15 @@ body.newsletter-success-open {
   .partners-page .page-hero .about-hero__media,
   .partners-page .page-hero .hero-image-wrap,
   .contact-page .page-hero .about-hero__media,
-  .contact-page .page-hero .hero-image-wrap {
+  .contact-page .page-hero .hero-image-wrap,
+  .creative-makers-page .page-hero .creative-makers-hero__media,
+  .creative-makers-page .page-hero .hero-image-wrap,
+  .young-ideas-lab-page .page-hero .creative-makers-hero__media,
+  .young-ideas-lab-page .page-hero .hero-image-wrap,
+  .create-for-cause-page .page-hero .creative-makers-hero__media,
+  .create-for-cause-page .page-hero .hero-image-wrap,
+  .community-adventures-page .page-hero .creative-makers-hero__media,
+  .community-adventures-page .page-hero .hero-image-wrap {
     order: 5 !important;
     display: flex !important;
     justify-content: center !important;
@@ -27711,13 +27800,21 @@ body.newsletter-success-open {
   .get-involved-page .page-hero .about-hero__banner,
   .partners-page .page-hero .about-hero__banner,
   .contact-page .page-hero .about-hero__banner,
+  .creative-makers-page .page-hero .creative-makers-hero__banner,
+  .young-ideas-lab-page .page-hero .creative-makers-hero__banner,
+  .create-for-cause-page .page-hero .creative-makers-hero__banner,
+  .community-adventures-page .page-hero .creative-makers-hero__banner,
   .about-page .page-hero picture img[class*='__banner'],
   .explore-page .page-hero picture img[class*='__banner'],
   .for-parents-page .page-hero picture img[class*='__banner'],
   .our-vision-page .page-hero picture img[class*='__banner'],
   .get-involved-page .page-hero picture img[class*='__banner'],
   .partners-page .page-hero picture img[class*='__banner'],
-  .contact-page .page-hero picture img[class*='__banner'] {
+  .contact-page .page-hero picture img[class*='__banner'],
+  .creative-makers-page .page-hero picture img[class*='__banner'],
+  .young-ideas-lab-page .page-hero picture img[class*='__banner'],
+  .create-for-cause-page .page-hero picture img[class*='__banner'],
+  .community-adventures-page .page-hero picture img[class*='__banner'] {
     display: block !important;
     width: 100% !important;
     max-width: none !important;
@@ -27741,7 +27838,15 @@ body.newsletter-success-open {
   .partners-page .page-hero .page-hero__actions,
   .partners-page .page-hero .hero-ctas,
   .contact-page .page-hero .page-hero__actions,
-  .contact-page .page-hero .hero-ctas {
+  .contact-page .page-hero .hero-ctas,
+  .creative-makers-page .page-hero .page-hero__actions,
+  .creative-makers-page .page-hero .hero-ctas,
+  .young-ideas-lab-page .page-hero .page-hero__actions,
+  .young-ideas-lab-page .page-hero .hero-ctas,
+  .create-for-cause-page .page-hero .page-hero__actions,
+  .create-for-cause-page .page-hero .hero-ctas,
+  .community-adventures-page .page-hero .page-hero__actions,
+  .community-adventures-page .page-hero .hero-ctas {
     order: 6 !important;
     display: flex !important;
     flex-direction: column !important;
@@ -27767,7 +27872,15 @@ body.newsletter-success-open {
   .partners-page .page-hero .page-hero__actions .btn,
   .partners-page .page-hero .hero-ctas .btn,
   .contact-page .page-hero .page-hero__actions .btn,
-  .contact-page .page-hero .hero-ctas .btn {
+  .contact-page .page-hero .hero-ctas .btn,
+  .creative-makers-page .page-hero .page-hero__actions .btn,
+  .creative-makers-page .page-hero .hero-ctas .btn,
+  .young-ideas-lab-page .page-hero .page-hero__actions .btn,
+  .young-ideas-lab-page .page-hero .hero-ctas .btn,
+  .create-for-cause-page .page-hero .page-hero__actions .btn,
+  .create-for-cause-page .page-hero .hero-ctas .btn,
+  .community-adventures-page .page-hero .page-hero__actions .btn,
+  .community-adventures-page .page-hero .hero-ctas .btn {
     width: 100% !important;
     max-width: none !important;
     justify-content: center !important;
@@ -28932,8 +29045,7 @@ body.newsletter-success-open {
   }
 }
 
-/* Home hero — mobile stack: eyebrow, heading, description, full-width image, buttons.
-   Side inset matches the header (16px). Banner image stays 100% wide. */
+/* Home hero — mobile stack: eyebrow → Bright/Dreamers+star → tagline → copy → image → CTAs */
 @media (max-width: 767px) {
   .home-page #main-content > section.page-hero.home-welcome-hero .page-hero__inner,
   .home-page .page-hero.home-welcome-hero .page-hero__inner {
@@ -28961,28 +29073,38 @@ body.newsletter-success-open {
   }
 
   .home-page #main-content > section.page-hero.home-welcome-hero .hero-headline,
-  .home-page .page-hero.home-welcome-hero .hero-headline {
+  .home-page .page-hero.home-welcome-hero .hero-headline,
+  .home-page .page-hero.home-welcome-hero .home-hero__title {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
     margin: 0 !important;
-    font-size: clamp(2.6rem, 12vw, 3.15rem) !important;
+    font-size: clamp(2.55rem, 11.5vw, 3.2rem) !important;
     line-height: 0.92 !important;
   }
 
   .home-page .page-hero.home-welcome-hero .home-hero__mobile-logo {
-    display: block !important;
-    width: min(100%, 320px) !important;
-    height: auto !important;
-    margin: 0.15rem 0 0.35rem !important;
+    display: none !important;
   }
 
-  .home-page .page-hero.home-welcome-hero .home-hero__title-line,
-  .home-page .page-hero.home-welcome-hero .home-hero__tagline,
+  .home-page .page-hero.home-welcome-hero .home-hero__title-line {
+    display: inline-flex !important;
+    align-items: flex-start !important;
+  }
+
   .home-page .page-hero.home-welcome-hero .home-hero__title-star {
-    display: none !important;
+    display: block !important;
+    width: 0.38em !important;
+    height: 0.38em !important;
+    margin-top: 0.08em !important;
+    color: #f5b400 !important;
   }
 
   .home-page #main-content > section.page-hero.home-welcome-hero .home-hero__tagline,
   .home-page .page-hero.home-welcome-hero .home-hero__tagline {
-    margin: 0.15rem 0 0.35rem !important;
+    display: flex !important;
+    flex-wrap: wrap !important;
+    margin: 0.15rem 0 0.2rem !important;
     font-size: 1.02rem !important;
     gap: 0.2rem 0.35rem !important;
   }
@@ -28991,7 +29113,11 @@ body.newsletter-success-open {
   .home-page .page-hero.home-welcome-hero .hero-copy {
     margin: 0 !important;
     font-size: 0.95rem !important;
-    line-height: 1.45 !important;
+    line-height: 1.5 !important;
+  }
+
+  .home-page .page-hero.home-welcome-hero .home-hero__copy-break {
+    display: none !important;
   }
 
   .home-page #main-content > section.page-hero.home-welcome-hero .hero-label,
@@ -29035,12 +29161,12 @@ body.newsletter-success-open {
     display: block !important;
     width: 100% !important;
     max-width: 100% !important;
-    height: 62vw !important;
-    max-height: 280px !important;
+    height: auto !important;
+    max-height: none !important;
     margin: 0 !important;
     padding: 0 !important;
-    object-fit: cover !important;
-    object-position: 18% 40% !important;
+    object-fit: contain !important;
+    object-position: center center !important;
   }
 
   .home-page #main-content > section.page-hero.home-welcome-hero .page-hero__actions,
@@ -29057,6 +29183,12 @@ body.newsletter-success-open {
     padding: 0 16px !important;
     gap: 0.75rem !important;
     grid-template-columns: none !important;
+  }
+
+  .home-page .page-hero.home-welcome-hero .page-hero__actions .btn,
+  .home-page .page-hero.home-welcome-hero .home-hero__actions .btn {
+    width: 100% !important;
+    justify-content: center !important;
   }
 }
 
