@@ -569,13 +569,21 @@ $vision_together_support_btn_link = bdc_get_acf_link(
 ?>
     <main id="main-content">
       <?php
-      $vision_copy_html = esc_html( $vision_hero_lead_intro );
-      if ( '' !== trim( $vision_hero_lead_accent ) ) {
-        $vision_copy_html .= ( '' !== trim( $vision_hero_lead_intro ) ? ' ' : '' );
-        $vision_copy_html .= '<span class="vision-hero__accent vision-hero__accent--pink">' . esc_html( $vision_hero_lead_accent ) . '</span>';
-      }
-      if ( '' !== trim( $vision_hero_text ) ) {
-        $vision_copy_html .= ( '' !== trim( wp_strip_all_tags( $vision_copy_html ) ) ? ' ' : '' ) . esc_html( $vision_hero_text );
+      // Reference lockup: plain navy body (no accent colors), checklist, icon CTAs.
+      $vision_copy = trim(
+        implode(
+          ' ',
+          array_filter(
+            array(
+              trim( (string) $vision_hero_lead_intro ),
+              trim( (string) $vision_hero_lead_accent ),
+              trim( (string) $vision_hero_text ),
+            )
+          )
+        )
+      );
+      if ( '' === $vision_copy ) {
+        $vision_copy = 'Every meaningful change can begin with something very small — a child saying, "I have an idea." Bright Dreamers creates a community where children are encouraged to explore what excites them, discover their talents, bring their ideas to life, and use their creativity to help others.';
       }
 
       $vision_checklist_html = '';
@@ -608,22 +616,26 @@ $vision_together_support_btn_link = bdc_get_acf_link(
         'template-parts/page-hero',
         null,
         array(
-          'section_class'        => 'vision-hero about-hero',
-          'aria_label'           => 'Our Vision',
-          'section_label'        => $vision_hero_eyebrow,
-          'headline_html'        => $vision_headline_html,
-          'supporting_copy_html' => $vision_copy_html,
-          'extra_content_html'   => $vision_checklist_html,
-          'primary_cta_text'     => $vision_together_support_btn_text,
-          'primary_cta_link'     => $vision_together_support_btn_link,
-          'secondary_cta_text'   => $vision_together_story_btn_text,
-          'secondary_cta_link'   => $vision_together_story_btn_link,
-          'hero_image'           => $vision_hero_banner_url,
-          'hero_image_mobile'    => $vision_hero_banner_mobile_url,
-          'hero_image_alt'       => $vision_hero_banner_alt,
-          'media_class'          => 'about-hero__media',
-          'image_class'          => 'about-hero__banner',
-          'inner_data_attrs'     => array(
+          'section_class'            => 'vision-hero about-hero',
+          'aria_label'               => 'Our Vision',
+          'section_label'            => $vision_hero_eyebrow,
+          'headline_html'            => $vision_headline_html,
+          'supporting_copy'          => $vision_copy,
+          'supporting_copy_html'     => '',
+          'extra_content_html'       => $vision_checklist_html,
+          'primary_cta_text'         => $vision_together_support_btn_text,
+          'primary_cta_link'         => $vision_together_support_btn_link,
+          'secondary_cta_text'       => $vision_together_story_btn_text,
+          'secondary_cta_link'       => $vision_together_story_btn_link,
+          'hero_image'               => $vision_hero_banner_url,
+          'hero_image_mobile'        => $vision_hero_banner_mobile_url,
+          'hero_image_alt'           => $vision_hero_banner_alt,
+          'media_class'              => 'about-hero__media',
+          'image_class'              => 'about-hero__banner',
+          'primary_cta_show_icon'    => true,
+          'secondary_cta_show_heart' => true,
+          'actions_class'            => 'home-hero__actions--inline',
+          'inner_data_attrs'         => array(
             'data-bdc-hero-text-col'   => '36',
             'data-bdc-hero-banner-col' => '64',
           ),

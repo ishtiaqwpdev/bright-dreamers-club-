@@ -3443,11 +3443,12 @@ img.lazy-img.loaded {
 }
 
 .vision-hero__accent {
-  font-weight: 700;
+  font-weight: inherit;
+  color: inherit;
 }
 
 .vision-hero__accent--pink {
-  color: var(--color-pink);
+  color: inherit;
 }
 
 .vision-hero__list {
@@ -3486,6 +3487,112 @@ img.lazy-img.loaded {
 .page-hero__extra {
   width: 100%;
   max-width: 100%;
+}
+
+/* Our Vision hero — desktop left stack matches reference spacing */
+@media (min-width: 1201px) {
+  .our-vision-page .page-hero.vision-hero .page-hero__content {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    justify-content: center !important;
+    gap: 0 !important;
+    text-align: left !important;
+    max-width: 100% !important;
+  }
+
+  .our-vision-page .page-hero.vision-hero .hero-label {
+    margin: 0 0 0.7rem !important;
+    font-size: 0.78rem !important;
+    letter-spacing: 0.16em !important;
+    color: var(--color-pink) !important;
+  }
+
+  .our-vision-page .page-hero.vision-hero .hero-headline {
+    font-family: var(--font-heading) !important;
+    font-weight: 700 !important;
+    font-size: clamp(2.55rem, 3.8vw, 3.45rem) !important;
+    line-height: 1.08 !important;
+    letter-spacing: -0.02em !important;
+    margin: 0 0 1.15rem !important;
+    max-width: 100% !important;
+  }
+
+  .our-vision-page .page-hero.vision-hero .hero-headline .vision-hero__title-line,
+  .our-vision-page .page-hero.vision-hero .hero-headline .vision-hero__title-line--navy,
+  .our-vision-page .page-hero.vision-hero .hero-headline .vision-hero__title-line--pink {
+    display: block !important;
+    white-space: nowrap !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .our-vision-page .page-hero.vision-hero .hero-headline .vision-hero__title-line + .vision-hero__title-line::before {
+    content: none !important;
+  }
+
+  .our-vision-page .page-hero.vision-hero .hero-headline .vision-hero__title-line--navy {
+    color: var(--color-navy) !important;
+  }
+
+  .our-vision-page .page-hero.vision-hero .hero-headline .vision-hero__title-line--pink {
+    color: var(--color-pink) !important;
+  }
+
+  .our-vision-page .page-hero.vision-hero .hero-copy,
+  .our-vision-page .page-hero.vision-hero .hero-copy * {
+    font-family: var(--font-body) !important;
+    font-size: clamp(0.95rem, 1.05vw, 1.05rem) !important;
+    font-weight: 400 !important;
+    line-height: 1.55 !important;
+    color: var(--color-navy) !important;
+    margin: 0 0 1rem !important;
+    max-width: 32rem !important;
+  }
+
+  .our-vision-page .page-hero.vision-hero .page-hero__extra {
+    margin: 0 0 1.35rem !important;
+    padding: 0 !important;
+    width: 100% !important;
+  }
+
+  .our-vision-page .page-hero.vision-hero .vision-hero__list {
+    gap: 0.55rem !important;
+    max-width: 32rem !important;
+  }
+
+  .our-vision-page .page-hero.vision-hero .vision-hero__list li {
+    font-size: clamp(0.88rem, 0.95vw, 0.98rem) !important;
+    line-height: 1.45 !important;
+    gap: 0.5rem !important;
+  }
+
+  .our-vision-page .page-hero.vision-hero .vision-hero__check {
+    width: 20px !important;
+    height: 20px !important;
+    margin-top: 0.1rem !important;
+  }
+
+  .our-vision-page .page-hero.vision-hero .page-hero__actions,
+  .our-vision-page .page-hero.vision-hero .hero-ctas {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    gap: 0.75rem !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    width: auto !important;
+    max-width: 100% !important;
+  }
+
+  .our-vision-page .page-hero.vision-hero .page-hero__actions .btn,
+  .our-vision-page .page-hero.vision-hero .hero-ctas .btn {
+    flex: 0 0 auto !important;
+    width: auto !important;
+    white-space: nowrap !important;
+  }
 }
 
 .vision-hero__title-heart {
