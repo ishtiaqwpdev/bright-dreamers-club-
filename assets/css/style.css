@@ -9851,16 +9851,16 @@ img.lazy-img.loaded {
   }
 
   .home-page {
-    --bdc-home-hero-text-col-percent: 38;
-    --bdc-home-hero-banner-col-percent: 62;
-    --page-hero-balanced-content-col: 0.38fr;
-    --page-hero-balanced-media-col: 0.62fr;
-    --home-hero-content-share: 38%;
+    --bdc-home-hero-text-col-percent: 36;
+    --bdc-home-hero-banner-col-percent: 64;
+    --page-hero-balanced-content-col: 0.36fr;
+    --page-hero-balanced-media-col: 0.64fr;
+    --home-hero-content-share: 36%;
   }
 
   .home-page .page-hero.home-hero .page-hero__inner,
   .home-page .page-hero.home-welcome-hero .page-hero__inner {
-    grid-template-columns: minmax(0, 38%) minmax(0, 62%) !important;
+    grid-template-columns: minmax(0, 36%) minmax(0, 64%) !important;
     column-gap: 0 !important;
     gap: 0 !important;
   }
@@ -27647,10 +27647,10 @@ body.newsletter-success-open {
     justify-content: flex-end !important;
   }
 
-  /* Home hero — 38/62 (image at 62%) */
+  /* Home hero — 36/64 (image at 64%) */
   .home-page .page-hero.home-hero .page-hero__inner,
   .home-page .page-hero.home-welcome-hero .page-hero__inner {
-    grid-template-columns: minmax(0, 38%) minmax(0, 62%) !important;
+    grid-template-columns: minmax(0, 36%) minmax(0, 64%) !important;
     justify-content: start !important;
     column-gap: 0 !important;
     gap: 0 !important;
@@ -29362,7 +29362,7 @@ body.newsletter-success-open {
    Home welcome hero — zoom-stable lockup (70% / 80% / 90% / 100%)
    Keep text + banner proportions identical across browser zoom by using a
    fixed grid and container-relative type (not max-content / raw vw).
-   Gap is already 0; image column locked at 62%.
+   Gap is already 0; image column locked at 64%.
    Breakpoint matches desktop nav (≥1201) so tablets keep the stacked hero.
    -------------------------------------------------------------------------- */
 @media (min-width: 1201px) {
@@ -29378,7 +29378,7 @@ body.newsletter-success-open {
   .home-page #main-content > section.page-hero.home-hero .page-hero__inner,
   .home-page .page-hero.home-hero .page-hero__inner {
     display: grid !important;
-    grid-template-columns: minmax(0, 38%) minmax(0, 62%) !important;
+    grid-template-columns: minmax(0, 36%) minmax(0, 64%) !important;
     align-items: center !important;
     justify-content: start !important;
     column-gap: 0 !important;
