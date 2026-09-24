@@ -622,30 +622,54 @@ $explore_dream_secondary_btn_link = bdc_get_acf_link(
 ?>
     <main id="main-content">
       <?php
+      $explore_hero_copy_joined = bdc_hero_join_copy( $explore_hero_text, $explore_hero_text_last );
+      $explore_hero_copy_html   = esc_html( $explore_hero_copy_joined );
+      // Reference lockup: exactly 4 description lines on desktop.
+      $explore_hero_copy_html   = str_replace(
+        array(
+          'Some help others.',
+          'children to explore',
+          'love through creativity',
+        ),
+        array(
+          'Some help<br class="explore-hero__copy-break">others.',
+          'children to<br class="explore-hero__copy-break">explore',
+          'love through<br class="explore-hero__copy-break">creativity',
+        ),
+        $explore_hero_copy_html
+      );
+
       get_template_part(
         'template-parts/page-hero',
         null,
         array(
-          'section_class'      => 'explore-hero',
-          'aria_label'         => 'Explore Bright Dreamers',
-          'section_label'      => $explore_hero_eyebrow,
-          'headline_html'      => bdc_hero_lines_html(
+          'section_class'            => 'explore-hero',
+          'aria_label'               => 'Explore Bright Dreamers',
+          'section_label'            => $explore_hero_eyebrow,
+          'headline_html'            => bdc_hero_lines_html(
             array(
               array( 'text' => $explore_hero_title_line_1, 'class' => 'explore-hero__title-line explore-hero__title-line--navy' ),
               array( 'text' => $explore_hero_title_line_2, 'class' => 'explore-hero__title-line explore-hero__title-line--navy' ),
               array( 'text' => $explore_hero_title_line_3, 'class' => 'explore-hero__title-line explore-hero__title-line--pink' ),
             )
           ),
-          'supporting_copy'    => bdc_hero_join_copy( $explore_hero_text, $explore_hero_text_last ),
-          'primary_cta_text'   => $explore_hero_primary_btn_text,
-          'primary_cta_link'   => $explore_hero_primary_btn_link,
-          'secondary_cta_text' => $explore_hero_secondary_btn_text,
-          'secondary_cta_link' => $explore_hero_secondary_btn_link,
-          'hero_image'         => $explore_hero_banner_url,
-          'hero_image_mobile'  => $explore_hero_banner_mobile_url,
-          'hero_image_alt'     => $explore_hero_banner_alt,
-          'media_class'        => 'explore-hero__media',
-          'image_class'        => 'explore-hero__banner',
+          'supporting_copy_html'     => $explore_hero_copy_html,
+          'primary_cta_text'         => $explore_hero_primary_btn_text,
+          'primary_cta_link'         => $explore_hero_primary_btn_link,
+          'secondary_cta_text'       => $explore_hero_secondary_btn_text,
+          'secondary_cta_link'       => $explore_hero_secondary_btn_link,
+          'hero_image'               => $explore_hero_banner_url,
+          'hero_image_mobile'        => $explore_hero_banner_mobile_url,
+          'hero_image_alt'           => $explore_hero_banner_alt,
+          'media_class'              => 'explore-hero__media',
+          'image_class'              => 'explore-hero__banner',
+          'primary_cta_show_icon'    => true,
+          'secondary_cta_show_heart' => true,
+          'actions_class'            => 'home-hero__actions--inline',
+          'inner_data_attrs'         => array(
+            'data-bdc-hero-text-col'   => '36',
+            'data-bdc-hero-banner-col' => '64',
+          ),
         )
       );
       ?>

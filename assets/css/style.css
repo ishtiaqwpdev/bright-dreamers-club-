@@ -6040,6 +6040,47 @@ img.lazy-img.loaded {
   color: var(--color-pink);
 }
 
+.explore-hero__copy-break {
+  display: none;
+}
+
+@media (min-width: 1201px) {
+  /* Explore hero — reference lockup: 3 heading lines + 4 copy lines */
+  .explore-page .page-hero.explore-hero .explore-hero__title-line,
+  .explore-page .page-hero.explore-hero .hero-headline .explore-hero__title-line--navy,
+  .explore-page .page-hero.explore-hero .hero-headline .explore-hero__title-line--pink {
+    display: block !important;
+    white-space: nowrap !important;
+    margin-bottom: 0.12rem !important;
+  }
+
+  .explore-page .page-hero.explore-hero .hero-headline .explore-hero__title-line--navy + .explore-hero__title-line--navy::before {
+    content: none !important;
+  }
+
+  .explore-page .page-hero.explore-hero .explore-hero__copy-break {
+    display: inline !important;
+  }
+
+  .explore-page .page-hero.explore-hero .page-hero__content {
+    max-width: min(100%, 34rem) !important;
+  }
+
+  .explore-page .page-hero.explore-hero .hero-copy {
+    max-width: 32rem !important;
+    margin-bottom: 1.25rem !important;
+  }
+
+  .explore-page .page-hero.explore-hero .page-hero__actions,
+  .explore-page .page-hero.explore-hero .hero-ctas {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    align-items: center !important;
+    gap: 0.65rem !important;
+  }
+}
+
 .explore-hero__text {
   font-family: var(--font-body);
   font-size: clamp(0.98rem, 1.05vw, 1.08rem);
