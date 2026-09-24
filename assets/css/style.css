@@ -341,7 +341,7 @@
   --heading-underline-height: 0.34em;
   --ease-soft: 0.25s ease;
   --btn-hover-scale: 1.04;
-  --nav-gap: calc(1.35rem + 5px);
+  --nav-gap: 10px;
   --btn-radius: 999px;
 }
 
@@ -2109,7 +2109,7 @@ button {
 /* Compact desktop header (laptop widths): keep full nav, shrink to fit */
 @media (min-width: 1201px) and (max-width: 1439px) {
   :root {
-    --nav-gap: 0.45rem;
+    --nav-gap: 10px;
     --header-logo-box-width: clamp(168px, 13vw, 210px);
   }
 
