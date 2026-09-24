@@ -59,9 +59,9 @@ if ( ! empty( $hero['inner_data_attrs'] ) && is_array( $hero['inner_data_attrs']
 
 $inner_data_attrs = array_merge(
 	array(
-		'data-bdc-hero-layout'     => '40-60',
-		'data-bdc-hero-text-col'   => '40',
-		'data-bdc-hero-banner-col' => '60',
+		'data-bdc-hero-layout'     => '36-64',
+		'data-bdc-hero-text-col'   => '36',
+		'data-bdc-hero-banner-col' => '64',
 	),
 	$inner_data_attrs
 );

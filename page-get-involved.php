@@ -382,8 +382,8 @@ $get_involved_partner_cta_deco_url = bdc_get_acf_image_url(
           'media_class'        => 'about-hero__media',
           'image_class'        => 'about-hero__banner',
           'inner_data_attrs'   => array(
-            'data-bdc-hero-text-col'   => '40',
-            'data-bdc-hero-banner-col' => '60',
+            'data-bdc-hero-text-col'   => '36',
+            'data-bdc-hero-banner-col' => '64',
           ),
         )
       );
