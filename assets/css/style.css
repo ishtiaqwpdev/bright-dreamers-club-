@@ -341,7 +341,7 @@
   --heading-underline-height: 0.34em;
   --ease-soft: 0.25s ease;
   --btn-hover-scale: 1.04;
-  --nav-gap: 10px;
+  --nav-gap: 40px;
   --btn-radius: 999px;
 }
 
@@ -2109,7 +2109,7 @@ button {
 /* Compact desktop header (laptop widths): keep full nav, shrink to fit */
 @media (min-width: 1201px) and (max-width: 1439px) {
   :root {
-    --nav-gap: 10px;
+    --nav-gap: 40px;
     --header-logo-box-width: clamp(168px, 13vw, 210px);
   }
 
@@ -20965,17 +20965,18 @@ body.newsletter-success-open {
   }
 
   .site-footer__grid {
-    display: none;
+    display: none !important;
   }
 
   .site-footer__mobile {
-    display: flex;
+    display: flex !important;
     flex-direction: column;
     gap: 0;
     width: 100%;
-    max-width: none;
+    max-width: 100%;
     margin: 0;
     padding: 0 20px 8px;
+    box-sizing: border-box;
   }
 
   .footer-acc {
