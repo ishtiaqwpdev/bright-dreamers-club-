@@ -124,7 +124,7 @@
   --explore-dream-radius: 20px;
   --explore-dream-pad: clamp(1rem, 1.8vw, 1.65rem);
   --explore-dream-photo-max-h: clamp(118px, 11.5vw, 168px);
-  --explore-dream-jar-max-h: clamp(112px, 10.8vw, 158px);
+  --explore-dream-jar-max-h: clamp(128px, 12.5vw, 180px);
   --home-pillar-idea-bg: #fff5f8;
   --home-pillar-mission-bg: #fffbeb;
   --home-pillar-inspire-bg: #eef6fc;
@@ -24690,7 +24690,7 @@ body.newsletter-success-open {
 
   .explore-page .explore-dream {
     --explore-dream-photo-max-h: clamp(168px, 46vw, 240px);
-    --explore-dream-jar-max-h: clamp(158px, 44vw, 220px);
+    --explore-dream-jar-max-h: clamp(168px, 46vw, 240px);
   }
 
   .explore-page .explore-dream__grid {

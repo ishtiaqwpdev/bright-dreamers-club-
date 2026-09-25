@@ -549,11 +549,12 @@ $explore_dream_title_suffix = bdc_get_acf_text(
 	'Begin?',
 	$explore_page_id
 );
-$explore_dream_photo_url = bdc_get_acf_image_url(
-	'explore_dream_photo',
-	bdc_theme_asset_url( 'assets/images/explore-dream-photo-removebg-preview.png' ),
-	$explore_page_id
-);
+$explore_dream_photo_path = 'assets/images/WhatsApp_Image_2026-09-24_at_11.14.49_AM__1_-removebg-preview.png';
+$explore_dream_photo_url  = bdc_theme_asset_url( $explore_dream_photo_path );
+$explore_dream_photo_ver  = bdc_asset_version( $explore_dream_photo_path );
+if ( $explore_dream_photo_ver ) {
+	$explore_dream_photo_url = add_query_arg( 'v', $explore_dream_photo_ver, $explore_dream_photo_url );
+}
 $explore_dream_photo_alt = bdc_get_acf_text(
 	'explore_dream_photo_alt',
 	'Two girls smiling and holding a sign that says I have an idea',
@@ -587,11 +588,12 @@ if ( empty( $explore_dream_list ) ) {
 	}
 }
 
-$explore_dream_jar_url = bdc_get_acf_image_url(
-	'explore_dream_jar',
-	bdc_theme_asset_url( 'assets/images/explore-dream-jar.jpeg' ),
-	$explore_page_id
-);
+$explore_dream_jar_path = 'assets/images/WhatsApp_Image_2026-09-24_at_11.14.49_AM-removebg-preview.png';
+$explore_dream_jar_url  = bdc_theme_asset_url( $explore_dream_jar_path );
+$explore_dream_jar_ver  = bdc_asset_version( $explore_dream_jar_path );
+if ( $explore_dream_jar_ver ) {
+	$explore_dream_jar_url = add_query_arg( 'v', $explore_dream_jar_ver, $explore_dream_jar_url );
+}
 $explore_dream_primary_btn_text = bdc_get_acf_text(
 	'explore_dream_primary_btn_text',
 	'Apply to Become a Bright Dreamer',
