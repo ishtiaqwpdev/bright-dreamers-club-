@@ -32,7 +32,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                   <?php endif; ?>
                 </div>
                 <div class="explore-way-card card-shadow">
-                  <div class="lazy-img-wrap lazy-img-wrap--cover">
+                  <div class="lazy-img-wrap lazy-img-wrap--contain">
                     <img
                       class="explore-way-card__photo lazy-img"
                       src="<?php echo esc_attr( $explore_hero_lazy_placeholder ); ?>"
