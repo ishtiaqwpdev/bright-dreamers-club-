@@ -2185,12 +2185,6 @@ button {
   border-radius: var(--experience-photo-radius);
 }
 
-.lazy-img-wrap--contain {
-  aspect-ratio: 4 / 3;
-  border-radius: var(--experience-photo-radius);
-  background-color: #fff;
-}
-
 .lazy-img-wrap--fill {
   width: 100%;
   height: 100%;
@@ -2214,13 +2208,6 @@ img.lazy-img.loaded {
   width: 100%;
   height: 100%;
   object-fit: cover;
-}
-
-.lazy-img-wrap--contain img.lazy-img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  object-position: center center;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -6431,22 +6418,19 @@ img.lazy-img.loaded {
   flex-shrink: 0;
   width: 100%;
   aspect-ratio: 4 / 3;
-  object-fit: contain;
-  object-position: center center;
+  object-fit: cover;
   border-radius: var(--experience-photo-radius);
   margin-bottom: clamp(0.55rem, 0.9vw, 0.75rem);
 }
 
-.explore-way-card > .lazy-img-wrap--contain {
+.explore-way-card > .lazy-img-wrap--cover {
   margin-bottom: clamp(0.55rem, 0.9vw, 0.75rem);
 }
 
-.explore-way-card > .lazy-img-wrap--contain .explore-way-card__photo {
+.explore-way-card > .lazy-img-wrap--cover .explore-way-card__photo {
   aspect-ratio: auto;
   border-radius: 0;
   margin-bottom: 0;
-  object-fit: contain;
-  object-position: center center;
 }
 
 .explore-way-card__text {
