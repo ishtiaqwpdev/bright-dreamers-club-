@@ -765,7 +765,6 @@ button {
   object-fit: contain;
   background: transparent;
   filter: none;
-  mix-blend-mode: multiply;
 }
 
 .site-footer__mission {
@@ -3327,7 +3326,7 @@ img.lazy-img.loaded {
   max-height: none;
   min-height: 0;
   object-fit: contain;
-  object-position: right center;
+  object-position: left center;
   filter: none;
   background-color: transparent;
 }
@@ -5819,8 +5818,12 @@ img.lazy-img.loaded {
 }
 
 .partners-hero.vision-hero .about-hero__banner {
-  max-height: min(560px, calc(72vh - 50px));
+  max-height: none;
   min-height: unset;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  object-position: left center;
   background-color: #fff !important;
 }
 
@@ -6208,19 +6211,22 @@ img.lazy-img.loaded {
   .explore-page #main-content > section.page-hero.explore-hero .explore-hero__media,
   .explore-page .page-hero.explore-hero .explore-hero__media,
   .explore-page .page-hero.explore-hero .hero-image-wrap {
-    justify-content: flex-end !important;
+    justify-content: flex-start !important;
     margin: 0 !important;
     padding: 0 !important;
   }
 
   .explore-page #main-content > section.page-hero.explore-hero .explore-hero__banner,
   .explore-page .page-hero.explore-hero .explore-hero__banner {
-    width: 112% !important;
-    max-width: none !important;
+    /* Match home hero banner size */
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
     max-height: none !important;
-    margin-left: -12% !important;
+    margin-left: 0 !important;
     margin-right: 0 !important;
-    object-position: right center !important;
+    object-fit: contain !important;
+    object-position: left center !important;
   }
 }
 
@@ -21308,7 +21314,6 @@ body.newsletter-success-open {
     object-fit: contain;
     background: transparent;
     filter: none;
-    mix-blend-mode: multiply;
   }
 
   .footer-m-brand__mission {
@@ -28515,7 +28520,7 @@ body.newsletter-success-open {
   }
 }
 
-/* Partners page — desktop hero banner (−50px vs Vision/For Parents) */
+/* Partners page — desktop hero banner (same size behavior as home) */
 @media (min-width: 1024px) {
   .partners-page #main-content > section.page-hero.partners-hero .about-hero__banner,
   .partners-page #main-content > section.page-hero.partners-hero picture img.about-hero__banner,
@@ -28526,7 +28531,7 @@ body.newsletter-success-open {
     width: 100% !important;
     max-width: 100% !important;
     height: auto !important;
-    max-height: min(560px, calc(72vh - 50px)) !important;
+    max-height: none !important;
     object-fit: contain !important;
     object-position: left center !important;
     margin-left: 0 !important;
@@ -28536,15 +28541,16 @@ body.newsletter-success-open {
 
   .partners-page .page-hero.partners-hero .about-hero__media,
   .partners-page .page-hero.partners-hero .hero-image-wrap {
-    justify-content: flex-end !important;
+    justify-content: flex-start !important;
     align-items: center !important;
+    width: 100% !important;
   }
 
   .partners-page .page-hero.partners-hero .about-hero__media picture,
   .partners-page .page-hero.partners-hero .about-hero__media .lazy-img-wrap {
-    width: auto !important;
+    width: 100% !important;
     max-width: 100% !important;
-    margin-left: auto !important;
+    margin-left: 0 !important;
     margin-right: 0 !important;
   }
 }
@@ -28584,7 +28590,7 @@ body.newsletter-success-open {
   .explore-page #main-content > section.page-hero.explore-hero .hero-image-wrap,
   .explore-page .page-hero.explore-hero .explore-hero__media,
   .explore-page .page-hero.explore-hero .hero-image-wrap {
-    justify-content: flex-end !important;
+    justify-content: flex-start !important;
     align-items: center !important;
     align-self: center !important;
     width: 100% !important;
@@ -28631,16 +28637,16 @@ body.newsletter-success-open {
   .explore-page .page-hero.explore-hero picture img.explore-hero__banner,
   .explore-page .page-hero.explore-hero img.lazy-img.explore-hero__banner {
     display: block !important;
-    /* Keep right edge on the Apply-to-Join line; bleed left to kill center gap */
-    width: 112% !important;
-    max-width: none !important;
+    /* Same width/height behavior as home hero banner */
+    width: 100% !important;
+    max-width: 100% !important;
     height: auto !important;
     max-height: none !important;
-    margin-left: -12% !important;
+    margin-left: 0 !important;
     margin-right: 0 !important;
     padding: 0 !important;
     object-fit: contain !important;
-    object-position: right center !important;
+    object-position: left center !important;
     border-radius: 0 !important;
     transform: none !important;
     filter: none !important;
@@ -29174,7 +29180,7 @@ body.newsletter-success-open {
   .explore-page #main-content > section.page-hero.explore-hero .explore-hero__media,
   .explore-page .page-hero.explore-hero .explore-hero__media,
   .explore-page .page-hero.explore-hero .hero-image-wrap {
-    justify-content: flex-end !important;
+    justify-content: flex-start !important;
     margin: 0 !important;
     padding: 0 !important;
   }
@@ -29182,13 +29188,15 @@ body.newsletter-success-open {
   .explore-page #main-content > section.page-hero.explore-hero .explore-hero__banner,
   .explore-page .page-hero.explore-hero .explore-hero__banner,
   .explore-page .page-hero.explore-hero picture img.explore-hero__banner {
-    width: 112% !important;
-    max-width: none !important;
+    /* Match home hero banner width/height */
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
     max-height: none !important;
-    margin-left: -12% !important;
+    margin-left: 0 !important;
     margin-right: 0 !important;
     object-fit: contain !important;
-    object-position: right center !important;
+    object-position: left center !important;
   }
 }
 

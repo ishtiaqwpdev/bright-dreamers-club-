@@ -100,7 +100,7 @@ if ( $get_involved_hero_banner_mobile_ver ) {
 }
 $get_involved_hero_banner_alt = bdc_get_acf_text(
 	'get_involved_hero_banner_alt',
-	'Children with signs and projects — Real People. Real Change.',
+	'Three children with signs and a project for a kinder world and stronger communities',
 	$get_involved_page_id
 );
 

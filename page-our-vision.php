@@ -87,7 +87,7 @@ if ( $vision_hero_banner_mobile_ver ) {
 }
 $vision_hero_banner_alt = bdc_get_acf_text(
 	'vision_hero_banner_alt',
-	'Three children holding colorful heart artwork posters',
+	'Three children holding colorful heart artwork posters with the message A Kinder World A Brighter Tomorrow',
 	$vision_page_id
 );
 

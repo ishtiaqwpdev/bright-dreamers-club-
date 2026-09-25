@@ -368,7 +368,6 @@
     height: auto !important;
     margin-inline: auto !important;
     object-fit: contain !important;
-    mix-blend-mode: multiply;
   }
 
   .footer-m-brand__mission {

@@ -916,7 +916,7 @@ function bdc_hf_has_saved_settings() {
  * @return string
  */
 function bdc_get_theme_header_logo_url() {
-	$relative = 'assets/images/bright-dreamers-logo-removebg-preview.png';
+	$relative = 'assets/images/55CC3DEC-BE8D-456B-BE12-20B679DCE545.png';
 	$url      = bdc_theme_asset_url( $relative );
 	$version  = bdc_asset_version( $relative );
 
@@ -933,7 +933,7 @@ function bdc_get_theme_header_logo_url() {
  * @return string
  */
 function bdc_get_theme_footer_logo_url() {
-	$relative = 'assets/images/bright-dreamers-logo-footer.png';
+	$relative = 'assets/images/55CC3DEC-BE8D-456B-BE12-20B679DCE545.png';
 	$url      = bdc_theme_asset_url( $relative );
 	$version  = bdc_asset_version( $relative );
 
@@ -1026,7 +1026,7 @@ function bdc_get_site_footer_context() {
 		);
 
 		return array(
-			'logo_url'               => bdc_get_acf_option_image_url( 'global_footer_logo', $logo_fallback ),
+			'logo_url'               => $logo_fallback,
 			'logo_alt'               => bdc_get_acf_option_text( 'global_footer_logo_alt', $defaults['footer_logo_alt'] ),
 			'mission_text'           => bdc_get_acf_option_text( 'global_footer_mission_text', $defaults['mission_text'] ),
 			'social_links'           => bdc_get_acf_option_repeater( 'global_footer_social', bdc_get_default_social_links() ),
@@ -1052,7 +1052,7 @@ function bdc_get_site_footer_context() {
 	$settings = bdc_get_header_footer_settings();
 
 	return array(
-		'logo_url'                => bdc_hf_image_url( (int) $settings['footer_logo_id'], 'global_footer_logo', $logo_fallback ),
+		'logo_url'                => $logo_fallback,
 		'logo_alt'                => $settings['footer_logo_alt'],
 		'mission_text'            => $settings['mission_text'],
 		'social_links'            => bdc_hf_social_rows( $settings['footer_social'] ),

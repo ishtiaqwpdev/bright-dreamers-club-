@@ -100,7 +100,7 @@ add_action( 'template_redirect', 'bdc_maybe_show_maintenance_page', 0 );
  */
 function bdc_render_maintenance_page() {
 	$settings = bdc_get_maintenance_settings();
-	$logo_url = get_template_directory_uri() . '/assets/images/bright-dreamers-logo-removebg-preview.png';
+	$logo_url = get_template_directory_uri() . '/assets/images/55CC3DEC-BE8D-456B-BE12-20B679DCE545.png';
 	$css_url  = get_template_directory_uri() . '/assets/css/maintenance.css';
 	$css_ver  = bdc_asset_version( 'assets/css/maintenance.css' );
 

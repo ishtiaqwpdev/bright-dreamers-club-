@@ -250,7 +250,7 @@ function bdc_forms_send_admin_notification( $form_id, array $data, array $attach
 		array(
 			'content'   => $inner,
 			'home_url'  => home_url( '/' ),
-			'logo_url'  => get_template_directory_uri() . '/assets/images/bright-dreamers-logo-removebg-preview.png',
+			'logo_url'  => get_template_directory_uri() . '/assets/images/55CC3DEC-BE8D-456B-BE12-20B679DCE545.png',
 			'show_home' => false,
 		)
 	);
@@ -304,7 +304,7 @@ function bdc_forms_send_user_confirmation( $form_id, array $data ) {
 		array(
 			'content'   => $inner,
 			'home_url'  => home_url( '/' ),
-			'logo_url'  => get_template_directory_uri() . '/assets/images/bright-dreamers-logo-removebg-preview.png',
+			'logo_url'  => get_template_directory_uri() . '/assets/images/55CC3DEC-BE8D-456B-BE12-20B679DCE545.png',
 			'show_home' => true,
 		)
 	);
