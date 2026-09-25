@@ -2,6 +2,8 @@
 /**
  * Explore page — grow stages track (ACF-driven).
  *
+ * Stage visuals are full lockup images (photo + splash + label/copy).
+ *
  * @package Bright_Dreamers_Club
  */
 
@@ -16,7 +18,7 @@ $explore_grow_arrow_colors_allowed = array( 'green', 'orange', 'pink', 'blue' );
                 <?php if ( '' === trim( $grow_stage['label'] ) && '' === trim( $grow_stage['text'] ) && '' === trim( $grow_stage['quote'] ) ) : ?>
                   <?php continue; ?>
                 <?php endif; ?>
-              <article class="explore-grow-stage explore-grow-stage--<?php echo esc_attr( $grow_stage['style_slug'] ); ?>" role="listitem">
+              <article class="explore-grow-stage explore-grow-stage--<?php echo esc_attr( $grow_stage['style_slug'] ); ?> explore-grow-stage--lockup" role="listitem">
                 <div class="explore-grow-stage__card">
                   <div class="explore-grow-stage__layout">
                     <div class="lazy-img-wrap">
@@ -25,34 +27,10 @@ $explore_grow_arrow_colors_allowed = array( 'green', 'orange', 'pink', 'blue' );
                         src="<?php echo esc_attr( $explore_hero_lazy_placeholder ); ?>"
                         data-src="<?php echo esc_url( $grow_stage['photo'] ); ?>"
                         alt="<?php echo esc_attr( $grow_stage['photo_alt'] ); ?>"
-                        width="200"
-                        height="260"
+                        width="320"
+                        height="420"
                         decoding="async"
                       />
-                    </div>
-                    <div class="explore-grow-stage__body">
-                      <div class="explore-grow-stage__head">
-                        <img
-                          class="explore-grow-stage__icon"
-                          src="<?php echo esc_url( $grow_stage['icon'] ); ?>"
-                          alt=""
-                          width="28"
-                          height="28"
-                          loading="lazy"
-                          decoding="async"
-                        />
-                        <?php if ( '' !== trim( $grow_stage['label'] ) ) : ?>
-                        <h3 class="explore-grow-stage__label"><?php echo esc_html( $grow_stage['label'] ); ?></h3>
-                        <?php endif; ?>
-                      </div>
-                      <?php if ( '' !== trim( $grow_stage['quote'] ) ) : ?>
-                      <p class="explore-grow-stage__quote"><?php echo esc_html( $grow_stage['quote'] ); ?></p>
-                      <?php endif; ?>
-                      <?php if ( '' !== trim( $grow_stage['text'] ) ) : ?>
-                      <p class="explore-grow-stage__text">
-                        <?php echo esc_html( $grow_stage['text'] ); ?>
-                      </p>
-                      <?php endif; ?>
                     </div>
                   </div>
                 </div>

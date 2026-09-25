@@ -309,8 +309,8 @@ $explore_grow_title = bdc_get_acf_text(
 $explore_grow_stages_defaults = array(
 	array(
 		'style_slug'  => 'wonder',
-		'photo'       => bdc_theme_asset_url( 'assets/images/explore-grow-wonder-photo.png' ),
-		'photo_alt'   => 'A young girl looking up with curiosity',
+		'photo'       => bdc_theme_asset_url( 'assets/images/WhatsApp_Image_2026-09-24_at_11.14.46_AM-removebg-preview.png' ),
+		'photo_alt'   => 'Wonder — I love trying new things. Curious and ready to explore.',
 		'icon'        => bdc_theme_asset_url( 'assets/images/explore-grow-wonder-icon.png' ),
 		'label'       => 'Wonder',
 		'quote'       => 'I love trying new things.',
@@ -319,8 +319,8 @@ $explore_grow_stages_defaults = array(
 	),
 	array(
 		'style_slug'  => 'discover',
-		'photo'       => bdc_theme_asset_url( 'assets/images/explore-grow-discover-photo.png' ),
-		'photo_alt'   => 'A girl exploring with a magnifying glass',
+		'photo'       => bdc_theme_asset_url( 'assets/images/WhatsApp_Image_2026-09-24_at_11.14.46_AM__2_-removebg-preview.png' ),
+		'photo_alt'   => 'Discover — I found something I enjoy. Explore interests and talents.',
 		'icon'        => bdc_theme_asset_url( 'assets/images/explore-grow-discover-icon.png' ),
 		'label'       => 'Discover',
 		'quote'       => 'I found something I enjoy.',
@@ -329,8 +329,8 @@ $explore_grow_stages_defaults = array(
 	),
 	array(
 		'style_slug'  => 'create',
-		'photo'       => bdc_theme_asset_url( 'assets/images/explore-grow-create-photo.png' ),
-		'photo_alt'   => 'A boy building and creating at a table',
+		'photo'       => bdc_theme_asset_url( 'assets/images/WhatsApp_Image_2026-09-24_at_11.14.47_AM__2_-removebg-preview.png' ),
+		'photo_alt'   => 'Create — I can build something amazing! Practice, create, and bring ideas to life.',
 		'icon'        => bdc_theme_asset_url( 'assets/images/explore-grow-create-icon.png' ),
 		'label'       => 'Create',
 		'quote'       => 'I can build something amazing!',
@@ -339,8 +339,8 @@ $explore_grow_stages_defaults = array(
 	),
 	array(
 		'style_slug'  => 'share',
-		'photo'       => bdc_theme_asset_url( 'assets/images/explore-grow-share-photo.png' ),
-		'photo_alt'   => 'A girl sharing ideas with a microphone',
+		'photo'       => bdc_theme_asset_url( 'assets/images/WhatsApp_Image_2026-09-24_at_11.14.47_AM__3_-removebg-preview.png' ),
+		'photo_alt'   => 'Share — I can inspire others. Share ideas and celebrate creations.',
 		'icon'        => bdc_theme_asset_url( 'assets/images/explore-grow-share-icon.png' ),
 		'label'       => 'Share',
 		'quote'       => 'I can inspire others.',
@@ -349,8 +349,8 @@ $explore_grow_stages_defaults = array(
 	),
 	array(
 		'style_slug'  => 'give',
-		'photo'       => bdc_theme_asset_url( 'assets/images/explore-grow-give-photo.png' ),
-		'photo_alt'   => 'Two girls holding a thank you sign together',
+		'photo'       => bdc_theme_asset_url( 'assets/images/WhatsApp_Image_2026-09-24_at_11.14.47_AM__4_-removebg-preview.png' ),
+		'photo_alt'   => 'Give — My ideas can help my community. Use talents to make a positive impact.',
 		'icon'        => bdc_theme_asset_url( 'assets/images/explore-grow-give-icon.png' ),
 		'label'       => 'Give',
 		'quote'       => 'My ideas can help my community.',
@@ -396,8 +396,9 @@ foreach ( $explore_grow_stages_raw as $index => $row ) {
 
 	$resolved = array(
 		'style_slug'  => $style_slug,
-		'photo'       => bdc_acf_image_value_to_url( $row['photo'] ?? null, (string) $default['photo'] ),
-		'photo_alt'   => '' !== $photo_alt ? $photo_alt : (string) $default['photo_alt'],
+		// Full stage lockups (photo + splash + copy) live in theme assets.
+		'photo'       => (string) $default['photo'],
+		'photo_alt'   => (string) $default['photo_alt'],
 		'icon'        => bdc_acf_image_value_to_url( $row['icon'] ?? null, (string) $default['icon'] ),
 		'label'       => '' !== $label ? $label : (string) $default['label'],
 		'quote'       => '' !== $quote ? $quote : (string) $default['quote'],

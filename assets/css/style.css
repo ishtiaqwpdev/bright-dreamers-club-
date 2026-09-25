@@ -107,12 +107,12 @@
   --explore-way-head-min-h: clamp(3.15rem, 4.6vw, 3.85rem);
   --explore-way-text-lines: 5;
   --explore-skill-text-min-lines: 3;
-  --explore-grow-card-h: clamp(188px, 18.2vw, 250px);
-  --explore-grow-layout-min-h: clamp(158px, 15.2vw, 212px);
-  --explore-grow-photo-max: clamp(102px, 10.8vw, 138px);
+  --explore-grow-card-h: clamp(280px, 28vw, 400px);
+  --explore-grow-layout-min-h: clamp(260px, 26vw, 380px);
+  --explore-grow-photo-max: 100%;
   --explore-grow-icon-size: clamp(24px, 2.45vw, 32px);
-  --explore-grow-card-pad-y: clamp(0.5rem, 0.95vw, 0.85rem);
-  --explore-grow-card-pad-x: clamp(0.55rem, 0.9vw, 0.8rem);
+  --explore-grow-card-pad-y: clamp(0.2rem, 0.5vw, 0.45rem);
+  --explore-grow-card-pad-x: clamp(0.15rem, 0.4vw, 0.35rem);
   --explore-grow-blob-size: 108% 104%;
   --explore-grow-quote-lines: 2;
   --explore-grow-arrow-width: clamp(18px, 1.9vw, 28px);
@@ -6558,74 +6558,39 @@ img.lazy-img.loaded {
 }
 
 .explore-grow-stage__card::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image: var(--explore-grow-blob);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: var(--explore-grow-blob-size);
-  pointer-events: none;
-  user-select: none;
-  z-index: 0;
+  content: none;
 }
 
-.explore-grow-stage--wonder {
-  --explore-grow-blob: url('../images/explore-grow-wonder-blob.png');
-}
-
-.explore-grow-stage--discover {
-  --explore-grow-blob: url('../images/explore-grow-discover-blob.png');
-}
-
-.explore-grow-stage--create {
-  --explore-grow-blob: url('../images/explore-grow-create-blob.png');
-}
-
-.explore-grow-stage--share {
-  --explore-grow-blob: url('../images/explore-grow-share-blob.png');
-}
-
-.explore-grow-stage--give {
-  --explore-grow-blob: url('../images/explore-grow-give-blob.png');
-}
-
-.explore-grow-stage__layout {
+.explore-grow-stage--lockup .explore-grow-stage__layout {
   position: relative;
   z-index: 1;
   flex: 1 1 auto;
-  display: grid;
-  grid-template-columns: minmax(0, 40%) minmax(0, 1fr);
+  display: flex;
   align-items: center;
-  gap: clamp(0.15rem, 0.4vw, 0.35rem);
+  justify-content: center;
   height: 100%;
   min-height: var(--explore-grow-layout-min-h);
 }
 
-.explore-grow-stage__photo {
+.explore-grow-stage--lockup .explore-grow-stage__layout > .lazy-img-wrap {
   width: 100%;
   max-width: var(--explore-grow-photo-max);
-  max-height: calc(var(--explore-grow-card-h) - 0.5rem);
-  height: auto;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.explore-grow-stage--lockup .explore-grow-stage__photo,
+.explore-grow-stage--lockup .explore-grow-stage__layout > .lazy-img-wrap .explore-grow-stage__photo {
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  max-height: calc(var(--explore-grow-card-h) - 0.25rem);
   object-fit: contain;
   object-position: center center;
-  justify-self: center;
-  align-self: center;
   margin-inline: auto;
   background: transparent;
-}
-
-.explore-grow-stage__layout > .lazy-img-wrap {
-  justify-self: center;
-  align-self: center;
-  width: 100%;
-  max-width: var(--explore-grow-photo-max);
-}
-
-.explore-grow-stage__layout > .lazy-img-wrap .explore-grow-stage__photo {
-  justify-self: auto;
-  align-self: auto;
-  max-height: calc(var(--explore-grow-card-h) - 0.5rem);
 }
 
 .explore-grow-stage__body {
@@ -10903,43 +10868,39 @@ img.lazy-img.loaded {
   .explore-grow-stage__card {
     height: auto;
     min-height: var(--explore-grow-card-h);
-    overflow: hidden;
-    padding: 0.85rem 0.9rem;
+    overflow: visible;
+    padding: 0.35rem 0.25rem;
   }
 
   .explore-grow-stage__card::before {
-    inset: 0;
-    background-size: 100% 100%;
-    background-position: center center;
+    content: none;
   }
 
+  .explore-grow-stage--lockup .explore-grow-stage__layout,
   .explore-grow-stage__layout {
-    grid-template-columns: minmax(0, 36%) minmax(0, 1fr);
-    gap: 0.45rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     min-height: 0;
   }
 
+  .explore-grow-stage--lockup .explore-grow-stage__layout > .lazy-img-wrap,
   .explore-grow-stage__layout > .lazy-img-wrap {
     overflow: visible;
     max-width: 100%;
+    width: min(100%, 320px);
   }
 
+  .explore-grow-stage--lockup .explore-grow-stage__photo,
+  .explore-grow-stage--lockup .explore-grow-stage__layout > .lazy-img-wrap .explore-grow-stage__photo,
   .explore-grow-stage__photo,
   .explore-grow-stage__layout > .lazy-img-wrap .explore-grow-stage__photo {
     max-width: 100%;
     width: 100%;
     height: auto;
-    max-height: 150px;
+    max-height: min(72vw, 420px);
     object-fit: contain;
     object-position: center;
-  }
-
-  .explore-grow-stage__quote,
-  .explore-grow-stage__text,
-  .explore-grow-stage__label {
-    overflow-wrap: anywhere;
-    word-break: break-word;
-    max-width: 100%;
   }
 
   .explore-grow__arrow {
@@ -21000,40 +20961,36 @@ body.newsletter-success-open {
   .bdc-mobile-carousel .explore-grow-stage__card {
     height: auto;
     min-height: var(--explore-grow-card-h);
-    overflow: hidden;
-    padding: 0.85rem 0.9rem;
+    overflow: visible;
+    padding: 0.35rem 0.25rem;
   }
 
   .bdc-mobile-carousel .explore-grow-stage__card::before {
-    inset: 0;
-    background-size: 100% 100%;
-    background-position: center center;
+    content: none;
   }
 
+  .bdc-mobile-carousel .explore-grow-stage--lockup .explore-grow-stage__layout,
   .bdc-mobile-carousel .explore-grow-stage__layout {
-    grid-template-columns: minmax(0, 36%) minmax(0, 1fr);
-    gap: 0.45rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
+  .bdc-mobile-carousel .explore-grow-stage--lockup .explore-grow-stage__layout > .lazy-img-wrap,
   .bdc-mobile-carousel .explore-grow-stage__layout > .lazy-img-wrap {
     overflow: visible;
     max-width: 100%;
+    width: min(100%, 320px);
   }
 
+  .bdc-mobile-carousel .explore-grow-stage--lockup .explore-grow-stage__photo,
+  .bdc-mobile-carousel .explore-grow-stage--lockup .explore-grow-stage__layout > .lazy-img-wrap .explore-grow-stage__photo,
   .bdc-mobile-carousel .explore-grow-stage__photo,
   .bdc-mobile-carousel .explore-grow-stage__layout > .lazy-img-wrap .explore-grow-stage__photo {
     max-width: 100%;
     width: 100%;
-    max-height: 150px;
+    max-height: min(72vw, 420px);
     object-fit: contain;
-  }
-
-  .bdc-mobile-carousel .explore-grow-stage__quote,
-  .bdc-mobile-carousel .explore-grow-stage__text,
-  .bdc-mobile-carousel .explore-grow-stage__label {
-    overflow-wrap: anywhere;
-    word-break: break-word;
-    max-width: 100%;
   }
 
   .bdc-carousel-dots {
