@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /**
  * Our Vision page template â€” converted from our-vision.html.
  *

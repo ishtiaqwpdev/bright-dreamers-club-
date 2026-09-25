@@ -9,34 +9,84 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+// Shared hosts often run 64M/128M — raise early to avoid white-screen OOM.
+if ( function_exists( 'wp_raise_memory_limit' ) ) {
+	wp_raise_memory_limit( 'theme' );
+}
+if ( function_exists( 'wp_is_ini_value_changeable' ) && wp_is_ini_value_changeable( 'memory_limit' ) ) {
+	@ini_set( 'memory_limit', '256M' ); // phpcs:ignore WordPress.PHP.IniSet.Risky
+}
+
 define( 'BDC_THEME_DIR', get_template_directory() );
 
-require_once BDC_THEME_DIR . '/inc/maintenance-mode.php';
-require_once BDC_THEME_DIR . '/inc/forms/forms-config.php';
-require_once BDC_THEME_DIR . '/inc/forms/form-settings.php';
-require_once BDC_THEME_DIR . '/inc/theme-settings.php';
-require_once BDC_THEME_DIR . '/inc/forms/form-handler.php';
-require_once BDC_THEME_DIR . '/inc/acf-helpers.php';
-require_once BDC_THEME_DIR . '/inc/header-footer-settings.php';
-require_once BDC_THEME_DIR . '/inc/mobile-nav.php';
-require_once BDC_THEME_DIR . '/inc/policy/privacy-policy-defaults.php';
-require_once BDC_THEME_DIR . '/inc/policy/terms-defaults.php';
-require_once BDC_THEME_DIR . '/inc/policy/photo-media-policy-defaults.php';
-require_once BDC_THEME_DIR . '/inc/policy/accessibility-defaults.php';
-require_once BDC_THEME_DIR . '/inc/policy/financial-transparency-defaults.php';
-require_once BDC_THEME_DIR . '/inc/policy/faq-defaults.php';
-require_once BDC_THEME_DIR . '/inc/policy/apply-to-become-defaults.php';
-require_once BDC_THEME_DIR . '/inc/policy/volunteer-application-defaults.php';
-require_once BDC_THEME_DIR . '/inc/policy/newsletter-signup-defaults.php';
-require_once BDC_THEME_DIR . '/inc/policy/donation-interest-defaults.php';
-require_once BDC_THEME_DIR . '/inc/policy/partner-inquiry-defaults.php';
-require_once BDC_THEME_DIR . '/inc/policy/photo-media-consent-defaults.php';
+/**
+ * Require a theme file; fail with a clear message instead of a blank white screen.
+ *
+ * @param string $relative_path Path relative to theme root.
+ */
+function bdc_require_theme_file( $relative_path ) {
+	$file = BDC_THEME_DIR . '/' . ltrim( $relative_path, '/' );
+
+	if ( ! is_readable( $file ) ) {
+		wp_die(
+			esc_html(
+				sprintf(
+					/* translators: %s: missing theme file path */
+					__( 'Bright Dreamers theme file missing or unreadable: %s. Re-upload the complete theme (do not include node_modules).', 'bright-dreamers-club' ),
+					$relative_path
+				)
+			),
+			esc_html__( 'Theme file missing', 'bright-dreamers-club' ),
+			array( 'response' => 500 )
+		);
+	}
+
+	require_once $file;
+}
+
+bdc_require_theme_file( 'inc/maintenance-mode.php' );
+bdc_require_theme_file( 'inc/forms/forms-config.php' );
+bdc_require_theme_file( 'inc/forms/form-settings.php' );
+bdc_require_theme_file( 'inc/theme-settings.php' );
+bdc_require_theme_file( 'inc/forms/form-handler.php' );
+bdc_require_theme_file( 'inc/acf-helpers.php' );
+bdc_require_theme_file( 'inc/header-footer-settings.php' );
+bdc_require_theme_file( 'inc/mobile-nav.php' );
+bdc_require_theme_file( 'inc/policy/privacy-policy-defaults.php' );
+bdc_require_theme_file( 'inc/policy/terms-defaults.php' );
+bdc_require_theme_file( 'inc/policy/photo-media-policy-defaults.php' );
+bdc_require_theme_file( 'inc/policy/accessibility-defaults.php' );
+bdc_require_theme_file( 'inc/policy/financial-transparency-defaults.php' );
+bdc_require_theme_file( 'inc/policy/faq-defaults.php' );
+bdc_require_theme_file( 'inc/policy/apply-to-become-defaults.php' );
+bdc_require_theme_file( 'inc/policy/volunteer-application-defaults.php' );
+bdc_require_theme_file( 'inc/policy/newsletter-signup-defaults.php' );
+bdc_require_theme_file( 'inc/policy/donation-interest-defaults.php' );
+bdc_require_theme_file( 'inc/policy/partner-inquiry-defaults.php' );
+bdc_require_theme_file( 'inc/policy/photo-media-consent-defaults.php' );
 
 /**
  * Register local ACF field groups when ACF is active.
+ *
+ * Only load the large field registry in wp-admin (and WP-CLI). Frontend
+ * get_field() still works from saved meta; this avoids OOM white-screens
+ * on low-memory shared hosting.
  */
 function bdc_load_acf_field_groups() {
-	require_once BDC_THEME_DIR . '/inc/acf-fields.php';
+	$load_heavy_fields = is_admin() || ( defined( 'WP_CLI' ) && WP_CLI );
+
+	/**
+	 * Filter whether to register the full local ACF field groups.
+	 *
+	 * @param bool $load_heavy_fields Whether to load acf-fields.php.
+	 */
+	$load_heavy_fields = (bool) apply_filters( 'bdc_load_acf_field_groups', $load_heavy_fields );
+
+	if ( ! $load_heavy_fields ) {
+		return;
+	}
+
+	bdc_require_theme_file( 'inc/acf-fields.php' );
 }
 add_action( 'acf/init', 'bdc_load_acf_field_groups' );
 
