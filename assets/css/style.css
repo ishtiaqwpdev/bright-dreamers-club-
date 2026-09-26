@@ -4,11 +4,19 @@
   (Elements ? <html> ? Styles ? :root).
 */
 
-/* Banner titles only — Georgia Custom is regular-weight only (no bold face in the file) */
+/* Banner titles only — same regular .woff mapped for 400 and 700 (avoids fake-bold when CSS asks for 700) */
 @font-face {
   font-family: 'Georgia Custom';
   src: url('../fonts/Georgia-PersonalUse.woff') format('woff');
-  font-weight: normal;
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Georgia Custom';
+  src: url('../fonts/Georgia-PersonalUse.woff') format('woff');
+  font-weight: 700;
   font-style: normal;
   font-display: swap;
 }
@@ -30000,8 +30008,7 @@ body.newsletter-success-open {
   }
 }
 
-/* Georgia Custom — ALL page banner titles only (every hero title, all pages).
-   Force weight 400: this .woff has only a regular face; 700+ fake-bolds and hollows the glyphs. */
+/* Georgia Custom — ALL page banner titles only (every hero title, all pages). */
 #main-content > section.page-hero .hero-headline,
 #main-content > section.page-hero .home-hero__title,
 #main-content > section.home-hero .hero-headline,
@@ -30031,7 +30038,7 @@ body.newsletter-success-open {
 .apply-page .page-hero.apply-hero .hero-headline,
 .faq-page .page-hero.faq-hero .hero-headline {
   font-family: 'Georgia Custom', Georgia, 'Bitter', serif !important;
-  font-weight: 400 !important;
+  font-weight: 700 !important;
   font-style: normal !important;
   -webkit-text-stroke: 0 !important;
   text-shadow: none !important;
