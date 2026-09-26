@@ -1784,7 +1784,7 @@ button {
   letter-spacing: 0.16em;
   line-height: 1.3;
   text-transform: uppercase;
-  color: #000;
+  color: var(--color-pink);
 }
 
 .home-hero .hero-headline,
