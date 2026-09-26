@@ -10036,14 +10036,14 @@ img.lazy-img.loaded {
   .home-page #main-content > section.page-hero.home-welcome-hero,
   .home-page #main-content > section.home-hero.page-hero {
     padding-top: 0 !important;
-    margin-top: 0 !important;
+    margin-top: -20px !important;
     min-height: 0 !important;
   }
 
   .home-page .page-hero.home-hero,
   .home-page .page-hero.home-welcome-hero {
     padding-top: 0 !important;
-    margin-top: 0 !important;
+    margin-top: -20px !important;
     min-height: 0 !important;
   }
 
@@ -10059,7 +10059,7 @@ img.lazy-img.loaded {
   .about-page #main-content > section.about-hero.page-hero,
   .about-page .page-hero.about-hero {
     padding-top: 0 !important;
-    margin-top: 0 !important;
+    margin-top: -20px !important;
     min-height: 0 !important;
   }
 
@@ -10079,13 +10079,13 @@ img.lazy-img.loaded {
   .get-involved-page #main-content > section.page-hero.get-involved-hero,
   .get-involved-page #main-content > section.get-involved-hero.page-hero {
     padding-top: 0 !important;
-    margin-top: 0 !important;
+    margin-top: -20px !important;
     min-height: 0 !important;
   }
 
   .get-involved-page .page-hero.get-involved-hero {
     padding-top: 0 !important;
-    margin-top: 0 !important;
+    margin-top: -20px !important;
     min-height: 0 !important;
   }
 
@@ -10107,13 +10107,13 @@ img.lazy-img.loaded {
   .our-vision-page #main-content > section.page-hero.vision-hero,
   .our-vision-page #main-content > section.vision-hero.page-hero {
     padding-top: 0 !important;
-    margin-top: 0 !important;
+    margin-top: -20px !important;
     min-height: 0 !important;
   }
 
   .our-vision-page .page-hero.vision-hero {
     padding-top: 0 !important;
-    margin-top: 0 !important;
+    margin-top: -20px !important;
     min-height: 0 !important;
   }
 
@@ -23025,7 +23025,7 @@ body.newsletter-success-open {
   .page-hero.create-for-cause-hero,
   .page-hero.community-adventures-hero {
     padding-top: 0 !important;
-    margin-top: 0 !important;
+    margin-top: -20px !important;
     min-height: 0 !important;
   }
 
@@ -29991,24 +29991,42 @@ body.newsletter-success-open {
   }
 }
 
-/* All page hero banners — pull up under transparent header (desktop) */
-@media (min-width: 1201px) {
+/* All page hero banners — pull up under transparent header (desktop ≥1024px).
+   Match page-class + #main-content specificity so older margin-top: 0 !important cannot win. */
+@media (min-width: 1024px) {
+  .home-page #main-content > section.page-hero.home-hero,
+  .home-page #main-content > section.page-hero.home-welcome-hero,
+  .home-page #main-content > section.home-hero.page-hero,
+  .home-page .page-hero.home-hero,
+  .home-page .page-hero.home-welcome-hero,
+  .about-page #main-content > section.page-hero.about-hero,
+  .about-page #main-content > section.about-hero.page-hero,
+  .about-page .page-hero.about-hero,
+  .explore-page #main-content > section.page-hero.explore-hero,
+  .explore-page #main-content > section.explore-hero.page-hero,
+  .explore-page .page-hero.explore-hero,
+  .for-parents-page #main-content > section.page-hero.for-parents-hero,
+  .for-parents-page #main-content > section.for-parents-hero.page-hero,
+  .for-parents-page .page-hero.for-parents-hero,
+  .our-vision-page #main-content > section.page-hero.vision-hero,
+  .our-vision-page #main-content > section.vision-hero.page-hero,
+  .our-vision-page .page-hero.vision-hero,
+  .get-involved-page #main-content > section.page-hero.get-involved-hero,
+  .get-involved-page #main-content > section.get-involved-hero.page-hero,
+  .get-involved-page .page-hero.get-involved-hero,
+  .partners-page #main-content > section.page-hero.partners-hero,
+  .partners-page #main-content > section.partners-hero.page-hero,
+  .partners-page .page-hero.partners-hero,
+  .contact-page #main-content > section.page-hero.contact-hero,
+  .contact-page #main-content > section.contact-hero.page-hero,
+  .contact-page .page-hero.contact-hero,
+  .creative-makers-page #main-content > section.page-hero.creative-makers-hero,
+  .young-ideas-lab-page #main-content > section.page-hero.young-ideas-lab-hero,
+  .create-for-cause-page #main-content > section.page-hero.create-for-cause-hero,
+  .community-adventures-page #main-content > section.page-hero.community-adventures-hero,
+  .apply-page #main-content > section.page-hero.apply-hero,
+  .faq-page #main-content > section.page-hero.faq-hero,
   #main-content > section.page-hero,
-  #main-content > section.page-hero.home-hero,
-  #main-content > section.page-hero.home-welcome-hero,
-  #main-content > section.page-hero.about-hero,
-  #main-content > section.page-hero.explore-hero,
-  #main-content > section.page-hero.for-parents-hero,
-  #main-content > section.page-hero.vision-hero,
-  #main-content > section.page-hero.get-involved-hero,
-  #main-content > section.page-hero.partners-hero,
-  #main-content > section.page-hero.contact-hero,
-  #main-content > section.page-hero.creative-makers-hero,
-  #main-content > section.page-hero.young-ideas-lab-hero,
-  #main-content > section.page-hero.create-for-cause-hero,
-  #main-content > section.page-hero.community-adventures-hero,
-  #main-content > section.page-hero.apply-hero,
-  #main-content > section.page-hero.faq-hero,
   .page-hero {
     margin-top: -20px !important;
   }
