@@ -426,31 +426,31 @@ $explore_impact_title = bdc_get_acf_text(
 $explore_impact_cards_defaults = array(
 	array(
 		'photo'     => bdc_theme_asset_url( 'assets/images/explore-impact-art.jpeg' ),
-		'photo_alt' => 'Children standing in front of a colorful community mural',
+		'photo_alt' => 'Three girls painting a colorful community mural with sun, earth, and flowers',
 		'title'     => 'Art in Our Community',
 		'text'      => 'Create murals and art installations to brighten public spaces.',
 	),
 	array(
 		'photo'     => bdc_theme_asset_url( 'assets/images/explore-impact-sell.jpeg' ),
-		'photo_alt' => 'Children collaborating at a table with books and a tablet',
+		'photo_alt' => 'Three girls displaying handmade jewelry, pottery, and treats at a craft table',
 		'title'     => 'Create & Sell',
 		'text'      => 'Make products, art, and creations to share and fund future projects.',
 	),
 	array(
 		'photo'     => bdc_theme_asset_url( 'assets/images/explore-impact-give.jpeg' ),
-		'photo_alt' => 'Children planting a sapling together outdoors',
+		'photo_alt' => 'Children packing food and supplies into a decorated donation box',
 		'title'     => 'Give Back',
 		'text'      => 'Support shelters, food drives, clean-ups, parks, gardens, and more.',
 	),
 	array(
 		'photo'     => bdc_theme_asset_url( 'assets/images/explore-impact-kindness.jpeg' ),
-		'photo_alt' => 'Children working together to plant in a garden',
+		'photo_alt' => 'Children making kindness cards and gifts at a craft table',
 		'title'     => 'Kindness Projects',
 		'text'      => 'Make cards, kits, and gifts to bring joy to others.',
 	),
 	array(
 		'photo'     => bdc_theme_asset_url( 'assets/images/explore-impact-plants.jpeg' ),
-		'photo_alt' => 'Three girls creating art together at a table',
+		'photo_alt' => 'Three girls planting flowers and caring for plants outdoors',
 		'title'     => 'Plants & Planet',
 		'text'      => 'Plant trees, grow gardens, and care for our planet together.',
 	),
@@ -471,8 +471,9 @@ foreach ( $explore_impact_cards_raw as $index => $row ) {
 	$photo_alt = isset( $row['photo_alt'] ) ? trim( (string) $row['photo_alt'] ) : '';
 
 	$resolved = array(
-		'photo'     => bdc_acf_image_value_to_url( $row['photo'] ?? null, (string) $default['photo'] ),
-		'photo_alt' => '' !== $photo_alt ? $photo_alt : (string) $default['photo_alt'],
+		// Theme lock-in so ACF media does not keep old impact card photos.
+		'photo'     => (string) $default['photo'],
+		'photo_alt' => (string) $default['photo_alt'],
 		'title'     => '' !== $title ? $title : (string) $default['title'],
 		'text'      => '' !== $text ? $text : (string) $default['text'],
 	);
