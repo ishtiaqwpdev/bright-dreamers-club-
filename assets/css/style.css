@@ -93,8 +93,8 @@
   --home-hero-title-size: clamp(2.85rem, 4.2vw + 1.1rem, 5.5rem);
   --home-hero-banner-max: none;
   /* Shared desktop hero: same inset as header, tighter text/image pairing */
-  --page-hero-balanced-content-col: 0.36fr;
-  --page-hero-balanced-media-col: 0.64fr;
+  --page-hero-balanced-content-col: 0.34fr;
+  --page-hero-balanced-media-col: 0.66fr;
   --page-hero-balanced-content-max: none;
   --page-hero-col-gap: clamp(0.15rem, 0.45vw, 0.4rem);
   --explore-hero-content-col: 0.86fr;
@@ -159,13 +159,13 @@
   --contact-hero-heart-size: clamp(24px, 2.4vw, 30px);
   --contact-hero-heart-offset-x: clamp(0.35rem, 0.8vw, 0.65rem);
   --contact-hero-copy-max-w: 26.5rem;
-  --contact-hero-content-col: 0.36fr;
-  --contact-hero-media-col: 0.64fr;
+  --contact-hero-content-col: 0.34fr;
+  --contact-hero-media-col: 0.66fr;
   --for-parents-hero-title-size: clamp(2.75rem, 4.8vw, 4rem);
   --for-parents-hero-star-size: clamp(22px, 2.4vw, 30px);
   --get-involved-hero-title-size: clamp(2.75rem, 4.8vw, 4rem);
-  --get-involved-hero-content-col: 0.36fr;
-  --get-involved-hero-media-col: 0.64fr;
+  --get-involved-hero-content-col: 0.34fr;
+  --get-involved-hero-media-col: 0.66fr;
   --get-involved-ways-icon-size: clamp(68px, 6.5vw, 84px);
   --get-involved-ways-card-title-size: clamp(0.92rem, 1vw, 1.08rem);
   --get-involved-ways-card-text-size: clamp(0.78rem, 0.86vw, 0.88rem);
@@ -228,8 +228,8 @@
   --contact-cta-door-width: clamp(130px, 14vw, 185px);
   --contact-cta-text-size: 25px;
   --contact-cta-text-max-w: 461px;
-  --creative-makers-hero-content-col: 0.36fr;
-  --creative-makers-hero-media-col: 0.64fr;
+  --creative-makers-hero-content-col: 0.34fr;
+  --creative-makers-hero-media-col: 0.66fr;
   --creative-makers-hero-copy-max-w: 520px;
   --creative-makers-hero-pad-top: 0;
   --creative-makers-activity-icon-size: clamp(52px, 5vw, 68px);
@@ -293,8 +293,8 @@
   --for-parents-cta-star-size: clamp(24px, 2.4vw, 32px);
   --for-parents-cta-pad-top: 10px;
   --vision-hero-banner-scale: 1.05;
-  --vision-hero-content-col: 0.36fr;
-  --vision-hero-media-col: 0.64fr;
+  --vision-hero-content-col: 0.34fr;
+  --vision-hero-media-col: 0.66fr;
   --vision-pillar-orange-bg: #fff8ef;
   --vision-pillar-icon-size: clamp(56px, 5vw, 72px);
   --vision-pillar-purpose-icon-extra: 5px;
@@ -1993,7 +1993,7 @@ button {
   .create-for-cause-page .page-hero.create-for-cause-hero .page-hero__inner,
   .community-adventures-page .page-hero.community-adventures-hero .page-hero__inner {
     display: grid;
-    grid-template-columns: minmax(0, 36%) minmax(0, 64%);
+    grid-template-columns: minmax(0, 34%) minmax(0, 66%);
     align-items: center;
     justify-content: start;
     gap: 0;
@@ -3156,7 +3156,7 @@ img.lazy-img.loaded {
   .vision-hero .page-hero__inner,
   .for-parents-hero .page-hero__inner {
     display: grid;
-    grid-template-columns: minmax(0, 36%) minmax(0, 64%);
+    grid-template-columns: minmax(0, 34%) minmax(0, 66%);
     align-items: center;
     justify-content: start;
     gap: 0;
@@ -6156,20 +6156,20 @@ img.lazy-img.loaded {
 }
 
 @media (min-width: 1201px) {
-  /* Explore hero — reference lockup: 3 heading lines + 4 copy lines; image 64% */
+  /* Explore hero — reference lockup: 3 heading lines + 4 copy lines; image 66% */
   .explore-page {
-    --bdc-hero-text-col-percent: 36;
-    --bdc-hero-banner-col-percent: 64;
-    --explore-hero-content-col: 0.36fr;
-    --explore-hero-media-col: 0.64fr;
-    --page-hero-balanced-content-col: 0.36fr;
-    --page-hero-balanced-media-col: 0.64fr;
+    --bdc-hero-text-col-percent: 34;
+    --bdc-hero-banner-col-percent: 66;
+    --explore-hero-content-col: 0.34fr;
+    --explore-hero-media-col: 0.66fr;
+    --page-hero-balanced-content-col: 0.34fr;
+    --page-hero-balanced-media-col: 0.66fr;
   }
 
   .explore-page #main-content > section.page-hero.explore-hero .page-hero__inner,
   .explore-page .page-hero.explore-hero .page-hero__inner,
   .explore-page .page-hero.explore-hero .page-hero__inner--layout-40-60 {
-    grid-template-columns: minmax(0, 36%) minmax(0, 64%) !important;
+    grid-template-columns: minmax(0, 34%) minmax(0, 66%) !important;
     column-gap: 0 !important;
     gap: 0 !important;
   }
@@ -7538,7 +7538,7 @@ img.lazy-img.loaded {
 @media (min-width: 769px) {
   .creative-makers-page .page-hero.creative-makers-hero .page-hero__inner {
     display: grid;
-    grid-template-columns: minmax(0, 36%) minmax(0, 64%);
+    grid-template-columns: minmax(0, 34%) minmax(0, 66%);
     align-items: center;
     justify-content: start;
     gap: 0;
@@ -7588,7 +7588,7 @@ img.lazy-img.loaded {
 
   .young-ideas-lab-page .page-hero.young-ideas-lab-hero .page-hero__inner {
     display: grid;
-    grid-template-columns: minmax(0, 36%) minmax(0, 64%);
+    grid-template-columns: minmax(0, 34%) minmax(0, 66%);
     align-items: center;
     justify-content: start;
     gap: 0;
@@ -7639,7 +7639,7 @@ img.lazy-img.loaded {
 
   .create-for-cause-page .page-hero.create-for-cause-hero .page-hero__inner {
     display: grid;
-    grid-template-columns: minmax(0, 36%) minmax(0, 64%);
+    grid-template-columns: minmax(0, 34%) minmax(0, 66%);
     align-items: center;
     justify-content: start;
     gap: 0;
@@ -7690,7 +7690,7 @@ img.lazy-img.loaded {
 
   .community-adventures-page .page-hero.community-adventures-hero .page-hero__inner {
     display: grid;
-    grid-template-columns: minmax(0, 36%) minmax(0, 64%);
+    grid-template-columns: minmax(0, 34%) minmax(0, 66%);
     align-items: center;
     justify-content: start;
     gap: 0;
@@ -9984,19 +9984,19 @@ img.lazy-img.loaded {
 /* Desktop hero (≥1024px): text block + image vertically centered as whole units */
 @media (min-width: 1024px) {
   :root {
-    --page-hero-balanced-content-col: 0.36fr;
-    --page-hero-balanced-media-col: 0.64fr;
-    --contact-hero-content-col: 0.36fr;
-    --contact-hero-media-col: 0.64fr;
-    --vision-hero-content-col: 0.36fr;
-    --vision-hero-media-col: 0.64fr;
-    --explore-hero-content-col: 0.36fr;
-    --explore-hero-media-col: 0.64fr;
+    --page-hero-balanced-content-col: 0.34fr;
+    --page-hero-balanced-media-col: 0.66fr;
+    --contact-hero-content-col: 0.34fr;
+    --contact-hero-media-col: 0.66fr;
+    --vision-hero-content-col: 0.34fr;
+    --vision-hero-media-col: 0.66fr;
+    --explore-hero-content-col: 0.34fr;
+    --explore-hero-media-col: 0.66fr;
     --home-hero-content-share: 42%;
     --page-hero-col-gap: 0;
     --home-hero-col-gap: 0;
     --explore-hero-inner-gap: 0;
-    /* Fill the 36% text track — fixed 520px left empty space that grows at zoom / wide CSS viewports */
+    /* Fill the 34% text track — fixed 520px left empty space that grows at zoom / wide CSS viewports */
     --page-hero-content-max-width: 100%;
     --home-hero-content-max: 100%;
     --explore-hero-content-max: 100%;
@@ -10007,16 +10007,16 @@ img.lazy-img.loaded {
   }
 
   .home-page {
-    --bdc-home-hero-text-col-percent: 36;
-    --bdc-home-hero-banner-col-percent: 64;
-    --page-hero-balanced-content-col: 0.36fr;
-    --page-hero-balanced-media-col: 0.64fr;
-    --home-hero-content-share: 36%;
+    --bdc-home-hero-text-col-percent: 34;
+    --bdc-home-hero-banner-col-percent: 66;
+    --page-hero-balanced-content-col: 0.34fr;
+    --page-hero-balanced-media-col: 0.66fr;
+    --home-hero-content-share: 34%;
   }
 
   .home-page .page-hero.home-hero .page-hero__inner,
   .home-page .page-hero.home-welcome-hero .page-hero__inner {
-    grid-template-columns: minmax(0, 36%) minmax(0, 64%) !important;
+    grid-template-columns: minmax(0, 34%) minmax(0, 66%) !important;
     column-gap: 0 !important;
     gap: 0 !important;
   }
@@ -10071,10 +10071,10 @@ img.lazy-img.loaded {
   }
 
   .get-involved-page {
-    --get-involved-hero-content-col: 0.36fr;
-    --get-involved-hero-media-col: 0.64fr;
-    --page-hero-balanced-content-col: 0.36fr;
-    --page-hero-balanced-media-col: 0.64fr;
+    --get-involved-hero-content-col: 0.34fr;
+    --get-involved-hero-media-col: 0.66fr;
+    --page-hero-balanced-content-col: 0.34fr;
+    --page-hero-balanced-media-col: 0.66fr;
   }
 
   .get-involved-page #main-content > section.page-hero.get-involved-hero,
@@ -10091,17 +10091,17 @@ img.lazy-img.loaded {
   }
 
   .get-involved-page .page-hero.get-involved-hero .page-hero__inner {
-    grid-template-columns: minmax(0, 0.36fr) minmax(0, 0.64fr) !important;
+    grid-template-columns: minmax(0, 0.34fr) minmax(0, 0.66fr) !important;
     padding-top: 0 !important;
     min-height: 0 !important;
     align-items: center !important;
   }
 
   .our-vision-page {
-    --vision-hero-content-col: 0.36fr;
-    --vision-hero-media-col: 0.64fr;
-    --page-hero-balanced-content-col: 0.36fr;
-    --page-hero-balanced-media-col: 0.64fr;
+    --vision-hero-content-col: 0.34fr;
+    --vision-hero-media-col: 0.66fr;
+    --page-hero-balanced-content-col: 0.34fr;
+    --page-hero-balanced-media-col: 0.66fr;
     --vision-hero-banner-scale: 1;
   }
 
@@ -10119,19 +10119,19 @@ img.lazy-img.loaded {
   }
 
   .our-vision-page .page-hero.vision-hero .page-hero__inner {
-    grid-template-columns: minmax(0, 0.36fr) minmax(0, 0.64fr) !important;
+    grid-template-columns: minmax(0, 0.34fr) minmax(0, 0.66fr) !important;
     padding-top: 0 !important;
     min-height: 0 !important;
     align-items: center !important;
   }
 
   .our-vision-page .page-hero.vision-hero .page-hero__content {
-    --bdc-hero-col-percent: 36;
+    --bdc-hero-col-percent: 34;
   }
 
   .our-vision-page .page-hero.vision-hero .about-hero__media,
   .our-vision-page .page-hero.vision-hero .hero-image-wrap {
-    --bdc-hero-col-percent: 64;
+    --bdc-hero-col-percent: 66;
   }
 
   .for-parents-page .page-hero.for-parents-hero .page-hero__inner {
@@ -10209,7 +10209,7 @@ img.lazy-img.loaded {
   .page-hero.partners-hero .page-hero__inner,
   .page-hero.contact-hero .page-hero__inner {
     display: grid;
-    grid-template-columns: minmax(0, 36%) minmax(0, 64%);
+    grid-template-columns: minmax(0, 34%) minmax(0, 66%);
     align-items: center;
     justify-content: start;
     gap: 0;
@@ -22847,14 +22847,14 @@ body.newsletter-success-open {
   }
 
   .our-vision-page .page-hero.vision-hero:not(.partners-hero) .page-hero__inner {
-    --vision-hero-content-col: 0.36fr;
-    --vision-hero-media-col: 0.64fr;
+    --vision-hero-content-col: 0.34fr;
+    --vision-hero-media-col: 0.66fr;
     grid-template-columns: minmax(0, var(--vision-hero-content-col)) minmax(0, var(--vision-hero-media-col)) !important;
   }
 
   .for-parents-page .page-hero.for-parents-hero .page-hero__inner {
-    --vision-hero-content-col: 0.36fr;
-    --vision-hero-media-col: 0.64fr;
+    --vision-hero-content-col: 0.34fr;
+    --vision-hero-media-col: 0.66fr;
     grid-template-columns: minmax(0, var(--vision-hero-content-col)) minmax(0, var(--vision-hero-media-col)) !important;
     gap: 0 !important;
     column-gap: 0 !important;
@@ -23035,7 +23035,7 @@ body.newsletter-success-open {
   .page-hero.create-for-cause-hero .page-hero__inner,
   .page-hero.community-adventures-hero .page-hero__inner {
     display: grid !important;
-    grid-template-columns: minmax(0, 36%) minmax(0, 64%) !important;
+    grid-template-columns: minmax(0, 34%) minmax(0, 66%) !important;
     align-items: center !important;
     justify-content: start !important;
     gap: 0 !important;
@@ -27786,10 +27786,10 @@ body.newsletter-success-open {
     justify-content: flex-end !important;
   }
 
-  /* Home hero — 36/64 (image at 64%) */
+  /* Home hero — 34/66 (image at 66%) */
   .home-page .page-hero.home-hero .page-hero__inner,
   .home-page .page-hero.home-welcome-hero .page-hero__inner {
-    grid-template-columns: minmax(0, 36%) minmax(0, 64%) !important;
+    grid-template-columns: minmax(0, 34%) minmax(0, 66%) !important;
     justify-content: start !important;
     column-gap: 0 !important;
     gap: 0 !important;
@@ -29017,23 +29017,23 @@ body.newsletter-success-open {
   }
 }
 
-/* Desktop (≥1201px): sitewide hero 36/64 — same breakpoint as full desktop nav */
+/* Desktop (≥1201px): sitewide hero 34/66 — same breakpoint as full desktop nav */
 @media (min-width: 1201px) {
   :root {
-    --bdc-hero-text-col-percent: 36;
-    --bdc-hero-banner-col-percent: 64;
-    --page-hero-balanced-content-col: 0.36fr;
-    --page-hero-balanced-media-col: 0.64fr;
-    --contact-hero-content-col: 0.36fr;
-    --contact-hero-media-col: 0.64fr;
-    --vision-hero-content-col: 0.36fr;
-    --vision-hero-media-col: 0.64fr;
-    --explore-hero-content-col: 0.36fr;
-    --explore-hero-media-col: 0.64fr;
-    --get-involved-hero-content-col: 0.36fr;
-    --get-involved-hero-media-col: 0.64fr;
-    --creative-makers-hero-content-col: 0.36fr;
-    --creative-makers-hero-media-col: 0.64fr;
+    --bdc-hero-text-col-percent: 34;
+    --bdc-hero-banner-col-percent: 66;
+    --page-hero-balanced-content-col: 0.34fr;
+    --page-hero-balanced-media-col: 0.66fr;
+    --contact-hero-content-col: 0.34fr;
+    --contact-hero-media-col: 0.66fr;
+    --vision-hero-content-col: 0.34fr;
+    --vision-hero-media-col: 0.66fr;
+    --explore-hero-content-col: 0.34fr;
+    --explore-hero-media-col: 0.66fr;
+    --get-involved-hero-content-col: 0.34fr;
+    --get-involved-hero-media-col: 0.66fr;
+    --creative-makers-hero-content-col: 0.34fr;
+    --creative-makers-hero-media-col: 0.66fr;
   }
 
   #main-content > section.page-hero .page-hero__inner,
@@ -29041,13 +29041,13 @@ body.newsletter-success-open {
   .page-hero > .site-container.page-hero__inner,
   .page-hero .page-hero__inner,
   .page-hero__inner--layout-40-60 {
-    --bdc-hero-text-col-percent: 36;
-    --bdc-hero-banner-col-percent: 64;
+    --bdc-hero-text-col-percent: 34;
+    --bdc-hero-banner-col-percent: 66;
     --page-hero-balanced-content-col: auto;
     --page-hero-balanced-media-col: minmax(0, 1fr);
     display: grid !important;
-    /* Fixed 36/64 — never max-content (collapses on narrow / zoomed viewports) */
-    grid-template-columns: minmax(0, 36%) minmax(0, 64%) !important;
+    /* Fixed 34/66 — never max-content (collapses on narrow / zoomed viewports) */
+    grid-template-columns: minmax(0, 34%) minmax(0, 66%) !important;
     column-gap: 0 !important;
     gap: 0 !important;
     justify-content: start !important;
@@ -29120,18 +29120,18 @@ body.newsletter-success-open {
 
   /* Explore — flush image to header Apply edge; kill center gap */
   .explore-page {
-    --bdc-hero-text-col-percent: 36;
-    --bdc-hero-banner-col-percent: 64;
-    --explore-hero-content-col: 0.36fr;
-    --explore-hero-media-col: 0.64fr;
+    --bdc-hero-text-col-percent: 34;
+    --bdc-hero-banner-col-percent: 66;
+    --explore-hero-content-col: 0.34fr;
+    --explore-hero-media-col: 0.66fr;
   }
 
   .explore-page #main-content > section.page-hero.explore-hero .page-hero__inner,
   .explore-page .page-hero.explore-hero .page-hero__inner,
   .explore-page .page-hero.explore-hero .page-hero__inner--layout-40-60 {
-    --bdc-hero-text-col-percent: 36;
-    --bdc-hero-banner-col-percent: 64;
-    grid-template-columns: minmax(0, 36%) minmax(0, 64%) !important;
+    --bdc-hero-text-col-percent: 34;
+    --bdc-hero-banner-col-percent: 66;
+    grid-template-columns: minmax(0, 34%) minmax(0, 66%) !important;
     gap: 0 !important;
     column-gap: 0 !important;
   }
@@ -29588,7 +29588,7 @@ body.newsletter-success-open {
    Home welcome hero — zoom-stable lockup (70% / 80% / 90% / 100%)
    Keep text + banner proportions identical across browser zoom by using a
    fixed grid and container-relative type (not max-content / raw vw).
-   Gap is already 0; image column locked at 64%.
+   Gap is already 0; image column locked at 66%.
    Breakpoint matches desktop nav (≥1201) so tablets keep the stacked hero.
    -------------------------------------------------------------------------- */
 @media (min-width: 1201px) {
@@ -29604,7 +29604,7 @@ body.newsletter-success-open {
   .home-page #main-content > section.page-hero.home-hero .page-hero__inner,
   .home-page .page-hero.home-hero .page-hero__inner {
     display: grid !important;
-    grid-template-columns: minmax(0, 36%) minmax(0, 64%) !important;
+    grid-template-columns: minmax(0, 34%) minmax(0, 66%) !important;
     align-items: center !important;
     justify-content: start !important;
     column-gap: 0 !important;
