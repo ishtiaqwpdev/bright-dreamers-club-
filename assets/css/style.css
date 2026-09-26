@@ -1099,7 +1099,7 @@ button {
 
 /* ??? Site header ??? */
 .site-header {
-  background: #fff;
+  background: transparent;
   position: relative;
   z-index: 100;
   border-bottom: none;
