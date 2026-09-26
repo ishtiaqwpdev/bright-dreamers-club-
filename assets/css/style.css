@@ -1993,7 +1993,7 @@ button {
   .create-for-cause-page .page-hero.create-for-cause-hero .page-hero__inner,
   .community-adventures-page .page-hero.community-adventures-hero .page-hero__inner {
     display: grid;
-    grid-template-columns: minmax(0, 34%) minmax(0, 66%);
+    grid-template-columns: auto minmax(0, 1fr);
     align-items: center;
     justify-content: start;
     gap: 0;
@@ -3156,7 +3156,7 @@ img.lazy-img.loaded {
   .vision-hero .page-hero__inner,
   .for-parents-hero .page-hero__inner {
     display: grid;
-    grid-template-columns: minmax(0, 34%) minmax(0, 66%);
+    grid-template-columns: auto minmax(0, 1fr);
     align-items: center;
     justify-content: start;
     gap: 0;
@@ -3201,37 +3201,33 @@ img.lazy-img.loaded {
 @media (min-width: 1201px) {
   .contact-hero .page-hero__inner {
     display: grid;
-    grid-template-columns: minmax(0, var(--contact-hero-content-col))
-      minmax(0, var(--contact-hero-media-col));
+    grid-template-columns: auto minmax(0, 1fr);
     align-items: center;
-    justify-content: space-between;
-    gap: clamp(0.35rem, 0.75vw, 0.85rem);
+    justify-content: start;
+    gap: 0;
     min-height: inherit;
   }
 
   .get-involved-hero .page-hero__inner {
     display: grid;
-    grid-template-columns: minmax(0, var(--get-involved-hero-content-col))
-      minmax(0, var(--get-involved-hero-media-col));
+    grid-template-columns: auto minmax(0, 1fr);
     align-items: center;
-    justify-content: space-between;
-    gap: clamp(0.35rem, 0.75vw, 0.85rem);
+    justify-content: start;
+    gap: 0;
     min-height: inherit;
   }
 
   .vision-hero .page-hero__inner {
-    grid-template-columns: minmax(0, var(--vision-hero-content-col))
-      minmax(0, var(--vision-hero-media-col));
-    gap: clamp(0.35rem, 0.75vw, 0.85rem);
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: 0;
   }
 
   .explore-hero .page-hero__inner {
     display: grid;
-    grid-template-columns: minmax(0, var(--explore-hero-content-col))
-      minmax(0, var(--explore-hero-media-col));
+    grid-template-columns: auto minmax(0, 1fr);
     align-items: center;
-    justify-content: space-between;
-    gap: var(--explore-hero-inner-gap);
+    justify-content: start;
+    gap: 0;
     min-height: inherit;
   }
 
@@ -6169,7 +6165,7 @@ img.lazy-img.loaded {
   .explore-page #main-content > section.page-hero.explore-hero .page-hero__inner,
   .explore-page .page-hero.explore-hero .page-hero__inner,
   .explore-page .page-hero.explore-hero .page-hero__inner--layout-40-60 {
-    grid-template-columns: minmax(0, 34%) minmax(0, 66%) !important;
+    grid-template-columns: auto minmax(0, 1fr) !important;
     column-gap: 0 !important;
     gap: 0 !important;
   }
@@ -7538,7 +7534,7 @@ img.lazy-img.loaded {
 @media (min-width: 769px) {
   .creative-makers-page .page-hero.creative-makers-hero .page-hero__inner {
     display: grid;
-    grid-template-columns: minmax(0, 34%) minmax(0, 66%);
+    grid-template-columns: auto minmax(0, 1fr);
     align-items: center;
     justify-content: start;
     gap: 0;
@@ -7588,7 +7584,7 @@ img.lazy-img.loaded {
 
   .young-ideas-lab-page .page-hero.young-ideas-lab-hero .page-hero__inner {
     display: grid;
-    grid-template-columns: minmax(0, 34%) minmax(0, 66%);
+    grid-template-columns: auto minmax(0, 1fr);
     align-items: center;
     justify-content: start;
     gap: 0;
@@ -7639,7 +7635,7 @@ img.lazy-img.loaded {
 
   .create-for-cause-page .page-hero.create-for-cause-hero .page-hero__inner {
     display: grid;
-    grid-template-columns: minmax(0, 34%) minmax(0, 66%);
+    grid-template-columns: auto minmax(0, 1fr);
     align-items: center;
     justify-content: start;
     gap: 0;
@@ -7690,7 +7686,7 @@ img.lazy-img.loaded {
 
   .community-adventures-page .page-hero.community-adventures-hero .page-hero__inner {
     display: grid;
-    grid-template-columns: minmax(0, 34%) minmax(0, 66%);
+    grid-template-columns: auto minmax(0, 1fr);
     align-items: center;
     justify-content: start;
     gap: 0;
@@ -10016,7 +10012,7 @@ img.lazy-img.loaded {
 
   .home-page .page-hero.home-hero .page-hero__inner,
   .home-page .page-hero.home-welcome-hero .page-hero__inner {
-    grid-template-columns: minmax(0, 34%) minmax(0, 66%) !important;
+    grid-template-columns: auto minmax(0, 1fr) !important;
     column-gap: 0 !important;
     gap: 0 !important;
   }
@@ -10091,7 +10087,7 @@ img.lazy-img.loaded {
   }
 
   .get-involved-page .page-hero.get-involved-hero .page-hero__inner {
-    grid-template-columns: minmax(0, 0.34fr) minmax(0, 0.66fr) !important;
+    grid-template-columns: auto minmax(0, 1fr) !important;
     padding-top: 0 !important;
     min-height: 0 !important;
     align-items: center !important;
@@ -10119,7 +10115,7 @@ img.lazy-img.loaded {
   }
 
   .our-vision-page .page-hero.vision-hero .page-hero__inner {
-    grid-template-columns: minmax(0, 0.34fr) minmax(0, 0.66fr) !important;
+    grid-template-columns: auto minmax(0, 1fr) !important;
     padding-top: 0 !important;
     min-height: 0 !important;
     align-items: center !important;
@@ -10209,7 +10205,7 @@ img.lazy-img.loaded {
   .page-hero.partners-hero .page-hero__inner,
   .page-hero.contact-hero .page-hero__inner {
     display: grid;
-    grid-template-columns: minmax(0, 34%) minmax(0, 66%);
+    grid-template-columns: auto minmax(0, 1fr);
     align-items: center;
     justify-content: start;
     gap: 0;
@@ -16109,7 +16105,7 @@ body.newsletter-success-open {
 
 .faq-main__inner {
   display: grid;
-  grid-template-columns: minmax(0, 0.34fr) minmax(0, 0.66fr);
+  grid-template-columns: auto minmax(0, 1fr);
   align-items: start;
   gap: clamp(1rem, 1.75vw, 1.65rem);
 }
@@ -22839,23 +22835,19 @@ body.newsletter-success-open {
   .our-vision-page .page-hero.vision-hero:not(.partners-hero) .page-hero__inner,
   .for-parents-page .page-hero.for-parents-hero .page-hero__inner {
     display: grid !important;
-    grid-template-columns: minmax(0, var(--vision-hero-content-col)) minmax(0, var(--vision-hero-media-col)) !important;
-    gap: clamp(0.75rem, 1.35vw, 1.35rem) !important;
-    column-gap: clamp(0.75rem, 1.35vw, 1.35rem) !important;
+    grid-template-columns: auto minmax(0, 1fr) !important;
+    gap: 0 !important;
+    column-gap: 0 !important;
     align-items: center !important;
-    justify-content: space-between !important;
+    justify-content: start !important;
   }
 
   .our-vision-page .page-hero.vision-hero:not(.partners-hero) .page-hero__inner {
-    --vision-hero-content-col: 0.34fr;
-    --vision-hero-media-col: 0.66fr;
-    grid-template-columns: minmax(0, var(--vision-hero-content-col)) minmax(0, var(--vision-hero-media-col)) !important;
+    grid-template-columns: auto minmax(0, 1fr) !important;
   }
 
   .for-parents-page .page-hero.for-parents-hero .page-hero__inner {
-    --vision-hero-content-col: 0.34fr;
-    --vision-hero-media-col: 0.66fr;
-    grid-template-columns: minmax(0, var(--vision-hero-content-col)) minmax(0, var(--vision-hero-media-col)) !important;
+    grid-template-columns: auto minmax(0, 1fr) !important;
     gap: 0 !important;
     column-gap: 0 !important;
     row-gap: 0 !important;
@@ -23035,7 +23027,7 @@ body.newsletter-success-open {
   .page-hero.create-for-cause-hero .page-hero__inner,
   .page-hero.community-adventures-hero .page-hero__inner {
     display: grid !important;
-    grid-template-columns: minmax(0, 34%) minmax(0, 66%) !important;
+    grid-template-columns: auto minmax(0, 1fr) !important;
     align-items: center !important;
     justify-content: start !important;
     gap: 0 !important;
@@ -27789,7 +27781,7 @@ body.newsletter-success-open {
   /* Home hero — 34/66 (image at 66%) */
   .home-page .page-hero.home-hero .page-hero__inner,
   .home-page .page-hero.home-welcome-hero .page-hero__inner {
-    grid-template-columns: minmax(0, 34%) minmax(0, 66%) !important;
+    grid-template-columns: auto minmax(0, 1fr) !important;
     justify-content: start !important;
     column-gap: 0 !important;
     gap: 0 !important;
@@ -29046,10 +29038,10 @@ body.newsletter-success-open {
     --page-hero-balanced-content-col: auto;
     --page-hero-balanced-media-col: minmax(0, 1fr);
     display: grid !important;
-    /* Fixed 34/66 — never max-content (collapses on narrow / zoomed viewports) */
-    grid-template-columns: minmax(0, 34%) minmax(0, 66%) !important;
-    column-gap: 0 !important;
-    gap: 0 !important;
+    /* Content-sized text + remaining image — keeps text/image flush at any zoom */
+    grid-template-columns: auto minmax(0, 1fr) !important;
+    column-gap: 3px !important;
+    gap: 3px !important;
     justify-content: start !important;
     align-items: center;
   }
@@ -29058,12 +29050,14 @@ body.newsletter-success-open {
   .page-hero .page-hero__content {
     grid-column: 1 !important;
     --bdc-hero-col-percent: var(--bdc-hero-text-col-percent);
-    width: 100% !important;
-    max-width: 100% !important;
+    width: max-content !important;
+    max-width: min(34vw, 28rem) !important;
     min-width: 0 !important;
-    justify-self: stretch !important;
+    justify-self: start !important;
     padding-right: 0 !important;
     margin-right: 0 !important;
+    gap: 3px !important;
+    row-gap: 3px !important;
   }
 
   #main-content > section.page-hero .about-hero__media,
@@ -29113,6 +29107,7 @@ body.newsletter-success-open {
     width: 100% !important;
     max-width: 100% !important;
     height: auto !important;
+    max-height: calc(min(610px, 72vh) - 10px) !important;
     margin-left: 0 !important;
     object-fit: contain !important;
     object-position: left center !important;
@@ -29131,7 +29126,7 @@ body.newsletter-success-open {
   .explore-page .page-hero.explore-hero .page-hero__inner--layout-40-60 {
     --bdc-hero-text-col-percent: 34;
     --bdc-hero-banner-col-percent: 66;
-    grid-template-columns: minmax(0, 34%) minmax(0, 66%) !important;
+    grid-template-columns: auto minmax(0, 1fr) !important;
     gap: 0 !important;
     column-gap: 0 !important;
   }
@@ -29604,7 +29599,7 @@ body.newsletter-success-open {
   .home-page #main-content > section.page-hero.home-hero .page-hero__inner,
   .home-page .page-hero.home-hero .page-hero__inner {
     display: grid !important;
-    grid-template-columns: minmax(0, 34%) minmax(0, 66%) !important;
+    grid-template-columns: auto minmax(0, 1fr) !important;
     align-items: center !important;
     justify-content: start !important;
     column-gap: 0 !important;
@@ -30034,13 +30029,25 @@ body.newsletter-success-open {
   }
 }
 
-/* Desktop banners — keep left/right columns flush at every width/zoom (all pages).
-   Fixed content max-width left empty track space that grew as the CSS viewport widened. */
+/* Desktop banners — text column hugs content, image fills the rest (all pages).
+   Fixed % columns left empty space beside left-aligned copy that grew at 80% zoom. */
 @media (min-width: 1024px) {
   #main-content > section.page-hero .page-hero__inner,
-  .page-hero .page-hero__inner {
-    column-gap: 0 !important;
-    gap: 0 !important;
+  .page-hero .page-hero__inner,
+  .home-page .page-hero.home-hero .page-hero__inner,
+  .home-page .page-hero.home-welcome-hero .page-hero__inner,
+  .about-page .page-hero.about-hero .page-hero__inner,
+  .explore-page .page-hero.explore-hero .page-hero__inner,
+  .for-parents-page .page-hero.for-parents-hero .page-hero__inner,
+  .our-vision-page .page-hero.vision-hero .page-hero__inner,
+  .get-involved-page .page-hero.get-involved-hero .page-hero__inner,
+  .partners-page .page-hero.partners-hero .page-hero__inner,
+  .contact-page .page-hero.contact-hero .page-hero__inner {
+    display: grid !important;
+    grid-template-columns: auto minmax(0, 1fr) !important;
+    column-gap: 3px !important;
+    gap: 3px !important;
+    justify-content: start !important;
   }
 
   #main-content > section.page-hero .page-hero__content,
@@ -30060,11 +30067,13 @@ body.newsletter-success-open {
   .young-ideas-lab-page .page-hero.young-ideas-lab-hero .page-hero__content,
   .create-for-cause-page .page-hero.create-for-cause-hero .page-hero__content,
   .community-adventures-page .page-hero.community-adventures-hero .page-hero__content {
-    max-width: 100% !important;
-    width: 100% !important;
+    width: max-content !important;
+    max-width: min(34vw, 28rem) !important;
     margin-right: 0 !important;
     padding-right: 0 !important;
-    justify-self: stretch !important;
+    justify-self: start !important;
+    gap: 3px !important;
+    row-gap: 3px !important;
   }
 
   #main-content > section.page-hero .about-hero__media,
@@ -30079,5 +30088,27 @@ body.newsletter-success-open {
     padding-left: 0 !important;
     justify-content: flex-start !important;
     justify-self: stretch !important;
+    width: 100% !important;
+  }
+
+  /* Banner image — 10px shorter than current desktop cap */
+  #main-content > section.page-hero [class*='__banner'],
+  .page-hero [class*='__banner'],
+  .page-hero picture img[class*='__banner'],
+  .home-page .page-hero.home-hero .about-hero__banner,
+  .home-page .page-hero.home-welcome-hero .about-hero__banner,
+  .about-page .page-hero.about-hero .about-hero__banner,
+  .explore-page .page-hero.explore-hero .explore-hero__banner,
+  .for-parents-page .page-hero.for-parents-hero .about-hero__banner,
+  .our-vision-page .page-hero.vision-hero .about-hero__banner,
+  .get-involved-page .page-hero.get-involved-hero .about-hero__banner,
+  .partners-page .page-hero.partners-hero .about-hero__banner,
+  .contact-page .page-hero.contact-hero .about-hero__banner {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    max-height: calc(min(610px, 72vh) - 10px) !important;
+    object-fit: contain !important;
+    object-position: left center !important;
   }
 }
