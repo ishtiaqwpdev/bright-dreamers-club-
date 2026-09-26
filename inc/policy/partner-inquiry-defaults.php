@@ -2,6 +2,8 @@
 /**
  * Default content and ACF field builders for the Partner Inquiry page.
  *
+ * Deploy note: required by theme bootstrap; keep this file in GitHub/WP Pusher syncs.
+ *
  * @package Bright_Dreamers_Club
  */
 

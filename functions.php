@@ -20,28 +20,40 @@ if ( function_exists( 'wp_is_ini_value_changeable' ) && wp_is_ini_value_changeab
 define( 'BDC_THEME_DIR', get_template_directory() );
 
 /**
- * Require a theme file; fail with a clear message instead of a blank white screen.
+ * Require a theme file.
  *
  * @param string $relative_path Path relative to theme root.
+ * @param bool   $required      If true, missing file stops with a clear error (not a blank page).
+ * @return bool True when loaded.
  */
-function bdc_require_theme_file( $relative_path ) {
+function bdc_require_theme_file( $relative_path, $required = true ) {
 	$file = BDC_THEME_DIR . '/' . ltrim( $relative_path, '/' );
 
 	if ( ! is_readable( $file ) ) {
-		wp_die(
-			esc_html(
-				sprintf(
-					/* translators: %s: missing theme file path */
-					__( 'Bright Dreamers theme file missing or unreadable: %s. Re-upload the complete theme (do not include node_modules).', 'bright-dreamers-club' ),
-					$relative_path
-				)
-			),
-			esc_html__( 'Theme file missing', 'bright-dreamers-club' ),
-			array( 'response' => 500 )
-		);
+		if ( defined( 'WP_DEBUG' ) && WP_DEBUG ) {
+			// phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_error_log
+			error_log( 'Bright Dreamers theme file missing: ' . $relative_path );
+		}
+
+		if ( $required ) {
+			wp_die(
+				esc_html(
+					sprintf(
+						/* translators: %s: missing theme file path */
+						__( 'Bright Dreamers theme file missing or unreadable: %s. Re-sync the full theme from GitHub via WP Pusher (do not include node_modules).', 'bright-dreamers-club' ),
+						$relative_path
+					)
+				),
+				esc_html__( 'Theme file missing', 'bright-dreamers-club' ),
+				array( 'response' => 500 )
+			);
+		}
+
+		return false;
 	}
 
 	require_once $file;
+	return true;
 }
 
 bdc_require_theme_file( 'inc/maintenance-mode.php' );
@@ -52,18 +64,26 @@ bdc_require_theme_file( 'inc/forms/form-handler.php' );
 bdc_require_theme_file( 'inc/acf-helpers.php' );
 bdc_require_theme_file( 'inc/header-footer-settings.php' );
 bdc_require_theme_file( 'inc/mobile-nav.php' );
-bdc_require_theme_file( 'inc/policy/privacy-policy-defaults.php' );
-bdc_require_theme_file( 'inc/policy/terms-defaults.php' );
-bdc_require_theme_file( 'inc/policy/photo-media-policy-defaults.php' );
-bdc_require_theme_file( 'inc/policy/accessibility-defaults.php' );
-bdc_require_theme_file( 'inc/policy/financial-transparency-defaults.php' );
-bdc_require_theme_file( 'inc/policy/faq-defaults.php' );
-bdc_require_theme_file( 'inc/policy/apply-to-become-defaults.php' );
-bdc_require_theme_file( 'inc/policy/volunteer-application-defaults.php' );
-bdc_require_theme_file( 'inc/policy/newsletter-signup-defaults.php' );
-bdc_require_theme_file( 'inc/policy/donation-interest-defaults.php' );
-bdc_require_theme_file( 'inc/policy/partner-inquiry-defaults.php' );
-bdc_require_theme_file( 'inc/policy/photo-media-consent-defaults.php' );
+
+// Policy defaults: soft-load so a partial WP Pusher sync cannot take the whole site down.
+$bdc_policy_files = array(
+	'inc/policy/privacy-policy-defaults.php',
+	'inc/policy/terms-defaults.php',
+	'inc/policy/photo-media-policy-defaults.php',
+	'inc/policy/accessibility-defaults.php',
+	'inc/policy/financial-transparency-defaults.php',
+	'inc/policy/faq-defaults.php',
+	'inc/policy/apply-to-become-defaults.php',
+	'inc/policy/volunteer-application-defaults.php',
+	'inc/policy/newsletter-signup-defaults.php',
+	'inc/policy/donation-interest-defaults.php',
+	'inc/policy/partner-inquiry-defaults.php',
+	'inc/policy/photo-media-consent-defaults.php',
+);
+foreach ( $bdc_policy_files as $bdc_policy_file ) {
+	bdc_require_theme_file( $bdc_policy_file, false );
+}
+unset( $bdc_policy_files, $bdc_policy_file );
 
 /**
  * Register local ACF field groups when ACF is active.
