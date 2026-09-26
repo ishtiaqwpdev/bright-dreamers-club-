@@ -29990,3 +29990,26 @@ body.newsletter-success-open {
     font-size: 14px !important;
   }
 }
+
+/* All page hero banners — pull up under transparent header (desktop) */
+@media (min-width: 1201px) {
+  #main-content > section.page-hero,
+  #main-content > section.page-hero.home-hero,
+  #main-content > section.page-hero.home-welcome-hero,
+  #main-content > section.page-hero.about-hero,
+  #main-content > section.page-hero.explore-hero,
+  #main-content > section.page-hero.for-parents-hero,
+  #main-content > section.page-hero.vision-hero,
+  #main-content > section.page-hero.get-involved-hero,
+  #main-content > section.page-hero.partners-hero,
+  #main-content > section.page-hero.contact-hero,
+  #main-content > section.page-hero.creative-makers-hero,
+  #main-content > section.page-hero.young-ideas-lab-hero,
+  #main-content > section.page-hero.create-for-cause-hero,
+  #main-content > section.page-hero.community-adventures-hero,
+  #main-content > section.page-hero.apply-hero,
+  #main-content > section.page-hero.faq-hero,
+  .page-hero {
+    margin-top: -20px !important;
+  }
+}
