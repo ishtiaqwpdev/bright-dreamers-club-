@@ -72,7 +72,8 @@
       'photo-media-consent': 'photo-media-consent-form',
       'parents': 'for-parents',
       'for_parents': 'for-parents',
-      'contact-us': 'contact'
+      'contact-us': 'contact',
+      'about-us': 'about'
     };
 
     return aliases[slug] || slug;

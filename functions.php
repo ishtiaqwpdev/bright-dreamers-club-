@@ -123,6 +123,7 @@ function bdc_get_slug_aliases() {
 		'parents'             => 'for-parents',
 		'for_parents'         => 'for-parents',
 		'contact-us'          => 'contact',
+		'about-us'            => 'about',
 	);
 }
 
@@ -526,18 +527,32 @@ function bdc_primary_menu_fallback( $args ) {
 
 	echo '<ul class="site-nav__list">';
 	foreach ( $links as $link ) {
+		$is_current = bdc_nav_url_is_current( $link['url'] );
+		$child_active = false;
+
 		if ( ! empty( $link['children'] ) ) {
+			foreach ( $link['children'] as $child ) {
+				if ( bdc_nav_url_is_current( $child['url'] ) ) {
+					$child_active = true;
+					break;
+				}
+			}
+
+			$link_class = 'nav-link' . ( $is_current || $child_active ? ' is-active' : '' );
 			echo '<li class="site-nav__item site-nav__item--dropdown">';
-			echo '<a class="nav-link" href="' . esc_url( $link['url'] ) . '">' . esc_html( $link['label'] ) . '</a>';
+			echo '<a class="' . esc_attr( $link_class ) . '" href="' . esc_url( $link['url'] ) . '"' . ( $is_current || $child_active ? ' aria-current="page"' : '' ) . '>' . esc_html( $link['label'] ) . '</a>';
 			echo '<ul class="site-nav__submenu">';
 			foreach ( $link['children'] as $child ) {
-				echo '<li><a class="site-nav__sublink" href="' . esc_url( $child['url'] ) . '">' . esc_html( $child['label'] ) . '</a></li>';
+				$child_current = bdc_nav_url_is_current( $child['url'] );
+				$child_class   = 'site-nav__sublink' . ( $child_current ? ' is-active' : '' );
+				echo '<li><a class="' . esc_attr( $child_class ) . '" href="' . esc_url( $child['url'] ) . '"' . ( $child_current ? ' aria-current="page"' : '' ) . '>' . esc_html( $child['label'] ) . '</a></li>';
 			}
 			echo '</ul></li>';
 			continue;
 		}
 
-		echo '<li><a class="nav-link" href="' . esc_url( $link['url'] ) . '">' . esc_html( $link['label'] ) . '</a></li>';
+		$link_class = 'nav-link' . ( $is_current ? ' is-active' : '' );
+		echo '<li><a class="' . esc_attr( $link_class ) . '" href="' . esc_url( $link['url'] ) . '"' . ( $is_current ? ' aria-current="page"' : '' ) . '>' . esc_html( $link['label'] ) . '</a></li>';
 	}
 	echo '</ul>';
 }
